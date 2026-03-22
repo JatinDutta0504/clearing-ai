@@ -130,6 +130,17 @@ Each run appended below.
 
 ---
 
+### Hour 12 — 2026-03-22 08:24 PDT
+**Built:** `workplace.html` — "AI Fatigue at Work: How to Set Limits and Talk to Your Manager" (~3,800 words)
+**Page structure:** 8 sections — three compound workplace pressures (velocity/conformity/identity framework cards), 4-band severity meter, personal AI limits framework (Zone A/B/C), deep work protection tactics with warning box, 3 verbatim manager conversation scripts (mild/moderate/severe/crisis), team culture tactics + team agreement proposal script, interactive limits checklist (8 items, localStorage), 5-point red flags guide with recovery path
+**Bug fixes:** Fixed `about.html` duplicate nav link (two consecutive burnout-vs-fatigue.html entries)
+**SEO:** 12 workplace-intent keywords, Article + FAQPage (6 Q&As) + BreadcrumbList schema, high-intent conversion keywords, sitemap updated (priority 0.95), workplace link added to all 12 existing pages nav/footer
+**~3,800 words added**
+**Commit:** `6c8d84c`
+**Next:** mindset.html (mental models for healthy AI use) or about.html E-E-A-T expansion or compare.html (commercial keyword cluster)
+
+---
+
 ### Hour 1 — 2026-03-21 21:xx PDT
 **Built:** `tips.html` — "10 Signs You Have AI Fatigue" listicle  
 **SEO:** Article + FAQPage schema, 10 keywords, OG/Twitter, canonical, internal links  

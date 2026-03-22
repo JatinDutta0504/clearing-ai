@@ -141,6 +141,17 @@ Each run appended below.
 
 ---
 
+### Hour 13 — 2026-03-22 09:24 PDT
+**Built:** `mindset.html` — "Mental Models for Healthy AI Use: 12 Frameworks for Engineers" (~4,200 words)
+**Page structure:** 12 mental model sections (Scaffolding Test, 80/20 Inversion, Ownership Ledger, Muscle Memory Test, First Principles First, Calibration Loop, Cognitive Budget, Discomfort Signal, Zones of Practice, Identity Anchor, Explanation Requirement, The Long Game) + TOC + synthesis box + FAQ accordion + 6-card continue-exploring grid
+**Nav/footer:** Mindset link added to all 13 existing pages
+**SEO:** Article + FAQPage (6 Q&As) + BreadcrumbList schema, 12 healthy-AI-use intent keywords, rich internal link network, sitemap updated (priority 0.9), feature card on index.html (13 total cards)
+**~4,200 words added**
+**Commit:** `7bf9045`
+**Next:** `about.html` E-E-A-T expansion (founding story + trust signals — lifts authority across all pages) or `compare.html` (commercial keyword cluster)
+
+---
+
 ### Hour 1 — 2026-03-21 21:xx PDT
 **Built:** `tips.html` — "10 Signs You Have AI Fatigue" listicle  
 **SEO:** Article + FAQPage schema, 10 keywords, OG/Twitter, canonical, internal links  

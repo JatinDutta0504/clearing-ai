@@ -9,3 +9,14 @@ Beat competitors through: content depth, SEO, features, shareability.
 Each run appended below.
 
 ---
+
+### Hour 1 — 2026-03-21 21:xx PDT
+**Built:** `tips.html` — "10 Signs You Have AI Fatigue" listicle  
+**SEO:** Article + FAQPage schema, 10 keywords, OG/Twitter, canonical, internal links  
+**Nav updated:** index, why, about — all include tips.html now  
+**Sitemap:** tips.html added (priority 0.95)  
+**~2,900 words added**  
+**Commit:** `5686227`  
+**Next:** stories.html — anonymous engineer burnout stories (hour 2)
+
+---

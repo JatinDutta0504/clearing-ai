@@ -10,6 +10,15 @@ Each run appended below.
 
 ---
 
+### Hour 18 — 2026-03-22 14:24 PDT
+**Built:** `quiz-results.html` — dedicated shareable results page for all 4 AI fatigue quiz tiers (~5,500 words). Each tier has: "what this actually means" truth block, feels-like recognition list, timestamped action plan (today/this week/this month), 4 pitfall cards, explore-more links, tier-specific share buttons (Twitter with pre-written copy, LinkedIn, copy-link). Tier 4 includes crisis resources (988/116 123/741741). quiz.js updated to add "Read your full tier breakdown →" link from inline results to anchor-linked tier page. Feature card added to index.html (18 total). Added to nav + footer of all 22 pages. sitemap.xml updated (24 URLs). FAQPage + WebPage + BreadcrumbList schema.
+**SEO:** quiz-results.html has 4 anchor-linked tier URLs (`#tier-1` through `#tier-4`) — each shareable as standalone; Twitter share copy is tier-specific and designed to drive traffic from engineers who got that score; quiz.js now funnels quiz completers to deep tier content; FAQPage schema (5 Q&As); added to sitemap.xml priority 0.95; 24 URLs total in sitemap; sitemap.html page count updated to 24
+**~5,500 words added**
+**Commit:** `80bfe4a`
+**Next:** Technical SEO pass (preload hints, Core Web Vitals), OR ambient sound player for decompress.html, OR press-kit.html, OR daily check-in widget (streak tracker)
+
+---
+
 ### Hour 17 — 2026-03-22 13:24 PDT
 **Built:** `stats.html` — AI Fatigue Statistics 2025 (journalist link magnet, ~4,500 words, 50+ data points, 7 sections: top-line callout cards, burnout timeline table, cognitive load data, skill atrophy table, adoption vs wellbeing gap analysis, recovery data, demographics table; social share bar at top; FAQPage schema 6 Q&As; color-coded data source labelling; BreadcrumbList); quiz.js upgraded with social share buttons (Twitter with 4 tier-specific pre-written messages, LinkedIn, copy-link); reading time estimator added to main.js (auto-injects badge under h1 on all long-form pages, 220 WPM calc, dark mode compatible); stats.html added to nav/footer on all 21 pages + feature card on index.html (now 17 cards); sitemap.xml + sitemap.html updated
 **SEO:** stats.html = primary journalist link-magnet (50+ stats, survey/research/estimate labels, cite-this attribution note); FAQPage + Article + BreadcrumbList schema; social sharing on quiz results (Twitter shares tier-specific copy — viral lever); reading time badges improve time-on-page signals; internal links from stats.html → recovery.html, research.html, compare.html, burnout-vs-fatigue.html; sitemap.xml now 23 URLs; sitemap priority 0.95

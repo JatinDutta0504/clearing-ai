@@ -10,6 +10,17 @@ Each run appended below.
 
 ---
 
+### Hour 6 — 2026-03-22 02:24 PDT
+**Built:** `newsletter.html` — "The Dispatch" weekly letter signup page (~1,700 words)  
+**Features:** Formspree form (email + name + role), sample issue excerpt, 5-point promise list, 4 testimonial cards, 6-issue archive preview, 6-question FAQ accordion, AJAX submit + demo mode + ?subscribed= redirect handling  
+**Nav/footer:** Added Newsletter link to ALL 8 existing pages; added newsletter feature card to index.html grid (now 9 cards)  
+**SEO:** 10 newsletter/burnout keywords, OG/Twitter meta, WebPage + BreadcrumbList + FAQPage Schema.org, canonical URL, sitemap updated  
+**~1,700 words added**  
+**Commit:** `eb9ff83`  
+**Next:** Expand `why.html` with 3 new essay sections + FAQPage schema (hour 7)
+
+---
+
 ### Hour 5 — 2026-03-22 01:24 PDT
 **Built:** Interactive AI Fatigue Quiz on `index.html` — 5 questions, 4 tiers, per-answer breakdown, auto-advance, full accessibility  
 **New files:** `js/quiz.js` (~280 lines), quiz CSS block in `style.css` (~220 lines)  

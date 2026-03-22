@@ -3,41 +3,480 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Decompress — The Clearing</title>
-  <meta name="description" content="Breathe, release your thoughts, and find a moment of quiet. No tracking, no saving." />
+  <title>Decompress & Deep Work Timer — The Clearing</title>
+  <meta name="description" content="Box breathing, a private thought dump, and a Pomodoro deep work timer built for exhausted engineers. No tracking. No accounts. Just 25 minutes of real focus." />
+  <meta name="keywords" content="deep work timer, pomodoro for developers, focus timer engineer, AI fatigue relief, developer decompression, programmer breathing exercise, software engineer mental health tools, coding focus timer, 25 minute focus, tech burnout recovery" />
+  <meta name="author" content="The Clearing" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://clearing-ai.com/decompress.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://clearing-ai.com/decompress.html" />
+  <meta property="og:title" content="Decompress & Deep Work Timer — The Clearing" />
+  <meta property="og:description" content="Breathe. Focus. Recover. Tools built for engineers who've been running too hot for too long." />
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png" />
+  <meta property="og:site_name" content="The Clearing" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Decompress & Deep Work Timer — The Clearing" />
+  <meta name="twitter:description" content="A Pomodoro-style deep work timer for engineers with AI fatigue. 25 minutes of real focus, 5 of actual rest." />
+  <meta name="twitter:image" content="https://clearing-ai.com/og-image.png" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Decompress & Deep Work Timer",
+    "url": "https://clearing-ai.com/decompress.html",
+    "description": "Box breathing exercises and a Pomodoro deep work timer for software engineers experiencing AI fatigue and burnout.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "The Clearing",
+      "url": "https://clearing-ai.com"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com" },
+        { "@type": "ListItem", "position": 2, "name": "Decompress", "item": "https://clearing-ai.com/decompress.html" }
+      ]
+    }
+  }
+  </script>
+
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    /* Page-specific styles */
     body { background: var(--cream-warm); }
 
-    .decompress-page {
-      padding-top: 5rem;
-    }
+    .decompress-page { padding-top: 5rem; }
 
     .decompress-hero {
       background: linear-gradient(160deg, var(--forest-deep) 0%, var(--forest-mid) 100%);
       padding: 5rem var(--spacing-md) 4rem;
       text-align: center;
     }
-
     .decompress-hero h1 { color: var(--cream); margin-bottom: 0.75rem; }
     .decompress-hero p { color: var(--mist); font-size: 1.05rem; }
 
     .decompress-content {
-      max-width: 760px;
+      max-width: 780px;
       margin: 0 auto;
       padding: var(--spacing-lg) var(--spacing-md);
     }
 
-    /* Breathing */
-    .breathing-wrapper {
+    /* =====================
+       POMODORO TIMER
+    ===================== */
+    .pomodoro-wrapper {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      box-shadow: 0 4px 32px rgba(45,74,45,0.08);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pomodoro-wrapper::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--forest-mid), var(--forest-pale));
+      transition: background 0.5s ease;
+    }
+
+    .pomodoro-wrapper.rest-mode::before {
+      background: linear-gradient(90deg, #7aafbf, #a8d5e2);
+    }
+
+    .pomodoro-mode-badges {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-bottom: 1.75rem;
+      flex-wrap: wrap;
+    }
+
+    .mode-badge {
+      padding: 0.4rem 1.1rem;
+      border-radius: var(--radius-full);
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 600;
+      cursor: default;
+      border: 1.5px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .mode-badge.focus-badge {
+      background: rgba(74,124,89,0.1);
+      color: var(--forest-mid);
+      border-color: rgba(74,124,89,0.25);
+    }
+
+    .mode-badge.focus-badge.active-mode {
+      background: var(--forest-mid);
+      color: white;
+      border-color: var(--forest-mid);
+    }
+
+    .mode-badge.rest-badge {
+      background: rgba(122,175,191,0.1);
+      color: #4a8fa3;
+      border-color: rgba(122,175,191,0.3);
+    }
+
+    .mode-badge.rest-badge.active-mode {
+      background: #4a8fa3;
+      color: white;
+      border-color: #4a8fa3;
+    }
+
+    /* Circular SVG timer */
+    .timer-ring-container {
+      position: relative;
+      width: 220px;
+      height: 220px;
+      margin: 0 auto 2rem;
+    }
+
+    .timer-svg {
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+
+    .timer-ring-bg {
+      fill: none;
+      stroke: rgba(45,74,45,0.08);
+      stroke-width: 8;
+    }
+
+    .timer-ring-progress {
+      fill: none;
+      stroke: var(--forest-mid);
+      stroke-width: 8;
+      stroke-linecap: round;
+      transition: stroke-dashoffset 1s linear, stroke 0.5s ease;
+    }
+
+    .pomodoro-wrapper.rest-mode .timer-ring-progress {
+      stroke: #4a8fa3;
+    }
+
+    .timer-center-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .timer-display {
+      font-family: var(--font-sans);
+      font-size: 3rem;
+      font-weight: 200;
+      color: var(--forest-deep);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .timer-mode-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+    }
+
+    /* Session counter */
+    .session-dots {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .session-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1.5px solid var(--forest-pale);
+      background: transparent;
+      transition: all 0.3s ease;
+    }
+
+    .session-dot.completed {
+      background: var(--forest-mid);
+      border-color: var(--forest-mid);
+    }
+
+    .session-dot.current {
+      background: var(--forest-pale);
+      border-color: var(--forest-mid);
+      box-shadow: 0 0 0 3px rgba(74,124,89,0.15);
+    }
+
+    /* Controls */
+    .timer-controls {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .timer-btn {
+      border: none;
+      border-radius: var(--radius-full);
+      padding: 0.85rem 2rem;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all var(--transition-med);
+      letter-spacing: 0.04em;
+      font-weight: 500;
+    }
+
+    .timer-btn-primary {
+      background: var(--forest-mid);
+      color: var(--cream);
+    }
+
+    .timer-btn-primary:hover {
+      background: var(--forest-deep);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(45,74,45,0.25);
+    }
+
+    .timer-btn-primary.running {
+      background: #c0392b;
+    }
+
+    .timer-btn-primary.running:hover {
+      background: #a93226;
+    }
+
+    .timer-btn-secondary {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1.5px solid var(--cream-dark);
+    }
+
+    .timer-btn-secondary:hover {
+      border-color: var(--forest-pale);
+      color: var(--forest-mid);
+    }
+
+    /* Settings panel */
+    .timer-settings {
+      display: none;
+      background: var(--cream-warm);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      margin-top: 1rem;
+      text-align: left;
+      animation: fadeSlideIn 0.25s ease;
+    }
+
+    .timer-settings.open { display: block; }
+
+    .settings-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .settings-row:last-child { margin-bottom: 0; }
+
+    .settings-label {
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+    }
+
+    .settings-stepper {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .stepper-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1.5px solid var(--cream-dark);
+      background: white;
+      font-size: 1rem;
+      line-height: 1;
+      cursor: pointer;
+      color: var(--text-secondary);
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .stepper-btn:hover {
+      border-color: var(--forest-pale);
+      color: var(--forest-mid);
+    }
+
+    .stepper-value {
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--forest-deep);
+      min-width: 2.5rem;
       text-align: center;
     }
 
+    /* Notification toggle */
+    .notif-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+    }
+
+    .toggle-switch {
+      width: 36px;
+      height: 20px;
+      background: var(--cream-dark);
+      border-radius: 10px;
+      position: relative;
+      transition: background 0.25s;
+    }
+
+    .toggle-switch::after {
+      content: '';
+      position: absolute;
+      top: 3px; left: 3px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: white;
+      transition: transform 0.25s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+
+    .toggle-switch.on {
+      background: var(--forest-mid);
+    }
+
+    .toggle-switch.on::after {
+      transform: translateX(16px);
+    }
+
+    /* Progress message */
+    .timer-message {
+      font-family: var(--font-serif);
+      font-size: 0.95rem;
+      font-style: italic;
+      color: var(--text-secondary);
+      min-height: 1.6em;
+      margin-bottom: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    /* Stats bar */
+    .timer-stats {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--cream-dark);
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-pill {
+      text-align: center;
+    }
+
+    .stat-pill-value {
+      font-family: var(--font-sans);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--forest-deep);
+      line-height: 1;
+    }
+
+    .stat-pill-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 0.2rem;
+    }
+
+    /* Completion celebration */
+    .session-complete-banner {
+      display: none;
+      background: linear-gradient(135deg, var(--forest-deep), var(--forest-mid));
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.25rem;
+      text-align: center;
+      animation: fadeSlideIn 0.4s ease;
+    }
+
+    .session-complete-banner.show { display: block; }
+
+    .session-complete-banner p {
+      color: var(--cream);
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .session-complete-banner strong {
+      color: var(--mist);
+    }
+
+    /* What is deep work explainer */
+    .deep-work-explainer {
+      background: linear-gradient(160deg, rgba(74,124,89,0.05) 0%, rgba(74,124,89,0.02) 100%);
+      border: 1px solid rgba(74,124,89,0.12);
+      border-radius: var(--radius-md);
+      padding: 1.75rem 1.5rem;
+      margin-top: 1.25rem;
+    }
+
+    .deep-work-explainer h4 {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--forest-mid);
+      margin-bottom: 0.75rem;
+    }
+
+    .deep-work-explainer p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 0.5rem;
+    }
+
+    .deep-work-explainer p:last-child { margin-bottom: 0; }
+
+    /* =====================
+       BREATHING
+    ===================== */
+    .breathing-wrapper { text-align: center; }
+
     .breathing-stage {
       position: relative;
-      width: 240px;
-      height: 240px;
+      width: 220px;
+      height: 220px;
       margin: 0 auto 2rem;
     }
 
@@ -69,21 +508,21 @@
       justify-content: center;
     }
 
-    .breathing-stage.expand .breathing-outer { transform: scale(1.4); }
+    .breathing-stage.expand .breathing-outer  { transform: scale(1.4); }
     .breathing-stage.expand .breathing-middle { transform: scale(1.35); }
-    .breathing-stage.expand .breathing-core { transform: scale(1.45); opacity: 1; }
+    .breathing-stage.expand .breathing-core   { transform: scale(1.45); opacity: 1; }
 
-    .breathing-stage.hold-in .breathing-outer { transform: scale(1.4); }
+    .breathing-stage.hold-in .breathing-outer  { transform: scale(1.4); }
     .breathing-stage.hold-in .breathing-middle { transform: scale(1.35); }
-    .breathing-stage.hold-in .breathing-core { transform: scale(1.45); opacity: 0.95; }
+    .breathing-stage.hold-in .breathing-core   { transform: scale(1.45); opacity: 0.95; }
 
-    .breathing-stage.contract .breathing-outer { transform: scale(1); }
+    .breathing-stage.contract .breathing-outer  { transform: scale(1); }
     .breathing-stage.contract .breathing-middle { transform: scale(1); }
-    .breathing-stage.contract .breathing-core { transform: scale(1); opacity: 0.6; }
+    .breathing-stage.contract .breathing-core   { transform: scale(1); opacity: 0.6; }
 
-    .breathing-stage.hold-out .breathing-outer { transform: scale(1); }
+    .breathing-stage.hold-out .breathing-outer  { transform: scale(1); }
     .breathing-stage.hold-out .breathing-middle { transform: scale(1); }
-    .breathing-stage.hold-out .breathing-core { transform: scale(1); opacity: 0.55; }
+    .breathing-stage.hold-out .breathing-core   { transform: scale(1); opacity: 0.55; }
 
     .breathing-center-text {
       position: absolute;
@@ -148,14 +587,12 @@
       box-shadow: 0 4px 20px rgba(45, 74, 45, 0.25);
     }
 
-    .breathing-btn.running {
-      background: var(--earth);
-    }
+    .breathing-btn.running { background: var(--earth); }
 
-    /* Sound toggle section */
-    .sound-section {
-      text-align: center;
-    }
+    /* =====================
+       SOUND
+    ===================== */
+    .sound-section { text-align: center; }
 
     .sound-options {
       display: flex;
@@ -201,7 +638,6 @@
       min-height: 1.5em;
     }
 
-    /* Waveform visualization */
     .waveform {
       display: flex;
       align-items: flex-end;
@@ -219,39 +655,21 @@
       animation: waveAnim 1.2s ease-in-out infinite;
     }
 
-    .waveform-bar:nth-child(1) { height: 6px; animation-delay: 0s; }
+    .waveform-bar:nth-child(1) { height: 6px;  animation-delay: 0s; }
     .waveform-bar:nth-child(2) { height: 14px; animation-delay: 0.1s; }
     .waveform-bar:nth-child(3) { height: 10px; animation-delay: 0.2s; }
     .waveform-bar:nth-child(4) { height: 18px; animation-delay: 0.05s; }
-    .waveform-bar:nth-child(5) { height: 8px; animation-delay: 0.15s; }
+    .waveform-bar:nth-child(5) { height: 8px;  animation-delay: 0.15s; }
     .waveform-bar:nth-child(6) { height: 13px; animation-delay: 0.25s; }
 
     @keyframes waveAnim {
       0%, 100% { transform: scaleY(0.5); opacity: 0.6; }
-      50% { transform: scaleY(1); opacity: 1; }
+      50%       { transform: scaleY(1);   opacity: 1; }
     }
 
-    /* Done section */
-    .done-section {
-      text-align: center;
-      padding: var(--spacing-md);
-      background: linear-gradient(160deg, var(--forest-deep) 0%, var(--forest-mid) 100%);
-      border-radius: var(--radius-lg);
-      margin-top: var(--spacing-md);
-    }
-
-    .done-section h3 {
-      color: var(--cream);
-      margin-bottom: 0.75rem;
-    }
-
-    .done-section p {
-      color: var(--mist);
-      margin-bottom: 1.5rem;
-      font-size: 0.95rem;
-    }
-
-    /* Thought dump */
+    /* =====================
+       THOUGHT DUMP
+    ===================== */
     .thought-word-count {
       font-size: 0.78rem;
       color: var(--text-muted);
@@ -266,6 +684,58 @@
       text-align: center;
       font-style: italic;
       margin-top: 0.75rem;
+    }
+
+    /* =====================
+       DONE SECTION
+    ===================== */
+    .done-section {
+      text-align: center;
+      padding: var(--spacing-md);
+      background: linear-gradient(160deg, var(--forest-deep) 0%, var(--forest-mid) 100%);
+      border-radius: var(--radius-lg);
+      margin-top: var(--spacing-md);
+    }
+
+    .done-section h3 { color: var(--cream); margin-bottom: 0.75rem; }
+    .done-section p  { color: var(--mist); margin-bottom: 1.5rem; font-size: 0.95rem; }
+
+    /* Shared animations */
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Pulse ring while running */
+    @keyframes pulseRing {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(74,124,89,0.2); }
+      50%       { box-shadow: 0 0 0 12px rgba(74,124,89,0); }
+    }
+
+    .timer-ring-container.running-pulse {
+      animation: pulseRing 2s ease-in-out infinite;
+      border-radius: 50%;
+    }
+
+    /* focus intensity track */
+    .focus-track {
+      height: 6px;
+      background: var(--cream-dark);
+      border-radius: 3px;
+      margin: 1rem 0;
+      overflow: hidden;
+    }
+
+    .focus-track-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--forest-pale), var(--forest-mid));
+      border-radius: 3px;
+      width: 0%;
+      transition: width 1s linear;
+    }
+
+    .pomodoro-wrapper.rest-mode .focus-track-fill {
+      background: linear-gradient(90deg, #a8d5e2, #4a8fa3);
     }
   </style>
 </head>
@@ -292,18 +762,160 @@
 
     <!-- Page Header -->
     <div class="decompress-hero">
-      <p class="page-header-eyebrow">Take your time</p>
+      <p class="page-header-eyebrow">Breathe. Focus. Recover.</p>
       <h1>Decompress</h1>
-      <p>Nothing here is saved. Nothing is judged. Just you, your breath, and a few quiet minutes.</p>
+      <p>Tools for the engineer who needs 25 minutes of actual focus — or just a quiet moment to exhale.</p>
     </div>
 
     <div class="decompress-content">
 
-      <!-- Breathing Exercise -->
+      <!-- ===================================================
+           SECTION: DEEP WORK TIMER
+      =================================================== -->
+      <div class="decompress-section fade-in">
+        <h2 class="decompress-section-title">Deep Work Timer</h2>
+        <p class="decompress-section-desc">
+          The Pomodoro technique: 25 minutes of single-tasked focus, then 5 minutes of actual rest. No Slack. No AI copilot. Just you and the problem.
+          Research on knowledge workers consistently shows that <strong>working in focused sprints beats marathon sessions</strong> — especially when your brain is already fatigued from processing AI-generated output.
+        </p>
+
+        <div class="pomodoro-wrapper" id="pomodoroWidget">
+
+          <!-- Mode badges -->
+          <div class="pomodoro-mode-badges">
+            <span class="mode-badge focus-badge active-mode" id="focusBadge">🎯 Focus</span>
+            <span class="mode-badge rest-badge" id="restBadge">☁️ Rest</span>
+          </div>
+
+          <!-- Circular ring timer -->
+          <div class="timer-ring-container" id="timerRingContainer">
+            <svg class="timer-svg" viewBox="0 0 100 100" aria-hidden="true">
+              <circle class="timer-ring-bg" cx="50" cy="50" r="42" />
+              <circle class="timer-ring-progress" id="timerProgress" cx="50" cy="50" r="42"
+                stroke-dasharray="263.89"
+                stroke-dashoffset="0" />
+            </svg>
+            <div class="timer-center-text">
+              <div class="timer-display" id="timerDisplay" aria-live="polite" aria-atomic="true">25:00</div>
+              <div class="timer-mode-label" id="timerModeLabel">ready to focus</div>
+            </div>
+          </div>
+
+          <!-- Session dots (4 rounds → long break) -->
+          <div class="session-dots" id="sessionDots" aria-label="Pomodoro session progress">
+            <div class="session-dot" aria-label="Session 1"></div>
+            <div class="session-dot" aria-label="Session 2"></div>
+            <div class="session-dot" aria-label="Session 3"></div>
+            <div class="session-dot" aria-label="Session 4"></div>
+          </div>
+
+          <!-- Progress track -->
+          <div class="focus-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="focusTrackBar">
+            <div class="focus-track-fill" id="focusTrackFill"></div>
+          </div>
+
+          <!-- Controls -->
+          <div class="timer-controls">
+            <button class="timer-btn timer-btn-primary" id="pomodoroStartBtn" onclick="togglePomodoro()">
+              Start Focus
+            </button>
+            <button class="timer-btn timer-btn-secondary" id="pomodoroSkipBtn" onclick="skipPhase()" style="display:none;">
+              Skip →
+            </button>
+            <button class="timer-btn timer-btn-secondary" onclick="resetPomodoro()">
+              Reset
+            </button>
+            <button class="timer-btn timer-btn-secondary" onclick="toggleSettings()" aria-expanded="false" id="settingsToggleBtn">
+              ⚙ Settings
+            </button>
+          </div>
+
+          <!-- Settings panel -->
+          <div class="timer-settings" id="timerSettings">
+            <div class="settings-row">
+              <span class="settings-label">Focus duration</span>
+              <div class="settings-stepper">
+                <button class="stepper-btn" onclick="adjustSetting('focus', -5)">−</button>
+                <span class="stepper-value" id="focusDurationDisplay">25 min</span>
+                <button class="stepper-btn" onclick="adjustSetting('focus', 5)">+</button>
+              </div>
+            </div>
+            <div class="settings-row">
+              <span class="settings-label">Rest duration</span>
+              <div class="settings-stepper">
+                <button class="stepper-btn" onclick="adjustSetting('rest', -1)">−</button>
+                <span class="stepper-value" id="restDurationDisplay">5 min</span>
+                <button class="stepper-btn" onclick="adjustSetting('rest', 1)">+</button>
+              </div>
+            </div>
+            <div class="settings-row">
+              <span class="settings-label">Long break (every 4 sessions)</span>
+              <div class="settings-stepper">
+                <button class="stepper-btn" onclick="adjustSetting('longRest', -5)">−</button>
+                <span class="stepper-value" id="longRestDurationDisplay">20 min</span>
+                <button class="stepper-btn" onclick="adjustSetting('longRest', 5)">+</button>
+              </div>
+            </div>
+            <div class="settings-row">
+              <span class="settings-label">Browser notifications</span>
+              <label class="notif-toggle" onclick="toggleNotifications()">
+                <div class="toggle-switch" id="notifToggle"></div>
+                <span class="settings-label" id="notifLabel">Off</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Phase message -->
+          <p class="timer-message" id="timerMessage">
+            Single task. One thing. Everything else can wait 25 minutes.
+          </p>
+
+          <!-- Completion banner -->
+          <div class="session-complete-banner" id="completeBanner">
+            <p id="completeBannerText">🌿 Focus session complete. Time to actually rest.</p>
+          </div>
+
+          <!-- Today's stats -->
+          <div class="timer-stats">
+            <div class="stat-pill">
+              <div class="stat-pill-value" id="statFocusSessions">0</div>
+              <div class="stat-pill-label">Sessions</div>
+            </div>
+            <div class="stat-pill">
+              <div class="stat-pill-value" id="statFocusMinutes">0</div>
+              <div class="stat-pill-label">Focus min</div>
+            </div>
+            <div class="stat-pill">
+              <div class="stat-pill-value" id="statRestMinutes">0</div>
+              <div class="stat-pill-label">Rest min</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Why deep work? -->
+        <div class="deep-work-explainer">
+          <h4>Why the Pomodoro method works for AI-fatigued engineers</h4>
+          <p>
+            In a typical AI-assisted workflow, the interruption cadence is relentless. A suggestion here, a review there, a quick "just ask ChatGPT" that turns into 40 minutes of prompt engineering. The Pomodoro technique fights back by creating a contractual commitment: <em>nothing else exists for 25 minutes</em>.
+          </p>
+          <p>
+            The key insight from cognitive science is that context-switching isn't free — it costs roughly 23 minutes of recovery time per interruption. When you're already running on AI-depleted focus reserves, that cost is even higher. A 25-minute sprint with genuine intent isn't just about productivity. It's about reminding your brain what it feels like to think without a safety net.
+          </p>
+          <p>
+            The rest periods aren't optional. They're when consolidation happens — when your brain files what it just learned, and when your default-mode network (the "resting" neural network most responsible for creative insight) gets to run.
+            If you want a deeper dive, Cal Newport's <a href="resources.html#books">Deep Work</a> is required reading.
+          </p>
+        </div>
+      </div>
+
+      <!-- ===================================================
+           SECTION: BOX BREATHING
+      =================================================== -->
       <div class="decompress-section fade-in">
         <h2 class="decompress-section-title">Box Breathing</h2>
         <p class="decompress-section-desc">
-          Inhale for 4, hold for 4, exhale for 4, hold for 4. Used by athletes, surgeons, and the occasional overwhelmed engineer.
+          Inhale for 4, hold for 4, exhale for 4, hold for 4. Used by athletes, surgeons, Navy SEALs, and the occasional overwhelmed engineer at 11pm.
+          It activates the parasympathetic nervous system — the opposite of the chronic low-grade fight-or-flight that comes with always-on work culture.
         </p>
 
         <div class="breathing-wrapper">
@@ -326,18 +938,22 @@
         </div>
       </div>
 
-      <!-- Thought Dump -->
+      <!-- ===================================================
+           SECTION: THOUGHT DUMP
+      =================================================== -->
       <div class="decompress-section fade-in">
         <h2 class="decompress-section-title">Thought Dump</h2>
         <p class="decompress-section-desc">
           What's cluttering your mind right now? Write it here. It's not going anywhere — it'll just vanish when you leave the page. That's the point.
+          Externalizing thoughts onto a page (even temporarily) is enough to stop your working memory from cycling through them.
+          You don't need to <em>solve</em> anything. Just get it out.
         </p>
 
         <div style="display: flex; flex-direction: column; align-items: stretch;">
           <textarea
             class="thought-dump-area"
             id="thoughtDump"
-            placeholder="Release it here… the half-formed worries, the things that didn't get said, the code you can't stop thinking about at 11pm…"
+            placeholder="Release it here… the half-formed worries, the things that didn't get said, the code you can't stop thinking about at 11pm, the PR comment that's still living rent-free…"
             aria-label="Thought dump area"
           ></textarea>
           <p class="thought-word-count" id="thoughtWordCount">Start writing…</p>
@@ -348,11 +964,14 @@
         </p>
       </div>
 
-      <!-- Ambient Sound -->
+      <!-- ===================================================
+           SECTION: AMBIENT SOUND
+      =================================================== -->
       <div class="decompress-section fade-in sound-section">
-        <h2 class="decompress-section-title">Ambient Sound</h2>
+        <h2 class="decompress-section-title">Set the Scene</h2>
         <p class="decompress-section-desc">
-          Choose a background to settle into. Purely visual — your own headphones and a sound app work best for the real thing.
+          Choose a background texture to settle into. Purely visual — your own headphones with a sound app work best for the real thing.
+          During focus sessions, consider brown noise, rain, or coffee-shop ambience — research suggests moderate ambient sound (~70dB) improves creative cognition for many people.
         </p>
 
         <div class="sound-options">
@@ -360,53 +979,65 @@
             <span class="sound-emoji">🌧️</span>
             <span>Rain on glass</span>
             <div class="waveform">
-              <div class="waveform-bar"></div>
-              <div class="waveform-bar"></div>
-              <div class="waveform-bar"></div>
-              <div class="waveform-bar"></div>
-              <div class="waveform-bar"></div>
-              <div class="waveform-bar"></div>
+              <div class="waveform-bar"></div><div class="waveform-bar"></div>
+              <div class="waveform-bar"></div><div class="waveform-bar"></div>
+              <div class="waveform-bar"></div><div class="waveform-bar"></div>
             </div>
           </button>
           <button class="sound-option" data-sound="forest" onclick="toggleSound(this)">
             <span class="sound-emoji">🌲</span>
             <span>Forest quiet</span>
             <div class="waveform">
-              <div class="waveform-bar"></div>
-              <div class="waveform-bar"></div>
-              <div class="waveform-bar"></div>
-              <div class="waveform-bar"></div>
-              <div class="waveform-bar"></div>
-              <div class="waveform-bar"></div>
+              <div class="waveform-bar"></div><div class="waveform-bar"></div>
+              <div class="waveform-bar"></div><div class="waveform-bar"></div>
+              <div class="waveform-bar"></div><div class="waveform-bar"></div>
             </div>
           </button>
           <button class="sound-option" data-sound="fire" onclick="toggleSound(this)">
             <span class="sound-emoji">🔥</span>
             <span>Fireplace crackle</span>
             <div class="waveform">
-              <div class="waveform-bar"></div>
-              <div class="waveform-bar"></div>
-              <div class="waveform-bar"></div>
-              <div class="waveform-bar"></div>
-              <div class="waveform-bar"></div>
-              <div class="waveform-bar"></div>
+              <div class="waveform-bar"></div><div class="waveform-bar"></div>
+              <div class="waveform-bar"></div><div class="waveform-bar"></div>
+              <div class="waveform-bar"></div><div class="waveform-bar"></div>
             </div>
           </button>
           <button class="sound-option" data-sound="stream" onclick="toggleSound(this)">
             <span class="sound-emoji">💧</span>
             <span>Running stream</span>
             <div class="waveform">
-              <div class="waveform-bar"></div>
-              <div class="waveform-bar"></div>
-              <div class="waveform-bar"></div>
-              <div class="waveform-bar"></div>
-              <div class="waveform-bar"></div>
-              <div class="waveform-bar"></div>
+              <div class="waveform-bar"></div><div class="waveform-bar"></div>
+              <div class="waveform-bar"></div><div class="waveform-bar"></div>
+              <div class="waveform-bar"></div><div class="waveform-bar"></div>
+            </div>
+          </button>
+          <button class="sound-option" data-sound="cafe" onclick="toggleSound(this)">
+            <span class="sound-emoji">☕</span>
+            <span>Coffee shop hum</span>
+            <div class="waveform">
+              <div class="waveform-bar"></div><div class="waveform-bar"></div>
+              <div class="waveform-bar"></div><div class="waveform-bar"></div>
+              <div class="waveform-bar"></div><div class="waveform-bar"></div>
             </div>
           </button>
         </div>
 
         <p class="sound-active-indicator" id="soundIndicator"></p>
+      </div>
+
+      <!-- ===================================================
+           INTERNAL LINKS
+      =================================================== -->
+      <div class="decompress-section fade-in" style="background: var(--cream-warm); border-radius: var(--radius-md); padding: 1.5rem;">
+        <p style="font-size: 0.88rem; color: var(--text-secondary); text-align: center; margin-bottom: 1rem;">
+          When you're done here, there's more waiting for you:
+        </p>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center;">
+          <a href="tips.html" class="btn btn-ghost" style="font-size: 0.82rem; padding: 0.5rem 1.1rem;">10 Signs of AI Fatigue →</a>
+          <a href="stories.html" class="btn btn-ghost" style="font-size: 0.82rem; padding: 0.5rem 1.1rem;">Engineer Stories →</a>
+          <a href="resources.html" class="btn btn-ghost" style="font-size: 0.82rem; padding: 0.5rem 1.1rem;">Reading List →</a>
+          <a href="journal.html" class="btn btn-ghost" style="font-size: 0.82rem; padding: 0.5rem 1.1rem;">Private Journal →</a>
+        </div>
       </div>
 
       <!-- Done Section -->
@@ -427,7 +1058,9 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="decompress.html">Decompress</a></li>
       <li><a href="journal.html">Journal</a></li>
+      <li><a href="tips.html">10 Signs</a></li>
       <li><a href="stories.html">Stories</a></li>
+      <li><a href="resources.html">Resources</a></li>
       <li><a href="why.html">Why This Exists</a></li>
       <li><a href="about.html">About</a></li>
     </ul>
@@ -436,131 +1069,449 @@
 
   <script src="js/main.js"></script>
   <script>
-    // ============================================
-    // Box Breathing Engine
-    // ============================================
-    const phases = [
-      { name: 'Inhale',   instruction: 'Breathe in…',        duration: 4, cls: 'expand' },
-      { name: 'Hold',     instruction: 'Hold…',              duration: 4, cls: 'hold-in' },
-      { name: 'Exhale',   instruction: 'Breathe out slowly…', duration: 4, cls: 'contract' },
-      { name: 'Hold',     instruction: 'Rest here…',         duration: 4, cls: 'hold-out' },
-    ];
+  // ============================================================
+  // POMODORO DEEP WORK TIMER
+  // ============================================================
+  const CIRCUMFERENCE = 2 * Math.PI * 42; // 263.89
 
-    let breathInterval = null;
-    let phaseIdx = 0;
-    let countDown = phases[0].duration;
-    let cycleCount = 0;
-    let running = false;
+  const pom = {
+    settings: {
+      focusMins: 25,
+      restMins: 5,
+      longRestMins: 20,
+      sessionsBeforeLongRest: 4,
+      notificationsOn: false,
+    },
+    state: {
+      running: false,
+      mode: 'focus',          // 'focus' | 'rest' | 'longRest'
+      secondsLeft: 25 * 60,
+      totalSeconds: 25 * 60,
+      completedSessions: 0,   // completed focus sessions in this set
+      totalSessions: 0,       // all-time this page load
+      totalFocusMinutes: 0,
+      totalRestMinutes: 0,
+      interval: null,
+    },
+    focusMessages: [
+      "Single task. One thing. Everything else can wait 25 minutes.",
+      "No AI autocomplete. Just your own thinking.",
+      "The problem is solvable. You've solved hard things before.",
+      "Your brain is enough. Trust it for 25 minutes.",
+      "Deep work is a skill. You're practicing it right now.",
+      "Slow, deliberate thought beats fast, fragmented thought every time.",
+      "The answer is in the problem. Read it carefully.",
+      "Presence is a superpower. Be here.",
+    ],
+    restMessages: [
+      "Good. Now actually rest. Not 'check Slack' rest. Real rest.",
+      "Step away from the screen if you can. Your eyes will thank you.",
+      "Hydrate. Seriously. Engineers chronically underdrink water.",
+      "Five minutes of looking out a window does more than you think.",
+      "Your default-mode network is working right now. Let it.",
+      "Breathe once. Slowly. No agenda.",
+      "You just did 25 minutes of real work. That's real.",
+    ],
+  };
 
-    const ring = document.getElementById('breathingRing');
-    const countEl = document.getElementById('breathCount');
-    const labelEl = document.getElementById('breathLabel');
-    const instructionEl = document.getElementById('breathInstruction');
-    const cycleEl = document.getElementById('breathCycleDisplay');
-    const btn = document.getElementById('breathBtn');
+  function pomInit() {
+    updateTimerDisplay();
+    updateSessionDots();
+    updateStats();
+    updateSettingsDisplay();
+  }
 
-    function updateBreathDisplay() {
-      const phase = phases[phaseIdx];
-      countEl.textContent = countDown;
-      labelEl.textContent = phase.name.toLowerCase();
-      instructionEl.textContent = phase.instruction;
-      ring.className = 'breathing-stage ' + phase.cls;
-      cycleEl.textContent = cycleCount > 0 ? `Cycle ${cycleCount}` : '';
+  function togglePomodoro() {
+    if (pom.state.running) {
+      pausePomodoro();
+    } else {
+      startPomodoro();
+    }
+  }
+
+  function startPomodoro() {
+    pom.state.running = true;
+    document.getElementById('pomodoroStartBtn').textContent = '⏸ Pause';
+    document.getElementById('pomodoroStartBtn').classList.add('running');
+    document.getElementById('pomodoroSkipBtn').style.display = 'inline-block';
+    document.getElementById('timerModeLabel').textContent =
+      pom.state.mode === 'focus' ? 'deep focus' : 'resting';
+    document.getElementById('timerRingContainer').classList.add('running-pulse');
+    showRandomMessage();
+    pom.state.interval = setInterval(pomTick, 1000);
+  }
+
+  function pausePomodoro() {
+    pom.state.running = false;
+    clearInterval(pom.state.interval);
+    document.getElementById('pomodoroStartBtn').textContent = '▶ Resume';
+    document.getElementById('pomodoroStartBtn').classList.remove('running');
+    document.getElementById('timerModeLabel').textContent = 'paused';
+    document.getElementById('timerRingContainer').classList.remove('running-pulse');
+  }
+
+  function resetPomodoro() {
+    pom.state.running = false;
+    clearInterval(pom.state.interval);
+    pom.state.mode = 'focus';
+    pom.state.secondsLeft = pom.settings.focusMins * 60;
+    pom.state.totalSeconds = pom.settings.focusMins * 60;
+    pom.state.completedSessions = 0;
+    document.getElementById('pomodoroStartBtn').textContent = 'Start Focus';
+    document.getElementById('pomodoroStartBtn').classList.remove('running');
+    document.getElementById('pomodoroSkipBtn').style.display = 'none';
+    document.getElementById('timerModeLabel').textContent = 'ready to focus';
+    document.getElementById('pomodoroWidget').classList.remove('rest-mode');
+    document.getElementById('focusBadge').classList.add('active-mode');
+    document.getElementById('restBadge').classList.remove('active-mode');
+    document.getElementById('timerRingContainer').classList.remove('running-pulse');
+    document.getElementById('completeBanner').classList.remove('show');
+    hiddenMessage("Single task. One thing. Everything else can wait 25 minutes.");
+    updateTimerDisplay();
+    updateSessionDots();
+    updateProgressRing();
+  }
+
+  function skipPhase() {
+    clearInterval(pom.state.interval);
+    pom.state.running = false;
+    advancePhase(true);
+  }
+
+  function pomTick() {
+    pom.state.secondsLeft--;
+    updateTimerDisplay();
+    updateProgressRing();
+
+    if (pom.state.secondsLeft <= 0) {
+      clearInterval(pom.state.interval);
+      pom.state.running = false;
+      advancePhase(false);
+    }
+  }
+
+  function advancePhase(skipped) {
+    const widget = document.getElementById('pomodoroWidget');
+    const focusBadge = document.getElementById('focusBadge');
+    const restBadge = document.getElementById('restBadge');
+    const banner = document.getElementById('completeBanner');
+    const bannerText = document.getElementById('completeBannerText');
+
+    if (pom.state.mode === 'focus') {
+      // Count focus stats
+      const minutesDone = skipped
+        ? Math.floor((pom.settings.focusMins * 60 - pom.state.secondsLeft) / 60)
+        : pom.settings.focusMins;
+      pom.state.totalFocusMinutes += minutesDone;
+
+      if (!skipped) {
+        pom.state.completedSessions++;
+        pom.state.totalSessions++;
+      }
+
+      // Determine next rest type
+      const isLongRest = pom.state.completedSessions > 0 &&
+        pom.state.completedSessions % pom.settings.sessionsBeforeLongRest === 0;
+
+      pom.state.mode = isLongRest ? 'longRest' : 'rest';
+      const restDuration = isLongRest ? pom.settings.longRestMins : pom.settings.restMins;
+      pom.state.secondsLeft = restDuration * 60;
+      pom.state.totalSeconds = restDuration * 60;
+
+      widget.classList.add('rest-mode');
+      focusBadge.classList.remove('active-mode');
+      restBadge.classList.add('active-mode');
+      document.getElementById('timerModeLabel').textContent = isLongRest ? 'long rest' : 'rest';
+      document.getElementById('pomodoroStartBtn').textContent = 'Start Rest';
+      document.getElementById('pomodoroStartBtn').classList.remove('running');
+
+      bannerText.textContent = isLongRest
+        ? `🌿 ${pom.state.completedSessions} sessions done. Take a long break — you've earned it.`
+        : `🌿 Focus session complete. Time to actually rest. Set it down.`;
+      banner.classList.add('show');
+
+      notify(isLongRest ? 'Long break time! You finished 4 focus sessions.' : 'Focus session complete! Rest for ' + restDuration + ' minutes.');
+      updateStats();
+      updateSessionDots();
+
+    } else {
+      // Rest finished → back to focus
+      const minutesDone = skipped
+        ? Math.floor((
+            (pom.state.mode === 'longRest' ? pom.settings.longRestMins : pom.settings.restMins) * 60
+            - pom.state.secondsLeft) / 60)
+        : (pom.state.mode === 'longRest' ? pom.settings.longRestMins : pom.settings.restMins);
+      pom.state.totalRestMinutes += minutesDone;
+
+      if (pom.state.mode === 'longRest') {
+        pom.state.completedSessions = 0; // reset set counter
+      }
+
+      pom.state.mode = 'focus';
+      pom.state.secondsLeft = pom.settings.focusMins * 60;
+      pom.state.totalSeconds = pom.settings.focusMins * 60;
+
+      widget.classList.remove('rest-mode');
+      focusBadge.classList.add('active-mode');
+      restBadge.classList.remove('active-mode');
+      document.getElementById('timerModeLabel').textContent = 'ready to focus';
+      document.getElementById('pomodoroStartBtn').textContent = 'Start Focus';
+      document.getElementById('pomodoroStartBtn').classList.remove('running');
+
+      bannerText.textContent = '🎯 Rest complete. Time to focus again.';
+      banner.classList.add('show');
+
+      notify('Rest over. Time for another 25-minute focus session.');
+      updateStats();
+      updateSessionDots();
     }
 
-    function breathTick() {
-      countDown--;
-      countEl.textContent = countDown;
+    document.getElementById('pomodoroSkipBtn').style.display = 'none';
+    document.getElementById('timerRingContainer').classList.remove('running-pulse');
+    updateTimerDisplay();
+    updateProgressRing();
 
-      if (countDown <= 0) {
-        phaseIdx = (phaseIdx + 1) % phases.length;
-        if (phaseIdx === 0) cycleCount++;
-        countDown = phases[phaseIdx].duration;
-        updateBreathDisplay();
-      } else {
-        countEl.textContent = countDown;
+    // Auto-hide banner after 4s
+    setTimeout(() => banner.classList.remove('show'), 4000);
+  }
+
+  function updateTimerDisplay() {
+    const mins = Math.floor(pom.state.secondsLeft / 60);
+    const secs = pom.state.secondsLeft % 60;
+    const timeStr = `${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
+    document.getElementById('timerDisplay').textContent = timeStr;
+    document.title = pom.state.running
+      ? `${timeStr} — The Clearing`
+      : 'Decompress & Deep Work Timer — The Clearing';
+  }
+
+  function updateProgressRing() {
+    const progress = pom.state.secondsLeft / pom.state.totalSeconds;
+    const offset = CIRCUMFERENCE * progress;
+    document.getElementById('timerProgress').setAttribute('stroke-dashoffset', offset);
+
+    const percent = Math.round((1 - progress) * 100);
+    document.getElementById('focusTrackFill').style.width = percent + '%';
+    document.getElementById('focusTrackBar').setAttribute('aria-valuenow', percent);
+  }
+
+  function updateSessionDots() {
+    const dots = document.querySelectorAll('.session-dot');
+    dots.forEach((dot, i) => {
+      dot.classList.remove('completed', 'current');
+      if (i < pom.state.completedSessions) {
+        dot.classList.add('completed');
+      } else if (i === pom.state.completedSessions && pom.state.mode === 'focus') {
+        dot.classList.add('current');
       }
-    }
-
-    function toggleBreathing() {
-      if (running) {
-        clearInterval(breathInterval);
-        breathInterval = null;
-        running = false;
-        btn.textContent = 'Begin';
-        btn.classList.remove('running');
-        ring.className = 'breathing-stage';
-        countEl.textContent = '—';
-        labelEl.textContent = 'ready';
-        instructionEl.textContent = 'Whenever you\'re ready.';
-        cycleEl.textContent = '';
-        phaseIdx = 0;
-        countDown = phases[0].duration;
-        cycleCount = 0;
-      } else {
-        running = true;
-        btn.textContent = 'Stop';
-        btn.classList.add('running');
-        phaseIdx = 0;
-        countDown = phases[0].duration;
-        cycleCount = 1;
-        updateBreathDisplay();
-        breathInterval = setInterval(breathTick, 1000);
-      }
-    }
-
-    // ============================================
-    // Thought Dump Word Counter
-    // ============================================
-    const thoughtDump = document.getElementById('thoughtDump');
-    const wordCountEl = document.getElementById('thoughtWordCount');
-
-    thoughtDump.addEventListener('input', () => {
-      const text = thoughtDump.value.trim();
-      if (!text) {
-        wordCountEl.textContent = 'Start writing…';
-        return;
-      }
-      const words = text.split(/\s+/).filter(Boolean).length;
-      wordCountEl.textContent = `${words} word${words !== 1 ? 's' : ''} — gone when you leave 🍃`;
     });
+  }
 
-    // ============================================
-    // Sound Toggle
-    // ============================================
-    const soundLabels = {
-      rain: 'Rain on glass is playing…',
-      forest: 'The forest hum surrounds you…',
-      fire: 'Fireplace crackle fills the room…',
-      stream: 'A running stream flows nearby…',
-    };
+  function updateStats() {
+    document.getElementById('statFocusSessions').textContent = pom.state.totalSessions;
+    document.getElementById('statFocusMinutes').textContent = pom.state.totalFocusMinutes;
+    document.getElementById('statRestMinutes').textContent = pom.state.totalRestMinutes;
+  }
 
-    let activeSound = null;
+  // Settings
+  function toggleSettings() {
+    const panel = document.getElementById('timerSettings');
+    const btn = document.getElementById('settingsToggleBtn');
+    const open = panel.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  }
 
-    function toggleSound(btn) {
-      const sound = btn.dataset.sound;
-
-      if (btn.classList.contains('active')) {
-        btn.classList.remove('active');
-        activeSound = null;
-        document.getElementById('soundIndicator').textContent = '';
-        return;
+  function adjustSetting(key, delta) {
+    if (key === 'focus') {
+      pom.settings.focusMins = Math.max(5, Math.min(90, pom.settings.focusMins + delta));
+      if (!pom.state.running && pom.state.mode === 'focus') {
+        pom.state.secondsLeft = pom.settings.focusMins * 60;
+        pom.state.totalSeconds = pom.settings.focusMins * 60;
+        updateTimerDisplay();
+        updateProgressRing();
       }
-
-      document.querySelectorAll('.sound-option').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      activeSound = sound;
-      document.getElementById('soundIndicator').textContent = soundLabels[sound] || '';
+    } else if (key === 'rest') {
+      pom.settings.restMins = Math.max(1, Math.min(30, pom.settings.restMins + delta));
+    } else if (key === 'longRest') {
+      pom.settings.longRestMins = Math.max(5, Math.min(60, pom.settings.longRestMins + delta));
     }
+    updateSettingsDisplay();
+  }
 
-    // Done button — show toast before redirect
-    document.getElementById('doneBtn').addEventListener('click', function (e) {
-      e.preventDefault();
+  function updateSettingsDisplay() {
+    document.getElementById('focusDurationDisplay').textContent = pom.settings.focusMins + ' min';
+    document.getElementById('restDurationDisplay').textContent = pom.settings.restMins + ' min';
+    document.getElementById('longRestDurationDisplay').textContent = pom.settings.longRestMins + ' min';
+  }
+
+  // Notifications
+  function toggleNotifications() {
+    if (!pom.settings.notificationsOn) {
+      if ('Notification' in window) {
+        Notification.requestPermission().then(perm => {
+          if (perm === 'granted') {
+            pom.settings.notificationsOn = true;
+            updateNotifToggle();
+          }
+        });
+      }
+    } else {
+      pom.settings.notificationsOn = false;
+      updateNotifToggle();
+    }
+  }
+
+  function updateNotifToggle() {
+    const toggle = document.getElementById('notifToggle');
+    const label = document.getElementById('notifLabel');
+    if (pom.settings.notificationsOn) {
+      toggle.classList.add('on');
+      label.textContent = 'On';
+    } else {
+      toggle.classList.remove('on');
+      label.textContent = 'Off';
+    }
+  }
+
+  function notify(msg) {
+    if (pom.settings.notificationsOn && 'Notification' in window && Notification.permission === 'granted') {
+      new Notification('The Clearing', { body: msg, icon: '/favicon.ico' });
+    }
+  }
+
+  // Messages
+  function showRandomMessage() {
+    const msgs = pom.state.mode === 'focus' ? pom.focusMessages : pom.restMessages;
+    hiddenMessage(msgs[Math.floor(Math.random() * msgs.length)]);
+  }
+
+  function hiddenMessage(text) {
+    const el = document.getElementById('timerMessage');
+    el.style.opacity = '0';
+    setTimeout(() => {
+      el.textContent = text;
+      el.style.opacity = '1';
+    }, 300);
+  }
+
+  pomInit();
+
+  // ============================================================
+  // BOX BREATHING ENGINE
+  // ============================================================
+  const phases = [
+    { name: 'Inhale',  instruction: 'Breathe in…',          duration: 4, cls: 'expand' },
+    { name: 'Hold',    instruction: 'Hold…',                 duration: 4, cls: 'hold-in' },
+    { name: 'Exhale',  instruction: 'Breathe out slowly…',  duration: 4, cls: 'contract' },
+    { name: 'Hold',    instruction: 'Rest here…',            duration: 4, cls: 'hold-out' },
+  ];
+
+  let breathInterval = null;
+  let phaseIdx = 0;
+  let countDown = phases[0].duration;
+  let cycleCount = 0;
+  let breathRunning = false;
+
+  const ring = document.getElementById('breathingRing');
+  const countEl = document.getElementById('breathCount');
+  const labelEl = document.getElementById('breathLabel');
+  const instructionEl = document.getElementById('breathInstruction');
+  const cycleEl = document.getElementById('breathCycleDisplay');
+  const breathBtn = document.getElementById('breathBtn');
+
+  function updateBreathDisplay() {
+    const phase = phases[phaseIdx];
+    countEl.textContent = countDown;
+    labelEl.textContent = phase.name.toLowerCase();
+    instructionEl.textContent = phase.instruction;
+    ring.className = 'breathing-stage ' + phase.cls;
+    cycleEl.textContent = cycleCount > 0 ? `Cycle ${cycleCount}` : '';
+  }
+
+  function breathTick() {
+    countDown--;
+    countEl.textContent = countDown;
+    if (countDown <= 0) {
+      phaseIdx = (phaseIdx + 1) % phases.length;
+      if (phaseIdx === 0) cycleCount++;
+      countDown = phases[phaseIdx].duration;
+      updateBreathDisplay();
+    }
+  }
+
+  function toggleBreathing() {
+    if (breathRunning) {
+      clearInterval(breathInterval);
+      breathInterval = null;
+      breathRunning = false;
+      breathBtn.textContent = 'Begin';
+      breathBtn.classList.remove('running');
+      ring.className = 'breathing-stage';
+      countEl.textContent = '—';
+      labelEl.textContent = 'ready';
+      instructionEl.textContent = "Whenever you're ready.";
+      cycleEl.textContent = '';
+      phaseIdx = 0;
+      countDown = phases[0].duration;
+      cycleCount = 0;
+    } else {
+      breathRunning = true;
+      breathBtn.textContent = 'Stop';
+      breathBtn.classList.add('running');
+      phaseIdx = 0;
+      countDown = phases[0].duration;
+      cycleCount = 1;
+      updateBreathDisplay();
+      breathInterval = setInterval(breathTick, 1000);
+    }
+  }
+
+  // ============================================================
+  // THOUGHT DUMP
+  // ============================================================
+  const thoughtDump = document.getElementById('thoughtDump');
+  const wordCountEl = document.getElementById('thoughtWordCount');
+
+  thoughtDump.addEventListener('input', () => {
+    const text = thoughtDump.value.trim();
+    if (!text) { wordCountEl.textContent = 'Start writing…'; return; }
+    const words = text.split(/\s+/).filter(Boolean).length;
+    wordCountEl.textContent = `${words} word${words !== 1 ? 's' : ''} — gone when you leave 🍃`;
+  });
+
+  // ============================================================
+  // AMBIENT SOUND TOGGLE
+  // ============================================================
+  const soundLabels = {
+    rain:   'Rain on glass is playing…',
+    forest: 'The forest hum surrounds you…',
+    fire:   'Fireplace crackle fills the room…',
+    stream: 'A running stream flows nearby…',
+    cafe:   'Coffee shop hum in the background…',
+  };
+
+  function toggleSound(btn) {
+    const sound = btn.dataset.sound;
+    if (btn.classList.contains('active')) {
+      btn.classList.remove('active');
+      document.getElementById('soundIndicator').textContent = '';
+      return;
+    }
+    document.querySelectorAll('.sound-option').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('soundIndicator').textContent = soundLabels[sound] || '';
+  }
+
+  // ============================================================
+  // DONE BUTTON
+  // ============================================================
+  document.getElementById('doneBtn').addEventListener('click', function(e) {
+    e.preventDefault();
+    if (typeof showToast === 'function') {
       showToast('Good. Carry that quiet with you. 🌿');
-      setTimeout(() => {
-        window.location.href = 'index.html';
-      }, 2000);
-    });
+    }
+    setTimeout(() => { window.location.href = 'index.html'; }, 2000);
+  });
   </script>
 </body>
 </html>

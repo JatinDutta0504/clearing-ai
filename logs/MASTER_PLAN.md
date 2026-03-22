@@ -10,6 +10,15 @@ Each run appended below.
 
 ---
 
+### Hour 16 — 2026-03-22 12:24 PDT
+**Built:** `research.html` (The Science Behind AI Fatigue — 12 research areas: cognitive load theory/Sweller, Kahneman dual-process, automation bias/Parasuraman, attention research/Gloria Mark, flow/Csikszentmihalyi, skill atrophy, occupational identity, Maslach burnout model, decision fatigue, survey data table, what helps + full reading list, 5-Q FAQ); `sitemap.html` (human-readable, 22 pages in 7 categories, stats bar); `about.html` full E-E-A-T expansion (founding story with pullquote callout, "the stand-up meeting", who built this, trust signal grid, expanded beliefs)
+**SEO:** research.html = journalist link magnet with real academic citations (ScholarlyArticle + Book schema); FAQPage schema (5 Q&As) + Article + BreadcrumbList; citation callout blocks; sitemap.xml updated to 22 URLs; nav updated across ALL 20 pages (research.html, workplace.html added); index.html feature grid now 17 cards; about.html AboutPage + Organization schema with E-E-A-T language
+**~6,500 words added**
+**Commit:** `ada2c6d`
+**Next:** `quiz-results.html` (shareable dedicated results per tier) OR `stats.html` (AI Fatigue Statistics 2025 — another journalist link magnet) OR social share buttons on quiz results (viral growth lever)
+
+---
+
 ### Hour 15 — 2026-03-22 11:24 PDT
 **Built:** Massive content expansion of 4 previously stubbed pages — faq.html (7→35 Q&As, 600→4,800 words, 6 categories, live search, full FAQPage schema); engineer-types.html (900→3,200 words, 4 detailed archetypes, interactive 3-question self-assessment widget); team-guide.html (900→3,800 words, 6 structural change frameworks, 4 manager 1:1 scripts, team AI agreement template); daily-practice.html (600→3,600 words, 30-day plan, 4 themed weeks, No-AI Challenges, day tracker with localStorage)
 **SEO:** FAQPage schema expanded to 35 Q&As (largest rich snippet surface on the site); BreadcrumbList + Article + HowTo schema across all 4 pages; full OG/Twitter meta on all 4; reading time badges; ~40 new long-tail keywords; sitemap updated to all 20 pages; dense internal cross-linking

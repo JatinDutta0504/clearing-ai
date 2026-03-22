@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Journal — The Clearing</title>
+  <meta name="description" content="A private, local-first journal. No accounts, no servers. Your words stay on your device." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body { background: var(--cream-warm); }
+
+    .journal-page {
+      padding-top: 4.5rem;
+      min-height: 100vh;
+    }
+
+    .journal-page-header {
+      background: linear-gradient(160deg, var(--forest-deep) 0%, var(--forest-mid) 100%);
+      padding: 3.5rem var(--spacing-md) 2.5rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .journal-page-header-left h1 {
+      color: var(--cream);
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .journal-page-header-left p {
+      color: var(--mist);
+      font-size: 0.9rem;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .privacy-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(122,171,138,0.2);
+      border: 1px solid rgba(122,171,138,0.4);
+      border-radius: var(--radius-full);
+      padding: 0.25rem 0.75rem;
+      font-size: 0.75rem;
+      color: var(--forest-pale);
+      letter-spacing: 0.05em;
+    }
+
+    .journal-body {
+      padding: var(--spacing-md);
+      max-width: calc(var(--max-content) + 2rem);
+      margin: 0 auto;
+    }
+
+    /* Override journal layout for better mobile */
+    .journal-layout {
+      align-items: start;
+    }
+
+    .journal-sidebar-header {
+      background: var(--cream-warm);
+    }
+
+    .new-entry-btn {
+      background: var(--forest-mid);
+      color: var(--cream);
+      border: none;
+      border-radius: var(--radius-full);
+      padding: 0.45rem 0.9rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: background var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .new-entry-btn:hover { background: var(--forest-deep); }
+
+    .empty-sidebar {
+      padding: 2rem 1.25rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    .entry-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .delete-entry-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 0.85rem;
+      padding: 0.25rem;
+      opacity: 0;
+      transition: opacity var(--transition-fast), color var(--transition-fast);
+    }
+
+    .entry-list-item:hover .delete-entry-btn {
+      opacity: 1;
+    }
+
+    .delete-entry-btn:hover { color: #b94040; }
+
+    /* Stats bar */
+    .journal-stats {
+      display: flex;
+      gap: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      border-bottom: 1px solid var(--cream-dark);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: var(--cream-warm);
+      flex-wrap: wrap;
+    }
+
+    .journal-stat {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .journal-stat strong {
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    /* Word count in editor */
+    .editor-word-count {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      .journal-page-header {
+        padding: 3.5rem 1rem 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo">The Clearing</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" role="list">
+      <li><a href="decompress.html">Decompress</a></li>
+      <li><a href="journal.html">Journal</a></li>
+      <li><a href="why.html">Why This Exists</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <main class="journal-page">
+
+    <!-- Page Header -->
+    <div class="journal-page-header">
+      <div class="journal-page-header-left">
+        <h1>Your Journal</h1>
+        <p>
+          <span class="privacy-badge">🔒 Stored on your device only</span>
+          &nbsp;No account. No server. Just you.
+        </p>
+      </div>
+      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <button class="btn btn-ghost" onclick="exportAllEntries()" style="font-size:0.85rem; padding: 0.65rem 1.4rem;">
+          Export as .txt
+        </button>
+        <button class="new-entry-btn" onclick="newEntry()" style="padding: 0.7rem 1.4rem; border-radius: var(--radius-full); font-size:0.85rem;">
+          + New Entry
+        </button>
+      </div>
+    </div>
+
+    <div class="journal-body">
+      <div class="journal-layout">
+
+        <!-- Sidebar -->
+        <aside class="journal-sidebar">
+          <div class="journal-sidebar-header">
+            <span class="journal-sidebar-title">Entries</span>
+            <button class="new-entry-btn" onclick="newEntry()">+ New</button>
+          </div>
+          <ul class="entry-list" id="entryList" role="list" aria-label="Journal entries"></ul>
+        </aside>
+
+        <!-- Main Editor -->
+        <div class="journal-main">
+          <!-- Stats Bar -->
+          <div class="journal-stats" id="journalStats">
+            <span class="journal-stat">📅 <strong id="statDate">—</strong></span>
+            <span class="journal-stat">✍️ <strong id="statWords">0</strong> words</span>
+            <span class="journal-stat">🗂 <strong id="statTotal">0</strong> total entries</span>
+          </div>
+
+          <!-- Toolbar -->
+          <div class="journal-toolbar">
+            <span class="journal-date-display" id="entryDateDisplay">Start writing your thoughts…</span>
+            <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+              <div class="journal-formatting">
+                <button class="format-btn" id="boldBtn" onclick="formatText('bold')" title="Bold (⌘B)"><strong>B</strong></button>
+                <button class="format-btn" id="italicBtn" onclick="formatText('italic')" title="Italic (⌘I)"><em>I</em></button>
+                <button class="format-btn" onclick="formatText('underline')" title="Underline"><u>U</u></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Editor -->
+          <div
+            class="journal-editor"
+            id="journalEditor"
+            contenteditable="true"
+            role="textbox"
+            aria-multiline="true"
+            aria-label="Journal entry"
+            data-placeholder="Begin anywhere. There's no right way to start. Maybe it's a feeling, a frustration, a moment you want to hold on to — or let go of."
+            spellcheck="true"
+          ></div>
+
+          <!-- Footer -->
+          <div class="journal-footer">
+            <span class="journal-status" id="journalStatus">No entry selected</span>
+            <div class="journal-actions">
+              <button class="btn btn-secondary" onclick="deleteCurrentEntry()" id="deleteBtn" style="font-size:0.82rem; padding: 0.6rem 1.2rem;" disabled>
+                Delete
+              </button>
+              <button class="btn btn-primary" onclick="saveEntry()" id="saveBtn" style="font-size:0.82rem; padding: 0.6rem 1.2rem;" disabled>
+                Save Entry
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <p class="footer-logo">The Clearing</p>
+    <p class="footer-tagline">"Your brain is not a GPU."</p>
+    <ul class="footer-nav" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="decompress.html">Decompress</a></li>
+      <li><a href="journal.html">Journal</a></li>
+      <li><a href="why.html">Why This Exists</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <p class="footer-copy">No tracking. No data. Just a clearing in the woods.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // ============================================
+    // Journal — localStorage engine
+    // ============================================
+
+    const STORAGE_KEY = 'the-clearing-journal';
+    const editor = document.getElementById('journalEditor');
+    const entryList = document.getElementById('entryList');
+    const dateDisplay = document.getElementById('entryDateDisplay');
+    const statusEl = document.getElementById('journalStatus');
+    const saveBtn = document.getElementById('saveBtn');
+    const deleteBtn = document.getElementById('deleteBtn');
+    const statDate = document.getElementById('statDate');
+    const statWords = document.getElementById('statWords');
+    const statTotal = document.getElementById('statTotal');
+
+    let entries = [];       // Array of { id, date, dateISO, content }
+    let currentId = null;
+    let autosaveTimer = null;
+    let isDirty = false;
+
+    // ---- Storage helpers ----
+    function loadEntries() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        entries = raw ? JSON.parse(raw) : [];
+      } catch (e) {
+        entries = [];
+      }
+    }
+
+    function saveEntries() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+    }
+
+    function getEntryById(id) {
+      return entries.find(e => e.id === id) || null;
+    }
+
+    // ---- Date helpers ----
+    function formatDate(isoStr) {
+      const d = new Date(isoStr);
+      return d.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    }
+
+    function formatDateShort(isoStr) {
+      const d = new Date(isoStr);
+      return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    }
+
+    function formatTime(isoStr) {
+      const d = new Date(isoStr);
+      return d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+    }
+
+    // ---- Render sidebar ----
+    function renderSidebar() {
+      entryList.innerHTML = '';
+      statTotal.textContent = entries.length;
+
+      if (entries.length === 0) {
+        entryList.innerHTML = `
+          <li class="empty-sidebar">
+            Your first entry is waiting.<br><br>
+            Start with how today made you feel.
+          </li>`;
+        return;
+      }
+
+      // Sort newest first
+      const sorted = [...entries].sort((a, b) => new Date(b.dateISO) - new Date(a.dateISO));
+
+      sorted.forEach(entry => {
+        const li = document.createElement('li');
+        li.className = 'entry-list-item' + (entry.id === currentId ? ' active' : '');
+        li.setAttribute('role', 'button');
+        li.setAttribute('tabindex', '0');
+        li.setAttribute('aria-label', `Entry from ${formatDateShort(entry.dateISO)}`);
+
+        const preview = entry.content
+          .replace(/<[^>]*>/g, ' ')
+          .replace(/\s+/g, ' ')
+          .trim()
+          .slice(0, 90);
+
+        li.innerHTML = `
+          <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+            <div style="flex:1; min-width:0;">
+              <div class="entry-list-date">${formatDateShort(entry.dateISO)} · ${formatTime(entry.dateISO)}</div>
+              <div class="entry-list-preview">${preview || '<em>Empty entry</em>'}</div>
+            </div>
+            <button class="delete-entry-btn" onclick="event.stopPropagation(); deleteEntry('${entry.id}')" title="Delete entry" aria-label="Delete this entry">✕</button>
+          </div>`;
+
+        li.addEventListener('click', () => loadEntry(entry.id));
+        li.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') loadEntry(entry.id); });
+
+        entryList.appendChild(li);
+      });
+    }
+
+    // ---- Load entry into editor ----
+    function loadEntry(id) {
+      if (isDirty && currentId) {
+        saveCurrentToMemory();
+      }
+      const entry = getEntryById(id);
+      if (!entry) return;
+      currentId = id;
+      editor.innerHTML = entry.content;
+      dateDisplay.textContent = formatDate(entry.dateISO) + ' · ' + formatTime(entry.dateISO);
+      statDate.textContent = formatDateShort(entry.dateISO);
+      updateWordCount();
+      statusEl.textContent = 'Entry loaded';
+      saveBtn.disabled = false;
+      deleteBtn.disabled = false;
+      isDirty = false;
+      renderSidebar();
+      editor.focus();
+    }
+
+    // ---- New entry ----
+    function newEntry() {
+      if (isDirty && currentId) saveCurrentToMemory();
+      const now = new Date().toISOString();
+      const id = 'entry-' + Date.now();
+      currentId = id;
+      editor.innerHTML = '';
+      const dateStr = formatDate(now);
+      dateDisplay.textContent = dateStr + ' · ' + formatTime(now);
+      statDate.textContent = formatDateShort(now);
+      statusEl.textContent = 'New entry — start writing';
+      saveBtn.disabled = false;
+      deleteBtn.disabled = false;
+      isDirty = false;
+      updateWordCount();
+      editor.focus();
+
+      // Placeholder entry in memory for sidebar tracking
+      entries.unshift({ id, date: dateStr, dateISO: now, content: '' });
+      renderSidebar();
+    }
+
+    // ---- Save ----
+    function saveCurrentToMemory() {
+      if (!currentId) return;
+      const idx = entries.findIndex(e => e.id === currentId);
+      if (idx === -1) return;
+      entries[idx].content = editor.innerHTML;
+      saveEntries();
+    }
+
+    function saveEntry() {
+      if (!currentId) return;
+      saveCurrentToMemory();
+      isDirty = false;
+      statusEl.textContent = 'Saved ✓';
+      renderSidebar();
+      showToast('Entry saved. 📓');
+      setTimeout(() => {
+        if (statusEl.textContent === 'Saved ✓') statusEl.textContent = 'All changes saved';
+      }, 2500);
+    }
+
+    // ---- Delete ----
+    function deleteEntry(id) {
+      if (!confirm('Delete this entry? This cannot be undone.')) return;
+      entries = entries.filter(e => e.id !== id);
+      saveEntries();
+      if (currentId === id) {
+        currentId = null;
+        editor.innerHTML = '';
+        dateDisplay.textContent = 'Start writing your thoughts…';
+        statusEl.textContent = 'Entry deleted';
+        saveBtn.disabled = true;
+        deleteBtn.disabled = true;
+        statDate.textContent = '—';
+        statWords.textContent = '0';
+      }
+      renderSidebar();
+      showToast('Entry deleted.');
+    }
+
+    function deleteCurrentEntry() {
+      if (currentId) deleteEntry(currentId);
+    }
+
+    // ---- Export ----
+    function exportAllEntries() {
+      if (entries.length === 0) {
+        showToast('Nothing to export yet.');
+        return;
+      }
+      const sorted = [...entries].sort((a, b) => new Date(a.dateISO) - new Date(b.dateISO));
+      let text = '========================================\n';
+      text += 'THE CLEARING — Journal Export\n';
+      text += `Exported: ${new Date().toLocaleString()}\n`;
+      text += `${sorted.length} entries\n`;
+      text += '========================================\n\n';
+
+      sorted.forEach((entry, i) => {
+        text += `--- Entry ${i + 1} ---\n`;
+        text += `${formatDate(entry.dateISO)}\n\n`;
+        const plain = entry.content
+          .replace(/<br\s*\/?>/gi, '\n')
+          .replace(/<\/p>/gi, '\n')
+          .replace(/<[^>]*>/g, '')
+          .replace(/&amp;/g, '&')
+          .replace(/&lt;/g, '<')
+          .replace(/&gt;/g, '>')
+          .replace(/&nbsp;/g, ' ')
+          .trim();
+        text += plain + '\n\n';
+      });
+
+      const blob = new Blob([text], { type: 'text/plain; charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `the-clearing-journal-${new Date().toISOString().split('T')[0]}.txt`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('Journal exported. ✓');
+    }
+
+    // ---- Text formatting ----
+    function formatText(command) {
+      document.execCommand(command, false, null);
+      editor.focus();
+    }
+
+    // ---- Word count ----
+    function updateWordCount() {
+      const text = editor.innerText.trim();
+      const count = text ? text.split(/\s+/).filter(Boolean).length : 0;
+      statWords.textContent = count;
+    }
+
+    // ---- Auto-save on input ----
+    editor.addEventListener('input', () => {
+      isDirty = true;
+      updateWordCount();
+      statusEl.textContent = 'Unsaved changes…';
+      clearTimeout(autosaveTimer);
+      autosaveTimer = setTimeout(() => {
+        if (currentId && isDirty) {
+          saveCurrentToMemory();
+          isDirty = false;
+          statusEl.textContent = 'Auto-saved';
+        }
+      }, 2000);
+    });
+
+    // Keyboard shortcuts
+    editor.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 's') {
+        e.preventDefault();
+        saveEntry();
+      }
+    });
+
+    // ---- Init ----
+    loadEntries();
+    renderSidebar();
+
+    if (entries.length > 0) {
+      const sorted = [...entries].sort((a, b) => new Date(b.dateISO) - new Date(a.dateISO));
+      loadEntry(sorted[0].id);
+    } else {
+      statTotal.textContent = '0';
+    }
+  </script>
+</body>
+</html>

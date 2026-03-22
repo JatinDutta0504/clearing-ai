@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Decompress — The Clearing</title>
+  <meta name="description" content="Breathe, release your thoughts, and find a moment of quiet. No tracking, no saving." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Page-specific styles */
+    body { background: var(--cream-warm); }
+
+    .decompress-page {
+      padding-top: 5rem;
+    }
+
+    .decompress-hero {
+      background: linear-gradient(160deg, var(--forest-deep) 0%, var(--forest-mid) 100%);
+      padding: 5rem var(--spacing-md) 4rem;
+      text-align: center;
+    }
+
+    .decompress-hero h1 { color: var(--cream); margin-bottom: 0.75rem; }
+    .decompress-hero p { color: var(--mist); font-size: 1.05rem; }
+
+    .decompress-content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    /* Breathing */
+    .breathing-wrapper {
+      text-align: center;
+    }
+
+    .breathing-stage {
+      position: relative;
+      width: 240px;
+      height: 240px;
+      margin: 0 auto 2rem;
+    }
+
+    .breathing-outer {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 1.5px solid rgba(74, 124, 89, 0.3);
+      transition: transform 4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .breathing-middle {
+      position: absolute;
+      inset: 20px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(74, 124, 89, 0.5);
+      transition: transform 4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .breathing-core {
+      position: absolute;
+      inset: 40px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 35%, var(--forest-pale), var(--forest-light));
+      opacity: 0.7;
+      transition: transform 4s cubic-bezier(0.4, 0, 0.2, 1), opacity 4s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .breathing-stage.expand .breathing-outer { transform: scale(1.4); }
+    .breathing-stage.expand .breathing-middle { transform: scale(1.35); }
+    .breathing-stage.expand .breathing-core { transform: scale(1.45); opacity: 1; }
+
+    .breathing-stage.hold-in .breathing-outer { transform: scale(1.4); }
+    .breathing-stage.hold-in .breathing-middle { transform: scale(1.35); }
+    .breathing-stage.hold-in .breathing-core { transform: scale(1.45); opacity: 0.95; }
+
+    .breathing-stage.contract .breathing-outer { transform: scale(1); }
+    .breathing-stage.contract .breathing-middle { transform: scale(1); }
+    .breathing-stage.contract .breathing-core { transform: scale(1); opacity: 0.6; }
+
+    .breathing-stage.hold-out .breathing-outer { transform: scale(1); }
+    .breathing-stage.hold-out .breathing-middle { transform: scale(1); }
+    .breathing-stage.hold-out .breathing-core { transform: scale(1); opacity: 0.55; }
+
+    .breathing-center-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .breathing-count {
+      font-family: var(--font-sans);
+      font-size: 2.5rem;
+      font-weight: 200;
+      color: var(--forest-deep);
+      line-height: 1;
+    }
+
+    .breathing-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--forest-mid);
+      margin-top: 0.25rem;
+    }
+
+    .breathing-instruction {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--forest-mid);
+      margin-bottom: 0.5rem;
+      min-height: 2em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .breathing-cycle {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .breathing-btn {
+      background: var(--forest-mid);
+      color: var(--cream);
+      border: none;
+      border-radius: var(--radius-full);
+      padding: 0.85rem 2.25rem;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all var(--transition-med);
+      letter-spacing: 0.04em;
+    }
+
+    .breathing-btn:hover {
+      background: var(--forest-deep);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(45, 74, 45, 0.25);
+    }
+
+    .breathing-btn.running {
+      background: var(--earth);
+    }
+
+    /* Sound toggle section */
+    .sound-section {
+      text-align: center;
+    }
+
+    .sound-options {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .sound-option {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: white;
+      border: 1.5px solid var(--cream-dark);
+      border-radius: var(--radius-full);
+      padding: 0.75rem 1.4rem;
+      cursor: pointer;
+      transition: all var(--transition-med);
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    .sound-option:hover {
+      border-color: var(--forest-pale);
+      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    }
+
+    .sound-option.active {
+      background: var(--forest-deep);
+      border-color: var(--forest-deep);
+      color: var(--cream);
+    }
+
+    .sound-emoji { font-size: 1.1rem; }
+
+    .sound-active-indicator {
+      font-size: 0.78rem;
+      color: var(--forest-light);
+      margin-top: 0.75rem;
+      font-style: italic;
+      min-height: 1.5em;
+    }
+
+    /* Waveform visualization */
+    .waveform {
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+      height: 20px;
+    }
+
+    .waveform-bar {
+      width: 3px;
+      background: var(--cream);
+      border-radius: 2px;
+    }
+
+    .sound-option.active .waveform-bar {
+      animation: waveAnim 1.2s ease-in-out infinite;
+    }
+
+    .waveform-bar:nth-child(1) { height: 6px; animation-delay: 0s; }
+    .waveform-bar:nth-child(2) { height: 14px; animation-delay: 0.1s; }
+    .waveform-bar:nth-child(3) { height: 10px; animation-delay: 0.2s; }
+    .waveform-bar:nth-child(4) { height: 18px; animation-delay: 0.05s; }
+    .waveform-bar:nth-child(5) { height: 8px; animation-delay: 0.15s; }
+    .waveform-bar:nth-child(6) { height: 13px; animation-delay: 0.25s; }
+
+    @keyframes waveAnim {
+      0%, 100% { transform: scaleY(0.5); opacity: 0.6; }
+      50% { transform: scaleY(1); opacity: 1; }
+    }
+
+    /* Done section */
+    .done-section {
+      text-align: center;
+      padding: var(--spacing-md);
+      background: linear-gradient(160deg, var(--forest-deep) 0%, var(--forest-mid) 100%);
+      border-radius: var(--radius-lg);
+      margin-top: var(--spacing-md);
+    }
+
+    .done-section h3 {
+      color: var(--cream);
+      margin-bottom: 0.75rem;
+    }
+
+    .done-section p {
+      color: var(--mist);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    /* Thought dump */
+    .thought-word-count {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-align: right;
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+
+    .thought-release-note {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      text-align: center;
+      font-style: italic;
+      margin-top: 0.75rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo">The Clearing</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" role="list">
+      <li><a href="decompress.html">Decompress</a></li>
+      <li><a href="journal.html">Journal</a></li>
+      <li><a href="why.html">Why This Exists</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <main class="decompress-page">
+
+    <!-- Page Header -->
+    <div class="decompress-hero">
+      <p class="page-header-eyebrow">Take your time</p>
+      <h1>Decompress</h1>
+      <p>Nothing here is saved. Nothing is judged. Just you, your breath, and a few quiet minutes.</p>
+    </div>
+
+    <div class="decompress-content">
+
+      <!-- Breathing Exercise -->
+      <div class="decompress-section fade-in">
+        <h2 class="decompress-section-title">Box Breathing</h2>
+        <p class="decompress-section-desc">
+          Inhale for 4, hold for 4, exhale for 4, hold for 4. Used by athletes, surgeons, and the occasional overwhelmed engineer.
+        </p>
+
+        <div class="breathing-wrapper">
+          <div class="breathing-stage" id="breathingRing" aria-live="polite" aria-atomic="true">
+            <div class="breathing-outer"></div>
+            <div class="breathing-middle"></div>
+            <div class="breathing-core"></div>
+            <div class="breathing-center-text">
+              <span class="breathing-count" id="breathCount">—</span>
+              <span class="breathing-label" id="breathLabel">ready</span>
+            </div>
+          </div>
+
+          <div class="breathing-instruction" id="breathInstruction">When you're ready, press start.</div>
+          <div class="breathing-cycle" id="breathCycleDisplay"></div>
+
+          <button class="breathing-btn" id="breathBtn" onclick="toggleBreathing()">
+            Begin
+          </button>
+        </div>
+      </div>
+
+      <!-- Thought Dump -->
+      <div class="decompress-section fade-in">
+        <h2 class="decompress-section-title">Thought Dump</h2>
+        <p class="decompress-section-desc">
+          What's cluttering your mind right now? Write it here. It's not going anywhere — it'll just vanish when you leave the page. That's the point.
+        </p>
+
+        <div style="display: flex; flex-direction: column; align-items: stretch;">
+          <textarea
+            class="thought-dump-area"
+            id="thoughtDump"
+            placeholder="Release it here… the half-formed worries, the things that didn't get said, the code you can't stop thinking about at 11pm…"
+            aria-label="Thought dump area"
+          ></textarea>
+          <p class="thought-word-count" id="thoughtWordCount">Start writing…</p>
+        </div>
+
+        <p class="thought-release-note">
+          🍃 This text is never saved, never sent anywhere. It disappears when you close or navigate away.
+        </p>
+      </div>
+
+      <!-- Ambient Sound -->
+      <div class="decompress-section fade-in sound-section">
+        <h2 class="decompress-section-title">Ambient Sound</h2>
+        <p class="decompress-section-desc">
+          Choose a background to settle into. Purely visual — your own headphones and a sound app work best for the real thing.
+        </p>
+
+        <div class="sound-options">
+          <button class="sound-option" data-sound="rain" onclick="toggleSound(this)">
+            <span class="sound-emoji">🌧️</span>
+            <span>Rain on glass</span>
+            <div class="waveform">
+              <div class="waveform-bar"></div>
+              <div class="waveform-bar"></div>
+              <div class="waveform-bar"></div>
+              <div class="waveform-bar"></div>
+              <div class="waveform-bar"></div>
+              <div class="waveform-bar"></div>
+            </div>
+          </button>
+          <button class="sound-option" data-sound="forest" onclick="toggleSound(this)">
+            <span class="sound-emoji">🌲</span>
+            <span>Forest quiet</span>
+            <div class="waveform">
+              <div class="waveform-bar"></div>
+              <div class="waveform-bar"></div>
+              <div class="waveform-bar"></div>
+              <div class="waveform-bar"></div>
+              <div class="waveform-bar"></div>
+              <div class="waveform-bar"></div>
+            </div>
+          </button>
+          <button class="sound-option" data-sound="fire" onclick="toggleSound(this)">
+            <span class="sound-emoji">🔥</span>
+            <span>Fireplace crackle</span>
+            <div class="waveform">
+              <div class="waveform-bar"></div>
+              <div class="waveform-bar"></div>
+              <div class="waveform-bar"></div>
+              <div class="waveform-bar"></div>
+              <div class="waveform-bar"></div>
+              <div class="waveform-bar"></div>
+            </div>
+          </button>
+          <button class="sound-option" data-sound="stream" onclick="toggleSound(this)">
+            <span class="sound-emoji">💧</span>
+            <span>Running stream</span>
+            <div class="waveform">
+              <div class="waveform-bar"></div>
+              <div class="waveform-bar"></div>
+              <div class="waveform-bar"></div>
+              <div class="waveform-bar"></div>
+              <div class="waveform-bar"></div>
+              <div class="waveform-bar"></div>
+            </div>
+          </button>
+        </div>
+
+        <p class="sound-active-indicator" id="soundIndicator"></p>
+      </div>
+
+      <!-- Done Section -->
+      <div class="done-section fade-in">
+        <h3>Take what you need. Leave when you're ready.</h3>
+        <p>There's no goal here. No completion state. But when you feel a little more like yourself, the door is always open.</p>
+        <a href="index.html" class="btn btn-ghost" id="doneBtn">I'm ready to head back ↩</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <p class="footer-logo">The Clearing</p>
+    <p class="footer-tagline">"Your brain is not a GPU."</p>
+    <ul class="footer-nav" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="decompress.html">Decompress</a></li>
+      <li><a href="journal.html">Journal</a></li>
+      <li><a href="why.html">Why This Exists</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <p class="footer-copy">No tracking. No data. Just a clearing in the woods.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // ============================================
+    // Box Breathing Engine
+    // ============================================
+    const phases = [
+      { name: 'Inhale',   instruction: 'Breathe in…',        duration: 4, cls: 'expand' },
+      { name: 'Hold',     instruction: 'Hold…',              duration: 4, cls: 'hold-in' },
+      { name: 'Exhale',   instruction: 'Breathe out slowly…', duration: 4, cls: 'contract' },
+      { name: 'Hold',     instruction: 'Rest here…',         duration: 4, cls: 'hold-out' },
+    ];
+
+    let breathInterval = null;
+    let phaseIdx = 0;
+    let countDown = phases[0].duration;
+    let cycleCount = 0;
+    let running = false;
+
+    const ring = document.getElementById('breathingRing');
+    const countEl = document.getElementById('breathCount');
+    const labelEl = document.getElementById('breathLabel');
+    const instructionEl = document.getElementById('breathInstruction');
+    const cycleEl = document.getElementById('breathCycleDisplay');
+    const btn = document.getElementById('breathBtn');
+
+    function updateBreathDisplay() {
+      const phase = phases[phaseIdx];
+      countEl.textContent = countDown;
+      labelEl.textContent = phase.name.toLowerCase();
+      instructionEl.textContent = phase.instruction;
+      ring.className = 'breathing-stage ' + phase.cls;
+      cycleEl.textContent = cycleCount > 0 ? `Cycle ${cycleCount}` : '';
+    }
+
+    function breathTick() {
+      countDown--;
+      countEl.textContent = countDown;
+
+      if (countDown <= 0) {
+        phaseIdx = (phaseIdx + 1) % phases.length;
+        if (phaseIdx === 0) cycleCount++;
+        countDown = phases[phaseIdx].duration;
+        updateBreathDisplay();
+      } else {
+        countEl.textContent = countDown;
+      }
+    }
+
+    function toggleBreathing() {
+      if (running) {
+        clearInterval(breathInterval);
+        breathInterval = null;
+        running = false;
+        btn.textContent = 'Begin';
+        btn.classList.remove('running');
+        ring.className = 'breathing-stage';
+        countEl.textContent = '—';
+        labelEl.textContent = 'ready';
+        instructionEl.textContent = 'Whenever you\'re ready.';
+        cycleEl.textContent = '';
+        phaseIdx = 0;
+        countDown = phases[0].duration;
+        cycleCount = 0;
+      } else {
+        running = true;
+        btn.textContent = 'Stop';
+        btn.classList.add('running');
+        phaseIdx = 0;
+        countDown = phases[0].duration;
+        cycleCount = 1;
+        updateBreathDisplay();
+        breathInterval = setInterval(breathTick, 1000);
+      }
+    }
+
+    // ============================================
+    // Thought Dump Word Counter
+    // ============================================
+    const thoughtDump = document.getElementById('thoughtDump');
+    const wordCountEl = document.getElementById('thoughtWordCount');
+
+    thoughtDump.addEventListener('input', () => {
+      const text = thoughtDump.value.trim();
+      if (!text) {
+        wordCountEl.textContent = 'Start writing…';
+        return;
+      }
+      const words = text.split(/\s+/).filter(Boolean).length;
+      wordCountEl.textContent = `${words} word${words !== 1 ? 's' : ''} — gone when you leave 🍃`;
+    });
+
+    // ============================================
+    // Sound Toggle
+    // ============================================
+    const soundLabels = {
+      rain: 'Rain on glass is playing…',
+      forest: 'The forest hum surrounds you…',
+      fire: 'Fireplace crackle fills the room…',
+      stream: 'A running stream flows nearby…',
+    };
+
+    let activeSound = null;
+
+    function toggleSound(btn) {
+      const sound = btn.dataset.sound;
+
+      if (btn.classList.contains('active')) {
+        btn.classList.remove('active');
+        activeSound = null;
+        document.getElementById('soundIndicator').textContent = '';
+        return;
+      }
+
+      document.querySelectorAll('.sound-option').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeSound = sound;
+      document.getElementById('soundIndicator').textContent = soundLabels[sound] || '';
+    }
+
+    // Done button — show toast before redirect
+    document.getElementById('doneBtn').addEventListener('click', function (e) {
+      e.preventDefault();
+      showToast('Good. Carry that quiet with you. 🌿');
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 2000);
+    });
+  </script>
+</body>
+</html>

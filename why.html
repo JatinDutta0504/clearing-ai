@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why This — The Clearing</title>
+  <meta name="description" content="An honest look at why software engineers are burning out from AI — and why it's not talked about enough." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .essay-page {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 6rem 2rem 8rem;
+    }
+    .essay-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-sage);
+      margin-bottom: 1.5rem;
+    }
+    .essay-title {
+      font-family: 'Lora', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 600;
+      color: var(--color-forest);
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+    .essay-subtitle {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--color-moss);
+      margin-bottom: 3rem;
+    }
+    .essay-divider {
+      width: 48px;
+      height: 2px;
+      background: var(--color-sage);
+      margin-bottom: 3rem;
+      border: none;
+    }
+    .essay-body p {
+      font-family: 'Lora', serif;
+      font-size: 1.1rem;
+      line-height: 1.85;
+      color: var(--color-bark);
+      margin-bottom: 1.75rem;
+    }
+    .pull-quote {
+      border-left: 3px solid var(--color-sage);
+      padding: 1.25rem 1.75rem;
+      margin: 2.5rem 0;
+      background: var(--color-parchment);
+      border-radius: 0 8px 8px 0;
+    }
+    .pull-quote p {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--color-forest) !important;
+      margin: 0 !important;
+      line-height: 1.6 !important;
+    }
+    .essay-section-heading {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-sage);
+      margin: 3rem 0 1.25rem;
+    }
+    .essay-footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--color-mist);
+    }
+    .essay-footer p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: var(--color-moss);
+      font-style: italic;
+    }
+    .essay-cta {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.85rem 2rem;
+      background: var(--color-forest);
+      color: var(--color-cream);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .essay-cta:hover {
+      background: var(--color-moss);
+      transform: translateY(-1px);
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo">The Clearing</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" role="list">
+      <li><a href="decompress.html">Decompress</a></li>
+      <li><a href="journal.html">Journal</a></li>
+      <li><a href="why.html" class="active">Why This</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <main class="essay-page">
+    <p class="essay-label">Essay</p>
+    <h1 class="essay-title">The Quiet Exhaustion Nobody's Talking About</h1>
+    <p class="essay-subtitle">On AI fatigue, the burden of the last human in the loop, and why engineers are tired in a way that's hard to name.</p>
+    <hr class="essay-divider" />
+
+    <div class="essay-body">
+
+      <p>It started as excitement. Of course it did. You ran your first prompt through Copilot or ChatGPT and something clicked — code appeared, boilerplate vanished, the blank screen stopped being terrifying. You felt ten feet tall. You were shipping faster than you ever had. Your PRs were bigger. Your standups were punchy. You were, for a brief window, a superhero.</p>
+
+      <p>That was the first phase. Nobody warned you about the second one.</p>
+
+      <div class="pull-quote">
+        <p>"The tools got faster. The humans didn't."</p>
+      </div>
+
+      <p>Here's what actually happens when AI enters your workflow: the volume goes up. A lot. You're generating more code, reviewing more code, context-switching faster, closing more tickets. The surface area of your responsibility expands quietly and continuously — and nobody notices because the metrics look great. Output is up. Velocity is up. On paper, everything is fine.</p>
+
+      <p>But you're the one reading the generated code. You're the one catching the subtle bugs that slip through — the ones that look right but aren't, the ones you can only spot if you understand why the code was written, not just what it does. You're the last checkpoint. The only one in the loop who actually understands context, consequences, and edge cases that haven't happened yet.</p>
+
+      <p>That's not a small job. That's an enormous job. And it's a job that got bigger the moment AI arrived, not smaller.</p>
+
+      <p class="essay-section-heading">The myth of the speedup</p>
+
+      <p>There's a story we tell about AI productivity tools: they give you time back. And in one narrow sense, they do — certain tasks that took 30 minutes now take 3. But those minutes don't go to rest. They go to more tasks. The throughput pressure scales to match the tools. You're not working less. You're working differently, at a pace that was designed for machines, not for a person with a nervous system.</p>
+
+      <div class="pull-quote">
+        <p>"Estimated: 68% of engineers using daily AI coding tools report working longer hours than before adoption — because expectations scaled faster than capacity."</p>
+      </div>
+
+      <p>There's also a subtler cost: cognitive novelty. Every AI-generated block of code is slightly unfamiliar — it's not code you wrote, it doesn't carry your fingerprints, and your brain has to work harder to hold it in memory. Reviewing code you didn't write is always more taxing than reviewing your own. Now imagine doing that all day, every day, for months.</p>
+
+      <p class="essay-section-heading">The loneliness of the checkpoint</p>
+
+      <p>Something nobody talks about: it can feel isolating. You're surrounded by productivity, but it's not human productivity. There's no pair programming moment where someone else gets it wrong and you laugh about it. There's no shared frustration, no afternoon where you and a colleague get stuck on the same bug and figure it out together, building something unspoken between you. The collaboration has changed shape. It's faster and lonelier at the same time.</p>
+
+      <p>And when you try to talk about being tired — actually tired, not just "I need a coffee" tired — people look at you strangely. Aren't you shipping more than ever? Isn't the AI doing half the work? Try explaining that the half the AI does isn't actually half the work.</p>
+
+      <div class="pull-quote">
+        <p>"Being the last human in the loop is the most important job in software right now. It's also the one most likely to burn you out."</p>
+      </div>
+
+      <p class="essay-section-heading">What rest even means now</p>
+
+      <p>Rest used to be easier to find. You'd close the laptop, go for a walk, and your brain would slowly let go of the problem. Now the problem doesn't feel finished because it's never fully yours. The code is always a little foreign. The PRs never fully close. The backlog keeps refilling faster than you can drain it because the AI is always one prompt ahead of you, generating the next task before you've recovered from the last.</p>
+
+      <p>Real rest — the kind that actually restores you — requires a kind of completeness. A sense that the thing is done, or at least paused in a way you control. That's harder to find now. The pipeline doesn't pause. It just keeps generating.</p>
+
+      <p>So what do you do? You need a place that's explicitly not that. A place with no output, no velocity, no tickets, no metrics. Just you, a little silence, and the slowly returning memory that you are a person, not a process.</p>
+
+      <p>That's why we built this.</p>
+
+    </div>
+
+    <div class="essay-footer">
+      <p>Written by engineers who needed to write it down.</p>
+      <a href="decompress.html" class="essay-cta">Take a break now →</a>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

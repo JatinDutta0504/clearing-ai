@@ -782,6 +782,7 @@
           <button class="nav-link dropdown-trigger">Tools <span class="dropdown-arrow">▾</span></button>
           <ul class="dropdown-menu">
             <li><a href="index.html#quiz">Fatigue Quiz</a></li>
+            <li><a href="checkin.html">Daily Check-in</a></li>
             <li><a href="decompress.html">Decompress</a></li>
             <li><a href="journal.html">Journal</a></li>
           </ul>
@@ -791,7 +792,7 @@
           <ul class="dropdown-menu">
             <li><a href="resources.html">Resources</a></li>
             <li><a href="newsletter.html">Newsletter</a></li>
-        <li><a href="quiz-results.html">Quiz Results</a></li>
+            <li><a href="quiz-results.html">Quiz Results</a></li>
           </ul>
         </li>
         <li><a href="about.html" class="nav-link">About</a></li>
@@ -1010,10 +1011,11 @@
            SECTION: AMBIENT SOUND
       =================================================== -->
       <div class="decompress-section fade-in sound-section">
-        <h2 class="decompress-section-title">Set the Scene</h2>
+        <h2 class="decompress-section-title">Ambient Sounds</h2>
         <p class="decompress-section-desc">
-          Choose a background texture to settle into. Purely visual — your own headphones with a sound app work best for the real thing.
-          During focus sessions, consider brown noise, rain, or coffee-shop ambience — research suggests moderate ambient sound (~70dB) improves creative cognition for many people.
+          Real audio, generated entirely in your browser — no downloads, no tracking.
+          Research suggests moderate ambient sound (~70dB) improves creative cognition and masks distractions.
+          Headphones recommended.
         </p>
 
         <div class="sound-options">
@@ -1064,7 +1066,12 @@
           </button>
         </div>
 
-        <p class="sound-active-indicator" id="soundIndicator"></p>
+        <div style="display:flex; align-items:center; gap:0.75rem; margin-top:1.25rem; flex-wrap:wrap;">
+          <label for="soundVolumeSlider" style="font-size:0.82rem; color:var(--text-muted); font-family:var(--font-sans); flex-shrink:0;">Volume</label>
+          <input type="range" id="soundVolumeSlider" min="0" max="1" step="0.05" value="0.5"
+            style="flex:1; max-width:200px; accent-color:var(--forest-mid);" aria-label="Ambient sound volume" />
+        </div>
+        <p class="sound-active-indicator" id="soundIndicator" style="font-size:0.85rem; color:var(--forest-mid); margin-top:0.75rem; min-height:1.2em;"></p>
       </div>
 
       <!-- ===================================================
@@ -1076,6 +1083,7 @@
         </p>
         <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center;">
           <a href="tips.html" class="btn btn-ghost" style="font-size: 0.82rem; padding: 0.5rem 1.1rem;">10 Signs of AI Fatigue →</a>
+          <a href="checkin.html" class="btn btn-ghost" style="font-size: 0.82rem; padding: 0.5rem 1.1rem;">Daily Check-in →</a>
           <a href="stories.html" class="btn btn-ghost" style="font-size: 0.82rem; padding: 0.5rem 1.1rem;">Engineer Stories →</a>
           <a href="resources.html" class="btn btn-ghost" style="font-size: 0.82rem; padding: 0.5rem 1.1rem;">Reading List →</a>
           <a href="journal.html" class="btn btn-ghost" style="font-size: 0.82rem; padding: 0.5rem 1.1rem;">Private Journal →</a>
@@ -1111,6 +1119,8 @@
       <li><a href="resources.html">Resources</a></li>
       <li><a href="newsletter.html">Newsletter</a></li>
         <li><a href="quiz-results.html">Quiz Results</a></li>
+      <li><a href="checkin.html">Daily Check-in</a></li>
+      <li><a href="sitemap.html">Sitemap</a></li>
       <li><a href="about.html">About</a></li>
     </ul>
     <p class="footer-copy">Made by a few engineers who needed this. No tracking. No data. Just a clearing in the woods.</p>
@@ -1529,26 +1539,251 @@
   });
 
   // ============================================================
-  // AMBIENT SOUND TOGGLE
+  // AMBIENT SOUND ENGINE — Web Audio API (no external files)
   // ============================================================
+  let audioCtx = null;
+  let currentSound = null;
+  let masterGain = null;
+  let volumeValue = 0.5;
+
+  // Volume slider wiring (injected below)
+  function initAudioCtx() {
+    if (!audioCtx) {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      masterGain = audioCtx.createGain();
+      masterGain.gain.setValueAtTime(volumeValue, audioCtx.currentTime);
+      masterGain.connect(audioCtx.destination);
+    }
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+  }
+
+  // ---- noise generator utilities ----
+  function makeNoiseBuffer(seconds, type) {
+    // type: 'white' | 'brown' | 'pink'
+    const sampleRate = audioCtx.sampleRate;
+    const length = sampleRate * seconds;
+    const buffer = audioCtx.createBuffer(2, length, sampleRate);
+    for (let c = 0; c < 2; c++) {
+      const data = buffer.getChannelData(c);
+      if (type === 'white') {
+        for (let i = 0; i < length; i++) data[i] = Math.random() * 2 - 1;
+      } else if (type === 'brown') {
+        let last = 0;
+        for (let i = 0; i < length; i++) {
+          const white = Math.random() * 2 - 1;
+          data[i] = (last + (0.02 * white)) / 1.02;
+          last = data[i];
+          data[i] *= 3.5;
+        }
+      } else if (type === 'pink') {
+        let b0=0,b1=0,b2=0,b3=0,b4=0,b5=0,b6=0;
+        for (let i = 0; i < length; i++) {
+          const w = Math.random() * 2 - 1;
+          b0 = 0.99886*b0 + w*0.0555179; b1 = 0.99332*b1 + w*0.0750759;
+          b2 = 0.96900*b2 + w*0.1538520; b3 = 0.86650*b3 + w*0.3104856;
+          b4 = 0.55000*b4 + w*0.5329522; b5 = -0.7616*b5 - w*0.0168980;
+          data[i] = (b0+b1+b2+b3+b4+b5+b6+w*0.5362) * 0.11;
+          b6 = w * 0.115926;
+        }
+      }
+    }
+    return buffer;
+  }
+
+  function makeNoiseSource(buffer) {
+    const source = audioCtx.createBufferSource();
+    source.buffer = buffer;
+    source.loop = true;
+    return source;
+  }
+
+  // ---- filter helpers ----
+  function makeFilter(type, freq, Q) {
+    const f = audioCtx.createBiquadFilter();
+    f.type = type; f.frequency.value = freq;
+    if (Q !== undefined) f.Q.value = Q;
+    return f;
+  }
+
+  // ---- sound builders ----
+  function buildRain() {
+    // Brown noise through high-pass + subtle bandpass for "patter" character
+    const buf = makeNoiseBuffer(4, 'brown');
+    const src = makeNoiseSource(buf);
+    const hp = makeFilter('highpass', 200);
+    const bp = makeFilter('bandpass', 1200, 0.5);
+    const gain = audioCtx.createGain();
+    gain.gain.value = 1.6;
+    src.connect(hp); hp.connect(bp); bp.connect(gain); gain.connect(masterGain);
+    src.start();
+    return { stop: () => { try { src.stop(); } catch(e){} }, nodes: [src, hp, bp, gain] };
+  }
+
+  function buildForest() {
+    // Pink noise through low-pass — gives a soft, leafy breeze texture
+    const buf = makeNoiseBuffer(5, 'pink');
+    const src = makeNoiseSource(buf);
+    const lp = makeFilter('lowpass', 800);
+    const gain = audioCtx.createGain();
+    gain.gain.value = 1.2;
+
+    // Slow amplitude LFO for gentle breeze swells
+    const lfo = audioCtx.createOscillator();
+    const lfoGain = audioCtx.createGain();
+    lfo.type = 'sine';
+    lfo.frequency.value = 0.05; // very slow swell
+    lfoGain.gain.value = 0.15;
+    lfo.connect(lfoGain); lfoGain.connect(gain.gain);
+    lfo.start();
+
+    src.connect(lp); lp.connect(gain); gain.connect(masterGain);
+    src.start();
+    return { stop: () => { try { src.stop(); lfo.stop(); } catch(e){} } };
+  }
+
+  function buildFire() {
+    // Brown noise + random crackle impulses at lowpass
+    const buf = makeNoiseBuffer(4, 'brown');
+    const src = makeNoiseSource(buf);
+    const lp = makeFilter('lowpass', 400);
+    const hp = makeFilter('highpass', 60);
+    const gain = audioCtx.createGain();
+    gain.gain.value = 2.0;
+
+    src.connect(hp); hp.connect(lp); lp.connect(gain); gain.connect(masterGain);
+    src.start();
+
+    // Crackle: random impulse bursts via envelope on white noise
+    let crackling = true;
+    function crackle() {
+      if (!crackling) return;
+      const delay = 200 + Math.random() * 1800;
+      setTimeout(() => {
+        if (!crackling) return;
+        const cBuf = makeNoiseBuffer(0.05, 'white');
+        const cSrc = audioCtx.createBufferSource();
+        cSrc.buffer = cBuf;
+        const cGain = audioCtx.createGain();
+        const cHp = makeFilter('highpass', 1500);
+        const cLp = makeFilter('lowpass', 4000);
+        const vol = 0.1 + Math.random() * 0.25;
+        cGain.gain.setValueAtTime(vol, audioCtx.currentTime);
+        cGain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.04);
+        cSrc.connect(cHp); cHp.connect(cLp); cLp.connect(cGain); cGain.connect(masterGain);
+        cSrc.start();
+        crackle();
+      }, delay);
+    }
+    crackle();
+
+    return { stop: () => { try { src.stop(); } catch(e){} crackling = false; } };
+  }
+
+  function buildStream() {
+    // White noise through bandpass — running water character
+    const buf = makeNoiseBuffer(4, 'white');
+    const src = makeNoiseSource(buf);
+    const bp1 = makeFilter('bandpass', 600, 0.8);
+    const bp2 = makeFilter('bandpass', 1800, 1.2);
+    const hp = makeFilter('highpass', 300);
+    const gain = audioCtx.createGain();
+    gain.gain.value = 0.9;
+
+    // Gentle gurgle LFO
+    const lfo = audioCtx.createOscillator();
+    const lfoGain = audioCtx.createGain();
+    lfo.type = 'sine';
+    lfo.frequency.value = 0.3;
+    lfoGain.gain.value = 100;
+    lfo.connect(lfoGain); lfoGain.connect(bp1.frequency);
+    lfo.start();
+
+    src.connect(hp); hp.connect(bp1); bp1.connect(bp2); bp2.connect(gain); gain.connect(masterGain);
+    src.start();
+    return { stop: () => { try { src.stop(); lfo.stop(); } catch(e){} } };
+  }
+
+  function buildCafe() {
+    // Layered brown + pink noise — warm murmur texture
+    const buf1 = makeNoiseBuffer(5, 'brown');
+    const buf2 = makeNoiseBuffer(5, 'pink');
+    const src1 = makeNoiseSource(buf1);
+    const src2 = makeNoiseSource(buf2);
+    const lp = makeFilter('lowpass', 600);
+    const bp = makeFilter('bandpass', 300, 0.6);
+    const gain1 = audioCtx.createGain();
+    const gain2 = audioCtx.createGain();
+    gain1.gain.value = 1.4;
+    gain2.gain.value = 0.5;
+
+    // Slow lively energy LFO
+    const lfo = audioCtx.createOscillator();
+    const lfoGain = audioCtx.createGain();
+    lfo.type = 'triangle';
+    lfo.frequency.value = 0.15;
+    lfoGain.gain.value = 0.12;
+    lfo.connect(lfoGain); lfoGain.connect(gain1.gain);
+    lfo.start();
+
+    src1.connect(lp); lp.connect(gain1); gain1.connect(masterGain);
+    src2.connect(bp); bp.connect(gain2); gain2.connect(masterGain);
+    src1.start(); src2.start();
+    return { stop: () => { try { src1.stop(); src2.stop(); lfo.stop(); } catch(e){} } };
+  }
+
+  const soundBuilders = { rain: buildRain, forest: buildForest, fire: buildFire, stream: buildStream, cafe: buildCafe };
+
   const soundLabels = {
-    rain:   'Rain on glass is playing…',
-    forest: 'The forest hum surrounds you…',
-    fire:   'Fireplace crackle fills the room…',
-    stream: 'A running stream flows nearby…',
-    cafe:   'Coffee shop hum in the background…',
+    rain:   '🌧️ Rain on glass is playing…',
+    forest: '🌲 Forest quiet surrounds you…',
+    fire:   '🔥 Fireplace crackle fills the room…',
+    stream: '💧 Running stream flows nearby…',
+    cafe:   '☕ Coffee shop hum in the background…',
   };
+
+  function stopCurrentSound() {
+    if (currentSound) {
+      try { currentSound.stop(); } catch(e) {}
+      currentSound = null;
+    }
+  }
 
   function toggleSound(btn) {
     const sound = btn.dataset.sound;
+
     if (btn.classList.contains('active')) {
+      stopCurrentSound();
       btn.classList.remove('active');
-      document.getElementById('soundIndicator').textContent = '';
+      document.getElementById('soundIndicator').textContent = 'Sound off.';
+      setTimeout(() => { document.getElementById('soundIndicator').textContent = ''; }, 2000);
       return;
     }
+
+    initAudioCtx();
+    stopCurrentSound();
     document.querySelectorAll('.sound-option').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    document.getElementById('soundIndicator').textContent = soundLabels[sound] || '';
+
+    try {
+      const builder = soundBuilders[sound];
+      if (builder) {
+        currentSound = builder();
+        document.getElementById('soundIndicator').textContent = soundLabels[sound] || '';
+      }
+    } catch (err) {
+      document.getElementById('soundIndicator').textContent = 'Audio not available in this browser.';
+    }
+  }
+
+  // Wire up volume slider
+  const volSlider = document.getElementById('soundVolumeSlider');
+  if (volSlider) {
+    volSlider.addEventListener('input', () => {
+      volumeValue = parseFloat(volSlider.value);
+      if (masterGain) {
+        masterGain.gain.setValueAtTime(volumeValue, audioCtx.currentTime);
+      }
+    });
   }
 
   // ============================================================

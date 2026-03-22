@@ -341,6 +341,7 @@
         <p class="quiz-tier-desc">${tier.description}</p>
 
         <a href="${tier.cta.href}" class="btn btn-primary quiz-result-cta">${tier.cta.text}</a>
+        <a href="quiz-results.html#tier-${tiers.indexOf(tier) + 1}" class="btn btn-secondary quiz-result-cta" style="margin-top:0.5rem;">Read your full tier breakdown →</a>
 
         <div class="quiz-breakdown">
           <h4 class="quiz-breakdown-title">Your answers</h4>

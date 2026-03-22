@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Which AI Coding Tools Cause the Most Fatigue? A Developer's Honest Guide</title>
+  <meta name="description" content="Comparing GitHub Copilot, Cursor, ChatGPT, and Codeium on fatigue dimensions: decision fatigue, skill erosion, dependency risk, and cognitive load. An honest look for burnt-out engineers." />
+  <meta name="keywords" content="AI coding tools fatigue, GitHub Copilot burnout, Cursor IDE fatigue, ChatGPT developer dependence, Codeium review burnout, AI tool comparison engineers, copilot skill erosion, cursor dependency risk, AI coding assistant overload, which AI tool causes most burnout, developer AI fatigue comparison 2025, best AI tools for avoiding burnout" />
+  <meta name="author" content="The Clearing" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://clearing-ai.com/compare.html" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://clearing-ai.com/compare.html" />
+  <meta property="og:title" content="Which AI Coding Tools Cause the Most Fatigue? A Developer's Honest Guide" />
+  <meta property="og:description" content="Copilot vs. Cursor vs. ChatGPT vs. Codeium — compared not on features, but on fatigue. Decision fatigue, skill erosion, dependency risk, cognitive load." />
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png" />
+  <meta property="og:site_name" content="The Clearing" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Which AI Coding Tools Cause the Most Fatigue? A Developer's Honest Guide" />
+  <meta name="twitter:description" content="We compared Copilot, Cursor, ChatGPT, and Codeium on what matters to burnt-out engineers: fatigue, skill erosion, dependency risk, and cognitive load." />
+  <meta name="twitter:image" content="https://clearing-ai.com/og-image.png" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Which AI Coding Tools Cause the Most Fatigue? A Developer's Honest Guide",
+    "description": "Comparing GitHub Copilot, Cursor, ChatGPT, and Codeium on fatigue dimensions including decision fatigue, skill erosion, dependency risk, and cognitive load.",
+    "url": "https://clearing-ai.com/compare.html",
+    "datePublished": "2026-03-22",
+    "dateModified": "2026-03-22",
+    "author": { "@type": "Organization", "name": "The Clearing" },
+    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "keywords": "AI coding tools fatigue, GitHub Copilot burnout, Cursor IDE fatigue, developer AI burnout comparison",
+    "wordCount": 4400,
+    "inLanguage": "en-US",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://clearing-ai.com/compare.html" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Which AI coding tool causes the most decision fatigue?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Cursor tends to generate the highest decision fatigue because its inline multi-line completions arrive frequently and at high confidence, requiring constant micro-decisions about whether to accept, reject, or modify. ChatGPT in a browser tab causes less in-flow disruption but introduces context-switch cost. Copilot sits in the middle — suggestions are visible but easier to ignore." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does GitHub Copilot cause skill erosion?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, research and practitioner reports consistently find that engineers who rely heavily on Copilot for recall (syntax, API names, algorithm patterns) gradually lose the ability to retrieve that information independently. The risk is highest for junior engineers whose skills are still forming, and for recall of less-common patterns that appear infrequently in everyday work." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Codeium less fatiguing than Copilot?",
+        "acceptedAnswer": { "@type": "Answer", "text": "In terms of frequency and intrusiveness, Codeium's suggestions are comparable to Copilot's. Its fatigue profile is similar. Some engineers find the free tier's lower training data diversity produces suggestions they override more often, which can slightly increase decision fatigue in niche or specialized domains." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use AI coding tools without burning out?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes — the key is deliberate use. Set clear zones where you allow vs. prohibit AI assistance. Use AI for exploration and boilerplate, not for core logic where your skills need exercise. Take regular no-AI days to recalibrate your baseline and monitor for skill drift." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the lowest-fatigue way to use AI for coding?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Using AI in a separate context (browser tab, separate IDE window) rather than inline creates a natural cognitive boundary. You initiate the interaction deliberately rather than receiving constant passive suggestions. This preserves your flow state and makes AI a tool you reach for rather than one that interrupts you." }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/" },
+      { "@type": "ListItem", "position": 2, "name": "AI Tool Fatigue Comparison", "item": "https://clearing-ai.com/compare.html" }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── compare.html specific styles ── */
+    .compare-hero {
+      padding: 5rem 2rem 3rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .compare-hero .eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--forest-pale, #7aab8a);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .compare-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      color: var(--text, #1e293b);
+    }
+    .compare-hero .lead {
+      font-size: 1.15rem;
+      line-height: 1.75;
+      color: var(--text-muted, #64748b);
+      max-width: 720px;
+    }
+    .reading-time {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      color: var(--text-muted, #64748b);
+      background: var(--card-bg, #f8fafc);
+      border: 1px solid var(--border, #e2e8f0);
+      border-radius: 999px;
+      padding: 0.3rem 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    /* disclaimer box */
+    .honest-disclaimer {
+      background: var(--card-bg, #f8fafc);
+      border-left: 4px solid var(--forest-pale, #7aab8a);
+      border-radius: 0 12px 12px 0;
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+      font-size: 0.925rem;
+      line-height: 1.65;
+      color: var(--text, #1e293b);
+    }
+    .honest-disclaimer strong {
+      display: block;
+      margin-bottom: 0.4rem;
+      color: var(--forest-pale, #7aab8a);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* fatigue score matrix */
+    .matrix-wrap {
+      overflow-x: auto;
+      margin: 2rem 0;
+      border-radius: 12px;
+      border: 1px solid var(--border, #e2e8f0);
+    }
+    .fatigue-matrix {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      min-width: 560px;
+    }
+    .fatigue-matrix thead {
+      background: var(--nav-bg, #0f172a);
+      color: #f0f9ff;
+    }
+    .fatigue-matrix thead th {
+      padding: 0.9rem 1rem;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .fatigue-matrix thead th:first-child {
+      border-radius: 12px 0 0 0;
+    }
+    .fatigue-matrix thead th:last-child {
+      border-radius: 0 12px 0 0;
+    }
+    .fatigue-matrix tbody tr {
+      border-bottom: 1px solid var(--border, #e2e8f0);
+      transition: background 0.15s;
+    }
+    .fatigue-matrix tbody tr:last-child {
+      border-bottom: none;
+    }
+    .fatigue-matrix tbody tr:hover {
+      background: var(--card-bg, #f8fafc);
+    }
+    .fatigue-matrix tbody td {
+      padding: 0.85rem 1rem;
+      color: var(--text, #1e293b);
+      vertical-align: middle;
+    }
+    .fatigue-matrix tbody td:first-child {
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .score-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      border-radius: 999px;
+      padding: 0.25rem 0.7rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .score-low   { background: #dcfce7; color: #166534; }
+    .score-mid   { background: #fef9c3; color: #854d0e; }
+    .score-high  { background: #fee2e2; color: #991b1b; }
+    .score-vhigh { background: #fce7f3; color: #9d174d; }
+    [data-theme="dark"] .score-low   { background: #14532d; color: #86efac; }
+    [data-theme="dark"] .score-mid   { background: #422006; color: #fde68a; }
+    [data-theme="dark"] .score-high  { background: #450a0a; color: #fca5a5; }
+    [data-theme="dark"] .score-vhigh { background: #500724; color: #f9a8d4; }
+
+    /* tool profile cards */
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    .tool-card {
+      background: var(--card-bg, #f8fafc);
+      border: 1px solid var(--border, #e2e8f0);
+      border-radius: 16px;
+      padding: 1.75rem;
+      transition: box-shadow 0.2s;
+    }
+    .tool-card:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    .tool-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .tool-emoji {
+      font-size: 2rem;
+      line-height: 1;
+    }
+    .tool-name {
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--text, #1e293b);
+    }
+    .tool-tagline {
+      font-size: 0.8rem;
+      color: var(--text-muted, #64748b);
+    }
+    .tool-rating-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0.5rem 0;
+      font-size: 0.875rem;
+    }
+    .tool-rating-label {
+      color: var(--text-muted, #64748b);
+    }
+    .rating-bar {
+      width: 120px;
+      height: 6px;
+      background: var(--border, #e2e8f0);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .rating-fill {
+      height: 100%;
+      border-radius: 999px;
+    }
+    .fill-green  { background: #4ade80; }
+    .fill-yellow { background: #facc15; }
+    .fill-orange { background: #fb923c; }
+    .fill-red    { background: #f87171; }
+
+    .tool-verdict {
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border, #e2e8f0);
+      font-size: 0.875rem;
+      line-height: 1.65;
+      color: var(--text, #1e293b);
+    }
+
+    /* dimension sections */
+    .dimension-section {
+      margin: 3rem 0;
+    }
+    .dimension-section h2 {
+      font-size: 1.7rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      color: var(--text, #1e293b);
+    }
+    .dimension-section .dim-intro {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--text-muted, #64748b);
+      margin-bottom: 1.5rem;
+      max-width: 760px;
+    }
+
+    /* inline callout */
+    .callout {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      font-size: 0.925rem;
+      line-height: 1.65;
+    }
+    .callout-tip    { background: #f0fdf4; border: 1px solid #86efac; color: #14532d; }
+    .callout-warn   { background: #fefce8; border: 1px solid #fde047; color: #713f12; }
+    .callout-danger { background: #fef2f2; border: 1px solid #fca5a5; color: #7f1d1d; }
+    [data-theme="dark"] .callout-tip    { background: #052e16; border-color: #16a34a; color: #86efac; }
+    [data-theme="dark"] .callout-warn   { background: #1c1002; border-color: #ca8a04; color: #fde68a; }
+    [data-theme="dark"] .callout-danger { background: #1c0000; border-color: #dc2626; color: #fca5a5; }
+    .callout strong { display: block; margin-bottom: 0.3rem; font-size: 0.78rem; letter-spacing: 0.07em; text-transform: uppercase; }
+
+    /* toc */
+    .toc-box {
+      background: var(--card-bg, #f8fafc);
+      border: 1px solid var(--border, #e2e8f0);
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      margin: 2.5rem 0;
+    }
+    .toc-box h3 {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--forest-pale, #7aab8a);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .toc-box ol {
+      margin: 0;
+      padding-left: 1.25rem;
+    }
+    .toc-box li {
+      margin: 0.4rem 0;
+      font-size: 0.9rem;
+    }
+    .toc-box a {
+      color: var(--text-muted, #64748b);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .toc-box a:hover { color: var(--forest-pale, #7aab8a); }
+
+    /* survival guide */
+    .survival-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .survival-card {
+      background: var(--card-bg, #f8fafc);
+      border: 1px solid var(--border, #e2e8f0);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+    .survival-card h4 {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      font-size: 0.925rem;
+      color: var(--text, #1e293b);
+    }
+    .survival-card p {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--text-muted, #64748b);
+      margin: 0;
+    }
+
+    /* faq */
+    .faq-section { margin: 3rem 0; }
+    .faq-section h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 1.5rem; color: var(--text, #1e293b); }
+    .faq-item { border-bottom: 1px solid var(--border, #e2e8f0); }
+    .faq-question {
+      width: 100%; background: none; border: none; padding: 1rem 0;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 1rem; font-weight: 600; cursor: pointer; text-align: left;
+      color: var(--text, #1e293b); gap: 1rem;
+    }
+    .faq-icon { font-size: 1.4rem; color: var(--forest-pale, #7aab8a); flex-shrink: 0; transition: transform 0.25s; }
+    .faq-answer { padding: 0 0 1.25rem; font-size: 0.95rem; line-height: 1.75; color: var(--text-muted, #64748b); }
+
+    /* explore more */
+    .explore-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .explore-card {
+      display: block;
+      background: var(--card-bg, #f8fafc);
+      border: 1px solid var(--border, #e2e8f0);
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.2s;
+    }
+    .explore-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+    .explore-card .ec-emoji { font-size: 1.5rem; margin-bottom: 0.4rem; }
+    .explore-card .ec-title { font-weight: 700; font-size: 0.9rem; color: var(--text, #1e293b); margin-bottom: 0.25rem; }
+    .explore-card .ec-desc  { font-size: 0.8rem; color: var(--text-muted, #64748b); line-height: 1.5; }
+
+    /* article body */
+    .article-body {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+    }
+    .article-body p { font-size: 1rem; line-height: 1.8; color: var(--text, #1e293b); margin-bottom: 1.25rem; }
+    .article-body h2 { font-size: 1.7rem; font-weight: 800; margin: 2.5rem 0 0.75rem; color: var(--text, #1e293b); }
+    .article-body h3 { font-size: 1.2rem; font-weight: 700; margin: 2rem 0 0.5rem; color: var(--text, #1e293b); }
+    .article-body ul, .article-body ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
+    .article-body li { font-size: 0.975rem; line-height: 1.75; color: var(--text, #1e293b); margin-bottom: 0.35rem; }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo">The Clearing</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" role="list">
+      <li><a href="decompress.html">Decompress</a></li>
+      <li><a href="journal.html">Journal</a></li>
+      <li><a href="tips.html">10 Signs</a></li>
+      <li><a href="stories.html">Stories</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="newsletter.html">Newsletter</a></li>
+      <li><a href="glossary.html">Glossary</a></li>
+      <li><a href="recovery.html">Recovery</a></li>
+      <li><a href="workplace.html">At Work</a></li>
+      <li><a href="mindset.html">Mindset</a></li>
+      <li><a href="compare.html" style="color: var(--forest-pale, #7aab8a);">Compare Tools</a></li>
+      <li><a href="burnout-vs-fatigue.html">Fatigue vs. Burnout</a></li>
+      <li><a href="why.html">Why This Exists</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <main id="main-content">
+    <div class="compare-hero">
+      <nav aria-label="Breadcrumb" style="margin-bottom: 1.5rem;">
+        <ol style="list-style:none;padding:0;margin:0;display:flex;gap:0.5rem;align-items:center;font-size:0.8rem;color:var(--text-muted,#64748b);">
+          <li><a href="index.html" style="color:var(--text-muted,#64748b);text-decoration:none;">Home</a></li>
+          <li aria-hidden="true">›</li>
+          <li aria-current="page" style="color:var(--forest-pale,#7aab8a);">AI Tool Fatigue Comparison</li>
+        </ol>
+      </nav>
+
+      <p class="eyebrow">Tool Fatigue Guide · Updated March 2026</p>
+      <h1>Which AI Coding Tools Cause the Most Fatigue?<br>A Developer's Honest Guide</h1>
+      <p class="lead">
+        You didn't come here for a feature matrix. You came because you're exhausted, and you want to understand why. This is a comparison of GitHub Copilot, Cursor, ChatGPT, and Codeium — not on speed or accuracy, but on the four dimensions that actually matter when you're burning out: decision fatigue, skill erosion, dependency risk, and cognitive load.
+      </p>
+      <span class="reading-time">⏱ 18 min read · ~4,400 words</span>
+
+      <div class="honest-disclaimer">
+        <strong>A note on honesty</strong>
+        We have no affiliates, no sponsored placements, and no vendor relationships. Every tool here is evaluated from the perspective of an engineer's mental health and long-term craft — not productivity metrics or benchmark scores. This isn't anti-AI. It's pro-you.
+      </div>
+    </div>
+
+    <article class="article-body">
+
+      <div class="toc-box">
+        <h3>In this guide</h3>
+        <ol>
+          <li><a href="#framework">The four fatigue dimensions explained</a></li>
+          <li><a href="#matrix">The fatigue matrix at a glance</a></li>
+          <li><a href="#copilot">GitHub Copilot — deep dive</a></li>
+          <li><a href="#cursor">Cursor — deep dive</a></li>
+          <li><a href="#chatgpt">ChatGPT for coding — deep dive</a></li>
+          <li><a href="#codeium">Codeium / Windsurf — deep dive</a></li>
+          <li><a href="#survival">How to use any AI tool without burning out</a></li>
+          <li><a href="#quiz-cta">Find out how fatigued you already are</a></li>
+          <li><a href="#faq">Frequently asked questions</a></li>
+        </ol>
+      </div>
+
+      <!-- ───────────────────────────── SECTION 1 ───────────────────────────── -->
+      <div class="dimension-section" id="framework">
+        <h2>The four fatigue dimensions you need to understand</h2>
+        <p class="dim-intro">
+          Before we compare tools, we need a shared vocabulary. Fatigue from AI coding tools isn't one thing. It's four distinct but intertwined phenomena — and each tool hits them differently.
+        </p>
+
+        <h3>1. Decision Fatigue</h3>
+        <p>
+          Every AI suggestion is a micro-decision: accept, reject, modify, or ignore. That sounds trivial. But your brain's decision-making resources are finite, and they don't distinguish between "should I refactor this function?" and "should I accept this 12-line completion?". Research on decision fatigue (Baumeister et al., 1998; Tierney, 2011) consistently shows that the quality of decisions degrades after repeated decision-making — even decisions that feel automatic.
+        </p>
+        <p>
+          Inline AI completions can generate dozens of micro-decisions per hour. Over a full workday, that's hundreds. By late afternoon, you're accepting suggestions you'd have questioned in the morning, not because they're better — but because you're depleted.
+        </p>
+        <div class="callout callout-warn">
+          <strong>Signs you're experiencing decision fatigue from AI tools</strong>
+          You find yourself accepting suggestions on autopilot. You feel strangely tired despite not having written much code yourself. You feel vaguely dissatisfied with the code you've shipped but can't articulate why.
+        </div>
+
+        <h3>2. Skill Erosion</h3>
+        <p>
+          Your programming skills are maintained through use. When AI handles the parts of coding that used to require active recall and construction — syntax lookup, algorithm selection, API usage patterns — those neural pathways get less exercise. This is not theoretical. It's the same mechanism that causes taxi drivers who switch to GPS navigation to lose their spatial memory of city streets (Maguire et al., 2000).
+        </p>
+        <p>
+          The erosion is subtle and slow at first. You notice it one day when you're coding offline, or in a whiteboard interview, or in a system without AI support. The muscles you thought you had aren't quite as strong as they used to be. For junior engineers, the risk is more acute: you might never build those muscles in the first place.
+        </p>
+
+        <h3>3. Dependency Risk</h3>
+        <p>
+          Dependency risk is the psychological and professional vulnerability created by relying on a tool you don't control. What happens when the model changes and suggestions get worse? What happens when the product is deprecated, or the company changes its pricing, or it simply doesn't work offline, or your company bans it?
+        </p>
+        <p>
+          Engineers who are deeply dependent on a specific AI tool often describe a quiet anxiety about losing it — similar to how you might feel if your most important productivity app disappeared. That anxiety is a real cognitive cost, even when nothing bad actually happens.
+        </p>
+
+        <h3>4. Cognitive Load</h3>
+        <p>
+          Cognitive load theory (Sweller, 1988) distinguishes between intrinsic load (inherent complexity of the task), extraneous load (unnecessary processing created by poor presentation), and germane load (useful mental effort that builds schemas). AI tools ideally reduce extraneous load — but often, they inadvertently increase it by adding a parallel stream of information you must process, evaluate, and manage on top of the actual problem you're trying to solve.
+        </p>
+        <p>
+          The code problem you're working on has a cognitive load. The AI's suggestion has a cognitive load — you have to read it, understand it, compare it to your own thinking, and decide. That's additive. When the AI is wrong (and it often is, subtly), that extra load is pure waste.
+        </p>
+      </div>
+
+      <!-- ───────────────────────────── SECTION 2 ───────────────────────────── -->
+      <div class="dimension-section" id="matrix">
+        <h2>The fatigue matrix at a glance</h2>
+        <p>
+          Here's how the four major tools score across each fatigue dimension. Scores are qualitative assessments based on tooling mechanics, interaction patterns, and consistent practitioner feedback — not controlled experiments. Lower is better (less fatigue).
+        </p>
+
+        <div class="matrix-wrap">
+          <table class="fatigue-matrix" aria-label="AI coding tool fatigue comparison matrix">
+            <thead>
+              <tr>
+                <th>Tool</th>
+                <th>Decision Fatigue</th>
+                <th>Skill Erosion</th>
+                <th>Dependency Risk</th>
+                <th>Cognitive Load</th>
+                <th>Overall Fatigue Risk</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>GitHub Copilot</td>
+                <td><span class="score-pill score-high">High</span></td>
+                <td><span class="score-pill score-high">High</span></td>
+                <td><span class="score-pill score-mid">Medium</span></td>
+                <td><span class="score-pill score-mid">Medium</span></td>
+                <td><span class="score-pill score-high">High</span></td>
+              </tr>
+              <tr>
+                <td>Cursor</td>
+                <td><span class="score-pill score-vhigh">Very High</span></td>
+                <td><span class="score-pill score-high">High</span></td>
+                <td><span class="score-pill score-high">High</span></td>
+                <td><span class="score-pill score-vhigh">Very High</span></td>
+                <td><span class="score-pill score-vhigh">Very High</span></td>
+              </tr>
+              <tr>
+                <td>ChatGPT (browser)</td>
+                <td><span class="score-pill score-mid">Medium</span></td>
+                <td><span class="score-pill score-mid">Medium</span></td>
+                <td><span class="score-pill score-low">Lower</span></td>
+                <td><span class="score-pill score-high">High</span></td>
+                <td><span class="score-pill score-mid">Medium</span></td>
+              </tr>
+              <tr>
+                <td>Codeium / Windsurf</td>
+                <td><span class="score-pill score-high">High</span></td>
+                <td><span class="score-pill score-mid">Medium–High</span></td>
+                <td><span class="score-pill score-mid">Medium</span></td>
+                <td><span class="score-pill score-mid">Medium</span></td>
+                <td><span class="score-pill score-mid">Medium–High</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p style="font-size:0.8rem; color: var(--text-muted, #64748b); margin-top: -0.5rem;">
+          Note: "Lower dependency risk" for ChatGPT reflects the deliberate context-switch required to use it — that friction is protective, even if the tool itself is powerful. It doesn't reflect model quality or accuracy.
+        </p>
+      </div>
+
+      <!-- ───────────────────────────── SECTION 3 ───────────────────────────── -->
+      <div class="dimension-section" id="copilot">
+        <h2>GitHub Copilot — the fatigue profile</h2>
+
+        <div class="tool-grid">
+          <div class="tool-card">
+            <div class="tool-card-header">
+              <div class="tool-emoji">🤖</div>
+              <div>
+                <div class="tool-name">GitHub Copilot</div>
+                <div class="tool-tagline">Inline completion · Tab-to-accept</div>
+              </div>
+            </div>
+            <div class="tool-rating-row">
+              <span class="tool-rating-label">Decision fatigue</span>
+              <div class="rating-bar"><div class="rating-fill fill-orange" style="width:75%"></div></div>
+            </div>
+            <div class="tool-rating-row">
+              <span class="tool-rating-label">Skill erosion</span>
+              <div class="rating-bar"><div class="rating-fill fill-orange" style="width:72%"></div></div>
+            </div>
+            <div class="tool-rating-row">
+              <span class="tool-rating-label">Dependency risk</span>
+              <div class="rating-bar"><div class="rating-fill fill-yellow" style="width:55%"></div></div>
+            </div>
+            <div class="tool-rating-row">
+              <span class="tool-rating-label">Cognitive load</span>
+              <div class="rating-bar"><div class="rating-fill fill-yellow" style="width:58%"></div></div>
+            </div>
+            <div class="tool-verdict">
+              Copilot is the most widely adopted AI coding tool in the world — and that adoption comes with a normalized fatigue cost that's easy to miss precisely because everyone around you is experiencing it too.
+            </div>
+          </div>
+        </div>
+
+        <h3>Where Copilot's fatigue comes from</h3>
+        <p>
+          GitHub Copilot pioneered the tab-to-accept inline completion model, and in doing so, it trained an entire generation of engineers to outsource code retrieval to AI. That's not an exaggeration — the affordance itself shapes behavior. When the next line of code is always visible one keypress away, the brain learns to reach for it rather than construct it.
+        </p>
+        <p>
+          The decision fatigue from Copilot is high because suggestions are frequent, contextually plausible-looking (even when subtly wrong), and trivially easy to accept. The cognitive cost of <em>not</em> accepting feels higher than the cognitive cost of accepting — which is exactly backwards from what healthy deliberate practice looks like.
+        </p>
+
+        <h3>The skill erosion problem</h3>
+        <p>
+          Engineers who have used Copilot heavily for 12+ months consistently report noticing a change in their ability to code from recall. Specific patterns emerge: difficulty remembering exact method signatures without autocomplete help, reduced comfort writing algorithms without AI scaffolding, and a growing sense of unease when working in environments without Copilot (offline, new machines, whiteboard interviews).
+        </p>
+        <p>
+          This isn't because Copilot makes you dumber. It's because skills are use-dependent. If you stop exercising a cognitive skill, it atrophies — slowly, quietly, until you notice its absence.
+        </p>
+        <div class="callout callout-danger">
+          <strong>The real cost nobody talks about</strong>
+          The engineers most at risk from Copilot skill erosion aren't seniors who use it selectively. They're juniors who adopted it before their foundational skills were consolidated. When they don't know something, Copilot fills the gap — but that filling process is opaque. They don't know if they understand the code or just accepted it. Over time, they can't tell the difference.
+        </div>
+
+        <h3>Dependency risk: why it's medium, not high</h3>
+        <p>
+          Copilot's dependency risk is medium (not high) for a specific reason: GitHub is a deeply embedded infrastructure company. Engineers who depend on Copilot are more likely to accept that dependency than engineers who depend on a newer, less stable tool. The psychological risk of dependency — the anxiety about losing it — is lower because it feels more permanent. That said, the actual skill atrophy risk from this dependency is very high.
+        </p>
+
+        <h3>How to use Copilot with lower fatigue</h3>
+        <ul>
+          <li><strong>Turn off auto-suggest.</strong> Use Copilot in manual trigger mode (Ctrl+Enter) so you only invoke it when you actively want a suggestion. This eliminates the passive suggestion stream.</li>
+          <li><strong>Dedicate no-Copilot blocks.</strong> At least 2 hours per day, turn it off completely. Protect the muscle.</li>
+          <li><strong>Before accepting, mentally predict.</strong> Before you look at the suggestion, write what you expect the next line to be. This forces active engagement and tells you whether you understood the problem.</li>
+          <li><strong>Review what you accepted.</strong> End-of-day, skim your git diff. For each Copilot block, ask: could I have written this? Do I understand it? Would I have made a different choice?</li>
+        </ul>
+      </div>
+
+      <!-- ───────────────────────────── SECTION 4 ───────────────────────────── -->
+      <div class="dimension-section" id="cursor">
+        <h2>Cursor — the fatigue profile</h2>
+
+        <div class="tool-grid">
+          <div class="tool-card">
+            <div class="tool-card-header">
+              <div class="tool-emoji">⚡</div>
+              <div>
+                <div class="tool-name">Cursor</div>
+                <div class="tool-tagline">AI-first IDE · Multi-modal AI integration</div>
+              </div>
+            </div>
+            <div class="tool-rating-row">
+              <span class="tool-rating-label">Decision fatigue</span>
+              <div class="rating-bar"><div class="rating-fill fill-red" style="width:92%"></div></div>
+            </div>
+            <div class="tool-rating-row">
+              <span class="tool-rating-label">Skill erosion</span>
+              <div class="rating-bar"><div class="rating-fill fill-orange" style="width:80%"></div></div>
+            </div>
+            <div class="tool-rating-row">
+              <span class="tool-rating-label">Dependency risk</span>
+              <div class="rating-bar"><div class="rating-fill fill-orange" style="width:78%"></div></div>
+            </div>
+            <div class="tool-rating-row">
+              <span class="tool-rating-label">Cognitive load</span>
+              <div class="rating-bar"><div class="rating-fill fill-red" style="width:90%"></div></div>
+            </div>
+            <div class="tool-verdict">
+              Cursor is the highest-fatigue tool in this comparison. Its power comes from deep IDE integration and multi-step AI assistance — and that same depth is why it's the most cognitively taxing. If you're already burnt out, Cursor will accelerate the decline.
+            </div>
+          </div>
+        </div>
+
+        <h3>Why Cursor hits differently</h3>
+        <p>
+          Cursor is not just a completion engine. It's an AI-first IDE that integrates suggestions, chat, codebase search, and multi-file edits into a single environment. The AI is not a tool you reach for — it's the environment you're operating inside. That's a fundamentally different cognitive experience.
+        </p>
+        <p>
+          Copilot adds a suggestion stream to your existing editor. Cursor restructures the cognitive relationship between you and your code. In Cursor, the AI's perspective on your problem is always present, always visible, and always implicitly offering to take over. For engineers who are already struggling with identity ("am I still a programmer if AI writes my code?"), this is deeply disorienting.
+        </p>
+
+        <h3>Decision fatigue: why it's "very high"</h3>
+        <p>
+          Cursor's inline completions are longer, more confident, and cover more context than Copilot's. Accepting a Cursor suggestion can mean accepting 20–40 lines across multiple files. The decision scope is enormous. And the AI-chat integration means you're also making meta-decisions: should I ask the AI? How should I frame this? Is this worth an AI context switch or should I just figure it out?
+        </p>
+        <p>
+          These meta-decisions are invisible cognitive work. They don't feel like work. But they're real, they accumulate, and they're happening constantly in an AI-first IDE.
+        </p>
+        <div class="callout callout-warn">
+          <strong>The "Cursor productivity trap"</strong>
+          Cursor genuinely makes many tasks faster. That's real. But it can create a productivity-fatigue illusion where you ship more but feel worse. The output metrics go up; the ownership, craft satisfaction, and learning metrics go down. Optimizing for output while eroding wellbeing is a bad trade most engineers don't notice until they're far into the hole.
+        </div>
+
+        <h3>Dependency risk: why it's high</h3>
+        <p>
+          Cursor is a company, not an established infrastructure giant. Engineers who have migrated fully to Cursor — who have restructured their workflows, their habits, and their cognitive expectations around its presence — are exposed to real risk. If the product changes (pricing, features, underlying models), the disruption is not just inconvenience. It's the removal of a cognitive scaffold that you've built your work around.
+        </p>
+        <p>
+          Additionally, Cursor's power comes partly from deep customization (rules files, context configuration, .cursorrules). That investment in customization deepens dependency. The more you optimize for Cursor, the harder it is to step away.
+        </p>
+
+        <h3>A note on Cursor's genuine strengths</h3>
+        <p>
+          This isn't an argument against Cursor. For exploration, greenfield projects, boilerplate generation, and rapid prototyping, it's genuinely impressive. The fatigue risk is specific to <em>how</em> and <em>how much</em> you use it. Engineers who use Cursor selectively — for specific high-leverage tasks, with deliberate no-AI zones — can get the benefits with lower fatigue cost.
+        </p>
+      </div>
+
+      <!-- ───────────────────────────── SECTION 5 ───────────────────────────── -->
+      <div class="dimension-section" id="chatgpt">
+        <h2>ChatGPT for coding — the fatigue profile</h2>
+
+        <div class="tool-grid">
+          <div class="tool-card">
+            <div class="tool-card-header">
+              <div class="tool-emoji">💬</div>
+              <div>
+                <div class="tool-name">ChatGPT</div>
+                <div class="tool-tagline">Browser-based chat · Context-switch required</div>
+              </div>
+            </div>
+            <div class="tool-rating-row">
+              <span class="tool-rating-label">Decision fatigue</span>
+              <div class="rating-bar"><div class="rating-fill fill-yellow" style="width:50%"></div></div>
+            </div>
+            <div class="tool-rating-row">
+              <span class="tool-rating-label">Skill erosion</span>
+              <div class="rating-bar"><div class="rating-fill fill-yellow" style="width:55%"></div></div>
+            </div>
+            <div class="tool-rating-row">
+              <span class="tool-rating-label">Dependency risk</span>
+              <div class="rating-bar"><div class="rating-fill fill-green" style="width:35%"></div></div>
+            </div>
+            <div class="tool-rating-row">
+              <span class="tool-rating-label">Cognitive load</span>
+              <div class="rating-bar"><div class="rating-fill fill-orange" style="width:70%"></div></div>
+            </div>
+            <div class="tool-verdict">
+              ChatGPT's lower fatigue scores in some dimensions come from an unexpected source: the friction of using it. Switching to a browser tab, formulating a query, and reading a response is work — and that work creates a natural deliberateness that inline tools don't have.
+            </div>
+          </div>
+        </div>
+
+        <h3>The accidental protection of friction</h3>
+        <p>
+          When you have to deliberately switch contexts to use an AI tool, you don't use it reflexively. You use it when you've decided it's worth the switch. That decision point — however small — is the difference between a tool that serves you and one that starts to drive you.
+        </p>
+        <p>
+          Engineers who use ChatGPT as their primary AI coding assistant often report that they think through problems further before asking, because they know asking requires effort. That extra thinking is not inefficiency — it's the part where learning and skill maintenance actually happen.
+        </p>
+        <div class="callout callout-tip">
+          <strong>The friction principle</strong>
+          In UX design, friction is usually bad. In cognitive health, friction is often protective. The slight resistance of switching tools, opening a new window, or formulating a question forces deliberation. Deliberation is where you remain the author of your own thinking.
+        </div>
+
+        <h3>Where ChatGPT still causes fatigue</h3>
+        <p>
+          ChatGPT's cognitive load scores high for a different reason than inline tools: the length and complexity of its responses. A Copilot suggestion is 5–15 lines. A ChatGPT answer can be 200–800 words, spanning multiple approaches, caveats, alternatives, and code blocks. Processing that response — deciding what to use, what to ignore, what to adapt — is real cognitive work.
+        </p>
+        <p>
+          Additionally, ChatGPT's skill erosion risk, while lower than inline tools, is still real. If you habitually use it as your first response to uncertainty ("I'm not sure how to do this — let me ask ChatGPT"), you're systematically bypassing the productive struggle that builds understanding. The bypass is smooth, fast, and feels good in the moment. The cost is paid later, when you're in an environment where ChatGPT isn't available.
+        </p>
+
+        <h3>ChatGPT's hidden fatigue: the conversation treadmill</h3>
+        <p>
+          Multi-turn ChatGPT sessions for coding often become treadmills: the AI gives you code, you paste it, it breaks, you paste the error back, it gives you more code, you paste it, it breaks differently. Each turn feels productive (you're getting answers!) but the session as a whole is often lower value than having worked through the problem yourself from the start. And by the end of the session, you have code that works but that you don't fully understand — which is its own source of fatigue.
+        </p>
+      </div>
+
+      <!-- ───────────────────────────── SECTION 6 ───────────────────────────── -->
+      <div class="dimension-section" id="codeium">
+        <h2>Codeium / Windsurf — the fatigue profile</h2>
+
+        <div class="tool-grid">
+          <div class="tool-card">
+            <div class="tool-card-header">
+              <div class="tool-emoji">🌊</div>
+              <div>
+                <div class="tool-name">Codeium / Windsurf</div>
+                <div class="tool-tagline">Free completion · Agentic IDE option</div>
+              </div>
+            </div>
+            <div class="tool-rating-row">
+              <span class="tool-rating-label">Decision fatigue</span>
+              <div class="rating-bar"><div class="rating-fill fill-orange" style="width:73%"></div></div>
+            </div>
+            <div class="tool-rating-row">
+              <span class="tool-rating-label">Skill erosion</span>
+              <div class="rating-bar"><div class="rating-fill fill-yellow" style="width:60%"></div></div>
+            </div>
+            <div class="tool-rating-row">
+              <span class="tool-rating-label">Dependency risk</span>
+              <div class="rating-bar"><div class="rating-fill fill-yellow" style="width:55%"></div></div>
+            </div>
+            <div class="tool-rating-row">
+              <span class="tool-rating-label">Cognitive load</span>
+              <div class="rating-bar"><div class="rating-fill fill-yellow" style="width:57%"></div></div>
+            </div>
+            <div class="tool-verdict">
+              Codeium's fatigue profile in its basic completion form is similar to Copilot's. Windsurf (Codeium's agentic IDE) moves toward Cursor's territory. The free tier creates a psychological accessibility dynamic worth understanding.
+            </div>
+          </div>
+        </div>
+
+        <h3>The free tier psychological effect</h3>
+        <p>
+          Codeium's free tier is genuinely free — unlike Copilot's trial or Cursor's free plan limits. That accessibility changes the psychological relationship engineers have with the tool. A paid tool is a deliberate choice you revisit when you pay your bill. A free tool is ambient — it's just there, always available, with no cost-benefit prompt to recalibrate usage.
+        </p>
+        <p>
+          This isn't a criticism of Codeium. It's an observation about how cost structures influence usage patterns. The engineers least likely to reflect on whether they're using a tool too much are the ones for whom usage has no visible cost.
+        </p>
+
+        <h3>Codeium's skill erosion profile</h3>
+        <p>
+          In mainstream language contexts (Python, JavaScript, TypeScript), Codeium's suggestions are high quality and well-fitted to common patterns. In specialized or niche domains, they're less reliable. This creates an interesting skill erosion map: engineers doing standard web or data work face higher erosion risk, while engineers in highly specialized domains (embedded, unusual languages, novel frameworks) are somewhat protected by the AI being wrong often enough that they can't over-rely on it.
+        </p>
+
+        <h3>Windsurf: the agentic leap</h3>
+        <p>
+          Windsurf, Codeium's agentic IDE product, introduces multi-step autonomous code changes — more like Cursor than a simple completion engine. The fatigue profile shifts accordingly. Agentic tools that autonomously modify multiple files, run commands, and propose changes across a codebase introduce a new fatigue dimension that deserves its own consideration: <em>review fatigue</em>. The cognitive cost of reviewing AI-generated changes you didn't author line-by-line can exceed the cost of having written them yourself.
+        </p>
+      </div>
+
+      <!-- ───────────────────────────── SECTION 7 ───────────────────────────── -->
+      <div class="dimension-section" id="survival">
+        <h2>How to use any AI coding tool without burning out</h2>
+        <p>
+          The goal isn't to stop using AI tools. The goal is to stay in a relationship with them where you are the one choosing how and when to engage — not the tool conditioning your behavior through constant availability and low friction. Here's how.
+        </p>
+
+        <div class="survival-grid">
+          <div class="survival-card">
+            <h4>🔒 Define your No-AI zones</h4>
+            <p>Choose specific areas of your work where you never use AI — and protect them like you'd protect deep focus time. Core business logic, novel algorithms, architectural decisions. These are where your craft lives.</p>
+          </div>
+          <div class="survival-card">
+            <h4>📅 Schedule AI-free blocks</h4>
+            <p>At minimum 2 focused hours per day without any AI tool active. Not as a rule — as self-care. Like sleeping: your brain needs unassisted time to consolidate what it knows.</p>
+          </div>
+          <div class="survival-card">
+            <h4>🧠 Predict before accepting</h4>
+            <p>Before looking at any AI suggestion, write or think what you expect. This one habit single-handedly reduces skill erosion and decision fatigue — it keeps you in the driver's seat.</p>
+          </div>
+          <div class="survival-card">
+            <h4>⏱ Throttle your ask rate</h4>
+            <p>Set a personal rule: wait at least 5 minutes of trying before consulting AI on any problem. That 5 minutes is where your brain does its best work. The AI will still be there.</p>
+          </div>
+          <div class="survival-card">
+            <h4>🔍 Review your AI-assisted diffs</h4>
+            <p>At end of day, scan what AI wrote versus what you wrote. This isn't guilt — it's calibration. You're checking whether you still understand the code you shipped.</p>
+          </div>
+          <div class="survival-card">
+            <h4>📓 Keep a skill log</h4>
+            <p>Monthly, note 3 things you could code confidently 12 months ago that feel harder now. Noticing drift early is how you course-correct before it becomes erosion.</p>
+          </div>
+        </div>
+
+        <div class="callout callout-tip">
+          <strong>The mindset shift</strong>
+          The most sustainable relationship with AI coding tools is treating them like a capable but junior pair partner who's always available. You wouldn't let a junior write all your code while you just approve it. You'd pair, guide, review, and make sure you're still thinking. Same principle applies.
+        </div>
+      </div>
+
+      <!-- ───────────────────────────── QUIZ CTA ───────────────────────────── -->
+      <section id="quiz-cta" style="text-align: center; padding: 3rem 2rem; background: var(--card-bg, #f8fafc); border-radius: 16px; margin: 3rem 0; border: 1px solid var(--border, #e2e8f0);">
+        <p style="font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--forest-pale, #7aab8a); font-weight: 600; margin-bottom: 0.75rem;">Free 5-question self-assessment</p>
+        <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 0.75rem; color: var(--text, #1e293b);">How fatigued are you right now?</h2>
+        <p style="color: var(--text-muted, #64748b); max-width: 480px; margin: 0 auto 1.5rem; line-height: 1.7;">
+          Reading about fatigue is useful. Knowing where <em>you</em> actually are is more useful. The quiz takes 2 minutes and gives you a clear picture.
+        </p>
+        <a href="index.html#quiz" style="display: inline-block; background: var(--forest-pale, #7aab8a); color: #fff; font-weight: 700; padding: 0.85rem 2rem; border-radius: 999px; text-decoration: none; font-size: 1rem; transition: opacity 0.2s;">Take the AI Fatigue Quiz →</a>
+      </section>
+
+      <!-- ───────────────────────────── FAQ ───────────────────────────── -->
+      <div class="faq-section" id="faq">
+        <h2>Frequently asked questions</h2>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Which AI coding tool causes the most decision fatigue?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" hidden>
+            Cursor tends to generate the highest decision fatigue because its inline multi-line completions arrive frequently, cover large code blocks, and present with high confidence — requiring constant micro-decisions about whether to accept, reject, or modify. GitHub Copilot is a close second. ChatGPT in a browser tab causes less in-flow interruption because the context-switch creates a natural deliberation point.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Does GitHub Copilot cause skill erosion?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" hidden>
+            Yes — the evidence from practitioner reports and cognitive science research consistently supports this. Engineers who rely heavily on Copilot for recall (syntax, API names, algorithm patterns) gradually lose the ability to retrieve that information independently. The risk is highest for junior engineers whose skills are still forming, and for recall of less-common patterns that appear infrequently in everyday work.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Is Codeium less fatiguing than Copilot?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" hidden>
+            In most dimensions, their fatigue profiles are comparable. Codeium's free tier can increase usage intensity (since there's no visible cost to recalibrate against), which can amplify fatigue over time. In highly specialized domains, Codeium's suggestions may be less reliable, which paradoxically offers some protection against over-reliance.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Can I use AI coding tools without burning out?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" hidden>
+            Yes — the key is deliberate, bounded use. Define clear zones where AI is and isn't allowed. Protect your core skills with regular no-AI practice. Use AI for exploration and scaffolding, not for every decision. The engineers who use these tools sustainably treat them as capable assistants rather than autopilot systems.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            What is the lowest-fatigue way to use AI for coding?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" hidden>
+            Using AI in a separate context (browser tab, separate window) rather than inline creates a natural cognitive boundary — you initiate the interaction deliberately rather than receiving constant passive suggestions. This preserves your flow state and keeps you as the author of your thinking. Combine this with a "5-minute rule" (try for 5 minutes before asking AI) and regular no-AI blocks.
+          </div>
+        </div>
+      </div>
+
+      <!-- explore more -->
+      <section style="margin-top: 3rem;">
+        <p style="font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--forest-pale, #7aab8a); font-weight: 600; margin-bottom: 1rem;">Keep going</p>
+        <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; color: var(--text, #1e293b);">More for burnt-out engineers</h2>
+        <div class="explore-grid">
+          <a href="recovery.html" class="explore-card">
+            <div class="ec-emoji">🌱</div>
+            <div class="ec-title">Recovery Guide</div>
+            <div class="ec-desc">Practical phases and tactics for recovering from AI fatigue</div>
+          </a>
+          <a href="mindset.html" class="explore-card">
+            <div class="ec-emoji">🧭</div>
+            <div class="ec-title">Mental Models</div>
+            <div class="ec-desc">12 frameworks for a healthier relationship with AI tools</div>
+          </a>
+          <a href="burnout-vs-fatigue.html" class="explore-card">
+            <div class="ec-emoji">🔬</div>
+            <div class="ec-title">Fatigue vs. Burnout</div>
+            <div class="ec-desc">How to tell them apart — and why it matters for recovery</div>
+          </a>
+          <a href="workplace.html" class="explore-card">
+            <div class="ec-emoji">🏢</div>
+            <div class="ec-title">At Work</div>
+            <div class="ec-desc">How to set limits and talk to your manager about AI pressure</div>
+          </a>
+          <a href="glossary.html" class="explore-card">
+            <div class="ec-emoji">📖</div>
+            <div class="ec-title">Glossary</div>
+            <div class="ec-desc">25 terms to understand what's happening to you</div>
+          </a>
+          <a href="index.html#quiz" class="explore-card">
+            <div class="ec-emoji">🧠</div>
+            <div class="ec-title">Take the Quiz</div>
+            <div class="ec-desc">How fatigued are you, really? 5 questions, 2 minutes</div>
+          </a>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer style="background: var(--nav-bg, #0f172a); color: #94a3b8; padding: 3rem 2rem; text-align: center; margin-top: 4rem;">
+    <div style="max-width: 760px; margin: 0 auto;">
+      <p style="font-size: 1.1rem; font-weight: 700; color: #f0f9ff; margin-bottom: 0.5rem;">The Clearing</p>
+      <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">A sanctuary for engineers who need to breathe.</p>
+      <nav aria-label="Footer navigation">
+        <ul style="list-style: none; padding: 0; margin: 0 0 1.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; justify-content: center; font-size: 0.875rem;">
+          <li><a href="index.html" style="color: #94a3b8; text-decoration: none;">Home</a></li>
+          <li><a href="decompress.html" style="color: #94a3b8; text-decoration: none;">Decompress</a></li>
+          <li><a href="journal.html" style="color: #94a3b8; text-decoration: none;">Journal</a></li>
+          <li><a href="tips.html" style="color: #94a3b8; text-decoration: none;">10 Signs</a></li>
+          <li><a href="stories.html" style="color: #94a3b8; text-decoration: none;">Stories</a></li>
+          <li><a href="resources.html" style="color: #94a3b8; text-decoration: none;">Resources</a></li>
+          <li><a href="newsletter.html" style="color: #94a3b8; text-decoration: none;">Newsletter</a></li>
+          <li><a href="glossary.html" style="color: #94a3b8; text-decoration: none;">Glossary</a></li>
+          <li><a href="recovery.html" style="color: #94a3b8; text-decoration: none;">Recovery</a></li>
+          <li><a href="workplace.html" style="color: #94a3b8; text-decoration: none;">At Work</a></li>
+          <li><a href="mindset.html" style="color: #94a3b8; text-decoration: none;">Mindset</a></li>
+          <li><a href="compare.html" style="color: #7dd3fc; text-decoration: none;">Compare Tools</a></li>
+          <li><a href="burnout-vs-fatigue.html" style="color: #94a3b8; text-decoration: none;">Fatigue vs. Burnout</a></li>
+          <li><a href="why.html" style="color: #94a3b8; text-decoration: none;">Why This Exists</a></li>
+          <li><a href="about.html" style="color: #94a3b8; text-decoration: none;">About</a></li>
+        </ul>
+      </nav>
+      <p style="font-size: 0.8rem; color: #64748b;">clearing-ai.com — Made for engineers, by people who get it.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        document.querySelectorAll('.faq-question').forEach(b => {
+          b.setAttribute('aria-expanded', 'false');
+          b.nextElementSibling.hidden = true;
+          b.querySelector('.faq-icon').textContent = '+';
+        });
+        if (!expanded) {
+          btn.setAttribute('aria-expanded', 'true');
+          btn.nextElementSibling.hidden = false;
+          btn.querySelector('.faq-icon').textContent = '−';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

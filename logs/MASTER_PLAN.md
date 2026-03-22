@@ -152,6 +152,16 @@ Each run appended below.
 
 ---
 
+### Hour 14 — 2026-03-22 10:24 PDT
+**Built:** `compare.html` — "Which AI Coding Tools Cause the Most Fatigue? A Developer's Honest Guide" (~4,400 words)
+**Page structure:** Fatigue matrix table (4 tools × 5 dimensions, color-coded scores), individual tool profile cards with rating bars (Copilot/Cursor/ChatGPT/Codeium), 4 deep-dive sections with cognitive science backing, 6-card survival guide, FAQ accordion (5 Q&As), explore-more grid. Compare Tools nav/footer added to all 14 pages. Feature card added to index.html (now 15 cards).
+**SEO:** Article + FAQPage (5 Q&As) + BreadcrumbList schema, 12 commercial-intent keywords ("GitHub Copilot burnout", "Cursor IDE fatigue", "AI coding tools comparison 2025"), high-value internal links from recovery.html and mindset.html, sitemap updated (priority 0.95)
+**~4,400 words added**
+**Commit:** `3a5855c`
+**Next:** `about.html` E-E-A-T expansion (founding story, E-E-A-T signals) or `faq.html` (30+ Q&As, FAQPage schema goldmine) or `engineer-types.html` (4 archetypes)
+
+---
+
 ### Hour 1 — 2026-03-21 21:xx PDT
 **Built:** `tips.html` — "10 Signs You Have AI Fatigue" listicle  
 **SEO:** Article + FAQPage schema, 10 keywords, OG/Twitter, canonical, internal links  

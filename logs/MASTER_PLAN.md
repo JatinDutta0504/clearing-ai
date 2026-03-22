@@ -10,6 +10,19 @@ Each run appended below.
 
 ---
 
+### Hour 9 — 2026-03-22 05:24 PDT
+**Built:** Full CSS & UX upgrade — dark mode, animation polish, mobile improvements, accessibility
+**Dark mode:** Complete `[data-theme="dark"]` system — all surfaces (nav, cards, quiz, journal, essay, decompress, breathing, footer). `localStorage` persistence + respects `prefers-color-scheme` OS setting.
+**Toggle:** 🌙/☀️ pill button injected into every page nav via `main.js`. ARIA accessible. Mobile-positioned.
+**Animations:** Replaced all `ease` with `cubic-bezier(0.22,1,0.36,1)` spring easing. Feature card scale+lift. Nav underline slide-in. Stagger extended to 12 children. Breathing glow pulse. Smooth theme colour transitions.
+**Mobile:** 48px+ touch targets. 2-col stats tablet. Hero CTA stack. Better section padding. Scrollable hidden nav on mid-screen. Banner text clamp.
+**Accessibility:** Reading progress bar, skip-to-content link, focus-visible outlines, reduced-motion support.
+**~150 words added** (comments only)
+**Commit:** `f35ecfc`
+**Next:** Content depth pass — recovery.html or compare.html or burnout-vs-fatigue.html for long-tail SEO
+
+---
+
 ### Hour 8 — 2026-03-22 04:24 PDT
 **Built:** `glossary.html` — The AI Fatigue Glossary, 25 terms, searchable + filterable by category
 **Terms:** AI Fatigue · Automation Anxiety · Automation Bias · Brownout · Cognitive Load · Cognitive Offloading · Compulsive Prompting · Context Collapse · Deep Work · Disengagement Spiral · Epistemic Abdication · Flow State · Ghost Authorship · Muscle Memory Erosion · Ownership Anxiety · Productive Struggle · Productivity Theater · Prompt Dependence · Prompt Fatigue · Role Displacement Anxiety · Shallow Work · Skill Atrophy · Status Quo Trap · Tool Fatigue · Willingness Gap

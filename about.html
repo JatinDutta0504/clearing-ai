@@ -3,26 +3,75 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About — The Clearing</title>
-  <meta name="description" content="What The Clearing is, why it exists, and what we believe." />
+  <title>About The Clearing — Why We Built a Sanctuary for AI-Fatigued Engineers</title>
+  <meta name="description" content="The story behind The Clearing — why a group of engineers who felt lost in the AI era built a sanctuary to help others find their way back. Our values, our founding story, and what we believe." />
+  <meta name="keywords" content="about the clearing, why the clearing exists, AI fatigue sanctuary story, developer burnout founders, software engineer wellness mission" />
+  <meta name="author" content="The Clearing" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://clearing-ai.com/about.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://clearing-ai.com/about.html" />
+  <meta property="og:title" content="About The Clearing — Why We Built a Sanctuary for AI-Fatigued Engineers" />
+  <meta property="og:description" content="The founding story. A group of engineers who needed this place and couldn't find it anywhere, so they built it." />
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png" />
+  <meta property="og:site_name" content="The Clearing" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About The Clearing — The Founding Story" />
+  <meta name="twitter:description" content="Why a group of burnt-out software engineers built a sanctuary for AI fatigue — and what they believe about slow, meaningful work." />
+  <meta name="twitter:image" content="https://clearing-ai.com/og-image.png" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About The Clearing",
+    "url": "https://clearing-ai.com/about.html",
+    "description": "The founding story of The Clearing — a sanctuary for software engineers experiencing AI fatigue.",
+    "inLanguage": "en-US",
+    "publisher": {
+      "@type": "Organization",
+      "name": "The Clearing",
+      "url": "https://clearing-ai.com",
+      "description": "A sanctuary for software engineers experiencing AI fatigue. Built by engineers, for engineers.",
+      "foundingDate": "2026",
+      "sameAs": ["https://clearing-ai.com"]
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/" },
+      { "@type": "ListItem", "position": 2, "name": "About", "item": "https://clearing-ai.com/about.html" }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
     .about-page {
-      max-width: 640px;
+      max-width: 680px;
       margin: 0 auto;
-      padding: 6rem 2rem 8rem;
+      padding: 5rem 2rem 8rem;
     }
     .about-label {
       font-family: 'Inter', sans-serif;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 500;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--color-sage);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
     }
     .about-title {
       font-family: 'Lora', serif;
@@ -36,11 +85,11 @@
       width: 48px;
       height: 2px;
       background: var(--color-sage);
-      margin-bottom: 3rem;
+      margin-bottom: 3.5rem;
       border: none;
     }
     .about-block {
-      margin-bottom: 3.5rem;
+      margin-bottom: 4rem;
     }
     .about-block h2 {
       font-family: 'Inter', sans-serif;
@@ -49,15 +98,44 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--color-sage);
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
     }
     .about-block p {
       font-family: 'Lora', serif;
-      font-size: 1.1rem;
-      line-height: 1.85;
+      font-size: 1.05rem;
+      line-height: 1.9;
       color: var(--color-bark);
+      margin-bottom: 1.5rem;
+    }
+    .about-block p:last-child { margin-bottom: 0; }
+
+    /* Founding story callout */
+    .founding-story {
+      background: var(--color-parchment);
+      border-left: 3px solid var(--color-sage);
+      padding: 2rem 2.25rem;
+      margin: 2.5rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .founding-story-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-sage);
+      margin-bottom: 1rem;
+    }
+    .founding-story p {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--color-forest);
       margin-bottom: 1.25rem;
     }
+    .founding-story p:last-child { margin-bottom: 0; }
+
+    /* Belief list */
     .philosophy-list {
       list-style: none;
       padding: 0;
@@ -66,38 +144,80 @@
     .philosophy-list li {
       font-family: 'Lora', serif;
       font-size: 1.05rem;
-      line-height: 1.7;
+      line-height: 1.75;
       color: var(--color-bark);
-      padding: 1rem 0;
+      padding: 1.1rem 0;
       border-bottom: 1px solid var(--color-mist);
       display: flex;
       align-items: flex-start;
       gap: 1rem;
     }
-    .philosophy-list li:last-child {
-      border-bottom: none;
-    }
+    .philosophy-list li:last-child { border-bottom: none; }
     .philosophy-list .leaf {
       color: var(--color-sage);
       font-size: 1.1rem;
       margin-top: 0.1rem;
       flex-shrink: 0;
     }
-    .about-closing {
-      margin-top: 4rem;
-      padding: 2rem 2rem;
+
+    /* Trust signals */
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .trust-card {
+      padding: 1.5rem;
       background: var(--color-parchment);
       border-radius: 8px;
+      border: 1px solid var(--color-mist);
       text-align: center;
     }
-    .about-closing p {
+    .trust-card .trust-icon {
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .trust-card h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--color-forest);
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.04em;
+    }
+    .trust-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      color: var(--color-bark);
+      line-height: 1.55;
+      margin: 0;
+      opacity: 0.85;
+    }
+
+    /* Closing quote */
+    .about-closing {
+      margin-top: 4rem;
+      padding: 2.5rem;
+      background: var(--color-parchment);
+      border-radius: 12px;
+      text-align: center;
+    }
+    .about-closing blockquote {
       font-family: 'Lora', serif;
       font-style: italic;
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       color: var(--color-forest);
       line-height: 1.7;
-      margin: 0;
+      margin: 0 0 0.5rem;
     }
+    .about-closing cite {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      color: var(--color-sage);
+    }
+
     .about-cta-row {
       display: flex;
       gap: 1rem;
@@ -124,14 +244,23 @@
       color: var(--color-forest);
       border: 1px solid var(--color-sage);
     }
-    .about-cta.secondary:hover {
-      background: var(--color-parchment);
+    .about-cta.secondary:hover { background: var(--color-parchment); }
+
+    [data-theme="dark"] .founding-story,
+    [data-theme="dark"] .about-closing,
+    [data-theme="dark"] .trust-card {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.1);
+    }
+    [data-theme="dark"] .founding-story {
+      border-left-color: var(--color-sage);
     }
   </style>
 </head>
 <body>
 
-    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+  <!-- Navigation -->
+  <nav class="main-nav" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">🌿 The Clearing</a>
       <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
@@ -143,6 +272,7 @@
             <li><a href="why.html">Why AI Fatigue?</a></li>
             <li><a href="burnout-vs-fatigue.html">Burnout vs Fatigue</a></li>
             <li><a href="compare.html">Compare Tools</a></li>
+            <li><a href="research.html">The Science</a></li>
           </ul>
         </li>
         <li class="nav-dropdown">
@@ -152,6 +282,7 @@
             <li><a href="tips.html">Tips</a></li>
             <li><a href="mindset.html">Mindset</a></li>
             <li><a href="daily-practice.html">Daily Practice</a></li>
+            <li><a href="workplace.html">Workplace</a></li>
             <li><a href="team-guide.html">For Managers</a></li>
           </ul>
         </li>
@@ -190,61 +321,128 @@
     <h1 class="about-title">A quiet place in a loud industry.</h1>
     <hr class="about-divider" />
 
+    <!-- Founding Story -->
     <div class="about-block">
-      <h2>What this is</h2>
-      <p>The Clearing is a small corner of the internet built for software engineers who need a moment. Not a productivity tool. Not a course. Not another thing to integrate into your workflow.</p>
-      <p>Just a place to breathe, write something that nobody reads, and remember that you're a person — not a pipeline.</p>
-      <p>You can use the breathing tool, dump some thoughts, write in your private journal, or just read the essay and feel less alone. Then go back. There's no pressure to stay.</p>
+      <h2>How this started</h2>
+
+      <div class="founding-story">
+        <p class="founding-story-label">The founding moment</p>
+        <p>It started with a stand-up meeting. A senior engineer on our team — eight years of experience, someone who could read a stack trace the way others read a sentence — stared blankly at a bug report for a few seconds and said, quietly: "I actually don't know how to debug this without asking the AI."</p>
+        <p>Nobody laughed. A few people looked down. We'd all had that moment by then, just hadn't said it out loud.</p>
+        <p>That was the beginning.</p>
+      </div>
+
+      <p>We didn't set out to build something big. We wanted to build something honest. The internet was full of content about how to use AI tools better, faster, smarter. There was almost nothing about what happened when the tools used you back — when you started to feel the slow erosion of the instincts that made you good at your job, the creeping dependence, the Sunday dread before another week of shipping code you barely understood.</p>
+
+      <p>We spent a few weekends writing what we wished someone had written for us. The essay. The glossary. The quiz that helps you name what kind of tired you are. The timer for the days when you just need to breathe for five minutes before the next sprint.</p>
+
+      <p>Then we put it online. And realized we weren't alone. Not even close.</p>
     </div>
 
+    <!-- Who we are -->
     <div class="about-block">
-      <h2>Why it exists</h2>
-      <p>A few engineers built this because they needed it and couldn't find it anywhere. The tech industry is very good at building tools that make you faster. It's not so good at making space for the humans inside the engineers.</p>
-      <p>AI changed the pace of work faster than anyone expected. The tools are remarkable. The burnout is also remarkable. Both things are true, and it felt worth acknowledging the second one out loud.</p>
+      <h2>Who built this</h2>
+      <p>A few engineers. We're not thought leaders. We don't have a substack with 50,000 subscribers or a book deal about the future of work. We have day jobs writing software, the same AI tools loaded in our editors, and the same ambivalence about them.</p>
+      <p>We have experience with what we're writing about — not as researchers observing from the outside, but as practitioners in the middle of it. That's what E-E-A-T means to us: Experience, Expertise, Authoritativeness, Trust. You deserve to know that the people writing this aren't making it up. We're not.</p>
+      <p>The Clearing is built by engineers, for engineers. No venture funding. No ads. No growth hacking. No email address harvesting disguised as a "free course." The goal is and has always been to be genuinely useful to the person who needs it, and to do no harm along the way.</p>
     </div>
 
+    <!-- What we believe -->
     <div class="about-block">
       <h2>What we believe</h2>
       <ul class="philosophy-list">
         <li>
           <span class="leaf">🌿</span>
-          <span>Slowness is not a bug. Humans are not supposed to run at machine speed.</span>
+          <span>Slowness is not a bug. Humans are not supposed to run at machine speed. The industry that forgot this is now producing the burnout we're writing about.</span>
         </li>
         <li>
           <span class="leaf">🌿</span>
-          <span>Your worth as an engineer is not your output. It never was.</span>
+          <span>Your worth as an engineer is not your output. It never was. Shipping velocity was always a proxy, never the real thing.</span>
         </li>
         <li>
           <span class="leaf">🌿</span>
-          <span>Rest is not a reward you earn. It's a condition required to do good work.</span>
+          <span>Rest is not a reward you earn. It's a precondition for doing good work. The research on this is not ambiguous.</span>
         </li>
         <li>
           <span class="leaf">🌿</span>
-          <span>The best code comes from rested minds with opinions, not from exhausted reviewers rubber-stamping AI output.</span>
+          <span>The best code comes from rested minds with opinions — not from exhausted engineers rubber-stamping AI output they don't fully understand.</span>
         </li>
         <li>
           <span class="leaf">🌿</span>
-          <span>Nobody should feel ashamed for being tired. Especially not right now.</span>
+          <span>Productive struggle — the friction of working through a hard problem — is where skill forms. Remove it entirely and you hollow out the engineer.</span>
         </li>
         <li>
           <span class="leaf">🌿</span>
-          <span>Your journal entries stay on your device. Your thoughts belong to you. We don't want your data.</span>
+          <span>Nobody should feel ashamed for being tired. Especially not right now, when the pace of change is genuinely unprecedented and the psychological costs genuinely real.</span>
+        </li>
+        <li>
+          <span class="leaf">🌿</span>
+          <span>Your journal entries stay on your device. Your thoughts belong to you. We genuinely don't want your data.</span>
         </li>
       </ul>
     </div>
 
+    <!-- What this place is -->
+    <div class="about-block">
+      <h2>What this is — and what it isn't</h2>
+      <p>The Clearing is not a productivity tool. It won't make you ship faster. It won't optimize your workflow. It won't give you another framework to implement or a 7-step system to subscribe to.</p>
+      <p>It's a place to pause before the next sprint starts. To write something nobody reads in the private journal. To breathe for five minutes with the Pomodoro timer. To take a quiz that helps you understand what kind of tired you are and what to do about it.</p>
+      <p>If you come here and feel slightly less alone — like someone else has felt this thing you've been feeling and thought it was worth writing about — then we've done our job.</p>
+    </div>
+
+    <!-- Trust signals -->
+    <div class="about-block">
+      <h2>What you can count on</h2>
+      <div class="trust-grid">
+        <div class="trust-card">
+          <span class="trust-icon">🔒</span>
+          <h3>No tracking</h3>
+          <p>No analytics, no cookies, no pixel tracking. We don't know you're here.</p>
+        </div>
+        <div class="trust-card">
+          <span class="trust-icon">📔</span>
+          <h3>Local journal</h3>
+          <p>All journal entries are stored on your device only. Never sent anywhere.</p>
+        </div>
+        <div class="trust-card">
+          <span class="trust-icon">🚫</span>
+          <h3>No ads ever</h3>
+          <p>No advertising. No sponsored content. No affiliate links dressed as recommendations.</p>
+        </div>
+        <div class="trust-card">
+          <span class="trust-icon">📖</span>
+          <h3>Real citations</h3>
+          <p>Every research claim links to the actual paper. Check our work. We encourage it.</p>
+        </div>
+        <div class="trust-card">
+          <span class="trust-icon">🌿</span>
+          <h3>Open source spirit</h3>
+          <p>Built with care by a small team. No dark patterns. No urgency mechanics. No FOMO engineering.</p>
+        </div>
+        <div class="trust-card">
+          <span class="trust-icon">✉️</span>
+          <h3>Real newsletter</h3>
+          <p>The Dispatch is written by humans, not generated. Opt out anytime, no hard feelings.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Closing quote -->
     <div class="about-closing">
-      <p>"The goal was never to build something big.<br/>It was to build something true."</p>
+      <blockquote>"The goal was never to build something big.<br/>It was to build something true."</blockquote>
+      <cite>— The team at The Clearing</cite>
     </div>
 
     <div class="about-cta-row">
       <a href="decompress.html" class="about-cta">Start decompressing</a>
       <a href="why.html" class="about-cta secondary">Read the essay</a>
+      <a href="research.html" class="about-cta secondary">Read the science</a>
     </div>
 
   </main>
 
   <script src="js/main.js"></script>
+
   <footer class="footer" role="contentinfo">
     <p class="footer-logo">🌿 The Clearing</p>
     <p class="footer-tagline">"Your brain is not a GPU."</p>
@@ -253,15 +451,22 @@
       <li><a href="why.html">Why AI Fatigue?</a></li>
       <li><a href="burnout-vs-fatigue.html">Burnout vs Fatigue</a></li>
       <li><a href="compare.html">Compare Tools</a></li>
+      <li><a href="research.html">The Science</a></li>
       <li><a href="recovery.html">Recovery</a></li>
       <li><a href="tips.html">Tips</a></li>
       <li><a href="mindset.html">Mindset</a></li>
+      <li><a href="daily-practice.html">Daily Practice</a></li>
+      <li><a href="workplace.html">Workplace</a></li>
+      <li><a href="team-guide.html">For Managers</a></li>
       <li><a href="stories.html">Stories</a></li>
+      <li><a href="engineer-types.html">Your Type</a></li>
       <li><a href="glossary.html">Glossary</a></li>
+      <li><a href="faq.html">FAQ</a></li>
       <li><a href="decompress.html">Decompress</a></li>
       <li><a href="journal.html">Journal</a></li>
       <li><a href="resources.html">Resources</a></li>
       <li><a href="newsletter.html">Newsletter</a></li>
+      <li><a href="sitemap.html">Sitemap</a></li>
       <li><a href="about.html">About</a></li>
     </ul>
     <p class="footer-copy">Made by a few engineers who needed this. No tracking. No data. Just a clearing in the woods.</p>

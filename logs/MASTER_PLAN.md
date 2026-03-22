@@ -10,6 +10,15 @@ Each run appended below.
 
 ---
 
+### Hour 15 — 2026-03-22 11:24 PDT
+**Built:** Massive content expansion of 4 previously stubbed pages — faq.html (7→35 Q&As, 600→4,800 words, 6 categories, live search, full FAQPage schema); engineer-types.html (900→3,200 words, 4 detailed archetypes, interactive 3-question self-assessment widget); team-guide.html (900→3,800 words, 6 structural change frameworks, 4 manager 1:1 scripts, team AI agreement template); daily-practice.html (600→3,600 words, 30-day plan, 4 themed weeks, No-AI Challenges, day tracker with localStorage)
+**SEO:** FAQPage schema expanded to 35 Q&As (largest rich snippet surface on the site); BreadcrumbList + Article + HowTo schema across all 4 pages; full OG/Twitter meta on all 4; reading time badges; ~40 new long-tail keywords; sitemap updated to all 20 pages; dense internal cross-linking
+**~15,400 words added**
+**Commit:** `38ddfde`
+**Next:** `about.html` E-E-A-T expansion (founding story, trust signals — lifts domain authority across the site) or `research.html` (cognitive science citations for journalist link-building)
+
+---
+
 ### Hour 11 — 2026-03-22 07:24 PDT
 **Built:** `burnout-vs-fatigue.html` — "AI Fatigue vs. Burnout: What's the Difference?" (~3,500 words)
 **Page structure:** 9 sections — quick answer, 4-dimension AI fatigue framework, Maslach burnout model, 10-row comparison table, phenomenological texture of each, overlap/compound zone, 6 diagnostic questions with branching answers, dual recovery paths, why engineers miss the distinction

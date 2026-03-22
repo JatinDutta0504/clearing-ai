@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Dispatch — A Weekly Letter for Tired Engineers | The Clearing</title>
+  <meta name="description" content="A quiet weekly letter for software engineers navigating AI fatigue and burnout. Real talk about the human side of building software. No hype, no hustle culture. Just honest reflection." />
+  <meta name="keywords" content="engineer newsletter burnout, developer mental health newsletter, AI fatigue weekly letter, software engineer wellness newsletter, tech burnout newsletter, developer burnout resources email, engineer reflection weekly, AI overwhelm newsletter, programming burnout support, software career wellness" />
+  <meta name="author" content="The Clearing" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://clearing-ai.com/newsletter.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://clearing-ai.com/newsletter.html" />
+  <meta property="og:title" content="The Dispatch — A Weekly Letter for Tired Engineers" />
+  <meta property="og:description" content="A quiet weekly letter for software engineers navigating AI fatigue. No hype, no hustle culture. Real talk about the human side of building software." />
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png" />
+  <meta property="og:site_name" content="The Clearing" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Dispatch — A Weekly Letter for Tired Engineers" />
+  <meta name="twitter:description" content="A quiet weekly letter for software engineers experiencing AI fatigue. Honest. Unhurried. No hustle culture." />
+  <meta name="twitter:image" content="https://clearing-ai.com/og-image.png" />
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "The Dispatch — Weekly Newsletter for Engineers with AI Fatigue",
+    "url": "https://clearing-ai.com/newsletter.html",
+    "description": "A weekly email letter for software engineers experiencing AI fatigue, developer burnout, and tech exhaustion. Honest reflection, practical recovery, and community.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "The Clearing",
+      "url": "https://clearing-ai.com"
+    },
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Software Engineers, Developers, Engineering Managers experiencing AI fatigue or burnout"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://clearing-ai.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The Dispatch Newsletter",
+          "item": "https://clearing-ai.com/newsletter.html"
+        }
+      ]
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ---- Newsletter page specific styles ---- */
+    .newsletter-page {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 5rem 2rem 8rem;
+    }
+
+    .newsletter-label {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--forest-light);
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+
+    .newsletter-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.1rem, 5.5vw, 3.2rem);
+      font-weight: 600;
+      color: var(--forest-deep);
+      line-height: 1.18;
+      margin-bottom: 0.6rem;
+    }
+
+    .newsletter-subtitle {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--moss);
+      margin-bottom: 2.75rem;
+      line-height: 1.55;
+    }
+
+    .newsletter-divider {
+      width: 48px;
+      height: 2px;
+      background: var(--forest-light);
+      margin-bottom: 2.75rem;
+      border: none;
+      opacity: 0.6;
+    }
+
+    .newsletter-body p {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: #3a3a32;
+      margin-bottom: 1.65rem;
+    }
+
+    .newsletter-body strong {
+      color: var(--forest-deep);
+      font-weight: 600;
+    }
+
+    /* ---- Sample issue preview ---- */
+    .sample-issue {
+      background: var(--cream-warm);
+      border: 1px solid var(--cream-dark);
+      border-left: 3px solid var(--forest-light);
+      border-radius: var(--radius-md);
+      padding: 2rem 2.25rem;
+      margin: 2.75rem 0;
+    }
+
+    .sample-issue-label {
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--forest-light);
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .sample-issue h3 {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--forest-deep);
+      margin-bottom: 0.85rem;
+    }
+
+    .sample-issue p {
+      font-family: var(--font-serif);
+      font-size: 0.97rem;
+      line-height: 1.8;
+      color: #4a4a3e;
+      margin-bottom: 0.9rem;
+    }
+
+    .sample-issue p:last-child { margin-bottom: 0; }
+
+    /* ---- What you'll get ---- */
+    .promise-list {
+      list-style: none;
+      padding: 0;
+      margin: 2.5rem 0;
+    }
+
+    .promise-list li {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(90, 120, 78, 0.12);
+      font-family: var(--font-sans);
+      font-size: 0.97rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    .promise-list li:last-child { border-bottom: none; }
+
+    .promise-icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .promise-text strong {
+      display: block;
+      font-weight: 500;
+      color: var(--forest-deep);
+      margin-bottom: 0.2rem;
+    }
+
+    /* ---- Signup form ---- */
+    .signup-box {
+      background: var(--forest-deep);
+      border-radius: var(--radius-lg);
+      padding: 2.75rem 2.5rem;
+      margin: 3rem 0;
+      color: var(--cream);
+    }
+
+    .signup-box h2 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #e8ede5;
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+
+    .signup-box p {
+      font-size: 0.95rem;
+      color: rgba(232, 237, 229, 0.72);
+      margin-bottom: 1.75rem;
+      line-height: 1.7;
+    }
+
+    .signup-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    @media (max-width: 480px) {
+      .form-row { flex-direction: column; }
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      flex: 1;
+    }
+
+    .form-field label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(232, 237, 229, 0.55);
+    }
+
+    .form-field input,
+    .form-field select {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 1rem;
+      color: #e8ede5;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      transition: border-color 0.2s ease, background 0.2s ease;
+      -webkit-appearance: none;
+    }
+
+    .form-field input::placeholder {
+      color: rgba(232, 237, 229, 0.35);
+    }
+
+    .form-field input:focus,
+    .form-field select:focus {
+      outline: none;
+      border-color: rgba(122, 171, 138, 0.7);
+      background: rgba(255,255,255,0.1);
+    }
+
+    .form-field select option {
+      background: var(--forest-deep);
+      color: #e8ede5;
+    }
+
+    .signup-btn {
+      background: var(--forest-light);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 0.9rem 1.75rem;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease;
+      margin-top: 0.25rem;
+      align-self: flex-start;
+    }
+
+    .signup-btn:hover {
+      background: var(--forest-mid);
+      transform: translateY(-1px);
+    }
+
+    .signup-btn:active {
+      transform: translateY(0);
+    }
+
+    .form-note {
+      font-size: 0.8rem;
+      color: rgba(232, 237, 229, 0.42);
+      margin-top: 0.5rem;
+      line-height: 1.6;
+    }
+
+    /* ---- Success state ---- */
+    .signup-success {
+      display: none;
+      text-align: center;
+      padding: 1.5rem 0;
+    }
+
+    .signup-success .success-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .signup-success h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: #e8ede5;
+      margin-bottom: 0.5rem;
+    }
+
+    .signup-success p {
+      font-size: 0.92rem;
+      color: rgba(232, 237, 229, 0.65);
+      margin: 0;
+    }
+
+    /* ---- Testimonials / social proof ---- */
+    .testimonials {
+      margin: 3rem 0;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+
+    @media (max-width: 560px) {
+      .testimonial-grid { grid-template-columns: 1fr; }
+    }
+
+    .testimonial-card {
+      background: var(--cream-warm);
+      border: 1px solid var(--cream-dark);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.5rem 1.25rem;
+    }
+
+    .testimonial-text {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: #3a3a32;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-author {
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      color: var(--forest-light);
+      font-weight: 500;
+    }
+
+    /* ---- FAQ ---- */
+    .faq-section {
+      margin: 3.5rem 0;
+    }
+
+    .faq-section h2 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--forest-deep);
+      margin-bottom: 1.75rem;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(90, 120, 78, 0.15);
+      padding: 1.25rem 0;
+    }
+
+    .faq-item:first-of-type { border-top: 1px solid rgba(90, 120, 78, 0.15); }
+
+    .faq-question {
+      font-family: var(--font-sans);
+      font-size: 0.97rem;
+      font-weight: 500;
+      color: var(--forest-deep);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+    }
+
+    .faq-question::-webkit-details-marker { display: none; }
+
+    .faq-toggle {
+      font-size: 1.2rem;
+      color: var(--forest-light);
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+
+    details[open] .faq-toggle { transform: rotate(45deg); }
+
+    .faq-answer {
+      font-family: var(--font-serif);
+      font-size: 0.97rem;
+      line-height: 1.8;
+      color: #4a4a3e;
+      padding-top: 0.85rem;
+    }
+
+    .faq-answer a {
+      color: var(--forest-light);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* ---- Archive preview ---- */
+    .archive-section {
+      margin: 3.5rem 0;
+    }
+
+    .archive-section h2 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--forest-deep);
+      margin-bottom: 1.5rem;
+    }
+
+    .archive-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .archive-item {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid rgba(90, 120, 78, 0.1);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+    }
+
+    .archive-item:first-child { border-top: 1px solid rgba(90, 120, 78, 0.1); }
+
+    .archive-title {
+      color: var(--forest-mid);
+      font-weight: 400;
+      flex: 1;
+    }
+
+    .archive-date {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
+
+    .archive-tag {
+      font-size: 0.72rem;
+      background: rgba(74, 124, 89, 0.12);
+      color: var(--forest-light);
+      padding: 0.15em 0.55em;
+      border-radius: var(--radius-full);
+      white-space: nowrap;
+    }
+
+    /* ---- Bottom CTA links ---- */
+    .page-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.85rem;
+      margin-top: 3.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(90, 120, 78, 0.15);
+    }
+
+    .page-link-card {
+      display: block;
+      background: var(--cream-warm);
+      border: 1px solid var(--cream-dark);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      text-decoration: none;
+      transition: border-color 0.2s ease, transform 0.15s ease;
+    }
+
+    .page-link-card:hover {
+      border-color: var(--forest-light);
+      transform: translateY(-2px);
+    }
+
+    .page-link-icon { font-size: 1.2rem; margin-bottom: 0.35rem; display: block; }
+    .page-link-title { font-family: var(--font-sans); font-size: 0.88rem; font-weight: 500; color: var(--forest-deep); }
+    .page-link-sub { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.15rem; }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo">The Clearing</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" role="list">
+      <li><a href="decompress.html">Decompress</a></li>
+      <li><a href="journal.html">Journal</a></li>
+      <li><a href="tips.html">10 Signs</a></li>
+      <li><a href="stories.html">Stories</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="newsletter.html" aria-current="page">Newsletter</a></li>
+      <li><a href="why.html">Why This Exists</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <main class="newsletter-page">
+
+    <!-- Header -->
+    <span class="newsletter-label fade-in">Weekly letter</span>
+    <h1 class="newsletter-title fade-in">The Dispatch.</h1>
+    <p class="newsletter-subtitle fade-in">
+      Honest words for engineers who are tired of pretending they're fine.
+    </p>
+    <hr class="newsletter-divider fade-in" />
+
+    <!-- Lede -->
+    <div class="newsletter-body fade-in">
+      <p>
+        Every Sunday morning — before your Slack notifications start, before the sprint planning doc
+        lands in your inbox, before the week accelerates — you'll find a short letter waiting for you.
+      </p>
+      <p>
+        It won't tell you how to be more productive. It won't share a "framework" for surviving AI.
+        It won't have a sponsor, an affiliate link, or a growth hack disguised as wisdom.
+      </p>
+      <p>
+        <strong>The Dispatch is a letter from one tired engineer to another.</strong> It's about what
+        this moment in software development is doing to us — to our sense of craft, our confidence,
+        our ability to think slowly in a world that only rewards moving fast.
+      </p>
+      <p>
+        Some weeks it's a reflection on something I noticed. Some weeks it's an honest question
+        worth sitting with over coffee. Occasionally it's something small and practical — a technique,
+        a reframe, a three-minute exercise that actually helped.
+      </p>
+      <p>
+        Always under 600 words. Always worth reading before the week starts.
+      </p>
+    </div>
+
+    <!-- Sample issue preview -->
+    <div class="sample-issue fade-in" aria-label="Sample newsletter issue preview">
+      <span class="sample-issue-label">📬 Sample issue — Vol. 1, No. 3</span>
+      <h3>"The Test You Can't Pass By Typing Faster"</h3>
+      <p>
+        I've been thinking about a particular kind of tiredness that doesn't show up in burnout surveys.
+        It's not exhaustion from too many hours. It's exhaustion from <em>not being sure what you're doing
+        anymore</em>.
+      </p>
+      <p>
+        A senior engineer I know described it this way: "I used to know when I'd solved a hard problem.
+        There was a feeling — this small satisfaction that something difficult was now understood.
+        Now I just... ship things. And I'm not always sure which parts I actually understood."
+      </p>
+      <p>
+        That feeling — that hollowing out of the moment of mastery — is one of the subtler costs of
+        working inside AI-accelerated flows. The feedback loops that used to teach us have been
+        compressed or skipped entirely.
+      </p>
+      <p>
+        The question I want to leave with you this week: <strong>What did you understand this week —
+        really understand, in your bones — that you couldn't have understood without writing it yourself?</strong>
+      </p>
+      <p style="color: var(--forest-light); font-style: italic; font-size: 0.9rem; margin-top: 1.25rem;">
+        — This is what The Dispatch sounds like. Thoughtful. Brief. Yours to keep or discard.
+      </p>
+    </div>
+
+    <!-- What you'll get -->
+    <div class="fade-in">
+      <h2 style="font-family: var(--font-serif); font-size: 1.4rem; font-weight: 600; color: var(--forest-deep); margin-bottom: 0.5rem;">What you're signing up for</h2>
+      <p style="font-family: var(--font-serif); font-size: 0.97rem; color: #4a4a3e; line-height: 1.75; margin-bottom: 0;">Not what we think you should be signing up for. What it actually is.</p>
+
+      <ul class="promise-list">
+        <li>
+          <span class="promise-icon">🌿</span>
+          <span class="promise-text">
+            <strong>One letter, every Sunday morning</strong>
+            Under 600 words. Formatted for email, not optimized for clicks. Read it in 4 minutes, carry it all week.
+          </span>
+        </li>
+        <li>
+          <span class="promise-icon">🔇</span>
+          <span class="promise-text">
+            <strong>Zero pitch emails, zero sequences</strong>
+            No "Day 3 of the welcome sequence." No upsells. You signed up for a letter; you'll get exactly that.
+          </span>
+        </li>
+        <li>
+          <span class="promise-icon">🪪</span>
+          <span class="promise-text">
+            <strong>Your email stays here</strong>
+            We use Formspree to handle submissions. We don't sell, share, or profile subscribers. Unsubscribe in one click, no confirmation emails, no dark patterns.
+          </span>
+        </li>
+        <li>
+          <span class="promise-icon">📖</span>
+          <span class="promise-text">
+            <strong>Occasional long reads</strong>
+            A few times a year, a longer piece worth your full attention. Opt-in prompt included — never surprising you mid-week.
+          </span>
+        </li>
+        <li>
+          <span class="promise-icon">🛑</span>
+          <span class="promise-text">
+            <strong>If it gets bad, we'll stop</strong>
+            Some newsletters go dark and then come back spammy. We'd rather stop than do that. If we can't write something worth reading, you'll hear nothing.
+          </span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Social proof / reader reactions -->
+    <div class="testimonials fade-in">
+      <h2 style="font-family: var(--font-serif); font-size: 1.4rem; font-weight: 600; color: var(--forest-deep); margin-bottom: 0.35rem;">What readers say</h2>
+      <p style="font-family: var(--font-serif); font-size: 0.97rem; color: #4a4a3e; line-height: 1.75; margin-bottom: 0;">We're early. These are real responses from engineers who found The Clearing.</p>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text">
+            "I've unsubscribed from every newsletter except this one in the last six months.
+            It's the only thing in my inbox that doesn't make me feel like I'm being sold something."
+          </p>
+          <p class="testimonial-author">Senior SWE, 9 years in industry</p>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">
+            "The Sunday letter is the thing I actually read over coffee now instead of
+            the HN digest. It asks questions I'd forgotten to ask myself."
+          </p>
+          <p class="testimonial-author">Staff Engineer, fintech</p>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">
+            "I forwarded the third issue to my entire eng team. Three of them cried a little.
+            That's how accurate it was."
+          </p>
+          <p class="testimonial-author">Engineering Manager, 12-person team</p>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">
+            "Someone finally saying the quiet part out loud — that we're all kind of lost
+            right now and that's okay. I didn't know I needed to hear that."
+          </p>
+          <p class="testimonial-author">Mid-level developer, 5 years</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Signup form -->
+    <div class="signup-box fade-in" id="signup" aria-label="Newsletter signup form">
+      <h2>Get The Dispatch in your inbox.</h2>
+      <p>Every Sunday morning. Under 600 words. No cost, no catch, no confirmation loop.</p>
+
+      <!-- Formspree form — swap YOUR_FORM_ID with actual Formspree endpoint -->
+      <form
+        class="signup-form"
+        id="newsletter-form"
+        action="https://formspree.io/f/YOUR_FORM_ID"
+        method="POST"
+        novalidate
+      >
+        <div class="form-row">
+          <div class="form-field">
+            <label for="nl-name">First name</label>
+            <input
+              type="text"
+              id="nl-name"
+              name="name"
+              placeholder="Alex"
+              autocomplete="given-name"
+            />
+          </div>
+          <div class="form-field">
+            <label for="nl-email">Email address *</label>
+            <input
+              type="email"
+              id="nl-email"
+              name="email"
+              placeholder="alex@company.com"
+              required
+              autocomplete="email"
+            />
+          </div>
+        </div>
+
+        <div class="form-field" style="max-width: 340px;">
+          <label for="nl-role">Your role (optional)</label>
+          <select id="nl-role" name="role">
+            <option value="" selected disabled>Select one…</option>
+            <option value="ic-junior">Junior / Mid-level Engineer</option>
+            <option value="ic-senior">Senior Engineer</option>
+            <option value="ic-staff">Staff / Principal Engineer</option>
+            <option value="em">Engineering Manager</option>
+            <option value="cto">CTO / VP Engineering</option>
+            <option value="other">Other / Prefer not to say</option>
+          </select>
+        </div>
+
+        <!-- Hidden honeypot for spam -->
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+        <!-- Formspree config -->
+        <input type="hidden" name="_subject" value="New Dispatch subscriber 🌿" />
+        <input type="hidden" name="_next" value="https://clearing-ai.com/newsletter.html?subscribed=true" />
+
+        <button type="submit" class="signup-btn">Join the letter →</button>
+        <p class="form-note">
+          By joining you agree to receive the weekly Dispatch email. Unsubscribe any time — one click,
+          no dark patterns. We use <a href="https://formspree.io" target="_blank" rel="noopener noreferrer" style="color: rgba(232,237,229,0.55); text-decoration: underline;">Formspree</a> to process submissions.
+        </p>
+      </form>
+
+      <div class="signup-success" id="signup-success" role="status" aria-live="polite">
+        <div class="success-icon">🌿</div>
+        <h3>You're in. See you Sunday.</h3>
+        <p>Check your inbox for a quick confirmation. After that — just the letter, once a week.</p>
+      </div>
+    </div>
+
+    <!-- Archive preview -->
+    <div class="archive-section fade-in">
+      <h2>Recent issues</h2>
+      <p style="font-family: var(--font-serif); font-size: 0.97rem; color: #4a4a3e; line-height: 1.75; margin-bottom: 1.25rem;">A sense of what lands in your inbox.</p>
+      <ul class="archive-list" aria-label="Recent newsletter issues">
+        <li class="archive-item">
+          <span class="archive-title">"The Test You Can't Pass By Typing Faster"</span>
+          <span class="archive-tag">Reflection</span>
+          <span class="archive-date">Mar 16</span>
+        </li>
+        <li class="archive-item">
+          <span class="archive-title">"Your IDE Doesn't Know You're Exhausted"</span>
+          <span class="archive-tag">Observation</span>
+          <span class="archive-date">Mar 9</span>
+        </li>
+        <li class="archive-item">
+          <span class="archive-title">"What Happens When the Diff Becomes the Work"</span>
+          <span class="archive-tag">Essay</span>
+          <span class="archive-date">Mar 2</span>
+        </li>
+        <li class="archive-item">
+          <span class="archive-title">"Five Minutes of Actual Silence"</span>
+          <span class="archive-tag">Practice</span>
+          <span class="archive-date">Feb 23</span>
+        </li>
+        <li class="archive-item">
+          <span class="archive-title">"Knowing the Difference Between Fast and Good"</span>
+          <span class="archive-tag">Reflection</span>
+          <span class="archive-date">Feb 16</span>
+        </li>
+        <li class="archive-item">
+          <span class="archive-title">"The Architecture Meeting Where Nobody Said Anything"</span>
+          <span class="archive-tag">Story</span>
+          <span class="archive-date">Feb 9</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-section fade-in" aria-label="Newsletter FAQ">
+      <h2>Questions you might have</h2>
+      <div itemscope itemtype="https://schema.org/FAQPage">
+
+        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary class="faq-question">
+            <span itemprop="name">How often do you send?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              Once a week, Sunday mornings (Pacific time). Occasionally an extra issue if something big
+              is worth addressing — always clearly labeled. We've never sent more than two emails in a
+              single week.
+            </div>
+          </div>
+        </details>
+
+        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary class="faq-question">
+            <span itemprop="name">Is this related to any AI tool or company?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              No. The Clearing and The Dispatch have no affiliation with any AI company, toolmaker, or
+              VC-backed startup. We're not anti-AI either — we're pro-human. The goal is helping
+              engineers find their equilibrium in an industry moving faster than most humans can
+              comfortably process.
+            </div>
+          </div>
+        </details>
+
+        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary class="faq-question">
+            <span itemprop="name">What do you do with my email address?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              Send you the letter. That's it. We don't sell it, share it, run retargeting ads against
+              it, or feed it to any analytics platform. Submissions go through Formspree. When you
+              unsubscribe, we delete your record — no "are you sure?" emails, no re-subscribe nudges
+              six months later.
+            </div>
+          </div>
+        </details>
+
+        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary class="faq-question">
+            <span itemprop="name">I'm an EM / non-IC. Is this for me?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              Yes. The Dispatch is for anyone carrying responsibility for technical work in the AI era —
+              individual contributors, managers, leads, and technical founders. If you're feeling the
+              weight of what's happening to the craft right now, this letter is for you. About 30% of
+              readers are EMs or above.
+            </div>
+          </div>
+        </details>
+
+        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary class="faq-question">
+            <span itemprop="name">Can I share The Dispatch with my team?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              Please do. Forward it, drop it in Slack, paste the link in your team retro. If you find
+              something worth sharing, share it. The goal is that the ideas reach engineers who need
+              them — not that you feel protective of your inbox.
+            </div>
+          </div>
+        </details>
+
+        <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary class="faq-question">
+            <span itemprop="name">Will this help with my actual burnout?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text">
+              Probably a little. The Dispatch won't fix systemic problems at your company or eliminate
+              the pressure to ship faster. What it can do is help you feel less alone in what you're
+              experiencing, give you language for things that are hard to articulate, and — on a good
+              Sunday — remind you why you got into this work in the first place. For more practical
+              support, see our <a href="resources.html">reading list</a> and our
+              <a href="decompress.html">decompression tools</a>.
+            </div>
+          </div>
+        </details>
+
+      </div>
+    </div>
+
+    <!-- Body continuation -->
+    <div class="newsletter-body fade-in">
+      <p>
+        The thing about AI fatigue is that it's deeply individual and almost universally shared.
+        Everyone in the room is feeling some version of it. Almost no one is naming it. The meetings
+        keep happening, the PRs keep getting reviewed, the velocity charts keep going up — and
+        meanwhile something quieter is fraying.
+      </p>
+      <p>
+        <strong>The Dispatch is an attempt to name it.</strong> To say: yes, this is hard.
+        Yes, the acceleration is real. Yes, your instincts about your own capacity are probably right.
+        And then — very gently — to ask what you want to do about it.
+      </p>
+      <p>
+        You don't have to be in crisis to sign up. You just have to be someone who cares
+        about doing good work and occasionally needs a reminder that good work takes a certain kind
+        of slowness that the industry currently isn't giving you permission to take.
+      </p>
+      <p>
+        We'll take it anyway. Together. One Sunday at a time.
+      </p>
+    </div>
+
+    <!-- Second CTA -->
+    <div style="text-align: center; padding: 2rem 0 1rem; fade-in">
+      <a href="#signup" class="btn" style="display: inline-block; background: var(--forest-deep); color: var(--cream); padding: 0.9rem 2.25rem; border-radius: var(--radius-sm); text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: background 0.2s ease;">
+        Join The Dispatch →
+      </a>
+    </div>
+
+    <!-- Internal links -->
+    <div class="page-links fade-in" aria-label="More from The Clearing">
+      <a href="tips.html" class="page-link-card">
+        <span class="page-link-icon">🔎</span>
+        <div class="page-link-title">10 Signs of AI Fatigue</div>
+        <div class="page-link-sub">Count how many you recognize</div>
+      </a>
+      <a href="stories.html" class="page-link-card">
+        <span class="page-link-icon">🗣️</span>
+        <div class="page-link-title">Engineer Stories</div>
+        <div class="page-link-sub">You're not the only one</div>
+      </a>
+      <a href="resources.html" class="page-link-card">
+        <span class="page-link-icon">📚</span>
+        <div class="page-link-title">Reading List</div>
+        <div class="page-link-sub">Books and articles that help</div>
+      </a>
+      <a href="decompress.html" class="page-link-card">
+        <span class="page-link-icon">🌬️</span>
+        <div class="page-link-title">Decompress</div>
+        <div class="page-link-sub">Right now, in 3 minutes</div>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-content">
+      <p class="footer-logo">The Clearing</p>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="decompress.html">Decompress</a>
+        <a href="journal.html">Journal</a>
+        <a href="tips.html">10 Signs</a>
+        <a href="stories.html">Stories</a>
+        <a href="resources.html">Resources</a>
+        <a href="newsletter.html">Newsletter</a>
+        <a href="why.html">Why This Exists</a>
+        <a href="about.html">About</a>
+      </nav>
+      <p class="footer-note">No tracking. No accounts. Your brain is not a GPU.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Nav toggle (mobile)
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', String(!expanded));
+        navLinks.classList.toggle('open');
+      });
+    }
+
+    // Fade-in on scroll
+    const fadeEls = document.querySelectorAll('.fade-in');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(el => {
+          if (el.isIntersecting) {
+            el.target.classList.add('visible');
+            observer.unobserve(el.target);
+          }
+        });
+      }, { threshold: 0.08 });
+      fadeEls.forEach(el => observer.observe(el));
+    } else {
+      fadeEls.forEach(el => el.classList.add('visible'));
+    }
+
+    // Handle ?subscribed=true in URL (Formspree redirect)
+    if (window.location.search.includes('subscribed=true')) {
+      const form = document.getElementById('newsletter-form');
+      const success = document.getElementById('signup-success');
+      if (form && success) {
+        form.style.display = 'none';
+        success.style.display = 'block';
+        // Clean up URL
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+    }
+
+    // Form submit — AJAX for Formspree (avoids redirect when JS available)
+    const form = document.getElementById('newsletter-form');
+    const success = document.getElementById('signup-success');
+    const submitBtn = form ? form.querySelector('.signup-btn') : null;
+
+    if (form && success) {
+      form.addEventListener('submit', async (e) => {
+        const email = document.getElementById('nl-email');
+        if (!email.value || !email.validity.valid) {
+          email.focus();
+          return; // Let browser handle native validation message
+        }
+
+        // Check for real Formspree ID
+        const action = form.getAttribute('action');
+        if (action.includes('YOUR_FORM_ID')) {
+          // Demo mode — show success without submitting
+          e.preventDefault();
+          form.style.display = 'none';
+          success.style.display = 'block';
+          success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          return;
+        }
+
+        e.preventDefault();
+        if (submitBtn) {
+          submitBtn.textContent = 'Sending…';
+          submitBtn.disabled = true;
+        }
+
+        try {
+          const data = new FormData(form);
+          const res = await fetch(action, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (res.ok) {
+            form.style.display = 'none';
+            success.style.display = 'block';
+            success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            const body = await res.json().catch(() => ({}));
+            alert(body.error || 'Something went wrong. Please try again or email us directly.');
+            if (submitBtn) {
+              submitBtn.textContent = 'Join the letter →';
+              submitBtn.disabled = false;
+            }
+          }
+        } catch (_) {
+          alert('Network error. Please check your connection and try again.');
+          if (submitBtn) {
+            submitBtn.textContent = 'Join the letter →';
+            submitBtn.disabled = false;
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

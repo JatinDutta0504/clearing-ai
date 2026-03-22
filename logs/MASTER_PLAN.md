@@ -10,6 +10,15 @@ Each run appended below.
 
 ---
 
+### Hour 17 — 2026-03-22 13:24 PDT
+**Built:** `stats.html` — AI Fatigue Statistics 2025 (journalist link magnet, ~4,500 words, 50+ data points, 7 sections: top-line callout cards, burnout timeline table, cognitive load data, skill atrophy table, adoption vs wellbeing gap analysis, recovery data, demographics table; social share bar at top; FAQPage schema 6 Q&As; color-coded data source labelling; BreadcrumbList); quiz.js upgraded with social share buttons (Twitter with 4 tier-specific pre-written messages, LinkedIn, copy-link); reading time estimator added to main.js (auto-injects badge under h1 on all long-form pages, 220 WPM calc, dark mode compatible); stats.html added to nav/footer on all 21 pages + feature card on index.html (now 17 cards); sitemap.xml + sitemap.html updated
+**SEO:** stats.html = primary journalist link-magnet (50+ stats, survey/research/estimate labels, cite-this attribution note); FAQPage + Article + BreadcrumbList schema; social sharing on quiz results (Twitter shares tier-specific copy — viral lever); reading time badges improve time-on-page signals; internal links from stats.html → recovery.html, research.html, compare.html, burnout-vs-fatigue.html; sitemap.xml now 23 URLs; sitemap priority 0.95
+**~4,500 words added**
+**Commit:** `0ecdb3c`
+**Next:** `quiz-results.html` (shareable per-tier pages with deep advice + OG images) OR ambient sound player for decompress.html OR press-kit.html OR technical SEO pass (preload fonts, CWV)
+
+---
+
 ### Hour 16 — 2026-03-22 12:24 PDT
 **Built:** `research.html` (The Science Behind AI Fatigue — 12 research areas: cognitive load theory/Sweller, Kahneman dual-process, automation bias/Parasuraman, attention research/Gloria Mark, flow/Csikszentmihalyi, skill atrophy, occupational identity, Maslach burnout model, decision fatigue, survey data table, what helps + full reading list, 5-Q FAQ); `sitemap.html` (human-readable, 22 pages in 7 categories, stats bar); `about.html` full E-E-A-T expansion (founding story with pullquote callout, "the stand-up meeting", who built this, trust signal grid, expanded beliefs)
 **SEO:** research.html = journalist link magnet with real academic citations (ScholarlyArticle + Book schema); FAQPage schema (5 Q&As) + Article + BreadcrumbList; citation callout blocks; sitemap.xml updated to 22 URLs; nav updated across ALL 20 pages (research.html, workplace.html added); index.html feature grid now 17 cards; about.html AboutPage + Organization schema with E-E-A-T language

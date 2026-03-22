@@ -10,6 +10,17 @@ Each run appended below.
 
 ---
 
+### Hour 8 — 2026-03-22 04:24 PDT
+**Built:** `glossary.html` — The AI Fatigue Glossary, 25 terms, searchable + filterable by category
+**Terms:** AI Fatigue · Automation Anxiety · Automation Bias · Brownout · Cognitive Load · Cognitive Offloading · Compulsive Prompting · Context Collapse · Deep Work · Disengagement Spiral · Epistemic Abdication · Flow State · Ghost Authorship · Muscle Memory Erosion · Ownership Anxiety · Productive Struggle · Productivity Theater · Prompt Dependence · Prompt Fatigue · Role Displacement Anxiety · Shallow Work · Skill Atrophy · Status Quo Trap · Tool Fatigue · Willingness Gap
+**Features:** Live search, 5-category filter pills, alphabet jump-nav, letter-heading hide/show, "See also" cross-links, color-coded badges, hover highlights
+**SEO:** DefinedTermSet schema (8 terms as DefinedTerm — eligible for Knowledge Graph), Article schema, BreadcrumbList, 11 new long-tail keywords, sitemap updated, glossary link added to all 9 existing pages, feature card on index.html
+**~4,200 words added**
+**Commit:** `c0b4f63`
+**Next:** CSS upgrade — dark mode toggle, smoother animations, better mobile (hour 9)
+
+---
+
 ### Hour 7 — 2026-03-22 03:24 PDT
 **Built:** Expanded `why.html` — 3 new essay sections + FAQ accordion + full SEO upgrade (~2,000 words added)
 **New sections:** "The identity problem" (AI fatigue as identity crisis, craft atrophy) | "The invisible toll on junior engineers" (productive failure bypassed, fragility risk) | "Finding your way back" (deliberate vs compulsive AI use, concrete recovery steps)

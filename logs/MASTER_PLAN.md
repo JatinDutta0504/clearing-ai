@@ -10,6 +10,19 @@ Each run appended below.
 
 ---
 
+### Hour 7 — 2026-03-22 03:24 PDT
+**Built:** Expanded `why.html` — 3 new essay sections + FAQ accordion + full SEO upgrade (~2,000 words added)
+**New sections:** "The identity problem" (AI fatigue as identity crisis, craft atrophy) | "The invisible toll on junior engineers" (productive failure bypassed, fragility risk) | "Finding your way back" (deliberate vs compulsive AI use, concrete recovery steps)
+**FAQ:** 6 Q&A pairs (interactive accordion, vanilla JS, ARIA accessible) — FAQPage Schema eligible for rich snippets
+**Internal links:** "Continue reading" block with 6 links to tips/stories/resources/decompress/journal/quiz
+**SEO:** 10 new keywords, Article schema (wordCount 2800), FAQPage schema, BreadcrumbList, updated OG/Twitter, why.html sitemap priority 0.8 → 0.9
+**Bug fix:** Fixed Resources+Newsletter nav/footer `<li>` bug across ALL 8 pages (missing `</li>` caused both to share one list item)
+**~2,000 words added**
+**Commit:** `d74298f`
+**Next:** `glossary.html` — 20+ term AI fatigue glossary for long-tail SEO (hour 8)
+
+---
+
 ### Hour 6 — 2026-03-22 02:24 PDT
 **Built:** `newsletter.html` — "The Dispatch" weekly letter signup page (~1,700 words)  
 **Features:** Formspree form (email + name + role), sample issue excerpt, 5-point promise list, 4 testimonial cards, 6-issue archive preview, 6-question FAQ accordion, AJAX submit + demo mode + ?subscribed= redirect handling  

@@ -243,6 +243,55 @@ document.addEventListener('DOMContentLoaded', initQuoteRotator);
   updateProgress();
 })();
 
+// ============================================
+// Hour 17 — Reading Time Estimator
+// Injects a reading time badge under h1 on long-form pages
+// ============================================
+(function () {
+  // Only on pages with actual prose content
+  const main = document.querySelector('main');
+  if (!main) return;
+
+  // Don't show on home, decompress, journal (not long-form articles)
+  const page = window.location.pathname.split('/').pop() || 'index.html';
+  const skipPages = ['index.html', 'decompress.html', 'journal.html', '404.html', ''];
+  if (skipPages.includes(page)) return;
+
+  // Count words in text content
+  const text = main.innerText || main.textContent || '';
+  const wordCount = text.trim().split(/\s+/).filter(w => w.length > 0).length;
+  const minutes = Math.max(2, Math.ceil(wordCount / 220));
+
+  // Find h1 to inject after
+  const h1 = main.querySelector('h1') || document.querySelector('h1');
+  if (!h1) return;
+
+  // Don't inject if there's already a reading time badge
+  if (document.querySelector('.rt-badge')) return;
+
+  const badge = document.createElement('p');
+  badge.className = 'rt-badge';
+  badge.setAttribute('aria-label', `Estimated reading time: ${minutes} minutes`);
+  badge.innerHTML = `<span class="rt-icon" aria-hidden="true">⏱</span> ${minutes} min read · ~${Math.round(wordCount / 100) * 100} words`;
+  badge.style.cssText = `
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    font-family: var(--font-sans, sans-serif);
+    font-size: 0.78rem;
+    color: var(--text-muted, #7a7a6e);
+    padding: 0.3em 0.85em;
+    background: var(--cream-warm, #ede5d4);
+    border-radius: 99px;
+    border: 1px solid var(--cream-dark, #d4c9b4);
+    margin-top: 0.75rem;
+    margin-bottom: 1.5rem;
+  `;
+
+  // Insert after h1
+  h1.insertAdjacentElement('afterend', badge);
+})();
+
 // ----- Skip to content -----
 (function () {
   if (document.querySelector('.skip-link')) return;

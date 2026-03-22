@@ -281,6 +281,21 @@
   }
 
   // ============================================
+  // Build Twitter share URL from tier + score
+  // ============================================
+  function buildTwitterUrl(tier, score) {
+    const messages = {
+      0: `I took The Clearing's AI Fatigue Quiz and I'm holding up well (${score}/15). Are you?`,
+      1: `I scored ${score}/15 on The Clearing's AI Fatigue Quiz — some fatigue is showing. Sound familiar?`,
+      2: `I scored ${score}/15 on The Clearing's AI Fatigue Quiz. Real AI fatigue is present. If you're a software engineer, this quiz is worth taking.`,
+      3: `I scored ${score}/15 on The Clearing's AI Fatigue Quiz. I need a real break. Sharing this in case someone else recognises themselves in it.`,
+    };
+    const tierIdx = [0, 1, 2, 3].find(i => score >= tiers[i].min && score <= tiers[i].max) ?? 3;
+    const text = messages[tierIdx];
+    return `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent('https://clearing-ai.com/#quiz')}&via=clearingai`;
+  }
+
+  // ============================================
   // Render: results
   // ============================================
   function renderResults() {
@@ -338,8 +353,29 @@
         </div>
 
         <div class="quiz-share-prompt">
-          <p>Know someone who might need this?</p>
-          <a href="https://clearing-ai.com" class="quiz-share-link">clearing-ai.com — share the clearing</a>
+          <p class="quiz-share-title">Know someone who might need this?</p>
+          <div class="quiz-share-buttons">
+            <a
+              class="quiz-share-btn quiz-share-twitter"
+              href="${buildTwitterUrl(tier, totalScore)}"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Share your result on Twitter/X"
+            >𝕏 Share on X</a>
+            <a
+              class="quiz-share-btn quiz-share-linkedin"
+              href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fclearing-ai.com%2F%23quiz"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Share on LinkedIn"
+            >in Share on LinkedIn</a>
+            <button
+              class="quiz-share-btn quiz-share-copy"
+              id="quiz-copy-link"
+              aria-label="Copy link to quiz"
+            >🔗 Copy link</button>
+          </div>
+          <p class="quiz-share-note">No score is shared — just the link to the quiz.</p>
         </div>
 
       </div>
@@ -350,6 +386,21 @@
       retakeBtn.addEventListener('click', function () {
         quizStarted = false;
         renderIntro();
+      });
+    }
+
+    // Copy link button
+    const copyBtn = getEl('quiz-copy-link');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', function () {
+        navigator.clipboard.writeText('https://clearing-ai.com/#quiz').then(() => {
+          this.textContent = '✓ Copied!';
+          setTimeout(() => { this.textContent = '🔗 Copy link'; }, 2200);
+        }).catch(() => {
+          // fallback for older browsers
+          this.textContent = 'clearing-ai.com/#quiz';
+          setTimeout(() => { this.textContent = '🔗 Copy link'; }, 3000);
+        });
       });
     }
 

@@ -10,6 +10,17 @@ Each run appended below.
 
 ---
 
+### Hour 11 — 2026-03-22 07:24 PDT
+**Built:** `burnout-vs-fatigue.html` — "AI Fatigue vs. Burnout: What's the Difference?" (~3,500 words)
+**Page structure:** 9 sections — quick answer, 4-dimension AI fatigue framework, Maslach burnout model, 10-row comparison table, phenomenological texture of each, overlap/compound zone, 6 diagnostic questions with branching answers, dual recovery paths, why engineers miss the distinction
+**Bug fixes:** Fixed duplicate `Recovery` nav links across ALL pages (decompress/glossary/journal/newsletter/resources/stories/tips/recovery/index — all had two consecutive recovery nav items)
+**SEO:** 11 differentiation-intent keywords, Article + FAQPage (6 Q&As) + BreadcrumbList schema, comparison table for featured snippet eligibility, sitemap updated (priority 0.95), feature card added to index.html (12 total)
+**~3,500 words added**
+**Commit:** `2cec392`
+**Next:** Deepen `about.html` with founding story for E-E-A-T, or build `compare.html` for AI tool comparison SEO cluster
+
+---
+
 ### Hour 10 — 2026-03-22 06:24 PDT
 **Built:** `recovery.html` — "How to Recover from AI Fatigue: A Practical Guide for Engineers" (~3,800 words)
 **Page structure:** 8 sections — What you're dealing with (4 dimensions of AI fatigue), 7 recovery phases, day-by-day timeline (5 nodes), interactive recovery checklist (11 items, localStorage), specific strategies by dimension (4 blocks, 15+ techniques), 4 recovery traps, mental health escalation section, 6-Q FAQ accordion

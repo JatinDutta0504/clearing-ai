@@ -1694,3 +1694,771 @@ strong {
     padding: 0.75rem 1.25rem;
   }
 }
+
+/* ============================================
+   Hour 9 — Dark Mode + Animation Polish + Mobile
+   ============================================ */
+
+/* ------------------------------------------
+   Dark Mode CSS Custom Property Overrides
+   ------------------------------------------ */
+[data-theme="dark"] {
+  --cream:       #111c11;
+  --cream-warm:  #162016;
+  --cream-dark:  #1d2e1d;
+  --text-primary:   #e4e8d4;
+  --text-secondary: #c0c8aa;
+  --text-muted:     #7a8870;
+  --stone:    #8a9880;
+  --mist:     #aab8b0;
+  --forest-pale:  #8ec49a;
+  --forest-light: #6aaa78;
+  --earth:        #c8a870;
+  --earth-light:  #d4b880;
+  --bark:         #88584a;
+}
+
+/* Body base */
+[data-theme="dark"] body {
+  color: var(--text-primary);
+  background-color: var(--cream);
+}
+
+/* Nav */
+[data-theme="dark"] .nav.scrolled {
+  background: rgba(17, 28, 17, 0.96);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+}
+
+[data-theme="dark"] .nav-logo {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .nav-links a {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .nav-links a:hover,
+[data-theme="dark"] .nav-links a.active {
+  color: var(--forest-pale);
+  border-bottom-color: var(--forest-pale);
+}
+
+[data-theme="dark"] .nav-toggle span {
+  background: var(--text-primary);
+}
+
+/* White surface cards */
+[data-theme="dark"] .stat-card,
+[data-theme="dark"] .value-card,
+[data-theme="dark"] .format-btn,
+[data-theme="dark"] .journal-main,
+[data-theme="dark"] .journal-editor {
+  background: var(--cream-warm);
+  border-color: var(--cream-dark);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .decompress-section {
+  background: var(--cream-warm);
+  border-color: var(--cream-dark);
+}
+
+[data-theme="dark"] .decompress-section-title {
+  color: var(--forest-pale);
+}
+
+[data-theme="dark"] .thought-dump-area {
+  background: var(--cream-warm);
+  border-color: var(--cream-dark);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .thought-dump-area:focus {
+  border-color: var(--forest-pale);
+  box-shadow: 0 0 0 3px rgba(142, 196, 154, 0.12);
+}
+
+[data-theme="dark"] .thought-dump-area::placeholder {
+  color: var(--text-muted);
+}
+
+/* Sound toggle */
+[data-theme="dark"] .sound-toggle {
+  background: var(--cream-warm);
+  border-color: var(--cream-dark);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .sound-toggle:hover {
+  border-color: var(--forest-pale);
+}
+
+[data-theme="dark"] .sound-toggle.active {
+  background: var(--forest-mid);
+  border-color: var(--forest-mid);
+}
+
+/* Journal */
+[data-theme="dark"] .journal-sidebar {
+  background: var(--cream-warm);
+  border-color: var(--cream-dark);
+}
+
+[data-theme="dark"] .journal-sidebar-header,
+[data-theme="dark"] .journal-toolbar,
+[data-theme="dark"] .journal-footer,
+[data-theme="dark"] .entry-list-item {
+  border-color: var(--cream-dark);
+}
+
+[data-theme="dark"] .entry-list-item:hover {
+  background: var(--cream-dark);
+}
+
+[data-theme="dark"] .journal-date-display {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .format-btn:hover {
+  background: var(--cream-dark);
+  border-color: var(--cream-dark);
+}
+
+[data-theme="dark"] .format-btn.active {
+  background: var(--forest-mid);
+  color: var(--text-light);
+  border-color: var(--forest-mid);
+}
+
+/* Essays + Pull quotes */
+[data-theme="dark"] .pull-quote {
+  background: var(--cream-warm);
+  border-left-color: var(--forest-pale);
+}
+
+[data-theme="dark"] .pull-quote p {
+  color: var(--forest-pale);
+}
+
+[data-theme="dark"] .essay-content h2 {
+  color: var(--forest-pale);
+}
+
+[data-theme="dark"] .essay-content p {
+  color: var(--text-secondary);
+}
+
+/* Quiz */
+[data-theme="dark"] #quiz-container {
+  background: var(--cream-warm);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .quiz-q-text {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .quiz-intro-title {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .quiz-intro-desc {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .quiz-answer-btn {
+  background: var(--cream-dark);
+  border-color: var(--cream-dark);
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .quiz-answer-btn:hover {
+  background: var(--forest-deep);
+  border-color: var(--forest-pale);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .quiz-answer-letter {
+  background: var(--cream-warm);
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .quiz-answer-btn:hover .quiz-answer-letter {
+  background: var(--forest-mid);
+  color: var(--cream);
+}
+
+[data-theme="dark"] .quiz-breakdown {
+  background: var(--cream-dark);
+}
+
+[data-theme="dark"] .quiz-breakdown-item {
+  border-bottom-color: var(--cream-warm);
+}
+
+[data-theme="dark"] .quiz-score-ring {
+  background: var(--cream-warm);
+}
+
+[data-theme="dark"] .quiz-progress-bar {
+  background: var(--cream-dark);
+}
+
+/* Tooltip / toast */
+[data-theme="dark"] .toast {
+  background: var(--forest-mid);
+  color: var(--cream);
+}
+
+/* Headings */
+[data-theme="dark"] h1, 
+[data-theme="dark"] h2, 
+[data-theme="dark"] h3, 
+[data-theme="dark"] h4 {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] p {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] strong {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] em {
+  color: var(--earth-light);
+}
+
+[data-theme="dark"] a {
+  color: var(--forest-pale);
+}
+
+[data-theme="dark"] a:hover {
+  color: var(--mist);
+}
+
+/* Stat numbers in dark mode pop nicely */
+[data-theme="dark"] .stat-number {
+  color: var(--forest-pale);
+}
+
+/* Breathing */
+[data-theme="dark"] .breathing-text {
+  color: var(--forest-pale);
+}
+
+[data-theme="dark"] .breathing-counter {
+  color: var(--text-primary);
+}
+
+/* Section cream-warm bg */
+[data-theme="dark"] section[style*="background: var(--cream-warm)"],
+[data-theme="dark"] .section[style*="cream-warm"] {
+  background: var(--cream-warm) !important;
+}
+
+/* Footer is already forest-deep, mostly fine */
+[data-theme="dark"] .footer {
+  background: #0a120a;
+}
+
+/* Mobile nav drawer dark */
+[data-theme="dark"] .nav-links {
+  background: var(--cream);
+}
+
+/* ------------------------------------------
+   Dark Mode Toggle Button
+   ------------------------------------------ */
+.dark-toggle {
+  background: none;
+  border: 1px solid rgba(122, 171, 138, 0.3);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  padding: 0.38rem 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-family: var(--font-sans);
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  transition: all var(--transition-med);
+  white-space: nowrap;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.dark-toggle:hover {
+  border-color: var(--forest-pale);
+  color: var(--text-primary);
+  background: rgba(122, 171, 138, 0.08);
+}
+
+.dark-toggle:focus-visible {
+  outline: 2px solid var(--forest-pale);
+  outline-offset: 3px;
+}
+
+.dark-toggle .toggle-icon {
+  font-size: 0.95rem;
+  line-height: 1;
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dark-toggle:hover .toggle-icon {
+  transform: rotate(15deg) scale(1.1);
+}
+
+[data-theme="dark"] .dark-toggle {
+  border-color: rgba(142, 196, 154, 0.25);
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .dark-toggle:hover {
+  border-color: var(--forest-pale);
+  color: var(--text-primary);
+  background: rgba(142, 196, 154, 0.08);
+}
+
+/* ------------------------------------------
+   Reading Progress Bar
+   ------------------------------------------ */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--forest-pale), var(--forest-light));
+  z-index: 200;
+  width: 0%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease, width 0.08s linear;
+}
+
+.reading-progress.visible {
+  opacity: 1;
+}
+
+/* ------------------------------------------
+   Skip to Content (Accessibility)
+   ------------------------------------------ */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: var(--forest-deep);
+  color: var(--cream) !important;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  font-size: 0.9rem;
+  z-index: 999;
+  transition: top 0.2s ease;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ------------------------------------------
+   Enhanced Animation Curves
+   ------------------------------------------ */
+
+/* Override earlier fade-in with smoother cubic-bezier */
+.fade-in {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.95s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.95s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger: override + extend to 12 children */
+.stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.stagger.visible > *:nth-child(1)  { opacity: 1; transform: none; transition-delay: 0s; }
+.stagger.visible > *:nth-child(2)  { opacity: 1; transform: none; transition-delay: 0.07s; }
+.stagger.visible > *:nth-child(3)  { opacity: 1; transform: none; transition-delay: 0.14s; }
+.stagger.visible > *:nth-child(4)  { opacity: 1; transform: none; transition-delay: 0.21s; }
+.stagger.visible > *:nth-child(5)  { opacity: 1; transform: none; transition-delay: 0.28s; }
+.stagger.visible > *:nth-child(6)  { opacity: 1; transform: none; transition-delay: 0.35s; }
+.stagger.visible > *:nth-child(7)  { opacity: 1; transform: none; transition-delay: 0.42s; }
+.stagger.visible > *:nth-child(8)  { opacity: 1; transform: none; transition-delay: 0.48s; }
+.stagger.visible > *:nth-child(9)  { opacity: 1; transform: none; transition-delay: 0.54s; }
+.stagger.visible > *:nth-child(10) { opacity: 1; transform: none; transition-delay: 0.60s; }
+.stagger.visible > *:nth-child(11) { opacity: 1; transform: none; transition-delay: 0.65s; }
+.stagger.visible > *:nth-child(12) { opacity: 1; transform: none; transition-delay: 0.70s; }
+
+/* Feature card — smoother lift + subtle scale */
+.feature-card {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              background-color 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px) scale(1.012);
+  box-shadow: 0 20px 56px rgba(0,0,0,0.22);
+}
+
+/* Stat card */
+.stat-card {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              background-color 0.3s ease;
+}
+
+/* Buttons */
+.btn {
+  transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Nav animated underline (replaces border-bottom approach) */
+.nav-links a {
+  border-bottom: none;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 100%;
+  height: 1px;
+  background: var(--forest-pale);
+  transition: right 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  right: 0;
+}
+
+/* Smoother hero animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Organic breathing pulse */
+@keyframes breathePulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(122, 171, 138, 0);
+  }
+  50% {
+    box-shadow: 0 0 0 20px rgba(122, 171, 138, 0.07);
+  }
+}
+
+.breathing-ring {
+  animation: breathePulse 4.5s ease-in-out infinite;
+}
+
+/* Smooth theme colour transitions across the whole doc */
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 0.28s;
+  transition-timing-function: ease;
+}
+
+/* But don't let that bleed into layout/transform transitions */
+.btn,
+.feature-card,
+.stat-card,
+.fade-in,
+.stagger > *,
+.nav-links a::after {
+  transition-property: background-color, border-color, color, fill, stroke,
+                        transform, box-shadow, opacity, right;
+}
+
+/* ------------------------------------------
+   Medium Screen Nav (769–1100px)
+   ------------------------------------------ */
+@media (min-width: 769px) and (max-width: 1100px) {
+  .nav {
+    padding: 1rem 1.25rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-links a {
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+  }
+
+  .dark-toggle {
+    font-size: 0.72rem;
+    padding: 0.35rem 0.65rem;
+  }
+}
+
+/* ------------------------------------------
+   Mobile Improvements (≤768px)
+   ------------------------------------------ */
+@media (max-width: 768px) {
+  /* Dark toggle in nav — position before hamburger */
+  .dark-toggle {
+    position: absolute;
+    right: 4.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 102;
+  }
+
+  /* Nav links drawer */
+  .nav-links {
+    padding: 5rem 2rem 3rem;
+    gap: 1.5rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .nav-links a {
+    font-size: 1.15rem;
+    letter-spacing: 0.02em;
+    text-transform: none;
+  }
+
+  /* Min touch targets */
+  .btn {
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .format-btn {
+    min-height: 42px;
+    min-width: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .quiz-answer-btn {
+    min-height: 52px;
+  }
+
+  /* Hero CTA stack nicely */
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+
+  /* Tighter page headers */
+  .page-header {
+    padding: 6rem var(--spacing-sm) 3rem;
+  }
+
+  /* Better section spacing */
+  .section {
+    padding: 3.5rem var(--spacing-sm);
+  }
+
+  .section-sm {
+    padding: 2.5rem var(--spacing-sm);
+  }
+
+  /* Banner text more readable */
+  .banner-text {
+    font-size: clamp(1.1rem, 5vw, 1.6rem);
+  }
+
+  /* Stats 2-col on tablet */
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .stat-number {
+    font-size: 2.4rem;
+  }
+
+  /* Feature grid: allow 2-col on wide mobile */
+  .feature-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  /* Essay body */
+  .essay-body {
+    padding: 3rem var(--spacing-sm);
+  }
+
+  .essay-content p {
+    font-size: 1rem;
+  }
+
+  .pull-quote {
+    margin: 2rem 0;
+    padding: 1.5rem;
+  }
+
+  .pull-quote p {
+    font-size: 1.15rem;
+  }
+
+  /* About section */
+  .about-section {
+    padding: 3rem var(--spacing-sm);
+  }
+
+  .about-philosophy {
+    padding: var(--spacing-md) var(--spacing-sm);
+    margin: var(--spacing-md) 0;
+  }
+
+  /* Decompress */
+  .breathing-ring {
+    width: 160px;
+    height: 160px;
+  }
+
+  /* Footer nav — smaller gap */
+  .footer-nav {
+    gap: 1rem;
+  }
+
+  /* Toast — full width mobile */
+  .toast {
+    white-space: normal;
+    text-align: center;
+    width: calc(100% - 3rem);
+    max-width: 360px;
+  }
+}
+
+@media (max-width: 480px) {
+  html { font-size: 15px; }
+
+  .section {
+    padding: 2.5rem 1rem;
+  }
+
+  .page-header {
+    padding: 5.5rem 1rem 2.5rem;
+  }
+
+  /* Stats single column */
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-number {
+    font-size: 2.8rem;
+  }
+
+  /* Feature grid single column */
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quiz-answer-btn {
+    font-size: 0.9rem;
+    padding: 1rem 0.9rem;
+  }
+
+  .quiz-q-text {
+    font-size: 1.1rem;
+  }
+
+  /* Dark toggle */
+  .dark-toggle {
+    right: 4rem;
+  }
+
+  /* Hero title */
+  .hero-title {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+  }
+
+  /* Smaller footer */
+  .footer {
+    padding: 3rem 1rem;
+  }
+}
+
+/* ------------------------------------------
+   Focus-visible improvements (WCAG)
+   ------------------------------------------ */
+.btn:focus-visible,
+.feature-card:focus-visible,
+.quiz-answer-btn:focus-visible,
+.dark-toggle:focus-visible,
+.nav-links a:focus-visible {
+  outline: 2px solid var(--forest-pale);
+  outline-offset: 3px;
+}
+
+/* ------------------------------------------
+   Reduced Motion (Accessibility)
+   ------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .fade-in,
+  .stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero-eyebrow,
+  .hero-title,
+  .hero-subtitle,
+  .hero-cta,
+  .hero-scroll {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+}

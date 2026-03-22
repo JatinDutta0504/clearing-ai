@@ -132,3 +132,127 @@ function initQuoteRotator() {
 }
 
 document.addEventListener('DOMContentLoaded', initQuoteRotator);
+
+// ============================================
+// Hour 9 — Dark Mode Toggle + Reading Progress
+// ============================================
+
+// ----- Dark Mode -----
+(function () {
+  const STORAGE_KEY = 'clearing-theme';
+
+  // Determine initial theme
+  function getPreferred() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) return saved;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem(STORAGE_KEY, theme);
+    const btn = document.querySelector('.dark-toggle');
+    if (!btn) return;
+    const icon = btn.querySelector('.toggle-icon');
+    const label = btn.querySelector('.toggle-label');
+    if (theme === 'dark') {
+      if (icon) icon.textContent = '☀️';
+      if (label) label.textContent = 'Light';
+      btn.setAttribute('aria-label', 'Switch to light mode');
+      btn.setAttribute('aria-pressed', 'true');
+    } else {
+      if (icon) icon.textContent = '🌙';
+      if (label) label.textContent = 'Dark';
+      btn.setAttribute('aria-label', 'Switch to dark mode');
+      btn.setAttribute('aria-pressed', 'false');
+    }
+  }
+
+  function createToggle() {
+    const nav = document.querySelector('.nav');
+    if (!nav || document.querySelector('.dark-toggle')) return;
+
+    const btn = document.createElement('button');
+    btn.className = 'dark-toggle';
+    btn.setAttribute('type', 'button');
+    btn.setAttribute('aria-label', 'Switch to dark mode');
+    btn.setAttribute('aria-pressed', 'false');
+    btn.innerHTML = '<span class="toggle-icon" aria-hidden="true">🌙</span><span class="toggle-label">Dark</span>';
+
+    // Insert before the hamburger (or at end of nav)
+    const toggle = nav.querySelector('.nav-toggle');
+    if (toggle) {
+      nav.insertBefore(btn, toggle);
+    } else {
+      nav.appendChild(btn);
+    }
+
+    btn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      applyTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  }
+
+  // Apply immediately to avoid FOUC
+  applyTheme(getPreferred());
+
+  // Create button after DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', createToggle);
+  } else {
+    createToggle();
+  }
+
+  // Respond to system theme changes if no saved preference
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem(STORAGE_KEY)) {
+      applyTheme(e.matches ? 'dark' : 'light');
+    }
+  });
+})();
+
+// ----- Reading Progress Bar -----
+(function () {
+  const bar = document.createElement('div');
+  bar.className = 'reading-progress';
+  bar.setAttribute('role', 'progressbar');
+  bar.setAttribute('aria-label', 'Reading progress');
+  bar.setAttribute('aria-valuemin', '0');
+  bar.setAttribute('aria-valuemax', '100');
+  document.body.prepend(bar);
+
+  function updateProgress() {
+    const doc = document.documentElement;
+    const scrollTop = window.scrollY;
+    const scrollHeight = doc.scrollHeight - doc.clientHeight;
+    if (scrollHeight <= 0) {
+      bar.style.width = '0%';
+      bar.classList.remove('visible');
+      return;
+    }
+    const pct = Math.min(100, (scrollTop / scrollHeight) * 100);
+    bar.style.width = pct + '%';
+    bar.setAttribute('aria-valuenow', Math.round(pct));
+    if (pct > 2) {
+      bar.classList.add('visible');
+    } else {
+      bar.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+})();
+
+// ----- Skip to content -----
+(function () {
+  if (document.querySelector('.skip-link')) return;
+  const main = document.querySelector('main, [role="main"], #quiz-container, .hero, section');
+  if (!main) return;
+  if (!main.id) main.id = 'main-content';
+  const a = document.createElement('a');
+  a.href = '#' + main.id;
+  a.className = 'skip-link';
+  a.textContent = 'Skip to main content';
+  document.body.prepend(a);
+})();

@@ -10,6 +10,18 @@ Each run appended below.
 
 ---
 
+### Hour 10 — 2026-03-22 06:24 PDT
+**Built:** `recovery.html` — "How to Recover from AI Fatigue: A Practical Guide for Engineers" (~3,800 words)
+**Page structure:** 8 sections — What you're dealing with (4 dimensions of AI fatigue), 7 recovery phases, day-by-day timeline (5 nodes), interactive recovery checklist (11 items, localStorage), specific strategies by dimension (4 blocks, 15+ techniques), 4 recovery traps, mental health escalation section, 6-Q FAQ accordion
+**Interactive features:** Recovery checklist with localStorage persistence + progress dots + contextual scoring; FAQ accordion (ARIA, keyboard accessible, spring easing); dark mode fully covered
+**Schema:** Article + HowTo (7 steps, P14D totalTime, rich snippet eligible) + FAQPage (5 Q&As) + BreadcrumbList
+**SEO:** 9 recovery-intent keywords (highest-converting search stage), fills diagnostic→solution gap, all existing pages nav/footer updated, sitemap updated (priority 0.95)
+**~3,800 words added**
+**Commit:** `88d1e9b`
+**Next:** `burnout-vs-fatigue.html` — differentiation content for "AI fatigue vs burnout" long-tail cluster
+
+---
+
 ### Hour 9 — 2026-03-22 05:24 PDT
 **Built:** Full CSS & UX upgrade — dark mode, animation polish, mobile improvements, accessibility
 **Dark mode:** Complete `[data-theme="dark"]` system — all surfaces (nav, cards, quiz, journal, essay, decompress, breathing, footer). `localStorage` persistence + respects `prefers-color-scheme` OS setting.

@@ -10,6 +10,18 @@ Each run appended below.
 
 ---
 
+### Hour 3 — 2026-03-22 23:xx PDT
+**Built:** `resources.html` — full curated reading list (~3,400 words)  
+**Sections:** Books (7), Articles (6), Practices (7), Podcasts (3), Community (3) = 26 total resources  
+**Features:** Interactive filter bar (vanilla JS), type-badge cards, "Why it helps" callouts, editorial note  
+**Nav fix:** Fixed duplicate "Stories" bug in why/about; added tips.html to decompress/journal nav  
+**SEO:** Article schema + ItemList schema, 12 keywords, OG/Twitter, canonical, resources added to sitemap  
+**All pages updated:** index, why, about, tips, stories, decompress, journal  
+**Commit:** `38bec69`  
+**Next:** Upgrade decompress.html with Pomodoro Deep Work Timer (hour 4)
+
+---
+
 ### Hour 2 — 2026-03-21 22:xx PDT
 **Built:** `stories.html` — 4 anonymous engineer AI fatigue stories (~3,100 words)  
 **Stories:** Senior IC (lost authorship), bootcamp engineer (eroded instincts), EM (watching team implode), junior (doesn't know what she knows)  

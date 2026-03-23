@@ -294,3 +294,12 @@ Each run appended below.
 **~4,300 words added**
 **Commit:** `3e4ebbe`
 **Next:** `changelog.html` (E-E-A-T / transparency) OR JSON-LD validation pass OR `productivity-theater.html` (new SEO cluster)
+
+---
+
+### Hour 29 — 2026-03-23 01:24 PST
+**Built:** `changelog.html` (~3,800 words, 30 version entries v1.0–v1.29) — full transparent build history. Every page, feature, and fix logged with version tags, dates, and color-coded change-type badges (NEW/UPDATE/FIX/SEO/PERF). Design philosophy section (6 principle cards: zero tracking, vanilla everything, dark mode first, localStorage only, accessibility always, real content). "Coming next" roadmap. Site stats grid. Changelog CSS block added with dark mode support. **Nav fix:** `productivity-theater.html` was silently duplicated in both Why AND Heal dropdowns across all 35 pages — removed from Heal with a Python pass (correct home is Why). **Internal links:** about.html → changelog.html (transparency context paragraph), press-kit.html → changelog.html (footer note). Changelog added to Read dropdown across all 36 pages. sitemap.xml: 36 URLs. sitemap.html: 36 pages / ~123k words.
+**SEO:** changelog.html = E-E-A-T transparency signal (Google rewards sites that show their work — this demonstrates the site is actively maintained and built with care); nav duplicate fix improves internal link graph quality; BreadcrumbList + WebPage schema; 36th sitemap URL; changelog in Read dropdown = new crawlable URL accessible from every page
+**~3,800 words added**
+**Commit:** `34c83e4`
+**Next:** `cognitive-load.html` (Sweller deep-dive, underserved keyword) OR `skill-atrophy.html` (research-backed, journalist link magnet) OR JSON-LD validation pass (Google Rich Results Test on all 36 pages) OR Core Web Vitals Lighthouse audit

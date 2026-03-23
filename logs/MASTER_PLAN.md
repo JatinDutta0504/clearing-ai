@@ -258,3 +258,12 @@ Each run appended below.
 **~4,200 words added**
 **Commit:** `c8dc049`
 **Next:** og-image.png (actual social preview graphic) OR technical SEO preload hints + Core Web Vitals OR `daily-practice.html` expansion with badge CTA
+
+---
+
+### Hour 25 — 2026-03-23 21:24 PDT
+**Built:** `mental-health.html` (~4,300 words) — "Mental Health for Software Engineers: When Burnout Goes Deeper". Top-of-page crisis banner (988/741741/findahelpline.com always visible). Visual spectrum bar (Tired → AI Fatigue → Burnout → Clinical Episode). Yellow signal cards (4: emotional numbing, sleep, social withdrawal, concentration). Red danger signal cards (4: hopelessness, intrusive thoughts, physical symptoms, loss of self). 5-section "why engineers avoid help" (solve it yourself / not bad enough / company finds out / therapists don't understand / waiting for project end). 4-step "finding help" with therapist directories table (Psychology Today/Zencare/Alma/BetterHelp/Open Counseling) + verbatim intake email template. "Practices that work for engineers" (behavioral activation / CBT-as-debugging / sleep / exercise / time without input). Interactive 10-item mental health checklist (localStorage, 4-tier guidance). Global crisis table (US/UK/CA/AU/IN/DE/World). FAQ accordion (6 Q&As). Explore grid (6 cards). Nav/footer: mental-health.html added to ALL 32 existing pages in Heal dropdown + footer. Feature card on index.html (25 total). Internal links: recovery.html MH escalation section + burnout-vs-fatigue.html diagnostic note both now link to mental-health.html. sitemap.xml: 33 URLs. sitemap.html: 33 pages / ~107k words / Recover category 6→7.
+**SEO:** mental-health.html = highest-trust E-E-A-T page on site (crisis resources, clinical framework, therapist directory table = journalist/medical content); FAQPage schema 6 Q&As; Article + BreadcrumbList; targets "software engineer mental health", "developer depression", "programmer anxiety", "tech worker therapy" — all high-intent, underserved by current clearing-ai content; crisis resources section is a reliable backlink magnet (mental health orgs, EAP providers, HR newsletters link to comprehensive crisis resource pages); internal links from 2 high-traffic pages
+**~4,300 words added**
+**Commit:** `3e4ebbe`
+**Next:** `changelog.html` (E-E-A-T / transparency) OR JSON-LD validation pass OR `productivity-theater.html` (new SEO cluster)

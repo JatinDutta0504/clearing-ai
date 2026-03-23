@@ -217,3 +217,12 @@ Each run appended below.
 **Next:** stories.html — anonymous engineer burnout stories (hour 2)
 
 ---
+
+---
+
+### Hour 20 — 2026-03-22 16:24 PDT
+**Built:** `press-kit.html` — journalist link magnet (~3,500 words): definition blocks, 6 stat cards, 5-node timeline (2020–2025), 5 citable quotes with one-click copy buttons, **7 fully developed story angles** with editorial hooks (skill crisis / junior gap / mandatory adoption / authorship identity / manager blind spot / cognitive load / recovery), 8-card research link grid, Organization schema, E-E-A-T signals, press contact. `badge.html` — canvas AI Fatigue Score badge generator: 4-step UX, 3 style themes (Forest/Slate/Dawn), full canvas rendering (600×314 PNG), score ring arc, tier-specific color palettes, name support, PNG download, Twitter pre-written share, LinkedIn post copy (4 tier-specific full posts), auto-detect tier from `?tier=N` URL param. quiz.js badge CTA added (third button after quiz completion). Nav/footer updated across all 27 pages: quiz-results.html nav bug fixed (was outside dropdown), badge.html + press-kit.html added everywhere. index.html: 2 new feature cards (badge + press-kit). sitemap.xml: 27 URLs. sitemap.html: stats updated (27 pages / ~87k words / 7 tools).
+**SEO:** press-kit.html = primary journalist link-magnet (Organization schema, story angles as editorial pitches, attribution-ready quotes with copy buttons); badge.html = viral loop (quiz → badge → PNG download → LinkedIn post → organic discovery); quiz.js badge CTA closes the funnel; nav bug fix (quiz-results placement); sitemap.xml now 27 URLs; 8 deep internal links from press-kit → other high-value pages
+**~4,200 words added**
+**Commit:** `c8dc049`
+**Next:** og-image.png (actual social preview graphic) OR technical SEO preload hints + Core Web Vitals OR `daily-practice.html` expansion with badge CTA

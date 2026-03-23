@@ -312,3 +312,12 @@ Each run appended below.
 **~3,800 words added**
 **Commit:** `34c83e4`
 **Next:** `cognitive-load.html` (Sweller deep-dive, underserved keyword) OR `skill-atrophy.html` (research-backed, journalist link magnet) OR JSON-LD validation pass (Google Rich Results Test on all 36 pages) OR Core Web Vitals Lighthouse audit
+
+---
+
+### Hour 31 — 2026-03-23 03:24 PST
+**Built:** `cognitive-load.html` (~4,500 words) — "Cognitive Load Theory: Why AI Is Drowning Your Brain". Research framework: John Sweller (1988) 3-type load model (intrinsic/extraneous/germane — 3 color-coded cards); how AI breaks all three (5 extraneous overhead cards, germane load suppression via bypassed productive struggle, intrinsic fragmentation via chunking bypass); research numbers grid (Cowan 4-item working memory limit, 15-20s decay, 23-min recovery, 40% performance degradation); Split-Attention Effect applied to AI workflows (multi-pane coding setup = persistent split-attention violation); Expertise Reversal Effect (Kalyuga) explaining why senior engineers feel MORE load with AI, not less; 8-row comparison table (traditional deep work vs AI-assisted — featured snippet target); 8 warning signs of maxed-out cognitive load; 7 evidence-based strategies (batch AI / complete micro-tasks / Explanation Requirement / 90-min no-AI blocks / reduce parallel sources / scaffolding not solutions / cognitive load log); manager section (3 structural changes); "your brain is not a GPU" closing section; FAQ accordion (6 Q&As). All 37 existing pages updated: cognitive-load.html added to Understand nav dropdown + footer. Feature card #30 added to index.html. Internal links from research.html explore grid + skill-atrophy.html explore section. sitemap.xml: 38 URLs. sitemap.html: 38 pages / ~132k words.
+**SEO:** New cognitive-load/CLT keyword cluster — academic citations (Sweller/Cowan/Kalyuga/Bjork/Mark/Leroy) = journalist/link magnet; 8-row comparison table = featured snippet target; Expertise Reversal Effect section = HN/Reddit bait (counterintuitive + explains pain senior engineers feel); FAQPage schema (6 Q&As, rich snippet eligible); Article + BreadcrumbList; sitemap.xml: 38 URLs; 2 new internal links from high-authority pages
+**~4,500 words added**
+**Commit:** `843230d`
+**Next:** `developer-identity.html` (identity/craft loss emotional core) OR Core Web Vitals Lighthouse audit OR JSON-LD validation pass OR `automation-anxiety.html`

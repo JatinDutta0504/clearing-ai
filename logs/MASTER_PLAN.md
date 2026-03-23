@@ -331,3 +331,12 @@ Each run appended below.
 **Commit:** `bc18bba`
 **Next:** `automation-anxiety.html` (fear/anxiety cluster) OR JSON-LD validation pass OR Core Web Vitals Lighthouse audit OR `developer-wellbeing.html`
 
+
+---
+
+### Hour 33 — 2026-03-23 05:24 PST
+**Built:** `automation-anxiety.html` (~4,600 words) — "Automation Anxiety: The Fear That Comes With AI Tools". New keyword cluster targeting the fear/dread/existential dimension of AI fatigue. Named and decomposed 4 types of automation anxiety (economic displacement / skill erosion / relevance / identity threat), why engineers are uniquely vulnerable (5 structural reasons), physiology of anxiety (cortisol pathway → hypervigilance → compulsive news scanning → sleep disruption), the compulsive adoption trap (7 signs your tool learning is anxiety-driven), honest "will AI replace you?" with 8-row comparison table (featured snippet target), 6 durable skills that persist through disruption, the anxiety-performance loop (5-step cycle), historical patterns (radiologists/accountants — not for reassurance, for pattern recognition), 7 practical behavioral interventions, FAQ accordion (6 Q&As). All 39 existing pages updated: automation-anxiety.html added to Understand nav dropdown + footer. Internal links from developer-identity.html explore grid + cognitive-load.html explore grid. Feature card on index.html (32 total). sitemap.xml: 40 URLs. sitemap.html: 40 pages / ~141k words.
+**SEO:** FAQPage schema (6 Q&As, rich snippet eligible — including "Will AI replace software engineers?" which is extremely high volume); Article + BreadcrumbList; 8-row comparison table = featured snippet target; "automation anxiety software engineers" cluster = underserved and high-emotion (shareability vector); physiological framing removes shame → broader emotional resonance → more shares; sitemap.xml: 40 URLs
+**~4,600 words added**
+**Commit:** `21c674b`
+**Next:** `developer-wellbeing.html` (holistic wellbeing) OR `imposter-syndrome-vs-ai-fatigue.html` (differentiation, high search volume) OR Core Web Vitals Lighthouse audit OR JSON-LD validation pass

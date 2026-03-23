@@ -321,3 +321,13 @@ Each run appended below.
 **~4,500 words added**
 **Commit:** `843230d`
 **Next:** `developer-identity.html` (identity/craft loss emotional core) OR Core Web Vitals Lighthouse audit OR JSON-LD validation pass OR `automation-anxiety.html`
+
+---
+
+### Hour 32 — 2026-03-23 04:24 PST
+**Built:** `developer-identity.html` (~4,600 words) — "Who Am I Without My Code? Developer Identity in the AI Era". The emotional core of the site — opens with the question engineers are afraid to ask out loud ("Am I still actually a developer?"). Sections: why software engineering became an identity (continuous learning / visible authorship / craft sensation / community), 6 loss cards (Detective/Architect/Authorship/Mastery/Flow/Teaching experiences), ghost authorship section (the psychological loop of shipping code you don't own), three industry lies dismantled (adapt/calculator/left-behind), This Is Not Imposter Syndrome (critical distinction for recovery), 4 who-feels-this-most profiles (craft-lovers / seniors / early-career / mandatory-adoption teams), naming the grief (8 specific things listed), What AI Cannot Take (6 irreplaceable value cards: contextual judgment / trust / ethics / systems thinking / taste / institutional narrative), 7-step reconstruction framework, The Longer View, recognition checklist, FAQ accordion (6 Q&As), explore grid. Feature card #31 on index.html. Nav/footer on all 38 existing pages updated. Internal link from senior-identity.html explore grid. sitemap.xml: 39 URLs. sitemap.html: 39 pages / ~137k words / Understand 9→12 pages (added sitemap items for skill-atrophy, cognitive-load, developer-identity).
+**SEO:** FAQPage schema (6 Q&As, rich snippet eligible); Article + BreadcrumbList; targets "developer identity crisis AI", "am I still a real developer", "software engineer identity 2025", "programmer identity loss", "ghost authorship code" — high-emotion, high-shareability cluster; recognition checklist format = HN/Reddit share-bait; 6-card irreplaceable-value grid = reframe for engineers in crisis; sitemap.xml: 39 URLs
+**~4,600 words added**
+**Commit:** `bc18bba`
+**Next:** `automation-anxiety.html` (fear/anxiety cluster) OR JSON-LD validation pass OR Core Web Vitals Lighthouse audit OR `developer-wellbeing.html`
+

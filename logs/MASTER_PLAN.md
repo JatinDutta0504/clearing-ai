@@ -297,6 +297,15 @@ Each run appended below.
 
 ---
 
+### Hour 30 — 2026-03-23 02:24 PST
+**Built:** `skill-atrophy.html` (~4,600 words) — "The Slow Erosion: How AI Is Quietly Killing Your Coding Skills". Research framework: Lisanne Bainbridge (1983 Ironies of Automation), Raja Parasuraman (automation bias / out-of-the-loop problem), Andy Clark/Chalmers (extended mind), Betsy Sparrow (Google Effect), Robert Bjork (desirable difficulty). 6 color-coded at-risk skill cards (debugging, algorithmic thinking, error literacy, code reading, language internals, productive discomfort tolerance), 7 warning signs, competence illusion section (unique angle), 7-row comparison table (featured snippet target), junior engineer amplification section, 7 rebuild practices (no-AI sessions / Explanation Requirement / retrieval practice / Rebuild Challenge / 20-min debug rule / teaching / quarterly calibration), manager section. All 37 existing pages updated with skill-atrophy.html in Understand nav. Feature card on index.html (29 total). Internal link from research.html explore grid.
+**SEO:** New keyword cluster: "skill atrophy software engineers", "developer deskilling AI", "coding skills declining", "automation bias engineers", "AI dependency developers"; FAQPage schema (6 Q&As, rich snippet eligible); Article + BreadcrumbList; 7-row comparison table = featured snippet target; academic citations (Bainbridge/Parasuraman/Clark/Bjork) = journalist link magnet; sitemap.xml: 37 URLs; sitemap.html: 37 pages / ~128k words
+**~4,600 words added**
+**Commit:** `21be3e8`
+**Next:** `cognitive-load.html` (Sweller deep-dive) OR JSON-LD validation pass (Google Rich Results Test) OR Core Web Vitals audit OR `developer-identity.html`
+
+---
+
 ### Hour 29 — 2026-03-23 01:24 PST
 **Built:** `changelog.html` (~3,800 words, 30 version entries v1.0–v1.29) — full transparent build history. Every page, feature, and fix logged with version tags, dates, and color-coded change-type badges (NEW/UPDATE/FIX/SEO/PERF). Design philosophy section (6 principle cards: zero tracking, vanilla everything, dark mode first, localStorage only, accessibility always, real content). "Coming next" roadmap. Site stats grid. Changelog CSS block added with dark mode support. **Nav fix:** `productivity-theater.html` was silently duplicated in both Why AND Heal dropdowns across all 35 pages — removed from Heal with a Python pass (correct home is Why). **Internal links:** about.html → changelog.html (transparency context paragraph), press-kit.html → changelog.html (footer note). Changelog added to Read dropdown across all 36 pages. sitemap.xml: 36 URLs. sitemap.html: 36 pages / ~123k words.
 **SEO:** changelog.html = E-E-A-T transparency signal (Google rewards sites that show their work — this demonstrates the site is actively maintained and built with care); nav duplicate fix improves internal link graph quality; BreadcrumbList + WebPage schema; 36th sitemap URL; changelog in Read dropdown = new crawlable URL accessible from every page

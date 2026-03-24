@@ -340,3 +340,21 @@ Each run appended below.
 **~4,600 words added**
 **Commit:** `21c674b`
 **Next:** `developer-wellbeing.html` (holistic wellbeing) OR `imposter-syndrome-vs-ai-fatigue.html` (differentiation, high search volume) OR Core Web Vitals Lighthouse audit OR JSON-LD validation pass
+
+---
+
+### Hour 34 — 2026-03-23 09:00 PDT
+**Built:** `imposter-syndrome-vs-ai-fatigue.html` (~4,500 words) — "Imposter Syndrome vs AI Fatigue: How to Tell the Difference". New high-volume keyword cluster targeting engineers who can't tell whether they have IS or AF. Sections: quick-answer block (IS = cognitive distortion / AF = functional change), IS characteristics + who gets it, AF 4-component grid, the critical distinction (perception vs reality), 10-row comparison table (featured snippet target), how AI broke IS's natural corrective mechanism (2 mechanisms), the overlap loop (6-step IS+AF reinforcing cycle), **interactive 5-question self-assessment** with JS scoring → 3 personalized outcome messages (IS / AF / Both), junior vs senior differences, what actually helps by condition (2-column grid), when to seek professional support, FAQ accordion (6 Q&As), 6-card explore grid. **Nav fix:** changelog.html upgraded from old "Why" dropdown to full "Understand" dropdown with skill-atrophy/cognitive-load/developer-identity/automation-anxiety/imposter-syndrome. Feature card #33 on index.html. Internal links from automation-anxiety.html + developer-identity.html explore grids. sitemap.xml: 41 URLs. sitemap.html: 41 pages / ~145k words.
+**SEO:** "imposter syndrome vs AI fatigue", "developer imposter syndrome 2025", "software engineer self-doubt AI tools", "coding imposter syndrome", "programmer imposter syndrome" — high-search-volume cluster with deeply emotional resonance; 10-row comparison table = featured snippet target; FAQPage schema (6 Q&As); Article + BreadcrumbList; interactive self-assessment = engagement signal; nav updated on all 40 existing pages; sitemap.xml: 41 URLs
+**~4,500 words added**
+**Commit:** `1307aca`
+**Next:** `developer-wellbeing.html` (holistic wellbeing hub) OR `remote-work-ai-fatigue.html` (remote engineer audience) OR JSON-LD validation pass OR Core Web Vitals Lighthouse audit
+
+---
+
+### Hour 35 — 2026-03-24 09:00 PDT
+**Built:** `developer-wellbeing.html` (~4,700 words) — "Developer Wellbeing: A Holistic Guide for Software Engineers". Complements recovery-focused content with 6 foundational pillars: (1) Sleep (7–8 hrs essential, 23-min recovery stat, dark room 65–68°F), (2) Nutrition (stable blood sugar, protein+fat+fiber at meals, caffeine strategy), (3) Movement (30 min daily, BDNF boost, stress reduction), (4) Deep Work (protecting 2–4 hour uninterrupted blocks, async communication, calendar defense), (5) Relationships (1 real connection per week immunity buffer), (6) Career Design (quarterly alignment checks, values alignment, exit signals). Sections: 6 pillar cards, 30-day integration plan (weeks 1–2 foundation, weeks 3–4 connection+alignment), tracking metrics, FAQ accordion (6 Q&As), 6-card explore grid. Feature card #34 added to index.html. Nav updated on ALL 41 existing pages: developer-wellbeing.html added to Heal dropdown immediately after mental-health.html. sitemap.xml: 42 URLs. sitemap.html: 42 pages / ~149k words.
+**SEO:** FAQPage schema (6 Q&As, rich snippet eligible); Article + HowTo (6 steps, P30D totalTime) + BreadcrumbList; targets "developer wellbeing", "programmer health", "software engineer self-care", "sustainable coding careers", "tech worker wellness" — underserved and emotionally resonant cluster; HowTo schema improves featured snippet eligibility; internal links from recovery.html, mental-health.html, daily-practice.html, workplace.html; sitemap.xml: 42 URLs
+**~4,700 words added**
+**Commit:** `[pending]`
+**Next:** `remote-work-ai-fatigue.html` (async/distributed engineer pain points) OR `cognitive-recovery.html` (recovery timelines/neuroplasticity) OR JSON-LD validation pass (Google Rich Results Test on all 42 pages)

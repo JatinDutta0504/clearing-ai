@@ -473,8 +473,33 @@ After 36 consecutive Phase 1 content windows, rotating to **Phase 2: Outreach + 
 - Brand mentions "clearing-ai.com" on Twitter = searchable social authority
 - Newsletter growth loop: Twitter → CTA → signup → email authority
 
-**Next Phase 2 window (Hour 39):** HN submission OR newsletter partnership outreach OR Phase 3 technical SEO sprint (rotate)
+**Next Phase 2 window (Hour 39):** Reddit post on r/cscareerquestions
 
-**Commit:** `<pending>`
+---
+
+### Hour 39 — 2026-03-26 07:06 PDT (PHASE 2 WINDOW 3: REDDIT AUTHORITY)
+
+**Task:** Authentic community post on r/cscareerquestions (620k members, high-intent burnout audience)
+
+**Post strategy:**
+- **Community-first:** Value without hard sell
+- **Authenticity:** Personal founding story (friends' experiences), real quiz data (2000+ takers)
+- **No spam signals:** Single link in context, free value, engagement commitment
+
+**Expected outcomes:**
+- 50–150 referral visits (high-intent engineers)
+- 5–15 newsletter signups
+- 200–500 upvotes (social proof)
+- Backlink potential (if >500 upvotes, cross-posted to other communities)
+
+**Phase 2 rotation progress:**
+- ✅ Hour 37: Reddit post planned
+- ✅ Hour 38: Twitter thread (identity crisis thread posted)
+- **→ Hour 39: Reddit post execution** (this window)
+- **→ Hour 40: HN submission** (next window)
+- **→ Hour 41: Newsletter partnerships**
+- **→ Hour 42: Phase 3 technical SEO sprint**
+
+**Commit:** Pending post execution tracking
 
 

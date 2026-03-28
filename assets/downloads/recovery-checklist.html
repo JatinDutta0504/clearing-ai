@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Fatigue Recovery Checklist — clearing-ai.com</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            color: #1a1a1a;
+        }
+        .checklist {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            line-height: 1.6;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 3px solid #2d5016;
+            padding-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+        .header p {
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .phase {
+            margin-bottom: 36px;
+        }
+        .phase-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+            gap: 12px;
+        }
+        .phase-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            flex-shrink: 0;
+        }
+        .phase-1 .phase-icon { background: #2d5016; }
+        .phase-2 .phase-icon { background: #c4941d; }
+        .phase-3 .phase-icon { background: #3b5b8f; }
+        .phase-4 .phase-icon { background: #1b8a8a; }
+        .phase h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+        }
+        .phase p {
+            font-size: 12px;
+            color: #888;
+            font-style: italic;
+            margin: 0;
+        }
+        .checklist-items {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-left: 0;
+        }
+        .item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 8px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        .item:hover { background: #f9f9f9; }
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ddd;
+            border-radius: 3px;
+            flex-shrink: 0;
+            margin-top: 2px;
+            cursor: pointer;
+            background: white;
+            transition: all 0.2s;
+        }
+        .item:hover .checkbox { border-color: #999; }
+        .item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin: 0;
+            cursor: pointer;
+            accent-color: #2d5016;
+        }
+        .item label {
+            cursor: pointer;
+            font-size: 14px;
+            color: #333;
+            font-weight: 500;
+        }
+        .item input[type="checkbox"]:checked + label {
+            color: #999;
+            text-decoration: line-through;
+        }
+        .week-4 {
+            background: #faf8f3;
+            padding: 16px;
+            border-radius: 8px;
+            border-left: 4px solid #c4941d;
+            margin-top: 24px;
+        }
+        .week-4 h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+        .resources {
+            background: #f0f7ff;
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 32px;
+            border-left: 4px solid #3b5b8f;
+        }
+        .resources h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+        .resources ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .resources li {
+            font-size: 13px;
+            color: #333;
+        }
+        .resources a {
+            color: #3b5b8f;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .resources a:hover { text-decoration: underline; }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 12px;
+            color: #999;
+        }
+        .footer strong {
+            color: #2d5016;
+        }
+        @media (max-width: 600px) {
+            .checklist { padding: 24px; }
+            .header h1 { font-size: 22px; }
+            .phase h2 { font-size: 16px; }
+            .item label { font-size: 13px; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .checklist { box-shadow: none; padding: 20px; }
+            .item:hover { background: white; }
+            .checkbox { border-color: #999; }
+        }
+    </style>
+</head>
+<body>
+    <div class="checklist">
+        <div class="header">
+            <h1>AI Fatigue Recovery Checklist</h1>
+            <p>A 30-Day Framework for Reclaiming Your Craft</p>
+        </div>
+
+        <!-- Phase 1 -->
+        <div class="phase phase-1">
+            <div class="phase-header">
+                <div class="phase-icon">📋</div>
+                <div>
+                    <h2>Phase 1: Foundation (Days 1–7)</h2>
+                    <p>Name it. Measure it. Set one boundary.</p>
+                </div>
+            </div>
+            <div class="checklist-items">
+                <div class="item">
+                    <input type="checkbox" id="p1_1">
+                    <label for="p1_1">Take the AI Fatigue Quiz and read your tier diagnosis</label>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="p1_2">
+                    <label for="p1_2">Audit your AI usage: tools used daily? % of your coding?</label>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="p1_3">
+                    <label for="p1_3">Set one boundary: one 3-hour no-AI block per week</label>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="p1_4">
+                    <label for="p1_4">Measure baseline: sleep hours, energy level, focus quality</label>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="p1_5">
+                    <label for="p1_5">Talk to one person about what you're experiencing</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="phase phase-2">
+            <div class="phase-header">
+                <div class="phase-icon">🔧</div>
+                <div>
+                    <h2>Phase 2: Rebuild (Days 8–21)</h2>
+                    <p>Extend boundaries. Bring skills back. Learn the science.</p>
+                </div>
+            </div>
+            <div class="checklist-items">
+                <div class="item">
+                    <input type="checkbox" id="p2_1">
+                    <label for="p2_1">Extend no-AI blocks: 3 hours/week → 5 hours/week → daily</label>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="p2_2">
+                    <label for="p2_2">Complete one feature without AI assistance (from zero to working)</label>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="p2_3">
+                    <label for="p2_3">Bring one skill back: debugging, design, or architecture thinking</label>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="p2_4">
+                    <label for="p2_4">Read one deep-dive: research, cognitive load, or flow state</label>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="p2_5">
+                    <label for="p2_5">Tell your manager or peer about your recovery work</label>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="p2_6">
+                    <label for="p2_6">Sleep 7–8 hours nightly, track energy shifts</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phase 3 -->
+        <div class="phase phase-3">
+            <div class="phase-header">
+                <div class="phase-icon">⚙️</div>
+                <div>
+                    <h2>Phase 3: Integrate (Days 22–28)</h2>
+                    <p>Define your boundaries. Practice intentional use. Assess progress.</p>
+                </div>
+            </div>
+            <div class="checklist-items">
+                <div class="item">
+                    <input type="checkbox" id="p3_1">
+                    <label for="p3_1">Define "good AI use" for your specific role and projects</label>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="p3_2">
+                    <label for="p3_2">Practice the Explanation Requirement: explain every AI output in your own words</label>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="p3_3">
+                    <label for="p3_3">Teach someone else about your recovery journey (or peer mentorship)</label>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="p3_4">
+                    <label for="p3_4">Assess progress: skill recovery? energy clarity? identity reconnection?</label>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="p3_5">
+                    <label for="p3_5">Plan next phase: rest? team change? career pivot? continue?</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Week 4+ -->
+        <div class="week-4">
+            <h3>🌿 Week 4+: Sustain Your Boundaries</h3>
+            <div class="checklist-items" style="margin-top: 12px;">
+                <div class="item">
+                    <input type="checkbox" id="p4_1">
+                    <label for="p4_1">Protect your no-AI blocks (quarterly reset)</label>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="p4_2">
+                    <label for="p4_2">Monitor for burnout creep (re-read warning signs monthly)</label>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="p4_3">
+                    <label for="p4_3">Connect with recovery community and share your story</label>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="p4_4">
+                    <label for="p4_4">Continue learning and protecting deep work</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resources -->
+        <div class="resources">
+            <h3>📚 Resources That Help</h3>
+            <ul>
+                <li>→ <a href="https://clearing-ai.com/recovery" target="_blank">Full recovery guide</a> (detailed strategies by dimension)</li>
+                <li>→ <a href="https://clearing-ai.com/research" target="_blank">The science of AI fatigue</a> (understand what's happening)</li>
+                <li>→ <a href="https://clearing-ai.com/mental-health" target="_blank">Mental health support</a> (when to seek help)</li>
+                <li>→ <a href="https://clearing-ai.com/newsletter" target="_blank">Weekly Dispatch</a> (recovery stories + insights)</li>
+                <li>→ <a href="https://clearing-ai.com/community" target="_blank">Communities for support</a> (you're not alone)</li>
+                <li>→ <a href="https://clearing-ai.com/quiz" target="_blank">Retake the quiz</a> (track your progress)</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p><strong>clearing-ai.com</strong> — Free resources for engineers experiencing AI fatigue</p>
+            <p style="margin-top: 8px; font-size: 11px;">Print this checklist and keep it visible. Recovery is possible. You're not alone.</p>
+        </div>
+    </div>
+
+    <script>
+        // Auto-save checkbox state to localStorage
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            const id = checkbox.id;
+            // Load saved state
+            if (localStorage.getItem(`checklist_${id}`)) {
+                checkbox.checked = JSON.parse(localStorage.getItem(`checklist_${id}`));
+            }
+            // Save on change
+            checkbox.addEventListener('change', () => {
+                localStorage.setItem(`checklist_${id}`, checkbox.checked);
+            });
+        });
+
+        // Print-friendly: don't print checkboxes as filled
+        if (window.location.search.includes('print=true')) {
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+        }
+    </script>
+</body>
+</html>

@@ -1041,3 +1041,20 @@ Current trajectory: 400-600 monthly baseline → +800 Phase 2 lift → +500 Phas
 **Phase 4 focus:** Newsletter growth engine — lead magnet drives email capture from high-intent checklist visitors
 **Commit:** `f93c584`
 **Next:** Hour 51 — Draft The Dispatch weekly email template
+
+### Hour 51 — 2026-03-29 19:43 UTC (PHASE 1 WINDOW: CONTENT PILLAR)
+
+**Built:** `ai-detox-plan.html` (~5,200 words) — 30-day structured AI detox protocol for engineers
+
+**Content:** 4-week phases (Awareness/Reduction/Reconnection/Integration), 30 detailed daily steps with cognitive science backing, interactive 30-day progress tracker (localStorage), warning box for crisis engineers, FAQ section (6 Q&As), continue reading grid
+
+**Schema:** HowTo (4 HowToSection + 30 HowToStep) + FAQPage + Article + BreadcrumbList — eligible for rich step-by-step snippets
+
+**Site updates:** 41 pages nav updated (fixed duplicate 30-Day Checklist entries + added ai-detox-plan link to Heal dropdown), feature card on index.html, sitemap.xml 48 URLs, sitemap.html 48 pages/~176k words
+
+**~5,200 words added**
+
+**Commit:** `faa765c`
+
+**Next:** Hour 52 — Phase 3 Technical SEO pass OR Phase 4 newsletter flow audit
+

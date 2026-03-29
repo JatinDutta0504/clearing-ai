@@ -1033,3 +1033,11 @@ Current trajectory: 400-600 monthly baseline → +800 Phase 2 lift → +500 Phas
 
 **Commit:** `hour-49-hn-phase4-launch-prep`
 
+
+### Hour 50 — 2026-03-29 17:43 UTC (PHASE 4 WINDOW 1: LEAD MAGNET)
+**Built:** `ai-fatigue-checklist.html` — 30-day interactive recovery checklist lead magnet (~3,000 words on-page + 30-day JS checklist with localStorage persistence)
+**Features:** 4-week structure (Awareness/Reduction/Reconnection/Integration), 30 concrete daily actions, interactive progress tracker with localStorage, print button, 2 Formspree email capture forms, WebPage schema, full dark/light mode, ARIA accessibility
+**Site updates:** 43 pages nav/footer updated, feature card on index.html, sitemap.xml 46 URLs, sitemap.html 46 pages/~166k words
+**Phase 4 focus:** Newsletter growth engine — lead magnet drives email capture from high-intent checklist visitors
+**Commit:** `f93c584`
+**Next:** Hour 51 — Draft The Dispatch weekly email template

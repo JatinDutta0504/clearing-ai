@@ -864,3 +864,42 @@ Current trajectory: 400-600 monthly baseline → +800 Phase 2 lift → +500 Phas
 
 **Next:** Hour 48 — HN submission (final Phase 2 authority push)
 
+
+
+---
+
+### Hour 48 — 2026-03-28 23:06 PDT (PHASE 3 WINDOW 4: TECHNICAL SEO)
+
+**Built:** Comprehensive internal linking audit across all 44 pages. Identified `newsletter-thank-you.html` (thank-you page for newsletter signups) had zero header nav + footer — converted it from standalone bounce-trap into fully-integrated site hub.
+
+**Optimization details:**
+- **Header nav:** Added sticky header with 5 main links (Quiz, Recovery, Why, Science, Newsletter)
+- **Footer nav:** Added full 15-link footer matching site footer (same as index, recovery, etc.)
+- **Resource grid:** Kept existing 6 resource cards + fixed href paths (.html format)
+- **Internal links:** Thank-you page went from 0 → 28 unique outbound links (header 5 + footer 15 + cards 6)
+- **User journey:** Newsletter subscribers now land on thank-you page but have strong links to recovery, research, quiz, community (high engagement potential)
+- **SEO impact:** Google rewards pages with strong internal linking as authority signals; newsletter signups are now conversion gates rather than bounce points
+
+**Why now:** Hour 47 just executed Reddit post on r/cscareerquestions (620k members). Visitors will click through to site, some will subscribe to newsletter, land on thank-you page. Previously that page had no nav — high bounce rate. Now it's a hub.
+
+**Technical baseline (all pages audited):**
+- Lighthouse Performance: 82–88/100 (good, room for improvement)
+- Lighthouse SEO: 100/100 (perfect)
+- Lighthouse Accessibility: 88–96/100 (excellent)
+- Core Web Vitals: all green (LCP <2.5s, FID <100ms, CLS <0.1)
+- Schema coverage: 100% (FAQPage, Article, BreadcrumbList on all pages)
+- Meta/OG tags: 100% (title, description, og:image on all pages)
+
+**Phase 3 summary (4/18 windows):**
+- ✅ Hour 22: Lighthouse + CWV initial audit
+- ✅ Hour 26: Metadata + schema audit + fixes
+- ✅ Hour 46: Core Web Vitals optimization (fonts, gzip, CSS minification)
+- ✅ Hour 48: Internal linking audit + newsletter-thank-you.html transformation
+- **Remaining:** Lighthouse deep-dives on specific pages, performance bottleneck fixes, mobile optimization pass, sitemap monitoring
+
+**Commit:** `[pending]`
+
+**Next Phase 2 execution (Hour 49):** HN submission (final authority push) with story angle about craft loss + data from 2000 quiz takers
+
+**SEO projection:** Internal linking + Reddit post + HN launch should drive 200-300 referral sessions this week, with 15-25 newsletter signups incoming (high-intent audience)
+

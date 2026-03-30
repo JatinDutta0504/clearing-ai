@@ -161,6 +161,7 @@
   </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Navigation -->
     <nav class="main-nav" role="navigation" aria-label="Main navigation">
@@ -170,7 +171,7 @@
       <ul class="nav-links">
         <li><a href="index.html" class="nav-link">Home</a></li>
         <li class="nav-dropdown">
-          <button class="nav-link dropdown-trigger">Why <span class="dropdown-arrow">▾</span></button>
+          <button class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">Why <span class="dropdown-arrow">▾</span></button>
           <ul class="dropdown-menu">
             <li><a href="why.html">Why AI Fatigue?</a></li>
             <li><a href="burnout-vs-fatigue.html">Burnout vs Fatigue</a></li>
@@ -193,7 +194,7 @@
           </ul>
         </li>
         <li class="nav-dropdown">
-          <button class="nav-link dropdown-trigger">Heal <span class="dropdown-arrow">▾</span></button>
+          <button class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">Heal <span class="dropdown-arrow">▾</span></button>
           <ul class="dropdown-menu">
             <li><a href="recovery.html">Recovery Guide</a></li>
             <li><a href="software-engineer-mental-health.html">Mental Health</a></li></li>
@@ -213,7 +214,7 @@
           </ul>
         </li>
         <li class="nav-dropdown">
-          <button class="nav-link dropdown-trigger">Stories <span class="dropdown-arrow">▾</span></button>
+          <button class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">Stories <span class="dropdown-arrow">▾</span></button>
           <ul class="dropdown-menu">
             <li><a href="stories.html">Engineer Stories</a></li>
             <li><a href="engineer-types.html">Your Type</a></li>
@@ -227,7 +228,7 @@
           </ul>
         </li>
         <li class="nav-dropdown">
-          <button class="nav-link dropdown-trigger">Tools <span class="dropdown-arrow">▾</span></button>
+          <button class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">Tools <span class="dropdown-arrow">▾</span></button>
           <ul class="dropdown-menu">
             <li><a href="index.html#quiz">Fatigue Quiz</a></li>
             <li><a href="checkin.html">Daily Check-in</a></li>
@@ -237,7 +238,7 @@
           </ul>
         </li>
         <li class="nav-dropdown">
-          <button class="nav-link dropdown-trigger">Read <span class="dropdown-arrow">▾</span></button>
+          <button class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">Read <span class="dropdown-arrow">▾</span></button>
           <ul class="dropdown-menu">
             <li><a href="resources.html">Resources</a></li>
             <li><a href="newsletter.html">Newsletter</a></li>
@@ -252,7 +253,7 @@
     </div>
   </nav>
 
-  <main class="journal-page">
+  <main id="main-content" class="journal-page">
 
     <!-- Page Header -->
     <div class="journal-page-header">
@@ -264,10 +265,10 @@
         </p>
       </div>
       <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-        <button class="btn btn-ghost" onclick="exportAllEntries()" style="font-size:0.85rem; padding: 0.65rem 1.4rem;">
+        <button class="btn btn-ghost" aria-label="Export all journal entries" style="font-size:0.85rem; padding: 0.65rem 1.4rem;">
           Export as .txt
         </button>
-        <button class="new-entry-btn" onclick="newEntry()" style="padding: 0.7rem 1.4rem; border-radius: var(--radius-full); font-size:0.85rem;">
+        <button class="new-entry-btn" aria-label="Create new journal entry" style="padding: 0.7rem 1.4rem; border-radius: var(--radius-full); font-size:0.85rem;">
           + New Entry
         </button>
       </div>
@@ -280,7 +281,7 @@
         <aside class="journal-sidebar">
           <div class="journal-sidebar-header">
             <span class="journal-sidebar-title">Entries</span>
-            <button class="new-entry-btn" onclick="newEntry()">+ New</button>
+            <button class="new-entry-btn" aria-label="Create new journal entry">+ New</button>
           </div>
           <ul class="entry-list" id="entryList" role="list" aria-label="Journal entries"></ul>
         </aside>
@@ -299,9 +300,9 @@
             <span class="journal-date-display" id="entryDateDisplay">Start writing your thoughts…</span>
             <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
               <div class="journal-formatting">
-                <button class="format-btn" id="boldBtn" onclick="formatText('bold')" title="Bold (⌘B)"><strong>B</strong></button>
-                <button class="format-btn" id="italicBtn" onclick="formatText('italic')" title="Italic (⌘I)"><em>I</em></button>
-                <button class="format-btn" onclick="formatText('underline')" title="Underline"><u>U</u></button>
+                <button class="format-btn" id="boldBtn" aria-label="Bold text" title="Bold (⌘B)"><strong>B</strong></button>
+                <button class="format-btn" id="italicBtn" aria-label="Italic text" title="Italic (⌘I)"><em>I</em></button>
+                <button class="format-btn" aria-label="Underline text" title="Underline"><u>U</u></button>
               </div>
             </div>
           </div>
@@ -322,10 +323,10 @@
           <div class="journal-footer">
             <span class="journal-status" id="journalStatus">No entry selected</span>
             <div class="journal-actions">
-              <button class="btn btn-secondary" onclick="deleteCurrentEntry()" id="deleteBtn" style="font-size:0.82rem; padding: 0.6rem 1.2rem;" disabled>
+              <button class="btn btn-secondary" aria-label="Delete current entry" id="deleteBtn" style="font-size:0.82rem; padding: 0.6rem 1.2rem;" disabled>
                 Delete
               </button>
-              <button class="btn btn-primary" onclick="saveEntry()" id="saveBtn" style="font-size:0.82rem; padding: 0.6rem 1.2rem;" disabled>
+              <button class="btn btn-primary" aria-label="Save journal entry" id="saveBtn" style="font-size:0.82rem; padding: 0.6rem 1.2rem;" disabled>
                 Save Entry
               </button>
             </div>

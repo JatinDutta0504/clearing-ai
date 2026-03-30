@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Engineering Manager's Guide to Preventing Team AI Fatigue | The Clearing</title>
+  <meta name="description" content="Engineering managers: practical tactics to prevent AI fatigue before it becomes burnout. Structural changes, 1:1 scripts, velocity metric fixes, and team-level recovery practices." />
+  <meta name="keywords" content="engineering manager AI fatigue, prevent team burnout AI, EM AI wellness, software manager team fatigue, engineering lead AI overwhelm, manager AI adoption strategy, team cognitive load engineering, velocity metric AI, engineering manager mental health, senior IC burnout prevention" />
+  <meta name="author" content="The Clearing" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://clearing-ai.com/team-manager-guide.html" />
+  <link rel="preload" href="css/style.css" as="style" />
+  <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="css/style.css" /></noscript>
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://clearing-ai.com/team-manager-guide.html" />
+  <meta property="og:title" content="The Engineering Manager's Guide to Preventing Team AI Fatigue" />
+  <meta property="og:description" content="Practical tactics for engineering managers to prevent AI fatigue before it becomes burnout. Structural changes, 1:1 scripts, and team-level recovery." />
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png" />
+  <meta property="og:site_name" content="The Clearing" />
+  <meta property="article:published_time" content="2026-03-30" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Engineering Manager's Guide to Preventing Team AI Fatigue" />
+  <meta name="twitter:description" content="Practical tactics for engineering managers to prevent AI fatigue before it becomes burnout." />
+  <meta name="twitter:image" content="https://clearing-ai.com/og-image.png" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Engineering Manager's Guide to Preventing Team AI Fatigue",
+  "description": "Practical tactics for engineering managers to prevent AI fatigue before it becomes burnout. Structural changes, 1:1 scripts, velocity metric fixes, and team-level recovery practices.",
+  "author": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+  "publisher": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+  "datePublished": "2026-03-30",
+  "dateModified": "2026-03-30",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://clearing-ai.com/team-manager-guide.html"},
+  "wordCount": 4100,
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com"},
+      {"@type": "ListItem", "position": 2, "name": "Recover", "item": "https://clearing-ai.com/recovery.html"},
+      {"@type": "ListItem", "position": 3, "name": "Manager's Guide", "item": "https://clearing-ai.com/team-manager-guide.html"}
+    ]
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I know if my team has AI fatigue vs. normal stress?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Look for the compound pattern: engineers are productive but not learning, shipping but not understanding, meeting sprint goals but showing declining engagement. AI fatigue shows up as a learning-and-growth gap alongside high output. Regular stress resolves with rest; AI fatigue persists because the underlying conditions aren't changing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I mandate or restrict AI tool usage on my team?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mandating creates compliance culture. Restricting ignores that AI tools have real value. The answer is neither mandate nor restrict — it's create conditions where engineers can make conscious, intentional choices about when AI helps and when it costs more than it gives. The goal is agency, not policy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I talk about AI fatigue without making engineers feel judged for using AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lead with curiosity, not concern. Frame it as a systemic observation, not a performance issue. Example: 'I've noticed the industry has shifted how we work pretty dramatically in the last two years, and I'm curious how that's affecting you — not as a performance question, just as a human question. What does your relationship with AI tools feel like these days?'"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Our sprint velocity looks great — why should I worry about AI fatigue?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Velocity measures output, not sustainability, learning, or long-term team capability. High velocity with AI fatigue often means engineers are producing more code they don't understand, building skills they won't have next year, and running on engagement透支. The velocity numbers are real in the short term and masking a capability erosion that shows up in six to eighteen months."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What metrics should I track instead of just velocity?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Track learning velocity alongside output velocity: skill growth (self-assessed quarterly), debugging time on AI-generated code vs. hand-written code, time-to-architecture-decision, mentor/teach moments per sprint, and engineer self-reported energy and engagement. These metrics surface the health of the team's long-term capability, not just this quarter's output."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I have the AI fatigue conversation in a 1:1 without it feeling like a performance review?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Keep it separate from performance. Schedule it specifically as a 'how are you doing as a person, not as a contributor' conversation. Use open-ended questions: 'What's the part of your job that feels most energizing right now? What's the part that feels most draining?' Let the answers guide the conversation. Don't come with a solution already in mind."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <header>
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+      <a href="index.html" class="nav-logo">The Clearing</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+      <ul class="nav-list">
+        <li><a href="quiz.html">Quiz</a></li>
+        <li class="dropdown">
+          <a href="recovery.html">Recover</a>
+          <ul class="dropdown-menu">
+            <li><a href="recovery.html">Recovery Guide</a></li>
+            <li><a href="ai-detox-plan.html">30-Day Detox</a></li>
+            <li><a href="mental-health.html">Mental Health</a></li>
+            <li><a href="developer-wellbeing.html">Wellbeing</a></li>
+            <li><a href="daily-practice.html">Daily Practice</a></li>
+            <li><a href="checkin.html">Daily Check-In</a></li>
+            <li><a href="corporate-ai-wellness.html">Corporate Wellness</a></li>
+            <li><a href="team-manager-guide.html">For Managers</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="why.html">Understand</a>
+          <ul class="dropdown-menu">
+            <li><a href="why.html">Why AI Fatigue</a></li>
+            <li><a href="signs-ai-fatigue.html">10 Signs</a></li>
+            <li><a href="burnout-vs-fatigue.html">Burnout vs. Fatigue</a></li>
+            <li><a href="skill-atrophy.html">Skill Atrophy</a></li>
+            <li><a href="cognitive-load.html">Cognitive Load</a></li>
+            <li><a href="attention-residue.html">Attention Residue</a></li>
+            <li><a href="flow-state.html">Flow State</a></li>
+            <li><a href="productivity-theater.html">Productivity Theater</a></li>
+            <li><a href="developer-identity.html">Identity Crisis</a></li>
+            <li><a href="automation-anxiety.html">Automation Anxiety</a></li>
+            <li><a href="imposter-syndrome-vs-ai-fatigue.html">Imposter Syndrome</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="research.html">Science</a>
+          <ul class="dropdown-menu">
+            <li><a href="research.html">Research</a></li>
+            <li><a href="stats.html">Statistics</a></li>
+            <li><a href="skill-atrophy.html">Skill Atrophy</a></li>
+            <li><a href="cognitive-load.html">Cognitive Load</a></li>
+          </ul>
+        </li>
+        <li><a href="newsletter.html">Newsletter</a></li>
+      </ul>
+      <button class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <article class="page-content">
+      <div class="reading-progress" aria-hidden="true"></div>
+
+      <header class="page-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="recovery.html">Recover</a></li>
+            <li aria-current="page">Manager's Guide</li>
+          </ol>
+        </nav>
+        <span class="reading-time"></span>
+      </header>
+
+      <h1>The Engineering Manager's Guide to Preventing Team AI Fatigue</h1>
+
+      <p class="lead">You didn't sign up to manage a productivity theater. But somewhere between last quarter's velocity goals and this quarter's AI mandate, your team started shipping more code and understanding less of it. The sprint metrics look fine. The engineers don't.</p>
+
+      <p>This guide is for engineering managers, tech leads, and CTOs who have noticed something shifting in their teams — not a morale crisis, not a performance problem, but a quiet, creeping sense that the work has changed and the humans doing it are paying a price nobody's naming.</p>
+
+      <p>AI fatigue in engineering teams is structural. That means it responds to structural solutions, not individual resilience coaching. This guide gives you both: the recognition signals, the team-level changes that actually work, and the conversation frameworks you need to lead this well.</p>
+
+      <hr />
+
+      <section>
+        <h2>What You're Probably Seeing (And Naming Wrong)</h2>
+
+        <p>Before you can fix it, you need to see it clearly. AI fatigue doesn't announce itself — it hides in sprint metrics and individual performance reviews.</p>
+
+        <p>Here are the patterns that show up in teams with AI fatigue:</p>
+
+        <div class="card-grid">
+          <div class="card">
+            <h3>Output up, mastery down</h3>
+            <p>Sprint velocity is healthy. PR counts are high. But when you look closely, the same engineer who shipped three features last quarter can't debug a basic issue in code they wrote six months ago without AI help. The work is happening. The learning isn't.</p>
+          </div>
+          <div class="card">
+            <h3>The "I know this" illusion</h3>
+            <p>Engineers report that AI-generated code "makes sense" in the moment — until it doesn't. They ship it confidently. They can't maintain or debug it independently. This isn't laziness. It's the insidious nature of automation bias: the more we rely on something that seems correct, the less we scrutinize it.</p>
+          </div>
+          <div class="card">
+            <h3>The 11pm Slack message</h3>
+            <p>Junior engineers especially are working later, not because the sprint demands it, but because the gap between what they're responsible for and what they understand is consuming their evenings. The cognitive load of managing uncertainty about your own code is exhausting in a way that doesn't show up in any metric.</p>
+          </div>
+          <div class="card">
+            <h3>Declining engagement, stable performance</h3>
+            <p>The engineer who used to volunteer for the gnarly architecture problem now waits to see what AI suggests. The person who wrote long technical design docs now prompts their way to PRs. Performance reviews are fine. Enthusiasm is gone. The craft relationship has changed, and not by conscious choice.</p>
+          </div>
+        </div>
+
+        <div class="warning-box">
+          <strong>The velocity trap:</strong> If your primary team metric is story points or PR count, you are directly incentivizing AI over-reliance. Not because your engineers are gaming the system — because the system is telling them that shipping more is the goal, and AI is the fastest way to ship more. The metric shapes the behavior before the culture catches up.
+        </div>
+      </section>
+
+      <section>
+        <h2>The Structural Causes (And Why Individual Solutions Don't Work)</h2>
+
+        <p>Most managers respond to AI fatigue the same way: they tell engineers to take breaks, use the vacation days, maybe have a conversation about work-life balance. These are good instincts and they don't work, because the problem isn't how much engineers are resting. The problem is how the work is structured.</p>
+
+        <p>AI fatigue is caused by five structural conditions you probably have more control over than you realize:</p>
+
+        <div class="callout-grid">
+          <div class="callout">
+            <h3>1. Velocity as the only signal</h3>
+            <p>When "faster" is the only value the organization recognizes, AI becomes the rational choice for every task, regardless of learning cost. Your engineers are optimizing correctly for the incentive structure you've built.</p>
+          </div>
+          <div class="callout">
+            <h3>2. No sanctioned space for inefficiency</h3>
+            <p>The learning loop requires friction. Building something the slow way — where you struggle and figure it out — is where skill lives. If every sprint plan assumes you're using AI for everything, there's no room for the productive struggle that builds actual expertise.</p>
+          </div>
+          <div class="callout">
+            <h3>3. AI culture by default, not design</h3>
+            <p>Most teams didn't decide to adopt AI tools deliberately. It happened piecemeal — engineers started using them, nobody objected, and now it's the assumed workflow. The difference between a team that uses AI intentionally and one that's dependent on it is whether the choice was ever made consciously.</p>
+          </div>
+          <div class="callout">
+            <h3>4. Junior engineers left to figure it out alone</h3>
+            <p>The entry-level work that used to build foundational skills — debugging, writing tests, understanding system behavior — is exactly what AI automates fastest. Junior engineers are getting the outputs of senior work without the path that used to lead there. They don't know what they don't know.</p>
+          </div>
+          <div class="callout">
+            <h3>5. No feedback loop on learning</h3>
+            <p>Most teams measure output, not growth. There's no systematic check on whether engineers are building capabilities or just maintaining them. By the time a skill gap becomes visible in a performance review, it's been developing for twelve to eighteen months.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>What Actually Helps: The Intervention Hierarchy</h2>
+
+        <p>Not all interventions are equal. Some changes fix the problem at the root. Others treat symptoms. Here's what the evidence and engineering experience suggest works, organized by leverage:</p>
+
+        <h3>High-leverage: Structural changes that shift conditions for everyone</h3>
+
+        <p><strong>Change what you measure.</strong> Add learning metrics alongside velocity. Ask engineers quarterly: "What's one thing you understand better than you did three months ago? What's one thing you understand worse?" Track the answers. If the "understand worse" list is growing while velocity is stable, you have a structural problem that no amount of individual coaching will fix.</p>
+
+        <p>Another practical metric: track debugging time. At the start of a quarter, ask engineers to log (informally, just awareness) how long they spend debugging AI-generated code vs. code they wrote themselves. If AI code consistently takes longer to debug than it "saved" in writing time, that's a signal worth examining honestly.</p>
+
+        <p><strong>Create sanctioned no-AI space.</strong> Pick one recurring thing the team does — system design, a certain type of feature, a code review practice — and protect it as AI-free. Not as a rule, but as an option that's explicitly supported. "We think it's valuable to design this component without AI assistance" is different from "no AI allowed." The first creates space for intentional choice.</p>
+
+        <p><strong>Redesign onboarding for learning, not output.</strong> Junior engineers need a different arc in an AI-assisted environment. Their first three to six months should include deliberate no-AI learning blocks — periods where they're expected to struggle, figure things out, and build the foundational models that will make AI assistance meaningful later rather than substitutive now.</p>
+
+        <h3>Medium-leverage: Team-level norms and practices</h3>
+
+        <p><strong>The Explanation Requirement.</strong> When an engineer accepts AI-generated code, they should be able to explain it — not perfectly, but in their own words. This isn't about code review theater. It's about maintaining the learning loop. Teams that adopt this as a norm — "I want to understand this before I ship it" — report that it changes their relationship with AI from dependency to tool use.</p>
+
+        <p><strong>Regular skill calibration conversations.</strong> Quarterly, have each engineer self-assess: what skills have gotten stronger? What skills have gotten weaker? What do they want to build this quarter? These conversations surface the learning gap early, before it becomes a capability crisis.</p>
+
+        <p><strong>Team retrospectives that include AI.</strong> Add a question to your sprint retros: "How did AI affect our work this sprint — positively and negatively?" Engineer answers to this question are consistently more honest than "how can we improve?" alone. You're giving people permission to name what's actually happening.</p>
+
+        <h3>Lower-leverage (but still valuable): Individual support</h3>
+
+        <p><strong>1:1 conversations that aren't about performance.</strong> The most valuable thing you can do as a manager is create space for engineers to name what's hard without fear of judgment. The conversation scripts below give you a framework, but the underlying practice is simple: ask about the experience, listen without fixing, reflect back what you hear.</p>
+
+        <p><strong>Referral to resources, not prescriptions.</strong> If an engineer is struggling, saying "you should take a vacation" or "have you tried the Pomodoro technique?" misses the point. The structural conditions are the problem. Resources — like the <a href="ai-detox-plan.html">30-day AI detox plan</a> or <a href="recovery.html">the recovery guide</a> — are most useful when engineers choose them because they recognize themselves in them, not because you prescribed them.</p>
+      </section>
+
+      <section>
+        <h2>Conversation Frameworks That Actually Work</h2>
+
+        <p>Having the AI fatigue conversation with an engineer is a skill. The goal is to create safety — to signal that you're asking about their experience as a human, not evaluating their performance. Here's how to do it well:</p>
+
+        <h3>The opening frame</h3>
+        <p>Don't start with a concern. Start with genuine curiosity:</p>
+        <blockquote>
+          <p>"I want to check in on something that's been on my mind — the way AI tools have changed how we work. I don't have an agenda here, I'm genuinely curious how it's affecting you. What's your relationship with AI tools feeling like these days? Not as a performance question, just as a person."</p>
+        </blockquote>
+        <p>This frame works because it separates the conversation from evaluation. You're not asking because you're worried about their performance — you're asking because you care about their experience.</p>
+
+        <h3>If they say things are fine</h3>
+        <p>Don't push. Acknowledge and leave the door open:</p>
+        <blockquote>
+          <p>"Okay. I just wanted to name it in case it's ever something you want to think through. My door's open if that changes."</p>
+        </blockquote>
+        <p>Some engineers need to name the problem themselves before they're ready to talk about it. Naming it in the room — even briefly — plants a seed.</p>
+
+        <h3>If they open up about struggling</h3>
+        <p>Reflect before problem-solving:</p>
+        <blockquote>
+          <p>"So what I'm hearing is — you're shipping more than ever, but it doesn't feel like you're getting better at the craft. Is that right?"</p>
+        </blockquote>
+        <p>Getting the framing right before offering solutions is the difference between a conversation that builds trust and one that feels like a performance intervention.</p>
+
+        <h3>If you see clear AI fatigue signals in a team member</h3>
+        <p>Don't diagnose. Connect:</p>
+        <blockquote>
+          <p>"I noticed you seem less energized by the harder problems lately — or maybe more tired by the routine ones. I don't know if that's just the quarter or something around how the work has been feeling. Either way, I wanted to check in."</p>
+        </blockquote>
+        <p>Notice the framing: "I noticed" — specific, not speculative. "I don't know if that's just the quarter" — leaves room. "I wanted to check in" — it's about care, not correction.</p>
+      </section>
+
+      <section>
+        <h2>The Metrics That Matter More Than Velocity</h2>
+
+        <p>If you only change one thing, change what you measure. Here's a practical framework:</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>What it signals</th>
+              <th>How to collect it</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Self-reported learning (quarterly)</td>
+              <td>Are engineers growing or maintaining?</td>
+              <td>Quick 5-question pulse survey, anonymous or named</td>
+            </tr>
+            <tr>
+              <td>Debug-to-ship ratio (AI vs. hand-written)</td>
+              <td>Is AI actually saving time, or just moving the cost?</td>
+              <td>Engineer self-log for 2 weeks per quarter</td>
+            </tr>
+            <tr>
+              <td>No-AI project quality scores</td>
+              <td>Are foundational skills eroding or intact?</td>
+              <td>Retro quality ratings on intentionally no-AI work</td>
+            </tr>
+            <tr>
+              <td>Mentor/teach moments per sprint</td>
+              <td>Is knowledge still flowing through the team?</td>
+              <td>Count in retrospectives, informal tracking</td>
+            </tr>
+            <tr>
+              <td>Engineer-initiated learning time</td>
+              <td>Do engineers have space to grow?</td>
+              <td>20% time or equivalent, tracked informally</td>
+            </tr>
+            <tr>
+              <td>1:1 energy/engagement signals</td>
+              <td>Are people energized or running on empty?</td>
+              <td>Quick 1-10 check-in in 1:1s, tracked over time</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>None of these are perfect. All of them together give you a picture of team health that velocity alone cannot. And if you're tracking them, you're sending a signal: output matters, but so does what your team is becoming.</p>
+      </section>
+
+      <section>
+        <h2>For Engineering Managers Who Are Struggling Too</h2>
+
+        <p>You are not outside this problem. Engineering managers experience AI fatigue too — the pressure to deliver velocity, the mandate to "accelerate with AI," the performance review where you're told to do more with less, while simultaneously trying to protect your team from the exact pressure you're being asked to apply.</p>
+
+        <p>The structural changes in this guide work at the team level. But they require managers who have the psychological safety to push back on unreasonable velocity expectations, to name what they're seeing honestly, and to model the honest relationship with AI tools that they want their teams to have.</p>
+
+        <p>If you're the manager who's been noticing the pattern and feeling alone in naming it: you're not alone. The fact that you're reading this guide tells me you're already doing the thing most managers don't — paying attention to what the metrics aren't showing you.</p>
+
+        <p>Start with the team retrospective question. "How did AI affect our work this sprint — positively and negatively?" Watch what happens when you give your team permission to answer honestly.</p>
+
+        <p>And if you need support for yourself — not just your team — <a href="mental-health.html">this page has resources specifically for engineering leaders</a>. You don't have to carry this alone.</p>
+      </section>
+
+      <section>
+        <h2>Signs Your Team Has a Structural Problem (Not an Individual One)</h2>
+
+        <p>Most managers respond to struggling engineers as individuals. Sometimes that's right. Often the problem is systemic, and treating it as an individual issue — coaching, performance plans, "finding the right approach" — just delays the structural fix.</p>
+
+        <div class="card-grid">
+          <div class="card">
+            <h3>The problem persists across individuals</h3>
+            <p>If multiple engineers on your team are showing the same pattern — productive but not growing, energetic but disengaged — the cause is almost certainly structural. Individual coaching addresses the symptom; the cause keeps producing the symptom.</p>
+          </div>
+          <div class="card">
+            <h3>The pattern shows up in the data</h3>
+            <p>If your skill calibration surveys show consistent learning decline alongside stable or rising velocity, you're looking at a structural mismatch between what your team is being measured on and what they need to be measured on.</p>
+          </div>
+          <div class="card">
+            <h3>It started with a tool change, not a personnel change</h3>
+            <p>If your team was healthy and functional before a specific change — a new AI tool mandate, a velocity goal increase, a reorganization — and the problems started around the same time, the cause is the change. This isn't coincidence. It's cause and effect.</p>
+          </div>
+          <div class="card">
+            <h3>Individual interventions haven't worked</h3>
+            <p>If you've already tried coaching, 1:1s, feedback conversations, and the problem persists — that's your strongest signal that you're treating a systemic problem as an individual one. The engineer isn't broken. The system is.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>What Good Looks Like: Team AI Culture By Design</h2>
+
+        <p>The teams that are navigating this well have a few things in common. They're not the teams that banned AI or mandated it. They're the teams that made the choice deliberately and revisit it regularly.</p>
+
+        <ul>
+          <li><strong>Intentional, not default.</strong> The team has had explicit conversations about where AI helps and where it costs. The choice is conscious and revisited quarterly.</li>
+          <li><strong>Learning is visible.</strong> The team tracks growth, not just output. People talk about what they're learning out loud, not just what they're shipping.</li>
+          <li><strong>No-AI space exists.</strong> There are things the team does without AI, and that space is valued, not seen as inefficient. The inefficiency is the point — that's where the learning happens.</li>
+          <li><strong>Managers name the problem.</strong> The manager talks about AI fatigue as a real thing, not a personal failing. This removes the shame and makes it possible to address.</li>
+          <li><strong>The team has a feedback loop.</strong> Regular retrospectives include honest discussion of AI's costs and benefits. The team adjusts its practices based on what people actually experience.</li>
+        </ul>
+
+        <p>This culture doesn't build itself. It requires managers who are willing to have the honest conversation, to name the problem, and to change the structures that are causing it — even when that means having a harder discussion with their own leadership about what "velocity" actually means.</p>
+      </section>
+
+      <section class="explore-grid">
+        <h2>Continue Exploring</h2>
+        <div class="card-grid">
+          <a href="ai-detox-plan.html" class="card">
+            <h3>30-Day AI Detox Plan</h3>
+            <p>A structured protocol for teams or individuals wanting to recalibrate their relationship with AI tools.</p>
+          </a>
+          <a href="corporate-ai-wellness.html" class="card">
+            <h3>Corporate AI Wellness</h3>
+            <p>Building organizational-level AI wellness programs for CTOs and People Ops.</p>
+          </a>
+          <a href="team-guide.html" class="card">
+            <h3>The Team Guide to AI Fatigue</h3>
+            <p>For individual contributors and EMs working through AI fatigue together.</p>
+          </a>
+          <a href="mental-health.html" class="card">
+            <h3>Mental Health for Engineers</h3>
+            <p>When the fatigue goes deeper — resources, recognition signals, and where to find help.</p>
+          </a>
+          <a href="recovery.html" class="card">
+            <h3>AI Fatigue Recovery Guide</h3>
+            <p>The full recovery framework — recognizing, understanding, and recovering from AI fatigue.</p>
+          </a>
+          <a href="productivity-theater.html" class="card">
+            <h3>Productivity Theater</h3>
+            <p>When AI makes you busy, not better — and how to escape the performance trap.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq" itemscope itemtype="https://schema.org/FAQPage">
+          <details>
+            <summary itemprop="name">How do I know if my team has AI fatigue vs. normal stress?</summary>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">Look for the compound pattern: engineers are productive but not learning, shipping but not understanding, meeting sprint goals but showing declining engagement. AI fatigue shows up as a learning-and-growth gap alongside high output. Normal stress resolves with rest; AI fatigue persists because the underlying conditions aren't changing.</p>
+            </div>
+          </details>
+          <details>
+            <summary itemprop="name">Should I mandate or restrict AI tool usage on my team?</summary>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">Mandating creates compliance culture. Restricting ignores that AI tools have real value. The answer is neither mandate nor restrict — it's create conditions where engineers can make conscious, intentional choices about when AI helps and when it costs more than it gives. The goal is agency, not policy.</p>
+            </div>
+          </details>
+          <details>
+            <summary itemprop="name">How do I talk about AI fatigue without making engineers feel judged for using AI?</summary>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">Lead with curiosity, not concern. Frame it as a systemic observation, not a performance issue. Example: 'I've noticed the industry has shifted how we work pretty dramatically in the last two years, and I'm curious how that's affecting you — not as a performance question, just as a human question. What does your relationship with AI tools feel like these days?'</p>
+            </div>
+          </details>
+          <details>
+            <summary itemprop="name">Our sprint velocity looks great — why should I worry about AI fatigue?</summary>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">Velocity measures output, not sustainability, learning, or long-term team capability. High velocity with AI fatigue often means engineers are producing more code they don't understand, building skills they won't have next year, and running on engagement debt. The velocity numbers are real in the short term and masking a capability erosion that shows up in six to eighteen months.</p>
+            </div>
+          </details>
+          <details>
+            <summary itemprop="name">What metrics should I track instead of just velocity?</summary>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">Track learning velocity alongside output velocity: skill growth (self-assessed quarterly), debugging time on AI-generated code vs. hand-written code, time-to-architecture-decision, mentor/teach moments per sprint, and engineer self-reported energy and engagement. These metrics surface the health of the team's long-term capability, not just this quarter's output.</p>
+            </div>
+          </details>
+          <details>
+            <summary itemprop="name">How do I have the AI fatigue conversation in a 1:1 without it feeling like a performance review?</summary>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">Keep it separate from performance. Schedule it specifically as a 'how are you doing as a person, not as a contributor' conversation. Use open-ended questions: 'What's the part of your job that feels most energizing right now? What's the part that feels most draining?' Let the answers guide the conversation. Don't come with a solution already. Let the answers guide the conversation. Don't come with a solution already in mind.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <footer class="page-footer">
+        <p>A resource from <a href="index.html">The Clearing</a> — for engineers navigating AI at work.</p>
+        <p>If this guide was helpful, share it with a manager friend. Or take the <a href="quiz.html">AI Fatigue Quiz</a> to understand your own relationship with AI tools.</p>
+      </footer>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>The Clearing</h4>
+        <p>A resource for engineers experiencing AI fatigue and burnout.</p>
+        <p class="footer-tagline">You're not alone. It's not you. There's a path through.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Recover</h4>
+        <ul>
+          <li><a href="recovery.html">Recovery Guide</a></li>
+          <li><a href="ai-detox-plan.html">30-Day AI Detox</a></li>
+          <li><a href="ai-fatigue-checklist.html">Recovery Checklist</a></li>
+          <li><a href="mental-health.html">Mental Health</a></li>
+          <li><a href="developer-wellbeing.html">Wellbeing</a></li>
+          <li><a href="corporate-ai-wellness.html">Corporate Wellness</a></li>
+          <li><a href="team-manager-guide.html">For Managers</a></li>
+          <li><a href="team-guide.html">Team Guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Understand</h4>
+        <ul>
+          <li><a href="why.html">Why AI Fatigue</a></li>
+          <li><a href="signs-ai-fatigue.html">10 Signs</a></li>
+          <li><a href="burnout-vs-fatigue.html">Burnout vs. Fatigue</a></li>
+          <li><a href="skill-atrophy.html">Skill Atrophy</a></li>
+          <li><a href="cognitive-load.html">Cognitive Load</a></li>
+          <li><a href="attention-residue.html">Attention Residue</a></li>
+          <li><a href="flow-state.html">Flow State</a></li>
+          <li><a href="productivity-theater.html">Productivity Theater</a></li>
+          <li><a href="developer-identity.html">Identity Crisis</a></li>
+          <li><a href="automation-anxiety.html">Automation Anxiety</a></li>
+          <li><a href="imposter-syndrome-vs-ai-fatigue.html">Imposter Syndrome</a></li>
+          <li><a href="remote-work-ai-fatigue.html">Remote Work</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Science</h4>
+        <ul>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="stats.html">Statistics</a></li>
+          <li><a href="skill-atrophy.html">Skill Atrophy</a></li>
+          <li><a href="cognitive-load.html">Cognitive Load</a></li>
+          <li><a href="attention-residue.html">Attention Residue</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Community</h4>
+        <ul>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="community.html">Communities</a></li>
+          <li><a href="newsletter.html">Newsletter</a></li>
+          <li><a href="journal.html">Journal</a></li>
+          <li><a href="resources.html">Resources</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 The Clearing. Built for engineers, by engineers. <a href="about.html">About</a> · <a href="changelog.html">Changelog</a> · <a href="press-kit.html">Press</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script>
+    // Reading time
+    document.addEventListener('DOMContentLoaded', function() {
+      const article = document.querySelector('.page-content');
+      const readingTime = document.querySelector('.reading-time');
+      if (article && readingTime) {
+        const text = article.textContent || article.innerText;
+        const words = text.trim().split(/\s+/).length;
+        const minutes = Math.ceil(words / 220);
+        readingTime.textContent = minutes + ' min read';
+      }
+
+      // Reading progress bar
+      const progress = document.querySelector('.reading-progress');
+      if (progress) {
+        window.addEventListener('scroll', function() {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const progressWidth = (scrollTop / docHeight) * 100;
+          progress.style.width = progressWidth + '%';
+        });
+      }
+
+      // FAQ accordion
+      const faqs = document.querySelectorAll('.faq details');
+      faqs.forEach(faq => {
+        faq.addEventListener('toggle', function() {
+          if (this.open) {
+            faqs.forEach(f => { if (f !== this) f.open = false; });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

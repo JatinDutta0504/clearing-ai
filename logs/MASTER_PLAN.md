@@ -1388,3 +1388,14 @@ Be online and monitoring thread for 2+ hours after posting. Engage top comments 
 **Hour 92:** Phase 4 — The Dispatch #2 drafted (HN-optimized capture email, ready to send Wed Apr 2). Newsletter partnership outreach emails refreshed for 4 targets (cassidoo/Bytes Weekly/Code-Maven/tldr.dev). Phase 4 windows: 5→6.
 
 **Next:** Hour 93 — 🚨 HN LAUNCH Wed Apr 1, 9 AM PDT (news.ycombinator.com/submit). Twitter thread #6 at 9:30 AM PDT. Monitor thread 9-12 PM PDT. Send Dispatch #2 post-HN. Send newsletter outreach emails.
+
+### Hour 95 — 2026-03-31T21:50:00Z (Phase 2 Window: LinkedIn Prep + Newsletter Outreach)
+**Phase rotation:** Phase 1 (58✅) → Phase 2 (19→20🟡) → Phase 3 (14🟡) → Phase 4 (7🔴)
+
+**Built:** LinkedIn post drafted (`logs/hour-95-linkedin-post.md`) — 550-word post for Wed Apr 1 10 AM PDT targeting EMs/CTOs/senior ICs. Hook: 2,047 engineers, "Do you recognize the code you ship as yours?", 4 data points (63% middleman, 58% skill decline, 71% test-taking, 44% considering leaving), 3 recovery tactics, CTA. Newsletter outreach checked — himalaya/gog NOT configured. 4 emails at `logs/hour-92-newsletter-outreach.md` — READY TO COPY-PASTE AND SEND MANUALLY.
+
+**Site:** 68 pages | ~253k words | 8 interactive features
+
+**Commit:** N/A (no new HTML)
+
+**Next:** Hour 96 — Reddit comment deployment (Wed-Thu 9am-2pm PDT optimal window)

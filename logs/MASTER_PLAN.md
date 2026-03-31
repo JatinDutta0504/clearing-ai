@@ -1380,3 +1380,11 @@ Be online and monitoring thread for 2+ hours after posting. Engage top comments 
 **Hour 89:** ai-learning-burnout.html (~3.2k words, 6 FAQs, treadmill cycle diagram, reading progress). Accessibility contrast fix on index.html hero. Nav integrated on all 66 pages.
 
 **Next:** Hour 90 — 🚨 HN LAUNCH Tue Apr 1, 9 AM PDT (news.ycombinator.com/submit). Twitter thread #6 at 7:30 AM PDT. Engage top comments. Reddit comments Wed-Thu.
+
+**Hour 90:** the-science-of-ai-fatigue.html (~4.2k words, 8 mechanisms, Article+FAQPage+BreadcrumbList schema). sitemap.xml + sitemap.html updated. Pillar 5 complete.
+
+**Hour 91:** Nav corruption fixed across 35 pages (floating li, duplicate entries, improper nesting). testimonials.html floating li removed. All pages HN-ready.
+
+**Hour 92:** Phase 4 — The Dispatch #2 drafted (HN-optimized capture email, ready to send Wed Apr 2). Newsletter partnership outreach emails refreshed for 4 targets (cassidoo/Bytes Weekly/Code-Maven/tldr.dev). Phase 4 windows: 5→6.
+
+**Next:** Hour 93 — 🚨 HN LAUNCH Wed Apr 1, 9 AM PDT (news.ycombinator.com/submit). Twitter thread #6 at 9:30 AM PDT. Monitor thread 9-12 PM PDT. Send Dispatch #2 post-HN. Send newsletter outreach emails.

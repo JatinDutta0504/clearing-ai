@@ -757,7 +757,17 @@
     <!-- Signup form -->
     <div class="signup-box fade-in" id="signup" aria-label="Newsletter signup form">
       <h2>Get The Dispatch in your inbox.</h2>
-      <p>Every Sunday morning. Under 600 words. No cost, no catch, no confirmation loop. Plus: a free 30-day recovery checklist (PDF).</p>
+      <p>Every Sunday morning. Under 600 words. No cost, no catch, no confirmation loop.</p>
+
+      <!-- Lead magnet callout -->
+      <div style="background: rgba(74,124,89,0.1); border: 1px solid rgba(74,124,89,0.3); border-radius: 8px; padding: 1rem 1.25rem; margin: 1rem 0 1.5rem; text-align: center;">
+        <p style="font-family: var(--font-serif); font-size: 0.95rem; color: rgba(232,237,229,0.9); margin-bottom: 0.6rem;">📄 <strong>Free 30-Day AI Fatigue Recovery Checklist</strong></p>
+        <p style="font-size: 0.85rem; color: rgba(232,237,229,0.65); margin-bottom: 0.75rem;">One concrete action per day. Print it. Work through it at your own pace. No account needed.</p>
+        <a href="ai-fatigue-checklist-print.html" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(74,124,89,0.2); color: var(--forest-pale); padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-size: 0.85rem; border: 1px solid rgba(74,124,89,0.4); transition: background 0.2s;" onmouseover="this.style.background='rgba(74,124,89,0.35)'" onmouseout="this.style.background='rgba(74,124,89,0.2)'">
+          ↗ Get the PDF checklist
+        </a>
+        <p style="font-size: 0.72rem; color: rgba(232,237,229,0.4); margin-top: 0.5rem;">Browser print dialog → Save as PDF</p>
+      </div>
 
       <!-- Formspree form — swap YOUR_FORM_ID with actual Formspree endpoint -->
       <form
@@ -816,6 +826,14 @@
           no dark patterns. We use <a href="https://formspree.io" target="_blank" rel="noopener noreferrer" style="color: rgba(232,237,229,0.55); text-decoration: underline;">Formspree</a> to process submissions.
         </p>
       </form>
+
+      <!-- Mailto fallback — shown when Formspree is not yet configured -->
+      <div class="mailto-fallback" id="mailto-fallback" style="display:none; margin-top: 1.5rem; padding: 1.25rem; background: rgba(232,237,229,0.06); border: 1px solid rgba(232,237,229,0.15); border-radius: 8px;">
+        <p style="font-family: var(--font-serif); color: rgba(232,237,229,0.7); margin: 0 0 0.75rem; font-size: 0.9rem;">Can't use the form? Subscribe the old-fashioned way:</p>
+        <a id="mailto-link" href="#" style="display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(232,237,229,0.1); color: rgba(232,237,229,0.9); padding: 0.6rem 1.1rem; border-radius: 6px; text-decoration: none; font-size: 0.88rem; font-family: var(--font-mono); transition: background 0.2s;" onmouseover="this.style.background='rgba(232,237,229,0.18)'" onmouseout="this.style.background='rgba(232,237,229,0.1)'">
+          ✉️ Subscribe via email client
+        </a>
+      </div>
 
       <div class="signup-success" id="signup-success" role="status" aria-live="polite">
         <div class="success-icon">🌿</div>
@@ -1088,6 +1106,24 @@
       }
     }
 
+    // Reveal mailto fallback on load if Formspree not configured
+    (function () {
+      const form = document.getElementById('newsletter-form');
+      const mailtoEl = document.getElementById('mailto-fallback');
+      if (form && mailtoEl) {
+        const action = form.getAttribute('action') || '';
+        if (action.includes('YOUR_FORM_ID')) {
+          // Pre-fill mailto link with placeholder, user fills in their email
+          const subject = encodeURIComponent('Subscribe to The Dispatch 🌿');
+          const body = encodeURIComponent('Hi, please subscribe me to The Dispatch.\n\nName:\nEmail:\nRole (optional):\n\n— automated request from clearing-ai.com/newsletter');
+          const mailtoAnchor = document.getElementById('mailto-link');
+          if (mailtoAnchor) mailtoAnchor.href = 'mailto:subscribe@clearing-ai.com?subject=' + subject + '&body=' + body;
+          // Show mailto fallback as secondary option under the form
+          mailtoEl.style.display = 'block';
+        }
+      }
+    })();
+
     // Form submit — AJAX for Formspree (avoids redirect when JS available)
     const form = document.getElementById('newsletter-form');
     const success = document.getElementById('signup-success');
@@ -1104,8 +1140,25 @@
         // Check for real Formspree ID
         const action = form.getAttribute('action');
         if (action.includes('YOUR_FORM_ID')) {
-          // Demo mode — show success without submitting
+          // Demo mode — build mailto fallback and reveal it
           e.preventDefault();
+          const nameVal = document.getElementById('nl-name') ? document.getElementById('nl-name').value : '';
+          const emailVal = document.getElementById('nl-email') ? document.getElementById('nl-email').value : '';
+          const roleVal = document.getElementById('nl-role') ? document.getElementById('nl-role').value : '';
+          const subject = encodeURIComponent('Subscribe to The Dispatch 🌿');
+          const body = encodeURIComponent(
+            (nameVal ? 'Name: ' + nameVal + '\n' : '') +
+            'Email: ' + emailVal + '\n' +
+            (roleVal ? 'Role: ' + roleVal + '\n' : '') +
+            '\n---\nPlease subscribe me to The Dispatch, the weekly AI fatigue recovery letter for engineers.'
+          );
+          const mailtoLink = 'mailto:subscribe@clearing-ai.com?subject=' + subject + '&body=' + body;
+          const mailtoEl = document.getElementById('mailto-fallback');
+          const mailtoAnchor = document.getElementById('mailto-link');
+          if (mailtoEl && mailtoAnchor) {
+            mailtoAnchor.href = mailtoLink;
+            mailtoEl.style.display = 'block';
+          }
           form.style.display = 'none';
           success.style.display = 'block';
           success.scrollIntoView({ behavior: 'smooth', block: 'center' });

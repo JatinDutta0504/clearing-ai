@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Fatigue Recovery Checklist — 30 Days to Reclaim Your Craft</title>
+  <meta name="description" content="A free 30-day recovery checklist for engineers experiencing AI fatigue. Print it. Keep it. Work through it at your own pace." />
+  <link rel="canonical" href="https://clearing-ai.com/ai-fatigue-checklist-print" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
+  <style>
+    /* =============================================
+       PRINT-FIRST RESET & BASE STYLES
+       Optimized for A4/Letter printing + screen
+       ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --forest-deep: #1a2e1a;
+      --forest-mid: #2d4a2d;
+      --forest-light: #4a7c59;
+      --forest-pale: #7aab8a;
+      --cream: #f5f0e8;
+      --cream-warm: #ede5d4;
+      --text-primary: #1e1e18;
+      --text-secondary: #3a3a30;
+      --text-muted: #6a6a5a;
+      --border: #d0c8b0;
+      --font-serif: Lora, Georgia, serif;
+      --font-sans: 'Helvetica Neue', Arial, sans-serif;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--text-primary);
+      line-height: 1.6;
+      font-size: 11pt;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    /* =============================================
+       PAGE LAYOUT
+       ============================================= */
+    .page {
+      max-width: 7.5in;
+      margin: 0 auto;
+      padding: 0.6in 0.7in;
+      background: white;
+      min-height: 100vh;
+    }
+
+    /* =============================================
+       HEADER
+       ============================================= */
+    .header {
+      border-bottom: 2px solid var(--forest-deep);
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .header-brand {
+      font-family: var(--font-serif);
+      font-size: 11pt;
+      color: var(--forest-mid);
+      font-style: italic;
+    }
+
+    .header-title {
+      font-family: var(--font-serif);
+      font-size: 18pt;
+      font-weight: 700;
+      color: var(--forest-deep);
+      line-height: 1.2;
+    }
+
+    .header-subtitle {
+      font-size: 9pt;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .header-url {
+      font-size: 8pt;
+      color: var(--forest-light);
+      text-align: right;
+      white-space: nowrap;
+      padding-left: 1rem;
+    }
+
+    /* =============================================
+       INTRO BLOCK
+       ============================================= */
+    .intro {
+      background: var(--cream);
+      border-left: 3px solid var(--forest-light);
+      padding: 0.5rem 0.75rem;
+      margin-bottom: 0.75rem;
+      font-size: 9.5pt;
+      color: var(--text-secondary);
+    }
+
+    .intro p { margin-bottom: 0.3rem; }
+    .intro p:last-child { margin-bottom: 0; }
+
+    /* =============================================
+       WEEK BLOCKS
+       ============================================= */
+    .week-block {
+      margin-bottom: 0.55in;
+      page-break-inside: avoid;
+    }
+
+    .week-header {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      border-bottom: 1.5px solid var(--forest-mid);
+      padding-bottom: 0.2rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .week-num {
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--forest-deep);
+      color: white;
+      padding: 0.1rem 0.45rem;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+
+    .week-theme {
+      font-family: var(--font-serif);
+      font-size: 10.5pt;
+      font-weight: 600;
+      color: var(--forest-deep);
+    }
+
+    .week-desc {
+      font-size: 8pt;
+      color: var(--text-muted);
+      margin-top: 0.1rem;
+    }
+
+    /* =============================================
+       DAY ITEMS
+       ============================================= */
+    .day-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+      padding: 0.25rem 0;
+      border-bottom: 0.5px solid var(--border);
+      page-break-inside: avoid;
+    }
+
+    .day-item:last-child { border-bottom: none; }
+
+    .day-num {
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: var(--forest-mid);
+      min-width: 1.4rem;
+      padding-top: 0.05rem;
+    }
+
+    .day-content { flex: 1; }
+
+    .day-title {
+      font-size: 9pt;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.3;
+    }
+
+    .day-desc {
+      font-size: 8pt;
+      color: var(--text-secondary);
+      line-height: 1.4;
+      margin-top: 0.1rem;
+    }
+
+    /* =============================================
+       FOOTER CTA
+       ============================================= */
+    .footer-cta {
+      margin-top: 0.75rem;
+      padding: 0.5rem 0.75rem;
+      background: var(--forest-deep);
+      color: white;
+      border-radius: var(--radius-md);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      page-break-inside: avoid;
+    }
+
+    .footer-cta-text {
+      font-size: 8.5pt;
+      line-height: 1.4;
+    }
+
+    .footer-cta-text strong {
+      font-size: 9pt;
+      display: block;
+      margin-bottom: 0.1rem;
+    }
+
+    .footer-cta-url {
+      font-size: 7.5pt;
+      color: var(--forest-pale);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    /* =============================================
+       CHECKBOX GRID (for days 1-7 etc)
+       ============================================= */
+    .checkbox {
+      display: inline-block;
+      width: 9pt;
+      height: 9pt;
+      border: 1.5px solid var(--forest-mid);
+      border-radius: 2px;
+      margin-right: 0.3rem;
+      vertical-align: middle;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    /* =============================================
+       PRINT STYLES
+       ============================================= */
+    @media print {
+      @page {
+        margin: 0.5in 0.6in;
+        size: letter;
+      }
+
+      body {
+        font-size: 10pt;
+        background: white;
+      }
+
+      .page {
+        padding: 0;
+        min-height: unset;
+        max-width: 100%;
+      }
+
+      .no-print { display: none !important; }
+
+      .week-block { margin-bottom: 0.4in; }
+
+      .footer-cta {
+        background: #1a2e1a !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+
+    /* =============================================
+       SCREEN-ONLY ELEMENTS
+       ============================================= */
+    .screen-only {
+      display: block;
+    }
+
+    .print-hint {
+      text-align: center;
+      font-size: 8pt;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      display: none;
+    }
+
+    @media screen {
+      .print-hint { display: block; }
+      .page { padding-top: 0.3in; }
+    }
+
+    /* =============================================
+       HOW TO USE (screen)
+       ============================================= */
+    .how-to-use {
+      background: rgba(74, 124, 89, 0.08);
+      border: 1px solid rgba(74, 124, 89, 0.25);
+      border-radius: var(--radius-md);
+      padding: 0.6rem 0.8rem;
+      margin-bottom: 0.75rem;
+      font-size: 9pt;
+    }
+
+    .how-to-use h3 {
+      font-family: var(--font-serif);
+      font-size: 10pt;
+      color: var(--forest-deep);
+      margin-bottom: 0.3rem;
+    }
+
+    .how-to-use ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.2rem 0.5rem;
+    }
+
+    .how-to-use li::before {
+      content: "→ ";
+      color: var(--forest-light);
+    }
+
+    @media screen and (max-width: 600px) {
+      .how-to-use ul { grid-template-columns: 1fr; }
+      .header { flex-direction: column; gap: 0.3rem; }
+      .header-url { text-align: left; padding-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Print hint (hidden when printed) -->
+  <p class="print-hint no-print">→ Use your browser's <strong>File → Print → Save as PDF</strong> to download this checklist</p>
+
+  <!-- Header -->
+  <header class="header">
+    <div>
+      <div class="header-brand">clearing-ai.com</div>
+      <h1 class="header-title">AI Fatigue Recovery Checklist</h1>
+      <p class="header-subtitle">30 Days to Reclaim Your Craft — Free for engineers</p>
+    </div>
+    <div class="header-url">
+      clearing-ai.com<br/>
+      <span style="font-size:7pt;color:var(--text-muted)">the free recovery resource for<br/>software engineers</span>
+    </div>
+  </header>
+
+  <!-- Intro -->
+  <div class="intro">
+    <p><strong>You don't have a productivity problem. You have an agency problem.</strong> AI fatigue isn't about working too hard — it's about the slow erosion of ownership, craft, and the sense that what you make is actually yours.</p>
+    <p>This checklist gives you one concrete action per day for 30 days. Work through it at your own pace. No account needed. No data collected. Print it, stick it on your wall, work through it alone or with colleagues.</p>
+  </div>
+
+  <!-- How to use (screen only) -->
+  <div class="how-to-use screen-only no-print">
+    <h3>How to use this checklist</h3>
+    <ul>
+      <li>Print: File → Print → Save as PDF</li>
+      <li>Work through one day at a time</li>
+      <li>Check off each day as you complete it</li>
+      <li>Write notes in the margins if you want</li>
+      <li>Start on any day 1 — not just Mondays</li>
+      <li>Repeat weeks that feel important to you</li>
+    </ul>
+  </div>
+
+  <!-- ========================
+       WEEK 1 — AWARENESS
+       ========================= -->
+  <div class="week-block">
+    <div class="week-header">
+      <span class="week-num">Week 1</span>
+      <div>
+        <div class="week-theme">Awareness — See clearly what's happening</div>
+        <div class="week-desc">Before you can change anything, you need to notice it without judgment. This week is observation only — no changes required.</div>
+      </div>
+    </div>
+
+    <div class="day-item">
+      <span class="day-num">D1</span>
+      <div class="day-content">
+        <div class="day-title"><span class="checkbox"></span>Notice your energy after AI use</div>
+        <div class="day-desc">After your next coding session with AI, pause 30 seconds. How do you feel — energized, hollow, rushed, or numb? Don't judge. Just notice. Write it down if you want.</div>
+      </div>
+    </div>
+
+    <div class="day-item">
+      <span class="day-num">D2</span>
+      <div class="day-content">
+        <div class="day-title"><span class="checkbox"></span>Track your AI session count</div>
+        <div class="day-desc">For today, count every time you open an AI tool for work tasks. Write it down. Don't change anything — just count. You'll likely be surprised.</div>
+      </div>
+    </div>
+
+    <div class="day-item">
+      <span class="day-num">D3</span>
+      <div class="day-content">
+        <div class="day-title"><span class="checkbox"></span>Notice a moment of real satisfaction</div>
+        <div class="day-desc">Watch for a moment today — before using AI — when something felt like yours. A solution you figured out, a line you wrote that clicked. Remember it. Write one sentence about it.</div>
+      </div>
+    </div>
+
+    <div class="day-item">
+      <span class="day-num">D4</span>
+      <div class="day-content">
+        <div class="day-title"><span class="checkbox"></span>Notice the Sunday dread</div>
+        <div class="day-desc">Sunday evening, before the week starts: sit with that feeling. Is it task overwhelm? Identity pressure? Loss? Something else? Don't solve it. Just name it as precisely as you can.</div>
+      </div>
+    </div>
+
+    <div class="day-item">
+      <span class="day-num">D5</span>
+      <div class="day-content">
+        <div class="day-title"><span class="checkbox"></span>Audit one AI conversation</div>
+        <div class="day-desc">Pick one AI chat from this week. Read it like someone else's work. Where did you lead? Where did the AI lead? What ultimately got shipped?</div>
+      </div>
+    </div>
+
+    <div class="day-item">
+      <span class="day-num">D6</span>
+      <div class="day-content">
+        <div class="day-title"><span class="checkbox"></span>Notice a skill you used to love</div>
+        <div class="day-desc">What did you enjoy coding 2 years ago that you rarely do now? A type of problem, a language, a kind of debugging. Write it down. Be specific.</div>
+      </div>
+    </div>
+
+    <div class="day-item">
+      <span class="day-num">D7</span>
+      <div class="day-content">
+        <div class="day-title"><span class="checkbox"></span>Week 1 reflection</div>
+        <div class="day-desc">Review your notes from days 1–6. Is there a pattern? Something recurring? A specific time, tool, or context that shows up? Don't plan ahead. Just see what emerged.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================
+       WEEK 2 — REDUCTION
+       ========================= -->
+  <div class="week-block">
+    <div class="week-header">
+      <span class="week-num">Week 2</span>
+      <div>
+        <div class="week-theme">Reduction — Quiet the noise</div>
+        <div class="week-desc">Now that you can see the patterns, this week is about creating space. Removing what's not serving you — not to suffer, but to hear yourself think again.</div>
+      </div>
+    </div>
+
+    <div class="day-item">
+      <span class="day-num">D8</span>
+      <div class="day-content">
+        <div class="day-title"><span class="checkbox"></span>One hour, no AI</div>
+        <div class="day-desc">Pick one hour today. Do any coding task without AI. Not to prove anything — just to remember what it feels like. Ship something, anything, entirely on your own.</div>
+      </div>
+    </div>
+
+    <div class="day-item">
+      <span class="day-num">D9</span>
+      <div class="day-content">
+        <div class="day-title"><span class="checkbox"></span>Turn off one notification</div>
+        <div class="day-desc">Pick one AI or coding tool notification to disable permanently. Start small. Notice what you don't miss after 24 hours.</div>
+      </div>
+    </div>
+
+    <div class="day-item">
+      <span class="day-num">D10</span>
+      <div class="day-content">
+        <div class="day-title"><span class="checkbox"></span>One code review, without AI</div>
+        <div class="day-desc">Review a PR or read through a codebase section. Form your own opinion — what does this code do? what's the tradeoffs? — before asking AI what it says.</div>
+      </div>
+    </div>
+
+    <div class="day-item">
+      <span class="day-num">D11</span>
+      <div class="day-content">
+        <div class="day-title"><span class="checkbox"></span>Notice what you miss when AI is off</div>
+        <div class="day-desc">After a session without AI: what did you have to work harder for? What did you learn? What felt slow? Write it down without judgment.</div>
+      </div>
+    </div>
+
+    <div class="day-item">
+      <span class="day-num">D12</span>
+      <div class="day-content">
+        <div class="day-title"><span class="checkbox"></span>Delete one AI tool you don't need</div>
+        <div class="day-desc">Do you have three AI coding tools installed? Two chat subscriptions? Unsubscribe from or uninstall one. You can always reinstall it later.</div>
+      </div>
+    </div>
+
+    <div class="day-item">
+      <span class="day-num">D13</span>
+      <div class="day-content">
+        <div class="day-title"><span class="checkbox"></span>Notice your next completion urge</div>
+        <div class="day-desc">The next time you finish a task with AI, pause before copying the result. Ask: do I know why this works? Could I have written it? Do I want to?</div>
+      </div>
+    </div>
+
+    <div class="day-item">
+      <span class="day-num">D14</span>
+      <div class="day-content">
+        <div class="day-title"><span class="checkbox"></span>Week 2 reflection</div>
+        <div class="day-desc">Review your notes from days 8–13. What's easier to notice now? What's still hard? What's starting to shift? Don't judge. Just see.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================
+       WEEK 3 — RECONNECTION
+       ========================= -->
+  <div class="week-block">
+    <div class="week-header">
+      <span class="week-num">Week 3</span>
+      <div>
+        <div class="week-theme">Reconnection — Rebuild your relationship with your craft</div>
+        <div class="week-desc">This is where recovery becomes real. Small wins. Quiet confidence. The feeling of making something yourself — and knowing it's yours.</div>
+      </div>
+    </div>
+
+    <div class="day-item">
+      <span class="day-num">D15</span>
+      <div class="day-content">
+        <div class="day-title"><span class="checkbox"></span>Debug something without AI</div>
+        <div class="day-desc">Find a bug in your current work or a toy project. Debug it entirely without AI. Use logs, print statements, your own reading. Find the root cause yourself.</div>
+      </div>
+    </div>
+
+    <div class="day-item">
+      <span class="day-num">D16</span>
+      <div class="day-content">
+        <div class="day-title"><span class="checkbox"></span>Write a function from scratch</div>
+        <div class="day-desc">Pick a small, contained function you would normally ask AI to write. Write it yourself. Start with the signature. Let it evolve. Don't look anything up.</div>
+      </div>
+    </div>
+
+    <div class="day-item">
+      <span class="day-num">D17</span>
+      <div class="day-content">
+        <div class="day-title"><span class="checkbox"></span>Read code the old way</div>
+        <div class="day-desc">Read a code module or library's source — not to use it, just to read it. Follow the logic. See what questions arise naturally. Resist the urge to summarize with AI.</div>
+      </div>
+    </div>
+
+    <div class="day-item">
+      <span class="day-num">D18</span>
+      <div class="day-content">
+        <div class="day-title"><span class="checkbox"></span>One code review, from your own read</div>
+        <div class="day-desc">Review a colleague's PR without AI assistance. Write your comments from your own reasoning. Trust your read of the code. Say what you actually think.</div>
+      </div>
+    </div>
+
+    <div class="day-item">
+      <span class="day-num">D19</span>
+      <div class="day-content">
+        <div class="day-title"><span class="checkbox"></span>Notice a moment of craft</div>
+        <div class="day-desc">Today, watch for a moment when something you did felt like craftsmanship. Not "good code" by some metric — something that felt like yours. Remember it. Write it down.</div>
+      </div>
+    </div>
+
+    <div class="day-item">
+      <span class="day-num">D20</span>
+      <div class="day-content">
+        <div class="day-title"><span class="checkbox"></span>Explain something to someone without AI</div>
+        <div class="day-desc">Explain a technical concept, architecture decision, or codebase section to a colleague. Not by looking it up. Not by asking AI. From what you actually know and think.</div>
+      </div>
+    </div>
+
+    <div class="day-item">
+      <span class="day-num">D21</span>
+      <div class="day-content">
+        <div class="day-title"><span class="checkbox"></span>Week 3 reflection</div>
+        <div class="day-desc">Review days 15–20. What have you noticed about your own capability? What's still scary? What's starting to feel familiar again?</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================
+       WEEK 4 — INTEGRATION
+       ========================= -->
+  <div class="week-block">
+    <div class="week-header">
+      <span class="week-num">Week 4</span>
+      <div>
+        <div class="week-theme">Integration — Design your sustainable practice</div>
+        <div class="week-desc">You've noticed, you've reduced, you've reconnected. Now: what do you want to keep? What are your non-negotiables going forward?</div>
+      </div>
+    </div>
+
+    <div class="day-item">
+      <span class="day-num">D22</span>
+      <div class="day-content">
+        <div class="day-title"><span class="checkbox"></span>Design something on paper first</div>
+        <div class="day-desc">Before writing any code today, sketch your approach on paper. Write the algorithm, the data structures, the tradeoffs. Then — if you want — ask AI. You'll notice the difference.</div>
+      </div>
+    </div>
+
+    <div class="day-item">
+      <span class="day-num">D23</span>
+      <div class="day-content">
+        <div class="day-title"><span class="checkbox"></span>Set one non-negotiable boundary</div>
+        <div class="day-desc">Define one recurring time or space where AI is not allowed. A morning code block. A specific project. A day per week. Write it down somewhere visible.</div>
+      </div>
+    </div>
+
+    <div class="day-item">
+      <span class="day-num">D24</span>
+      <div class="day-content">
+        <div class="day-title"><span class="checkbox"></span>Ask: what do I want to get genuinely good at?</div>
+        <div class="day-desc">If AI didn't exist for a year, what would you want to master? What skill have you been meaning to develop? Start small — 20 minutes today. Just start.</div>
+      </div>
+    </div>
+
+    <div class="day-item">
+      <span class="day-num">D25</span>
+      <div class="day-content">
+        <div class="day-title"><span class="checkbox"></span>Write a small tool entirely for yourself</div>
+        <div class="day-desc">Build something small — a script, a utility, a tiny library — entirely for yourself. Not to ship. Not to show anyone. Just to make something and know you made it.</div>
+      </div>
+    </div>
+
+    <div class="day-item">
+      <span class="day-num">D26</span>
+      <div class="day-content">
+        <div class="day-title"><span class="checkbox"></span>Talk to someone about your craft</div>
+        <div class="day-desc">A colleague, a friend, someone who codes. Not about AI. Not about tools. About what you actually like building. What you're proud of. What you'd build if no one was watching.</div>
+      </div>
+    </div>
+
+    <div class="day-item">
+      <span class="day-num">D27</span>
+      <div class="day-content">
+        <div class="day-title"><span class="checkbox"></span>Audit your AI usage patterns</div>
+        <div class="day-desc">Review your last 2 weeks of AI use. Where did AI genuinely help? Where did you use it out of habit? Where did you learn nothing? Write down three honest answers.</div>
+      </div>
+    </div>
+
+    <div class="day-item">
+      <span class="day-num">D28</span>
+      <div class="day-content">
+        <div class="day-title"><span class="checkbox"></span>Notice what you want to keep</div>
+        <div class="day-desc">What from these 4 weeks do you want to continue? A no-AI block? A skill you're rebuilding? A boundary you set? Write it down. Be specific about what stays.</div>
+      </div>
+    </div>
+
+    <div class="day-item">
+      <span class="day-num">D29</span>
+      <div class="day-content">
+        <div class="day-title"><span class="checkbox"></span>Design your sustainable practice</div>
+        <div class="day-desc">Based on weeks 1–4, design your ongoing practice. What are your non-negotiables? What are you leaving behind? What will you do the next time you notice the drift starting?</div>
+      </div>
+    </div>
+
+    <div class="day-item">
+      <span class="day-num">D30</span>
+      <div class="day-content">
+        <div class="day-title"><span class="checkbox"></span>Day 30: come back to this page</div>
+        <div class="day-desc">You've done the work. Revisit your notes from day 1. Read them like a letter from someone you want to help. Then share this checklist with one engineer who needs it.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer CTA -->
+  <div class="footer-cta">
+    <div class="footer-cta-text">
+      <strong>There's more where this came from.</strong>
+      Free guides, research, and the weekly Dispatch for engineers rebuilding their craft.
+    </div>
+    <div class="footer-cta-url">
+      clearing-ai.com<br/>
+      <span style="font-size:7pt;color:var(--forest-pale)">ai-fatigue-checklist-print</span>
+    </div>
+  </div>
+
+</div><!-- /.page -->
+
+</body>
+</html>

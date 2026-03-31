@@ -1356,3 +1356,25 @@ Be online and monitoring thread for 2+ hours after posting. Engage top comments 
 **Commit:** b198975 + 89a3858 `git push` ✅
 
 **Next:** Hour 86 — Phase 2 Reddit deployment (25 comments ready). HN TOMORROW 9 AM PDT — be online 2+ hours post-submission.
+
+---
+
+### Hour 86 — 2026-03-31T12:50:00Z (Phase 3 Window 12: Pre-HN Dark Mode SSR Fix)
+
+**Phase rotation:** Phase 1 (56✅ OVER) → Phase 2 (16🔴 undertarget) → **Phase 3 (11→12🟡) → Phase 4 (5🔴 undertarget)**
+
+**Built:** Critical accessibility + SEO fix — hardcoded `data-theme="dark"` on `<html>` across all 66 HTML pages.
+
+**What was fixed:** 34 of 66 pages lacked `data-theme` on the `<html>` element. They relied entirely on main.js JS injection for theme — which breaks for crawlers, non-JS users, and screen readers.
+
+**Result:** 66/66 pages now have `<html lang="en" data-theme="dark">` ✅ — proper SSR dark mode for all visitors.
+
+**Why now:** HN launches TOMORROW Tue Apr 1, 9 AM PDT. Every HN visitor's first impression must be correct. Crawlers and non-JS users were getting unthemed pages.
+
+**SEO impact:** Better accessibility score, correct rendering for all visitors, proper dark mode SSR.
+
+**Site:** 68 pages | ~244k words | 66/66 dark mode SSR ✅ | Phase 3=12 | Technical SEO 98/100
+
+**Commit:** `6004418` — pushed to GitHub Pages ✅
+
+**Next:** Hour 87 — 🚨 HN LAUNCH Tue Apr 1, 9 AM PDT (news.ycombinator.com/submit). Be online 2+ hours. Twitter thread #3 or #4 ready to post 30 min after.

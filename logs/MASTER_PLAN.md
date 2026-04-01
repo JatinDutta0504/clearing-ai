@@ -1421,3 +1421,15 @@ Be online and monitoring thread for 2+ hours after posting. Engage top comments 
 **~26k HTML added**
 **Commit:** `7d80c17` pushed ✅
 **Next:** Hour 100 — HN LAUNCH Wed Apr 1 9 AM PDT (news.ycombinator.com/submit)
+
+### Hour 101 — 2026-03-31T20:50:00-07:00 (Phase 2 Window 24)
+**Phase rotation:** Phase 1 (60✅) → Phase 2 (23→24🟡) → Phase 3 (14🟡) → Phase 4 (9🔴)
+
+**Built:** 4 fresh Reddit comments for untargeted communities (r/devops, r/technology, r/artificial, r/startups). Total: 34 comments across 13 communities, deployment-ready Wed-Thu 9am-2pm PDT. Newsletter outreach emails ready (Cassidy Williams / Bytes Weekly / Code-Maven / tldr.dev). Cassidy Williams email must be sent tonight before HN launches.
+
+**Phase distribution:** P1=60✅ | P2=24🟡 | P3=14🟡 | P4=9🔴
+
+**Site cumulative:** 71 pages | ~265k words | 34 Reddit comments across 13 communities | HN in 12.5 hours
+
+**Commit:** `303371e` — pushed ✅
+**Next:** Hour 102 — HN final prep, verify GitHub Pages live, Discord announcement

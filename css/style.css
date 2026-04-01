@@ -1962,6 +1962,33 @@ a:hover { color: #b0d5be; }
 }
 
 /* ------------------------------------------
+   Dark Mode: Fix forest-deep on dark backgrounds
+   --forest-deep (#1a2e1a) is too dark on dark --cream-warm (#162016)
+   Use forest-pale (#8ec49a) for body text on dark sections
+   ------------------------------------------ */
+[data-theme="dark"] section[style*="background: var(--cream-warm)"] h1,
+[data-theme="dark"] section[style*="background: var(--cream-warm)"] h2,
+[data-theme="dark"] section[style*="background: var(--cream-warm)"] h3,
+[data-theme="dark"] section[style*="background: var(--cream-warm)"] h4,
+[data-theme="dark"] section[style*="background: var(--cream-warm)"] p,
+[data-theme="dark"] section[style*="background: var(--cream-warm)"] li,
+[data-theme="dark"] section[style*="background: var(--cream-warm)"] span,
+[data-theme="dark"] section[style*="background: var(--cream-warm)"] blockquote,
+[data-theme="dark"] section[style*="background: var(--cream-warm)"] summary {
+  color: var(--forest-pale);
+}
+[data-theme="dark"] section[style*="background: var(--cream-warm)"] a {
+  color: var(--accent);
+}
+[data-theme="dark"] section[style*="background: var(--cream-warm)"] .section-label {
+  color: var(--forest-pale);
+}
+[data-theme="dark"] section[style*="background: var(--cream-warm)"] .stat-label,
+[data-theme="dark"] section[style*="background: var(--cream-warm)"] .meta-text {
+  color: var(--text-secondary);
+}
+
+/* ------------------------------------------
    Dark Mode Toggle Button
    ------------------------------------------ */
 .dark-toggle {

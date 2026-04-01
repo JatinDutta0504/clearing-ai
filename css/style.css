@@ -1965,6 +1965,7 @@ a:hover { color: #b0d5be; }
    Dark Mode: Fix forest-deep on dark backgrounds
    --forest-deep (#1a2e1a) is too dark on dark --cream-warm (#162016)
    Use forest-pale (#8ec49a) for body text on dark sections
+   Also fix h1 in article-hero which uses section#main-content selector
    ------------------------------------------ */
 [data-theme="dark"] section[style*="background: var(--cream-warm)"] h1,
 [data-theme="dark"] section[style*="background: var(--cream-warm)"] h2,
@@ -1986,6 +1987,23 @@ a:hover { color: #b0d5be; }
 [data-theme="dark"] section[style*="background: var(--cream-warm)"] .stat-label,
 [data-theme="dark"] section[style*="background: var(--cream-warm)"] .meta-text {
   color: var(--text-secondary);
+}
+
+/* Fix h1 in article hero - selector uses section#main-content but we use <main> */
+main#main-content h1 {
+  color: var(--forest-deep);
+}
+
+/* Dark mode h1 in article hero - forest-deep is nearly invisible on dark backgrounds */
+[data-theme="dark"] main#main-content.article-hero h1,
+[data-theme="dark"] main#main-content.article-hero p,
+[data-theme="dark"] main#main-content.article-hero li,
+[data-theme="dark"] main#main-content.article-hero span,
+[data-theme="dark"] main#main-content.article-hero div {
+  color: var(--forest-pale);
+}
+[data-theme="dark"] main#main-content.article-hero .section-label {
+  color: var(--forest-pale);
 }
 
 /* ------------------------------------------

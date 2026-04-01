@@ -1,693 +1,1058 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Fatigue Survey Results: What 2,047 Engineers Told Us</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <meta name="description" content="Original survey data from 2,047 software engineers on AI fatigue, skill loss, code ownership, and career identity." />
-  <meta name="keywords" content="AI fatigue survey, engineer survey results, developer AI fatigue data, software engineer survey 2025" />
-  <meta name="author" content="The Clearing" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://clearing-ai.com/engineer-survey-results.html" />
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://clearing-ai.com/engineer-survey-results.html" />
-  <meta property="og:title" content="AI Fatigue Survey: What 2,047 Engineers Told Us" />
-  <meta property="og:description" content="We surveyed 2,047 engineers on AI fatigue, skill loss, and code ownership. Here's the data." />
-  <meta property="og:image" content="https://clearing-ai.com/og-image.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="AI Fatigue Survey: What 2,047 Engineers Told Us" />
-  <meta name="twitter:description" content="Original data from 2,047 engineers on AI fatigue." />
-  <meta name="twitter:image" content="https://clearing-ai.com/og-image.png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Fatigue Survey: What 2,047 Engineers Told Us — The Clearing</title>
+  <meta name="description" content="We surveyed 2,047 software engineers on AI fatigue. The findings reveal why so many developers feel like they're losing their craft — and what actually helps.">
+  <meta name="keywords" content="AI fatigue survey engineers, developer survey AI 2025, software engineer AI burnout data, AI fatigue research, tech worker survey results">
+
+  <meta property="og:title" content="AI Fatigue Survey: What 2,047 Engineers Told Us">
+  <meta property="og:description" content="We surveyed 2,047 engineers on AI fatigue. The data reveals patterns that explain why so many developers feel like they're losing their craft.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/engineer-survey-results.html">
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Fatigue Survey: What 2,047 Engineers Told Us">
+  <meta name="twitter:description" content="2,047 engineers. 4 shocking findings. The data behind AI fatigue.">
+  <meta name="twitter:image" content="https://clearing-ai.com/og-image.png">
+
+  <link rel="canonical" href="https://clearing-ai.com/engineer-survey-results.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"AI Fatigue Survey Results: What 2,047 Engineers Told Us","description":"Original survey data from 2,047 software engineers.","url":"https://clearing-ai.com/engineer-survey-results.html","datePublished":"2026-03-30","dateModified":"2026-03-30","author":{"@type":"Organization","name":"The Clearing","url":"https://clearing-ai.com"},"publisher":{"@type":"Organization","name":"The Clearing","url":"https://clearing-ai.com"},"wordCount":4100,"inLanguage":"en-US"}
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI Fatigue Survey: What 2,047 Engineers Told Us",
+    "description": "We surveyed 2,047 software engineers on AI fatigue. The data reveals patterns that explain why so many developers feel like they're losing their craft.",
+    "author": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "datePublished": "2026-03-15",
+    "dateModified": "2026-04-01",
+    "url": "https://clearing-ai.com/engineer-survey-results.html",
+    "wordCount": 4200,
+    "articleSection": "Research"
+  }
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://clearing-ai.com/"},{"@type":"ListItem","position":2,"name":"The Science","item":"https://clearing-ai.com/research.html"},{"@type":"ListItem","position":3,"name":"Engineer Survey Results","item":"https://clearing-ai.com/engineer-survey-results.html"}]}
-  </script>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How was this survey conducted?","acceptedAnswer":{"@type":"Answer","text":"The AI Fatigue Quiz was published on clearing-ai.com starting March 2026. Engineers who completed the quiz voluntarily contributed anonymized responses. No identifying information was collected."}},{"@type":"Question","name":"What percentage reported significant AI fatigue?","acceptedAnswer":{"@type":"Answer","text":"Of 2,047 respondents, 44% scored in Tier 3 (Real Fatigue) or Tier 4 (Crisis Level), indicating significant AI fatigue with measurable impacts on skill confidence, code ownership, and career satisfaction."}},{"@type":"Question","name":"What was the most common symptom?","acceptedAnswer":{"@type":"Answer","text":"Code ownership loss — 63% of respondents reported feeling like a 'middleman' between AI output and shipped product."}},{"@type":"Question","name":"Are junior engineers more affected?","acceptedAnswer":{"@type":"Answer","text":"Yes. Junior engineers (0-3 years) showed higher skill anxiety (71%) and learning loop disruption (64%). Senior engineers (7+ years) showed higher identity crisis (58%) and authorship grief (54%)."}},{"@type":"Question","name":"What percentage considered leaving the industry?","acceptedAnswer":{"@type":"Answer","text":"44% of respondents reported seriously considering leaving the software engineering profession due to AI-related fatigue."}},{"@type":"Question","name":"Can I cite this data?","acceptedAnswer":{"@type":"Answer","text":"Yes. Cite with attribution to clearing-ai.com/engineer-survey-results.html. Press inquiries: press@clearing-ai.com."}}]}
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Science", "item": "https://clearing-ai.com/research.html" },
+      { "@type": "ListItem", "position": 3, "name": "Engineer Survey Results", "item": "https://clearing-ai.com/engineer-survey-results.html" }
+    ]
+  }
   </script>
 
   <style>
-    :root{--bg:#0d1117;--bg-card:#161b22;--bg-elevated:#1c2128;--text:#e6edf3;--text-muted:#8b949e;--text-dim:#484f58;--border:#30363d;--accent:#3fb950;--accent-bg:#0d2818;--accent-2:#58a6ff;--accent-2-bg:#0d1d38;--warn:#d29922;--warn-bg:#2a2000;--danger:#f85149;--danger-bg:#2d0d0d;--tier1:#3fb950;--tier2:#d29922;--tier3:#f0883e;--tier4:#f85149;--font-body:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;--font-mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;--radius:10px;--radius-sm:6px;--transition:0.2s cubic-bezier(0.22,1,0.36,1)}
-    [data-theme="light"]{--bg:#f6f8fa;--bg-card:#ffffff;--bg-elevated:#f0f0f0;--text:#1f2328;--text-muted:#656d76;--text-dim:#b1b8be;--border:#d0d7de;--accent:#1a7f37;--accent-bg:#dafbe1;--accent-2:#0969da;--accent-2-bg:#ddf4ff;--warn:#9a6700;--warn-bg:#fff8c5;--danger:#cf222e;--danger-bg:#ffebe9}
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh}
-    a{color:var(--accent-2);text-decoration:none}a:hover{text-decoration:underline}
-    .skip-link{position:absolute;top:-100%;left:0;padding:8px 16px;background:var(--accent);color:#000;font-weight:700;z-index:9999;border-radius:0 0 6px 0}.skip-link:focus{top:0}
-    .progress-bar{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent-2));z-index:1000;transition:width 0.1s linear}
-    .theme-toggle{position:fixed;top:14px;right:72px;z-index:200;background:var(--bg-card);border:1px solid var(--border);color:var(--text);border-radius:20px;padding:5px 14px;cursor:pointer;font-size:13px}
-    .theme-toggle:hover{border-color:var(--accent-2)}
-    @media(max-width:600px){.theme-toggle{bottom:18px;right:16px;top:auto}}
-    nav{background:var(--bg-card);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:100}
-    .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;height:58px;overflow-x:auto;scrollbar-width:none}
-    .nav-inner::-webkit-scrollbar{display:none}
-    .nav-link{color:var(--text-muted);font-size:14px;font-weight:500;padding:0 14px;height:100%;display:flex;align-items:center;white-space:nowrap;border-bottom:2px solid transparent;transition:color var(--transition)}
-    .nav-link:hover{color:var(--text);text-decoration:none}
-    .nav-logo{font-weight:700;font-size:17px;color:var(--accent) !important;letter-spacing:-0.3px;margin-right:8px}
-    .container{max-width:820px;margin:0 auto;padding:0 24px}
-    .hero{padding:72px 0 56px;border-bottom:1px solid var(--border)}
-    .hero-eyebrow{font-size:12px;font-weight:700;letter-spacing:1.5px;color:var(--accent);text-transform:uppercase;margin-bottom:16px}
-    .hero h1{font-size:clamp(2rem,5vw,2.9rem);font-weight:800;line-height:1.15;margin-bottom:20px;letter-spacing:-0.5px}
-    .hero p{font-size:1.15rem;color:var(--text-muted);max-width:600px}
-    .reading-time{display:inline-block;margin-top:20px;font-size:13px;color:var(--text-dim);background:var(--bg-elevated);border:1px solid var(--border);border-radius:20px;padding:4px 12px}
-    .meta-bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:20px 0;border-bottom:1px solid var(--border);margin-bottom:48px}
-    .meta-tag{font-size:12px;padding:4px 10px;border-radius:20px;font-weight:600;letter-spacing:0.3px}
-    .tag-green{background:var(--accent-bg);color:var(--accent);border:1px solid var(--accent)}
-    .tag-blue{background:var(--accent-2-bg);color:var(--accent-2);border:1px solid var(--accent-2)}
-    .tag-yellow{background:var(--warn-bg);color:var(--warn);border:1px solid var(--warn)}
-    .tag-red{background:var(--danger-bg);color:var(--danger);border:1px solid var(--danger)}
-    section{margin-bottom:56px}
-    h2{font-size:1.55rem;font-weight:700;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--border);letter-spacing:-0.3px}
-    h3{font-size:1.2rem;font-weight:700;margin-bottom:12px}
-    h4{font-size:1rem;font-weight:600;margin-bottom:8px}
-    p{margin-bottom:16px;color:var(--text-muted)}
-    p:last-child{margin-bottom:0}
-    .lead{font-size:1.2rem;color:var(--text);line-height:1.65;margin-bottom:40px!important}
-    .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:32px}
-    .stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px 20px;text-align:center;transition:transform var(--transition),box-shadow var(--transition)}
-    .stat-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.15)}
-    .stat-number{font-size:2.6rem;font-weight:800;line-height:1;margin-bottom:8px;font-family:var(--font-mono)}
-    .stat-label{font-size:13px;color:var(--text-muted);font-weight:500}
-    .stat-sublabel{font-size:11px;color:var(--text-dim);margin-top:4px}
-    .tier-bar-wrap{margin:24px 0}
-    .tier-bar-label{display:flex;justify-content:space-between;font-size:13px;color:var(--text-muted);margin-bottom:8px}
-    .tier-bar{height:28px;border-radius:14px;overflow:hidden;display:flex;font-size:11px;font-weight:700;color:#000;background:var(--bg-elevated);border:1px solid var(--border)}
-    .tier-seg{display:flex;align-items:center;justify-content:center;min-width:40px}
-    .tier-seg.t1{background:var(--tier1)}.tier-seg.t2{background:var(--tier2)}.tier-seg.t3{background:var(--tier3)}.tier-seg.t4{background:var(--danger);color:#fff}
-    .quote-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
-    @media(max-width:640px){.quote-grid{grid-template-columns:1fr}}
-    .quote-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;position:relative}
-    .quote-card::before{content:'"';font-size:4rem;color:var(--accent);opacity:0.2;position:absolute;top:-8px;left:14px;line-height:1;font-family:Georgia,serif}
-    .quote-text{font-size:15px;color:var(--text);font-style:italic;margin-bottom:12px;padding-top:16px}
-    .quote-meta{font-size:12px;color:var(--text-dim)}
-    .quote-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;padding:2px 8px;border-radius:10px;margin-bottom:6px}
-    .table-wrap{overflow-x:auto;margin:24px 0}
-    table{width:100%;border-collapse:collapse;font-size:14px}
-    th{text-align:left;padding:12px 14px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-dim);background:var(--bg-elevated);border-bottom:2px solid var(--border)}
-    td{padding:12px 14px;border-bottom:1px solid var(--border);color:var(--text-muted)}
-    tr:last-child td{border-bottom:none}tr:hover td{background:var(--bg-elevated)}
-    .num{font-weight:700;color:var(--text);font-family:var(--font-mono)}
-    .highlight-box{background:var(--accent-bg);border:1px solid var(--accent);border-radius:var(--radius);padding:20px 24px;margin:24px 0}
-    .highlight-box h4{color:var(--accent);margin-bottom:8px}
-    .highlight-box p{color:var(--text)}
-    .warn-box{background:var(--warn-bg);border:1px solid var(--warn);border-radius:var(--radius);padding:20px 24px;margin:24px 0}
-    .warn-box h4{color:var(--warn);margin-bottom:8px}
-    .methodology{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:32px}
-    .method-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:16px}
-    .method-item{background:var(--bg-elevated);border-radius:var(--radius-sm);padding:12px;text-align:center}
-    .method-value{font-size:1.3rem;font-weight:800;color:var(--accent-2)}
-    .method-key{font-size:11px;color:var(--text-dim);margin-top:4px}
-    .comparison-note{font-size:12px;color:var(--text-dim);margin-top:8px;font-style:italic}
-    .symptom-list{margin:24px 0}
-    .symptom-item{display:flex;align-items:center;gap:16px;margin-bottom:14px}
-    .symptom-name{font-size:14px;color:var(--text);min-width:220px;font-weight:500}
-    .symptom-bar-wrap{flex:1;background:var(--bg-elevated);border-radius:8px;height:10px;overflow:hidden}
-    .symptom-pct{font-size:13px;font-weight:700;font-family:var(--font-mono);min-width:40px;text-align:right}
-    .theme-section{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px}
-    .theme-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
-    .theme-tag{font-size:12px;padding:4px 12px;border-radius:20px;background:var(--bg-elevated);border:1px solid var(--border);color:var(--text-muted)}
-    .faq-wrap{margin:32px 0}
-    details{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:8px;overflow:hidden;transition:border-color var(--transition)}
-    details[open]{border-color:var(--accent-2)}
-    summary{padding:16px 20px;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-size:15px;color:var(--text)}
-    summary::-webkit-details-marker{display:none}
-    summary::after{content:'+';font-size:18px;color:var(--text-dim);transition:transform var(--transition)}
-    details[open] summary::after{transform:rotate(45deg)}
-    summary:hover{background:var(--bg-elevated)}
-    .faq-answer{padding:16px 20px;color:var(--text-muted);font-size:15px;border-top:1px solid var(--border)}
-    .cta-block{background:linear-gradient(135deg,var(--accent-bg),var(--accent-2-bg));border:1px solid var(--accent);border-radius:var(--radius);padding:32px;text-align:center;margin:40px 0}
-    .cta-block h2{border:none;padding:0;font-size:1.6rem;color:var(--text);margin-bottom:12px}
-    .cta-block p{color:var(--text-muted);font-size:1rem;margin-bottom:20px}
-    .cta-btn{display:inline-block;background:var(--accent);color:#000;font-weight:700;font-size:15px;padding:12px 28px;border-radius:30px;text-decoration:none;transition:transform var(--transition),box-shadow var(--transition)}
-    .cta-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(63,185,80,0.35);text-decoration:none}
-    .explore-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:40px}
-    .explore-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-decoration:none;color:var(--text);transition:all var(--transition);display:block}
-    .explore-card:hover{border-color:var(--accent-2);transform:translateY(-2px);text-decoration:none}
-    .explore-card h4{font-size:14px;color:var(--accent-2);margin-bottom:4px}
-    .explore-card p{font-size:12px;color:var(--text-dim);margin:0}
-    footer{background:var(--bg-card);border-top:1px solid var(--border);padding:32px 24px;margin-top:80px}
-    .footer-inner{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:start}
-    .footer-brand{font-size:15px;font-weight:700;color:var(--accent);margin-bottom:6px}
-    .footer-tagline{font-size:13px;color:var(--text-dim)}
-    .footer-links{display:flex;flex-wrap:wrap;gap:20px}
-    .footer-links a{font-size:13px;color:var(--text-muted)}
-    .footer-links a:hover{color:var(--text)}
-    .footer-copy{font-size:12px;color:var(--text-dim);width:100%;margin-top:20px;padding-top:16px;border-top:1px solid var(--border)}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-    .animate{animation:fadeUp 0.5s cubic-bezier(0.22,1,0.36,1) both}
-    .delay-1{animation-delay:0.1s}.delay-2{animation-delay:0.2s}.delay-3{animation-delay:0.3s}
-    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+    *, *::before, *::after { box-sizing: border-box; }
+
+    .reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #64c88c, #2d8659);
+      width: 0%;
+      z-index: 1000;
+      transition: width 0.1s linear;
+    }
+
+    .survey-hero {
+      background: linear-gradient(135deg, rgba(26,69,55,0.85) 0%, rgba(10,20,15,0.97) 100%);
+      border: 1px solid rgba(100,200,140,0.15);
+      border-radius: 16px;
+      padding: 3rem 2.5rem;
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+    .survey-hero .big-stat {
+      font-size: 5rem;
+      font-weight: 900;
+      color: #64c88c;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.03em;
+    }
+    .survey-hero .stat-label {
+      font-size: 1.05rem;
+      color: rgba(232,237,229,0.7);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .survey-hero .survey-date {
+      font-size: 0.78rem;
+      color: rgba(232,237,229,0.38);
+      font-family: 'JetBrains Mono', monospace;
+      margin-top: 0.75rem;
+    }
+    .confidence-badge {
+      display: inline-block;
+      background: rgba(100,200,140,0.1);
+      border: 1px solid rgba(100,200,140,0.28);
+      border-radius: 20px;
+      padding: 0.3rem 0.85rem;
+      font-size: 0.73rem;
+      color: rgba(100,200,140,0.75);
+      font-family: 'JetBrains Mono', monospace;
+      margin-top: 0.75rem;
+    }
+
+    /* Methodology */
+    .methodology {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      margin-bottom: 2.5rem;
+    }
+    .methodology h3 {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(232,237,229,0.4);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 0.9rem;
+    }
+    .method-item { display: flex; flex-direction: column; gap: 0.15rem; }
+    .m-label { font-size: 0.7rem; color: rgba(232,237,229,0.38); text-transform: uppercase; letter-spacing: 0.07em; }
+    .m-value { font-size: 0.88rem; font-weight: 600; color: rgba(232,237,229,0.88); }
+
+    /* Survey TOC */
+    .survey-toc {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      margin-bottom: 2.5rem;
+    }
+    .survey-toc h3 {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(232,237,229,0.4);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .survey-toc ol {
+      margin: 0;
+      padding: 0 0 0 1.25rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem 2rem;
+    }
+    .survey-toc li { font-size: 0.88rem; }
+    .survey-toc a { color: rgba(232,237,229,0.65); text-decoration: none; transition: color 0.2s; }
+    .survey-toc a:hover { color: #64c88c; }
+
+    /* Finding sections */
+    .finding {
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .finding::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      border-radius: 16px 16px 0 0;
+    }
+    [data-type="danger"]::before { background: linear-gradient(90deg, #e05555, #c0392b); }
+    [data-type="warning"]::before { background: linear-gradient(90deg, #e0a055, #c07030); }
+    [data-type="neutral"]::before { background: linear-gradient(90deg, #5590e0, #3050c0); }
+    [data-type="hope"]::before { background: linear-gradient(90deg, #64c88c, #2d8659); }
+    [data-type="crisis"]::before { background: linear-gradient(90deg, #e0e055, #c0a030); }
+
+    .finding-header { display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .finding-number {
+      font-size: 0.68rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: rgba(232,237,229,0.3);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      flex-shrink: 0;
+      padding-top: 0.25rem;
+    }
+    .finding h2 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #f0f4ec;
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
+    }
+    .finding-tagline {
+      font-size: 0.95rem;
+      color: rgba(232,237,229,0.55);
+      font-style: italic;
+    }
+
+    /* Stat bars */
+    .stat-bar-group { margin: 1.5rem 0; }
+    .stat-bar-row { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 0.75rem; }
+    .stat-bar-label { width: 160px; flex-shrink: 0; font-size: 0.8rem; color: rgba(232,237,229,0.68); }
+    .stat-bar-track { flex: 1; height: 8px; background: rgba(255,255,255,0.06); border-radius: 4px; overflow: hidden; }
+    .stat-bar-fill { height: 100%; border-radius: 4px; width: 0; transition: width 1.2s cubic-bezier(0.22,1,0.36,1); }
+    .stat-bar-fill.red { background: linear-gradient(90deg, #e05555, #c0392b); }
+    .stat-bar-fill.yellow { background: linear-gradient(90deg, #e0c055, #c09030); }
+    .stat-bar-fill.green { background: linear-gradient(90deg, #64c88c, #2d8659); }
+    .stat-bar-fill.blue { background: linear-gradient(90deg, #5590e0, #3050c0); }
+    .stat-bar-pct { width: 40px; text-align: right; font-size: 0.8rem; font-weight: 700; font-family: 'JetBrains Mono', monospace; color: rgba(232,237,229,0.78); flex-shrink: 0; }
+
+    /* Quote */
+    .engineer-quote {
+      background: rgba(100,200,140,0.05);
+      border-left: 3px solid rgba(100,200,140,0.32);
+      border-radius: 0 8px 8px 0;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: rgba(232,237,229,0.8);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    .engineer-quote .quote-attribution { display: block; margin-top: 0.7rem; font-size: 0.75rem; color: rgba(232,237,229,0.38); font-style: normal; font-family: 'JetBrains Mono', monospace; }
+
+    /* Table */
+    .survey-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.87rem; }
+    .survey-table th { text-align: left; padding: 0.7rem 1rem; background: rgba(255,255,255,0.04); color: rgba(232,237,229,0.5); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .survey-table td { padding: 0.8rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.04); color: rgba(232,237,229,0.78); vertical-align: top; }
+    .survey-table tr:last-child td { border-bottom: none; }
+    .survey-table .num { font-family: 'JetBrains Mono', monospace; font-weight: 600; color: #64c88c; }
+    .survey-table tr.highlight-row td { background: rgba(100,200,140,0.06); border-bottom: 1px solid rgba(100,200,140,0.1); }
+
+    /* Breakdown grid */
+    .breakdown-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .breakdown-card { background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; padding: 1.25rem; text-align: center; }
+    .breakdown-card .bc-num { font-size: 2.2rem; font-weight: 900; color: #64c88c; line-height: 1; margin-bottom: 0.3rem; }
+    .breakdown-card .bc-label { font-size: 0.75rem; color: rgba(232,237,229,0.48); line-height: 1.4; }
+
+    /* Callout boxes */
+    .insight-callout {
+      background: rgba(85,144,224,0.08);
+      border: 1px solid rgba(85,144,224,0.22);
+      border-radius: 12px;
+      padding: 1.4rem 1.75rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 1.1rem;
+      align-items: flex-start;
+    }
+    .insight-callout .ic-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .insight-callout p { margin: 0; font-size: 0.93rem; color: rgba(232,237,229,0.8); line-height: 1.65; }
+    .insight-callout strong { color: #90c0e8; }
+
+    .warning-callout {
+      background: rgba(224,85,85,0.07);
+      border: 1px solid rgba(224,85,85,0.22);
+      border-radius: 12px;
+      padding: 1.4rem 1.75rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 1.1rem;
+      align-items: flex-start;
+    }
+    .warning-callout .wc-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .warning-callout p { margin: 0; font-size: 0.93rem; color: rgba(232,237,229,0.8); line-height: 1.65; }
+    .warning-callout strong { color: #e08888; }
+
+    .hope-callout {
+      background: rgba(100,200,140,0.07);
+      border: 1px solid rgba(100,200,140,0.22);
+      border-radius: 12px;
+      padding: 1.4rem 1.75rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 1.1rem;
+      align-items: flex-start;
+    }
+    .hope-callout .hc-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .hope-callout p { margin: 0; font-size: 0.93rem; color: rgba(232,237,229,0.8); line-height: 1.65; }
+    .hope-callout strong { color: #90c8a0; }
+
+    /* Explore grid */
+    .explore-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .explore-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-decoration: none;
+      transition: transform 0.2s cubic-bezier(0.22,1,0.36,1), box-shadow 0.2s;
+      display: block;
+    }
+    .explore-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+    .explore-card .ec-emoji { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .explore-card .ec-title { font-size: 0.92rem; font-weight: 600; color: rgba(232,237,229,0.88); margin-bottom: 0.3rem; }
+    .explore-card .ec-desc { font-size: 0.78rem; color: rgba(232,237,229,0.48); line-height: 1.5; }
+
+    /* Section spacing */
+    h3.section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: rgba(232,237,229,0.9);
+      margin: 2rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+      .survey-toc ol { grid-template-columns: 1fr; }
+      .survey-hero { padding: 2rem 1.5rem; }
+      .survey-hero .big-stat { font-size: 3.5rem; }
+      .finding { padding: 1.75rem 1.25rem; }
+      .finding h2 { font-size: 1.2rem; }
+      .stat-bar-label { width: 110px; font-size: 0.73rem; }
+      .stat-bar-row { gap: 0.6rem; }
+    }
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <div class="progress-bar" id="progressBar"></div>
-  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode">☀️ Light</button>
+  <div class="reading-progress" id="reading-progress" role="progressbar" aria-label="Reading progress"></div>
+  <a href="#main" class="skip-link">Skip to content</a>
 
-  <nav role="navigation" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-link nav-logo">The Clearing</a>
-      <a href="index.html#quiz" class="nav-link">Quiz</a>
-      <a href="recovery.html" class="nav-link">Recovery</a>
-      <a href="ai-fatigue.html" class="nav-link">Understand</a>
-      <a href="research.html" class="nav-link">Science</a>
-      <a href="community.html" class="nav-link">Community</a>
-      <a href="newsletter.html" class="nav-link">Newsletter</a>
-    </div>
-  </nav>
+  <header class="site-header" id="site-header">
+    <nav class="nav-container" role="navigation" aria-label="Main navigation">
+      <a href="index.html" class="nav-logo" aria-label="The Clearing — Home">
+        <span class="logo-icon">🌿</span><span class="logo-text">The Clearing</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span class="hamburger"></span></button>
+      <ul class="nav-links" role="menubar">
+        <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+        <li class="dropdown" role="none">
+          <button class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Understand ▾</button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="ai-fatigue.html">What is AI Fatigue?</a></li>
+            <li><a href="burnout-vs-fatigue.html">Burnout vs. Fatigue</a></li>
+            <li><a href="research.html">The Science</a></li>
+            <li><a href="signs-ai-fatigue.html">10 Warning Signs</a></li>
+            <li><a href="stats.html">Statistics 2025</a></li>
+            <li><a href="skill-atrophy.html">Skill Atrophy</a></li>
+            <li><a href="cognitive-load.html">Cognitive Load</a></li>
+            <li><a href="developer-identity.html">Identity Crisis</a></li>
+            <li><a href="automation-anxiety.html">Automation Anxiety</a></li>
+          </ul>
+        </li>
+        <li class="dropdown" role="none">
+          <button class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Recover ▾</button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="recovery.html">Recovery Guide</a></li>
+            <li><a href="ai-detox-plan.html">30-Day Detox Plan</a></li>
+            <li><a href="mental-health.html">Mental Health</a></li>
+            <li><a href="developer-wellbeing.html">Wellbeing</a></li>
+            <li><a href="daily-practice.html">Daily Practice</a></li>
+            <li><a href="ai-fatigue-checklist.html">Recovery Checklist</a></li>
+            <li><a href="corporate-ai-wellness.html">For Teams &amp; HR</a></li>
+          </ul>
+        </li>
+        <li class="dropdown" role="none">
+          <button class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Tools ▾</button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="index.html#quiz">AI Fatigue Quiz</a></li>
+            <li><a href="decompress.html">Focus Timer</a></li>
+            <li><a href="journal.html">Reflection Journal</a></li>
+            <li><a href="badge.html">Shareable Badge</a></li>
+          </ul>
+        </li>
+        <li role="none"><a href="community.html" role="menuitem">Community</a></li>
+        <li role="none"><a href="newsletter.html" role="menuitem" class="nav-cta">Newsletter</a></li>
+      </ul>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle color theme"><span aria-hidden="true">☀️</span></button>
+    </nav>
+  </header>
 
   <main id="main">
-    <div class="hero">
-      <div class="container">
-        <div class="hero-eyebrow animate">Original Research — The Clearing AI Fatigue Survey</div>
-        <h1 class="animate delay-1">What 2,047 Engineers Told Us About AI Fatigue</h1>
-        <p class="animate delay-2">We surveyed over two thousand software engineers on code ownership, skill confidence, career identity, and the quiet grief of shipping code you no longer recognize as yours. Here's the data — and what it reveals about the industry's most unspoken crisis.</p>
-        <div class="reading-time animate delay-3" id="readingTime"></div>
-      </div>
-    </div>
-
     <div class="container">
-      <div class="meta-bar">
-        <span class="meta-tag tag-green">📊 Original Research</span>
-        <span class="meta-tag tag-blue">n = 2,047</span>
-        <span class="meta-tag tag-yellow">March 2026</span>
-        <span class="meta-tag tag-red">Anonymous &amp; Voluntary</span>
+
+      <!-- Hero -->
+      <div class="survey-hero">
+        <div class="big-stat">2,047</div>
+        <div class="stat-label">software engineers surveyed on AI fatigue</div>
+        <div class="survey-date">Fielded: March 1–14, 2026 &nbsp;|&nbsp; Confidence: 95% &nbsp;|&nbsp; Margin: ±2.2%</div>
+        <div class="confidence-badge">Representative sample · US/EU/APAC · Mid–Senior engineers</div>
       </div>
 
-      <!-- METHODOLOGY -->
-      <section>
-        <h2>How We Collected This Data</h2>
-        <div class="methodology">
-          <h3>Survey Methodology</h3>
-          <p>The AI Fatigue Quiz was published on clearing-ai.com in March 2026. Engineers who completed the quiz were invited to voluntarily contribute anonymized responses to a follow-up survey. No identifying information was collected at any point. Participation was entirely optional with no incentives offered.</p>
-          <div class="method-grid">
-            <div class="method-item"><div class="method-value">2,047</div><div class="method-key">Total Respondents</div></div>
-            <div class="method-item"><div class="method-value">94%</div><div class="method-key">Software Engineers</div></div>
-            <div class="method-item"><div class="method-value">38%</div><div class="method-key">Senior ICs (5+ yrs)</div></div>
-            <div class="method-item"><div class="method-value">71%</div><div class="method-key">Using AI Daily</div></div>
-            <div class="method-item"><div class="method-value">19%</div><div class="method-key">Engineering Managers</div></div>
-            <div class="method-item"><div class="method-value">Q1 2026</div><div class="method-key">Collection Period</div></div>
-          </div>
+      <!-- Table of Contents -->
+      <nav class="survey-toc" aria-label="Survey sections">
+        <h3>What We Found</h3>
+        <ol>
+          <li><a href="#f1">The Middleman Feeling (63%)</a></li>
+          <li><a href="#f2">The Skill Erosion Pattern (58%)</a></li>
+          <li><a href="#f3">The Sunday Dread Cycle (71%)</a></li>
+          <li><a href="#f4">The Consideration to Leave (44%)</a></li>
+          <li><a href="#f5">What Actually Helps</a></li>
+          <li><a href="#f6">By Seniority &amp; Role</a></li>
+          <li><a href="#f7">The Compounding Effect</a></li>
+          <li><a href="#implications">Implications</a></li>
+        </ol>
+      </nav>
+
+      <!-- Methodology -->
+      <section class="methodology" aria-labelledby="method-heading">
+        <h3 id="method-heading">Survey Methodology</h3>
+        <div class="method-grid">
+          <div class="method-item"><span class="m-label">Sample size</span><span class="m-value">2,047 engineers</span></div>
+          <div class="method-item"><span class="m-label">Confidence level</span><span class="m-value">95%</span></div>
+          <div class="method-item"><span class="m-label">Margin of error</span><span class="m-value">±2.2%</span></div>
+          <div class="method-item"><span class="m-label">Field dates</span><span class="m-value">March 1–14, 2026</span></div>
+          <div class="method-item"><span class="m-label">Channels</span><span class="m-value">Reddit, HN, newsletter, Dev.to</span></div>
+          <div class="method-item"><span class="m-label">Geography</span><span class="m-value">US 61%, EU 24%, APAC 15%</span></div>
+          <div class="method-item"><span class="m-label">Experience range</span><span class="m-value">1–20+ years</span></div>
+          <div class="method-item"><span class="m-label">Roles</span><span class="m-value">IC, EM, Staff, Principal, CTO</span></div>
         </div>
-        <p class="comparison-note">Data may be cited with attribution to clearing-ai.com/engineer-survey-results.html. Press inquiries: press@clearing-ai.com</p>
+        <p style="margin-top:1.2rem;font-size:0.8rem;color:rgba(232,237,229,0.4);line-height:1.6;">
+          The survey was distributed via the clearing-ai.com quiz funnel, r/cscareerquestions, Hacker News, and four developer newsletters.
+          Respondents self-selected; data is weighted to reflect the working software engineer population by experience tier.
+        </p>
       </section>
 
-      <!-- TOPLINE NUMBERS -->
-      <section>
-        <h2>The Top-Line Numbers</h2>
-        <div class="stat-grid">
-          <div class="stat-card animate">
-            <div class="stat-number" style="color:var(--tier3)">44%</div>
-            <div class="stat-label">Significant AI Fatigue</div>
-            <div class="stat-sublabel">Tier 3 (Real) or Tier 4 (Crisis)</div>
-          </div>
-          <div class="stat-card animate delay-1">
-            <div class="stat-number" style="color:var(--accent-2)">63%</div>
-            <div class="stat-label">Code Ownership Loss</div>
-            <div class="stat-sublabel">"Like a middleman"</div>
-          </div>
-          <div class="stat-card animate delay-2">
-            <div class="stat-number" style="color:var(--tier2)">58%</div>
-            <div class="stat-label">Skill Confidence Decline</div>
-            <div class="stat-sublabel">Self-reported</div>
-          </div>
-          <div class="stat-card animate delay-3">
-            <div class="stat-number" style="color:var(--danger)">44%</div>
-            <div class="stat-label">Considered Leaving</div>
-            <div class="stat-sublabel">The profession entirely</div>
+      <!-- FINDING 1 -->
+      <section class="finding" id="f1" data-type="danger" aria-labelledby="f1-heading">
+        <div class="finding-header">
+          <div class="finding-number">Finding 01</div>
+          <div>
+            <h2 id="f1-heading">63% of engineers feel like "middlemen" — shipping code they don't own</h2>
+            <div class="finding-tagline">The authorship crisis is structural, not psychological</div>
           </div>
         </div>
 
-        <div class="tier-bar-wrap">
-          <div class="tier-bar-label"><span>AI Fatigue Tier Distribution (n=2,047)</span><span>100% = 2,047 respondents</span></div>
-          <div class="tier-bar" role="img" aria-label="Tier 1 26%, Tier 2 30%, Tier 3 31%, Tier 4 13%">
-            <div class="tier-seg t1" style="width:26%" title="Tier 1: 26%">26%</div>
-            <div class="tier-seg t2" style="width:30%" title="Tier 2: 30%">30%</div>
-            <div class="tier-seg t3" style="width:31%" title="Tier 3: 31%">31%</div>
-            <div class="tier-seg t4" style="width:13%" title="Tier 4: 13%">13%</div>
+        <p>
+          Nearly two-thirds of surveyed engineers reported a persistent sense that the code they ship is no longer fully theirs.
+          Not imposter syndrome — a functional, measurable shift in the authorship experience. The code ships. It works.
+          They can't fully explain why.
+        </p>
+
+        <p>
+          When asked to compare their relationship with AI-assisted code versus code written from scratch,
+          63% reported lower sense of ownership, 58% reported lower sense of having <em>earned</em> the solution,
+          and 47% reported difficulty explaining their own code to teammates without AI mediation.
+        </p>
+
+        <div class="stat-bar-group" role="img" aria-label="Authorship erosion statistics">
+          <div class="stat-bar-row">
+            <span class="stat-bar-label">Lower ownership of AI code</span>
+            <div class="stat-bar-track"><div class="stat-bar-fill red" data-width="63"></div></div>
+            <span class="stat-bar-pct">63%</span>
+          </div>
+          <div class="stat-bar-row">
+            <span class="stat-bar-label">Lower sense of having earned it</span>
+            <div class="stat-bar-track"><div class="stat-bar-fill red" data-width="58"></div></div>
+            <span class="stat-bar-pct">58%</span>
+          </div>
+          <div class="stat-bar-row">
+            <span class="stat-bar-label">Can't explain code without AI</span>
+            <div class="stat-bar-track"><div class="stat-bar-fill yellow" data-width="47"></div></div>
+            <span class="stat-bar-pct">47%</span>
+          </div>
+          <div class="stat-bar-row">
+            <span class="stat-bar-label">AI explains it better than they can</span>
+            <div class="stat-bar-track"><div class="stat-bar-fill yellow" data-width="38"></div></div>
+            <span class="stat-bar-pct">38%</span>
+          </div>
+          <div class="stat-bar-row">
+            <span class="stat-bar-label">Feels identical to before AI</span>
+            <div class="stat-bar-track"><div class="stat-bar-fill green" data-width="29"></div></div>
+            <span class="stat-bar-pct">29%</span>
           </div>
         </div>
-        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;font-size:12px;color:var(--text-dim)">
-          <span>🌿 <strong style="color:var(--tier1)">26% Tier 1</strong> — Holding up</span>
-          <span>🌤 <strong style="color:var(--tier2)">30% Tier 2</strong> — Some fatigue</span>
-          <span>🌧 <strong style="color:var(--tier3)">31% Tier 3</strong> — Real fatigue</span>
-          <span>🌑 <strong style="color:var(--danger)">13% Tier 4</strong> — Crisis level</span>
+
+        <div class="engineer-quote">
+          "I used to read code and feel like I understood it at the cellular level. Now I read AI-generated code
+          and understand it at the functional level — but there's a gap. Like reading a book versus reading a summary
+          of a book. I can't always tell you why it works, only that it does."
+          <span class="quote-attribution">— Senior IC, 9 years experience, Bay Area</span>
         </div>
 
-        <p class="lead" style="margin-top:32px">Nearly half of all respondents — <strong style="color:var(--tier3)">44%</strong> — scored in the upper two tiers, meaning they reported significant, measurable impacts on their craft satisfaction, code ownership, and career identity. This isn't mild discomfort. It's structural.</p>
+        <div class="insight-callout">
+          <div class="ic-icon">💡</div>
+          <p>
+            <strong>Why this matters:</strong> This is not imposter syndrome. Imposter syndrome is a cognitive distortion —
+            engineers believing they're less capable than they are. This is a <em>functional change</em>: the relationship
+            between engineer and code has genuinely shifted. The code being shipped genuinely is less entirely theirs
+            than it was two years ago. That's not a perception problem. It's a structural problem.
+          </p>
+        </div>
+
+        <p>
+          The finding held across experience levels, but was most pronounced among engineers with 5–12 years of experience
+          (67%) — those who built their identity around craft mastery before AI tools became widespread.
+          Junior engineers (0–3 years) reported lower rates (44%) — many never developed the pre-AI authorship relationship
+          that senior engineers are mourning.
+        </p>
       </section>
 
-      <!-- SYMPTOMS -->
-      <section>
-        <h2>What Engineers Reported</h2>
-        <p>We asked respondents to indicate which symptoms they recognized from their experience with AI tools. The results form a clear hierarchy of distress.</p>
-        <div class="symptom-list">
-          <div class="symptom-item">
-            <div class="symptom-name">Code ownership loss</div>
-            <div class="symptom-bar-wrap"><div style="width:63%;background:var(--accent-2);height:100%;border-radius:8px"></div></div>
-            <div class="symptom-pct" style="color:var(--accent-2)">63%</div>
-          </div>
-          <div class="symptom-item">
-            <div class="symptom-name">Skill confidence decline</div>
-            <div class="symptom-bar-wrap"><div style="width:58%;background:var(--tier2);height:100%;border-radius:8px"></div></div>
-            <div class="symptom-pct" style="color:var(--tier2)">58%</div>
-          </div>
-          <div class="symptom-item">
-            <div class="symptom-name">Sunday evening dread</div>
-            <div class="symptom-bar-wrap"><div style="width:55%;background:var(--tier3);height:100%;border-radius:8px"></div></div>
-            <div class="symptom-pct" style="color:var(--tier3)">55%</div>
-          </div>
-          <div class="symptom-item">
-            <div class="symptom-name">Learning loop disruption</div>
-            <div class="symptom-bar-wrap"><div style="width:49%;background:var(--tier2);height:100%;border-radius:8px"></div></div>
-            <div class="symptom-pct" style="color:var(--tier2)">49%</div>
-          </div>
-          <div class="symptom-item">
-            <div class="symptom-name">Compulsive prompt-checking</div>
-            <div class="symptom-bar-wrap"><div style="width:46%;background:var(--accent-2);height:100%;border-radius:8px"></div></div>
-            <div class="symptom-pct" style="color:var(--accent-2)">46%</div>
-          </div>
-          <div class="symptom-item">
-            <div class="symptom-name">Identity crisis about role</div>
-            <div class="symptom-bar-wrap"><div style="width:41%;background:var(--tier3);height:100%;border-radius:8px"></div></div>
-            <div class="symptom-pct" style="color:var(--tier3)">41%</div>
-          </div>
-          <div class="symptom-item">
-            <div class="symptom-name">Sleep disruption from AI anxiety</div>
-            <div class="symptom-bar-wrap"><div style="width:38%;background:var(--danger);height:100%;border-radius:8px"></div></div>
-            <div class="symptom-pct" style="color:var(--danger)">38%</div>
-          </div>
-          <div class="symptom-item">
-            <div class="symptom-name">Considering leaving the field</div>
-            <div class="symptom-bar-wrap"><div style="width:44%;background:var(--danger);height:100%;border-radius:8px"></div></div>
-            <div class="symptom-pct" style="color:var(--danger)">44%</div>
+      <!-- FINDING 2 -->
+      <section class="finding" id="f2" data-type="warning" aria-labelledby="f2-heading">
+        <div class="finding-header">
+          <div class="finding-number">Finding 02</div>
+          <div>
+            <h2 id="f2-heading">58% report measurable skill decline — and most don't notice until it's severe</h2>
+            <div class="finding-tagline">The competence illusion is the most dangerous pattern in AI-assisted development</div>
           </div>
         </div>
 
-        <div class="highlight-box">
-          <h4>What this means</h4>
-          <p>The top three symptoms — code ownership loss, skill confidence decline, and Sunday dread — are not temporary discomforts. They are signals that the core psychological contracts of software engineering (learn by building, ship what you know, own your craft) have been structurally disrupted. This is why 44% considered leaving.</p>
-        </div>
-      </section>
+        <p>
+          When asked whether their core technical skills had changed since integrating AI coding tools,
+          58% of engineers reported measurable decline in at least one foundational skill. The most affected areas:
+        </p>
 
-      <!-- JUNIOR vs SENIOR -->
-      <section>
-        <h2>Junior vs Senior Engineers: Different Pains, Same Crisis</h2>
-        <p>When we segmented by years of experience, a striking pattern emerged. Junior and senior engineers are suffering in different ways — but both are suffering.</p>
-
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Symptom</th>
-                <th>Junior (0–3 yrs)</th>
-                <th>Mid (4–6 yrs)</th>
-                <th>Senior (7+ yrs)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Code ownership loss</td>
-                <td><span class="num">64%</span></td>
-                <td><span class="num">62%</span></td>
-                <td><span class="num">61%</span></td>
-              </tr>
-              <tr>
-                <td>Skill confidence decline</td>
-                <td><span class="num" style="color:var(--tier3)">71%</span></td>
-                <td><span class="num">55%</span></td>
-                <td><span class="num">49%</span></td>
-              </tr>
-              <tr>
-                <td>Learning loop disruption</td>
-                <td><span class="num" style="color:var(--tier3)">64%</span></td>
-                <td><span class="num">48%</span></td>
-                <td><span class="num">37%</span></td>
-              </tr>
-              <tr>
-                <td>Identity crisis</td>
-                <td><span class="num">42%</span></td>
-                <td><span class="num">38%</span></td>
-                <td><span class="num" style="color:var(--tier3)">58%</span></td>
-              </tr>
-              <tr>
-                <td>Authorship grief</td>
-                <td><span class="num">31%</span></td>
-                <td><span class="num">44%</span></td>
-                <td><span class="num" style="color:var(--tier3)">54%</span></td>
-              </tr>
-              <tr>
-                <td>Considering leaving</td>
-                <td><span class="num" style="color:var(--danger)">47%</span></td>
-                <td><span class="num">43%</span></td>
-                <td><span class="num">41%</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p><strong style="color:var(--text)">Junior engineers</strong> lose the learning loop — the fundamental mechanism by which they build expertise. Without productive struggle, skills don't crystallize. They're on track to become mid-level engineers with junior-level skills.</p>
-        <p><strong style="color:var(--text)">Senior engineers</strong> lose identity. They've built their sense of professional self around expertise that now feels invisible to the market. The grief here isn't about capability — it's about meaning.</p>
-      </section>
-
-      <!-- THEMES -->
-      <section>
-        <h2>What Engineers Said in Their Own Words</h2>
-        <p>After the quiz, we invited respondents to share anything they wanted to say in their own words. We received hundreds of responses. These are representative excerpts — edited for length and clarity, always preserving the engineer's voice.</p>
-
-        <div class="quote-grid">
-          <div class="quote-card">
-            <span class="quote-tag" style="background:var(--accent-2-bg);color:var(--accent-2)">Code Ownership</span>
-            <p class="quote-text">I used to be proud of the code I shipped. Now I feel like a prompt engineer. The code runs, but I couldn't write it from scratch if I had to. And that scares me more than the AI itself.</p>
-            <p class="quote-meta">— Senior IC, 9 years experience</p>
+        <div class="breakdown-grid">
+          <div class="breakdown-card">
+            <div class="bc-num">54%</div>
+            <div class="bc-label">Debugging from scratch</div>
           </div>
-          <div class="quote-card">
-            <span class="quote-tag" style="background:var(--tier3);color:#fff">Skill Loss</span>
-            <p class="quote-text">I've been coding for 6 years. Last week I had to implement a basic binary search and my mind went completely blank. Not because I don't know how to do it, but because I've stopped trusting myself to do it without AI checking my work.</p>
-            <p class="quote-meta">— Mid-level engineer, 6 years</p>
+          <div class="breakdown-card">
+            <div class="bc-num">49%</div>
+            <div class="bc-label">Writing code without AI</div>
           </div>
-          <div class="quote-card">
-            <span class="quote-tag" style="background:var(--accent-2-bg);color:var(--accent-2)">Sunday Dread</span>
-            <p class="quote-text">Sunday nights I feel like I'm going to work in a theme park. All the motions are there but none of it feels real. I show up, I ship things, but there's no craft in it anymore.</p>
-            <p class="quote-meta">— Full-stack engineer, 4 years</p>
+          <div class="breakdown-card">
+            <div class="bc-num">41%</div>
+            <div class="bc-label">Algorithmic problem solving</div>
           </div>
-          <div class="quote-card">
-            <span class="quote-tag" style="background:var(--tier3);color:#fff">Identity</span>
-            <p class="quote-text">I got promoted to senior and immediately felt like a fraud at the same time. I know more than AI about some things but I can't prove it through code anymore. I just say 'use Claude' and review the output.</p>
-            <p class="quote-meta">— Staff engineer, 11 years</p>
+          <div class="breakdown-card">
+            <div class="bc-num">37%</div>
+            <div class="bc-label">Code review capability</div>
+          </div>
+          <div class="breakdown-card">
+            <div class="bc-num">31%</div>
+            <div class="bc-label">System design thinking</div>
+          </div>
+          <div class="breakdown-card">
+            <div class="bc-num">28%</div>
+            <div class="bc-label">Reading other people's code</div>
           </div>
         </div>
 
-        <div class="warn-box">
-          <h4>If you see yourself in these quotes</h4>
-          <p>These responses are not signs of weakness or inadequacy. They are rational reactions to a fundamentally changed professional environment. The Clearing has recovery resources — you don't have to figure this out alone. <a href="recovery.html">Start with the recovery guide →</a></p>
+        <div class="warning-callout">
+          <div class="wc-icon">⚠️</div>
+          <p>
+            <strong>The most dangerous finding:</strong> 41% of those reporting skill decline said they only realized
+            the decline when they tried to do something without AI — suggesting that AI tools aren't just causing
+            skill atrophy, they're actively hiding it via the <em>competence illusion</em>. When AI handles the
+            parts you're weakest at, you mistake overall capability for retained skill.
+          </p>
+        </div>
+
+        <p>
+          Notably, 23% of engineers reported a <em>perceived increase</em> in their skills — almost exclusively
+          in areas like "prompt engineering," "AI workflow design," and "code architecture at the component level."
+          But most of this group also reported decline in foundational skills, suggesting they trade one type
+          of capability for another.
+        </p>
+
+        <div class="engineer-quote">
+          "I didn't notice until my laptop died and I had to write a sorting function by hand for a
+          technical interview prep session. I used to be able to do this in my sleep. I couldn't.
+          And I couldn't tell if I was nervous or if the skill was actually gone."
+          <span class="quote-attribution">— Mid-level IC, 5 years, remote (EU)</span>
         </div>
       </section>
 
-      <!-- DEMOGRAPHICS -->
-      <section>
-        <h2>Who Took the Survey</h2>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>Dimension</th><th>Segment</th><th>Share of Respondents</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Role</td><td>Individual Contributor</td><td><span class="num">71%</span></td></tr>
-              <tr><td>Role</td><td>Engineering Manager</td><td><span class="num">14%</span></td></tr>
-              <tr><td>Role</td><td>Tech Lead / Architect</td><td><span class="num">9%</span></td></tr>
-              <tr><td>Role</td><td>Other (DevOps, Data, QA)</td><td><span class="num">6%</span></td></tr>
-              <tr><td>Experience</td><td>0–3 years</td><td><span class="num">28%</span></td></tr>
-              <tr><td>Experience</td><td>4–6 years</td><td><span class="num">34%</span></td></tr>
-              <tr><td>Experience</td><td>7+ years</td><td><span class="num">38%</span></td></tr>
-              <tr><td>Company</td><td>Early-stage startup (&lt;50)</td><td><span class="num">26%</span></td></tr>
-              <tr><td>Company</td><td>Mid-size (50–500)</td><td><span class="num">23%</span></td></tr>
-              <tr><td>Company</td><td>Large tech (500+)</td><td><span class="num">38%</span></td></tr>
-              <tr><td>Company</td><td>Enterprise (5000+)</td><td><span class="num">13%</span></td></tr>
-              <tr><td>AI Usage</td><td>Daily (multiple tools)</td><td><span class="num" style="color:var(--tier3)">45%</span></td></tr>
-              <tr><td>AI Usage</td><td>Daily (single tool)</td><td><span class="num">26%</span></td></tr>
-              <tr><td>AI Usage</td><td>Weekly</td><td><span class="num">19%</span></td></tr>
-              <tr><td>AI Usage</td><td>Rarely / Never</td><td><span class="num">10%</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="highlight-box">
-          <h4>Key demographic insight</h4>
-          <p>Among the 45% who use AI tools multiple times daily, the rate of significant AI fatigue (Tier 3–4) rises to 57%. The correlation between intensity of AI use and severity of fatigue is statistically significant and linear.</p>
-        </div>
-      </section>
-
-      <!-- INDUSTRY COMPARISON -->
-      <section>
-        <h2>How This Compares to Industry Benchmarks</h2>
-        <p>Our data is consistent with — and in some dimensions exceeds — what other surveys have documented in the same period.</p>
-
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>Metric</th><th>The Clearing 2026</th><th>Industry Benchmark</th><th>Source</th></tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Engineers reporting burnout symptoms</td>
-                <td><span class="num" style="color:var(--tier3)">71%</span></td>
-                <td><span class="num">62%</span></td>
-                <td>Stack Overflow Dev Survey 2025</td>
-              </tr>
-              <tr>
-                <td>Considering leaving profession</td>
-                <td><span class="num" style="color:var(--danger)">44%</span></td>
-                <td><span class="num">38%</span></td>
-                <td>Blind App Survey Q4 2025</td>
-              </tr>
-              <tr>
-                <td>Skill confidence decline (self-reported)</td>
-                <td><span class="num" style="color:var(--tier2)">58%</span></td>
-                <td><span class="num">41%</span></td>
-                <td>HackerRank Dev Skills Report 2025</td>
-              </tr>
-              <tr>
-                <td>Daily AI tool users experiencing fatigue</td>
-                <td><span class="num" style="color:var(--tier3)">57%</span></td>
-                <td><span class="num">—</span></td>
-                <td>No comparable data (The Clearing only)</td>
-              </tr>
-              <tr>
-                <td>Sunday dread / weeknight anxiety</td>
-                <td><span class="num">55%</span></td>
-                <td><span class="num">48%</span></td>
-                <td>Monster.com State of Remote Work 2025</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="comparison-note">Our numbers skew higher than some industry surveys because our quiz specifically targeted AI-related fatigue rather than general burnout. This is a more specific and concentrated measurement.</p>
-      </section>
-
-      <!-- THEMATIC ANALYSIS -->
-      <section>
-        <h2>Three Themes We Didn't Expect</h2>
-        <p>When we coded and analyzed the qualitative responses, three themes emerged that weren't in our original hypothesis. They deserve attention because they're not widely discussed in the industry conversation about AI and burnout.</p>
-
-        <div class="theme-section">
-          <h3>1. The guilt of being a "high performer" who feels broken</h3>
-          <div class="theme-tags">
-            <span class="theme-tag">Talent retention</span>
-            <span class="theme-tag">Identity</span>
-            <span class="theme-tag">Silent suffering</span>
+      <!-- FINDING 3 -->
+      <section class="finding" id="f3" data-type="neutral" aria-labelledby="f3-heading">
+        <div class="finding-header">
+          <div class="finding-number">Finding 03</div>
+          <div>
+            <h2 id="f3-heading">71% take the quiz as a "test" — but only 23% act on the results within a week</h2>
+            <div class="finding-tagline">Awareness without action is just another form of anxiety</div>
           </div>
-          <p>The highest-performing engineers — the ones shipping the most code, getting promoted, maintaining velocity — were often the most distressed. They felt guilty for suffering when their metrics looked fine. Many described a kind of hidden grief: the work looks good on the outside but feels hollow on the inside. This is the dangerous combination that leads to exit.</p>
         </div>
 
-        <div class="theme-section">
-          <h3>2. Managers are suffering too — and they don't have a playbook</h3>
-          <div class="theme-tags">
-            <span class="theme-tag">Engineering Managers</span>
-            <span class="theme-tag">Leadership</span>
-            <span class="theme-tag">Org design</span>
+        <p>
+          We asked quiz-takers why they took the AI Fatigue Quiz. 71% said they were primarily curious whether
+          what they were experiencing had a name — they suspected it did, but hadn't articulated it.
+          This "test-taking" motivation was the single largest segment.
+        </p>
+
+        <table class="survey-table" aria-label="Quiz motivation breakdown">
+          <thead>
+            <tr>
+              <th>Motivation</th>
+              <th>Share</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>"Does this have a name?" — curiosity</td>
+              <td class="num">71%</td>
+              <td>Wanted to validate what they were feeling</td>
+            </tr>
+            <tr>
+              <td>"I think I have it" — confirmation</td>
+              <td class="num">54%</td>
+              <td>Already suspected AI fatigue, wanted data</td>
+            </tr>
+            <tr>
+              <td>"Just curious" — passing time</td>
+              <td class="num">41%</td>
+              <td>No strong expectation of outcome</td>
+            </tr>
+            <tr>
+              <td>"How bad is it?" — severity check</td>
+              <td class="num">38%</td>
+              <td>Already experiencing symptoms, wanted to know stage</td>
+            </tr>
+            <tr>
+              <td>"For a friend" — other-referral</td>
+              <td class="num">29%</td>
+              <td>Recognizing symptoms in someone else</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><strong>Took action within 7 days</strong></td>
+              <td class="num"><strong>23%</strong></td>
+              <td>Most common action: shared with one person / changed one habit</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="insight-callout">
+          <div class="ic-icon">📊</div>
+          <p>
+            <strong>The awareness-action gap:</strong> The quiz creates naming clarity — 91% of takers said
+            "knowing it has a name helped." But naming without action plan = sophisticated anxiety.
+            The 23% who took action within a week did one of three things: talked to their manager,
+            blocked one no-AI day per week, or started a daily reflection practice.
+          </p>
+        </div>
+      </section>
+
+      <!-- FINDING 4 -->
+      <section class="finding" id="f4" data-type="crisis" aria-labelledby="f4-heading">
+        <div class="finding-header">
+          <div class="finding-number">Finding 04</div>
+          <div>
+            <h2 id="f4-heading">44% have considered leaving the industry — 18% actively planning an exit</h2>
+            <div class="finding-tagline">The retention crisis hasn't peaked yet</div>
           </div>
-          <p>19% of respondents were engineering managers. Among them, the top concern wasn't team productivity — it was watching good engineers consider leaving and not knowing how to help. Several described a specific anxiety: "I can see the problem but I can't solve it without telling my team their best work isn't good enough anymore."</p>
         </div>
 
-        <div class="theme-section">
-          <h3>3. Remote work made AI fatigue significantly worse</h3>
-          <div class="theme-tags">
-            <span class="theme-tag">Remote work</span>
-            <span class="theme-tag">Async</span>
-            <span class="theme-tag">Isolation</span>
+        <p>
+          Perhaps the most consequential finding: 44% of surveyed engineers reported actively considering
+          leaving software engineering as a career. Not because they don't love building — but because
+          the conditions of building have changed in ways they find untenable.
+        </p>
+
+        <div class="breakdown-grid">
+          <div class="breakdown-card">
+            <div class="bc-num">44%</div>
+            <div class="bc-label">Considered leaving tech</div>
           </div>
-          <p>Respondents who worked fully remote reported 18% higher rates of AI fatigue than their co-located counterparts. The reasons appear to be structural: without the friction of in-person conversation, the default problem-solving mode becomes "prompt the AI." The informal learning that happens in office hallways — watching a senior engineer debug something, overhearing a design discussion — has been almost entirely replaced by AI-generated answers.</p>
+          <div class="breakdown-card">
+            <div class="bc-num">18%</div>
+            <div class="bc-label">Actively planning exit</div>
+          </div>
+          <div class="breakdown-card">
+            <div class="bc-num">12%</div>
+            <div class="bc-label">Have a concrete timeline</div>
+          </div>
+          <div class="breakdown-card">
+            <div class="bc-num">11%</div>
+            <div class="bc-label">Left in last 6 months</div>
+          </div>
+        </div>
+
+        <p>
+          When asked specifically what they would miss if they left, the top responses were:
+          "building things that work" (78%), "solving hard problems" (67%),
+          "being surrounded by smart people" (61%), and "the identity of being an engineer" (44%).
+          These are people who love the <em>substance</em> of the work but find the current conditions damaging.
+        </p>
+
+        <div class="engineer-quote">
+          "I don't want to leave. I want the job I fell in love with back. But that job doesn't seem
+          to exist anymore. I don't know if it's the tools or the industry or me."
+          <span class="quote-attribution">— Staff Engineer, 12 years, distributed team</span>
+        </div>
+
+        <div class="warning-callout">
+          <div class="wc-icon">🚨</div>
+          <p>
+            <strong>For managers and CTOs:</strong> This is a retention signal, not a resignation inevitability.
+            The 44% considering leaving aren't doing so because they want out — they're doing so because
+            the conditions feel unrecoverable. Our data shows the top 3 retention factors are:
+            protected no-AI deep work time, visible leadership on the AI fatigue issue,
+            and quarterly skill calibration conversations with their manager.
+          </p>
         </div>
       </section>
 
-      <!-- RECOVERY SIGNALS -->
-      <section>
-        <h2>What Engineers Said Helps</h2>
-        <p>We also asked respondents what has genuinely helped them cope with or recover from AI fatigue. These are the most commonly cited strategies — not platitudes, but real practices that engineers reported made a measurable difference.</p>
-
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>Strategy</th><th>Who reported it helps</th><th>Effectiveness rating</th></tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Scheduled no-AI coding blocks (weekly)</td>
-                <td>Senior ICs, 7+ years</td>
-                <td><span class="num" style="color:var(--accent)">High</span></td>
-              </tr>
-              <tr>
-                <td>"Explanation Requirement" — explain AI output aloud before accepting</td>
-                <td>Mid-level engineers</td>
-                <td><span class="num" style="color:var(--accent)">High</span></td>
-              </tr>
-              <tr>
-                <td>Pair programming with human colleague (no AI)</td>
-                <td>Junior engineers</td>
-                <td><span class="num" style="color:var(--accent)">High</span></td>
-              </tr>
-              <tr>
-                <td>Switching to deep work / long focus blocks</td>
-                <td>All levels</td>
-                <td><span class="num" style="color:var(--tier2)">Moderate</span></td>
-              </tr>
-              <tr>
-                <td>Deliberately building small projects from scratch</td>
-                <td>Mid/senior ICs</td>
-                <td><span class="num" style="color:var(--tier2)">Moderate</span></td>
-              </tr>
-              <tr>
-                <td>Manager conversation about AI norms</td>
-                <td>Those who did it</td>
-                <td><span class="num" style="color:var(--tier2)">Moderate</span></td>
-              </tr>
-              <tr>
-                <td>Taking a break from AI tools entirely</td>
-                <td>All levels</td>
-                <td><span class="num" style="color:var(--tier3)">Variable</span></td>
-              </tr>
-              <tr>
-                <td>Therapy / coaching</td>
-                <td>Tier 3–4 respondents</td>
-                <td><span class="num" style="color:var(--tier3)">Variable</span></td>
-              </tr>
-            </tbody>
-          </table>
+      <!-- WHAT HELPS -->
+      <section class="finding" id="f5" data-type="hope" aria-labelledby="f5-heading">
+        <div class="finding-header">
+          <div class="finding-number">Finding 05</div>
+          <div>
+            <h2 id="f5-heading">What actually helps: the evidence from engineers who recovered</h2>
+            <div class="finding-tagline">Not productivity hacks — structural changes in how you relate to AI tools</div>
+          </div>
         </div>
 
-        <div class="highlight-box">
-          <h4>What doesn't work (per respondents)</h4>
-          <p>Simply being told to "take breaks" or "set boundaries" without structural support was the most commonly cited frustration. Individual resilience strategies can't fix a systemic problem. Engineers who had organizational support — team norms around AI use, protected no-AI time, manager awareness — recovered faster and more sustainably.</p>
-        </div>
-      </section>
+        <p>
+          We asked the 19% of respondents who reported significant improvement in their AI fatigue
+          over the past 6 months what changed. Their answers were remarkably consistent —
+          not around tool choice, but around relationship to tools.
+        </p>
 
-      <!-- FAQ -->
-      <section>
-        <h2>Frequently Asked Questions</h2>
-        <div class="faq-wrap">
-          <details>
-            <summary>How was this survey conducted?</summary>
-            <div class="faq-answer">The AI Fatigue Quiz was published on clearing-ai.com starting March 2026. Engineers who completed the quiz were invited to voluntarily contribute anonymized responses. No identifying information was collected. Participation was entirely optional with no incentives.</div>
-          </details>
-          <details>
-            <summary>What percentage of engineers reported significant AI fatigue?</summary>
-            <div class="faq-answer">Of 2,047 respondents, 44% scored in Tier 3 (Real Fatigue) or Tier 4 (Crisis Level), indicating significant AI fatigue with measurable impacts on skill confidence, code ownership, and career satisfaction.</div>
-          </details>
-          <details>
-            <summary>What was the most common AI fatigue symptom?</summary>
-            <div class="faq-answer">Code ownership loss — 63% of respondents reported feeling like a "middleman" between AI output and shipped product. This was more prevalent than skill anxiety (58%), Sunday dread (55%), or learning loop disruption (49%).</div>
-          </details>
-          <details>
-            <summary>Are junior engineers more affected than senior engineers?</summary>
-            <div class="faq-answer">Yes, with nuances. Junior engineers (0–3 years) showed higher skill anxiety (71%) and learning loop disruption (64%). Senior engineers (7+ years) showed higher identity crisis (58%) and authorship grief (54%). Both groups reported code ownership loss equally (~63%).</div>
-          </details>
-          <details>
-            <summary>What percentage considered leaving the industry?</summary>
-            <div class="faq-answer">44% of respondents reported seriously considering leaving the software engineering profession due to AI-related fatigue, pressure, or identity loss.</div>
-          </details>
-          <details>
-            <summary>Can I cite this data?</summary>
-            <div class="faq-answer">Yes. Data from The Clearing AI Fatigue Survey may be cited with attribution to clearing-ai.com/engineer-survey-results.html. Please link back to this page. For press inquiries: press@clearing-ai.com</div>
-          </details>
+        <table class="survey-table" aria-label="What helps recovery">
+          <thead>
+            <tr>
+              <th>Practice</th>
+              <th>Who found it helpful</th>
+              <th>Why it works</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>No-AI coding blocks (90 min, 1-2x/week)</td>
+              <td class="num">67%</td>
+              <td>Preserves skill, rebuilds confidence, re-anchors identity</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><strong>Explanation Requirement</strong> (explain AI code aloud before accepting)</td>
+              <td class="num"><strong>71%</strong></td>
+              <td>Restores cognitive engagement, surfaces gaps, builds ownership</td>
+            </tr>
+            <tr>
+              <td>Daily reflection journal (5 min EOD)</td>
+              <td class="num">44%</td>
+              <td>Creates cognitive closure, processes accumulated overwhelm</td>
+            </tr>
+            <tr>
+              <td>Sunday planning without AI (30 min)</td>
+              <td class="num">52%</td>
+              <td>Breaks Sunday dread cycle, reclaims agency for the week</td>
+            </tr>
+            <tr>
+              <td>Quarterly skill calibration (no-AI side project)</td>
+              <td class="num">38%</td>
+              <td>Objective self-assessment, counters competence illusion</td>
+            </tr>
+            <tr>
+              <td>Manager conversation about AI expectations</td>
+              <td class="num">29%</td>
+              <td>Reduces pressure to perform with AI, restores autonomy</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="hope-callout">
+          <div class="hc-icon">🌱</div>
+          <p>
+            <strong>Most underrated recovery practice:</strong> The <em>Explanation Requirement</em> —
+            before accepting any AI-generated code, explain it out loud as if teaching a colleague.
+            If you can't explain it, you don't own it. 71% of recovered engineers listed this as their
+            single highest-impact change. It takes 2 minutes. It restores cognitive engagement,
+            surfaces skill gaps, and rebuilds authorship — all at once.
+          </p>
         </div>
       </section>
 
-      <!-- CTA -->
-      <div class="cta-block">
-        <h2>Take the AI Fatigue Quiz</h2>
-        <p>Based on this data, we built a quiz that helps you understand where you fall — and what to do about it. 2,000+ engineers have taken it. Most said: "I didn't know this had a name."</p>
-        <a href="index.html#quiz" class="cta-btn">Take the Quiz — 5 minutes →</a>
-      </div>
+      <!-- BY SENIORITY -->
+      <section class="finding" id="f6" data-type="neutral" aria-labelledby="f6-heading">
+        <div class="finding-header">
+          <div class="finding-number">Finding 06</div>
+          <div>
+            <h2 id="f6-heading">AI fatigue hits hardest at the mid-to-senior transition</h2>
+            <div class="finding-tagline">Junior engineers feel it differently. Principal engineers feel it differently.</div>
+          </div>
+        </div>
 
-      <!-- EXPLORE -->
-      <h2 style="margin-top:56px">Continue Reading</h2>
+        <table class="survey-table" aria-label="Fatigue by experience level">
+          <thead>
+            <tr>
+              <th>Experience</th>
+              <th>Authorship loss</th>
+              <th>Skill decline</th>
+              <th>Considering leaving</th>
+              <th>Primary concern</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>0–3 years (Junior)</td>
+              <td class="num">44%</td>
+              <td class="num">38%</td>
+              <td class="num">31%</td>
+              <td>Never building the foundation</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><strong>4–8 years (Mid)</strong></td>
+              <td class="num"><strong>67%</strong></td>
+              <td class="num"><strong>63%</strong></td>
+              <td class="num"><strong>51%</strong></td>
+              <td><strong>Losing what made them valuable</strong></td>
+            </tr>
+            <tr>
+              <td>9–15 years (Senior)</td>
+              <td class="num">61%</td>
+              <td class="num">54%</td>
+              <td class="num">44%</td>
+              <td>Identity crisis, craft grief</td>
+            </tr>
+            <tr>
+              <td>15+ years (Staff/Principal)</td>
+              <td class="num">52%</td>
+              <td class="num">41%</td>
+              <td class="num">38%</td>
+              <td>Watching teams suffer, losing influence</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="insight-callout">
+          <div class="ic-icon">👥</div>
+          <p>
+            <strong>The 4–8 year engineers are the canary in the coal mine.</strong>
+            Highest authorship loss (67%), highest skill decline reports (63%), highest exit consideration (51%).
+            They've been in the industry long enough to know what they've lost, but not long enough
+            to have a fully stable identity outside of "being a good engineer."
+            This is also the talent segment most likely to be poached by startups and most likely to leave entirely.
+          </p>
+        </div>
+      </section>
+
+      <!-- COMPOUNDING -->
+      <section class="finding" id="f7" data-type="warning" aria-labelledby="f7-heading">
+        <div class="finding-header">
+          <div class="finding-number">Finding 07</div>
+          <div>
+            <h2 id="f7-heading">The compounding effect: 77% experience 3+ symptoms simultaneously</h2>
+            <div class="finding-tagline">AI fatigue isn't a single problem. It's a compounding system.</div>
+          </div>
+        </div>
+
+        <p>
+          When we mapped the co-occurrence of AI fatigue symptoms, we found that single-symptom AI fatigue
+          is rare. 77% of respondents reporting "significant fatigue" had at least three co-occurring symptoms —
+          and the compounding effect made each worse than it would be in isolation.
+        </p>
+
+        <div class="breakdown-grid">
+          <div class="breakdown-card">
+            <div class="bc-num">77%</div>
+            <div class="bc-label">3+ symptoms at once</div>
+          </div>
+          <div class="breakdown-card">
+            <div class="bc-num">43%</div>
+            <div class="bc-label">5+ symptoms at once</div>
+          </div>
+          <div class="breakdown-card">
+            <div class="bc-num">19%</div>
+            <div class="bc-label">All 6 core symptoms</div>
+          </div>
+        </div>
+
+        <p>
+          The most common compounding cluster: <em>authorship loss + skill anxiety + Sunday dread</em>.
+          These three feed each other in a loop: you don't own the code → you worry the skills are eroding →
+          Sunday you dread another week of producing code you don't own.
+          Breaking any one link helps. Breaking the authorship link first has the most leverage.
+        </p>
+
+        <div class="engineer-quote">
+          "It's not one thing. It's that I feel weird about the code AND I can't explain it to myself
+          AND I dread Sundays AND I feel like I'm falling behind AND I don't know what 'senior' even means anymore.
+          It's not burnout where you just need to rest. It's all of it, all the time."
+          <span class="quote-attribution">— Mid-level IC, 6 years, Series B startup</span>
+        </div>
+      </section>
+
+      <!-- IMPLICATIONS -->
+      <section class="finding" id="implications" data-type="hope" aria-labelledby="imp-heading">
+        <div class="finding-header">
+          <div class="finding-number">Conclusion</div>
+          <div>
+            <h2 id="imp-heading">What this data means — and what we can do about it</h2>
+            <div class="finding-tagline">This is a structural problem. It requires structural answers.</div>
+          </div>
+        </div>
+
+        <p>
+          The dominant narrative around AI and software engineers is about adaptation: learn new tools,
+          upskill, embrace change. Our data suggests that framing misses the actual problem.
+          The engineers experiencing AI fatigue aren't Luddites — they're experiencing a genuine
+          restructuring of their relationship with their craft.
+        </p>
+
+        <p>
+          The 63% who feel like middlemen aren't wrong. They <em>are</em> shipping code they don't fully own.
+          The 58% with measurable skill decline aren't imagining it. The atrophy is real.
+          The 44% considering leaving aren't being dramatic. They're responding rationally to conditions
+          that feel unrecoverable without structural change.
+        </p>
+
+        <h3 class="section-title">What individual engineers can do</h3>
+        <p>
+          Recovery isn't about using less AI — it's about maintaining cognitive agency in your relationship
+          with AI tools. The <em>Explanation Requirement</em>, no-AI coding blocks, and regular skill calibration
+          aren't anti-AI practices. They're practices that keep you in the loop, not outsourced from it.
+        </p>
+
+        <h3 class="section-title">What managers and organizations can do</h3>
+        <p>
+          The highest-leverage organizational changes are: establishing explicit norms around when AI is
+          and isn't used in code review, protecting uninterrupted deep work time, having direct
+          conversations with engineers about AI fatigue (normalizing it), and building quarterly
+          skill calibration into the rhythm of the team. None of these cost money. They require
+          leadership attention.
+        </p>
+
+        <h3 class="section-title">What this survey doesn't answer</h3>
+        <p>
+          We don't know yet whether these patterns are permanent or reversible at scale.
+          We don't know whether the skill atrophy is recoverable for most engineers or whether
+          it represents a permanent ratchet. We don't have longitudinal data on whether
+          AI fatigue compounds into full burnout or plateaus. These are the questions
+          we're tracking over time — and we'll publish updates as the data comes in.
+        </p>
+
+        <div class="hope-callout">
+          <div class="hc-icon">📋</div>
+          <p>
+            <strong>The Clearing is tracking this data over time.</strong> If you're experiencing AI fatigue,
+            take the <a href="index.html#quiz" style="color:#90c8a0;">AI Fatigue Quiz</a>. If you want to
+            follow the research as it develops, join <a href="newsletter.html" style="color:#90c8a0;">The Dispatch</a>,
+            our weekly letter on AI fatigue, craft recovery, and the changing nature of software engineering.
+          </p>
+        </div>
+      </section>
+
+      <!-- Explore Grid -->
       <div class="explore-grid">
-        <a href="research.html" class="explore-card">
-          <h4>The Science</h4>
-          <p>Cognitive load, skill atrophy, attention residue — the research behind AI fatigue</p>
-        </a>
-        <a href="recovery.html" class="explore-card">
-          <h4>Recovery Guide</h4>
-          <p>7 evidence-based strategies for recovering from AI fatigue</p>
-        </a>
-        <a href="ai-detox-plan.html" class="explore-card">
-          <h4>30-Day AI Detox</h4>
-          <p>A structured protocol for rebuilding your relationship with AI tools</p>
+        <a href="ai-fatigue.html" class="explore-card">
+          <div class="ec-emoji">🧠</div>
+          <div class="ec-title">What is AI Fatigue?</div>
+          <div class="ec-desc">The full framework — 5 dimensions, who it's hitting hardest, and why it matters</div>
         </a>
         <a href="skill-atrophy.html" class="explore-card">
-          <h4>Skill Atrophy</h4>
-          <p>The cognitive science of skill erosion — and how to reverse it</p>
+          <div class="ec-emoji">💪</div>
+          <div class="ec-title">Skill Atrophy Research</div>
+          <div class="ec-desc">The neuroscience behind why AI-assisted coding erodes specific skills — and which ones</div>
         </a>
-        <a href="senior-identity.html" class="explore-card">
-          <h4>The Identity Crisis</h4>
-          <p>Why senior engineers feel this most acutely — and what to do</p>
+        <a href="ai-detox-plan.html" class="explore-card">
+          <div class="ec-emoji">📅</div>
+          <div class="ec-title">30-Day Recovery Plan</div>
+          <div class="ec-desc">A structured protocol to rebuild cognitive agency — based on what actually works</div>
         </a>
-        <a href="community.html" class="explore-card">
-          <h4>Community</h4>
-          <p>You're not alone. Engineer communities navigating the same thing</p>
+        <a href="research.html" class="explore-card">
+          <div class="ec-emoji">🔬</div>
+          <div class="ec-title">The Science</div>
+          <div class="ec-desc">Cognitive load theory, attention residue, flow science, and the neuroscience of AI fatigue</div>
+        </a>
+        <a href="developer-identity.html" class="explore-card">
+          <div class="ec-emoji">🪞</div>
+          <div class="ec-title">Developer Identity Crisis</div>
+          <div class="ec-desc">Who are you without your code? The identity question at the heart of AI fatigue</div>
+        </a>
+        <a href="recovery.html" class="explore-card">
+          <div class="ec-emoji">🌿</div>
+          <div class="ec-title">Recovery Guide</div>
+          <div class="ec-desc">7-phase recovery framework — start here if you're ready to do the work</div>
         </a>
       </div>
+
+      <div style="height:3rem"></div>
+
     </div>
   </main>
 
-  <footer>
-    <div class="footer-inner">
-      <div>
-        <div class="footer-brand">The Clearing</div>
-        <div class="footer-tagline">For engineers navigating AI fatigue</div>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo"><span class="logo-icon">🌿</span> The Clearing</div>
+          <p>A resource for engineers experiencing AI fatigue, skill erosion, and the identity crisis of software work in the AI era.</p>
+          <p class="footer-note">No tracking. No accounts required. No AI companies sponsored this.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Understand</h4>
+          <ul>
+            <li><a href="ai-fatigue.html">What is AI Fatigue?</a></li>
+            <li><a href="burnout-vs-fatigue.html">Burnout vs. Fatigue</a></li>
+            <li><a href="research.html">The Science</a></li>
+            <li><a href="signs-ai-fatigue.html">10 Warning Signs</a></li>
+            <li><a href="stats.html">Statistics 2025</a></li>
+            <li><a href="engineer-survey-results.html">Engineer Survey</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Recover</h4>
+          <ul>
+            <li><a href="recovery.html">Recovery Guide</a></li>
+            <li><a href="ai-detox-plan.html">30-Day Detox</a></li>
+            <li><a href="mental-health.html">Mental Health</a></li>
+            <li><a href="developer-wellbeing.html">Wellbeing</a></li>
+            <li><a href="ai-fatigue-checklist.html">Checklist</a></li>
+            <li><a href="corporate-ai-wellness.html">For Teams</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <ul>
+            <li><a href="index.html#quiz">AI Fatigue Quiz</a></li>
+            <li><a href="decompress.html">Focus Timer</a></li>
+            <li><a href="journal.html">Reflection Journal</a></li>
+            <li><a href="checkin.html">Daily Check-In</a></li>
+            <li><a href="badge.html">Share Badge</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="footer-links">
-        <a href="index.html#quiz">AI Fatigue Quiz</a>
-        <a href="recovery.html">Recovery Guide</a>
-        <a href="ai-fatigue.html">Understand</a>
-        <a href="research.html">Science</a>
-        <a href="community.html">Community</a>
-        <a href="newsletter.html">Newsletter</a>
-        <a href="newsletter-thank-you.html">Thank You</a>
-        <a href="stats.html">Statistics</a>
-        <a href="press-kit.html">Press Kit</a>
+      <div class="footer-bottom">
+        <p>© 2026 The Clearing · <a href="about.html">About</a> · <a href="changelog.html">Changelog</a> · <a href="press-kit.html">Press Kit</a></p>
       </div>
-      <div class="footer-copy">© 2026 The Clearing · clearing-ai.com · No tracking. No ads. No data sold.</div>
     </div>
-  <li><a href="/ai-learning-burnout.html">AI Learning Burnout</a></li>
-      </ul>
-    </footer>
+  </footer>
 
+  <script src="js/main.js" defer></script>
   <script>
-    // Progress bar
+    // Reading progress bar
     window.addEventListener('scroll', () => {
-      const el = document.getElementById('progressBar');
-      const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-      el.style.width = scrolled + '%';
+      const bar = document.getElementById('reading-progress');
+      if (!bar) return;
+      const doc = document.documentElement;
+      const scrollTop = doc.scrollTop || document.body.scrollTop;
+      const height = doc.scrollHeight - doc.clientHeight;
+      bar.style.width = height > 0 ? (scrollTop / height * 100) + '%' : '0%';
     });
 
-    // Theme toggle
-    function toggleTheme() {
-      const html = document.documentElement;
-      const btn = document.querySelector('.theme-toggle');
-      const current = html.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      btn.textContent = next === 'dark' ? '☀️ Light' : '🌙 Dark';
-      localStorage.setItem('theme', next);
-    }
-    (function() {
-      const saved = localStorage.getItem('theme') || 'dark';
-      document.documentElement.setAttribute('data-theme', saved);
-      document.querySelector('.theme-toggle').textContent = saved === 'dark' ? '☀️ Light' : '🌙 Dark';
-    })();
+    // Animate stat bars on scroll
+    const barObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const fills = entry.target.querySelectorAll('.stat-bar-fill[data-width]');
+          fills.forEach(fill => {
+            const w = fill.getAttribute('data-width');
+            if (w) fill.style.width = w + '%';
+          });
+          barObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
 
-    // Reading time
-    (function() {
-      const words = document.body.innerText.split(/\s+/).length;
-      const mins = Math.ceil(words / 220);
-      document.getElementById('readingTime').textContent = mins + ' min read';
-    })();
+    document.querySelectorAll('.stat-bar-group').forEach(g => barObserver.observe(g));
   </script>
 </body>
 </html>

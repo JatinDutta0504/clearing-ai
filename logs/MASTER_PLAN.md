@@ -1399,3 +1399,18 @@ Be online and monitoring thread for 2+ hours after posting. Engage top comments 
 **Commit:** N/A (no new HTML)
 
 **Next:** Hour 96 — Reddit comment deployment (Wed-Thu 9am-2pm PDT optimal window)
+
+## Hour 98 (2026-03-31 23:50 PDT / Apr 1 06:50 UTC) — Phase 1 Content Window 59
+
+**Task:** Career Pivot Guide (career-pivot-guide.html, ~4.2k words)
+- Ultimate guide for AI-fatigued engineers considering leaving tech
+- Covers: diagnostic questions, 8 career paths, salary reality, 4-month prep timeline, FAQ schema
+- High-intent content addressing "should I quit tech due to AI" queries
+- 36 pages nav-updated, sitemap: 69 URLs
+- TRACKER.json rebuilt (corruption during multiple edits)
+
+**SEO:** FAQPage schema, Article schema, BreadcrumbList, internal links to recovery/mental-health/identity pages
+
+**Stats:** 69 pages | ~257k words
+
+**Next:** Hour 99 — HN LAUNCH TODAY! news.ycombinator.com/submit at 9 AM PDT

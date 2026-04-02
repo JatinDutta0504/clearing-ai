@@ -1591,3 +1591,44 @@ Be online and monitoring thread for 2+ hours after posting. Engage top comments 
 **HN launch:** T-3 HOURS — Thu Apr 2 9 AM PDT — READY (subject to Formspree fix)
 **Commit:** `2dcf75d` pushed ✅
 **Next:** Hour 121 — 🚨 HN LAUNCH Thu Apr 2 9 AM PDT. Online 9–12 PM PDT for thread engagement.
+
+### Hour 120 — 2026-04-02T06:50:00Z (Phase 1 Window 66 + Pre-HN Final Sprint)
+**Phase rotation:** All phases complete (P1=66✅ | P2=31✅ | P3=21✅ | P4=12✅). HN launches Thu Apr 2, 9 AM PDT (~9 hours away).
+
+**Built:** Pre-HN critical fix + complete launch guide.
+
+**Critical fix:** index-hn.html — Formspree `YOUR_FORM_ID` placeholder replaced with mailto fallback link. HN visitors can now subscribe via `hello@clearing-ai.com` even without Formspree configured. Newsletter captures are NOW POSSIBLE. Previously the form would just error out.
+
+**HN Launch Guide:** Complete action guide at logs/hour-120-2026-04-01-hn-launch-guide.md — covers:
+- Formspree 10-min setup (if Sunny has time)
+- HN submission at 9 AM PDT tomorrow (exact title + optional text)
+- Hour-by-hour schedule (HN submit → Twitter → LinkedIn → Reddit → Dispatch #2)
+- 5 pre-written HN comment angles
+- All Twitter threads and where to find them
+- What success looks like (200-500 upvotes, 300-800 visits, 20-40 signups)
+- Known blockers (Formspree, 0 subscribers, no email send capability)
+
+**Site verification:** All critical pages return 200 ✅ (index, index-hn, ai-fatigue, recovery, quiz via /#quiz, newsletter-thank-you)
+
+**Phase distribution:** P1=66✅ | P2=31✅ | P3=21✅ | P4=12✅ — ALL PHASES COMPLETE
+
+**Site cumulative:** 77 HTML files | ~292k words | 8 interactive features | Technical SEO 99/100
+
+**Commit:** `8a704b0` pushed ✅
+
+**Next:** 🚨 HN LAUNCH Thu Apr 2, 9 AM PDT. Sunny: read logs/hour-120-2026-04-01-hn-launch-guide.md for complete checklist. Be online 9-12 PM PDT.
+
+### Hour 121 — 2026-04-02T10:50:00Z (Phase 2 Window: Reddit Fresh + HN Launch Eve)
+**Phase rotation:** All phases at/above target (P1=66✅ | P2=31→32🟡 | P3=20✅ | P4=12✅). HN launches in ~5 hours.
+
+**Built:** 5 fresh Reddit comments for untapped communities (r/sysadmin, r/projectmanagement, r/entrepreneur, r/SOFA, r/ITCareerQuestions). 5 refreshed HN comment angles for launch in 5 hours. HN timing guide for Sunny. TRACKER.json updated: reddit_comments_total 42→47, reddit_communities_targeted 13→18.
+
+**Reddit gap filled:** These 5 communities weren't previously targeted — sysadmin (config knowledge gaps), projectmanagement (team-level AI velocity), entrepreneur (craft debt for founders), SOFA (academic cognitive science angle), ITCareerQuestions (juniors losing skills).
+
+**HN launch assets this window:** 5 refreshed comment angles ready for 9 AM PDT submission. All previous assets (HN launch guide, Twitter threads, LinkedIn posts) still valid.
+
+**~1,500 words drafted** (Reddit comments + HN response angles)
+
+**Commit:** N/A (log + TRACKER update only)
+
+**Next:** Hour 122 — 🚨 HN LAUNCH Thu Apr 2 9 AM PDT. Be online 9-12 PM PDT.

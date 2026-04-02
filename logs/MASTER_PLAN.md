@@ -1632,3 +1632,12 @@ Be online and monitoring thread for 2+ hours after posting. Engage top comments 
 **Commit:** N/A (log + TRACKER update only)
 
 **Next:** Hour 122 — 🚨 HN LAUNCH Thu Apr 2 9 AM PDT. Be online 9-12 PM PDT.
+
+### Hour 122 — 2026-04-02T12:50:00Z (Phase 1 Window: Pre-HN Conversion Sprint)
+**Built:** index-hn.html pre-HN conversion upgrades (~63 lines added)
+- FAQPage JSON-LD schema (5 Q&A pairs) — rich snippet eligibility for "AI fatigue recovery" queries
+- Tier quiz links added to "Start Reading" grid (quiz-results-tier-2, quiz-results-tier-3) — shareability viral loop for HN visitors
+- Page count updated: 73 → 77 pages
+**Commit:** `f6a3291` pushed ✅
+**Discord DM:** Sent ✅
+**Next:** Hour 123 — 🚨 HN LAUNCH Thu Apr 2 9 AM PDT. Be online 9-12 PM PDT. Twitter Thread #3 at 9:30 AM PDT. LinkedIn at 10 AM PDT. 47 Reddit comments across 18 communities deploy Thu 9am-2pm PDT.

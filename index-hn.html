@@ -40,6 +40,20 @@
       --radius: 10px;
       --transition: 0.2s cubic-bezier(0.22,1,0.36,1);
     }
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      background: var(--green);
+      color: var(--bg);
+      padding: 0.5rem 1rem;
+      border-radius: 0 0 var(--radius) var(--radius);
+      font-weight: 600;
+      z-index: 9999;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 0; }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; font-size: 16px; }
     body {
@@ -374,8 +388,42 @@
     gtag('js', new Date());
     gtag('config', 'G-YHK9XCPG4M');
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "The Clearing",
+    "url": "https://clearing-ai.com",
+    "description": "A free AI fatigue recovery resource for software engineers. Built by engineers, for engineers. No tracking, no account required.",
+    "foundingDate": "2026"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "I built a free AI fatigue recovery tool for burnt-out engineers — here's what 2,000+ quiz takers revealed",
+    "description": "We surveyed 2,047 engineers. 63% feel like middlemen to their own code. 58% report measurable skill decline. 71% take our quiz as a validation test.",
+    "author": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "datePublished": "2026-03-01",
+    "dateModified": "2026-04-01",
+    "inLanguage": "en-US",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://clearing-ai.com/" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/" }
+    ]
+  }
+  </script>
 </head>
 <body>
+<a href="#main" class="skip-link">Skip to main content</a>
 
 <nav>
   <div class="nav-inner">
@@ -391,7 +439,7 @@
   </div>
 </nav>
 
-<section class="hero">
+<section class="hero" id="main">
   <div class="hn-badge">★ Live on Hacker News — April 2026</div>
   <h1>Your code ships.<br>You don't recognize it as <span class="hl">yours.</span></h1>
   <p class="sub">We surveyed 2,047 engineers. 63% feel like middlemen to their own code. 58% report measurable skill decline. 71% take our AI Fatigue Quiz as a validation test. Here's what the data shows — and what actually helps.</p>
@@ -589,7 +637,7 @@
 
   <div class="faq-list" id="faq">
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
         Is this just burnout?
         <span class="ar">▾</span>
       </button>
@@ -598,7 +646,7 @@
       </div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
         Does this mean AI tools are bad?
         <span class="ar">▾</span>
       </button>
@@ -607,7 +655,7 @@
       </div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
         What's the single most effective tactic?
         <span class="ar">▾</span>
       </button>
@@ -616,7 +664,7 @@
       </div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
         Are junior engineers affected more or less?
         <span class="ar">▾</span>
       </button>
@@ -625,7 +673,7 @@
       </div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
         Is this just LLM hype skepticism? Will it fade?
         <span class="ar">▾</span>
       </button>
@@ -634,7 +682,7 @@
       </div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
         Who built this and why?
         <span class="ar">▾</span>
       </button>
@@ -652,7 +700,7 @@
     <h2>The Dispatch — Weekly</h2>
     <p>Every Monday: one insight from 2,000+ engineers, one recovery tactic, one thing that actually helps. No noise. Unsubscribe anytime.</p>
     <form class="nl-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-      <input type="email" name="email" placeholder="your@email.com" required>
+      <input type="email" name="email" placeholder="your@email.com" aria-label="Email address" required>
       <input type="hidden" name="_subject" value="New HN visitor newsletter signup">
       <button type="submit">Subscribe →</button>
     </form>

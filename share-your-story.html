@@ -537,11 +537,101 @@
       </div>
     </section>
 
-    <section class="story-form-section" id="share-form" aria-labelledby="form-heading">
+    <section class="story-form-section" id="share-form" aria-labelledby="form-title">
       <p class="section-label">Submit Your Story</p>
-      <h2 class="section-heading" id="form-heading">Tell us what it felt like</h2>
+      <h2 class="section-heading" id="form-title">Tell us what it felt like</h2>
       <p class="section-sub">Not sure what to write? Start with: what does a typical day feel like right now? What made you realize something was off? What do you miss?</p>
 
       <div class="form-card">
-        <form id="storyForm" onsubmit="submitStory(event)">
-          <div class="
+        <form id="storyForm" onsubmit="submitStory(event);">
+          <div class="form-group">
+            <label for="storyName">Your first name <span class="optional">(optional)</span></label>
+            <input type="text" id="storyName" name="name" placeholder="Alex" autocomplete="given-name">
+          </div>
+          <div class="form-group">
+            <label for="storyEmail">Your email <span class="optional">(optional — only for story follow-up)</span></label>
+            <input type="email" id="storyEmail" name="email" placeholder="you@example.com" autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label for="storyRole">Your role <span class="optional">(optional)</span></label>
+            <input type="text" id="storyRole" name="role" placeholder="Senior frontend engineer, 6 years exp.">
+          </div>
+          <div class="form-group">
+            <label for="storyText">Your story <span class="required">*</span></label>
+            <p class="field-hint">What does a typical day feel like right now? What made you realize something was off? What do you miss?</p>
+            <textarea id="storyText" name="story" rows="12" required placeholder="I used to love Friday afternoons..."></textarea>
+          </div>
+          <div class="form-group">
+            <label for="storyConsent" class="checkbox-label">
+              <input type="checkbox" id="storyConsent" name="consent" required>
+              <span>I understand my story may be published anonymously. I won't include names of specific employers without permission.</span>
+            </label>
+          </div>
+          <button type="submit" class="btn-primary submit-btn">Submit Your Story</button>
+        </form>
+        <div id="storySuccess" class="success-message" style="display:none;" role="alert" aria-live="polite">
+          <div class="success-icon">✅</div>
+          <h3>Story submitted!</h3>
+          <p>Thank you for sharing. We'll review your story and may feature it (anonymously) on clearing-ai.com. You'll hear from us only if we have questions.</p>
+          <button class="btn-secondary" onclick="resetStoryForm()">Submit another</button>
+        </div>
+        <div id="storyError" class="error-message" style="display:none;" role="alert" aria-live="polite">
+          <p>Something went wrong. Please try again, or email us directly at <a href="mailto:hello@clearing-ai.com">hello@clearing-ai.com</a></p>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .story-form-section .form-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 32px; max-width: 700px; margin: 0 auto; }
+      .form-group { margin-bottom: 20px; }
+      .form-group label { display: block; font-weight: 600; margin-bottom: 6px; color: rgba(232,237,229,0.9); }
+      .form-group .optional { font-weight: 400; color: rgba(232,237,229,0.45); font-size: 0.85em; }
+      .form-group .required { color: #e57373; }
+      .field-hint { margin: 4px 0 8px; font-size: 0.85em; color: rgba(232,237,229,0.5); }
+      .form-group input[type="text"], .form-group input[type="email"], .form-group textarea { width: 100%; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 10px 14px; color: rgba(232,237,229,0.9); font-size: 15px; font-family: inherit; transition: border-color 0.2s; box-sizing: border-box; }
+      .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #4a7c59; }
+      .form-group textarea { resize: vertical; min-height: 200px; line-height: 1.6; }
+      .checkbox-label { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-weight: 400 !important; font-size: 0.9em; line-height: 1.5; }
+      .checkbox-label input[type="checkbox"] { margin-top: 3px; flex-shrink: 0; width: 18px; height: 18px; accent-color: #4a7c59; }
+      .submit-btn { width: 100%; margin-top: 8px; padding: 14px; font-size: 16px; background: #4a7c59; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; transition: background 0.2s, transform 0.1s; }
+      .submit-btn:hover { background: #5a9068; transform: translateY(-1px); }
+      .submit-btn:active { transform: translateY(0); }
+      .success-message, .error-message { text-align: center; padding: 32px; }
+      .success-icon { font-size: 48px; margin-bottom: 16px; }
+      .success-message h3 { margin: 0 0 12px; }
+      .btn-secondary { background: rgba(255,255,255,0.08); color: rgba(232,237,229,0.85); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 10px 20px; cursor: pointer; font-size: 15px; margin-top: 16px; }
+      .error-message { color: #e57373; }
+    </style>
+
+    <script>
+      function submitStory(e) {
+        e.preventDefault();
+        var form = document.getElementById('storyForm');
+        var consent = document.getElementById('storyConsent');
+        var storyText = document.getElementById('storyText').value.trim();
+        var storyName = document.getElementById('storyName').value.trim();
+        var storyEmail = document.getElementById('storyEmail').value.trim();
+        var storyRole = document.getElementById('storyRole').value.trim();
+        if (!storyText) { alert('Please share your story before submitting.'); return; }
+        if (!consent.checked) { alert('Please confirm you understand your story may be published anonymously.'); return; }
+        var story = {
+          name: storyName || 'Anonymous',
+          email: storyEmail || '',
+          role: storyRole || '',
+          text: storyText,
+          submittedAt: new Date().toISOString()
+        };
+        var existing = JSON.parse(localStorage.getItem('clearing_stories') || '[]');
+        existing.push(story);
+        localStorage.setItem('clearing_stories', JSON.stringify(existing));
+        document.getElementById('storyForm').style.display = 'none';
+        document.getElementById('storySuccess').style.display = 'block';
+      }
+      function resetStoryForm() {
+        document.getElementById('storyForm').reset();
+        document.getElementById('storyForm').style.display = 'block';
+        document.getElementById('storySuccess').style.display = 'none';
+      }
+    </script>
+  </body>
+</html>

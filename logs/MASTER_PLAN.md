@@ -1706,3 +1706,9 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **Phase distribution:** P1=72✅ | P2=46🟡 | P3=24✅ | P4=12✅
 **🚨 Blockers:** HN login required (news.ycombinator.com/submit); Formspree YOUR_FORM_ID placeholder in 4 files
 **Next:** Hour 143 — Reddit deployment Sat Apr 5 9am-2pm PDT + Cassidy email send + HN submit attempt
+
+### Hour 147 — 2026-04-04T05:50:00Z (Fri Apr 3, 10:50 PM PDT)
+**Phase 2 Window 50:** Phase 2 fresh Reddit outreach batch — 5 NEW communities: r/ECE, r/Raspberry_Pi, r/rust, r/JuliaLanguage, r/foss. Comments target hardware/edge AI fatigue, maker local AI, systems programmers, scientific computing, FOSS community. All deployment-ready for Sat Apr 4 9am-2pm PDT. TRACKER updated: Reddit comments 117→122, communities 73→78. Formspree blocker emphasized (critical for newsletter capture). Discord DM sent. Git commit 4ae13e6 pushed.
+**Phase distribution:** P1=72✅ | P2=50🟡 | P3=24✅ | P4=12🔴
+**🚨 CRITICAL:** Formspree setup (YOUR_FORM_ID in 4 files) — 10 min at formspree.io
+**Next:** Hour 148 — HN submit NOW (news.ycombinator.com/submit), Twitter Thread #8 at 9:30am PDT Sat, Reddit deployment all day Sat 9am-2pm PDT, Cassidy follow-up email

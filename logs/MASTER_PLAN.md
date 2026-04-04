@@ -1806,3 +1806,12 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **Site:** 85 pages | ~331k words | 8 interactive features
 **Commit:** `02e4511` pushed ✅
 **Next:** Hour 160 — 🚨 HN LAUNCH NOW (news.ycombinator.com/submit). Twitter Thread #8 at 9:30 AM PDT. 151 Reddit comments across 107 communities deploy TODAY 9am-2pm PDT. Cassidy email. Formspree CRITICAL.
+
+**Hour 163 — 2026-04-04T22:50:00Z — Phase 3/4 Hybrid**
+- **Built:** Mailto fallbacks on ai-fatigue-checklist.html (top+bottom form) + testimonials.html (story-form) — ALL Formspree placeholder pages now auto-detect YOUR_FORM_ID and show one-click mailto fallback
+- **Impact:** HN traffic tomorrow WILL convert to newsletter subscribers even without Formspree configured
+- **HN readiness:** All critical conversion pages have mailto fallback (index-hn, newsletter, ai-fatigue-checklist, testimonials)
+- **Phase distribution:** P1=76✅ | P2=58✅ | P3=28🟡 | P4=14✅
+- **Site:** 86 pages | ~326k words
+- **Commit:** `05fc250` pushed ✅
+- **Next:** Hour 164 — Reddit fresh deployment (4 batches ready). Twitter Thread #8+9 post Sun 9:30 AM PDT. Cassidy email. Formspree setup at formspree.io.

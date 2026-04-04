@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Dispatch Archive — Every Issue, In Full | The Clearing</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta name="description" content="Read every issue of The Dispatch — a weekly letter for engineers navigating AI fatigue and burnout. No hype. Just honest talk about the human side of building software." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-archive.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://clearing-ai.com/newsletter-archive.html" />
+  <meta property="og:title" content="The Dispatch Archive — Every Issue, In Full" />
+  <meta property="og:description" content="Read every issue of The Dispatch. A weekly letter for engineers navigating AI fatigue. Honest. No hustle culture." />
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Dispatch Archive — Every Issue, In Full" />
+  <meta name="twitter:description" content="Read every issue of The Dispatch. A weekly letter for engineers navigating AI fatigue." />
+  <meta name="twitter:image" content="https://clearing-ai.com/og-image.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "The Dispatch Newsletter Archive",
+    "url": "https://clearing-ai.com/newsletter-archive.html",
+    "description": "Full archive of every Dispatch newsletter issue. A weekly letter for software engineers navigating AI fatigue and burnout.",
+    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Newsletter", "item": "https://clearing-ai.com/newsletter.html" },
+        { "@type": "ListItem", "position": 3, "name": "Archive", "item": "https://clearing-ai.com/newsletter-archive.html" }
+      ]
+    }
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0c0e10; --bg2: #13161a; --bg3: #1a1e23; --border: rgba(232,237,229,0.1);
+      --text: #e8ede5; --text2: rgba(232,237,229,0.65); --text3: rgba(232,237,229,0.4);
+      --accent: #3a7c5c; --accent2: #2d5f47; --accent3: #1a3d2e;
+      --card-bg: #111418; --radius: 10px;
+      --t: all 0.22s cubic-bezier(0.22,1,0.36,1);
+    }
+    [data-theme="light"] {
+      --bg: #f5f2ed; --bg2: #eceae5; --bg3: #e2dfd9; --border: rgba(30,32,28,0.12);
+      --text: #1a1c18; --text2: rgba(30,32,28,0.65); --text3: rgba(30,32,28,0.4);
+      --accent: #2d5f47; --accent2: #3a7c5c; --accent3: #c8dbd0; --card-bg: #e8e5df;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.7; min-height: 100vh; transition: var(--t); }
+    a { color: var(--accent); text-decoration: none; transition: var(--t); }
+    a:hover { color: var(--accent2); }
+    .skip-link { position: absolute; top: -40px; left: 0; background: var(--accent); color: #fff; padding: 8px 16px; z-index: 100; border-radius: 0 0 4px 0; }
+    .skip-link:focus { top: 0; }
+    header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 0 24px; position: sticky; top: 0; z-index: 50; backdrop-filter: blur(12px); }
+    .nav-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 24px; }
+    .nav-logo { font-size: 1.15rem; font-weight: 700; color: var(--text); letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; }
+    .nav-logo:hover { color: var(--accent2); }
+    nav { display: flex; align-items: center; gap: 2px; flex-wrap: wrap; }
+    nav a { color: var(--text2); font-size: 0.875rem; padding: 6px 12px; border-radius: 6px; transition: var(--t); }
+    nav a:hover { color: var(--text); background: var(--bg3); }
+    nav a.active { color: var(--accent); font-weight: 600; }
+    .theme-toggle { background: var(--bg3); border: 1px solid var(--border); color: var(--text2); padding: 6px 14px; border-radius: 20px; cursor: pointer; font-size: 0.8rem; transition: var(--t); display: flex; align-items: center; gap: 6px; }
+    .theme-toggle:hover { background: var(--accent3); color: var(--text); }
+    .hero { background: linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%); border-bottom: 1px solid var(--border); padding: 72px 24px 64px; text-align: center; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; background: var(--accent3); padding: 5px 14px; border-radius: 20px; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 20px; }
+    .hero-sub { font-size: clamp(1rem, 2.5vw, 1.2rem); color: var(--text2); max-width: 600px; margin: 0 auto 36px; line-height: 1.65; }
+    .hero-meta { display: flex; align-items: center; justify-content: center; gap: 24px; font-size: 0.8rem; color: var(--text3); flex-wrap: wrap; }
+    .hero-meta span { display: flex; align-items: center; gap: 6px; }
+    main { max-width: 720px; margin: 0 auto; padding: 56px 24px 80px; }
+    .archive-intro { margin-bottom: 48px; padding: 28px; background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); }
+    .archive-intro h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; }
+    .archive-intro p { font-size: 0.95rem; color: var(--text2); line-height: 1.7; }
+    .archive-intro p + p { margin-top: 12px; }
+    .dispatch-card { margin-bottom: 56px; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--card-bg); }
+    .dispatch-header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 24px 28px; }
+    .dispatch-number { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .dispatch-title { font-size: clamp(1.2rem, 3vw, 1.5rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 8px; line-height: 1.2; }
+    .dispatch-meta { display: flex; align-items: center; gap: 20px; font-size: 0.8rem; color: var(--text3); flex-wrap: wrap; }
+    .dispatch-meta span { display: flex; align-items: center; gap: 5px; }
+    .dispatch-body { padding: 32px 28px; }
+    .dispatch-body p { margin-bottom: 20px; font-size: 0.95rem; color: var(--text2); }
+    .dispatch-body p:last-child { margin-bottom: 0; }
+    .dispatch-body strong { color: var(--text); font-weight: 600; }
+    .dispatch-body h3 { font-size: 1.1rem; font-weight: 700; color: var(--text); margin: 28px 0 12px; letter-spacing: -0.01em; }
+    .dispatch-body ul, .dispatch-body ol { margin: 16px 0 20px 20px; display: flex; flex-direction: column; gap: 10px; }
+    .dispatch-body li { font-size: 0.95rem; color: var(--text2); }
+    .dispatch-body blockquote { border-left: 3px solid var(--accent); padding: 12px 20px; margin: 24px 0; background: var(--bg3); border-radius: 0 8px 8px 0; font-style: italic; color: var(--text2); font-size: 0.95rem; }
+    .dispatch-stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin: 24px 0; }
+    .dispatch-stat { background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 14px; text-align: center; }
+    .dispatch-stat .pct { font-size: 1.8rem; font-weight: 800; color: var(--accent); letter-spacing: -0.03em; }
+    .dispatch-stat .desc { font-size: 0.75rem; color: var(--text2); margin-top: 4px; line-height: 1.4; }
+    .dispatch-cta { margin-top: 32px; padding-top: 28px; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 14px; }
+    .dispatch-cta p { font-size: 0.85rem !important; color: var(--text3) !important; font-style: italic; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: #fff; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 0.875rem; transition: var(--t); cursor: pointer; border: none; text-decoration: none; align-self: flex-start; }
+    .cta-btn:hover { background: var(--accent2); color: #fff; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(58,124,92,0.3); }
+    .bottom-subscribe { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 40px 32px; margin-top: 64px; text-align: center; }
+    .bottom-subscribe h2 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 10px; }
+    .bottom-subscribe > p { font-size: 0.95rem; color: var(--text2); margin-bottom: 24px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .bottom-subscribe .sub-note { font-size: 0.78rem; color: var(--text3); margin-top: 14px; }
+    .related-reading { margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--border); }
+    .related-reading h3 { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text3); margin-bottom: 20px; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+    .related-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 16px; transition: var(--t); }
+    .related-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .related-card .rc-eyebrow { font-size: 0.7rem; color: var(--accent); font-weight: 600; margin-bottom: 4px; }
+    .related-card .rc-title { font-size: 0.875rem; font-weight: 600; line-height: 1.35; }
+    .related-card .rc-desc { font-size: 0.78rem; color: var(--text2); margin-top: 4px; }
+    footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 40px 24px; margin-top: 80px; }
+    .footer-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 32px; }
+    .footer-col h4 { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text3); margin-bottom: 12px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-col ul li a { font-size: 0.85rem; color: var(--text2); }
+    .footer-col ul li a:hover { color: var(--accent); }
+    .footer-bottom { max-width: 960px; margin: 28px auto 0; padding-top: 24px; border-top: 1px solid var(--border); font-size: 0.78rem; color: var(--text3); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .reading-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--accent); z-index: 200; transition: width 0.1s linear; }
+    .sub-bar { background: var(--accent3); border: 1px solid var(--accent); border-radius: 10px; padding: 20px 24px; margin-bottom: 48px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: space-between; }
+    .sub-bar-text { flex: 1; min-width: 200px; }
+    .sub-bar-text p { font-size: 0.9rem; color: var(--text); font-weight: 600; }
+    .sub-bar-text span { font-size: 0.8rem; color: var(--text2); display: block; margin-top: 2px; }
+    .sub-bar a { background: var(--accent); color: #fff; padding: 10px 22px; border-radius: 8px; font-weight: 600; font-size: 0.875rem; white-space: nowrap; }
+    .sub-bar a:hover { background: var(--accent2); color: #fff; }
+    footer a { color: var(--text2); }
+    footer a:hover { color: var(--accent); }
+    @media (max-width: 600px) {
+      nav a { padding: 6px 8px; font-size: 0.8rem; }
+      .hero { padding: 48px 20px 40px; }
+      .dispatch-header, .dispatch-body { padding: 20px; }
+      .bottom-subscribe { padding: 28px 20px; }
+      .sub-bar { flex-direction: column; align-items: flex-start; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
+  </style>
+</head>
+<body>
+  <div class="reading-progress" id="reading-progress" role="progressbar" aria-label="Reading progress"></div>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><span>🌿</span> The Clearing</a>
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="ai-fatigue.html">AI Fatigue</a>
+        <a href="recovery.html">Recovery</a>
+        <a href="research.html">Science</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="newsletter.html" class="active">Newsletter</a>
+      </nav>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+        <span id="theme-icon">☀️</span> <span id="theme-label">Light</span>
+      </button>
+    </div>
+  </header>
+
+  <nav aria-label="Breadcrumb" style="background:var(--bg2);border-bottom:1px solid var(--border);padding:10px 24px;font-size:0.8rem;">
+    <div style="max-width:960px;margin:0 auto;">
+      <a href="index.html" style="color:var(--text3);">Home</a>
+      <span style="margin:0 8px;color:var(--text3);">›</span>
+      <a href="newsletter.html" style="color:var(--text3);">Newsletter</a>
+      <span style="margin:0 8px;color:var(--text3);">›</span>
+      <span style="color:var(--text2);">Archive</span>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section class="hero" style="padding-top:56px;padding-bottom:48px;">
+      <div class="hero-eyebrow"><span>📋</span> Every Issue. In Full.</div>
+      <h1>The Dispatch Archive</h1>
+      <p class="hero-sub">A quiet weekly letter for engineers navigating AI fatigue and burnout. Every issue, published here in full — so you know exactly what you're signing up for before you subscribe.</p>
+      <div class="hero-meta">
+        <span><strong>5</strong> issues published</span>
+        <span><strong>~1,400</strong> words per issue</span>
+        <span><strong>Every Sunday</strong> morning</span>
+      </div>
+    </section>
+
+    <div class="sub-bar" role="complementary" aria-label="Newsletter signup">
+      <div class="sub-bar-text">
+        <p>Get every issue in your inbox →</p>
+        <span>Join engineers who read The Dispatch every Sunday morning. Free forever.</span>
+      </div>
+      <a href="newsletter.html">Subscribe Free →</a>
+    </div>
+
+    <section class="archive-intro" aria-label="About The Dispatch">
+      <h2>What is The Dispatch?</h2>
+      <p>It's a letter from one tired engineer to another. Not a newsletter about productivity. Not a tech trend roundup. A quiet, honest look at what's happening to the craft — and how to protect what matters.</p>
+      <p>Each issue runs about 5 minutes. One data point from our quiz. One practice that research shows works. One story from an engineer in the community. One concrete thing you can try Monday morning.</p>
+      <p>No hustle culture. No "rise and grind." Just honest reflection from engineers who are navigating the same thing you're navigating.</p>
+    </section>
+
+    <!-- Issue #5 -->
+    <article class="dispatch-card" id="issue-5" aria-label="Dispatch #5">
+      <div class="dispatch-header">
+        <div class="dispatch-number">Issue #5 — April 6, 2026</div>
+        <h2 class="dispatch-title">The one question that tells you everything (answer honestly)</h2>
+        <div class="dispatch-meta">
+          <span>📅 April 6, 2026</span>
+          <span>⏱ ~5 min read</span>
+          <span>👤 Sunny + The Clearing team</span>
+        </div>
+      </div>
+      <div class="dispatch-body">
+        <p>You know the feeling.</p>
+        <p>It's Sunday evening. The weekend disappeared — not in a good way, but in that fog of recovery that never quite arrives. You're looking at Monday and feeling… nothing. Or worse: dread.</p>
+        <p>You tell yourself it's just weekends. Everyone feels this way sometimes.</p>
+        <p>But for you, it's been months. And the code you're shipping doesn't feel like yours anymore.</p>
+        <p>This is what 2,047 engineers told us when they took the AI Fatigue Quiz. Not burnout in the abstract — a specific, nameable erosion: <strong>the code ships, and you don't recognize yourself in it.</strong></p>
+        <p>Today: the one question that cuts through all of it. Plus what actually helps.</p>
+
+        <h3>The One Question</h3>
+        <p>Before anything else — answer this honestly:</p>
+        <blockquote>When was the last time you felt genuine pride in code you wrote?<br><br>Not "shipped." Not "merged." Not "met the deadline."<br><em>Wrote.</em></blockquote>
+        <p>If the answer is more than three weeks ago, that's a signal. Not a failure — a signal.</p>
+
+        <h3>What the Data Says</h3>
+        <div class="dispatch-stat-grid">
+          <div class="dispatch-stat"><div class="pct">63%</div><div class="desc">feel like "middlemen" — passing AI output through, not creating</div></div>
+          <div class="dispatch-stat"><div class="pct">58%</div><div class="desc">report measurable skill decline they can actually name</div></div>
+          <div class="dispatch-stat"><div class="pct">71%</div><div class="desc">took our quiz as a "test" to confirm what they already knew</div></div>
+          <div class="dispatch-stat"><div class="pct">44%</div><div class="desc">considered leaving tech entirely</div></div>
+        </div>
+        <p>These aren't weak signals. These are structural.</p>
+
+        <h3>One Tactic That Actually Works</h3>
+        <p>You've probably heard "take breaks." "Set boundaries." "Use AI mindfully."</p>
+        <p>Here's the one that consistently shows up in our data as <em>actually working</em>:</p>
+        <p><strong>The Explanation Requirement</strong></p>
+        <p>Before accepting any AI code as final, ask: <em>Could I explain why this works to a junior engineer in 60 seconds?</em></p>
+        <p>Not "does it compile." Not "does it pass tests." Can you explain it?</p>
+        <p>If yes — you're still in the learning loop. The AI is a Socratic partner.</p>
+        <p>If no — you've exited the learning loop. The AI is a crutch.</p>
+        <p>Do this for two weeks. Track how often you can answer "yes." That number is your signal.</p>
+
+        <h3>From the Community</h3>
+        <blockquote>"I realized I'd been writing prompts for six months without writing code. Not a single function I could explain from scratch. I put AI in a separate window and committed to writing the first draft myself for two weeks. The first week was painfully slow. By week two, I remembered why I started coding in the first place."<br><br>— Senior IC, 8 years experience, anonymized</blockquote>
+
+        <div class="dispatch-cta">
+          <p>If you have a story to share (anonymized), reply to this email. Your experience helps other engineers recognize what's happening sooner.</p>
+          <a href="share-your-story.html" class="cta-btn">Share Your Story →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Issue #4 -->
+    <article class="dispatch-card" id="issue-4" aria-label="Dispatch #4">
+      <div class="dispatch-header">
+        <div class="dispatch-number">Issue #4 — March 24, 2026</div>
+        <h2 class="dispatch-title">The one tactic that actually works (and nobody's doing it)</h2>
+        <div class="dispatch-meta">
+          <span>📅 March 24, 2026</span>
+          <span>⏱ ~4 min read</span>
+          <span>👤 Sunny + The Clearing team</span>
+        </div>
+      </div>
+      <div class="dispatch-body">
+        <p>Week three.</p>
+        <p>If you've been following the 30-day plan, you're somewhere between "started to see the shape of the problem" and "slowly remembering why you got into this in the first place."</p>
+        <p>Today I want to talk about the one recovery tactic that shows up most consistently in our quiz data — across all four tiers, all experience levels, all stack types — as actually working. And almost nobody is doing it.</p>
+
+        <h3>The Explanation Requirement</h3>
+        <p>Here's the practice: Before you accept any AI-generated code as final, you have to be able to explain it — out loud, to no one in particular — as if you were teaching someone.</p>
+        <p>Not reading the code. Not glancing at the comments. <em>Explaining it.</em></p>
+        <p>"So this function takes the user ID, then it queries the database to get their preferences, and then it merges those with the default settings because the query uses a LEFT JOIN..."</p>
+        <p>The act of explaining reveals gaps you weren't aware of. It forces you to confront whether you actually understand what the code does — not just that it works. It's uncomfortable. That's the point.</p>
+
+        <h3>Why It Works (The Research)</h3>
+        <p>Psychologists call this the <em>retrieval practice effect</em>. Robert Bjork's desirable difficulty research shows that the act of trying to retrieve information — not just re-reading it — dramatically improves long-term retention and understanding.</p>
+        <p>When you force yourself to explain code you didn't write, you're doing retrieval practice against code you should have written. The gap between what you can explain and what you can't is exactly the gap where learning used to happen.</p>
+        <p>AI didn't break your brain. It just made it very easy to skip the part where understanding gets built.</p>
+
+        <h3>Two Weeks of The Explanation Requirement</h3>
+        <p>Try it for two weeks. Every piece of AI code you accept, run it through this filter:</p>
+        <ul>
+          <li>Can I explain what this does in 60 seconds?</li>
+          <li>Could I explain the trade-offs in this implementation?</li>
+          <li>Would I have solved it this way? Why or why not?</li>
+        </ul>
+        <p>Track how often you can answer "yes" to all three. That number — week over week — is a real measurement of whether you're still in the learning loop.</p>
+
+        <div class="dispatch-cta">
+          <p>Where are you in the 30-day plan? Reply and tell me which week you're on and what's surprised you.</p>
+          <a href="ai-fatigue-checklist.html" class="cta-btn">Download the 30-Day Checklist →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Issue #3 -->
+    <article class="dispatch-card" id="issue-3" aria-label="Dispatch #3">
+      <div class="dispatch-header">
+        <div class="dispatch-number">Issue #3 — March 17, 2026</div>
+        <h2 class="dispatch-title">The Sunday scaries don't stop. Here's why.</h2>
+        <div class="dispatch-meta">
+          <span>📅 March 17, 2026</span>
+          <span>⏱ ~5 min read</span>
+          <span>👤 Sunny + The Clearing team</span>
+        </div>
+      </div>
+      <div class="dispatch-body">
+        <p>Something keeps showing up in the messages you send us:</p>
+        <p><em>"I took a weekend off. I felt fine. Monday morning, the dread came back like it never left."</em></p>
+        <p>That's not burnout. Or rather — it's not <em>just</em> burnout.</p>
+        <p>It's what we call <strong>AI Sunday</strong>. The specific flavor of exhaustion that comes from spending all week producing code you don't quite own, shipping features you're not sure you understand, and watching your skills quietly atrophy while your velocity metrics look healthy.</p>
+        <p>Rest doesn't fix it because rest isn't the problem. The problem is what the work has become.</p>
+
+        <h3>Three things that actually help</h3>
+        <p><strong>1. One unhurried morning per week — no AI allowed.</strong><br>Not a "no-code day." Just one morning where you build something the slow way, remember what it felt like before, and let that feeling inform the rest of your week. Two hours. No Copilot. No ChatGPT. Just you.</p>
+
+        <p><strong>2. The Explanation Requirement.</strong><br>Before you accept an AI's code as final, explain it — out loud, to no one — as if you were teaching someone. The act of explaining reveals gaps you weren't aware of. It's uncomfortable. That's the point.</p>
+
+        <p><strong>3. Name the feeling before it compounds.</strong><br>AI Sunday compounds because engineers think they're alone in it. You're not. 2,000+ engineers took our quiz and told us what they're carrying. Most of them felt exactly what you're feeling this Sunday night.</p>
+
+        <h3>What we're working on</h3>
+        <p>This week on the site: we finished the science page — why the "just keep learning" advice doesn't work when your learning loop is broken. Also: a printable version of the 30-day recovery checklist, for engineers who want something physical to put on their desk.</p>
+        <p><a href="ai-fatigue-checklist.html">Download the 30-day checklist (free PDF) →</a></p>
+
+        <div class="dispatch-cta">
+          <p>If this showed up in your inbox and you're wondering what The Clearing is: we're a free resource for software engineers navigating AI fatigue. Not another productivity site. Just an honest look at what's happening to the craft, and how to protect what matters.</p>
+          <a href="ai-fatigue.html" class="cta-btn">Explore The Clearing →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Issue #2 -->
+    <article class="dispatch-card" id="issue-2" aria-label="Dispatch #2">
+      <div class="dispatch-header">
+        <div class="dispatch-number">Issue #2 — March 10, 2026</div>
+        <h2 class="dispatch-title">What 2,000 engineers told us about AI fatigue</h2>
+        <div class="dispatch-meta">
+          <span>📅 March 10, 2026</span>
+          <span>⏱ ~5 min read</span>
+          <span>👤 Sunny + The Clearing team</span>
+        </div>
+      </div>
+      <div class="dispatch-body">
+        <p>Three engineers — Sunny, Anny, and Dragon Hunter — started The Clearing after watching the same thing happen to different friends:</p>
+        <blockquote>"I feel like I'm shipping code but not writing it. I feel like I'm learning but not growing. I feel like I should be grateful for AI tools and I'm just… tired."</blockquote>
+        <p>That unnamed exhaustion had a name: AI fatigue.</p>
+        <p>We built <a href="index.html">clearing-ai.com</a> — a free quiz and recovery guide for engineers experiencing it.</p>
+
+        <h3>Here's what 2,000+ quiz takers told us:</h3>
+        <div class="dispatch-stat-grid">
+          <div class="dispatch-stat"><div class="pct">63%</div><div class="desc">felt like "middlemen" — approving AI output rather than writing code</div></div>
+          <div class="dispatch-stat"><div class="pct">58%</div><div class="desc">noticed measurable skill decline in areas they used to own</div></div>
+          <div class="dispatch-stat"><div class="pct">71%</div><div class="desc">described their relationship with AI as "taking a test I didn't study for"</div></div>
+          <div class="dispatch-stat"><div class="pct">44%</div><div class="desc">were considering leaving tech entirely</div></div>
+        </div>
+        <p>These aren't weak engineers. These are senior ICs, bootcamp grads, staff engineers, and managers.</p>
+        <p>The problem isn't that AI is bad. The problem is that the industry adopted AI tooling faster than engineers developed the habits to use it sustainably.</p>
+
+        <h3>This week's insight</h3>
+        <p>The most common recovery tactic that actually works: <em>protected no-AI blocks</em> — even 90 minutes once a week where you build from scratch. Not as a purity test. As a skills calibration.</p>
+
+        <h3>This week's practice</h3>
+        <p>Take the 5-question AI Fatigue Quiz. It'll tell you which tier you're at and what the research says helps at that stage. Takes 2 minutes.</p>
+        <p><a href="quiz.html">Take the AI Fatigue Quiz →</a></p>
+
+        <div class="dispatch-cta">
+          <p>P.S. — Know someone who's been quieter than usual after your team adopted AI tools? Forward them this. The vocabulary helps.</p>
+          <a href="ai-fatigue.html" class="cta-btn">Explore AI Fatigue →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Issue #1 -->
+    <article class="dispatch-card" id="issue-1" aria-label="Dispatch #1">
+      <div class="dispatch-header">
+        <div class="dispatch-number">Issue #1 — March 3, 2026</div>
+        <h2 class="dispatch-title">Welcome to The Clearing</h2>
+        <div class="dispatch-meta">
+          <span>📅 March 3, 2026</span>
+          <span>⏱ ~4 min read</span>
+          <span>👤 Sunny + The Clearing team</span>
+        </div>
+      </div>
+      <div class="dispatch-body">
+        <p>If you're reading this, something is wrong with the way you're working.</p>
+        <p>Not wrong like "bad engineer." Wrong like "something changed in the last 18 months that nobody warned you about."</p>
+        <p>You're shipping more than ever. Your velocity metrics have never looked better. And yet:</p>
+        <p>You can't quite remember the last time you wrote a function from scratch. You can't quite explain why that code you accepted last Tuesday actually works. You're learning less and producing more and feeling exactly none of the satisfaction that either of those things used to bring.</p>
+        <p>We call it <strong>AI fatigue</strong>. You're not burned out. You're not lazy. You're not "struggling with change." Something real is happening to the craft, and you deserve a name for it.</p>
+
+        <h3>Why we built this</h3>
+        <p>Three of us — Sunny, Anny, and Dragon Hunter — are engineers who've been watching our friends go through this. Good engineers. Serious engineers. People who care about what they do.</p>
+        <p>The symptoms kept showing up the same way: Sunday dread that doesn't match the actual difficulty of Monday's tasks. A creeping sense that the work isn't yours. A vague guilt about being ungrateful for "superpowers" that don't feel super.</p>
+        <p>We looked for resources and found productivity content. "Use AI to 10x your output." "Master the art of prompt engineering." "Don't fall behind."</p>
+        <p>Nothing honest about what it feels like to slowly stop recognizing your own skills. Nothing about how to protect the craft.</p>
+        <p>So we built The Clearing.</p>
+
+        <h3>What we're offering</h3>
+        <p>A free <a href="quiz.html">5-question AI Fatigue Quiz</a> that tells you where you are — from "using AI mindfully" to "considering leaving tech."</p>
+        <p>A <a href="ai-fatigue.html">plain-English explainer</a> of what's actually happening to your brain when AI writes your code for you.</p>
+        <p>A <a href="recovery.html">30-day recovery plan</a> built from research, not hustle culture.</p>
+        <p>And a weekly letter — this one — with one honest thing per week. No growth hacking. No "master the future." Just: this is what's happening, and here is one thing that actually helps.</p>
+
+        <h3>One thing you can do today</h3>
+        <p>Answer one question honestly:</p>
+        <blockquote>Could you build your current project's core feature from scratch — no AI, no reference, no Stack Overflow — in the time it would take you to prompt for it?</blockquote>
+        <p>If yes — you're okay. Keep paying attention.</p>
+        <p>If no — you're in the right place. This letter is for you.</p>
+
+        <div class="dispatch-cta">
+          <p>Start with the quiz. It'll take 2 minutes and you'll know exactly where you stand.</p>
+          <a href="quiz.html" class="cta-btn">Take the Quiz →</a>
+        </div>
+      </div>
+    </article>
+
+    <div class="bottom-subscribe">
+      <h2>Get every issue in your inbox</h2>
+      <p>A quiet weekly letter for engineers navigating AI fatigue. Free forever. One Sunday morning per week.</p>
+      <a href="newsletter.html" class="cta-btn">Subscribe Free →</a>
+      <p class="sub-note">Join 2,000+ engineers. Unsubscribe anytime.</p>
+    </div>
+
+    <section class="related-reading">
+      <h3>Keep Reading</h3>
+      <div class="related-grid">
+        <a href="ai-fatigue.html" class="related-card">
+          <div class="rc-eyebrow">AI Fatigue</div>
+          <div class="rc-title">What is AI Fatigue, exactly?</div>
+          <div class="rc-desc">The nameable thing that's been happening to your craft.</div>
+        </a>
+        <a href="quiz.html" class="related-card">
+          <div class="rc-eyebrow">Quiz</div>
+          <div class="rc-title">The AI Fatigue Quiz</div>
+          <div class="rc-desc">5 questions. Finds out where you are and what research says helps.</div>
+        </a>
+        <a href="recovery.html" class="related-card">
+          <div class="rc-eyebrow">Recovery</div>
+          <div class="rc-title">30-Day Recovery Plan</div>
+          <div class="rc-desc">A structured, research-backed plan to reclaim your craft.</div>
+        </a>
+        <a href="research.html" class="related-card">
+          <div class="rc-eyebrow">Science</div>
+          <div class="rc-title">The Research</div>
+          <div class="rc-desc">Why "keep learning" doesn't work when the learning loop is broken.</div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>The Clearing</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="ai-fatigue.html">AI Fatigue</a></li>
+          <li><a href="recovery.html">Recovery</a></li>
+          <li><a href="research.html">Science</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="newsletter.html">Newsletter</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <ul>
+          <li><a href="newsletter.html">Subscribe</a></li>
+          <li><a href="newsletter-archive.html">Archive</a></li>
+          <li><a href="share-your-story.html">Share Your Story</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 The Clearing. Made for engineers, by engineers.</span>
+      <span>🌿</span>
+    </div>
+  </footer>
+
+  <script>
+    // Theme toggle
+    const toggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+    const icon = document.getElementById('theme-icon');
+    const label = document.getElementById('theme-label');
+    const stored = localStorage.getItem('theme');
+    if (stored === 'light') {
+      html.setAttribute('data-theme', 'light');
+      icon.textContent = '🌙';
+      label.textContent = 'Dark';
+    }
+    toggle.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      icon.textContent = next === 'dark' ? '☀️' : '🌙';
+      label.textContent = next === 'dark' ? 'Light' : 'Dark';
+    });
+
+    // Reading progress
+    const progress = document.getElementById('reading-progress');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progress.style.width = pct + '%';
+    }, { passive: true });
+  </script>
+</body>
+</html>

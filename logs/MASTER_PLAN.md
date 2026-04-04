@@ -1712,3 +1712,22 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **Phase distribution:** P1=72✅ | P2=50🟡 | P3=24✅ | P4=12🔴
 **🚨 CRITICAL:** Formspree setup (YOUR_FORM_ID in 4 files) — 10 min at formspree.io
 **Next:** Hour 148 — HN submit NOW (news.ycombinator.com/submit), Twitter Thread #8 at 9:30am PDT Sat, Reddit deployment all day Sat 9am-2pm PDT, Cassidy follow-up email
+
+### Hour 150 — 2026-04-04T08:50:00Z (Phase 1 Window 73)
+**Built:** `debugger-drift.html` (~4,200 words) — "Debugger's Drift: How AI Is Making Engineers Worse at Finding Bugs"
+
+**Content:** 10 sections — The 2am Problem (scene-setting), Why Debugging Is Different From Writing, The Three Skills That Erode First (root-cause analysis / error literacy / novel problem diagnosis), The Competence Illusion Layer (illusion of explanatory depth), Why Juniors Are Hit Hardest (67% of 1-3yr engineers report decline), The Explanation Requirement (the ___ sentence), The 20-Minute Rule (desirable difficulty), Quarterly Debug Audit, What AI Debugging Tools Do Well (7-row table), The Compound Problem, The Rebalance (3 practices).
+
+**Why this page:** Hacker News gold — specific, counterintuitive, technically grounded, actionable. "AI made me worse at debugging" is a widely felt but unnamed experience. Naming it "debugger's drift" gives engineers vocabulary for something they feel but can't articulate.
+
+**Schema:** Article + FAQPage (6 Q&As, rich snippet eligible) + BreadcrumbList — eligible for featured snippets on "AI debugging", "debugging skills atrophying", "skill decline AI tools".
+
+**Internal links:** skill-atrophy.html, mindset.html, cognitive-load.html, research.html, recovery.html, ai-detox-plan.html.
+
+**Site:** 82 committed pages | ~319k words | Technical SEO 99/100
+
+**HN relevance:** Perfect HN content — specific claim, evidence-based, counterintuitive, actionable. Engineers will share because it names something they've felt but couldn't say.
+
+**Commit:** `516b2be` pushed ✅
+
+**Next:** 🚨 HN SUBMIT TODAY — news.ycombinator.com/submit (Sun Apr 5 9 AM PDT). Twitter Thread #8 at 9:30 AM PDT. 127 Reddit comments across 83 communities deploy Sun 9am-2pm PDT. Cassidy follow-up email. Formspree setup CRITICAL.

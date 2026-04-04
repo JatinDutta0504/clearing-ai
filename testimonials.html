@@ -255,6 +255,11 @@
       .form-row { grid-template-columns: 1fr; }
       .hero-meta { gap: 1rem; }
     }
+.story-mailto-fallback{display:none;margin-top:1rem;padding:1.25rem;background:rgba(63,185,80,0.1);border:1px solid rgba(63,185,80,0.25);border-radius:8px}
+.story-mailto-fallback .smf-title{font-weight:700;font-size:0.9rem;color:#c8e6c8;margin-bottom:0.4rem}
+.story-mailto-fallback .smf-note{font-size:0.78rem;color:rgba(200,221,200,0.6);margin-bottom:0.75rem}
+.story-mailto-fallback a{display:inline-flex;align-items:center;gap:0.3rem;background:rgba(63,185,80,0.15);color:#3fb950;padding:0.55rem 1rem;border-radius:6px;text-decoration:none;font-size:0.82rem;font-weight:600;border:1px solid rgba(63,185,80,0.3);transition:background 0.2s}
+.story-mailto-fallback a:hover{background:rgba(63,185,80,0.25)}
   </style>  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YHK9XCPG4M"></script>
   <script>
@@ -522,6 +527,11 @@
           <p class="form-disclaimer">Your story will be read by a human. If we want to feature it (anonymized), we'll email you first. We never share your email, name, or identifying details. Submissions are not a substitute for professional mental health support.</p>
           <button type="submit" class="submit-btn">Share My Story →</button>
         </form>
+        <div class="story-mailto-fallback" id="story-mailto-fallback">
+          <div class="smf-title">📬 Can't submit the form? Share your story via email:</div>
+          <div class="smf-note">We'll keep it anonymous unless you say otherwise. All submissions reviewed before publication.</div>
+          <a id="story-mailto-link" href="mailto:hello@clearing-ai.com?subject=Story%20Submission%20from%20The%20Clearing&body=Hi%2C%0A%0AI%20would%20like%20to%20share%20my%20story%20with%20The%20Clearing.%0A%0A">Email us your story →</a>
+        </div>
         <div class="form-success" id="form-success" aria-live="polite">
           <h3>Thank you — we'll read every word.</h3>
           <p>Your story matters. If we feature it (anonymized), we'll reach out to the email you provided. If not, know that your experience is seen.</p>
@@ -677,6 +687,17 @@
         }
       });
     });
+
+    // Show mailto fallback if Formspree not configured (YOUR_FORM_ID placeholder)
+    (function(){
+      var form = document.getElementById('story-form');
+      if (!form) return;
+      var action = form.getAttribute('action') || '';
+      if (action.indexOf('YOUR_FORM_ID') !== -1) {
+        var mf = document.getElementById('story-mailto-fallback');
+        if (mf) mf.style.display = 'block';
+      }
+    })();
 
     // Form submission (Formspree)
     var form = document.getElementById('story-form');

@@ -137,6 +137,11 @@ a{color:var(--forest-light);text-decoration:none}a:hover{color:#2d4a2d}
   .week-header{border-bottom:1px solid #ccc!important}
   @page{margin:0.75in;size:letter}
 }
+.mailto-fallback{display:none;margin-top:1rem;padding:1.25rem;background:rgba(63,185,80,0.1);border:1px solid rgba(63,185,80,0.25);border-radius:8px}
+.mailto-fallback .mf-title{font-weight:700;font-size:0.9rem;color:var(--forest-pale,#c8e6c8);margin-bottom:0.4rem}
+.mailto-fallback .mf-note{font-size:0.78rem;color:rgba(200,221,200,0.6);margin-bottom:0.75rem}
+.mailto-fallback a{display:inline-flex;align-items:center;gap:0.3rem;background:rgba(63,185,80,0.15);color:#3fb950;padding:0.55rem 1rem;border-radius:6px;text-decoration:none;font-size:0.82rem;font-weight:600;border:1px solid rgba(63,185,80,0.3);transition:background 0.2s}
+.mailto-fallback a:hover{background:rgba(63,185,80,0.25)}
   </style>  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YHK9XCPG4M"></script>
   <script>
@@ -175,6 +180,11 @@ a{color:var(--forest-light);text-decoration:none}a:hover{color:#2d4a2d}
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
         <p class="cta-note">Free forever. No spam. Unsubscribe anytime.</p>
       </form>
+      <div class="mailto-fallback" id="mailto-fallback-top">
+        <div class="mf-title">📬 Can't use the form? Subscribe directly:</div>
+        <div class="mf-note">Email us and we'll add you manually. First Dispatch goes out Sunday.</div>
+        <a id="mailto-link-top" href="mailto:hello@clearing-ai.com?subject=Newsletter%20Signup%20from%20AI%20Fatigue%20Checklist&body=Hi%2C%0A%0AI%20would%20like%20to%20subscribe%20to%20The%20Dispatch.%0A%0AMy%20email%3A%20">Send email to subscribe →</a>
+      </div>
       <div class="cta-success" id="cta-success-top" aria-live="polite">Check your inbox the checklist is on its way.</div>
     </div>
   </section>
@@ -220,6 +230,11 @@ a{color:var(--forest-light);text-decoration:none}a:hover{color:#2d4a2d}
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
         <p class="cta-note">Every Sunday. 4-minute read. No pitch emails. Unsubscribe anytime.</p>
       </form>
+      <div class="mailto-fallback" id="mailto-fallback-bottom">
+        <div class="mf-title">📬 Can't use the form? Subscribe directly:</div>
+        <div class="mf-note">Email us and we'll add you manually. First Dispatch goes out Sunday.</div>
+        <a id="mailto-link-bottom" href="mailto:hello@clearing-ai.com?subject=Newsletter%20Signup%20from%20AI%20Fatigue%20Checklist&body=Hi%2C%0A%0AI%20would%20like%20to%20subscribe%20to%20The%20Dispatch.%0A%0AMy%20email%3A%20">Send email to subscribe →</a>
+      </div>
       <div class="cta-success" id="cta-success-bottom" aria-live="polite">Welcome. Your first Dispatch arrives Sunday.</div>
     </div>
   </section>
@@ -266,6 +281,34 @@ function saveState(state){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(st
 function toggleDay(id){var state=getState();state.checked[id]=!state.checked[id];saveState(state);render()}
 function resetAll(){var state=getState();var keys=Object.keys(state.checked);if(keys.length===0)return;if(confirm('Reset all '+keys.length+' checked items?')){saveState({checked:{}});render()}}
 function render(){var state=getState();var weeks=[[1,7,'week-1'],[8,14,'week-2'],[15,21,'week-3'],[22,30,'week-4']];var total=0,checked=0;for(var i=0;i<DAYS.length;i++){total++;if(state.checked[DAYS[i].d])checked++}document.getElementById('progress-fill').style.width=(checked/total*100)+'%';document.getElementById('progress-count').textContent=checked+' / '+total;for(var w=0;w<weeks.length;w++){var start=weeks[w][0],end=weeks[w][1],gridId=weeks[w][2];var grid=document.getElementById(gridId);if(!grid)continue;grid.innerHTML='';for(var i=start-1;i<end;i++){var day=DAYS[i];var isChecked=!!state.checked[day.d];var item=document.createElement('div');item.className='day-item';item.setAttribute('role','checkbox');item.setAttribute('aria-checked',isChecked?'true':'false');item.setAttribute('tabindex','0');item.onclick=function(id){return function(){toggleDay(id)}}(day.d);item.onkeydown=function(e,id){if(e.key===' '||e.key==='Enter'){e.preventDefault();toggleDay(id)}};var check=document.createElement('div');check.className='day-check'+(isChecked?' checked':'');var content=document.createElement('div');content.className='day-content';var num=document.createElement('div');num.className='day-num';num.textContent='Day '+day.d;var title=document.createElement('div');title.className='day-title';title.textContent=day.t;var desc=document.createElement('div');desc.className='day-desc';desc.textContent=day.d;content.appendChild(num);content.appendChild(title);content.appendChild(desc);item.appendChild(check);item.appendChild(content);grid.appendChild(item)}}}
+// Show mailto fallback if Formspree not configured (YOUR_FORM_ID placeholder)
+(function(){
+  var fallbackShown = false;
+  var forms = document.querySelectorAll('form[id^="checklist-form"]');
+  forms.forEach(function(form){
+    var action = form.getAttribute('action') || '';
+    if (action.indexOf('YOUR_FORM_ID') !== -1) {
+      var parent = form.parentElement;
+      if (parent) {
+        var mf = parent.querySelector('.mailto-fallback');
+        if (mf) mf.style.display = 'block';
+        // Prefill mailto link when email is typed
+        var emailInput = parent.querySelector('input[type="email"]');
+        if (emailInput) {
+          emailInput.addEventListener('input', function(){
+            var email = encodeURIComponent(this.value || '');
+            var mfLink = parent.querySelector('a[id^="mailto-link"]');
+            if (mfLink && this.value && this.value.includes('@')) {
+              var base = mfLink.href.split('&body=')[0];
+              mfLink.href = base + '&body=Hi%2C%0A%0AI%20would%20like%20to%20subscribe%20to%20The%20Dispatch.%0A%0AMy%20email%3A%20' + email;
+            }
+          });
+        }
+      }
+    }
+  });
+})();
+
 document.addEventListener('DOMContentLoaded',function(){render();document.getElementById('progress-reset').onclick=resetAll;var forms=document.querySelectorAll('form[id^="checklist-form"]');forms.forEach(function(form){form.onsubmit=function(e){e.preventDefault();var emailInput=form.querySelector('input[type="email"]');if(!emailInput||!emailInput.value||!emailInput.validity.valid){if(emailInput)emailInput.focus();return}var btn=form.querySelector('button[type="submit"]');var origText=btn.textContent;btn.textContent='Sending...';btn.disabled=true;var data=new FormData(form);fetch(form.action,{method:'POST',body:data,headers:{'Accept':'application/json'}}).then(function(res){if(res.ok){var success=form.parentElement.querySelector('.cta-success');if(success){form.classList.add('hidden');success.classList.add('show')}}else{btn.textContent=origText;btn.disabled=false;alert('Something went wrong. Please try again.')}}).catch(function(){btn.textContent=origText;btn.disabled=false})}})});
 </script>
 </body>

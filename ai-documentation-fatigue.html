@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Documentation Fatigue: When Your Docs Lie and You Don't Know Why</title>
+  <meta name="description" content="AI-written documentation looks confident but hides the reasoning that matters. Here's why engineers are drowning in hollow docs — and what actually helps.">
+  <meta property="og:title" content="AI Documentation Fatigue: Why AI-Generated Docs Are Hollow">
+  <meta property="og:description" content="AI-written docs state what code does, never why it was designed that way. Engineers are losing the institutional knowledge that docs used to capture.">
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Documentation Fatigue: Why AI-Generated Docs Are Hollow">
+  <meta name="twitter:description" content="AI-written docs state what code does, never why it was designed that way.">
+  <link rel="canonical" href="https://clearing-ai.com/ai-documentation-fatigue.html">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI Documentation Fatigue: When Your Docs Lie and You Don't Know Why",
+    "description": "AI-written documentation looks confident but hides the reasoning that matters. Here's why engineers are drowning in hollow docs — and what actually helps.",
+    "author": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+    "publisher": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+    "datePublished": "2026-04-05",
+    "dateModified": "2026-04-05",
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://clearing-ai.com/ai-documentation-fatigue.html"},
+    "wordCount": 3200
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com"},
+      {"@type": "ListItem", "position": 2, "name": "Understand", "item": "https://clearing-ai.com/ai-documentation-fatigue.html"},
+      {"@type": "ListItem", "position": 3, "name": "AI Documentation Fatigue"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why does AI-generated documentation feel wrong even when it's technically accurate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AI writes what code does, never why it was designed that way. The reasoning, trade-offs, rejected alternatives, and institutional context — the parts that make documentation genuinely useful — are invisible in AI output. This creates docs that are technically correct but cognitively hollow."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does AI documentation fatigue affect junior engineers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Juniors learn to code partly by reading documentation that explains not just what code does but why it was written that way. When docs omit the reasoning, juniors absorb the what without the why — building competence without understanding. This creates the competence illusion: they can follow instructions but can't debug, extend, or make trade-off decisions independently."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the explainer gap in AI documentation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The explainer gap is the difference between what AI documentation describes (the surface behavior) and what engineers need to know (the reasoning behind design decisions, the context of why this approach was chosen over alternatives). AI-written docs almost never capture the explainer — the human who understood why the system was built this way."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does AI documentation accelerate knowledge loss?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "When senior engineers rely on AI to write documentation, they skip the act of writing-from-knowledge that used to transfer context to the next person. The senior's mental model never gets externalized. When they leave, the AI-written docs remain — technically detailed but containing zero institutional memory."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What separates useful engineering documentation from AI-generated documentation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Useful engineering documentation captures the reasoning: why this approach was chosen, what alternatives were rejected and why, what edge cases exist and why, who to ask about this, and what the system can't do. AI-generated documentation captures surface behavior: what this function accepts, what it returns, what this flag does. The gap between these is where teams lose months of accumulated understanding."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can teams fix AI documentation fatigue?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Four practices reduce AI documentation fatigue: (1) Require an 'Explain This Design' section before accepting AI docs — the why must be written by a human. (2) Keep a living decision log — architectural decisions, why rejected, current owner. (3) Write docs before code for critical paths — force the reasoning before the implementation. (4) Assign human owners to all documentation — accountability ensures docs stay current."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header class="site-header">
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+      <a href="index.html" class="nav-home">
+        <span class="nav-logo">🌿</span>
+        <span class="nav-wordmark">The Clearing</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+      <ul class="nav-list">
+        <li class="nav-dropdown">
+          <a href="javascript:void(0)" class="nav-link">Quiz</a>
+          <div class="nav-dropdown-menu">
+            <a href="index.html#quiz" class="nav-dropdown-item">Take the Quiz</a>
+            <a href="quiz-results-tier-1.html" class="nav-dropdown-item">Your Results</a>
+            <a href="quiz-badge.html" class="nav-dropdown-item">Share Your Score</a>
+          </div>
+        </li>
+        <li class="nav-dropdown">
+          <a href="javascript:void(0)" class="nav-link">Recover</a>
+          <div class="nav-dropdown-menu">
+            <a href="recovery.html" class="nav-dropdown-item">Recovery Guide</a>
+            <a href="ai-detox-plan.html" class="nav-dropdown-item">30-Day Detox Plan</a>
+            <a href="daily-practice.html" class="nav-dropdown-item">Daily Practice</a>
+            <a href="ai-fatigue-checklist.html" class="nav-dropdown-item">Checklist</a>
+            <a href="mental-health.html" class="nav-dropdown-item">Mental Health</a>
+          </div>
+        </li>
+        <li class="nav-dropdown">
+          <a href="javascript:void(0)" class="nav-link">Understand</a>
+          <div class="nav-dropdown-menu">
+            <a href="why.html" class="nav-dropdown-item">Why It Happens</a>
+            <a href="ai-fatigue.html" class="nav-dropdown-item">What Is AI Fatigue</a>
+            <a href="signs-ai-fatigue.html" class="nav-dropdown-item">Signs You Have It</a>
+            <a href="compare.html" class="nav-dropdown-item">Compare Tools</a>
+            <a href="mindset.html" class="nav-dropdown-item">Mental Models</a>
+            <a href="cognitive-load.html" class="nav-dropdown-item">Cognitive Load</a>
+            <a href="skill-atrophy.html" class="nav-dropdown-item">Skill Atrophy</a>
+            <a href="developer-identity.html" class="nav-dropdown-item">Identity Crisis</a>
+            <a href="automation-anxiety.html" class="nav-dropdown-item">Anxiety</a>
+            <a href="imposter-syndrome-ai.html" class="nav-dropdown-item">Imposter Syndrome</a>
+            <a href="debugger-drift.html" class="nav-dropdown-item">Debugger's Drift</a>
+            <a href="ai-code-review.html" class="nav-dropdown-item">Code Review</a>
+            <a href="coders-block.html" class="nav-dropdown-item">Coder's Block</a>
+          </div>
+        </li>
+        <li class="nav-dropdown">
+          <a href="javascript:void(0)" class="nav-link">Stories</a>
+          <div class="nav-dropdown-menu">
+            <a href="stories.html" class="nav-dropdown-item">Engineer Stories</a>
+            <a href="testimonials.html" class="nav-dropdown-item">Recovery Stories</a>
+            <a href="share-your-story.html" class="nav-dropdown-item">Share Yours</a>
+            <a href="community.html" class="nav-dropdown-item">Community</a>
+          </div>
+        </li>
+        <li class="nav-dropdown">
+          <a href="javascript:void(0)" class="nav-link">Tools</a>
+          <div class="nav-dropdown-menu">
+            <a href="decompress.html" class="nav-dropdown-item">Deep Work Timer</a>
+            <a href="checkin.html" class="nav-dropdown-item">Daily Check-In</a>
+            <a href="journal.html" class="nav-dropdown-item">Journal</a>
+            <a href="quiz-badge.html" class="nav-dropdown-item">Badge Generator</a>
+          </div>
+        </li>
+        <li class="nav-dropdown">
+          <a href="javascript:void(0)" class="nav-link">Science</a>
+          <div class="nav-dropdown-menu">
+            <a href="research.html" class="nav-dropdown-item">Research</a>
+            <a href="stats.html" class="nav-dropdown-item">Statistics</a>
+            <a href="engineer-survey-results.html" class="nav-dropdown-item">Survey Data</a>
+            <a href="the-science-of-ai-fatigue.html" class="nav-dropdown-item">The Science</a>
+          </div>
+        </li>
+        <li class="nav-dropdown">
+          <a href="javascript:void(0)" class="nav-link">Heal</a>
+          <div class="nav-dropdown-menu">
+            <a href="mental-health.html" class="nav-dropdown-item">Mental Health</a>
+            <a href="developer-wellbeing.html" class="nav-dropdown-item">Wellbeing</a>
+            <a href="sleep-and-ai-fatigue.html" class="nav-dropdown-item">Sleep</a>
+            <a href="why-resting-doesnt-fix-ai-fatigue.html" class="nav-dropdown-item">Why Resting Isn't Enough</a>
+            <a href="engineer-energy-management.html" class="nav-dropdown-item">Energy Management</a>
+          </div>
+        </li>
+        <li class="nav-dropdown">
+          <a href="javascript:void(0)" class="nav-link">Work</a>
+          <div class="nav-dropdown-menu">
+            <a href="workplace.html" class="nav-dropdown-item">At Work</a>
+            <a href="team-guide.html" class="nav-dropdown-item">Team Guide</a>
+            <a href="corporate-ai-wellness.html" class="nav-dropdown-item">Enterprise</a>
+            <a href="hiring.html" class="nav-dropdown-item">Hiring</a>
+          </div>
+        </li>
+        <li class="nav-dropdown">
+          <a href="javascript:void(0)" class="nav-link">Resources</a>
+          <div class="nav-dropdown-menu">
+            <a href="resources.html" class="nav-dropdown-item">Reading List</a>
+            <a href="newsletter.html" class="nav-dropdown-item">Newsletter</a>
+            <a href="faq.html" class="nav-dropdown-item">FAQ</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <article class="content-page">
+      <div class="reading-progress" aria-hidden="true"></div>
+
+      <header class="page-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="why.html">Understand</a></li>
+            <li aria-current="page">AI Documentation Fatigue</li>
+          </ol>
+        </nav>
+        <h1>AI Documentation Fatigue: When Your Docs Lie and You Don't Know Why</h1>
+        <p class="page-subtitle">You asked an AI to document a service. It wrote 400 lines of confident, fluent, completely hollow prose. Three months later, the code changed. Nobody updated the docs. Now the docs describe a system that doesn't exist — and your team can't tell the difference.</p>
+        <div class="page-meta">
+          <span class="reading-time"></span>
+          <span class="meta-separator">·</span>
+          <span class="meta-date">Updated April 5, 2026</span>
+        </div>
+      </header>
+
+      <section class="content-section">
+        <h2>The Scene You Recognize</h2>
+        <p>It's 2am. You're debugging a service you inherited — one written by a team that used AI extensively, documented with AI, and then disbanded. The documentation is comprehensive. Confident. Every function has a docstring. Every module has a description. You can trace what the code does. You cannot trace why it was built this way.</p>
+        <p>You find a function called <code>processPendingRenewals</code>. The docs say it handles subscription renewals. The code does something subtler — it applies a specific grace-period logic that only applies to annual plans migrated from a legacy billing system in 2022, and only if the flag <code>ENABLE_RENEWAL_V2</code> is not set. This is nowhere in the documentation. The AI that wrote the docs described what the function does, not the context that makes the function make sense.</p>
+        <p>You spend six hours. You find the comment buried in a Slack thread from 2023. The person who knew why this exists left the company eight months ago.</p>
+        <p>This is AI documentation fatigue. Not the frustration of bad documentation — the subtler, more dangerous problem of documentation that looks good but is systematically missing the reasoning that actually matters.</p>
+      </section>
+
+      <section class="content-section">
+        <h2>What AI Documentation Fatigue Actually Is</h2>
+        <p>Documentation has two layers. The <strong>surface layer</strong> — what the code does, what the parameters are, what the function returns. And the <strong>reasoning layer</strong> — why this approach was chosen, what alternatives were rejected, what edge cases exist because of specific business logic, whose judgment is embedded in these decisions.</p>
+        <p>AI is excellent at the surface layer. It can read code and generate fluent descriptions of behavior. It can document parameters, return types, and usage patterns with remarkable accuracy. What it cannot generate — what requires a human who was present when the decisions were made — is the reasoning layer.</p>
+        <p>AI documentation fatigue is the systematic loss of the reasoning layer from your engineering documentation. It happens slowly, invisibly, and becomes apparent only when you need the reasoning most: during incidents, when onboarding to a legacy system, when debugging something that only makes sense in historical context.</p>
+        <div class="callout callout-warning">
+          <div class="callout-icon">⚠️</div>
+          <div class="callout-content">
+            <strong>The confidence problem.</strong> AI-generated documentation looks more authoritative than human-written documentation. It uses confident language, complete sentences, proper formatting. Human-written docs often include hedging ("this might not work if...", "we're not sure why this is needed but..."). The hedging is the signal. The confidence is the noise.
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <h2>The Seven Problems With AI-Generated Documentation</h2>
+
+        <h3>1. The Context Gap</h3>
+        <p>The distance between what documentation says and what the code actually does in production. AI-written docs describe the intended behavior, not the as-deployed behavior. Code ships with bugs. Docs generated from code describe the bug as if it were the design. Six months later, nobody knows which docs reflect reality.</p>
+
+        <h3>2. The Explainer Gap</h3>
+        <p>The missing space between "what this does" and "why it was designed this way." When a senior engineer writes documentation, they externalize their mental model — the reasoning, the trade-offs they weighed, the alternatives they rejected. AI generates descriptions of behavior, not explanations of intent. The explainer — the human who understood why — is absent from AI-generated docs.</p>
+
+        <h3>3. The Confidence Problem</h3>
+        <p>AI writes documentation that sounds authoritative about things it cannot verify. It will confidently describe the behavior of a function that has a bug. It will document edge cases that don't exist. It will describe a system architecture that was refactored six months ago but whose docs were never regenerated. The fluency of the prose makes the errors invisible until you're deep in the code.</p>
+
+        <h3>4. The Maintenance Illusion</h3>
+        <p>Teams that use AI for documentation often believe they have better documentation than they did before — more of it, more consistently. This is documentation theater: the appearance of documentation without the function. The docs exist. They are not being maintained. When the code changes, the AI-written docs become archaeological artifacts describing a system that no longer exists.</p>
+
+        <h3>5. The Junior Engineer Problem</h3>
+        <p>Junior engineers learn to code partly through documentation that explains not just what code does but why it was written that way. The explanation of why is where the learning happens — it connects the code to the reasoning, builds mental models, creates the ability to make similar decisions independently. AI-written docs provide the what without the why. Juniors can follow instructions but can't debug, extend, or make trade-off decisions without the reasoning layer.</p>
+
+        <h3>6. The Institutional Knowledge Erosion</h3>
+        <p>Senior engineers used to transfer institutional knowledge through documentation — writing down why the system was built this way, what the trade-offs were, what the hidden assumptions are. When AI writes the documentation, senior engineers skip this act of externalization. They generate surface-layer docs and move on. The mental model never gets written down. When the senior engineer leaves, the institutional knowledge leaves with them.</p>
+
+        <h3>7. The Bus Factor Amplifier</h3>
+        <p>When documentation was human-written, the person who wrote it often retained context. They could update it, explain it, debug its gaps. AI-generated documentation separates the author from the knowledge. The person who triggered the AI to generate docs may not have understood the code deeply themselves. Now nobody owns the docs. Nobody understands the docs. When something goes wrong, the docs are a liability, not an asset.</p>
+      </section>
+
+      <section class="content-section">
+        <h2>The Comparison: What Good Docs Capture vs. What AI Writes</h2>
+        <p>This table shows the difference between documentation that serves engineers and documentation that merely satisfies the appearance of documentation.</p>
+        <div class="comparison-table-wrapper">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Dimension</th>
+                <th>Documentation That Works</th>
+                <th>AI-Generated Documentation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Why this approach</strong></td>
+                <td>Explains the reasoning, constraints, and trade-offs behind the design decision</td>
+                <td>Describes what the code does, never why this approach was chosen</td>
+              </tr>
+              <tr>
+                <td><strong>Rejected alternatives</strong></td>
+                <td>Notes what was considered and why it was rejected</td>
+                <td>Only describes the implemented approach</td>
+              </tr>
+              <tr>
+                <td><strong>Edge cases</strong></td>
+                <td>Documents known edge cases, why they exist, and how to handle them</td>
+                <td>May describe some edge cases visible in the code, misses business-context edge cases</td>
+              </tr>
+              <tr>
+                <td><strong>Historical context</strong></td>
+                <td>Explains why the system was built this way, what problem it solves</td>
+                <td>Has no access to historical context or team memory</td>
+              </tr>
+              <tr>
+                <td><strong>Ownership and contacts</strong></td>
+                <td>Names who knows this system, who to ask when things go wrong</td>
+                <td>No ownership information</td>
+              </tr>
+              <tr>
+                <td><strong>Maintenance signals</strong></td>
+                <td>Notes when docs were last verified, what might be stale</td>
+                <td>No signal about freshness or accuracy</td>
+              </tr>
+              <tr>
+                <td><strong>Failure modes</strong></td>
+                <td>Documents known failure patterns, what to try when things go wrong</td>
+                <td>Documents intended behavior, not failure modes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <h2>Why Senior Engineers Feel This Most</h2>
+        <p>There's a counterintuitive pattern in AI documentation fatigue: the engineers who suffer most are often the most senior. Here's why.</p>
+        <p>Senior engineers have deep context. They remember why decisions were made. They understand the trade-offs. They know which parts of the system are brittle and why. When they read AI-generated documentation, they encounter two problems simultaneously: the docs don't contain the context they rely on, and the docs are confident enough that they look like they contain everything.</p>
+        <p>Worse: senior engineers are often the ones using AI most aggressively to "move faster" on documentation. The more senior you are, the more institutional knowledge you hold, and the more you risk losing by outsourcing the documentation work to AI.</p>
+        <p>This is the <strong>Expertise Reversal Effect</strong> applied to documentation: the more expertise you have, the more you lose when AI-generated content omits the reasoning that your expertise allows you to recognize as missing. Novices can't tell the difference between good and hollow documentation. Experts can — and the gap is painful.</p>
+      </section>
+
+      <section class="content-section">
+        <h2>The Documentation That Teaches vs. The Documentation That Describes</h2>
+        <p>There's a category of documentation that does something most documentation doesn't: it makes the reader better at their job. This is documentation that explains not just what the system does, but why it was designed that way, what trade-offs were weighed, what alternatives existed. Reading this kind of documentation builds the reader's judgment.</p>
+        <p>AI cannot write this kind of documentation. It requires a human who was present when the decisions were made, who weighed the alternatives, who understands the context. This documentation teaches reasoning, not just behavior. It transfers not just information but judgment.</p>
+        <p>The shift to AI-generated documentation represents a shift from teaching documentation to describing documentation. Engineers going from human-written teaching docs to AI-generated describing docs don't immediately notice the difference — the AI docs look better, read better, are more comprehensive. What they lose is the reasoning layer that made the human-written docs worth reading.</p>
+      </section>
+
+      <section class="content-section">
+        <h2>The Incident Acceleration Problem</h2>
+        <p>AI documentation fatigue becomes most painful during incidents. Incidents happen in systems you don't fully understand — that's why they're incidents. The documentation is where you go when the code doesn't tell you what you need to know.</p>
+        <p>With AI-generated documentation, you arrive at the docs expecting context and find behavior descriptions. You know what the system does. You don't know why it was built this way, what the edge cases are, what the previous incident commander noted, or who to call at 3am who might remember why this specific combination of flags was set this way.</p>
+        <p>Documentation that would have prevented a four-hour incident becomes an hour of reading confident prose that describes a system that no longer matches the code. The incident extends. The cognitive load of the incident increases. The fatigue compounds.</p>
+      </section>
+
+      <section class="content-section">
+        <h2>What Actually Helps</h2>
+
+        <h3>Require an 'Explain This Design' Section</h3>
+        <p>Before accepting AI-generated documentation, require a human-written section that answers: Why was this approach chosen? What was rejected and why? What should someone know before modifying this? This is not optional. The AI generates the what; humans must contribute the why. Without this section, the documentation is incomplete by design.</p>
+
+        <h3>Maintain a Living Decision Log</h3>
+        <p>Architectural decisions, the context in which they were made, the alternatives considered, the current owner. This is not project documentation — it's decision documentation. A decision log lives separately from code documentation and is maintained by humans who were present. It survives individual document regeneration cycles. It captures the reasoning that AI-generated docs systematically omit.</p>
+
+        <h3>Write the Doc Before the Code for Critical Paths</h3>
+        <p>For new systems, write the design document — the explanation of why, what, and how — before implementation. Then use AI to generate reference documentation for the implementation. The design document captures reasoning. The AI-generated content captures behavior. Together, they're complete. Separately, they're half-measures that feel complete.</p>
+
+        <h3>Assign Human Owners to All Documentation</h3>
+        <p>AI-generated documentation that nobody owns becomes stale immediately. Every significant documentation page needs a named human owner whose job is to verify accuracy on a regular cadence, update the reasoning layer when the system changes, and mark sections as verified or stale. Without ownership, the documentation decays.</p>
+
+        <h3>Preserve the Struggling</h3>
+        <p>The act of writing documentation is itself a form of learning and verification. When engineers use AI to bypass the act of writing, they skip the verification step that catching errors requires. Sometimes the act of trying to explain something reveals that you don't understand it as well as you thought. AI can't replace this function. Protect the act of writing documentation as a thinking tool, not just an output tool.</p>
+      </section>
+
+      <section class="content-section">
+        <h2>Signs Your Team Has Documentation Fatigue</h2>
+        <ul class="signs-list">
+          <li><span class="sign-indicator">🔴</span> On-call engineers spend more time reading code than documentation to understand production systems</li>
+          <li><span class="sign-indicator">🔴</span> New engineers describe feeling "confident about the docs, lost in the code"</li>
+          <li><span class="sign-indicator">🔴</span> Documentation exists for everything and explains almost nothing</li>
+          <li><span class="sign-indicator">🟡</span> Senior engineers say "I know this system but I couldn't explain it to someone else"</li>
+          <li><span class="sign-indicator">🟡</span> AI generates documentation faster than humans can verify it</li>
+          <li><span class="sign-indicator">🟡</span> Incident post-mortems frequently note "the documentation didn't reflect how the system actually works"</li>
+          <li><span class="sign-indicator">🟢</span> You have documentation but no decision log</li>
+          <li><span class="sign-indicator">🟢</span> Documentation updates are never triggered by code changes</li>
+        </ul>
+      </section>
+
+      <section class="content-section">
+        <h2>For Engineering Managers</h2>
+        <p>AI documentation fatigue has an organizational signature. Watch for these patterns:</p>
+        <ul>
+          <li><strong>Onboarding time increasing</strong> despite more comprehensive documentation — juniors can follow instructions but can't make independent decisions</li>
+          <li><strong>Knowledge silos</strong> — specific engineers are the only ones who understand specific systems, not because the knowledge is complex but because it was never documented</li>
+          <li><strong>Incident duration creeping up</strong> — incidents in well-documented systems take less time when the docs contain reasoning; incidents in AI-documented systems require more debugging from first principles</li>
+          <li><strong>Senior engineers spending time "re-explaining" systems</strong> — the explainer function that should be embedded in documentation falls to the most expensive people</li>
+        </ul>
+        <p>The fix isn't removing AI from documentation. It's defining what humans must contribute and protecting that contribution from being automated away. The reasoning layer is not optional. It's the part that makes everything else usable.</p>
+      </section>
+
+      <section class="content-section">
+        <h2>The Bigger Picture</h2>
+        <p>Documentation is where engineering judgment gets recorded. The trade-offs weighed, the alternatives rejected, the context that makes code make sense. When this recording function breaks — when we generate comprehensive, confident, hollow documentation — we don't just have bad docs. We have systematic erosion of the institutional knowledge that makes engineering teams effective.</p>
+        <p>AI documentation fatigue is not a tools problem. It's an incentives problem. The incentive to generate documentation fast conflicts with the incentive to generate documentation that actually transfers knowledge. AI makes it easy to satisfy the first incentive while destroying the second.</p>
+        <p>The teams that navigate this well are not the ones using AI less. They're the ones who've defined what humans must contribute to documentation — the reasoning, the context, the judgment — and treat that contribution as non-negotiable. The AI generates the surface. The humans build the foundation. Both are necessary.</p>
+      </section>
+
+      <section class="content-section faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-accordion">
+          <details class="faq-item">
+            <summary class="faq-question">Why does AI-generated documentation feel wrong even when it's technically accurate?</summary>
+            <div class="faq-answer">
+              <p>AI writes what code does, never why it was designed that way. The reasoning, trade-offs, rejected alternatives, and institutional context — the parts that make documentation genuinely useful — are invisible in AI output. This creates docs that are technically correct but cognitively hollow. Your expertise tells you something is missing; the confident prose of AI-generated docs makes it hard to identify exactly what.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">How does AI documentation fatigue affect junior engineers most?</summary>
+            <div class="faq-answer">
+              <p>Juniors
+learn to code partly through documentation that explains not just what code does but why it was written that way. When docs omit the reasoning, juniors absorb the what without the why — building competence without understanding. This creates the competence illusion: they can follow instructions but can't debug, extend, or make trade-off decisions independently. The docs say what; the code does something; the gap between them is where junior engineers lose the thread.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">What is the explainer gap in AI documentation?</summary>
+            <div class="faq-answer">
+              <p>The explainer gap is the difference between what AI documentation describes (the surface behavior) and what engineers need to know (the reasoning behind design decisions, the context of why this approach was chosen over alternatives, the institutional memory that makes code comprehensible). AI-written docs almost never capture the explainer — the human who understood why the system was built this way, who weighed the trade-offs, who made the judgment call. Without the explainer, documentation describes behavior without transmitting judgment.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">How does AI documentation accelerate knowledge loss?</summary>
+            <div class="faq-answer">
+              <p>When senior engineers rely on AI to write documentation, they skip the act of writing-from-knowledge that used to transfer context to the next person. The senior's mental model never gets externalized — it stays in their head. When they leave the company, the AI-written docs remain: technically detailed, comprehensively formatted, containing zero institutional memory. The knowledge walked out the door with the person.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">What separates useful engineering documentation from AI-generated documentation?</summary>
+            <div class="faq-answer">
+              <p>Useful engineering documentation captures the reasoning: why this approach was chosen, what alternatives were rejected and why, what edge cases exist and why, who to ask about this, what the system can't do. AI-generated documentation captures surface behavior: what this function accepts, what it returns, what this flag does. The gap between these is where teams lose months of accumulated understanding. The useful doc teaches judgment; the AI doc describes behavior.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">How can teams fix AI documentation fatigue?</summary>
+            <div class="faq-answer">
+              <p>Four practices reduce AI documentation fatigue: (1) Require an 'Explain This Design' section before accepting AI docs — the why must be written by a human, not generated by AI. (2) Keep a living decision log — architectural decisions, why rejected, current owner — maintained separately from code docs. (3) Write docs before code for critical paths — force the reasoning before the implementation locks it in. (4) Assign human owners to all documentation — accountability ensures docs stay current and the reasoning layer stays fresh.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <h2>Continue Exploring</h2>
+        <div class="explore-grid">
+          <a href="skill-atrophy.html" class="explore-card">
+            <span class="explore-icon">📉</span>
+            <span class="explore-title">Skill Atrophy</span>
+            <span class="explore-desc">How AI accelerates the loss of coding skills and what to do about it</span>
+          </a>
+          <a href="debugger-drift.html" class="explore-card">
+            <span class="explore-icon">🔍</span>
+            <span class="explore-title">Developer's Drift</span>
+            <span class="explore-desc">Why AI is making engineers worse at finding bugs</span>
+          </a>
+          <a href="cognitive-load.html" class="explore-card">
+            <span class="explore-icon">🧠</span>
+            <span class="explore-title">Cognitive Load</span>
+            <span class="explore-desc">Why AI is drowning your brain's working memory</span>
+          </a>
+          <a href="developer-identity.html" class="explore-card">
+            <span class="explore-icon">👤</span>
+            <span class="explore-title">Developer Identity</span>
+            <span class="explore-desc">Who are you without your code?</span>
+          </a>
+          <a href="recovery.html" class="explore-card">
+            <span class="explore-icon">🌿</span>
+            <span class="explore-title">Recovery Guide</span>
+            <span class="explore-desc">A practical path back from AI fatigue</span>
+          </a>
+          <a href="mindset.html" class="explore-card">
+            <span class="explore-icon">🧭</span>
+            <span class="explore-title">Mental Models</span>
+            <span class="explore-desc">Frameworks for healthy AI use</span>
+          </a>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">🌿</span>
+        <span class="footer-wordmark">The Clearing</span>
+        <p class="footer-tagline">For engineers experiencing AI fatigue. Real talk, practical help.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Recover</h4>
+          <ul>
+            <li><a href="recovery.html">Recovery Guide</a></li>
+            <li><a href="ai-detox-plan.html">30-Day Detox</a></li>
+            <li><a href="daily-practice.html">Daily Practice</a></li>
+            <li><a href="ai-fatigue-checklist.html">Checklist</a></li>
+            <li><a href="mental-health.html">Mental Health</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Understand</h4>
+          <ul>
+            <li><a href="ai-fatigue.html">What Is AI Fatigue</a></li>
+            <li><a href="why.html">Why It Happens</a></li>
+            <li><a href="signs-ai-fatigue.html">Signs You Have It</a></li>
+            <li><a href="compare.html">Compare AI Tools</a></li>
+            <li><a href="research.html">Research</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Stories</h4>
+          <ul>
+            <li><a href="stories.html">Engineer Stories</a></li>
+            <li><a href="testimonials.html">Recovery Stories</a></li>
+            <li><a href="share-your-story.html">Share Your Story</a></li>
+            <li><a href="community.html">Community</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <ul>
+            <li><a href="decompress.html">Deep Work Timer</a></li>
+            <li><a href="checkin.html">Daily Check-In</a></li>
+            <li><a href="journal.html">Journal</a></li>
+            <li><a href="quiz-badge.html">Badge Generator</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 The Clearing · <a href="about.html">About</a> · <a href="privacy.html">Privacy</a> · <a href="newsletter.html">Newsletter</a></p>
+    </div>
+  </footer>
+
+  <script src="main.js" defer></script>
+  <script>
+    // Reading time
+    document.addEventListener('DOMContentLoaded', function() {
+      var text = document.querySelector('article').textContent || '';
+      var words = text.trim().split(/\s+/).length;
+      var minutes = Math.ceil(words / 220);
+      var rt = document.querySelector('.reading-time');
+      if (rt) rt.textContent = minutes + ' min read';
+
+      // FAQ accordion
+      document.querySelectorAll('.faq-item summary').forEach(function(sum) {
+        sum.addEventListener('click', function() {
+          var details = sum.parentElement;
+          if (!details.classList.contains('open')) {
+            document.querySelectorAll('.faq-item').forEach(function(d) { d.classList.remove('open'); });
+            details.classList.add('open');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

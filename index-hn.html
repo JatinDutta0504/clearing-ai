@@ -701,58 +701,58 @@
   <div class="sec-label">Common Questions</div>
   <h2>What HN visitors ask</h2>
 
-  <div class="faq-list" id="faq">
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+  <div class="faq-list" id="faq" role="list">
+    <div class="faq-item" role="listitem">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-1" id="faq-btn-1">
         Is this just burnout?
-        <span class="ar">▾</span>
+        <span class="ar" aria-hidden="true">▾</span>
       </button>
-      <div class="faq-a">
+      <div class="faq-a" id="faq-1" role="region" aria-labelledby="faq-btn-1">
         <div class="faq-a-i">No — and that's the critical distinction. Burnout is from workload and emotional exhaustion. AI Fatigue is functional: your learning loop broke, your authorship changed, and your cognitive process adapted to skip steps it used to do. They overlap and compound each other, but require different interventions. <a href="/burnout-vs-fatigue.html">See the full comparison →</a></div>
       </div>
     </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+    <div class="faq-item" role="listitem">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-2" id="faq-btn-2">
         Does this mean AI tools are bad?
-        <span class="ar">▾</span>
+        <span class="ar" aria-hidden="true">▾</span>
       </button>
-      <div class="faq-a">
+      <div class="faq-a" id="faq-2" role="region" aria-labelledby="faq-btn-2">
         <div class="faq-a-i">No. The issue isn't using AI — it's the unconscious, unexamined way most engineers currently use it. The engineers who recover fastest use it deliberately, with boundaries, as a scaffolder rather than a replacement. <a href="/mindset.html">See the mental model frameworks →</a></div>
       </div>
     </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+    <div class="faq-item" role="listitem">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-3" id="faq-btn-3">
         What's the single most effective tactic?
-        <span class="ar">▾</span>
+        <span class="ar" aria-hidden="true">▾</span>
       </button>
-      <div class="faq-a">
+      <div class="faq-a" id="faq-3" role="region" aria-labelledby="faq-btn-3">
         <div class="faq-a-i">The Explanation Requirement: before accepting any AI-generated code, write in a comment why each piece exists — not what it does, but why it's designed this way. This re-engages the cognitive process AI bypassed. 71% of quiz respondents who tried it said it was the most effective change they made. <a href="/ai-detox-plan.html">See the 30-day plan →</a></div>
       </div>
     </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+    <div class="faq-item" role="listitem">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-4" id="faq-btn-4">
         Are junior engineers affected more or less?
-        <span class="ar">▾</span>
+        <span class="ar" aria-hidden="true">▾</span>
       </button>
-      <div class="faq-a">
+      <div class="faq-a" id="faq-4" role="region" aria-labelledby="faq-btn-4">
         <div class="faq-a-i">More severely, and more dangerously. Juniors learn by struggle — productive failure is the mechanism by which intuition develops. When AI removes the struggle, juniors build competence without understanding. The gap only becomes visible years later when they hit problems AI can't solve. <a href="/junior-engineers.html">Full breakdown for junior engineers →</a></div>
       </div>
     </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+    <div class="faq-item" role="listitem">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-5" id="faq-btn-5">
         Is this just LLM hype skepticism? Will it fade?
-        <span class="ar">▾</span>
+        <span class="ar" aria-hidden="true">▾</span>
       </button>
-      <div class="faq-a">
-        <div class="faq-a-i">The cognitive load and skill atrophy effects are structural, not attitudinal. They persist regardless of how good AI tools become — because the mechanism isn't "AI makes bad code." It's "AI bypassing cognitive processes that maintain skill and understanding." Even perfect AI tools would cause this. <a href="/research.html">See the full research →</a></div>
+      <div class="faq-a" id="faq-5" role="region" aria-labelledby="faq-btn-5">
+        <div class="faq-a-i">The cognitive load and skill atrophy effects are structural, not attitudinal. They persist regardless of how AI tools become — because the mechanism isn't "AI makes bad code." It's "AI bypassing cognitive processes that maintain skill and understanding." Even perfect AI tools would cause this. <a href="/research.html">See the full research →</a></div>
       </div>
     </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+    <div class="faq-item" role="listitem">
+      <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-6" id="faq-btn-6">
         Who built this and why?
-        <span class="ar">▾</span>
+        <span class="ar" aria-hidden="true">▾</span>
       </button>
-      <div class="faq-a">
+      <div class="faq-a" id="faq-6" role="region" aria-labelledby="faq-btn-6">
         <div class="faq-a-i">Built by engineers, for engineers, after watching the people around us lose something they couldn't name. Not a startup. No monetization plan. Everything is free, zero tracking, no account required. <a href="/about.html">Read the full founding story →</a></div>
       </div>
     </div>
@@ -792,8 +792,16 @@
   function toggleFaq(btn) {
     const item = btn.closest('.faq-item');
     const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
+    // Close all and reset aria-expanded
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      const b = i.querySelector('.faq-q');
+      if (b) b.setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
   }
   // Sticky nav shadow
   const nav = document.querySelector('nav');

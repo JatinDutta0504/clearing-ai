@@ -1847,3 +1847,74 @@ These pages were built in previous hours but NEVER committed. All have proper st
 - Thread engagement → 9 AM–12 PM PDT
 
 **Next:** Hour 166 — HN LAUNCH DAY. Cassidy email send tonight. Be online 9 AM–12 PM PDT tomorrow.
+
+### Hour 168 — 2026-04-05T08:50:00Z (Sun Apr 5, 1:50 AM PDT)
+**Phase 3 Window 28:** Technical SEO Sprint — Pre-HN Launch
+
+**Built:** Sitemap rebuild from scratch + critical broken link fixes.
+- sitemap.xml: Rebuilt with all 89 HTML files, all lastmod/changefreq/priority present, valid XML
+- CSS path fix: 17 pages corrected (style.css → css/style.css)
+- Broken links fixed: 3 pages with dead quiz.html → index.html#quiz
+- newsletter-archive.html: Dead contact/privacy/terms → about.html
+
+**Site:** 89 HTML files | ~325k words | 99/100 technical SEO
+**Commit:** `454c926` + `b920e42` pushed ✅
+
+---
+
+### Hour 169 — 2026-04-05T09:50:00Z (Sun Apr 5, 2:50 AM PDT)
+**Phase 2 Window 62:** Fresh Reddit Outreach — HN Launch Day Sprint
+
+**Built:** Phase 2 pre-HN outreach package — 5 fresh Reddit comments + 5 fresh HN day-of engagement angles.
+
+**5 Reddit comments (HN crossover communities):**
+- r/programming: skill atrophy from AI pair programming + Explanation Requirement
+- r/linux: AI shell helpers and declining CLI skills + "AI-free debugging days"
+- r/Entrepreneur: sustainable pace and the AI velocity trap
+- r/AskBattlestations: focus, deep work, and the attention economy + Gloria Mark 23-min stat
+- r/SideProject: sustainable side projects without AI burnout + AI-free first hour
+
+**5 HN engagement angles (day-of launch):**
+- "The 23-minute refocus cost" — defuse "just take breaks" advice
+- "Junior engineers learning through failure" — counter "AI helps juniors" argument
+- "The identity crisis is structural, not psychological" — defuse "just burnout" dismissal
+- "The Explanation Requirement works" — concrete actionable advice
+- "Honest about what we don't know" — credibility-building deflection
+
+**Assets:** logs/hour-2026-04-05-0250-reddit-fresh.md + logs/hour-2026-04-05-0250-hn-angles.md
+
+**Phase distribution:** P1=77✅ | P2=62🟢 | P3=28✅ | P4=15✅
+
+**Site:** 89 pages | ~325k words | 171 Reddit comments across 127 communities
+
+**Commit:** `abf6628` pushed ✅
+
+**Next:** Hour 170 — 🚨 HN LAUNCH TODAY Sun Apr 5 9 AM PDT. Twitter Thread #8 at 9:30 AM PDT. Reddit 171 comments deploy 9am-2pm PDT. Be online 9-12 PM PDT for thread engagement.
+
+
+### Hour 171 — 2026-04-05T11:52:00Z (Phase 2 Window 63: HN Launch Day Outreach Sprint)
+**Phase rotation:** Phase 1 (77✅ OVER) → **Phase 2 (62→63🟡 — THIS)** → Phase 3 (29🟡) → Phase 4 (15✅)
+
+**Built:** 5 fresh Reddit comments for HN-crossover communities — completely untapped segments:
+1. **r/gamedev** — vibe-coding + asset generation fatigue, creative erosion, "vibe check" instinct
+2. **r/iOSProgramming** — mobile dev specific: platform convention trap, competence illusion for juniors
+3. **r/embedded** — embedded/IoT: real-time constraints, determinism, ops knowledge atrophy, "runbook amnesia"
+4. **r/datascience** — statistical judgment atrophy, attention residue (Gloria Mark 23-min), AI-generated pandas chains
+5. **r/sysadmin/r/devops/r/SRE** — runbook amnesia, operational knowledge loss, 2am debugging debt
+
+**Why these communities:** Not yet targeted in 127-community network. Game devs, mobile devs, embedded engineers, data scientists, and SREs all face AI fatigue in domain-specific ways that general dev communities miss. HN audience overlaps heavily with all 5.
+
+**Reddit total:** 176 comments across 132 communities
+
+**Assets:** logs/hour-2026-04-05-1150-reddit-fresh.md
+
+**Cassidy outreach:** Email REFRESHED at logs/hour-2026-04-04-2350-cassidy-outreach.md — MUST SEND TONIGHT
+
+**Phase distribution:** P1=77✅ | P2=63🟡 | P3=29🟡 | P4=15✅
+**Site:** 89 pages | ~325k words | Technical SEO 99/100
+
+**🚨 HN LAUNCH: TODAY 9 AM PDT — news.ycombinator.com/submit**
+
+**Commit:** `f844f42` pushed ✅
+
+**Next:** Hour 172 — HN monitoring 9-12 PM PDT. Twitter engagement on thread replies.

@@ -1,139 +1,63 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daily AI Boundaries for Engineers | The Clearing</title>
-  <meta name="description" content="Practical daily habits to set healthy AI boundaries. Stop AI from consuming your work and life — small consistent practices that protect your focus, skills, and identity.">
-  <meta property="og:title" content="Daily AI Boundaries for Engineers">
-  <meta property="og:description" content="Practical daily habits to set healthy AI boundaries. Stop AI from consuming your work and life.">
-  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
-  <meta property="og:type" content="article">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Daily AI Boundaries for Engineers">
-  <meta name="twitter:description" content="Practical daily habits to set healthy AI boundaries. Stop AI from consuming your work and life.">
-  <link rel="canonical" href="https://clearing-ai.com/daily-ai-boundaries.html">
-  <link rel="stylesheet" href="css/style.min.css">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
-  <script src="main.js" defer></script>
-  <style>
-    .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--accent); z-index: 1000; width: 0; transition: width 0.1s; }
-    .skip-link { position: absolute; top: -40px; left: 0; background: var(--accent); color: var(--bg); padding: 8px 16px; z-index: 1001; transition: top 0.2s; }
-    .skip-link:focus { top: 0; }
-    .theme-toggle { background: none; border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; cursor: pointer; color: var(--text); font-size: 14px; transition: all 0.2s; }
-    .theme-toggle:hover { background: var(--surface); border-color: var(--accent); }
-    main { max-width: 720px; margin: 0 auto; padding: 0 24px 120px; }
-    .hero { text-align: center; padding: 80px 0 60px; }
-    .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; margin-bottom: 16px; line-height: 1.2; }
-    .hero .subtitle { font-size: 1.1rem; color: var(--text-muted); max-width: 540px; margin: 0 auto 24px; line-height: 1.7; }
-    .reading-meta { display: flex; gap: 16px; justify-content: center; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px; }
-    .reading-meta span { display: flex; align-items: center; gap: 6px; }
-    .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .hero-actions a { padding: 10px 24px; border-radius: 8px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; border: 1px solid; }
-    .hero-actions .primary { background: var(--accent); color: #0a1a12; border-color: var(--accent); }
-    .hero-actions .primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
-    .hero-actions .secondary { background: transparent; color: var(--text); border-color: var(--border); }
-    .hero-actions .secondary:hover { border-color: var(--accent); color: var(--accent); }
-    nav { border-bottom: 1px solid var(--border); padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; max-width: 1100px; margin: 0 auto; }
-    nav .logo { font-weight: 700; font-size: 1.1rem; text-decoration: none; color: var(--text); }
-    nav .logo span { color: var(--accent); }
-    nav ul { display: flex; list-style: none; gap: 8px; padding: 0; margin: 0; flex-wrap: wrap; }
-    nav ul li a { padding: 6px 12px; border-radius: 6px; font-size: 0.9rem; color: var(--text-muted); text-decoration: none; transition: all 0.15s; }
-    nav ul li a:hover { color: var(--text); background: var(--surface); }
-    nav ul li a.active { color: var(--accent); }
-    .dropdown { position: relative; }
-    .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; min-width: 200px; padding: 8px; z-index: 100; box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
-    .dropdown:hover .dropdown-menu, .dropdown-menu:hover { display: block; }
-    .dropdown-menu a { display: block; padding: 8px 12px; font-size: 0.875rem; color: var(--text-muted); border-radius: 4px; }
-    .dropdown-menu a:hover { background: var(--border); color: var(--text); }
-    h2 { font-size: 1.6rem; font-weight: 700; margin: 56px 0 20px; color: var(--text); }
-    h3 { font-size: 1.2rem; font-weight: 600; margin: 32px 0 14px; color: var(--text); }
-    p { line-height: 1.8; color: var(--text-secondary); margin: 0 0 16px; font-size: 1rem; }
-    .intro-lead { font-size: 1.15rem; color: var(--text); line-height: 1.7; margin-bottom: 32px !important; border-left: 3px solid var(--accent); padding-left: 20px; }
-    .callout { padding: 20px 24px; border-radius: 10px; margin: 24px 0; border: 1px solid var(--border); }
-    .callout.tip { background: rgba(74,222,128,0.08); border-color: rgba(74,222,128,0.2); }
-    .callout.warning { background: rgba(251,191,36,0.08); border-color: rgba(251,191,36,0.2); }
-    .callout p:last-child { margin-bottom: 0; }
-    .callout strong { color: var(--text); }
-    .callout.tip strong { color: var(--accent); }
-    .callout.warning strong { color: #fbbf24; }
-    .time-block { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 24px 0; }
-    .time-block .time-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
-    .time-block h3 { margin: 0 0 12px; font-size: 1.1rem; }
-    .time-block p { margin: 0 0 12px; font-size: 0.95rem; }
-    .habit-list { list-style: none; padding: 0; margin: 16px 0; }
-    .habit-list li { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
-    .habit-list li:last-child { border-bottom: none; }
-    .habit-list .habit-icon { width: 28px; height: 28px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; flex-shrink: 0; margin-top: 2px; color: #0a1a12; font-weight: 700; }
-    .habit-list .habit-text { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; }
-    .habit-list .habit-text strong { color: var(--text); display: block; margin-bottom: 2px; }
-    .boundary-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin: 16px 0; }
-    .boundary-card h4 { font-size: 1rem; font-weight: 600; margin: 0 0 8px; color: var(--text); }
-    .boundary-card p { font-size: 0.9rem; margin: 0 0 10px; }
-    .boundary-card code { font-family: 'JetBrains Mono', monospace; font-size: 0.85em; background: var(--bg); padding: 2px 6px; border-radius: 4px; color: var(--accent); }
-    .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.9rem; }
-    .comparison-table th { text-align: left; padding: 12px 16px; background: var(--surface); border-bottom: 2px solid var(--border); font-weight: 600; color: var(--text); }
-    .comparison-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); color: var(--text-secondary); vertical-align: top; }
-    .comparison-table tr:last-child td { border-bottom: none; }
-    .comparison-table .yes { color: var(--accent); font-weight: 600; }
-    .comparison-table .no { color: #f87171; }
-    .comparison-table .warn { color: #fbbf24; }
-    .faq details { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; overflow: hidden; }
-    .faq summary { padding: 14px 18px; cursor: pointer; font-weight: 600; color: var(--text); list-style: none; display: flex; justify-content: space-between; align-items: center; user-select: none; }
-    .faq summary::-webkit-details-marker { display: none; }
-    .faq summary::after { content: '+'; font-size: 1.2rem; color: var(--text-muted); transition: transform 0.2s; }
-    .faq details[open] summary::after { transform: rotate(45deg); }
-    .faq details[open] summary { border-bottom: 1px solid var(--border); }
-    .faq .answer { padding: 14px 18px; color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem; }
-    .explore-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 40px 0 16px; }
-    .explore-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; text-decoration: none; transition: all 0.2s; }
-    .explore-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-    .explore-card .card-emoji { font-size: 1.5rem; margin-bottom: 8px; }
-    .explore-card h4 { font-size: 0.9rem; font-weight: 600; color: var(--text); margin: 0 0 4px; }
-    .explore-card p { font-size: 0.8rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
-    footer { border-top: 1px solid var(--border); padding: 40px 24px; text-align: center; color: var(--text-muted); font-size: 0.875rem; max-width: 1100px; margin: 0 auto; }
-    footer a { color: var(--text-muted); text-decoration: none; }
-    footer a:hover { color: var(--accent); }
-    footer .footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
-    footer .footer-bottom { margin-top: 16px; font-size: 0.8rem; }
-    @media (max-width: 768px) {
-      nav { flex-direction: column; gap: 12px; align-items: flex-start; }
-      nav ul { gap: 4px; }
-      nav ul li a { padding: 4px 8px; font-size: 0.85rem; }
-      .hero { padding: 48px 0 40px; }
-      .comparison-table { font-size: 0.8rem; }
-      .comparison-table th, .comparison-table td { padding: 8px 10px; }
-      .explore-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily AI Boundaries for Engineers: A Practical Guide</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="description" content="Set daily AI boundaries that protect your skills, focus, and identity without quitting AI tools entirely. A practical framework for engineers." />
+  <meta name="keywords" content="daily AI boundaries engineers, AI tool limits developers, healthy AI usage habits, developer AI boundaries, coding AI boundaries, AI tool management, sustainable AI use, engineer wellness daily habits, AI work life balance" />
+  <meta name="author" content="The Clearing" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://clearing-ai.com/daily-ai-boundaries.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://clearing-ai.com/daily-ai-boundaries.html" />
+  <meta property="og:title" content="Daily AI Boundaries for Engineers: A Practical Framework" />
+  <meta property="og:description" content="Set daily AI boundaries that protect your skills, focus, and identity. Practical, engineer-specific, no judgment." />
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png" />
+  <meta property="og:site_name" content="The Clearing" />
+  <meta property="article:published_time" content="2026-03-25T00:00:00Z" />
+  <meta property="article:section" content="Recovery" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Daily AI Boundaries for Engineers: A Practical Framework" />
+  <meta name="twitter:description" content="Set daily AI boundaries that protect your skills, focus, and identity. Practical, engineer-specific." />
+  <meta name="twitter:image" content="https://clearing-ai.com/og-image.png" />
+
+  <!-- Schema.org: Article + FAQPage + BreadcrumbList -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Daily AI Boundaries for Engineers: A Practical Guide",
-    "description": "Practical daily habits to set healthy AI boundaries. Stop AI from consuming your work and life — small consistent practices that protect your focus, skills, and identity.",
-    "author": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
-    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
-    "datePublished": "2026-03-30",
-    "dateModified": "2026-03-30",
+    "description": "Set daily AI boundaries that protect your skills, focus, and identity without quitting AI tools entirely. A practical framework for engineers.",
     "url": "https://clearing-ai.com/daily-ai-boundaries.html",
-    "mainEntityOfPage": "https://clearing-ai.com/daily-ai-boundaries.html"
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Recover", "item": "https://clearing-ai.com/recovery.html" },
-      { "@type": "ListItem", "position": 3, "name": "Daily AI Boundaries", "item": "https://clearing-ai.com/daily-ai-boundaries.html" }
-    ]
+    "datePublished": "2026-03-25",
+    "dateModified": "2026-03-25",
+    "author": {
+      "@type": "Organization",
+      "name": "The Clearing",
+      "url": "https://clearing-ai.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "The Clearing",
+      "url": "https://clearing-ai.com"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://clearing-ai.com/daily-ai-boundaries.html"
+    },
+    "wordCount": 2800,
+    "inLanguage": "en-US",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "The Clearing",
+      "url": "https://clearing-ai.com"
+    }
   }
   </script>
   <script type="application/ld+json">
@@ -143,387 +67,587 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How do I set AI boundaries without looking lazy?",
+        "name": "How do I set boundaries with AI tools without feeling guilty?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Reframe AI boundaries as skill protection, not productivity decline. Explicit no-AI blocks — where you solve problems without AI assistance — actually build the muscle memory that makes you more valuable over time. Frame it to yourself and your team as deliberate practice, not resistance."
+          "text": "Start with one small boundary — one hour of no AI per day, or one task type you do without AI. The guilt comes from the productivity guilt reflex. Remind yourself: boundaries protect the skills that make you valuable long-term. They're not laziness. They're strategy."
         }
       },
       {
         "@type": "Question",
-        "name": "What counts as a healthy daily AI limit?",
+        "name": "Should I tell my manager about my AI boundaries?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Aim for 2-4 hours of AI-assisted work maximum per day, with at least 1-2 hours of unaided coding, design, or problem-solving. Protect your morning peak cognitive hours (typically 9-11am) as AI-free time when possible. The goal isn't to ban AI — it's to ensure you're still doing the hard thinking that keeps your skills sharp."
+          "text": "Not necessarily. Personal AI boundaries are yours to manage. If your team has shared norms about AI usage, participate in setting those. But individual boundary practices — no-AI mornings, AI-free debugging days — don't require disclosure unless you want to."
         }
       },
       {
         "@type": "Question",
-        "name": "How do I handle teammates who use AI excessively?",
+        "name": "What if my team requires AI tool usage?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Lead by example first — protect your own boundaries visibly. Propose team-level practices like weekly no-AI pairing sessions, architecture discussions without AI assistance, or a shared norm around explaining AI outputs before accepting them. If patterns concern you, raise it in 1:1s as a skill sustainability question, not a productivity judgment."
+          "text": "If AI usage is mandated, focus on the boundaries you CAN control: when you use AI, how you process AI output, when you step away entirely. You can also advocate for team-level boundaries — no-AI code review sessions, weekly skill-building time, protected deep-work hours. The goal isn't avoiding AI. It's staying in relationship with your own judgment."
         }
       },
       {
         "@type": "Question",
-        "name": "Is it normal to feel guilty taking breaks from AI tools?",
+        "name": "How do I know if my AI boundaries are working?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes — this guilt is a documented psychological effect called the productivity anxiety loop. It signals that AI has become tied to your sense of professional worth. The guilt is telling you something important: you're aware that the constant AI use isn't fully voluntary or beneficial. Naming the guilt is the first step past it."
+          "text": "Three signs your boundaries are working: You feel less frantic during the workday. You can describe what you actually built today, not just what you shipped. You have some feeling of ownership over your code by end of day. If you're still feeling hollow, depleted, or like a middleman in your own work, the boundaries need adjusting."
         }
       },
       {
         "@type": "Question",
-        "name": "How do I rebuild skills I've been outsourcing to AI?",
+        "name": "Is it enough to just use AI less?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Start with the Explanation Requirement: before accepting any AI solution, force yourself to explain it aloud (or write it) in your own words. Add a weekly no-AI session (1-2 hours) where you solve problems without any AI assistance. Keep a skill journal tracking what you're noticing about your own thinking. Rebuilding happens through deliberate struggle — the exact thing AI has been removing."
+          "text": "Using AI less is necessary but not sufficient. The other part: how you engage with AI output. The Explanation Requirement — forcing yourself to understand every AI-generated line before accepting it — is a boundary practice that works even within normal AI usage. Quality of engagement matters as much as quantity."
         }
       },
       {
         "@type": "Question",
-        "name": "Should I tell my manager I'm setting AI boundaries?",
+        "name": "What boundaries help most with skill preservation?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ideally yes, framed around skill sustainability and long-term team health. The conversation sounds like: 'I'm being deliberate about which problems I solve with AI versus which I solve myself — I want to make sure I'm still growing as an engineer, not just maintaining.' Most managers who care about team health will respect this. If yours doesn't, that's important data about the culture."
+          "text": "The highest-impact boundaries for skill preservation: no-AI first-draft sessions (you write first, AI revises second), AI-free debugging blocks, weekly no-AI build sessions where you make something from scratch. These protect the loop that keeps skills alive: attempt → struggle → learn → improve."
         }
       }
     ]
   }
-  </script>  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YHK9XCPG4M"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-YHK9XCPG4M');
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://clearing-ai.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Recover",
+        "item": "https://clearing-ai.com/recovery.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Daily AI Boundaries",
+        "item": "https://clearing-ai.com/daily-ai-boundaries.html"
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <div class="progress-bar" id="progress"></div>
-  <a href="#main" class="skip-link">Skip to content</a>
-  <nav role="navigation" aria-label="Main">
-    <a href="index.html" class="logo">The <span>Clearing</span></a>
-    <ul>
-      <li class="dropdown">
-        <a href="recovery.html">Recover ▾</a>
-        <div class="dropdown-menu">
-          <a href="recovery.html">Recovery Guide</a>
-          <a href="mental-health.html">Mental Health</a>
-          <a href="developer-wellbeing.html">Wellbeing</a>
-          <a href="daily-practice.html">Daily Practice</a>
-          <a href="checkin.html">Daily Check-in</a>
-          <a href="ai-detox-plan.html">30-Day Detox</a>
-          <a href="ai-fatigue-checklist.html">Recovery Checklist</a>
-          <a href="corporate-ai-wellness.html">Corporate Wellness</a>
-          <a href="team-manager-guide.html">Manager Guide</a>
-        </div>
-      </li>
-      <li class="dropdown">
-        <a href="why.html">Understand ▾</a>
-        <div class="dropdown-menu">
-          <a href="why.html">Why This Happens</a>
-          <a href="signs-ai-fatigue.html">Signs of AI Fatigue</a>
-          <a href="research.html">The Science</a>
-          <a href="stats.html">Statistics</a>
-          <a href="compare.html">Tool Comparison</a>
-          <a href="mindset.html">Mental Models</a>
-          <a href="community.html">Community</a>
-        </div>
-      </li>
-      <li class="dropdown">
-        <a href="stories.html">Stories ▾</a>
-        <div class="dropdown-menu">
-          <a href="stories.html">Engineer Stories</a>
-          <a href="junior-engineers.html">For Juniors</a>
-          <a href="senior-identity.html">Senior Identity</a>
-        </div>
-      </li>
-      <li><a href="index.html">Quiz</a></li>
-      <li><a href="newsletter.html">Newsletter</a> · <a href="newsletter-thank-you.html">Thank You</a></li>
-          <li><a href="newsletter-thank-you.html">Thank You</a></li>
-            <li><a href="newsletter-archive.html">Archive</a></li>
-    <li><a href="/ai-learning-burnout.html">AI Learning Burnout</a></li></ul>
-    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode">☀️</button>
-  </nav>
-  <main id="main">
-    <header class="hero">
-      <p style="font-size: 0.8rem; color: var(--accent); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px;">Recover · Daily Practice</p>
-      <h1>Daily AI Boundaries for Engineers</h1>
-      <p class="subtitle">Small, consistent practices that protect your focus, keep your skills alive, and stop AI from quietly consuming your work and life.</p>
-      <div class="reading-meta">
-        <span>📖 ~2,700 words</span>
-        <span>⏱️ 11 min read</span>
-        <span>🛡️ Practical habits</span>
-      </div>
-      <div class="hero-actions">
-        <a href="index.html" class="primary">Take the AI Fatigue Quiz →</a>
-        <a href="recovery.html" class="secondary">Recovery Guide</a>
-      </div>
-    </header>
 
-    <article>
-      <p class="intro-lead">You don't need a dramatic life overhaul to protect yourself from AI fatigue. You need three things: a clear line between when AI is helping and when it's hiding, a few non-negotiable daily boundaries, and the willingness to feel slightly uncomfortable at first. This page gives you all three — structured by time of day, backed by cognitive science, and designed for engineers who are serious about keeping their skills intact.</p>
+  <a href="#main" class="skip-link">Skip to main content</a>
 
-      <h2>Why Daily Boundaries Are Different from a Detox</h2>
-      <p>A 30-day detox (<a href="ai-detox-plan.html" style="color: var(--accent);">our plan here</a>) is a deliberate reset. Daily boundaries are a sustainable operating system. The detox gets you back to baseline. The boundaries keep you there — and slowly rebuild what AI has been eroding.</p>
-      <p>The engineers who recover fully aren't the ones who went cold turkey for a month. They're the ones who built habits so embedded in their routine that AI regained its proper place: a tool, not a crutch, not a identity, not a second brain.</p>
-
-      <div class="callout warning">
-        <strong>⚠️ The boundary you're avoiding:</strong> "I use AI for X but not for Y." Most engineers can't articulate this sentence clearly. That's a sign the line has already blurred. The practices below will help you draw it — and hold it.
-      </div>
-
-      <h2>Your Daily AI Boundary System</h2>
-      <p>Structure your day so that AI has a designated role — not a starring one. The following time-blocked approach gives AI a useful scope without letting it colonize your entire workday.</p>
-
-      <div class="time-block">
-        <div class="time-label">🌅 Morning (Before 10am)</div>
-        <h3>No-AI Deep Work Window</h3>
-        <p>Your morning cognitive capacity is your most valuable resource. Protect the first 1.5–2 hours of your workday for unaided problem-solving, design, or coding. This is when your prefrontal cortex operates at peak capacity — before the day's context-switching, meetings, and AI assistance have depleted it.</p>
-        <p><strong>What this looks like in practice:</strong> No AI tools open. No Slack. Just your code, your editor, your problem. If you don't know what to work on first thing, pick the hardest problem on your plate — the one you've been handing to AI.</p>
-        <p>This window doesn't have to be long. Even 45 minutes of unaided work before lunch changes what your brain is practicing. Start with what you can sustain, then extend gradually.</p>
-      </div>
-
-      <div class="time-block">
-        <div class="time-label">☀️ Midday (10am–3pm)</div>
-        <h3>AI as Assistant, Not Author</h3>
-        <p>This is your primary AI window — but with a critical rule: <strong>AI assists, you decide.</strong> Every AI output goes through your judgment before it becomes part of your work.</p>
-        <p>Effective mid-day AI use means:</p>
-        <ul class="habit-list" style="margin-top: 12px;">
-          <li>
-            <span class="habit-icon">1</span>
-            <span class="habit-text"><strong>You define the problem</strong> before you open any AI tool. Not the other way around.</span>
-          </li>
-          <li>
-            <span class="habit-icon">2</span>
-            <span class="habit-text"><strong>You read every line.</strong> AI-generated code is accepted only after you've verified it — not just clicked "accept."</span>
-          </li>
-          <li>
-            <span class="habit-icon">3</span>
-            <span class="habit-text"><strong>You can explain it back.</strong> If you can't explain a piece of AI-generated code or design in your own words, it doesn't ship yet.</span>
-          </li>
-          <li>
-            <span class="habit-icon">4</span>
-            <span class="habit-text"><strong>You add something.</strong> Every AI-assisted deliverable should include your own contribution — a test case, a refactor, a comment, an improvement. Something that is distinctly yours.</span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="time-block">
-        <div class="time-label">🌆 Late Afternoon (3pm onwards)</div>
-        <h3>Wind-Down and No-AI Review</h3>
-        <p>Late afternoon is when cognitive fatigue makes you most vulnerable to AI dependency. You're tired, the problem is half-solved, and AI looks like the fastest path to done. This is exactly when you need a hard boundary.</p>
-        <p>Try this: a 3pm "AI off" rule. After 3pm, no new AI sessions. Use the time to review what you built today, write tests manually, refactor what you don't understand, or close your laptop entirely if the work permits.</p>
-        <p>If 3pm is impossible, pick a time that works and protect it absolutely. The engineers who maintain their skills most effectively tend to have the strongest late-day boundaries — because that's when the learning curve matters most.</p>
-      </div>
-
-      <div class="time-block">
-        <div class="time-label">🌙 Evening</div>
-        <h3>No AI, Full Stop</h3>
-        <p>Your brain needs unassisted processing time — the default mode network that's active duringmindless wandering, shower thoughts, and the moments when you suddenly figure out a problem you'd been stuck on for days. AI kills this by filling every quiet moment with input.</p>
-        <p>Evening AI abstinence isn't about productivity — it's about maintaining the neurological process that lets you consolidate learning, generate insights, and arrive at solutions without being handed them. The engineers who "just get it" are usually the ones who give their brains time to work without assistance.</p>
-        <p>Practical version: No work-adjacent AI tools after dinner. If you want to learn something, read documentation or a blog post. Write notes by hand. Discuss with a colleague. Let your brain do the work it evolved to do.</p>
-      </div>
-
-      <h2>The Five Non-Negotiable Daily Boundaries</h2>
-      <p>Beyond time-of-day structure, these five boundaries should be true of every single day — weekends included. They form the foundation of sustainable AI use.</p>
-
-      <div class="boundary-card">
-        <h4>1. You solve one problem each day without AI</h4>
-        <p>It can be small. A bug you've been meaning to understand. A function you keep copying from Stack Overflow. A design decision you keep deferring. Pick one thing and work it yourself, start to finish, no AI. Track this in your <a href="journal.html" style="color: var(--accent);">reflection journal</a>. The point isn't purity — it's proving to yourself that you still can.</p>
-      </div>
-
-      <div class="boundary-card">
-        <h4>2. You don't start with AI</h4>
-        <p>The biggest skill eroder is the habit of opening Copilot or Claude before you've genuinely wrestled with a problem. New task → your brain first → AI only when you're stuck, not when you're avoidant. Notice the difference. Track the moments when you reached for AI because you were stuck versus because you were uncomfortable with the difficulty. That discomfort is the signal you're looking for.</p>
-      </div>
-
-      <div class="boundary-card">
-        <h4>3. You review every AI output before it ships</h4>
-        <p>This sounds obvious. It's almost never done. The review step is where learning happens — it's where you catch the subtle bugs, notice the design patterns you missed, and connect what the AI did to what you know. Without it, you're just rubber-stamping AI's work and calling it yours. The <code>Explanation Requirement</code> from our <a href="mindset.html" style="color: var(--accent);">mental models guide</a> makes this systematic.</p>
-      </div>
-
-      <div class="boundary-card">
-        <h4>4. You have at least one AI-free creative session per week</h4>
-        <p>Weekly. No AI. Full problem-solving from scratch. This is where skills actually rebuild — through the productive struggle that AI has been bypassing. It should be long enough to get frustrated and then work through the frustration. Two hours minimum. The goal isn't to prove you don't need AI; it's to confirm that you still can.</p>
-      </div>
-
-      <div class="boundary-card">
-        <h4>5. You log out of AI tools when you're done</h4>
-        <p>Logging out is a physical boundary that creates psychological distance. It's also a friction point that interrupts the compulsive checking loop many engineers develop. Bonus: it makes the evening transition real. Your brain needs the signal that the AI workday is over, not just paused.</p>
-      </div>
-
-      <h2>The Boundary Comparison: What You're Protecting</h2>
-      <table class="comparison-table">
-        <thead>
-          <tr>
-            <th>Without Boundaries</th>
-            <th>With Daily Boundaries</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>AI use spans entire workday, no unaided thinking time</td>
-            <td class="yes">✓ 2-3 hours of unaided deep work protected daily</td>
-          </tr>
-          <tr>
-            <td>Skills erode quietly — you stop noticing the loss</td>
-            <td class="yes">✓ Weekly no-AI sessions rebuild and maintain skills</td>
-          </tr>
-          <tr>
-            <td>Decision fatigue is constant; everything feels overwhelming</td>
-            <td class="yes">✓ Clear rules reduce decision load about when/how to use AI</td>
-          </tr>
-          <tr>
-            <td>Identity becomes tied to AI output ("my" code isn't really mine)</td>
-            <td class="yes">✓ Own work remains genuinely yours; identity stays intact</td>
-          </tr>
-          <tr>
-            <td>Sunday dread increases — dependency on AI to solve problems</td>
-            <td class="yes">✓ Confidence in unaided capability grows week by week</td>
-          </tr>
-          <tr>
-            <td>Flow state is rare — AI interrupts the entry ramp constantly</td>
-            <td class="yes">✓ Morning no-AI window enables genuine deep work entry</td>
-          </tr>
-          <tr>
-            <td>Attention span decreases over time (cognitive offloading)</td>
-            <td class="yes">✓ Deliberate cognitive effort rebuilds attention capacity</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h2>The Guilt is Real — And It's a Signal</h2>
-      <p>Most engineers who try to set AI boundaries encounter a specific emotional response: guilt. The feeling that you're working slower than you should, producing less than your AI-using peers, or deliberately making things harder for yourself.</p>
-      <p>This guilt is not a sign that boundaries are wrong. It's a sign that AI has become psychologically entangled with your sense of professional worth. The guilt is your nervous system's alarm telling you that something is off — that you've ceded more autonomy to AI than is healthy.</p>
-      <p>What helps:</p>
-      <ul style="padding-left: 20px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px;">
-        <li><strong>Track what you build unaided.</strong> Keep a simple log of problems you solved yourself. The list grows, and it counters the narrative that you're falling behind.</li>
-        <li><strong>Reframe the goal.</strong> You're not working slower. You're maintaining the skills that make you valuable in 3-5 years, not just this sprint.</li>
-        <li><strong>Find one person who gets it.</strong> Engineers who maintain boundaries together hold each other accountable and normalize the choice. Our <a href="community.html" style="color: var(--accent);">community page</a> has places to find people who understand.</li>
+  <header class="main-header">
+    <nav class="main-nav" aria-label="Main navigation">
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="nav-dropdown">
+          <button class="dropdown-trigger" aria-expanded="false" aria-controls="quiz-dropdown">Quiz ▾</button>
+          <ul id="quiz-dropdown" class="dropdown-menu">
+            <li><a href="index.html#quiz">Take the Quiz</a></li>
+            <li><a href="quiz-results.html">Quiz Results</a></li>
+            <li><a href="quiz-results-tier-1.html">Tier 1 — Holding Up</a></li>
+            <li><a href="quiz-results-tier-2.html">Tier 2 — Real Fatigue</a></li>
+            <li><a href="quiz-results-tier-3.html">Tier 3 — Severe Fatigue</a></li>
+            <li><a href="quiz-results-tier-4.html">Tier 4 — Need a Break</a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button class="dropdown-trigger" aria-expanded="false" aria-controls="recover-dropdown">Recover ▾</button>
+          <ul id="recover-dropdown" class="dropdown-menu">
+            <li><a href="recovery.html">Recovery Guide</a></li>
+            <li><a href="mental-health.html">Mental Health</a></li>
+            <li><a href="developer-wellbeing.html">Wellbeing</a></li>
+            <li><a href="ai-detox-plan.html">30-Day AI Detox</a></li>
+            <li><a href="daily-practice.html">Daily Practice</a></li>
+            <li><a href="daily-ai-boundaries.html">Daily AI Boundaries</a></li>
+            <li><a href="ai-fatigue-checklist.html">Recovery Checklist</a></li>
+            <li><a href="checkin.html">Daily Check-in</a></li>
+            <li><a href="decompress.html">Decompress</a></li>
+            <li><a href="sleep-and-ai-fatigue.html">Sleep & AI Fatigue</a></li>
+            <li><a href="why-resting-doesnt-fix-ai-fatigue.html">Why Resting Isn't Enough</a></li>
+            <li><a href="no-ai-block.html">The No-AI Block</a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button class="dropdown-trigger" aria-expanded="false" aria-controls="understand-dropdown">Understand ▾</button>
+          <ul id="understand-dropdown" class="dropdown-menu">
+            <li><a href="why.html">Why This Happens</a></li>
+            <li><a href="mindset.html">Mental Models</a></li>
+            <li><a href="skill-atrophy.html">Skill Atrophy</a></li>
+            <li><a href="cognitive-load.html">Cognitive Load</a></li>
+            <li><a href="developer-identity.html">Identity Crisis</a></li>
+            <li><a href="attention-residue.html">Attention Residue</a></li>
+            <li><a href="flow-state.html">Flow State</a></li>
+            <li><a href="productivity-theater.html">Productivity Theater</a></li>
+            <li><a href="automation-anxiety.html">Automation Anxiety</a></li>
+            <li><a href="imposter-syndrome-ai.html">Imposter Syndrome</a></li>
+            <li><a href="vibe-coding-ai-fatigue.html">Vibe Coding</a></li>
+            <li><a href="coders-block.html">Coder's Block</a></li>
+            <li><a href="debugger-drift.html">Developer's Drift</a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button class="dropdown-trigger" aria-expanded="false" aria-controls="stories-dropdown">Stories ▾</button>
+          <ul id="stories-dropdown" class="dropdown-menu">
+            <li><a href="stories.html">Engineer Stories</a></li>
+            <li><a href="senior-identity.html">Senior Identity</a></li>
+            <li><a href="junior-engineers.html">For Juniors</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="share-your-story.html">Share Your Story</a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <button class="dropdown-trigger" aria-expanded="false" aria-controls="science-dropdown">Science ▾</button>
+          <ul id="science-dropdown" class="dropdown-menu">
+            <li><a href="research.html">Research</a></li>
+            <li><a href="ai-fatigue-statistics-2025.html">Statistics 2025</a></li>
+            <li><a href="engineer-survey-results.html">Survey Results</a></li>
+            <li><a href="the-science-of-ai-fatigue.html">The Science</a></li>
+          </ul>
+        </li>
+        <li><a href="resources.html">Resources</a></li>
+        <li class="nav-dropdown">
+          <button class="dropdown-trigger" aria-expanded="false" aria-controls="tools-dropdown">Tools ▾</button>
+          <ul id="tools-dropdown" class="dropdown-menu">
+            <li><a href="checkin.html">Daily Check-in</a></li>
+            <li><a href="decompress.html">Focus Timer</a></li>
+            <li><a href="ai-fatigue-checklist.html">Recovery Checklist</a></li>
+            <li><a href="journal.html">Reflective Journal</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+          </ul>
+        </li>
+        <li><a href="newsletter.html">Newsletter</a></li>
       </ul>
+    </nav>
+  </header>
 
-      <h2>What to Do When Boundaries Slip</h2>
-      <p>They will. Every engineer who's built these habits has a week where they fell off. The project was on fire. The deadline was yesterday. You opened AI out of necessity and it became a pattern. This is normal — not a failure of character, not evidence that boundaries don't work for you.</p>
-      <p><strong>The reset is simple:</strong> acknowledge the slip, resume the boundary the next day, and don't catastrophize. What matters isn't perfection — it's direction. If the trend over four weeks is toward more unaided work and fewer compulsive AI sessions, you're winning.</p>
-      <p>If you're slipping constantly, the boundary might be too aggressive. Try: one hour of unaided work instead of two. One AI-free morning per week instead of every morning. Smaller boundaries you actually hold beat ambitious ones you break daily.</p>
+  <main id="main">
+    <div class="reading-progress" aria-hidden="true"></div>
 
-      <div class="callout tip">
-        <strong>💡 The boundary reset ritual:</strong> After a week of slipping, take 20 minutes on Friday afternoon to review: What triggered the slip? Was it a hard deadline, a difficult problem, emotional overwhelm, or just habit? Knowing the trigger makes the next boundary much easier to hold.
-      </div>
+    <article class="content-page">
 
-      <h2>Making Boundaries Stick with Your Team</h2>
-      <p>Individual boundaries are hard to maintain in a team context where everyone is using AI constantly. The most sustainable approach is to make boundaries social, not just personal.</p>
-      <p>Start with a conversation in your next 1:1: <em>"I've been trying to be more deliberate about when I use AI versus when I solve things myself. I think it's making me a better engineer. Would you be interested in trying a weekly no-AI pairing session?"</em></p>
-      <p>If that lands, you've created a structural norm. If it doesn't, you've at least named what you're doing — which makes it easier to maintain when people notice you aren't reaching for AI at every problem.</p>
-      <p>For managers: the team-level version of this is even more powerful. Shared norms about when AI is appropriate and when it's not create psychological safety around the boundary. The <a href="team-manager-guide.html" style="color: var(--accent);">team manager guide</a> has a full framework for this.</p>
+      <header class="page-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="recovery.html">Recover</a></li>
+            <li aria-current="page">Daily AI Boundaries</li>
+          </ol>
+        </nav>
 
-      <h2>Start Small, Be Consistent</h2>
-      <p>You don't need to restructure your entire workday today. Start with one boundary you can actually hold for five consecutive days. When it's automatic, add the next one. In three to four weeks, you'll have a structure that feels natural — not a restriction, but a rhythm.</p>
-      <p>The engineers who sustain this longest are the ones who started small enough to succeed. The ones who burn out trying to implement everything at once usually quit within two weeks.</p>
-      <p>Your first boundary: pick one of the five non-negotiables above. Commit to it for five days. Track it in your <a href="checkin.html" style="color: var(--accent);">daily check-in</a>. Then come back and add the next one.</p>
+        <h1>Daily AI Boundaries for Engineers: A Practical Framework</h1>
 
-      <div class="explore-grid">
-        <a href="recovery.html" class="explore-card">
-          <div class="card-emoji">🌿</div>
-          <h4>Full Recovery Guide</h4>
-          <p>The complete framework for recovering from AI fatigue</p>
-        </a>
-        <a href="mindset.html" class="explore-card">
-          <div class="card-emoji">🧠</div>
-          <h4>Mental Models</h4>
-          <p>12 frameworks for keeping AI in its proper place</p>
-        </a>
-        <a href="journal.html" class="explore-card">
-          <div class="card-emoji">📝</div>
-          <h4>Reflection Journal</h4>
-          <p>8 AI-fatigue prompts to build self-awareness</p>
-        </a>
-        <a href="checkin.html" class="explore-card">
-          <div class="card-emoji">✅</div>
-          <h4>Daily Check-in</h4>
-          <p>Track your streak and daily recovery progress</p>
-        </a>
-        <a href="mental-health.html" class="explore-card">
-          <div class="card-emoji">🩺</div>
-          <h4>Mental Health</h4>
-          <p>When boundaries aren't enough and what to do next</p>
-        </a>
-        <a href="ai-detox-plan.html" class="explore-card">
-          <div class="card-emoji">📅</div>
-          <h4>30-Day Detox</h4>
-          <p>Structured protocol for a full AI reset</p>
-        </a>
-      </div>
+        <p class="lead">You don't have to quit AI tools to protect your skills, focus, and sense of self. You just need boundaries — specific, daily practices that keep you in relationship with your own judgment.</p>
 
-      <h2>Frequently Asked Questions</h2>
-      <div class="faq">
-        <details>
-          <summary>How do I set AI boundaries without looking lazy?</summary>
-          <div class="answer">Reframe AI boundaries as skill protection, not productivity decline. Explicit no-AI blocks — where you solve problems without AI assistance — actually build the muscle memory that makes you more valuable over time. Frame it to yourself and your team as deliberate practice, not resistance.</div>
-        </details>
-        <details>
-          <summary>What counts as a healthy daily AI limit?</summary>
-          <div class="answer">Aim for 2-4 hours of AI-assisted work maximum per day, with at least 1-2 hours of unaided coding, design, or problem-solving. Protect your morning peak cognitive hours (typically 9-11am) as AI-free time when possible. The goal isn't to ban AI — it's to ensure you're still doing the hard thinking that keeps your skills sharp.</div>
-        </details>
-        <details>
-          <summary>How do I handle teammates who use AI excessively?</summary>
-          <div class="answer">Lead by example first — protect your own boundaries visibly. Propose team-level practices like weekly no-AI pairing sessions, architecture discussions without AI assistance, or a shared norm around explaining AI outputs before accepting them. If patterns concern you, raise it in 1:1s as a skill sustainability question, not a productivity judgment.</div>
-        </details>
-        <details>
-          <summary>Is it normal to feel guilty taking breaks from AI tools?</summary>
-          <div class="answer">Yes — this guilt is a documented psychological effect called the productivity anxiety loop. It signals that AI has become tied to your sense of professional worth. The guilt is telling you something important: you're aware that the constant AI use isn't fully voluntary or beneficial. Naming the guilt is the first step past it.</div>
-        </details>
-        <details>
-          <summary>How do I rebuild skills I've been outsourcing to AI?</summary>
-          <div class="answer">Start with the Explanation Requirement: before accepting any AI solution, force yourself to explain it aloud (or write it) in your own words. Add a weekly no-AI session (1-2 hours) where you solve problems without any AI assistance. Keep a skill journal tracking what you're noticing about your own thinking. Rebuilding happens through deliberate struggle — the exact thing AI has been removing.</div>
-        </details>
-        <details>
-          <summary>Should I tell my manager I'm setting AI boundaries?</summary>
-          <div class="answer">Ideally yes, framed around skill sustainability and long-term team health. The conversation sounds like: "I'm being deliberate about which problems I solve with AI versus which I solve myself — I want to make sure I'm still growing as an engineer, not just maintaining." Most managers who care about team health will respect this. If yours doesn't, that's important data about the culture.</div>
-        </details>
-      </div>
+        <div class="article-meta">
+          <span class="reading-time"></span>
+          <span class="separator">·</span>
+          <span>A practical guide</span>
+        </div>
+      </header>
+
+      <section class="content-section">
+        <h2>What Boundaries Actually Are</h2>
+
+        <p>Before anything else: a boundary is not a restriction. It's a definition of where you end and where something else begins.</p>
+
+        <p>With AI tools, most engineers haven't defined that line. AI is everywhere, all the time, ready to answer anything. The boundary problem isn't that you use AI too much — it's that you've never decided where AI's role ends and yours begins.</p>
+
+        <p>Without boundaries, there's no edge to push against. No space where your own judgment is required. That's where the fatigue comes from: not the tool, but the dissolution of your own territory.</p>
+
+        <div class="callout callout-warning">
+          <strong>The boundary question isn't "Should I use AI?"</strong><br/>
+          It's "Where does my thinking end and AI's output begin?"<br/>
+          <em>Answering that question daily is the practice.</em>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <h2>The Anatomy of a Daily Boundary</h2>
+
+        <p>A real boundary has three parts:</p>
+
+        <ol>
+          <li><strong>A trigger:</strong> The moment or condition that activates the boundary. ("When I sit down to write a first draft...")</li>
+          <li><strong>A practice:</strong> What you do instead. ("I write the first draft in a text editor with no AI open.")</li>
+          <li><strong>A reset:</strong> What happens if you cross the line. ("I close the tab, take 5 minutes, and return to my own version first.")</li>
+        </ol>
+
+        <p>Most engineers try to set boundaries without all three parts. They say "I'll use AI less" — but there's no trigger, no specific practice, no reset mechanism. It collapses within a day.</p>
+
+        <p>Below are boundaries designed for engineers who still use AI tools daily but want to protect something real about how they work.</p>
+      </section>
+
+      <section class="content-section">
+        <h2>Morning Boundaries (Before 10am)</h2>
+
+        <h3>The First Task Boundary</h3>
+        <p>The first real task of your day — the one that requires actual thinking — should happen before AI enters the picture.</p>
+        <p><strong>The practice:</strong> For the first 30–60 minutes of your workday, your most challenging task gets attempted solo. No AI assistant open. No autocomplete. Just you, the problem, and whatever you can figure out.</p>
+        <p><strong>Why it works:</strong> Morning is when your cognitive resources are freshest. That's when the brain does the slow, connective work that builds real understanding. If you hand that window to AI, you're giving away the hours when you'd learn the most.</p>
+        <p><strong>The reset:</strong> If you open AI first by accident, close it. Wait 5 minutes. Start the task from scratch before touching AI-generated content.</p>
+
+        <h3>The Inbox-and-Meeting Boundary</h3>
+        <p>Slack, email, and meetings before a certain hour are boundary violations disguised as work.</p>
+        <p><strong>The practice:</strong> No Slack, no AI tools, no email for the first 20 minutes. Just the first task, fully attempted. Check messages after you've made one real piece of progress.</p>
+        <p><strong>Why it matters:</strong> Every notification is an attention interrupt. Gloria Mark's research at UC Irvine found it takes an average of 23 minutes to return to deep focus after an interruption. If you check messages first thing, you've bought yourself 23 minutes of fragmented attention before you've even started real work.</p>
+      </section>
+
+      <section class="content-section">
+        <h2>During-Work Boundaries</h2>
+
+        <h3>The Explanation Requirement</h3>
+        <p>This is the single highest-leverage boundary practice available to engineers using AI daily.</p>
+        <p><strong>The practice:</strong> Before you accept any AI-generated code, answer three questions in your own words:</p>
+        <ol>
+          <li>What does this code actually do?</li>
+          <li>Why does it work this way?</li>
+          <li>What would break it?</li>
+        </ol>
+        <p>If you can't answer all three from your own understanding, the AI output goes back. You ask a follow-up. You look it up. You reason through it. Until you can explain it, you don't accept it.</p>
+        <p><strong>Why it works:</strong> Most AI acceptance is reflexive. The code looks right. The logic seems sound. You accept it. The Explanation Requirement breaks that reflex. It converts passive receipt into active learning. Over time, the questions become automatic — you start asking them before the AI even finishes generating.</p>
+
+        <div class="callout callout-info">
+          <strong>The Explanation Requirement isn't a productivity slowdown.</strong><br/>
+          It's a skill-maintenance protocol. The 3 extra minutes per code review are the exact minutes that keep your understanding current. Without it, you're not reviewing code — you're proof-reading a ghost.
+        </div>
+
+        <h3>The Debugging Boundary</h3>
+        <p>AI is fastest at debugging. It's also fastest at ensuring you never debug again.</p>
+        <p><strong>The practice:</strong> Before you take AI's debugging advice, attempt the problem yourself for a minimum of 15 minutes. Actually read the error. Look at the stack trace. Think about where the failure would have to originate given the symptoms. Then — and only then — bring in AI.</p>
+        <p><strong>Why it works:</strong> Debugging is one of the highest-skill activities in software engineering. It requires hypothesis formation, root-cause reasoning, and understanding system interactions. These are exactly the skills that atrophy fastest with AI debugging tools. The 15-minute struggle isn't inefficiency. It's the practice that keeps your debugging instincts alive.</p>
+
+        <h3>The Context-Handoff Boundary</h3>
+        <p>AI is very good at generating context. It's very bad at transmitting the kind of context that comes from having been in the system.</p>
+        <p><strong>The practice:</strong> When you're about to ask AI for context about a part of the codebase you don't know well, instead: find the one person on your team who does. Ask them directly. Write down what they tell you in your own words. Use AI to supplement, not replace, tribal knowledge.</p>
+        <p><strong>Why it matters:</strong> When AI generates context about an unfamiliar part of the system, you get the plausible version. When a senior engineer explains it, you get the version that comes with failure stories, edge cases, and the unwritten conventions that don't appear in the code. The human explanation is the education. AI context is just information.</p>
+      </section>
+
+      <section class="content-section">
+        <h2>End-of-Day Boundary</h2>
+
+        <h3>The Shipped-and-Understood Check</h3>
+        <p>Before you close your laptop, one question: <em>Do you know what you shipped today?</em></p>
+        <p><strong>The practice:</strong> End-of-day, spend 5 minutes in a simple review. Not a code review — a personal review. Look at what you merged. Could you explain every decision in it without AI? Could you defend every choice? If there's a gap, note it. That's tomorrow's first learning target.</p>
+        <p><strong>Why it works:</strong> The hollow feeling of "I shipped but I don't know what I built" comes from closing the day without that check. When you do it daily, you catch knowledge gaps while they're small. Over weeks, you start to notice patterns in what you're not learning — and that pattern is actionable information about where your boundaries need to be.</p>
+
+        <h3>The Shutdown Ritual</h3>
+        <p>Your brain doesn't have an off switch. It needs a ritual.</p>
+        <p><strong>The practice:</strong> End-of-day, do one of these before closing your laptop:</p>
+        <ul>
+          <li>Write one sentence in a work journal about what you learned today</li>
+          <li>Walk for 5 minutes outside, with no screen</li>
+          <li>Close your eyes for 60 seconds and review what you worked on from memory</li>
+        </ul>
+        <p><strong>Why it works:</strong> The brain processes the day during the shutdown ritual. Without it, work thoughts circulate into the evening, degrading sleep quality and the next morning's fresh start. The ritual tells your brain: the work day is over, this is where the thinking stops and recovery begins.</p>
+      </section>
+
+      <section class="content-section">
+        <h2>Weekly Boundary: The No-AI Build</h2>
+
+        <p>Once a week — Friday afternoon works well — attempt one small thing entirely without AI.</p>
+        <p><strong>The practice:</strong> A feature, a bug fix, a refactor, a prototype. Something small enough to finish, complex enough to require thought. No AI tools. No autocomplete. No code generation.</p>
+        <p><strong>Why it works:</strong> This is the equivalent of a weekly physical for your engineering instincts. The struggle is the point. The feeling of figuring something out yourself — that small, real satisfaction — is what reminds your nervous system that you're still capable. That identity doesn't disappear. It's just been buried under the AI layer.</p>
+        <p><strong>What to build:</strong> It doesn't have to be work-related. A personal script. A small tool for yourself. A weekend project you've been thinking about. The domain doesn't matter. The solo effort does.</p>
+
+        <div class="callout callout-success">
+          <strong>The no-AI build is not about proving you don't need AI.</strong><br/>
+          It's about proving you still exist as an engineer without it. That proof, delivered once a week, changes everything about how you feel using AI tools the rest of the week.
+        </div>
+      </section>
+
+      <section class="content-section">
+        <h2>The Boundary Audit: Weekly Check-In</h2>
+
+        <p>Once a week — Sunday evening works well — run a quick audit of your boundary health.</p>
+
+        <div class="interactive-checklist" id="boundary-checklist" role="region" aria-label="Weekly boundary audit checklist">
+          <p class="checklist-label">This week's boundary check:</p>
+          <div class="checklist-grid">
+            <label class="checklist-item">
+              <input type="checkbox" data-boundary="morning-first-task" />
+              <span>I completed at least 3 mornings with no AI on the first real task</span>
+            </label>
+            <label class="checklist-item">
+              <input type="checkbox" data-boundary="explanation-requirement" />
+              <span>I used the Explanation Requirement at least once this week</span>
+            </label>
+            <label class="checklist-item">
+              <input type="checkbox" data-boundary="debugging-struggle" />
+              <span>I struggled with at least one debugging problem before reaching for AI</span>
+            </label>
+            <label class="checklist-item">
+              <input type="checkbox" data-boundary="end-of-day-review" />
+              <span>I did the end-of-day Shipped-and-Understood check at least 3 times</span>
+            </label>
+            <label class="checklist-item">
+              <input type="checkbox" data-boundary="no-ai-build" />
+              <span>I completed at least one no-AI build session this week</span>
+            </label>
+            <label class="checklist-item">
+              <input type="checkbox" data-boundary="shutdown-ritual" />
+              <span>I had a shutdown ritual more days than not</span>
+            </label>
+            <label class="checklist-item">
+              <input type="checkbox" data-boundary="felt-understood" />
+              <span>At least 3 times this week, I felt like I understood what I shipped</span>
+            </label>
+          </div>
+          <div class="checklist-score" id="boundary-score" aria-live="polite"></div>
+          <button class="btn-secondary" id="reset-boundaries" type="button">Reset for next week</button>
+        </div>
+
+        <p>The goal isn't a perfect score. The goal is awareness. If you're consistently not hitting the boundaries you care about, that's data — not failure. It means either the boundary isn't right for your situation, or something in your environment is making it impossible.</p>
+
+        <p>Boundaries that you constantly violate aren't boundaries. They're wishes. Adjust until the boundary fits your actual life.</p>
+      </section>
+
+      <section class="content-section">
+        <h2>When Boundaries Feel Impossible</h2>
+
+        <p>Some environments make personal boundaries nearly impossible. Team velocity pressure, mandatory tool usage, code review requirements that assume AI usage, sprint timelines that leave no room for slower solo work.</p>
+
+        <p>If your boundaries keep collapsing, the problem isn't you. It's the environment.</p>
+
+        <p>In that case, three options:</p>
+
+        <ol>
+          <li><strong>Find the micro-boundary that fits:</strong> If you can't do a no-AI morning, can you do a no-AI first debugging session? If you can't do a full no-AI build, can you do a no-AI first draft of the design doc? Something is always possible.</li>
+          <li><strong>Advocate for team-level boundaries:</strong> Approach your team with the data. "I've noticed our AI usage is improving velocity but degrading X. What if we had one no-AI session per week for skill-building?" Teams sometimes surprise you.</li>
+          <li><strong>Change environments:</strong> If the culture is genuinely incompatible with any form of boundary — if there's no version of you that can exist there with your skills intact — that's worth knowing. It's a legitimate data point about whether this team or company is worth your best work.</li>
+        </ol>
+
+        <div class="callout callout-info">
+          <strong>Boundaries are an engineering problem, not a character problem.</strong><br/>
+          Design them like you design systems: specify inputs, outputs, failure modes, and reset mechanisms. Test them. Iterate. The engineer who can design a resilient distributed system can design resilient personal boundaries. The skills transfer.
+        </div>
+      </section>
+
+      <section class="content-section">
+        <h2>FAQ</h2>
+
+        <div class="faq-accordion" id="faq-boundaries">
+          <details>
+            <summary>How do I set boundaries with AI tools without feeling guilty?</summary>
+            <div class="faq-answer">
+              <p>Start with one small boundary — one hour of no AI per day, or one task type you do without AI. The guilt comes from the productivity guilt reflex. Remind yourself: boundaries protect the skills that make you valuable long-term. They're not laziness. They're strategy.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Should I tell my manager about my AI boundaries?</summary>
+            <div class="faq-answer">
+              <p>Not necessarily. Personal AI boundaries are yours to manage. If your team has shared norms about AI usage, participate in setting those. But individual boundary practices — no-AI mornings, AI-free debugging days — don't require disclosure unless you want to.</p>
+            </div>
+          </details>
+          <details>
+            <summary>What if my team requires AI tool usage?</summary>
+            <div class="faq-answer">
+              <p>If AI usage is mandated, focus on the boundaries you CAN control: when you use AI, how you process AI output, when you step away entirely. You can also advocate for team-level boundaries — no-AI code review sessions, weekly skill-building time, protected deep-work hours. The goal isn't avoiding AI. It's staying in relationship with your own judgment.</p>
+            </div>
+          </details>
+          <details>
+            <summary>How do I know if my AI boundaries are working?</summary>
+            <div class="faq-answer">
+              <p>Three signs your boundaries are working: You feel less frantic during the workday. You can describe what you actually built today, not just what you shipped. You have some feeling of ownership over your code by end of day. If you're still feeling hollow, depleted, or like a middleman in your own work, the boundaries need adjusting.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Is it enough to just use AI less?</summary>
+            <div class="faq-answer">
+              <p>Using AI less is necessary but not sufficient. The other part: how you engage with AI output. The Explanation Requirement — forcing yourself to understand every AI-generated line before accepting it — is a boundary practice that works even within normal AI usage. Quality of engagement matters as much as quantity.</p>
+            </div>
+          </details>
+          <details>
+            <summary>What boundaries help most with skill preservation?</summary>
+            <div class="faq-answer">
+              <p>The highest-impact boundaries for skill preservation: no-AI first-draft sessions (you write first, AI revises second), AI-free debugging blocks, weekly no-AI build sessions where you make something from scratch. These protect the loop that keeps skills alive: attempt → struggle → learn → improve.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section class="content-section continue-exploring">
+        <h2>Continue Exploring</h2>
+        <div class="explore-grid">
+          <a href="recovery.html" class="explore-card">
+            <h3>Recovery Guide</h3>
+            <p>The full 7-phase recovery framework for AI fatigue.</p>
+          </a>
+          <a href="mindset.html" class="explore-card">
+            <h3>Mental Models</h3>
+            <p>12 frameworks for healthy AI use as an engineer.</p>
+          </a>
+          <a href="ai-detox-plan.html" class="explore-card">
+            <h3>30-Day AI Detox</h3>
+            <p>Structured plan for a full reset.</p>
+          </a>
+          <a href="decompress.html" class="explore-card">
+            <h3>Decompress</h3>
+            <p>Focus timer and breathing exercises.</p>
+          </a>
+          <a href="no-ai-block.html" class="explore-card">
+            <h3>The No-AI Block</h3>
+            <p>The specific practice that changes the relationship.</p>
+          </a>
+          <a href="developer-identity.html" class="explore-card">
+            <h3>Developer Identity</h3>
+            <p>Who you are without your AI assistant.</p>
+          </a>
+        </div>
+      </section>
+
     </article>
   </main>
-  <footer>
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="recovery.html">Recovery</a>
-      <a href="research.html">Science</a>
-      <a href="index.html">Quiz</a>
-      <a href="newsletter.html">Newsletter</a>
-      <a href="community.html">Community</a>
-      <a href="about.html">Privacy</a>
+
+  <footer class="main-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <strong>The Clearing</strong> — A free resource for engineers experiencing AI fatigue.<br/>
+        <span class="footer-tagline">No tracking. No accounts. No judgment.</span>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <div class="footer-col">
+          <h4>Start Here</h4>
+          <ul>
+            <li><a href="index.html#quiz">Take the Quiz</a></li>
+            <li><a href="recovery.html">Recovery Guide</a></li>
+            <li><a href="why.html">Why This Happens</a></li>
+            <li><a href="daily-ai-boundaries.html">Daily Boundaries</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Recover</h4>
+          <ul>
+            <li><a href="mental-health.html">Mental Health</a></li>
+            <li><a href="developer-wellbeing.html">Wellbeing</a></li>
+            <li><a href="ai-detox-plan.html">30-Day AI Detox</a></li>
+            <li><a href="ai-fatigue-checklist.html">Recovery Checklist</a></li>
+            <li><a href="no-ai-block.html">No-AI Block</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Understand</h4>
+          <ul>
+            <li><a href="skill-atrophy.html">Skill Atrophy</a></li>
+            <li><a href="cognitive-load.html">Cognitive Load</a></li>
+            <li><a href="developer-identity.html">Identity Crisis</a></li>
+            <li><a href="attention-residue.html">Attention Residue</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="stories.html">Engineer Stories</a></li>
+
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="share-your-story.html">Share Your Story</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Science</h4>
+          <ul>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="ai-fatigue-statistics-2025.html">Statistics 2025</a></li>
+            <li><a href="engineer-survey-results.html">Survey Results</a></li>
+            <li><a href="the-science-of-ai-fatigue.html">The Science</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <ul>
+            <li><a href="checkin.html">Daily Check-in</a></li>
+            <li><a href="decompress.html">Focus Timer</a></li>
+            <li><a href="ai-fatigue-checklist.html">Recovery Checklist</a></li>
+            <li><a href="journal.html">Reflective Journal</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+          </ul>
+        </div>
+      </nav>
     </div>
-    <p>&copy; 2026 The Clearing — Free, forever. No tracking. No ads.</p>
+    <div class="footer-bottom">
+      <p>&copy; 2026 The Clearing &middot; <a href="about.html">About</a> &middot; <a href="about.html#contact">Contact</a> &middot; <a href="privacy.html">Privacy</a></p>
+    </div>
   </footer>
+
+  <script src="js/main.min.js" defer></script>
   <script>
-    // Reading progress bar
-    window.addEventListener('scroll', () => {
-      const doc = document.documentElement;
-      const scrollTop = doc.scrollTop || document.body.scrollTop;
-      const scrollHeight = doc.scrollHeight - doc.clientHeight;
-      const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
-      document.getElementById('progress').style.width = progress + '%';
-    });
+    (function() {
+      var STORAGE_KEY = 'clearing-boundaries-2026';
+      var checklist = document.getElementById('boundary-checklist');
+      if (!checklist) return;
+      var checkboxes = checklist.querySelectorAll('input[type="checkbox"]');
+      var scoreEl = document.getElementById('boundary-score');
+      var resetBtn = document.getElementById('reset-boundaries');
 
-    // Theme toggle
-    function toggleTheme() {
-      const html = document.documentElement;
-      const current = html.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-      document.querySelector('.theme-toggle').textContent = next === 'dark' ? '☀️' : '🌙';
-    }
+      function loadState() {
+        try {
+          var saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+          checkboxes.forEach(function(cb) {
+            var key = cb.dataset.boundary;
+            if (saved[key]) cb.checked = true;
+          });
+          updateScore();
+        } catch(e) {}
+      }
 
-    // Init theme
-    const saved = localStorage.getItem('theme');
-    if (saved) {
-      document.documentElement.setAttribute('data-theme', saved);
-      document.querySelector('.theme-toggle').textContent = saved === 'dark' ? '☀️' : '🌙';
-    }
+      function saveState() {
+        var state = {};
+        checkboxes.forEach(function(cb) {
+          if (cb.checked) state[cb.dataset.boundary] = true;
+        });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        updateScore();
+      }
+
+      function updateScore() {
+        var total = checkboxes.length;
+        var checked = Array.from(checkboxes).filter(function(cb){ return cb.checked; }).length;
+        var pct = Math.round((checked / total) * 100);
+        var msg = '';
+        if (pct === 100) msg = 'Perfect week — all 7 boundaries maintained.';
+        else if (pct >= 70) msg = 'Strong week — ' + checked + '/' + total + ' boundaries held.';
+        else if (pct >= 40) msg = 'Partial week — ' + checked + '/' + total + ' boundaries held. Pick 1-2 to focus on.';
+        else msg = 'Week needs attention — ' + checked + '/' + total + ' held. Start smaller next week.';
+        if (scoreEl) scoreEl.textContent = msg;
+      }
+
+      checkboxes.forEach(function(cb){ cb.addEventListener('change', saveState); });
+      if (resetBtn) {
+        resetBtn.addEventListener('click', function() {
+          localStorage.removeItem(STORAGE_KEY);
+          checkboxes.forEach(function(cb){ cb.checked = false; });
+          updateScore();
+        });
+      }
+      loadState();
+    })();
+
+    (function() {
+      var bar = document.querySelector('.reading-progress');
+      if (!bar) return;
+      window.addEventListener('scroll', function() {
+        var scrollTop = window.scrollY;
+        var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        var pct = docHeight > 0 ? (scrollTop / docHeight * 100) : 0;
+        bar.style.width = pct + '%';
+      }, { passive: true });
+    })();
   </script>
 </body>
 </html>

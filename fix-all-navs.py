@@ -16,9 +16,12 @@ CLEAN_NAV_LINKS = '''        <li><a href="index.html" class="nav-link">Home</a><
             <li><a href="why.html">Why AI Fatigue?</a></li>
             <li><a href="burnout-vs-fatigue.html">Burnout vs Fatigue</a></li>
             <li><a href="developer-burnout-2025.html">Developer Burnout 2025</a></li>
+            <li><a href="tech-layoffs-ai-era.html">Tech Layoffs &amp; AI</a></li>
             <li><a href="compare.html">Compare Tools</a></li>
             <li><a href="ai-tool-overload.html">Tool Overload</a></li>
+            <li><a href="coding-ai-tools-comparison.html">Coding Tools Comparison</a></li>
             <li><a href="ai-learning-burnout.html">AI Learning Burnout</a></li>
+            <li><a href="ai-code-review.html">AI Code Review</a></li>
             <li><a href="the-science-of-ai-fatigue.html">The Science of AI Fatigue</a></li>
             <li><a href="research.html">Research</a></li>
             <li><a href="stats.html">Statistics 2025</a></li>

@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Fatigue Recovery Tracker — The Clearing</title>
+  <meta name="description" content="Track your AI fatigue recovery week by week. See patterns emerge, measure progress, and get personalized weekly check-ins. Free tool for engineers." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://clearing-ai.com/recovery-tracker.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://clearing-ai.com/recovery-tracker.html" />
+  <meta property="og:title" content="AI Fatigue Recovery Tracker — Week by Week Progress" />
+  <meta property="og:description" content="Track your AI fatigue recovery. See patterns emerge. Get weekly personalized insights." />
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png" />
+  <meta property="og:site_name" content="The Clearing" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Fatigue Recovery Tracker — The Clearing" />
+  <meta name="twitter:description" content="Track your AI fatigue recovery week by week. See patterns emerge." />
+  <meta name="twitter:image" content="https://clearing-ai.com/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "AI Fatigue Recovery Tracker",
+    "description": "Week-by-week tracking tool for AI fatigue recovery. Log symptoms, patterns, and progress. Get personalized weekly insights.",
+    "url": "https://clearing-ai.com/recovery-tracker.html",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Web Browser",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Recovery", "item": "https://clearing-ai.com/recovery.html" },
+      { "@type": "ListItem", "position": 3, "name": "Recovery Tracker", "item": "https://clearing-ai.com/recovery-tracker.html" }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #0d1117;
+      --bg-secondary: #161b22;
+      --bg-tertiary: #21262d;
+      --border: #30363d;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --green: #3fb950;
+      --yellow: #d29922;
+      --red: #f85149;
+      --blue: #58a6ff;
+      --purple: #bc8cff;
+      --teal: #39d353;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    [data-theme="light"] {
+      --bg: #ffffff;
+      --bg-secondary: #f6f8fa;
+      --bg-tertiary: #eaeef2;
+      --border: #d0d7de;
+      --text: #1f2328;
+      --text-muted: #656d76;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    nav {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      height: 60px;
+    }
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    nav .logo a { color: var(--text); text-decoration: none; }
+    nav .logo a:hover { text-decoration: none; }
+    nav ul { list-style: none; display: flex; gap: 4px; align-items: center; }
+    nav ul li a {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: background 0.15s, color 0.15s;
+    }
+    nav ul li a:hover, nav ul li a.active {
+      background: var(--bg-tertiary);
+      color: var(--text);
+      text-decoration: none;
+    }
+    nav .nav-spacer { flex: 1; }
+
+    /* READING PROGRESS */
+    #reading-progress {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: var(--green);
+      z-index: 99;
+      transition: width 0.1s;
+    }
+
+    /* SKIP LINK */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--blue);
+      color: #fff;
+      padding: 8px 16px;
+      z-index: 200;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* LAYOUT */
+    .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+    .page { padding: 48px 0 80px; }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 64px 0 48px;
+    }
+    .hero .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .hero .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+    .hero .tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 8px 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .hero .tagline span { color: var(--green); font-weight: 600; }
+
+    /* INTRO BOX */
+    .intro-box {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-bottom: 40px;
+    }
+    .intro-box h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+    .intro-box p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 12px; }
+    .intro-box p:last-child { margin-bottom: 0; }
+
+    /* SECTION HEADERS */
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      gap: 16px;
+    }
+    .section-header h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .section-header .badge {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 4px 12px;
+      white-space: nowrap;
+    }
+
+    /* WEEKLY ENTRY FORM */
+    .tracker-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-bottom: 32px;
+    }
+    .tracker-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 600px) {
+      .form-grid { grid-template-columns: 1fr; }
+    }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-group label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .form-group label .hint { font-weight: 400; color: var(--text-muted); }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.9rem;
+      padding: 10px 14px;
+      font-family: inherit;
+      transition: border-color 0.15s;
+      width: 100%;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--blue);
+    }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .form-group select { cursor: pointer; }
+
+    /* FATIGUE SLIDER */
+    .slider-group { display: flex; flex-direction: column; gap: 8px; }
+    .slider-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .slider-value {
+      font-size: 1.5rem;
+      font-weight: 800;
+      text-align: center;
+      padding: 8px 0;
+      border-radius: 8px;
+      transition: color 0.3s;
+      margin-bottom: 4px;
+    }
+    input[type="range"] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: var(--bg-tertiary);
+      outline: none;
+      cursor: pointer;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--blue);
+      cursor: pointer;
+      border: 3px solid var(--bg);
+      box-shadow: 0 0 0 1px var(--blue);
+    }
+
+    /* CHECKBOX GRID */
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+      font-size: 0.85rem;
+    }
+    .checkbox-item:hover { border-color: var(--blue); }
+    .checkbox-item input[type="checkbox"] { width: 16px; height: 16px; cursor: pointer; flex-shrink: 0; accent-color: var(--green); }
+    .checkbox-item.checked { border-color: var(--green); background: rgba(63, 185, 80, 0.05); }
+
+    /* SUBMIT BUTTON */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green);
+      color: #0d1117;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 12px 28px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      transition: opacity 0.15s, transform 0.1s;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-primary:active { transform: translateY(0); }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-tertiary);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.15s;
+    }
+    .btn-secondary:hover { background: var(--bg); }
+    .form-actions { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+
+    /* NEWSLETTER BAND */
+    .newsletter-band {
+      background: linear-gradient(135deg, #0d2619 0%, #0d1117 100%);
+      border: 1px solid rgba(63, 185, 80, 0.3);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+    [data-theme="light"] .newsletter-band {
+      background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+      border-color: rgba(63, 185, 80, 0.4);
+    }
+    .newsletter-band h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: var(--green); }
+    .newsletter-band p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px; }
+    .newsletter-band .email-row { display: flex; gap: 10px; max-width: 440px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
+    .newsletter-band input[type="email"] {
+      flex: 1;
+      min-width: 200px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.9rem;
+      padding: 10px 14px;
+      font-family: inherit;
+    }
+    .newsletter-band input[type="email"]:focus { outline: none; border-color: var(--green); }
+    .newsletter-band .btn-primary { white-space: nowrap; }
+    .newsletter-band .privacy { font-size: 0.75rem; color: var(--text-muted); margin-top: 10px; }
+    .newsletter-success { color: var(--green); font-weight: 600; padding: 20px; text-align: center; display: none; }
+    .newsletter-success.show { display: block; }
+
+    /* WEEK HISTORY */
+    .week-history { margin-top: 40px; }
+    .week-entry {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .week-entry-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .week-entry-header h4 { font-size: 0.95rem; font-weight: 700; }
+    .week-entry .meta { display: flex; gap: 12px; flex-wrap: wrap; }
+    .week-entry .meta span {
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 100px;
+      background: var(--bg-tertiary);
+      color: var(--text-muted);
+    }
+    .week-entry .fatigue-score {
+      position: absolute;
+      right: 24px;
+      top: 20px;
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .week-entry .score-low { color: var(--green); }
+    .week-entry .score-mid { color: var(--yellow); }
+    .week-entry .score-high { color: var(--red); }
+    .week-entry .notes { font-size: 0.85rem; color: var(--text-muted); margin-top: 8px; font-style: italic; }
+    .week-entry .practices { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+    .week-entry .practice-tag {
+      font-size: 0.7rem;
+      padding: 3px 8px;
+      border-radius: 100px;
+      background: rgba(88, 166, 255, 0.1);
+      color: var(--blue);
+      border: 1px solid rgba(88, 166, 255, 0.2);
+    }
+    .week-entry .delete-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 0.75rem;
+      padding: 4px 8px;
+      border-radius: 4px;
+      transition: color 0.15s, background 0.15s;
+    }
+    .week-entry .delete-btn:hover { color: var(--red); background: rgba(248, 81, 73, 0.1); }
+
+    /* TREND CHART */
+    .trend-section { margin-top: 48px; }
+    .trend-chart {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-bottom: 24px;
+      overflow-x: auto;
+    }
+    .trend-chart h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 20px; }
+    .chart-area { position: relative; height: 160px; margin-bottom: 12px; }
+    .chart-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      height: 140px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .chart-bar-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; position: relative; }
+    .chart-bar {
+      width: 100%;
+      max-width: 48px;
+      border-radius: 4px 4px 0 0;
+      transition: height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      min-height: 4px;
+      cursor: default;
+      position: relative;
+    }
+    .chart-bar:hover { opacity: 0.8; }
+    .chart-bar .tooltip {
+      position: absolute;
+      bottom: calc(100% + 4px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-size: 0.7rem;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.15s;
+    }
+    .chart-bar:hover .tooltip { opacity: 1; }
+    .bar-low { background: var(--green); }
+    .bar-mid { background: var(--yellow); }
+    .bar-high { background: var(--red); }
+    .chart-labels {
+      display: flex;
+      gap: 8px;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+    .chart-labels span { flex: 1; }
+
+    /* STATS ROW */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    @media (max-width: 600px) {
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+    }
+    .stat-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+    .stat-card .value {
+      font-size: 1.6rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-card .label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .stat-card .value.low { color: var(--green); }
+    .stat-card .value.mid { color: var(--yellow); }
+    .stat-card .value.high { color: var(--red); }
+    .stat-card .value.blue { color: var(--blue); }
+    .stat-card .value.purple { color: var(--purple); }
+
+    /* INSIGHT BOX */
+    .insight-box {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--blue);
+      border-radius: 0 12px 12px 0;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+    }
+    .insight-box h4 { font-size: 0.85rem; font-weight: 700; color: var(--blue); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .insight-box p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
+    .insight-box p strong { color: var(--text); }
+
+    /* PATTERN BOX */
+    .pattern-box {
+      background: rgba(188, 140, 255, 0.08);
+      border: 1px solid rgba(188, 140, 255, 0.2);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+    }
+    .pattern-box h4 { font-size: 0.85rem; font-weight: 700; color: var(--purple); margin-bottom: 8px; }
+    .pattern-box p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
+
+    /* EMPTY STATE */
+    .empty-state {
+      text-align: center;
+      padding: 48px 24px;
+      color: var(--text-muted);
+    }
+    .empty-state .emoji { font-size: 3rem; margin-bottom: 16px; }
+    .empty-state h3 { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .empty-state p { font-size: 0.9rem; max-width: 400px; margin: 0 auto 20px; }
+
+    /* FAQ */
+    .faq { margin-top: 48px; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item details { padding: 0; }
+    .faq-item summary {
+      padding: 18px 0;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text);
+      transition: color 0.15s;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary:hover { color: var(--blue); }
+    .faq-item summary .icon { transition: transform 0.2s; color: var(--text-muted); }
+    .faq-item details[open] summary .icon { transform: rotate(180deg); }
+    .faq-item .answer {
+      padding: 0 0 20px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      margin-top: 80px;
+    }
+    footer .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 32px;
+    }
+    @media (max-width: 768px) {
+      footer .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    footer h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 12px; }
+    footer ul { list-style: none; }
+    footer ul li { margin-bottom: 6px; }
+    footer ul li a { color: var(--text-muted); font-size: 0.875rem; }
+    footer ul li a:hover { color: var(--text); text-decoration: none; }
+    footer .footer-brand { font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; }
+    footer .footer-bottom { max-width: 1100px; margin: 24px auto 0; padding-top: 24px; border-top: 1px solid var(--border); text-align: center; font-size: 0.8rem; color: var(--text-muted); }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      nav .nav-inner { gap: 16px; overflow-x: auto; }
+      nav ul li a { font-size: 0.82rem; padding: 6px 8px; }
+      .hero h1 { font-size: 1.8rem; }
+      .tracker-card, .intro-box { padding: 20px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .newsletter-band { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <div id="reading-progress"></div>
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <div class="logo">🌿 <a href="index.html">The Clearing</a></div>
+      <ul>
+        <li><a href="quiz.html#quiz">Quiz</a></li>
+        <li><a href="recovery.html">Recovery</a></li>
+        <li><a href="ai-fatigue.html">Understand</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="newsletter.html">Newsletter</a></li>
+      </ul>
+      <div class="nav-spacer"></div>
+      <button id="theme-toggle" aria-label="Toggle dark/light mode" style="background:none;border:none;cursor:pointer;font-size:1.2rem;padding:4px 8px;border-radius:6px;" title="Toggle theme">🌙</button>
+    </div>
+  </nav>
+
+  <main id="main">
+    <div class="container page">
+
+      <!-- HERO -->
+      <section class="hero" aria-labelledby="page-title">
+        <div class="eyebrow">🌿 Free Tool — No Account Needed</div>
+        <h1 id="page-title">AI Fatigue Recovery Tracker</h1>
+        <p class="subtitle">Track your fatigue levels, spot patterns, and measure real progress over weeks. Your data stays in your browser — zero servers, zero tracking.</p>
+        <div class="tagline">
+          <span id="entry-count">0</span> weeks logged
+          &nbsp;·&nbsp;
+          Data stored locally in your browser
+        </div>
+      </section>
+
+      <!-- NEWSLETTER BAND -->
+      <div class="newsletter-band" id="newsletter-section">
+        <h3>📬 Get Weekly Recovery Insights</h3>
+        <p>Join engineers getting The Dispatch — weekly patterns, tactics, and data from the Clearing.</p>
+        <form id="newsletter-form-tracker" onsubmit="handleTrackerNewsletter(event)" novalidate>
+          <div class="email-row">
+            <input type="email" id="tracker-email" placeholder="your@email.com" required aria-label="Email address" />
+            <button type="submit" class="btn-primary">Subscribe — Free</button>
+          </div>
+          <p class="privacy">No spam. Unsubscribe anytime. Built for engineers, by engineers.</p>
+        </form>
+        <div class="newsletter-success" id="newsletter-success-tracker">
+          ✅ You're in! Check your inbox for a welcome note from The Clearing.
+        </div>
+      </div>
+
+      <!-- INTRO -->
+      <div class="intro-box">
+        <h2>How it works</h2>
+        <p>Every week, spend 3 minutes logging how you feel. Over time, patterns emerge — what drives your fatigue, what actually helps, and how you're trending.</p>
+        <p>All data is stored in <strong>your browser's localStorage</strong>. Nothing leaves your machine. No account, no login, no tracking. Delete everything anytime.</p>
+      </div>
+
+      <!-- WEEKLY ENTRY FORM -->
+      <section aria-labelledby="log-heading">
+        <div class="section-header">
+          <h2 id="log-heading" id="log-week-heading">Log This Week</h2>
+          <span class="badge" id="week-label">Week 1</span>
+        </div>
+        <div class="tracker-card">
+          <form id="tracker-form" onsubmit="handleTrackerSubmit(event)">
+
+            <!-- Week selector -->
+            <div class="form-group" style="margin-bottom: 24px;">
+              <label for="week-number">Week number <span class="hint">(consecutive weeks you've been tracking)</span></label>
+              <input type="number" id="week-number" min="1" max="52" value="1" required />
+            </div>
+
+            <!-- Overall fatigue level -->
+            <div class="form-group" style="margin-bottom: 24px;">
+              <label>Overall Fatigue Level This Week</label>
+              <div class="slider-group">
+                <div class="slider-labels">
+                  <span>Clear, focused</span>
+                  <span>Completely drained</span>
+                </div>
+                <div class="slider-value" id="fatigue-value" style="color: var(--green);">3 / 10</div>
+                <input type="range" id="fatigue-slider" min="1" max="10" value="3" step="1" aria-label="Fatigue level 1 to 10" oninput="updateFatigueDisplay(this.value)" />
+                <div style="display:flex;justify-content:space-between;font-size:0.7rem;color:var(--text-muted);margin-top:4px;">
+                  <span>1 — Managing well</span><span>5 — Noticeable fatigue</span><span>10 — Severe</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Fatigue symptoms -->
+            <div class="form-group" style="margin-bottom: 24px;">
+              <label>Symptoms you experienced this week <span class="hint">(check all that apply)</span></label>
+              <div class="checkbox-grid" id="symptoms-grid                <label class="checkbox-item"><input type="checkbox" name="symptom" value="sunday-dread" /><span>Sunday dread</span></label>
+                <label class="checkbox-item"><input type="checkbox" name="symptom" value="code-aversion" /><span>Code aversion</span></label>
+                <label class="checkbox-item"><input type="checkbox" name="symptom" value="skill-loss" /><span>Skill feels diminished</span></label>
+                <label class="checkbox-item"><input type="checkbox" name="symptom" value="identity-question" /><span>Questioning your role</span></label>
+                <label class="checkbox-item"><input type="checkbox" name="symptom" value="tool-overwhelm" /><span>Tool overwhelm</span></label>
+                <label class="checkbox-item"><input type="checkbox" name="symptom" value="attention-scatter" /><span>Attention scattering</span></label>
+                <label class="checkbox-item"><input type="checkbox" name="symptom" value="sleep-issues" /><span>Sleep disruption</span></label>
+                <label class="checkbox-item"><input type="checkbox" name="symptom" value="physical-tired" /><span>Physical exhaustion</span></label>
+                <label class="checkbox-item"><input type="checkbox" name="symptom" value="no-boundaries" /><span>No AI boundaries</span></label>
+                <label class="checkbox-item"><input type="checkbox" name="symptom" value="velocity-guilt" /><span>Guilt without AI velocity</span></label>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom:20px">
+              <label for="ai-usage">AI tool usage this week <span class="hint">(compared to normal)</span></label>
+              <select id="ai-usage">
+                <option value="much-less">Much less than usual</option>
+                <option value="less">Less than usual</option>
+                <option value="same">About the same</option>
+                <option value="more">More than usual</option>
+                <option value="much-more">Much more than usual</option>
+              </select>
+            </div>
+
+            <div class="form-group" style="margin-bottom:20px">
+              <label>Recovery practices you did this week <span class="hint">(check all that applied)</span></label>
+              <div class="checkbox-grid">
+                <label class="checkbox-item"><input type="checkbox" name="practice" value="no-ai-block" /><span>No-AI blocks</span></label>
+                <label class="checkbox-item"><input type="checkbox" name="practice" value="explanation-requirement" /><span>Explanation Requirement</span></label>
+                <label class="checkbox-item"><input type="checkbox" name="practice" value="deep-work" /><span>Deep work session(s)</span></label>
+                <label class="checkbox-item"><input type="checkbox" name="practice" value="journaling" /><span>Journaling</span></label>
+                <label class="checkbox-item"><input type="checkbox" name="practice" value="movement" /><span>Physical movement</span></label>
+                <label class="checkbox-item"><input type="checkbox" name="practice" value="social-real" /><span>Real social connection</span></label>
+                <label class="checkbox-item"><input type="checkbox" name="practice" value="sleep-hygiene" /><span>Sleep discipline</span></label>
+                <label class="checkbox-item"><input type="checkbox" name="practice" value="boundary-set" /><span>Set an AI boundary</span></label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="tracker-notes">Notes <span class="hint">(optional)</span></label>
+              <textarea id="tracker-notes" placeholder="What made a difference? What was hard?"></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn-primary">Save This Week</button>
+              <button type="button" class="btn-secondary" onclick="clearTrackerForm()">Clear form</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="trend-section" id="trend-section" style="display:none" aria-labelledby="trend-heading">
+        <div class="section-header">
+          <h2 id="trend-heading">Your Recovery Trend</h2>
+          <span class="badge" id="trend-badge">0 weeks</span>
+        </div>
+        <div class="stats-row" id="stats-row">
+          <div class="stat-card"><div class="value low" id="stat-current">--</div><div class="label">Current</div></div>
+          <div class="stat-card"><div class="value mid" id="stat-low">--</div><div class="label">Lowest</div></div>
+          <div class="stat-card"><div class="value blue" id="stat-avg">--</div><div class="label">Average</div></div>
+          <div class="stat-card"><div class="value purple" id="stat-trend">--</div><div class="label">Trend</div></div>
+        </div>
+        <div class="trend-chart" id="trend-chart-wrap">
+          <h3>Fatigue Level by Week</h3>
+          <div class="chart-area"><div class="chart-bars" id="chart-bars"></div></div>
+          <div class="chart-labels" id="chart-labels"></div>
+        </div>
+        <div class="insight-box" id="insight-box">
+          <h4>Weekly Insight</h4>
+          <p id="insight-text">Log at least 2 weeks to see patterns emerge.</p>
+        </div>
+        <div class="pattern-box" id="pattern-box" style="display:none">
+          <h4>Pattern Detected</h4>
+          <p id="pattern-text"></p>
+        </div>
+      </section>
+
+      <section class="week-history" id="history-section" style="display:none" aria-labelledby="history-heading">
+        <div class="section-header">
+          <h2 id="history-heading">Your Logged Weeks</h2>
+          <button class="btn-secondary" onclick="exportTrackerData()" style="font-size:0.8rem;padding:6px 14px">Export JSON</button>
+        </div>
+        <div id="history-entries"></div>
+      </section>
+
+      <div class="empty-state" id="empty-state">
+        <div class="emoji">📊</div>
+        <h3>No weeks logged yet</h3>
+        <p>Fill out the form above to log your first week. Your data will appear here as a chart and history.</p>
+      </div>
+
+      <div class="intro-box" style="margin-top:32px">
+        <h2>What to log — and why</h2>
+        <p><strong>Fatigue level:</strong> Your overall AI-mediated exhaustion — Sunday night dread, code middleman feeling, struggling to start.</p>
+        <p><strong>Symptoms:</strong> AI fatigue shows up in specific ways. Tracking which ones hit hardest helps you spot triggers.</p>
+        <p><strong>AI usage vs. practice:</strong> The most powerful insight comes from correlating what you did with how you felt.</p>
+        <p><strong>Consistency beats intensity.</strong> A 3-minute log every Sunday evening is worth more than a detailed audit once a month.</p>
+      </div>
+
+      <section class="faq" style="margin-top:48px" aria-labelledby="faq-heading">
+        <div class="section-header"><h2 id="faq-heading">FAQ</h2></div>
+        <div class="faq-item"><details><summary>Is my data private?<span class="icon">▼</span></summary><div class="answer">Yes. Everything is stored in your browser localStorage — not on any server. Export JSON to back up before clearing.</div></details></div>
+        <div class="faq-item"><details><summary>How long until I see patterns?<span class="icon">▼</span></summary><div class="answer">Most engineers see a meaningful trend around weeks 3–4. With 6+ weeks, correlations become clear.</div></details></div>
+        <div class="faq-item"><details><summary>Does this replace the AI Fatigue Quiz?<span class="icon">▼</span></summary><div class="answer">No — the quiz gives a one-time severity score. The tracker measures week-to-week trajectory. Use both.</div></details></div>
+        <div class="faq-item"><details><summary>What counts as a "no-AI block"?<span class="icon">▼</span></summary><div class="answer">Any deliberate 30+ minute stretch where you solve a problem without AI. The point is productive struggle.</div></details></div>
+        <div class="faq-item"><details><summary>Can I export my data?<span class="icon">▼</span></summary><div class="answer">Yes. Export JSON downloads your full log. Your data is always yours.</div></details></div>
+        <div class="faq-item"><details><summary>What if I miss a week?<span class="icon">▼</span></summary><div class="answer">Log it anyway. Even with gaps, the trend is meaningful.</div></details></div>
+      </section>
+
+      <section style="margin-top:48px" aria-labelledby="explore-heading">
+        <div class="section-header"><h2 id="explore-heading">Continue Exploring</h2></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px">
+          <a href="recovery.html" style="text-decoration:none;color:inherit"><div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:20px"><div style="font-size:1.4rem;margin-bottom:8px">🧭</div><strong>Recovery Guide</strong><p style="font-size:0.8rem;color:var(--text-muted);margin:4px 0 0">Full recovery framework</p></div></a>
+          <a href="ai-detox-plan.html" style="text-decoration:none;color:inherit"><div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:20px"><div style="font-size:1.4rem;margin-bottom:8px">📅</div><strong>30-Day Detox Plan</strong><p style="font-size:0.8rem;color:var(--text-muted);margin:4px 0 0">Structured recovery roadmap</p></div></a>
+          <a href="ai-fatigue-checklist.html" style="text-decoration:none;color:inherit"><div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:20px"><div style="font-size:1.4rem;margin-bottom:8px">✅</div><strong>Recovery Checklist</strong><p style="font-size:0.8rem;color:var(--text-muted);margin:4px 0 0">30-day daily checklist</p></div></a>
+          <a href="daily-practice.html" style="text-decoration:none;color:inherit"><div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:20px"><div style="font-size:1.4rem;margin-bottom:8px">⚡</div><strong>Daily Practice</strong><p style="font-size:0.8rem;color:var(--text-muted);margin:4px 0 0">Habits that compound</p></div></a>
+          <a href="checkin.html" style="text-decoration:none;color:inherit"><div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:20px"><div style="font-size:1.4rem;margin-bottom:8px">🌅</div><strong>Daily Check-in</strong><p style="font-size:0.8rem;color:var(--text-muted);margin:4px 0 0">30 reflective daily questions</p></div></a>
+          <a href="mental-health.html" style="text-decoration:none;color:inherit"><div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:20px"><div style="font-size:1.4rem;margin-bottom:8px">💚</div><strong>Mental Health</strong><p style="font-size:0.8rem;color:var(--text-muted);margin:4px 0 0">When fatigue goes deeper</p></div></a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div><h4>The Clearing</h4><p class="footer-brand">A free resource for engineers experiencing AI fatigue. No tracking. No accounts. No judgment.</p></div>
+      <div><h4>Start Here</h4><ul>
+        <li><a href="quiz.html#quiz">AI Fatigue Quiz</a></li><li><a href="recovery.html">Recovery Guide</a></li>
+        <li><a href="ai-fatigue.html">Understand AI Fatigue</a></li><li><a href="newsletter.html">Newsletter</a></li>
+      </ul></div>
+      <div><h4>Tools</h4><ul>
+        <li><a href="decompress.html">Deep Work Timer</a></li><li><a href="checkin.html">Daily Check-in</a></li>
+        <li><a href="recovery-tracker.html">Recovery Tracker</a></li><li><a href="journal.html">AI Fatigue Journal</a></li>
+      </ul></div>
+      <div><h4>More</h4><ul>
+        <li><a href="research.html">Research</a></li><li><a href="community.html">Community</a></li>
+        <li><a href="about.html">About</a></li><li><a href="changelog.html">Changelog</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">© 2026 The Clearing · <a href="about.html">About</a> · <a href="newsletter.html">Newsletter</a> · Zero tracking, always.</div>
+  </footer>
+
+  <script>
+    var toggle = document.getElementById('theme-toggle');
+    var html = document.documentElement;
+    var saved = localStorage.getItem('theme');
+    if (saved) html.setAttribute('data-theme', saved);
+    if (saved === 'light') { html.setAttribute('data-theme', 'light'); toggle.textContent = '☀️'; }
+    toggle.addEventListener('click', function() {
+      var isDark = html.getAttribute('data-theme') !== 'light';
+      html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      toggle.textContent = isDark ? '☀️' : '🌙';
+      localStorage.setItem('theme', isDark ? 'light' : 'dark');
+    });
+    window.addEventListener('scroll', function() {
+      var h = document.documentElement;
+      var bar = document.getElementById('reading-progress');
+      bar.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+    });
+    function updateFatigueDisplay(val) {
+      var el = document.getElementById('fatigue-value');
+      el.textContent = val + ' / 10';
+      el.style.color = val <= 3 ? 'var(--green)' : (val <= 6 ? 'var(--yellow)' : 'var(--red)');
+    }
+    var cbs = document.querySelectorAll('.checkbox-item input[type="checkbox"]');
+    for (var i = 0; i < cbs.length; i++) {
+      cbs[i].closest('label').classList.toggle('checked', cbs[i].checked);
+      cbs[i].addEventListener('change', function() {
+        this.closest('label').classList.toggle('checked', this.checked);
+      });
+    }
+    var STORAGE_KEY = 'clearing-recovery-tracker';
+    function getEntries() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
+      catch(e) { return []; }
+    }
+    function saveEntries(entries) { localStorage.setItem(STORAGE_KEY, JSON.stringify(entries)); }
+    function handleTrackerSubmit(e) {
+      e.preventDefault();
+      var symptoms = [], practices = [];
+      var sels = document.querySelectorAll('input[name="symptom"]:checked');
+      for (var i = 0; i < sels.length; i++) symptoms.push(sels[i].value);
+      var prefs = document.querySelectorAll('input[name="practice"]:checked');
+      for (var i = 0; i < prefs.length; i++) practices.push(prefs[i].value);
+      var entry = {
+        week: parseInt(document.getElementById('week-number').value) || 1,
+        date: new Date().toISOString(),
+        fatigue: parseInt(document.getElementById('fatigue-slider').value),
+        symptoms: symptoms,
+        aiUsage: document.getElementById('ai-usage').value,
+        practices: practices,
+        notes: document.getElementById('tracker-notes').value.trim()
+      };
+      var entries = getEntries();
+      var existIdx = -1;
+      for (var i = 0; i < entries.length; i++) { if (entries[i].week === entry.week) { existIdx = i; break; } }
+      if (existIdx >= 0) entries[existIdx] = entry; else entries.push(entry);
+      entries.sort(function(a, b) { return a.week - b.week; });
+      saveEntries(entries);
+      renderTracker();
+      e.target.reset();
+      updateFatigueDisplay(3);
+      var nextWeek = entries.length + 1;
+      document.getElementById('week-number').value = nextWeek;
+      document.getElementById('week-label').textContent = 'Week ' + nextWeek;
+      var hs = document.getElementById('history-section');
+      if (hs) window.scrollTo({ top: hs.offsetTop - 80, behavior: 'smooth' });
+    }
+    function clearTrackerForm() {
+      document.getElementById('tracker-form').reset();
+      updateFatigueDisplay(3);
+      var items = document.querySelectorAll('.checkbox-item');
+      for (var i = 0; i < items.length; i++) items[i].classList.remove('checked');
+    }
+    function deleteEntry(week) {
+      var entries = [];
+      var all = getEntries();
+      for (var i = 0; i < all.length; i++) { if (all[i].week !== week) entries.push(all[i]); }
+      saveEntries(entries);
+      renderTracker();
+    }
+    function exportTrackerData() {
+      var blob = new Blob([JSON.stringify(getEntries(), null, 2)], { type: 'application/json' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'clearing-recovery-tracker-' + new Date().toISOString().slice(0, 10) + '.json';
+      a.click();
+    }
+    function scoreCls(s) { return s <= 3 ? 'score-low' : (s <= 6 ? 'score-mid' : 'score-high'); }
+    function barCls(s) { return s <= 3 ? 'bar-low' : (s <= 6 ? 'bar-mid' : 'bar-high'); }
+    function statCls(s) { return s <= 3 ? 'low' : (s <= 6 ? 'mid' : 'high'); }
+    var symMap = {'sunday-dread':'Sunday dread','code-aversion':'Code aversion','skill-loss':'Skill loss','identity-question':'Identity questioning','tool-overwhelm':'Tool overwhelm','attention-scatter':'Attention scatter','sleep-issues':'Sleep issues','physical-tired':'Physical exhaustion','no-boundaries':'No AI boundaries','velocity-guilt':'Velocity guilt'};
+    var pracMap = {'no-ai-block':'No-AI block','explanation-requirement':'Explanation Req.','deep-work':'Deep work','journaling':'Journaling','movement':'Movement','social-real':'Real social','sleep-hygiene':'Sleep hygiene','boundary-set':'AI boundary'};
+    var aiMap = {'much-less':'Much less AI','less':'Less AI','same':'Same AI','more':'More AI','much-more':'Much more AI'};
+    function renderTracker() {
+      var entries = getEntries();
+      var n = entries.length;
+      var ec = document.getElementById('entry-count');
+      if (ec) ec.textContent = n;
+      var wl = document.getElementById('week-label');
+      if (wl) wl.textContent = 'Week ' + (n + 1);
+      var wn = document.getElementById('week-number');
+      if (wn) wn.value = n + 1;
+      var has = n > 0;
+      var ts = document.getElementById('trend-section');
+      var hs = document.getElementById('history-section');
+      var es = document.getElementById('empty-state');
+      if (ts) ts.style.display = has ? 'block' : 'none';
+      if (hs) hs.style.display = has ? 'block' : 'none';
+      if (es) es.style.display = has ? 'none' : 'block';
+      if (!has) return;
+      var scores = [];
+      for (var i = 0; i < entries.length; i++) scores.push(entries[i].fatigue);
+      var cur = scores[scores.length - 1];
+      var low = Math.min.apply(null, scores);
+      var avg = (scores.reduce(function(a, b) { return a + b; }, 0) / scores.length).toFixed(1);
+      var diff = scores.length >= 2 ? cur - scores[scores.length - 2] : 0;
+      var sc = document.getElementById('stat-current');
+      if (sc) { sc.textContent = cur + '/10'; sc.className = 'value ' + statCls(cur); }
+      var sl = document.getElementById('stat-low');
+      if (sl) { sl.textContent = low + '/10'; sl.className = 'value low'; }
+      var sa = document.getElementById('stat-avg');
+      if (sa) { sa.textContent = avg; sa.className = 'value mid'; }
+      var st = document.getElementById('stat-trend');
+      if (st) {
+        st.textContent = diff === 0 ? 'Stable' : (diff < 0 ? 'Improving' : 'Worsening');
+        st.className = 'value ' + (diff <= 0 ? 'purple' : 'high');
+      }
+      var tb = document.getElementById('trend-badge');
+      if (tb) tb.textContent = n + ' week' + (n !== 1 ? 's' : '');
+      var bars = document.getElementById('chart-bars');
+      var lbls = document.getElementById('chart-labels');
+      if (bars) bars.innerHTML = '';
+      if (lbls) lbls.innerHTML = '';
+      var slice = entries.slice(-12);
+      for (var i = 0; i < slice.length; i++) {
+        var e = slice[i];
+        var wrap = document.createElement('div');
+        wrap.className = 'chart-bar-wrap';
+        var bar = document.createElement('div');
+        bar.className = 'chart-bar ' + barCls(e.fatigue);
+        bar.style.height = ((e.fatigue / 10) * 120) + 'px';
+        var tip = document.createElement('div');
+        tip.className = 'tooltip';
+        tip.textContent = 'Wk' + e.week + ': ' + e.fatigue + '/10';
+        bar.appendChild(tip);
+        wrap.appendChild(bar);
+        if (bars) bars.appendChild(wrap);
+        var l = document.createElement('span');
+        l.textContent = 'W' + e.week;
+        if (lbls) lbls.appendChild(l);
+      }
+      var ins = document.getElementById('insight-text');
+      if (ins) {
+        if (n === 1) ins.textContent = 'Great start! Keep logging every Sunday to see your trend emerge.';
+        else if (diff < 0) ins.textContent = 'Your fatigue is trending downward. Whatever practices you are doing — keep doing them.';
+        else if (diff > 0) ins.textContent = 'Fatigue is trending up this week. Review your AI usage and whether you protected no-AI blocks.';
+        else ins.textContent = 'Stable week. Stable is good — your systems are holding.';
+      }
+      var patBox = document.getElementById('pattern-box');
+      var patText = document.getElementById('pattern-text');
+      if (patBox && patText) {
+        if (n >= 4) {
+          var recent = entries.slice(-4);
+          var aiUp = [], aiDown = [];
+          for (var j = 0; j < recent.length; j++) {
+            if (recent[j].aiUsage === 'more' || recent[j].aiUsage === 'much-more') aiUp.push(recent[j]);
+            if (recent[j].aiUsage === 'less' || recent[j].aiUsage === 'much-less') aiDown.push(recent[j]);
+          }
+          if (aiUp.length >= 2 && aiDown.length >= 1) {
+            var avgUp = (aiUp.reduce(function(a, b) { return a + b.fatigue; }, 0) / aiUp.length).toFixed(1);
+            var avgDown = (aiDown.reduce(function(a, b) { return a + b.fatigue; }, 0) / aiDown.length).toFixed(1);
+            if (parseFloat(avgUp) > parseFloat(avgDown) + 1) {
+              patText.textContent = 'Your data shows higher fatigue in high-AI-use weeks (' + avgUp + ') vs. low-AI-use weeks (' + avgDown + '). This is a meaningful signal worth investigating.';
+              patBox.style.display = 'block';
+            } else {
+              patBox.style.display = 'none';
+            }
+          } else {
+            patBox.style.display = 'none';
+          }
+        } else {
+          patBox.style.display = 'none';
+        }
+      }
+      var hist = document.getElementById('history-entries');
+      if (hist) {
+        hist.innerHTML = '';
+        var reversed = entries.slice().reverse();
+        for (var i = 0; i < reversed.length; i++) {
+          var e = reversed[i];
+          var d = document.createElement('div');
+          d.className = 'week-entry';
+          var dt = new Date(e.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+          var symptomsHtml = '';
+          if (e.symptoms && e.symptoms.length) {
+            var tags = [];
+            for (var j = 0; j < e.symptoms.length; j++) tags.push('<span class="practice-tag" style="background:rgba(248,81,73,.1);color:var(--red);border-color:rgba(248,81,73,.2)">' + (symMap[e.symptoms[j]] || e.symptoms[j]) + '</span>');
+            symptomsHtml = '<div class="practices">' + tags.join('') + '</div>';
+          }
+          var practicesHtml = '';
+          if (e.practices && e.practices.length) {
+            var tags = [];
+            for (var j = 0; j < e.practices.length; j++) tags.push('<span class="practice-tag">' + (pracMap[e.practices[j]] || e.practices[j]) + '</span>');
+            practicesHtml = '<div class="practices">' + tags.join('') + '</div>';
+          }
+          var notesHtml = e.notes ? '<div class="notes">"' + e.notes + '"</div>' : '';
+          d.innerHTML = '<div class="week-entry-header"><h4>Week ' + e.week + ' — ' + dt + '</h4><div class="meta"><span>' + (aiMap[e.aiUsage] || e.aiUsage) + '</span>' + (e.practices && e.practices.length ? '<span>' + e.practices.length + ' practice(s)</span>' : '') + '</div><div class="fatigue-score ' + scoreCls(e.fatigue) + '">' + e.fatigue + '</div></div>' + symptomsHtml + practicesHtml + notesHtml + '<button class="delete-btn" data-week="' + e.week + '">Delete</button>';
+          hist.appendChild(d);
+        }
+        var delBtns = hist.querySelectorAll('.delete-btn');
+        for (var i = 0; i < delBtns.length; i++) {
+          delBtns[i].addEventListener('click', function() { deleteEntry(parseInt(this.getAttribute('data-week'))); });
+        }
+      }
+    }
+    function handleTrackerNewsletter(e) {
+      e.preventDefault();
+      var email = document.getElementById('tracker-email').value.trim();
+      if (!email || email.indexOf('@') === -1) { alert('Please enter a valid email.'); return; }
+      window.location.href = 'mailto:hello@clearing-ai.com?subject=' + encodeURIComponent('I want The Dispatch') + '&body=' + encodeURIComponent('Hi,\n\nI would like to subscribe to The Dispatch.\n\nEmail: ' + email + '\n\nThanks.');
+      var succ = document.getElementById('newsletter-success-tracker');
+      var form = document.getElementById('newsletter-form-tracker');
+      if (succ) succ.classList.add('show');
+      if (form) form.style.display = 'none';
+    }
+    var trackerForm = document.getElementById('tracker-form');
+    if (trackerForm) trackerForm.addEventListener('submit', handleTrackerSubmit);
+    var nlForm = document.getElementById('newsletter-form-tracker');
+    if (nlForm) nlForm.addEventListener('submit', handleTrackerNewsletter);
+    renderTracker();
+  </script>
+</body>
+</html>

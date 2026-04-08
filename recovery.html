@@ -817,7 +817,10 @@
       font-family: var(--font-sans);
       font-size: 0.85rem;
       color: var(--stone);
-      display: none;
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+      transition: opacity 0.3s ease, height 0.3s ease;
     }
 
     [data-theme="dark"] .check-score {
@@ -826,6 +829,9 @@
 
     .check-score.visible {
       display: block;
+      opacity: 1;
+      height: auto;
+      overflow: visible;
     }
 
     .check-score strong {

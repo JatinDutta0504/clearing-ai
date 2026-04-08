@@ -20,6 +20,41 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "The Dispatch Newsletter Archive",
+    "url": "https://clearing-ai.com/newsletter-archive.html",
+    "description": "Full archive of every Dispatch newsletter issue. A weekly letter for software engineers navigating AI fatigue and burnout.",
+    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "datePublished": "2026-03-03",
+    "dateModified": "2026-04-08",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Newsletter", "item": "https://clearing-ai.com/newsletter.html" },
+        { "@type": "ListItem", "position": 3, "name": "Archive", "item": "https://clearing-ai.com/newsletter-archive.html" }
+      ]
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "name": "The Dispatch Newsletter Issues",
+      "numberOfItems": 7,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Issue #7 — April 5, 2026: The one skill AI is quietly destroying" },
+        { "@type": "ListItem", "position": 2, "name": "Issue #6 — April 4, 2026: The Sunday Night Reckoning" },
+        { "@type": "ListItem", "position": 3, "name": "Issue #5 — April 6, 2026: The one question that tells you everything" },
+        { "@type": "ListItem", "position": 4, "name": "Issue #4 — March 24, 2026: The one tactic that actually works" },
+        { "@type": "ListItem", "position": 5, "name": "Issue #3 — March 17, 2026: The Sunday scaries don't stop" },
+        { "@type": "ListItem", "position": 6, "name": "Issue #2 — March 10, 2026: What 2,000 engineers told us" },
+        { "@type": "ListItem", "position": 7, "name": "Issue #1 — March 3, 2026: Welcome to The Clearing" }
+      ]
+    }
+  }
+  </script>
+  <!-- Simpler WebPage schema as fallback -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "The Dispatch Newsletter Archive",
     "url": "https://clearing-ai.com/newsletter-archive.html",
@@ -77,7 +112,10 @@
     .archive-intro p { font-size: 0.95rem; color: var(--text2); line-height: 1.7; }
     .archive-intro p + p { margin-top: 12px; }
     .dispatch-card { margin-bottom: 56px; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--card-bg); }
-    .dispatch-header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 24px 28px; }
+.dispatch-header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 24px 28px; cursor: pointer; user-select: none; }
+    .dispatch-header:hover { background: var(--bg3); }
+    .dispatch-header .chevron { float: right; transition: transform 0.2s; font-size: 0.9rem; color: var(--text3); margin-top: 2px; }
+    .dispatch-header[aria-expanded="false"] .chevron { transform: rotate(-90deg); }
     .dispatch-number { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
     .dispatch-title { font-size: clamp(1.2rem, 3vw, 1.5rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 8px; line-height: 1.2; }
     .dispatch-meta { display: flex; align-items: center; gap: 20px; font-size: 0.8rem; color: var(--text3); flex-wrap: wrap; }
@@ -154,7 +192,7 @@
       </nav>
       <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
         <span id="theme-icon">☀️</span> <span id="theme-label">Light</span>
-      </button>
+      
     </div>
   </header>
 
@@ -182,10 +220,15 @@
 
     <div class="sub-bar" role="complementary" aria-label="Newsletter signup">
       <div class="sub-bar-text">
-        <p>Get every issue in your inbox →</p>
+        <p>7 issues published. Get every one in your inbox →</p>
         <span>Join engineers who read The Dispatch every Sunday morning. Free forever.</span>
       </div>
       <a href="newsletter.html">Subscribe Free →</a>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:24px;">
+      <p style="font-size:0.85rem;color:var(--text3);">Showing 7 issues — newest first</p>
+      <button onclick="expandAll()" style="background:var(--bg3);border:1px solid var(--border);color:var(--text2);padding:6px 14px;border-radius:6px;cursor:pointer;font-size:0.8rem;">Expand All
     </div>
 
     <section class="archive-intro" aria-label="About The Dispatch">
@@ -195,15 +238,113 @@
       <p>No hustle culture. No "rise and grind." Just honest reflection from engineers who are navigating the same thing you're navigating.</p>
     </section>
 
+
+    <!-- Issue #7 -->
+    <article class="dispatch-card" id="issue-7" aria-label="Dispatch #7">
+      <div class="dispatch-header" onclick="toggleDispatch('issue-7', this)" role="button" tabindex="0" aria-expanded="true" style="cursor:pointer">
+        <div class="dispatch-number">Issue #7 — April 5, 2026</div>
+        <h2 class="dispatch-title">The one skill AI is quietly destroying (and how to get it back)</h2>
+        <div class="dispatch-meta">
+          <span>📅 April 5, 2026</span>
+          <span>⏱ ~5 min read</span>
+          <span>👤 Sunny + The Clearing team</span>
+          <span class="chevron">▼</span>
+        </div>
+      </div>
+      <div class="dispatch-body" id="body-issue-7">
+        <p>Two weeks ago, a senior engineer told me something that stuck with me.</p>
+        <p><em>"I can build anything now. I ship more code than I ever have. But when something breaks at 2am — really breaks — I have no idea what&apos;s happening. I just prompt-storm until something sticks."</em></p>
+        <p>He has 12 years of experience. He is not alone.</p>
+        <p>This is what we&apos;re calling <strong>The Debugger&apos;s Drift</strong> — the slow erosion of the skill that separates engineers from code assemblers.</p>
+
+        <h3>The paradox nobody talks about</h3>
+        <p>AI makes you faster at <em>writing</em> code. It makes you slower at <em>understanding</em> it.</p>
+        <p>Every time AI handles a tricky bug, you learn that a tricky bug has a solution. But you don&apos;t learn <em>how</em> the solution was found. You learn the answer. You lose the diagnosis.</p>
+        <p>AI-generated code is <em>optimistically written</em>. It assumes the happy path. It doesn&apos;t know about the edge case your team discovered in production at 4pm on a Friday three months ago. So when something breaks, the AI&apos;s explanation is often plausible but incomplete.</p>
+        <p>And you can&apos;t tell the difference.</p>
+
+        <h3>Why this hurts seniors most</h3>
+        <p>There&apos;s a counterintuitive finding from cognitive science: the more expertise you have, the <em>more</em> you rely on context — years of patterns, failure modes, edge cases you&apos;ve seen. AI doesn&apos;t just speed up your work. It strips away the contextual scaffolding that your expertise rests on.</p>
+        <p>The result: senior engineers often feel the drift more acutely than juniors. You know something&apos;s off. You can&apos;t quite name it.</p>
+
+        <h3>The Explanation Requirement</h3>
+        <p>Before you accept any AI suggestion — explain it out loud. In your own words. As if you&apos;re teaching it to a colleague.</p>
+        <p><em>"I fixed the null pointer by adding a guard clause because..."</em></p>
+        <p><em>"I refactored this loop because when the list is empty it would..."</em></p>
+        <p>If you can&apos;t explain it in a complete sentence — you&apos;re not done debugging. The AI bought you a plausible answer, not understanding.</p>
+
+        <h3>The concrete test</h3>
+        <p>Next time something breaks and AI gives you a fix: before you apply it, ask yourself — <em>do I know why this fixes it?</em></p>
+        <p>If the answer is "it just does" — you&apos;re debugging with a blindfold on.</p>
+
+        <div class="dispatch-cta">
+          <p>This week&apos;s most-shared story: the engineer who realized he couldn&apos;t remember the last time he had debugged something for more than 10 minutes without reaching for AI. His solution: one hour per week, no AI assistance.</p>
+          <a href="debugger-drift.html" class="cta-btn">Read: The Debugger&apos;s Drift →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Issue #6 -->
+    <article class="dispatch-card" id="issue-6" aria-label="Dispatch #6">
+      <div class="dispatch-header" onclick="toggleDispatch('issue-6', this)" role="button" tabindex="0" aria-expanded="true" style="cursor:pointer">
+        <div class="dispatch-number">Issue #6 — April 4, 2026</div>
+        <h2 class="dispatch-title">The Sunday Night Reckoning</h2>
+        <div class="dispatch-meta">
+          <span>📅 April 4, 2026</span>
+          <span>⏱ ~5 min read</span>
+          <span>👤 Sunny + The Clearing team</span>
+          <span class="chevron">▼</span>
+        </div>
+      </div>
+      <div class="dispatch-body" id="body-issue-6">
+        <p>There&apos;s a specific kind of Sunday night that engineers know well.</p>
+        <p>It shows up around 9 PM. The week&apos;s work is done — technically. You shipped. You closed tickets. You responded to the review comments.</p>
+        <p>But something feels off.</p>
+        <p>You can&apos;t quite name it. You tell yourself it&apos;s the weekend ending. The Monday coming. The usual.</p>
+        <p>But it&apos;s not the weekend ending.</p>
+        <p>It&apos;s the specific feeling of having spent another week doing things you didn&apos;t fully understand. Solving problems you didn&apos;t actually solve. Shipping code you couldn&apos;t write from scratch.</p>
+        <p><strong>You&apos;re not tired. You&apos;re hollow.</strong></p>
+
+        <h3>What AI Fatigue Actually Feels Like</h3>
+        <p>Most content about AI fatigue focuses on productivity: "Are you using AI tools efficiently? Are you maintaining your skills?"</p>
+        <p>That&apos;s the wrong frame.</p>
+        <p>The real symptom is subtler. It shows up as:</p>
+        <ul>
+          <li><strong>Sunday dread that doesn&apos;t match the actual workload.</strong> The work was easy. The dread was real.</li>
+          <li><strong>Relief when code works without knowing why.</strong> "It compiled. Ship it." followed by a vague sense of fraud.</li>
+          <li><strong>Skills that used to be automatic.</strong> You used to know how to debug that. Now you prompt for it.</li>
+          <li><strong>A gap between what you shipped and what you built.</strong> The code is yours but the work was done by someone else.</li>
+        </ul>
+        <p>This isn&apos;t burnout. Burnout is from too much work. This is from the wrong kind of work — work that looks like productivity and feels like erasure.</p>
+
+        <h3>One Practice That Helps</h3>
+        <p>The engineers who recover fastest from AI fatigue share one habit:</p>
+        <p><strong>Weekly "I built this without AI" sessions.</strong></p>
+        <p>Once a week — same day, same time — they solve a real problem using only their own knowledge. No copilots. No ChatGPT. No code completion.</p>
+        <p>They don&apos;t do this to prove anything. They do it to remember what it feels like to actually build something.</p>
+        <p>The first session is usually uncomfortable. The second is a little easier. By the fourth, something starts to come back.</p>
+        <p>It&apos;s not about the skill. It&apos;s about the feeling. The feeling of "I made this."</p>
+
+        <h3>Quiz data update</h3>
+        <p>2,047 engineers have taken the AI Fatigue Quiz. Top finding: 67% of engineers with 4–8 years of experience reported authorship loss — the highest of any seniority bracket.</p>
+
+        <div class="dispatch-cta">
+          <p>If you took the quiz, your results page has a personalized recovery plan. If you haven&apos;t, it takes 3 minutes:</p>
+          <a href="index.html#quiz" class="cta-btn">Take the AI Fatigue Quiz →</a>
+        </div>
+      </div>
+    </article>
+
     <!-- Issue #5 -->
     <article class="dispatch-card" id="issue-5" aria-label="Dispatch #5">
-      <div class="dispatch-header">
+      <div class="dispatch-header" onclick="toggleDispatch('issue-5', this)" role="button" tabindex="0" aria-expanded="true" style="cursor:pointer">
         <div class="dispatch-number">Issue #5 — April 6, 2026</div>
         <h2 class="dispatch-title">The one question that tells you everything (answer honestly)</h2>
         <div class="dispatch-meta">
           <span>📅 April 6, 2026</span>
           <span>⏱ ~5 min read</span>
           <span>👤 Sunny + The Clearing team</span>
+          <span class="chevron">▼</span>
         </div>
       </div>
       <div class="dispatch-body">
@@ -250,13 +391,14 @@
 
     <!-- Issue #4 -->
     <article class="dispatch-card" id="issue-4" aria-label="Dispatch #4">
-      <div class="dispatch-header">
+      <div class="dispatch-header" onclick="toggleDispatch('issue-4', this)" role="button" tabindex="0" aria-expanded="true" style="cursor:pointer">
         <div class="dispatch-number">Issue #4 — March 24, 2026</div>
         <h2 class="dispatch-title">The one tactic that actually works (and nobody's doing it)</h2>
         <div class="dispatch-meta">
           <span>📅 March 24, 2026</span>
           <span>⏱ ~4 min read</span>
           <span>👤 Sunny + The Clearing team</span>
+          <span class="chevron">▼</span>
         </div>
       </div>
       <div class="dispatch-body">
@@ -293,13 +435,14 @@
 
     <!-- Issue #3 -->
     <article class="dispatch-card" id="issue-3" aria-label="Dispatch #3">
-      <div class="dispatch-header">
+      <div class="dispatch-header" onclick="toggleDispatch('issue-3', this)" role="button" tabindex="0" aria-expanded="true" style="cursor:pointer">
         <div class="dispatch-number">Issue #3 — March 17, 2026</div>
         <h2 class="dispatch-title">The Sunday scaries don't stop. Here's why.</h2>
         <div class="dispatch-meta">
           <span>📅 March 17, 2026</span>
           <span>⏱ ~5 min read</span>
           <span>👤 Sunny + The Clearing team</span>
+          <span class="chevron">▼</span>
         </div>
       </div>
       <div class="dispatch-body">
@@ -329,13 +472,14 @@
 
     <!-- Issue #2 -->
     <article class="dispatch-card" id="issue-2" aria-label="Dispatch #2">
-      <div class="dispatch-header">
+      <div class="dispatch-header" onclick="toggleDispatch('issue-2', this)" role="button" tabindex="0" aria-expanded="true" style="cursor:pointer">
         <div class="dispatch-number">Issue #2 — March 10, 2026</div>
         <h2 class="dispatch-title">What 2,000 engineers told us about AI fatigue</h2>
         <div class="dispatch-meta">
           <span>📅 March 10, 2026</span>
           <span>⏱ ~5 min read</span>
           <span>👤 Sunny + The Clearing team</span>
+          <span class="chevron">▼</span>
         </div>
       </div>
       <div class="dispatch-body">
@@ -370,13 +514,14 @@
 
     <!-- Issue #1 -->
     <article class="dispatch-card" id="issue-1" aria-label="Dispatch #1">
-      <div class="dispatch-header">
+      <div class="dispatch-header" onclick="toggleDispatch('issue-1', this)" role="button" tabindex="0" aria-expanded="true" style="cursor:pointer">
         <div class="dispatch-number">Issue #1 — March 3, 2026</div>
         <h2 class="dispatch-title">Welcome to The Clearing</h2>
         <div class="dispatch-meta">
           <span>📅 March 3, 2026</span>
           <span>⏱ ~4 min read</span>
           <span>👤 Sunny + The Clearing team</span>
+          <span class="chevron">▼</span>
         </div>
       </div>
       <div class="dispatch-body">
@@ -490,6 +635,23 @@
   </footer>
 
   <script>
+    // Dispatch expand/collapse
+    function toggleDispatch(id, btn) {
+      const body = document.getElementById('body-' + id);
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', !isExpanded);
+      body.style.display = isExpanded ? 'none' : 'block';
+    }
+    function expandAll() {
+      document.querySelectorAll('.dispatch-header').forEach(h => {
+        if (h.getAttribute('role') === 'button') {
+          h.setAttribute('aria-expanded', 'true');
+        }
+      });
+      document.querySelectorAll('.dispatch-body').forEach(body => {
+        body.style.display = 'block';
+      });
+    }
     // Theme toggle
     const toggle = document.getElementById('theme-toggle');
     const html = document.documentElement;

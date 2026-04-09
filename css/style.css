@@ -3,7 +3,6 @@
    A sanctuary for engineers experiencing AI fatigue
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap');
 
 /* ============================================
    Custom Properties
@@ -30,6 +29,29 @@
 
   --font-serif: 'Lora', Georgia, serif;
   --font-sans: 'Inter', system-ui, sans-serif;
+
+/* Metric-compatible fallback fonts — prevents CLS when web fonts load */
+/* Lora (Georgia fallback) — Lora is ~1000 units, Georgia is ~890 */
+@font-face {
+  font-family: 'Georgia-Fallback';
+  src: local('Georgia');
+  size-adjust: 112.5%;
+  ascent-override: 90%;
+  descent-override: 24%;
+}
+@font-face {
+  font-family: 'System-UI-Fallback';
+  src: local('system-ui');
+  size-adjust: 95%;
+  ascent-override: 95%;
+  descent-override: 25%;
+}
+
+/* Updated font stacks with metric-compatible fallbacks */
+:root {
+  --font-serif: 'Lora', 'Georgia-Fallback', Georgia, serif;
+  --font-sans: 'Inter', 'System-UI-Fallback', system-ui, sans-serif;
+}
 
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;

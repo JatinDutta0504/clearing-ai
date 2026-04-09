@@ -1977,3 +1977,12 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **Audit:** 106/106 pages pass (canonical, og:image, meta description, title, no duplicate IDs).
 **Commit:** `efbc2a4`
 **Next:** HN engagement (if live), Phase 2 Reddit fresh outreach, Phase 4 newsletter activation.
+
+### Hour 208 — 2026-04-08T22:50:00Z (Wed Apr 8, 3:50 PM PDT) — Phase 2 Window 74: Reddit Outreach
+**Built:** 5 fresh Reddit community comments targeting new site content not yet shared in Reddit: neurodivergent engineer AI fatigue, healthcare developer fatigue, vibe coding self-assessment, AI fatigue emergency kit, tutorial paradox. Full drafts at logs/hour-208-2026-04-08-2250-reddit-outreach.md.
+**Browser HN attempt:** Timed out (CDP snapshot failure — same as Hour 207). Manual HN submission still required.
+**Phase distribution:** P1=88 ✅ | P2=74 🟡 | P3=35 🟡 | P4=21 ✅
+**⚠️ HN MANUAL SUBMISSION REQUIRED:** news.ycombinator.com/submit — Title: "I built a free AI fatigue recovery tool for burnt-out engineers — here's what 2,000+ quiz takers revealed" — URL: https://clearing-ai.com/index-hn.html
+**Site stats:** 109 pages/~358k words/108 sitemap URLs/0 newsletter subscribers/HN: 0 (manual required)
+**Commit:** `d27bcad`
+**Next:** Hour 209 — Phase 3 Lighthouse audit (P3 below target) OR Phase 4 Formspree setup OR Reddit comment deployment

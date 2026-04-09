@@ -690,7 +690,7 @@
         <li><a href="newsletter.html">Newsletter</a></li>
       </ul>
       <div class="nav-spacer"></div>
-      <button id="theme-toggle" aria-label="Toggle dark/light mode" style="background:none;border:none;cursor:pointer;font-size:1.2rem;padding:4px 8px;border-radius:6px;" title="Toggle theme">🌙</button>
+      button type="button" id="theme-toggle" aria-label="Toggle dark/light mode" style="background:none;border:none;cursor:pointer;font-size:1.2rem;padding:4px 8px;border-radius:6px;" title="Toggle theme">🌙</button>
     </div>
   </nav>
 
@@ -846,7 +846,7 @@
       <section class="week-history" id="history-section" style="display:none" aria-labelledby="history-heading">
         <div class="section-header">
           <h2 id="history-heading">Your Logged Weeks</h2>
-          <button class="btn-secondary" onclick="exportTrackerData()" style="font-size:0.8rem;padding:6px 14px">Export JSON</button>
+          button type="button" class="btn-secondary" onclick="exportTrackerData()" style="font-size:0.8rem;padding:6px 14px">Export JSON</button>
         </div>
         <div id="history-entries"></div>
       </section>
@@ -1113,7 +1113,7 @@
             practicesHtml = '<div class="practices">' + tags.join('') + '</div>';
           }
           var notesHtml = e.notes ? '<div class="notes">"' + e.notes + '"</div>' : '';
-          d.innerHTML = '<div class="week-entry-header"><h4>Week ' + e.week + ' — ' + dt + '</h4><div class="meta"><span>' + (aiMap[e.aiUsage] || e.aiUsage) + '</span>' + (e.practices && e.practices.length ? '<span>' + e.practices.length + ' practice(s)</span>' : '') + '</div><div class="fatigue-score ' + scoreCls(e.fatigue) + '">' + e.fatigue + '</div></div>' + symptomsHtml + practicesHtml + notesHtml + '<button class="delete-btn" data-week="' + e.week + '">Delete</button>';
+          d.innerHTML = '<div class="week-entry-header"><h4>Week ' + e.week + ' — ' + dt + '</h4><div class="meta"><span>' + (aiMap[e.aiUsage] || e.aiUsage) + '</span>' + (e.practices && e.practices.length ? '<span>' + e.practices.length + ' practice(s)</span>' : '') + '</div><div class="fatigue-score ' + scoreCls(e.fatigue) + '">' + e.fatigue + '</div></div>' + symptomsHtml + practicesHtml + notesHtml + 'button type="button" class="delete-btn" data-week="' + e.week + '">Delete</button>';
           hist.appendChild(d);
         }
         var delBtns = hist.querySelectorAll('.delete-btn');

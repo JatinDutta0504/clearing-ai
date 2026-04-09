@@ -161,8 +161,8 @@
       <div id="quiz-area">
         <div class="question-card" id="question-card-0"></div>
         <div class="nav-buttons">
-          <button class="btn btn-ghost" id="prev-btn" disabled>← Back</button>
-          <button class="btn btn-primary" id="next-btn" disabled>Next →</button>
+          button type="button" class="btn btn-ghost" id="prev-btn" disabled>← Back</button>
+          button type="button" class="btn btn-primary" id="next-btn" disabled>Next →</button>
         </div>
       </div>
       <div class="results-panel" id="results-panel">
@@ -181,7 +181,7 @@
           <a href="vibe-coding-ai-fatigue.html" class="btn btn-ghost">← Read: Vibe Coding & AI Fatigue</a>
           <a href="index.html" class="btn btn-primary">Take the Full AI Fatigue Quiz →</a>
         </div>
-        <button class="reset-btn" id="reset-btn">Retake the assessment</button>
+        button type="button" class="reset-btn" id="reset-btn">Retake the assessment</button>
       </div>
     </div>
   </main>
@@ -317,7 +317,7 @@
       card.innerHTML = '<div class="question-label">Question ' + (currentQuestion + 1) + ' of ' + questions.length + '</div>' +
         '<div class="question-text">' + q.text + '</div>' +
         '<div class="option-list">' +
-        q.options.map(opt => '<button class="option-btn ' + (answers[q.id] === opt.score ? 'selected' : '') + '" data-score="' + opt.score + '" data-q="' + q.id + '"><span class="opt-letter">' + opt.letter + '</span><span>' + opt.text + '</span></button>').join('') +
+        q.options.map(opt => 'button type="button" class="option-btn ' + (answers[q.id] === opt.score ? 'selected' : '') + '" data-score="' + opt.score + '" data-q="' + q.id + '"><span class="opt-letter">' + opt.letter + '</span><span>' + opt.text + '</span></button>').join('') +
         '</div>';
 
       card.querySelectorAll('.option-btn').forEach(function(btn) {

@@ -2007,3 +2007,16 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **Next window:** Phase 2 follow-up — deploy Twitter threads + HN results tracking + newsletter follow-ups
 
 **Commit:** `7cb04fc`
+
+### Hour 215 — 2026-04-09T18:51:00Z (Phase 1 Window 91)
+**Built:** `ai-learning-burnout.html` (~3,800 words) — "AI Learning Burnout: Why Constant Upskilling Is Exhausting Engineers"
+**Pillar:** 3 (AI Tool Overwhelm — underserved, high-intent keyword)
+**Content:** 9 sections — tutorial loop + comprehension illusion, 6-card why-AI-exhausts grid (verification burden, speed mismatch, shortcut pathway, ambient knowledge myth, half-life problem), learning stack problem (3 cognitive jobs), 7-sign interactive checklist (JS scoring), tutorial paradox (Kalyuga expertise reversal, one-more-tutorial trap), 7 evidence-based strategies (retrieval practice, Explanation Requirement, no-AI blocks, spaced repetition, intentional difficulty), team/managers section, FAQ accordion (6 Q&As), explore grid (6 cards)
+**Schema:** Article + FAQPage (6 Q&As) + BreadcrumbList
+**Keywords:** "AI learning burnout", "developer upskilling exhaustion", "tutorial hell AI", "learning with AI tools", "keeping up with AI exhausted"
+**Internal links:** recovery.html, skill-atrophy.html, tutorial-paradox.html, ai-productivity-paradox.html, ai-detox-plan.html, cognitive-load.html, mindset.html, compare.html
+**Sitemap:** ai-learning-burnout.html lastmod updated to 2026-04-09
+**Commit:** `be6d8d7`
+**Phase windows:** P1=91, P2=76, P3=37, P4=22
+**Next:** Hour 216 — Phase 3 Core Web Vitals deep-dive (top 10 pages) OR Phase 2 HN prep completion
+**⚠️ HN ACTION REQUIRED Thu Apr 10 9AM PDT:** Manual submission to news.ycombinator.com

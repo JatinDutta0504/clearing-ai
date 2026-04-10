@@ -67,8 +67,9 @@
     }
     </script>
 
-  <!-- Preload critical resources -->
-  <link rel="preload" href="css/style.min.css" as="style" />
+  <!-- Non-render-blocking CSS (LCP-optimized) -->
+  <link rel="stylesheet" href="css/style.min.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="css/style.min.css"></noscript>
   <!-- Non-render-blocking Google Fonts (LCP fix) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

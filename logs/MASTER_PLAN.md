@@ -2028,3 +2028,15 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **Site stats:** 114 pages / ~380k words / Core Web Vitals all green / Sitemap 112 URLs
 **HN reminder:** Fri Apr 10, 9 AM PDT — Sunny must submit manually at news.ycombinator.com
 **Next:** Hour 221 — HN thread engagement (if live) OR Phase 4 newsletter setup (Formspree blocker)
+
+---
+
+### Hour 224 — 2026-04-10 03:58 PDT (Phase 3 Window 38)
+**Built:** Critical CSS path and font loading fixes across 9 pages (Phase 3 Technical SEO sprint)
+**Discovery:** 9 pages had wrong CSS path (`style.css` instead of `css/style.css`) — these pages were unstyled/partially styled in production. Also found: ai-fatigue.html had malformed head structure (Google Fonts after inline style block), decision-fatigue-ai.html had broken HTML (Google Fonts link missing closing `>`).
+**Fixes:** ai-fatigue.html (head restructure), decision-fatigue-ai.html (broken HTML), ai-fatigue-emergency-kit.html, ai-learning-burnout.html, engineer-survey-results.html, privacy.html, tutorial-paradox.html, vibe-coding-self-assessment.html, vibe-coding-vs-traditional.html
+**Site-wide audit:** 113/113 pages verified: css/style.css path correct + preconnect hints present + Google Fonts non-render-blocking
+**SEO impact:** 10-20% LCP improvement expected on 9 fixed pages. Major pre-HN technical cleanup.
+**Commit:** `f43f4c9` | Phase windows: P1=91 | P2=79 | P3=38 | P4=23
+**⚠️ HN TODAY 9AM PDT:** Sunny must submit at news.ycombinator.com/submit
+**Next:** Hour 225 — Phase 2/4 execution after HN traffic

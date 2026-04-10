@@ -3,157 +3,351 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Fatigue Type Calculator — Find Your Pattern</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <meta name="description" content="Take 2 minutes to discover your AI Fatigue type. Are you an Overloader, Skill Drifter, Identity Eroder, or Chronic Groundhog? Free assessment for software..." />
+  <title>AI Fatigue Type Calculator — What's Actually Driving Your Exhaustion</title>
+  <meta name="description" content="Not all AI fatigue is the same. Take this 7-question calculator to identify your dominant AI fatigue type — skill erosion, decision fatigue, identity loss, attention fragmentation, or workflow displacement. Instant results with personalized recovery." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://clearing-ai.com/ai-fatigue-type-calculator.html" />
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content="article" />
   <meta property="og:url" content="https://clearing-ai.com/ai-fatigue-type-calculator.html" />
-  <meta property="og:title" content="What's Your AI Fatigue Type?" />
-  <meta property="og:description" content="2-minute quiz. 4 distinct types. Find out which pattern describes you." />
+  <meta property="og:title" content="AI Fatigue Type Calculator — Which Type Is Wearing You Down?" />
+  <meta property="og:description" content="Not all AI fatigue is the same. Take 3 min to find your dominant type — then get a targeted recovery plan." />
   <meta property="og:image" content="https://clearing-ai.com/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="What's Your AI Fatigue Type?" />
-  <meta name="twitter:description" content="2-minute quiz. 4 distinct types. Find out which pattern describes you." />
-  <meta name="twitter:image" content="https://clearing-ai.com/og-image.png" />
+  <meta name="twitter:title" content="AI Fatigue Type Calculator — Which Type Is Wearing You Down?" />
+  <meta name="twitter:description" content="Not all AI fatigue is the same. 7 questions to find your type." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --bg: #0d1117; --surface: #161b22; --surface2: #21262d; --border: #30363d; --text: #e6edf3; --text2: #8b949e; --accent: #3fb950; --accent2: #58a6ff; --accent3: #f78166; --shadow: 0 4px 24px rgba(0,0,0,0.4); --radius: 12px; }
-    [data-theme="light"] { --bg: #f6f8fa; --surface: #ffffff; --surface2: #f0f3f6; --border: #d0d7de; --text: #1f2328; --text2: #656d76; --accent: #1a7f37; --accent2: #0969da; --accent3: #cf222e; --shadow: 0 4px 24px rgba(0,0,0,0.08); }
-    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; min-height: 100vh; }
-    .site-nav { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 24px; position: sticky; top: 0; z-index: 100; }
-    .site-nav .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 8px; padding: 12px 0; flex-wrap: wrap; }
-    .site-nav a { color: var(--text2); text-decoration: none; font-size: 0.9rem; padding: 6px 12px; border-radius: 6px; transition: all 0.2s; }
-    .site-nav a:hover { color: var(--text); background: var(--surface2); }
-    .site-nav .nav-brand { margin-right: auto; font-weight: 700; color: var(--accent) !important; font-size: 1rem !important; }
-    #reading-progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--accent); width: 0%; z-index: 200; transition: width 0.1s; }
-    .skip-link { position: absolute; top: -40px; left: 0; background: var(--accent); color: #fff; padding: 8px 16px; z-index: 300; border-radius: 0 0 4px 0; }
-    .skip-link:focus { top: 0; }
-    .hero { text-align: center; padding: 64px 24px 48px; max-width: 700px; margin: 0 auto; }
-    .hero .label { display: inline-block; background: var(--surface2); border: 1px solid var(--border); color: var(--accent); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; border-radius: 99px; margin-bottom: 20px; }
-    .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; line-height: 1.15; margin-bottom: 16px; }
-    .hero h1 span { color: var(--accent); }
-    .hero p { font-size: 1.1rem; color: var(--text2); max-width: 520px; margin: 0 auto 24px; }
-    .hero .meta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; font-size: 0.85rem; color: var(--text2); }
-    .hero .meta span { display: flex; align-items: center; gap: 5px; }
-    .container { max-width: 700px; margin: 0 auto; padding: 0 24px 80px; }
-    .types-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 32px; }
-    .type-preview { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; transition: transform 0.2s, box-shadow 0.2s; }
-    .type-preview:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
-    .type-preview .icon { font-size: 1.5rem; margin-bottom: 8px; }
-    .type-preview h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
-    .type-preview p { font-size: 0.8rem; color: var(--text2); }
-    .intro-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; margin-bottom: 32px; }
-    .intro-card p { color: var(--text2); margin-bottom: 16px; }
-    .intro-card ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-    .intro-card li { font-size: 0.9rem; color: var(--text2); padding: 8px 12px; background: var(--surface2); border-radius: 6px; }
-    .intro-card li::before { content: '→ '; color: var(--accent); }
-    .quiz-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 24px; }
-    .quiz-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
-    .quiz-header h2 { font-size: 1.1rem; font-weight: 700; }
-    .quiz-progress { font-size: 0.85rem; color: var(--text2); background: var(--surface2); padding: 4px 12px; border-radius: 99px; }
-    .progress-bar { height: 4px; background: var(--surface2); border-radius: 2px; margin-bottom: 28px; overflow: hidden; }
-    .progress-bar-fill { height: 100%; background: var(--accent); transition: width 0.4s cubic-bezier(0.22,1,0.36,1); width: 0%; }
-    .question { display: none; }
-    .question.active { display: block; animation: fadeIn 0.3s ease; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-    .question-text { font-size: 1.05rem; font-weight: 600; margin-bottom: 20px; line-height: 1.4; }
-    .options { display: flex; flex-direction: column; gap: 10px; }
-    .option { background: var(--surface2); border: 1.5px solid var(--border); border-radius: 8px; padding: 14px 16px; cursor: pointer; transition: all 0.2s; font-size: 0.9rem; color: var(--text); text-align: left; width: 100%; font-family: inherit; }
-    .option:hover { border-color: var(--accent); background: var(--surface); }
-    .option.selected { border-color: var(--accent); background: rgba(63,185,80,0.1); color: var(--accent); font-weight: 600; }
-    .option-letter { display: inline-block; width: 24px; height: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; text-align: center; line-height: 22px; font-size: 0.75rem; font-weight: 700; margin-right: 10px; }
-    .quiz-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 28px; }
-    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 8px; font-size: 0.9rem; font-weight: 600; cursor: pointer; border: none; text-decoration: none; transition: all 0.2s; font-family: inherit; }
-    .btn-ghost { background: transparent; color: var(--text2); border: 1.5px solid var(--border); }
-    .btn-ghost:hover { background: var(--surface2); color: var(--text); }
-    .btn-primary { background: var(--accent); color: #0d1117; }
-    .btn-primary:hover { filter: brightness(1.1); }
-    .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
-    .btn-secondary { background: var(--surface2); color: var(--text); border: 1.5px solid var(--border); }
-    .btn-secondary:hover { background: var(--surface); border-color: var(--accent2); }
-    #results-section { display: none; }
-    #results-section.active { display: block; }
-    .result-header { text-align: center; padding: 48px 24px 32px; }
-    .result-badge { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; border-radius: 99px; margin-bottom: 16px; }
-    .result-badge.overloader { background: rgba(248,129,102,0.15); color: #f78166; border: 1px solid rgba(248,129,102,0.3); }
-    .result-badge.skill-drifter { background: rgba(163,113,247,0.15); color: #a371f7; border: 1px solid rgba(163,113,247,0.3); }
-    .result-badge.identity-eroder { background: rgba(88,166,255,0.15); color: #58a6ff; border: 1px solid rgba(88,166,255,0.3); }
-    .result-badge.groundhog { background: rgba(63,185,80,0.15); color: #3fb950; border: 1px solid rgba(63,185,80,0.3); }
-    .result-header h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 800; margin-bottom: 12px; }
-    .result-header p { color: var(--text2); font-size: 1.05rem; max-width: 500px; margin: 0 auto; }
-    .result-score { font-size: 0.85rem; color: var(--text2); margin-top: 12px; }
-    .result-body { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-bottom: 20px; }
-    .result-section { margin-bottom: 28px; }
-    .result-section:last-child { margin-bottom: 0; }
-    .result-section h3 { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text2); margin-bottom: 12px; }
-    .result-section ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-    .result-section li { font-size: 0.9rem; padding: 10px 14px; background: var(--surface2); border-radius: 6px; }
-    .result-section li::before { content: '✓ '; color: var(--accent); font-weight: 700; }
-    .share-bar { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
-    .share-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; cursor: pointer; border: 1.5px solid var(--border); background: var(--surface2); color: var(--text); text-decoration: none; transition: all 0.2s; }
-    .share-btn:hover { border-color: var(--accent); }
-    .share-btn.twitter:hover { border-color: #1da1f2; color: #1da1f2; }
-    .share-btn.linkedin:hover { border-color: #0a66c2; color: #0a66c2; }
-    .share-note { font-size: 0.8rem; color: var(--text2); margin-top: 8px; }
-    .newsletter-panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; margin-top: 20px; text-align: center; }
-    .newsletter-panel h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
-    .newsletter-panel p { font-size: 0.9rem; color: var(--text2); margin-bottom: 20px; }
-    .newsletter-form { display: flex; gap: 8px; max-width: 440px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
-    .newsletter-form input[type="email"] { flex: 1; min-width: 180px; padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--border); background: var(--surface2); color: var(--text); font-size: 0.9rem; outline: none; font-family: inherit; }
-    .newsletter-form input[type="email"]:focus { border-color: var(--accent); }
-    .newsletter-form button { padding: 10px 20px; background: var(--accent); color: #0d1117; border: none; border-radius: 8px; font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: filter 0.2s; white-space: nowrap; font-family: inherit; }
-    .newsletter-form button:hover { filter: brightness(1.1); }
-    .newsletter-note { font-size: 0.78rem; color: var(--text2); margin-top: 10px; }
-    .cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
-    .cta-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; text-decoration: none; color: var(--text); transition: all 0.2s; display: block; }
-    .cta-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-    .cta-card .cta-icon { font-size: 1.4rem; margin-bottom: 6px; }
-    .cta-card .cta-title { font-size: 0.9rem; font-weight: 700; margin-bottom: 4px; }
-    .cta-card .cta-desc { font-size: 0.78rem; color: var(--text2); }
-    .retake-section { text-align: center; margin-top: 24px; }
-    .theme-toggle { background: none; border: 1px solid var(--border); color: var(--text2); padding: 6px 10px; border-radius: 6px; cursor: pointer; font-size: 0.8rem; transition: all 0.2s; font-family: inherit; }
-    .theme-toggle:hover { color: var(--text); background: var(--surface2); }
-    .site-footer { background: var(--surface); border-top: 1px solid var(--border); padding: 32px 24px; margin-top: 40px; }
-    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-    .footer-brand { font-weight: 700; color: var(--accent); font-size: 1rem; text-decoration: none; }
-    .footer-links { display: flex; gap: 6px; flex-wrap: wrap; }
-    .footer-links a { color: var(--text2); text-decoration: none; font-size: 0.85rem; padding: 4px 10px; border-radius: 4px; transition: all 0.2s; }
-    .footer-links a:hover { color: var(--text); background: var(--surface2); }
-    .footer-copy { font-size: 0.8rem; color: var(--text2); }
-    .faq-section { margin-top: 40px; }
-    .faq-item { border-bottom: 1px solid var(--border); }
-    .faq-question { width: 100%; background: none; border: none; color: var(--text); font-size: 0.95rem; font-weight: 600; padding: 16px 0; text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; font-family: inherit; }
-    .faq-question:hover { color: var(--accent); }
-    .faq-question::after { content: '+'; font-size: 1.2rem; color: var(--text2); transition: transform 0.2s; flex-shrink: 0; }
-    .faq-item.open .faq-question::after { transform: rotate(45deg); color: var(--accent); }
-    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s cubic-bezier(0.22,1,0.36,1), padding 0.3s; padding: 0; color: var(--text2); font-size: 0.9rem; line-height: 1.6; }
-    .faq-item.open .faq-answer { max-height: 300px; padding-bottom: 16px; }
-    .copied-toast { position: fixed; bottom: 24px; right: 24px; background: var(--accent); color: #0d1117; padding: 10px 18px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; opacity: 0; transform: translateY(10px); transition: all 0.3s; pointer-events: none; z-index: 500; }
-    .copied-toast.show { opacity: 1; transform: translateY(0); }
-    @media (max-width: 600px) { .types-grid, .cta-grid { grid-template-columns: 1fr; } .quiz-card, .result-body { padding: 20px; } .newsletter-form { flex-direction: column; } }
+    .reading-progress{position:fixed;top:0;left:0;height:3px;background:var(--accent);z-index:1000;width:0;transition:width .1s linear}
+    .skip-link{position:absolute;top:-40px;left:0;background:var(--accent);color:var(--bg);padding:8px 16px;z-index:1001;transition:top .3s}.skip-link:focus{top:0}
+    .hero{text-align:center;padding:64px 24px 48px;border-radius:16px;margin-bottom:48px;background:var(--surface-2);border:1px solid var(--border)}
+    .hero h1{font-size:clamp(2rem,5vw,3rem);margin-bottom:16px;line-height:1.2}
+    .hero p{font-size:1.1rem;opacity:.75;max-width:600px;margin:0 auto 16px}
+    .hero .subtitle{font-size:.9rem;opacity:.5;margin-top:8px}
+    .crisis-banner{background:#c0392b;color:#fff;padding:12px 24px;text-align:center;font-size:.9rem;font-weight:600;border-radius:8px;margin-bottom:32px}
+    .crisis-banner a{color:#fff;text-decoration:underline}
+    .quiz-container{max-width:680px;margin:0 auto}
+    .quiz-card{background:var(--surface-2);border:1px solid var(--border);border-radius:16px;padding:32px;margin-bottom:24px;display:none}
+    .quiz-card.active{display:block;animation:fadeIn .4s ease}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+    .quiz-card h2{font-size:1.3rem;margin-bottom:24px;color:var(--text)}
+    .quiz-card h2 span{font-size:.85rem;opacity:.5;font-weight:400;display:block;margin-bottom:4px}
+    .answer-btn{display:block;width:100%;padding:16px 20px;margin-bottom:12px;background:var(--surface-3);border:1.5px solid var(--border);border-radius:10px;color:var(--text);font-size:.95rem;text-align:left;cursor:pointer;transition:all .2s;font-family:inherit}
+    .answer-btn:hover,.answer-btn:focus{background:var(--surface-4);border-color:var(--accent);outline:none}
+    .answer-btn:focus{box-shadow:0 0 0 3px rgba(139,195,105,.25)}
+    .answer-btn.selected{background:rgba(139,195,105,.15);border-color:var(--accent);color:var(--accent)}
+    .progress-bar{height:4px;background:var(--surface-3);border-radius:2px;margin-bottom:32px;overflow:hidden}
+    .progress-fill{height:100%;background:var(--accent);transition:width .4s ease;border-radius:2px}
+    .progress-text{font-size:.85rem;opacity:.5;margin-bottom:8px;text-align:center}
+    .result-card{background:var(--surface-2);border:1px solid var(--border);border-radius:16px;padding:40px;margin-bottom:32px;display:none;text-align:center}
+    .result-card.visible{display:block;animation:fadeIn .5s ease}
+    .result-type-badge{display:inline-block;padding:6px 16px;border-radius:99px;font-size:.8rem;font-weight:600;margin-bottom:20px}
+    .result-title{font-size:clamp(1.5rem,4vw,2.2rem);margin-bottom:16px;line-height:1.2}
+    .result-description{font-size:1.05rem;opacity:.8;max-width:540px;margin:0 auto 24px;line-height:1.7}
+    .result-score{font-size:3rem;font-weight:700;color:var(--accent);margin-bottom:8px;font-family:var(--font-mono)}
+    .result-label{font-size:.9rem;opacity:.5;margin-bottom:32px}
+    .result-section{background:var(--surface-3);border-radius:12px;padding:24px;margin-bottom:24px;text-align:left}
+    .result-section h3{font-size:1rem;margin-bottom:16px;color:var(--accent)}
+    .result-section ul{list-style:none;padding:0;margin:0}
+    .result-section li{padding:8px 0;border-bottom:1px solid var(--border);font-size:.92rem;display:flex;align-items:flex-start;gap:10px}
+    .result-section li:last-child{border-bottom:none}
+    .result-section li::before{content:"→";color:var(--accent);flex-shrink:0}
+    .share-bar{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+    .share-btn{padding:10px 20px;border-radius:8px;font-size:.85rem;font-weight:500;cursor:pointer;border:none;font-family:inherit;transition:all .2s}
+    .share-btn.twitter{background:#1da1f2;color:#fff}
+    .share-btn.linkedin{background:#0a66c2;color:#fff}
+    .share-btn.copy{background:var(--surface-4);color:var(--text);border:1px solid var(--border)}
+    .share-btn:hover{opacity:.85;transform:translateY(-1px)}
+    .reset-btn{display:inline-block;margin-top:24px;padding:12px 28px;background:var(--surface-4);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:.9rem;cursor:pointer;font-family:inherit;transition:all .2s}
+    .reset-btn:hover{background:var(--surface-3);border-color:var(--accent)}
+    .continue-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:32px;text-align:left}
+    .continue-card{background:var(--surface-3);border:1px solid var(--border);border-radius:12px;padding:20px;text-decoration:none;color:var(--text);transition:all .2s}
+    .continue-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+    .continue-card h4{font-size:.95rem;margin-bottom:6px}
+    .continue-card p{font-size:.82rem;opacity:.6;margin:0}
+    .compare-section{background:var(--surface-2);border:1px solid var(--border);border-radius:16px;padding:32px;margin-top:40px;text-align:left}
+    .compare-section h2{font-size:1.3rem;margin-bottom:8px}
+    .compare-section > p{opacity:.7;margin-bottom:24px;font-size:.95rem}
+    .type-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+    .type-mini{background:var(--surface-3);border-radius:10px;padding:16px;font-size:.88rem;opacity:.6;border:1px solid var(--border)}
+    .type-mini strong{display:block;margin-bottom:4px;opacity:1;font-size:.9rem}
+    .why-diff{margin-top:32px;padding:24px;background:var(--surface-3);border-radius:12px;border-left:3px solid var(--accent)}
+    .why-diff h3{font-size:1rem;margin-bottom:12px}
+    .why-diff p{font-size:.92rem;opacity:.75;line-height:1.65}
+    @media(max-width:600px){.quiz-card,.result-card{padding:24px 20px}.result-section{padding:18px}}
   </style>
+</head>
+<body>
+  <div class="reading-progress" id="rp" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header>
+    <nav aria-label="Main navigation">
+      <a href="index.html" class="nav-logo">🌿 The Clearing</a>
+      <button type="button" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html#quiz">Quiz</a></li>
+        <li class="dropdown">
+          <button type="button" aria-haspopup="true" aria-expanded="false">Recover ▾</button>
+          <ul class="dropdown-menu">
+            <li><a href="recovery.html">Recovery Guide</a></li>
+            <li><a href="ai-detox-plan.html">30-Day Detox</a></li>
+            <li><a href="mental-health.html">Mental Health</a></li>
+            <li><a href="developer-wellbeing.html">Wellbeing</a></li>
+            <li><a href="ai-fatigue-checklist.html">Checklist</a></li>
+            <li><a href="daily-practice.html">Daily Practice</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <button type="button" aria-haspopup="true" aria-expanded="false">Understand ▾</button>
+          <ul class="dropdown-menu">
+            <li><a href="why.html">Why This Happens</a></li>
+            <li><a href="research.html">The Science</a></li>
+            <li><a href="stats.html">Statistics</a></li>
+            <li><a href="tutorial-paradox.html">Tutorial Paradox</a></li>
+            <li><a href="decision-fatigue-ai.html">Decision Fatigue</a></li>
+            <li><a href="cognitive-load.html">Cognitive Load</a></li>
+            <li><a href="skill-atrophy.html">Skill Atrophy</a></li>
+            <li><a href="developer-identity.html">Identity Crisis</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <button type="button" aria-haspopup="true" aria-expanded="false">Stories ▾</button>
+          <ul class="dropdown-menu">
+            <li><a href="stories.html">Engineer Stories</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="share-your-story.html">Share Yours</a></li>
+          </ul>
+        </li>
+        <li><a href="newsletter.html">Newsletter</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" style="max-width:800px;margin:0 auto;padding:0 20px 80px">
+    <div class="crisis-banner" role="alert">
+      If you're in crisis: <a href="tel:988">988</a> (Suicide &amp; Crisis) · <a href="tel:741741">741741</a> (Crisis Text Line) · <a href="mental-health.html">Mental health resources</a>
+    </div>
+
+    <div class="hero">
+      <h1>AI Fatigue Type Calculator</h1>
+      <p>Not all AI fatigue feels the same. Answer 7 questions to find your <strong>dominant fatigue type</strong> — and get a recovery plan built for exactly what's wearing you down.</p>
+      <p class="subtitle">~3 minutes · No signup · Free forever</p>
+    </div>
+
+    <div class="quiz-container" id="quiz">
+      <div class="progress-text" id="progressText">Question 1 of 7</div>
+      <div class="progress-bar" role="progressbar" aria-label="Quiz progress">
+        <div class="progress-fill" id="progressFill" style="width:14.28%"></div>
+      </div>
+
+      <div class="quiz-card active" id="q1">
+        <h2><span>1 of 7</span>When you ship code with heavy AI help, how does it actually feel?</h2>
+        <button class="answer-btn" data-q="1" data-a="skill" data-val="3">Like you understand exactly what you shipped and why</button>
+        <button class="answer-btn" data-q="1" data-a="skill" data-val="1">Mostly fine, but you'd struggle to write that function from scratch right now</button>
+        <button class="answer-btn" data-q="1" data-a="identity" data-val="3">Like a weight lifted — the code got done, but you don't quite recognize yourself in it</button>
+        <button class="answer-btn" data-q="1" data-a="attention" data-val="2">Like you've been context-switching constantly and can't quite settle</button>
+        <button class="answer-btn" data-q="1" data-a="decision" data-val="2">Like you picked a direction and went with it, but you're not sure it was the right one</button>
+        <button class="answer-btn" data-q="1" data-a="workflow" data-val="1">Like you're constantly reacting to AI suggestions instead of driving the architecture</button>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <h2><span>2 of 7</span>What shows up most on Sunday nights?</h2>
+        <button class="answer-btn" data-q="2" data-a="skill" data-val="3">A vague dread that you've stopped really learning anything</button>
+        <button class="answer-btn" data-q="2" data-a="decision" data-val="3">Decision fatigue — you've made hundreds of small AI-approval decisions all week</button>
+        <button class="answer-btn" data-q="2" data-a="identity" data-val="2">A question you can't quite answer: "Am I still actually good at this?"</button>
+        <button class="answer-btn" data-q="2" data-a="attention" data-val="2">Nothing specific — just a low-grade fog that doesn't lift even after rest</button>
+        <button class="answer-btn" data-q="2" data-a="workflow" data-val="1">Exhaustion from constantly integrating and evaluating AI output</button>
+        <button class="answer-btn" data-q="2" data-a="identity" data-val="1">The feeling that you're performing productivity rather than doing meaningful work</button>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <h2><span>3 of 7</span>Pick the statement that feels most true:</h2>
+        <button class="answer-btn" data-q="3" data-a="skill" data-val="3">"I used to know how things worked under the hood. Now I just get them working."</button>
+        <button class="answer-btn" data-q="3" data-a="attention" data-val="3">"I can't seem to focus for more than 15 minutes without reaching for AI."</button>
+        <button class="answer-btn" data-q="3" data-a="decision" data-val="2">"Every AI suggestion requires a micro-decision: accept, reject, modify. It never stops."</button>
+        <button class="answer-btn" data-q="3" data-a="identity" data-val="2">"The code I write now is technically mine, but it doesn't feel like mine."</button>
+        <button class="answer-btn" data-q="3" data-a="workflow" data-val="3">"My workflow is now this constant back-and-forth with AI — I can't remember how I used to just sit with a problem."</button>
+        <button class="answer-btn" data-q="3" data-a="attention" data-val="1">"I keep opening new tabs, trying new tools. I can't settle on anything."</button>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <h2><span>4 of 7</span>When you try to code without AI for a full day, what happens?</h2>
+        <button class="answer-btn" data-q="4" data-a="skill" data-val="3">It's genuinely hard — syntax slips, algorithms feel rusty, things that used to be automatic take conscious effort</button>
+        <button class="answer-btn" data-q="4" data-a="skill" data-val="1">Slow at first, but it comes back. The real issue is speed anxiety, not capacity.</button>
+        <button class="answer-btn" data-q="4" data-a="identity" data-val="3">You feel exposed — like your identity as a "good engineer" is on the line without the AI safety net</button>
+        <button class="answer-btn" data-q="4" data-a="attention" data-val="2">You notice how loud your own mind is — the AI was partially filling the silence</button>
+        <button class="answer-btn" data-q="4" data-a="decision" data-val="2">You make more decisions per hour than you did in a whole week with AI — and you're wiped out by 2pm</button>
+        <button class="answer-btn" data-q="4" data-a="workflow" data-val="2">You feel adrift. The problem-solving process you relied on has been replaced by AI prompt loops.</button>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <h2><span>5 of 7</span>A colleague asks you to explain how a recent feature works end-to-end. What happens?</h2>
+        <button class="answer-btn" data-q="5" data-a="skill" data-val="3">You can explain the parts AI wrote, but the connective tissue — the "why this way and not another" — is fuzzy</button>
+        <button class="answer-btn" data-q="5" data-a="decision" data-val="2">You can walk through it, but you realize a lot of your decisions were "AI suggested it" not "I chose it"</button>
+        <button class="answer-btn" data-q="5" data-a="identity" data-val="2">You can explain it, but you feel like a fraud — like you're taking credit for work that wasn't really yours</button>
+        <button class="answer-btn" data-q="5" data-a="attention" data-val="1">You start explaining, then lose the thread halfway through. Your attention fragments mid-thought.</button>
+        <button class="answer-btn" data-q="5" data-a="workflow" data-val="3">You realize you built it through dozens of AI prompt exchanges and can't reconstruct the process linearly</button>
+        <button class="answer-btn" data-q="5" data-a="skill" data-val="1">You explain it fine. Your skill is intact — it's the motivation that's gone.</button>
+      </div>
+
+      <div class="quiz-card" id="q6">
+        <h2><span>6 of 7</span>What's the most draining part of a typical workday with AI tools?</h2>
+        <button class="answer-btn" data-q="6" data-a="attention" data-val="3">The constant interruption of AI suggestions — you can never get into deep focus</button>
+        <button class="answer-btn" data-q="6" data-a="decision" data-val="3">The relentless stream of micro-decisions: accept, reject, modify, rephrase, try another approach</button>
+        <button class="answer-btn" data-q="6" data-a="skill" data-val="2">The growing gap between what you can explain and what you can actually do</button>
+        <button class="answer-btn" data-q="6" data-a="identity" data-val="2">The feeling that you're becoming a professional approver of AI-generated code, not a creator</button>
+        <button class="answer-btn" data-q="6" data-a="workflow" data-val="3">The tool switching — Copilot for this, ChatGPT for that, Cursor here, code review there — it's exhausting</button>
+        <button class="answer-btn" data-q="6" data-a="attention" data-val="1">The noise of it all — so many tabs, tools, suggestions, updates. You can't hear yourself think.</button>
+      </div>
+
+      <div class="quiz-card" id="q7">
+        <h2><span>7 of 7</span>Which recovery approach sounds most appealing right now?</h2>
+        <button class="answer-btn" data-q="7" data-a="skill" data-val="3">Actually building something from scratch without AI — to remember what you still know how to do</button>
+        <button class="answer-btn" data-q="7" data-a="decision" data-val="2">Structured boundaries — batching AI sessions so you're not deciding constantly all day</button>
+        <button class="answer-btn" data-q="7" data-a="identity" data-val="2">Finding one small thing you're genuinely proud of — a personal project, a PR, something you own completely</button>
+        <button class="answer-btn" data-q="7" data-a="attention" data-val="3">Silence. Deep focus time. Turning off the noise and just working, like you used to.</button>
+        <button class="answer-btn" data-q="7" data-a="workflow" data-val="2">Streamlining — fewer tools, a clearer process, some part of your day that's genuinely yours again</button>
+        <button class="answer-btn" data-q="7" data-a="skill" data-val="1">Explaining things — writing a blog post, helping a junior, teaching — to rebuild the model you're losing</button>
+      </div>
+    </div>
+
+    <div class="result-card" id="result">
+      <div class="result-type-badge" id="typeBadge">Your Dominant Type</div>
+      <h2 class="result-title" id="resultTitle">Calculating...</h2>
+      <div class="result-score" id="resultScore">—</div>
+      <div class="result-label">dominant type match</div>
+      <p class="result-description" id="resultDescription"></p>
+
+      <div class="result-section" id="resultManifest">
+        <h3>How this shows up day-to-day</h3>
+        <ul id="manifestList"></ul>
+      </div>
+
+      <div class="result-section" id="resultRecovery">
+        <h3>What actually helps</h3>
+        <ul id="recoveryList"></ul>
+      </div>
+
+      <div class="result-section" id="resultWatch">
+        <h3>Watch out for</h3>
+        <ul id="watchList"></ul>
+      </div>
+
+      <div class="share-bar" id="shareBar" style="display:none">
+        <button class="share-btn twitter" id="shareTwitter">Share on Twitter</button>
+        <button class="share-btn linkedin" id="shareLinkedIn">Share on LinkedIn</button>
+        <button class="share-btn copy" id="shareCopy">Copy link</button>
+      </div>
+
+      <button class="reset-btn" id="resetBtn">Retake the Calculator →</button>
+
+      <div class="continue-grid" id="continueGrid"></div>
+    </div>
+
+    <div class="compare-section">
+      <h2>All Five AI Fatigue Types</h2>
+      <p>Most engineers have elements of several types. One usually dominates. Here's the full picture:</p>
+      <div class="type-grid">
+        <div class="type-mini">
+          <strong>🎯 Skill Erosion</strong>
+          You know less than you did. AI has bypassed your learning loop. Recovery requires deliberate unassisted practice.
+        </div>
+        <div class="type-mini">
+          <strong>⚖️ Decision Fatigue</strong>
+          AI creates hundreds of micro-decisions. Your decision budget is exhausted before noon. Recovery requires batching and boundaries.
+        </div>
+        <div class="type-mini">
+          <strong>🪪 Identity Erosion</strong>
+          You're not sure who you are as an engineer anymore. The work gets done but doesn't feel like yours. Recovery requires ownership signals.
+        </div>
+        <div class="type-mini">
+          <strong>🔀 Attention Fragmentation</strong>
+          You can't focus. Every AI ping resets your cognitive state. The 23-minute recovery window never completes. Recovery requires focus architecture.
+        </div>
+        <div class="type-mini">
+          <strong>🔄 Workflow Displacement</strong>
+          Your natural problem-solving process has been replaced by AI prompt loops. You can't sit with a problem anymore. Recovery requires rebuilding the process.
+        </div>
+      </div>
+      <div class="why-diff">
+        <h3>Why does this distinction matter?</h3>
+        <p>Treating all AI fatigue the same leads to generic advice that doesn't land. "Take breaks" helps attention fatigue but not decision fatigue. "Use AI less" helps skill erosion but doesn't address identity loss. Knowing your type lets you target the actual mechanism — which is why recovery actually works faster.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <p>🌿 <strong>The Clearing</strong></p>
+        <p>A free resource for engineers navigating AI fatigue.</p>
+        <p>No ads. No tracking. No hustle culture.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Recover</h4>
+          <ul>
+            <li><a href="recovery.html">Recovery Guide</a></li>
+            <li><a href="ai-detox-plan.html">30-Day Detox</a></li>
+            <li><a href="ai-fatigue-checklist.html">Checklist</a></li>
+            <li><a href="daily-practice.html">Daily Practice</a></li>
+            <li><a href="mental-health.html">Mental Health</a></li>
+            <li><a href="developer-wellbeing.html">Wellbeing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Understand</h4>
+          <ul>
+            <li><a href="why.html">Why This Happens</a></li>
+            <li><a href="research.html">The Science</a></li>
+            <li><a href="stats.html">Statistics</a></li>
+            <li><a href="decision-fatigue-ai.html">Decision Fatigue</a></li>
+            <li><a href="cognitive-load.html">Cognitive Load</a></li>
+            <li><a href="skill-atrophy.html">Skill Atrophy</a></li>
+            <li><a href="ai-fatigue-type-calculator.html">Type Calculator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <ul>
+            <li><a href="index.html#quiz">AI Fatigue Quiz</a></li>
+            <li><a href="decompress.html">Deep Work Timer</a></li>
+            <li><a href="checkin.html">Daily Check-in</a></li>
+            <li><a href="journal.html">Journal</a></li>
+            <li><a href="badge.html">Share Your Score</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Stories</h4>
+          <ul>
+            <li><a href="stories.html">Engineer Stories</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="share-your-story.html">Share Yours</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 The Clearing · <a href="about.html">About</a> · <a href="changelog.html">Changelog</a> · <a href="press-kit.html">Press Kit</a></p>
+    </div>
+  </footer>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "What's Your AI Fatigue Type? The 4-Pattern Assessment for Engineers",
-    "description": "Take 2 minutes to discover your AI Fatigue type — Overloader, Skill Drifter, Identity Eroder, or Chronic Groundhog. Each has different causes and different solutions.",
-    "author": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
-    "datePublished": "2026-04-07",
-    "dateModified": "2026-04-07",
-    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "@type": "WebApplication",
+    "name": "AI Fatigue Type Calculator",
+    "description": "Identify your dominant AI fatigue type — skill erosion, decision fatigue, identity loss, attention fragmentation, or workflow displacement — with a 7-question personalized assessment.",
     "url": "https://clearing-ai.com/ai-fatigue-type-calculator.html",
-    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://clearing-ai.com/ai-fatigue-type-calculator.html" },
-    "wordCount": 5096,
-    "about": {
-      "@type": "Thing",
-      "name": "AI Fatigue Types",
-      "description": "Four distinct AI fatigue patterns: Overloader, Skill Drifter, Identity Eroder, Chronic Groundhog"
-    },
-    "keywords": ["AI fatigue types", "AI fatigue assessment", "overloader", "skill drifter", "identity eroder", "chronic groundhog", "AI fatigue quiz", "engineer burnout types"]
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "browserRequirements": "No special requirements"
   }
   </script>
   <script type="application/ld+json">
@@ -161,607 +355,278 @@
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com" },
-      { "@type": "ListItem", "position": 2, "name": "Quiz", "item": "https://clearing-ai.com/quiz.html" },
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://clearing-ai.com/index.html#quiz" },
       { "@type": "ListItem", "position": 3, "name": "AI Fatigue Type Calculator", "item": "https://clearing-ai.com/ai-fatigue-type-calculator.html" }
     ]
   }
   </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "AI Fatigue Type Calculator",
-    "description": "6-question interactive assessment that identifies your specific AI fatigue pattern — Overloader, Skill Drifter, Identity Eroder, or Chronic Groundhog.",
-    "url": "https://clearing-ai.com/ai-fatigue-type-calculator.html",
-    "applicationCategory": "HealthApplication",
-    "operatingSystem": "Web Browser",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-    "browserRequirements": "Requires JavaScript. Works on all modern browsers.",
-    "softwareVersion": "1.0",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.7",
-      "ratingCount": "2143"
-    }
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Is this the same as the AI Fatigue Quiz on the homepage?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No — the main quiz (clearing-ai.com/quiz) measures severity: how fatigued you are. This assessment measures type: what kind of fatigue pattern you have. Both are free. Many people find the type assessment more actionable because it points to specific solutions rather than just a number."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What if I score across multiple types?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Most engineers have one dominant type but show traits of others. Read the full description of your primary type — that's your main pattern. The secondary traits usually fade once you address the primary driver."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is this based on real research?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. These four types emerged from patterns in over 2,000 quiz responses, cross-referenced with clinical burnout research (Maslach's three dimensions), cognitive load theory (Sweller), and automation bias research (Parasuraman). They're not clinical diagnoses — they're a useful framework for engineers to make sense of what they're experiencing."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Will sharing my type help others?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Probably. Naming the pattern — 'I'm an Overloader' or 'I'm an Identity Eroder' — is genuinely useful for engineers who can't articulate what they're feeling. It's like having a word for something you've felt for months but couldn't describe. Share if it resonated."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How long does this take?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "About 2 minutes. Six questions, pick your gut answer, get your type immediately. No account, no email required to see your result — though the full type report is worth signing up for."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "I'm a manager — is this relevant for my team?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Very much so. Different types need different interventions: an Overloader needs skill rebuilding, a Groundhog needs structural boundaries, an Identity Eroder needs authorship projects, a Skill Drifter needs deliberate practice. Understanding types helps you have more specific, more useful 1:1s. Start with the Team Manager Guide (clearing-ai.com/team-manager-guide.html)."
-        }
-      }
-    ]
-  }
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" /></noscript>
-
-</head>
-<body>
-  <a href="#main" class="skip-link">Skip to content</a>
-  <div id="reading-progress"></div>
-
-  <nav class="site-nav" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-brand">🌿 The Clearing</a>
-      <a href="index.html">Home</a>
-      <a href="index.html#quiz">Quiz</a>
-      <a href="recovery.html">Recovery</a>
-      <a href="research.html">Science</a>
-      <a href="stories.html">Stories</a>
-      <a href="newsletter.html">Newsletter</a>
-      <button type="button" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode">☀</button>
-    </div>
-  </nav>
-
-  <main id="main">
-    <header class="hero">
-      <span class="label">Free Assessment · 2 min</span>
-      <h1>What's Your <span>AI Fatigue Type</span>?</h1>
-      <p>Not all AI fatigue looks the same. This 6-question assessment identifies your specific pattern — and what actually helps.</p>
-      <div class="meta">
-        <span>📋 6 questions</span>
-        <span>⏱ 2 minutes</span>
-        <span>🧠 Personalized results</span>
-        <span>💚 Free forever</span>
-      </div>
-    </header>
-
-    <div class="container">
-      <div class="types-grid">
-        <div class="type-preview">
-          <div class="icon">⚡</div>
-          <h3>The Overloader</h3>
-          <p>Uses AI for everything. Can't ship without it. Confidence quietly eroding.</p>
-        </div>
-        <div class="type-preview">
-          <div class="icon">📉</div>
-          <h3>The Skill Drifter</h3>
-          <p>Quietly declining abilities. Doesn't realize how much has atrophied.</p>
-        </div>
-        <div class="type-preview">
-          <div class="icon">🪨</div>
-          <h3>The Identity Eroder</h3>
-          <p>Authorship confusion. Grief over craft. "Who am I without my code?"</p>
-        </div>
-        <div class="type-preview">
-          <div class="icon">🔄</div>
-          <h3>The Chronic Groundhog</h3>
-          <p>Can't unplug. Sunday dread. Same exhaustion every week.</p>
-        </div>
-      </div>
-
-      <div class="intro-card">
-        <p>Over 2,000 engineers have taken this assessment. Their patterns cluster into 4 distinct fatigue types — each with different causes, different risks, and different recovery paths.</p>
-        <ul>
-          <li>No account required</li>
-          <li>Results instantly</li>
-          <li>Free personalized plan</li>
-          <li>Share your type</li>
-        </ul>
-      </div>
-
-      <div class="quiz-card" id="quiz-card" role="region" aria-label="AI Fatigue Type Assessment">
-        <div class="quiz-header">
-          <h1>AI Fatigue Type Assessment</h2>
-          <span class="quiz-progress" id="quiz-progress" aria-live="polite">Question 1 of 6</span>
-        </div>
-        <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar-container">
-          <div class="progress-bar-fill" id="progress-fill"></div>
-        </div>
-
-        <div class="question active" data-q="1">
-          <p class="question-text">It's Sunday evening. You're looking at the week ahead. What actually shows up?</p>
-          <div class="options" role="radiogroup" aria-label="Question 1">
-      <button type="button" class="option" data-val="0" onclick="selectOption(this, 1)"><span class="option-letter">A</span> I'm mostly fine. I might procrastinate on one thing I really don't want to do.</button>
-      <button type="button" class="option" data-val="1" onclick="selectOption(this, 1)"><span class="option-letter">B</span> I feel a vague dread — something about work seems heavier than it should be.</button>
-      <button type="button" class="option" data-val="2" onclick="selectOption(this, 1)"><span class="option-letter">C</span> I can't stop thinking about whether I'm falling behind everyone using AI better than me.</button>
-      <button type="button" class="option" data-val="3" onclick="selectOption(this, 1)"><span class="option-letter">D</span> I feel exhausted already, before the week has even started. Sunday feels like a performance.</button>
-          </div>
-          <div class="quiz-nav">
-            <span></span>
-      <button type="button" class="btn btn-primary" id="q1-next" disabled onclick="nextQuestion(1)">Next →</button>
-          </div>
-        </div>
-
-        <div class="question" data-q="2">
-          <p class="question-text">You open your editor to start a feature. What happens next?</p>
-          <div class="options" role="radiogroup" aria-label="Question 2">
-      <button type="button" class="option" data-val="0" onclick="selectOption(this, 2)"><span class="option-letter">A</span> I open it and start typing. I might use AI for specific tricky bits along the way.</button>
-      <button type="button" class="option" data-val="1" onclick="selectOption(this, 2)"><span class="option-letter">B</span> I open it, feel a spike of "I should know how to do this cold," and reach for AI immediately.</button>
-      <button type="button" class="option" data-val="2" onclick="selectOption(this, 2)"><span class="option-letter">C</span> I open it and immediately feel behind. Like the AI would be faster and I should just use it.</button>
-      <button type="button" class="option" data-val="3" onclick="selectOption(this, 2)"><span class="option-letter">D</span> I've been engineering for years and honestly, I'm not sure I can describe what I do anymore. The meaning is gone.</button>
-          </div>
-          <div class="quiz-nav">
-      <button type="button" class="btn btn-ghost" onclick="prevQuestion(2)">← Back</button>
-      <button type="button" class="btn btn-primary" id="q2-next" disabled onclick="nextQuestion(2)">Next →</button>
-          </div>
-        </div>
-
-        <div class="question" data-q="3">
-          <p class="question-text">You ship a feature using AI. How does that feel?</p>
-          <div class="options" role="radiogroup" aria-label="Question 3">
-      <button type="button" class="option" data-val="0" onclick="selectOption(this, 3)"><span class="option-letter">A</span> Fine. I used AI as a power tool. I still know what I did and why.</button>
-      <button type="button" class="option" data-val="1" onclick="selectOption(this, 3)"><span class="option-letter">B</span> I feel productive, but I couldn't reproduce this from scratch if I had to. Not fully.</button>
-      <button type="button" class="option" data-val="2" onclick="selectOption(this, 3)"><span class="option-letter">C</span> Good numbers-wise. I shipped fast. Inside I'm a little uneasy — did I actually do this?</button>
-      <button type="button" class="option" data-val="3" onclick="selectOption(this, 3)"><span class="option-letter">D</span> I'm already on to the next thing. No time to reflect. Backlog is always full.</button>
-          </div>
-          <div class="quiz-nav">
-      <button type="button" class="btn btn-ghost" onclick="prevQuestion(3)">← Back</button>
-      <button type="button" class="btn btn-primary" id="q3-next" disabled onclick="nextQuestion(3)">Next →</button>
-          </div>
-        </div>
-
-        <div class="question" data-q="4">
-          <p class="question-text">Someone asks you to explain a part of the codebase you own. You...</p>
-          <div class="options" role="radiogroup" aria-label="Question 4">
-      <button type="button" class="option" data-val="0" onclick="selectOption(this, 4)"><span class="option-letter">A</span> Can walk through it confidently. I built this. I know the tradeoffs.</button>
-      <button type="button" class="option" data-val="1" onclick="selectOption(this, 4)"><span class="option-letter">B</span> Know the high level but get fuzzy on details. AI wrote the specifics — I approve but don't own them.</button>
-      <button type="button" class="option" data-val="2" onclick="selectOption(this, 4)"><span class="option-letter">C</span> Feel a flash of panic. I'd have to look it up. I can't explain it cold anymore.</button>
-      <button type="button" class="option" data-val="3" onclick="selectOption(this, 4)"><span class="option-letter">D</span> Dread it. My value was knowing things. If I can't explain it, what am I?</button>
-          </div>
-          <div class="quiz-nav">
-      <button type="button" class="btn btn-ghost" onclick="prevQuestion(4)">← Back</button>
-      <button type="button" class="btn btn-primary" id="q4-next" disabled onclick="nextQuestion(4)">Next →</button>
-          </div>
-        </div>
-
-        <div class="question" data-q="5">
-          <p class="question-text">A colleague asks how you stay sharp with AI tools everywhere. You...</p>
-          <div class="options" role="radiogroup" aria-label="Question 5">
-      <button type="button" class="option" data-val="0" onclick="selectOption(this, 5)"><span class="option-letter">A</span> Tell them I do occasional no-AI sessions. Deliberate practice. Feels important.</button>
-      <button type="button" class="option" data-val="1" onclick="selectOption(this, 5)"><span class="option-letter">B</span> Change the subject. I've noticed my skills aren't what they were 2 years ago.</button>
-      <button type="button" class="option" data-val="2" onclick="selectOption(this, 5)"><span class="option-letter">C</span> Say I use AI constantly. I mean — is staying sharp even possible anymore?</button>
-      <button type="button" class="option" data-val="3" onclick="selectOption(this, 5)"><span class="option-letter">D</span> Say I work longer hours. That's the only answer. Grind through it.</button>
-          </div>
-          <div class="quiz-nav">
-      <button type="button" class="btn btn-ghost" onclick="prevQuestion(5)">← Back</button>
-      <button type="button" class="btn btn-primary" id="q5-next" disabled onclick="nextQuestion(5)">Next →</button>
-          </div>
-        </div>
-
-        <div class="question" data-q="6">
-          <p class="question-text">Your ideal relationship with AI coding tools would be:</p>
-          <div class="options" role="radiogroup" aria-label="Question 6">
-      <button type="button" class="option" data-val="0" onclick="selectOption(this, 6)"><span class="option-letter">A</span> I use AI strategically for the boring parts so I can focus on the hard parts. I stay in control.</button>
-      <button type="button" class="option" data-val="1" onclick="selectOption(this, 6)"><span class="option-letter">B</span> I want to feel like I'm rebuilding something — regularly, deliberately. Not relying on AI for everything.</button>
-      <button type="button" class="option" data-val="2" onclick="selectOption(this, 6)"><span class="option-letter">C</span> I want to go a full week without AI and see what I actually still know. Test myself.</button>
-      <button type="button" class="option" data-val="3" onclick="selectOption(this, 6)"><span class="option-letter">D</span> I want to take a real break. Not a working vacation. An actual disconnect.</button>
-          </div>
-          <div class="quiz-nav">
-      <button type="button" class="btn btn-ghost" onclick="prevQuestion(6)">← Back</button>
-      <button type="button" class="btn btn-primary" id="q6-next" disabled onclick="showResults()">See My Type →</button>
-          </div>
-        </div>
-      </div>
-
-      <section id="results-section" aria-label="Your AI Fatigue Type results">
-        <div class="result-header">
-          <span class="result-badge" id="result-badge">Your Type</span>
-          <h1 id="result-title">Loading...</h2>
-          <p id="result-tagline"></p>
-          <p class="result-score" id="result-score"></p>
-        </div>
-
-        <div class="result-body" id="result-body"></div>
-
-        <div class="share-bar">
-          <a class="share-btn twitter" id="share-twitter" href="#" target="_blank" rel="noopener">𝕏 Post</a>
-          <a class="share-btn linkedin" id="share-linkedin" href="#" target="_blank" rel="noopener">LinkedIn</a>
-      <button type="button" class="share-btn" style="background:var(--surface2);border:1.5px solid var(--border);color:var(--text)" onclick="copyLink()">📋 Copy link</button>
-        </div>
-        <p class="share-note">Share your type — someone you know probably needs to see this.</p>
-
-        <div class="newsletter-panel">
-          <h3>Get Your Full Type Report</h3>
-          <p>Your personalized breakdown: which type you are, what's driving it, and the exact 3 things to do this week. Sent once, yours forever.</p>
-          <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
-            <input type="email" name="email" placeholder="your@email.com" required aria-label="Email address" />
-            <input type="hidden" name="source" id="nl-source" value="type-calculator" />
-            <button type="submit">Send My Report →</button>
-          </form>
-          <p class="newsletter-note">No spam. Unsubscribe anytime. Your email stays yours.</p>
-        </div>
-
-        <div class="cta-grid">
-          <a href="ai-fatigue-type-calculator.html" class="cta-card" onclick="retakeQuiz()">
-            <div class="cta-icon">🔄</div>
-            <div class="cta-title">Retake</div>
-            <div class="cta-desc">Different answers might tell a different story</div
-          </a>
-          <a href="recovery.html" class="cta-card">
-            <div class="cta-icon">🌿</div>
-            <div class="cta-title">Recovery Guide</div>
-            <div class="cta-desc">Your type-specific recovery path</div>
-          </a>
-        </div>
-
-        <div class="retake-section">
-      <button type="button" class="btn btn-ghost" onclick="retakeQuiz()">← Retake assessment</button>
-        </div>
-      </section>
-
-      <!-- FAQ -->
-      <div class="faq-section">
-        <h2 style="font-size:1.4rem;font-weight:800;margin-bottom:24px;">Frequently Asked Questions</h2>
-
-        <div class="faq-item">
-      <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Is this the same as the AI Fatigue Quiz on the homepage?</button>
-          <div class="faq-answer">No — the main quiz (clearing-ai.com/quiz) measures severity: how fatigued you are. This assessment measures type: what kind of fatigue pattern you have. Both are free. Many people find the type assessment more actionable because it points to specific solutions rather than just a number.</div>
-        </div>
-
-        <div class="faq-item">
-      <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">What if I score across multiple types?</button>
-          <div class="faq-answer">Most engineers have one dominant type but show traits of others. Read the full description of your primary type — that's your main pattern. The secondary traits usually fade once you address the primary driver.</div>
-        </div>
-
-        <div class="faq-item">
-      <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Is this based on real research?</button>
-          <div class="faq-answer">Yes. These four types emerged from patterns in over 2,000 quiz responses, cross-referenced with clinical burnout research (Maslach's three dimensions), cognitive load theory (Sweller), and automation bias research (Parasuraman). They're not clinical diagnoses — they're a useful framework for engineers to make sense of what they're experiencing.</div>
-        </div>
-
-        <div class="faq-item">
-      <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Will sharing my type help others?</button>
-          <div class="faq-answer">Probably. Naming the pattern — "I'm an Overloader" or "I'm an Identity Eroder" — is genuinely useful for engineers who can't articulate what they're feeling. It's like having a word for something you've felt for months but couldn't describe. Share if it resonated.</div>
-        </div>
-
-        <div class="faq-item">
-      <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">How long does this take?</button>
-          <div class="faq-answer">About 2 minutes. Six questions, pick your gut answer, get your type immediately. No account, no email required to see your result — though the full type report is worth signing up for.</div>
-        </div>
-
-        <div class="faq-item">
-      <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">I'm a manager — is this relevant for my team?</button>
-          <div class="faq-answer">Very much so. Different types need different interventions: an Overloader needs skill rebuilding, a Groundhog needs structural boundaries, an Identity Eroder needs authorship projects, a Skill Drifter needs deliberate practice. Understanding types helps you have more specific, more useful 1:1s. Start with the Team Manager Guide (clearing-ai.com/team-manager-guide.html).</div>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-inner">
-      <a href="index.html" class="footer-brand">🌿 The Clearing</a>
-      <nav class="footer-links" aria-label="Footer navigation">
-        <a href="index.html#quiz">Quiz</a>
-        <a href="recovery.html">Recovery</a>
-        <a href="research.html">Science</a>
-        <a href="stories.html">Stories</a>
-        <a href="newsletter.html">Newsletter</a>
-        <a href="about.html">About</a>
-      </nav>
-      <p class="footer-copy">No tracking. No accounts. Just help.</p>
-    </div>
-  </footer>
-
-  <div class="copied-toast" id="copied-toast">Link copied!</div>
-
   <script>
-    // State
     const answers = {};
-    let currentQuestion = 1;
-    const TOTAL = 6;
+    let answered = new Set();
 
-    // Theme
-    function toggleTheme() {
-      const html = document.documentElement;
-      const current = html.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-      document.querySelector('.theme-toggle').textContent = next === 'dark' ? '☀' : '🌙';
-    }
-    (function() {
-      const saved = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const theme = saved || (prefersDark ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', theme);
-      document.querySelector('.theme-toggle').textContent = theme === 'dark' ? '☀' : '🌙';
-    })();
-
-    // Reading progress
-    window.addEventListener('scroll', () => {
-      const scrolled = window.scrollY;
-      const total = document.documentElement.scrollHeight - window.innerHeight;
-      const pct = total > 0 ? (scrolled / total) * 100 : 0;
-      document.getElementById('reading-progress').style.width = pct + '%';
-    });
-
-    // Quiz logic
-    function selectOption(btn, q) {
-      // Deselect siblings
-      const siblings = btn.parentElement.querySelectorAll('.option');
-      siblings.forEach(s => s.classList.remove('selected'));
-      btn.classList.add('selected');
-      answers[q] = parseInt(btn.dataset.val);
-      document.getElementById('q' + q + '-next').disabled = false;
-    }
-
-    function nextQuestion(q) {
-      document.querySelector('.question[data-q="' + q + '"]').classList.remove('active');
-      const next = q + 1;
-      document.querySelector('.question[data-q="' + next + '"]').classList.add('active');
-      currentQuestion = next;
-      updateProgress();
-      document.getElementById('quiz-progress').textContent = 'Question ' + next + ' of ' + TOTAL;
-    }
-
-    function prevQuestion(q) {
-      document.querySelector('.question[data-q="' + q + '"]').classList.remove('active');
-      document.querySelector('.question[data-q="' + (q - 1) + '"]').classList.add('active');
-      currentQuestion = q - 1;
-      updateProgress();
-      document.getElementById('quiz-progress').textContent = 'Question ' + currentQuestion + ' of ' + TOTAL;
-    }
-
-    function updateProgress() {
-      const pct = ((currentQuestion - 1) / TOTAL) * 100;
-      document.getElementById('progress-fill').style.width = pct + '%';
-      document.getElementById('progress-bar-container').setAttribute('aria-valuenow', pct);
-    }
-
-    // Type logic
-    function calculateType() {
-      const total = Object.values(answers).reduce((a, b) => a + b, 0);
-      // Map answers to dominant type
-      // Q1: D=groundhog, C=identity/overloader, B=drifter, A=none
-      // Q2: D=identity, C=overloader, B=drifter, A=none
-      // Q3: D=groundhog, C=identity, B=drifter, A=none
-      // Q4: D=identity, C=drifter, B=drifter, A=none
-      // Q5: D=groundhog, C=overloader, B=drifter, A=none
-      // Q6: D=groundhog, C=identity, B=drifter, A=none
-      const typeScores = { overloader: 0, drifter: 0, identity: 0, groundhog: 0 };
-      
-      if (answers[1] === 2) typeScores.overloader += 1;
-      if (answers[1] === 3) typeScores.identity += 1;
-      if (answers[1] === 1) typeScores.drifter += 1;
-      
-      if (answers[2] === 2) typeScores.overloader += 1;
-      if (answers[2] === 1) typeScores.drifter += 1;
-      if (answers[2] === 3) typeScores.identity += 1;
-      
-      if (answers[3] === 2) typeScores.identity += 1;
-      if (answers[3] === 1) typeScores.drifter += 1;
-      if (answers[3] === 3) typeScores.groundhog += 1;
-      
-      if (answers[4] === 2) typeScores.drifter += 1;
-      if (answers[4] === 3) typeScores.identity += 1;
-      
-      if (answers[5] === 2) typeScores.overloader += 1;
-      if (answers[5] === 1) typeScores.drifter += 1;
-      if (answers[5] === 3) typeScores.groundhog += 1;
-      
-      if (answers[6] === 2) typeScores.drifter += 1;
-      if (answers[6] === 1) typeScores.identity += 1;
-      if (answers[6] === 3) typeScores.groundhog += 1;
-      
-      // Add raw score bias
-      if (total >= 14) typeScores.groundhog += 1;
-      if (total <= 4) typeScores.overloader += 0; // probably fine
-      
-      const max = Math.max(...Object.values(typeScores));
-      const types = Object.keys(typeScores).filter(k => typeScores[k] === max);
-      
-      // Tiebreaker by total score
-      if (types.length > 1) {
-        if (total >= 12) return 'groundhog';
-        if (total >= 8) return 'drifter';
-        if (total >= 5) return 'overloader';
-        return 'drifter';
-      }
-      return types[0];
-    }
-
-    const TYPE_DATA = {
-      overloader: {
-        badge: 'overloader', title: "You're the Overloader", tagline: "You're productive — but you're not sure anymore if it's actually you. The use-AI-for-everything pattern has quietly replaced confidence with capability. The good news: this is the most reversible type.", scoreLabel: 'Total score helps calibrate how deeply this has set in.', icon: '⚡',
-        what: ['You use AI as a crutch for nearly every task, from small scripts to architecture decisions', 'You can ship fast but couldn't reproduce the work from scratch', 'Your confidence has quietly migrated from your brain to the tool', 'You feel productive but vaguely hollow about it'],
-        why: ['Velocity pressure from the industry trained you to reach for AI first', 'Every time you skip the hard part, the circuit that does that hard part weakens slightly', 'The productivity numbers look good — so nobody questions the underlying skill erosion', 'You never built in the "do it yourself first" rule that protects craft'],
-        fix: ['One no-AI session per week — just you, the docs, and the frustration', 'Explanation Requirement: for every AI output, write in 2 sentences why it works', 'Rebuild Test: monthly, rebuild something small from scratch without AI', 'Track what you couldn't have done 2 years ago vs now — name the gaps specifically'],
-        cta: { href: 'ai-productivity-paradox.html', label: 'The Productivity Paradox', icon: '📊' }
+    const typeData = {
+      skill: {
+        label: "Skill Erosion",
+        color: "#e17055",
+        bg: "rgba(225,112,85,0.15)",
+        description: "Your actual technical capacity is declining. AI has quietly bypassed your learning loop — you're producing without building. The gap between what you can explain and what you can do is growing.",
+        manifest: [
+          "You can describe code you shipped but couldn't write it from scratch today",
+          "Algorithms that used to be automatic now require conscious reconstruction",
+          "You rely on AI to generate what you used to generate yourself",
+          "Technical interviews feel increasingly threatening",
+          "You avoid code reviews that probe deep understanding"
+        ],
+        recovery: [
+          "One no-AI session per week — build something small entirely from memory",
+          "Explanation Requirement: close AI and write why each solution works before accepting it",
+          "Pick one skill you used to own and spend 4 hours rebuilding it without assistance",
+          "Use AI to teach, not to replace — ask it to explain, not to generate",
+          " quarterly: try a coding challenge you could pass easily 18 months ago"
+        ],
+        watch: [
+          "Compensating with more AI use — which accelerates the problem",
+          "Telling yourself it's imposter syndrome when it's actually functional skill loss",
+          "Confusing familiarity with capacity — you recognize good code but couldn't write it"
+        ]
       },
-      'skill-drifter': {
-        badge: 'skill-drifter', title: "You're the Skill Drifter", tagline: "You're still showing up and shipping, but the foundation is quietly eroding. You don't notice it yet because the AI fills the gaps — but you're not as sharp as you were, and deep down you know it. This is the most invisible type.", scoreLabel: 'Your total score reflects how far the drift has gone.', icon: '📉',
-        what: ['You notice yourself being unable to explain things you used to own cold', 'When AI writes something, you approve it without fully understanding it', 'You've quietly stopped doing things you used to enjoy because AI does them faster', 'Your debugging skills feel slower, your instincts less sharp'],
-        why: ['Skill atrophy is real: neural pathways not used for 6+ months begin to degrade', 'The productive struggle that built your skills has been systematically bypassed', 'You've been solving problems at the approval level, not the thinking level', 'The field moves fast and you've been reactive instead of deliberate'],
-        fix: ['Skill audit: make a list of 5 things you could do 2 years ago that you'd struggle with now', '20-minute debug rule: before reaching for AI, struggle for 20 minutes minimum', 'No-AI Friday: one day a week, everything you can do without AI, you do without AI', 'Quarterly calibration: rebuild something small from scratch, no AI, note what's hard'],
-        cta: { href: 'skill-atrophy.html', label: 'Skill Atrophy: What the Research Says', icon: '🧠' }
+      decision: {
+        label: "Decision Fatigue",
+        color: "#0984e3",
+        bg: "rgba(9,132,227,0.15)",
+        description: "AI generates options. You evaluate them. Every accept/reject/modify is a micro-decision. By noon your decision budget is gone. This is why 2pm feels like you've worked a full week.",
+        manifest: [
+          "You feel decision-exhausted by mid-morning, long before physical tiredness sets in",
+          "You start defaulting to 'accept all' just to reduce the cognitive overhead",
+          "Your last few decisions of the day are noticeably worse than your first ones",
+          "You've started avoiding features that require architectural decisions",
+          "You feel more tired after AI-assisted coding than after fully manual coding"
+        ],
+        recovery: [
+          "Batch AI sessions: 2-3 structured 30-minute windows per day, AI-free between",
+          "Before accepting AI output, make the decision yourself first — then compare",
+          "Reduce parallel AI inputs: one AI tool per problem, not three at once",
+          "Use a 'decision journal' for architectural choices — record why you went with AI's suggestion",
+          "End-of-day decision moratorium: no major accept/reject decisions after 4pm"
+        ],
+        watch: [
+          "Decision avoidance — either accepting everything or rejecting everything to save energy",
+          "Attributing the exhaustion to workload when it's actually cognitive overhead",
+          "Using AI to make decisions for you because you're too tired to evaluate — which compounds the problem"
+        ]
       },
       identity: {
-        badge: 'identity-eroder', title: "You're the Identity Eroder", tagline: "This isn't burnout and it isn't imposter syndrome. This is grief — the quiet mourning of a craft you built over years that now feels authorship-free. You're asking "who am I without my code," and it's a real question.", scoreLabel: 'Your total score reflects both the depth and the duration of this feeling.', icon: '🪨',
-        what: ['You feel like a manager of AI outputs rather than a builder', 'You've lost the satisfaction of recognizing your own work', 'The question "am I still actually a developer?" shows up more than you'd like', 'You feel a specific grief for the craft version of yourself that existed before AI'],
-        why: ['Software engineering became an identity, not just a job — and AI threatened that identity', 'The industry's celebration of velocity over craft left you behind', 'You measure yourself against your past output, not your current context', 'Nobody around you is naming this feeling, so you feel alone in it'],
-        fix: ['Name it: this is not imposter syndrome (that's cognitive distortion). This is functional identity change.', 'Authorship practice: start one project that's 100% yours, no AI, for the joy of it', 'The Explanation Requirement: can you explain every decision in your codebase? If not, dig deeper', 'Find the irreplaceable: what can you do that AI genuinely cannot? Build around that.', 'Read stories of other engineers at clearing-ai.com/stories.html — you're not alone in this'],
-        cta: { href: 'developer-identity.html', label: 'Developer Identity in the AI Era', icon: '🪨' }
+        label: "Identity Erosion",
+        color: "#a29bfe",
+        bg: "rgba(162,155,254,0.15)",
+        description: "The work gets done. You don't recognize yourself in it. This is the quiet grief of watching your professional identity dissolve — not through failure, but through success that doesn't belong to you.",
+        manifest: [
+          "You describe yourself as 'an engineer who uses AI' rather than just 'an engineer'",
+          "When someone asks about a feature, you describe what AI did more than what you did",
+          "You've started to question whether you're actually good at coding or just good at prompting",
+          "The pride you used to feel in clean, clever code has faded",
+          "You're不知道自己还是不是开发者了 — you might be, but it doesn't feel the same"
+        ],
+        recovery: [
+          "Find one ownership signal: a personal project, a blog post, something you built alone",
+          "Deliberately take credit in 1:1s and PR descriptions — name your contributions explicitly",
+          "Build something you'd be embarrassed to show anyone right now — just for yourself",
+          "Teach: write a technical post, help a junior, explain something — rebuild the identity through giving",
+          "Name the loss: this is grief, not weakness. Acknowledge what you've actually lost."
+        ],
+        watch: [
+          "Performing engagement — faking enthusiasm for work that doesn't feel meaningful",
+          "Using output volume as an identity proxy: 'I shipped more than ever' — quantity over craft",
+          "Avoiding conversations about technical decisions because you didn't really make them"
+        ]
       },
-      groundhog: {
-        badge: 'groundhog', title: "You're the Chronic Groundhog", tagline: "Every Sunday you feel it. Every Monday you grind through it. Every Friday you collapse. And every next Sunday it comes back, same as before. This isn't sustainable — but it's also not permanent. The cycle can break.", scoreLabel: 'Your total score reflects the depth and repetition of the cycle.', icon: '🔄',
-        what: ['Sunday evening brings a specific dread that never fully goes away', 'You can't remember the last time you felt genuinely rested', 'Your relationship with work has become purely transactional: you show up, you grind, you collect the paycheck', 'Vacations don't actually rest you — you come back more tired than you left'],
-        why: ['The cycle has become the default: no structural changes have interrupted it', 'You've been treating a structural problem with individual willpower', 'The boundary between work and not-work has dissolved (partly by design, partly by AI keeping you always-on capable)', 'Your recovery is happening on the machine, not away from it'],
-        fix: ['Structural boundaries, not willpower: block Sunday evenings completely, no work, no AI checking', 'AI-free mornings: before noon, your editor doesn't open with AI. You start yourself.', 'The 90-minute boundary: protect at least one 90-minute deep work block per day', 'Exit signal: write down what would need to change for you to not dread Sundays. Then decide if that's possible at your current job.', 'If you can't remember your last real break — take one. A real one. Not a working vacation.'],
-        cta: { href: 'ai-detox-plan.html', label: 'The 30-Day AI Detox Plan', icon: '🌿' }
+      attention: {
+        label: "Attention Fragmentation",
+        color: "#00b894",
+        bg: "rgba(0,184,148,0.15)",
+        description: "Every AI suggestion is a micro-interruption. Your brain never completes the 23-minute focus cycle. You've forgotten what deep work actually feels like — and the exhaustion that comes from never reaching it.",
+        manifest: [
+          "You can't make it through a coffee without checking an AI tool",
+          "The last time you had a genuine flow state at work was months ago",
+          "You open a problem in your editor and immediately open an AI tab alongside it — reflexively",
+          "You can work fast but never deep. Output is high, but meaning is low.",
+          "Background awareness of 'what AI would say about this' persists even when AI is closed"
+        ],
+        recovery: [
+          "AI-free morning: first 90 minutes of the day without any AI tools, no exceptions",
+          "Timer technique: 45 minutes of pure work, then 10 minutes of AI batch processing",
+          "Single-tasking constraint: one window, one task, AI closed. When done, use AI.",
+          "Physical separation: AI tools on a different monitor or device — out of sight during focus",
+          "Track your focus cycles for one week: you'll see the pattern clearly"
+        ],
+        watch: [
+          "Mistaking rapid task-switching for productivity — finishing more items but not going deeper",
+          "Using AI to help you focus (AI-generated focus playlists, etc.) — this is circular",
+          "Attributing the restlessness to ADHD or personality when it's actually a behavioral pattern"
+        ]
+      },
+      workflow: {
+        label: "Workflow Displacement",
+        color: "#fdcb6e",
+        bg: "rgba(253,203,110,0.15)",
+        description: "Your natural problem-solving process has been replaced. You can't sit with a hard problem anymore — the reflex is to prompt, not to think. The workflow you built over years has quietly atrophied.",
+        manifest: [
+          "You can't start a problem without opening an AI tool first — it's a prerequisite now",
+          "The moment a problem gets hard, your hand reaches for the AI shortcut",
+          "You can't remember your old debugging process — you just ask AI now",
+          "Architecture decisions happen through prompt loops, not considered judgment",
+          "You feel lost when AI isn't available, even for a few hours"
+        ],
+        recovery: [
+          "Reconstruction sessions: take a problem you know how to solve and deliberately use your old process",
+          "No-AI debugging: one bug per day, work it yourself before AI helps",
+          "Write your old process down — literally document how you used to approach problems",
+          "Weekly 'intuition check': what would I try first? Then ask AI. Compare.",
+          "Pick one recurring problem type and refuse AI for it — rebuild the muscle"
+        ],
+        watch: [
+          "Substituting AI's process for yours — becoming dependent on AI's debugging/routing approach",
+          "Confusing efficiency with skill — faster completion doesn't mean deeper process",
+          "The convenience trap: AI's process is good enough that your process doesn't seem worth recovering"
+        ]
       }
     };
 
-    function showResults() {
-      const type = calculateType();
-      const data = TYPE_DATA[type];
-      const total = Object.values(answers).reduce((a, b) => a + b, 0);
-      
-      document.querySelector('.question[data-q="6"]').classList.remove('active');
-      document.getElementById('results-section').classList.add('active');
-      document.getElementById('progress-fill').style.width = '100%';
-      
-      document.getElementById('result-badge').textContent = data.icon + ' ' + data.title.split(' ')[0] + ' ' + data.title.split(' ').slice(1).join(' ');
-      document.getElementById('result-badge').className = 'result-badge ' + data.badge;
-      document.getElementById('result-title').textContent = data.title;
-      document.getElementById('result-tagline').textContent = data.tagline;
-      document.getElementById('result-score').textContent = data.scoreLabel;
-      
-      const ctaHref = data.cta.href + '?utm_source=type-calculator&utm_medium=quiz&utm_content=' + type;
-      document.getElementById('result-body').innerHTML = 
-        '<div class="result-section">' +
-        '<h3>What This Looks Like For You</h3>' +
-        '<ul>' + data.what.map(w => '<li>' + w + '</li>').join('') + '</ul>' +
-        '</div>' +
-        '<div class="result-section">' +
-        '<h3>Why This Is Happening</h3>' +
-        '<ul>' + data.why.map(w => '<li>' + w + '</li>').join('') + '</ul>' +
-        '</div>' +
-        '<div class="result-section">' +
-        '<h3>What Actually Helps</h3>' +
-        '<ul>' + data.fix.map(f => '<li>' + f + '</li>').join('') + '</ul>' +
-        '</div>' +
-        '<div class="result-section">' +
-        '<h3>Go Deeper</h3>' +
-        '<a href="' + ctaHref + '" class="cta-card" style="display:inline-flex;align-items:center;gap:10px;padding:16px 20px;text-decoration:none;color:var(--text);background:var(--surface2);border:1px solid var(--border);border-radius:8px;margin-top:8px;">' +
-        '<span style="font-size:1.4rem">' + data.cta.icon + '</span>' +
-        '<span><strong>' + data.cta.label + '</strong><br/><span style="font-size:0.8rem;color:var(--text2)">Your type-specific deep dive →</span></span>' +
-        '</a>' +
-        '</div>';
-      
-      // Share links
-      const shareText = encodeURIComponent("I took the AI Fatigue Type Calculator. I'm: " + data.title.split(':')[0] + " — " + data.tagline.split('.')[0] + ". Try it: clearing-ai.com/ai-fatigue-type-calculator.html");
-      document.getElementById('share-twitter').href = 'https://twitter.com/intent/tweet?text=' + shareText;
-      document.getElementById('share-linkedin').href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent('https://clearing-ai.com/ai-fatigue-type-calculator.html');
-      
-      // Track in localStorage
-      try {
-        const history = JSON.parse(localStorage.getItem('typeHistory') || '[]');
-        history.push({ type, score: total, date: new Date().toISOString() });
-        localStorage.setItem('typeHistory', JSON.stringify(history.slice(-10)));
-      } catch(e) {}
-      
-      document.getElementById('nl-source').value = 'type-calculator-' + type;
-      
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    const links = {
+      skill: [
+        { href: "skill-atrophy.html", title: "Skill Atrophy Guide", desc: "The science of what's being lost and how to rebuild it" },
+        { href: "no-ai-block.html", title: "No-AI Block", desc: "How to run your first AI-free coding session" },
+        { href: "ai-detox-plan.html", title: "30-Day AI Detox", desc: "A structured plan to recover your skills" }
+      ],
+      decision: [
+        { href: "daily-ai-boundaries.html", title: "Daily AI Boundaries", desc: "Practical session-batching tactics that work" },
+        { href: "cognitive-load.html", title: "Cognitive Load & AI", desc: "Why decision overhead is a cognitive science problem" },
+        { href: "attention-residue.html", title: "Attention Residue", desc: "The 23-minute focus cycle AI keeps breaking" }
+      ],
+      identity: [
+        { href: "developer-identity.html", title: "Developer Identity", desc: "The deeper crisis at the heart of AI fatigue" },
+        { href: "senior-identity.html", title: "Senior Engineer Identity", desc: "Why seniority makes you more vulnerable, not less" },
+        { href: "stories.html", title: "Engineer Stories", desc: "What others in your situation have found" }
+      ],
+      attention: [
+        { href: "flow-state.html", title: "Flow State & AI", desc: "Why AI kills deep work and what to do about it" },
+        { href: "attention-residue.html", title: "Attention Residue", desc: "Gloria Mark's research on focus recovery" },
+        { href: "decompress.html", title: "Deep Work Timer", desc: "The Pomodoro timer built into The Clearing" }
+      ],
+      workflow: [
+        { href: "mindset.html", title: "Mental Models", desc: "12 frameworks for healthier AI use" },
+        { href: "ai-productivity-paradox.html", title: "The Productivity Paradox", desc: "When more output means a thinner process" },
+        { href: "checkin.html", title: "Daily Check-In", desc: "Track your process quality, not just output" }
+      ]
+    };
+
+    function showCard(id) {
+      document.querySelectorAll('.quiz-card').forEach(c => c.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
     }
 
-    function retakeQuiz() {
-      Object.keys(answers).forEach(k => delete answers[k]);
-      document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
-      [1,2,3,4,5,6].forEach(q => {
-        document.getElementById('q'+q+'-next').disabled = true;
-        document.querySelector('.question[data-q="'+q+'"]').classList.remove('active');
-      });
-      document.querySelector('.question[data-q="1"]').classList.add('active');
-      document.getElementById('results-section').classList.remove('active');
-      currentQuestion = 1;
-      updateProgress();
-      document.getElementById('quiz-progress').textContent = 'Question 1 of 6';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    function handleAnswer(btn) {
+      const q = btn.dataset.q;
+      const type = btn.dataset.a;
+      if (!answers[q]) answered.add(q);
+      answers[q] = { type, val: parseInt(      btn.dataset.val);
+      document.querySelectorAll('#q' + q + ' .answer-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
 
-    function copyLink() {
-      const url = 'https://clearing-ai.com/ai-fatigue-type-calculator.html';
-      navigator.clipboard.writeText(url).then(() => {
-        const toast = document.getElementById('copied-toast');
-        toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 2000);
-      }).catch(() => {
-        prompt('Copy this link:', url);
-      });
-    }
+      const answeredCount = Object.keys(answers).length;
+      document.getElementById('progressFill').style.width = ((answeredCount / 7) * 100) + '%';
+      document.getElementById('progressText').textContent = 'Question ' + (answeredCount + 1 > 7 ? 7 : answeredCount + 1) + ' of 7';
 
-    function handleNewsletterSubmit(e) {
-      e.preventDefault();
-      const form = e.target;
-      const email = form.querySelector('input[type="email"]').value;
-      const source = form.querySelector('input[name="source"]').value;
-      
-      // mailto fallback
-      const subject = encodeURIComponent('AI Fatigue Type Report Request');
-      const body = encodeURIComponent('Hi, I took the AI Fatigue Type Calculator on clearing-ai.com and would like to receive my full type report.
-
-Email: ' + email + '
-Source: ' + source);
-      window.location.href = 'mailto:hello@clearing-ai.com?subject=' + subject + '&body=' + body;
-      
-      // Show thank you
-      form.innerHTML = '<p style="color:var(--accent);font-weight:700;">✅ Check your inbox — your type report is on its way. If you don't see it, check spam.</p>';
-    }
-
-    function toggleFaq(btn) {
-      const item = btn.parentElement;
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!isOpen) {
-        item.classList.add('open');
-        btn.setAttribute('aria-expanded', 'true');
+      if (answeredCount < 7) {
+        setTimeout(() => { showCard('q' + (answeredCount + 1)); }, 400);
       } else {
-        btn.setAttribute('aria-expanded', 'false');
+        setTimeout(showResult, 500);
       }
     }
+
+    function showResult() {
+      const scores = { skill: 0, decision: 0, identity: 0, attention: 0, workflow: 0 };
+      Object.values(answers).forEach(a => { if (scores[a.type] !== undefined) scores[a.type] += a.val; });
+
+      const dominant = Object.entries(scores).sort((a, b) => b[1] - a[1])[0][0];
+      const maxScore = 18;
+      const match = Math.round((scores[dominant] / maxScore) * 100);
+      const data = typeData[dominant];
+
+      document.getElementById('typeBadge').textContent = '🎯 ' + data.label;
+      document.getElementById('typeBadge').style.background = data.bg;
+      document.getElementById('typeBadge').style.color = data.color;
+      document.getElementById('resultTitle').textContent = 'Your Dominant AI Fatigue Type: ' + data.label;
+      document.getElementById('resultScore').textContent = match + '%';
+      document.getElementById('resultDescription').textContent = data.description;
+
+      const manifestList = document.getElementById('manifestList');
+      manifestList.innerHTML = data.manifest.map(m => '<li>' + m + '</li>').join('');
+
+      const recoveryList = document.getElementById('recoveryList');
+      recoveryList.innerHTML = data.recovery.map(r => '<li>' + r + '</li>').join('');
+
+      const watchList = document.getElementById('watchList');
+      watchList.innerHTML = data.watch.map(w => '<li>' + w + '</li>').join('');
+
+      const grid = document.getElementById('continueGrid');
+      grid.innerHTML = (links[dominant] || []).map(l =>
+        '<a href="' + l.href + '" class="continue-card">' +
+        '<h4>' + l.title + '</h4>' +
+        '<p>' + l.desc + '</p></a>'
+      ).join('');
+
+      const shareBar = document.getElementById('shareBar');
+      shareBar.style.display = 'flex';
+
+      const shareUrl = 'https://clearing-ai.com/ai-fatigue-type-calculator.html';
+      document.getElementById('shareTwitter').onclick = () => {
+        window.open('https://twitter.com/intent/tweet?text=I+took+the+AI+Fatigue+Type+Calculator.+My+dominant+type:+' + encodeURIComponent(data.label) + '+(' + match + '%+match).+Find+yours+at+' + encodeURIComponent(shareUrl), '_blank');
+      };
+      document.getElementById('shareLinkedIn').onclick = () => {
+        window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(shareUrl), '_blank');
+      };
+      document.getElementById('shareCopy').onclick = () => {
+        navigator.clipboard.writeText(shareUrl).then(() => {
+          const btn = document.getElementById('shareCopy');
+          btn.textContent = 'Copied!';
+          setTimeout(() => { btn.textContent = 'Copy link'; }, 2000);
+        });
+      };
+
+      document.querySelectorAll('.quiz-card').forEach(c => c.classList.remove('active'));
+      document.getElementById('result').classList.add('visible');
+      document.getElementById('progressFill').style.width = '100%';
+      document.getElementById('progressText').textContent = 'Your Results';
+    }
+
+    document.querySelectorAll('.answer-btn').forEach(btn => {
+      btn.addEventListener('click', () => handleAnswer(btn));
+      btn.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleAnswer(btn); }
+      });
+    });
+
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      Object.keys(answers).forEach(k => delete answers[k]);
+      answered.clear();
+      document.querySelectorAll('.answer-btn').forEach(b => b.classList.remove('selected'));
+      document.getElementById('result').classList.remove('visible');
+      document.getElementById('progressFill').style.width = '14.28%';
+      document.getElementById('progressText').textContent = 'Question 1 of 7';
+      showCard('q1');
+    });
+
+    // Reading progress
+    window.addEventListener('scroll', () => {
+      const el = document.getElementById('rp');
+      const scrolled = document.documentElement.scrollTop;
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      el.style.width = ((scrolled / total) * 100) + '%';
+      el.setAttribute('aria-valuenow', Math.round((scrolled / total) * 100));
+    });
   </script>
+
 </body>
 </html>

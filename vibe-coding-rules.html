@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vibe Coding Rules: A Practical Guide for Engineering Teams</title>
+  <meta name="description" content="The unspoken rules of vibe coding — when to use it, when to avoid it, and how teams can set AI coding norms without killing momentum.">
+  <meta name="keywords" content="vibe coding rules, vibe coding teams, Paul Graham vibe coding, AI coding norms, vibe coding best practices">
+  <meta property="og:title" content="Vibe Coding Rules: A Practical Guide for Engineering Teams">
+  <meta property="og:description" content="The unspoken rules of vibe coding — when to use it, when to avoid it, and how teams can set AI coding norms.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/vibe-coding-rules.html">
+  <link rel="canonical" href="https://clearing-ai.com/vibe-coding-rules.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Vibe Coding Rules: A Practical Guide for Engineering Teams",
+    "description": "The unspoken rules of vibe coding — when to use it, when to avoid it, and how teams can set AI coding norms without killing momentum.",
+    "author": {"@type": "Organization", "name": "The Clearing"},
+    "publisher": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+    "datePublished": "2026-04-11",
+    "dateModified": "2026-04-11",
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://clearing-ai.com/vibe-coding-rules.html"},
+    "wordCount": 3200
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Tips", "item": "https://clearing-ai.com/tips.html"},
+      {"@type": "ListItem", "position": 3, "name": "Vibe Coding Rules", "item": "https://clearing-ai.com/vibe-coding-rules.html"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is vibe coding?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Vibe coding is the practice of describing what you want in plain language and letting AI generate the code — treating the AI as a creative partner where you guide the direction but don't write every line yourself. popularized by Paul Graham in 2026."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When should you NOT vibe code?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Avoid vibe coding for security-critical code, performance-sensitive hot paths, code you can't afford to misunderstand in production, algorithms where you need to understand the correctness proof, and anything where the cost of a subtle bug is catastrophic."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you set team norms around vibe coding?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The best teams create explicit agreements on: what requires old-school writing, what requires thorough AI-output review, what can be shipped with a lighter touch, and how to handle the knowledge gap when someone reviews code they didn't write."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does vibe coding make you a worse engineer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It can, if you never deeply engage with the underlying logic. The risk is craft erosion — losing the intuition that comes from building things by hand. The solution isn't to ban vibe coding, but to practice deliberate old-school sessions where you build without AI."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How should junior engineers use vibe coding?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Juniors should write significant amounts of code manually for their first 6-12 months. Use AI for explanation, not substitution. The skills developed by writing code manually are the foundation that lets you evaluate whether AI output is correct."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <header class="site-header">
+    <nav class="nav container" role="navigation" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-home"><span class="nav-logo">🌿</span><span class="nav-title">The Clearing</span></a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+        <ul class="nav-list" role="menubar">
+          <li role="none"><a href="index.html" class="nav-link" role="menuitem">Quiz</a></li>
+          <li role="none"><a href="recovery.html" class="nav-link" role="menuitem">Recovery</a></li>
+          <li role="none"><a href="why.html" class="nav-link" role="menuitem">Understand</a></li>
+          <li role="none"><a href="research.html" class="nav-link" role="menuitem">Science</a></li>
+          <li role="none"><a href="stories.html" class="nav-link" role="menuitem">Stories</a></li>
+          <li role="none"><a href="resources.html" class="nav-link" role="menuitem">Resources</a></li>
+          <li role="none"><a href="newsletter.html" class="nav-link" role="menuitem">Newsletter</a></li>
+        </ul>
+        <button class="theme-toggle" aria-label="Toggle dark/light mode">☀️</button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <article class="content">
+      <div class="container container-narrow">
+
+        <nav aria-label="Breadcrumb" class="breadcrumb">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tips.html">Tips</a></li>
+            <li aria-current="page">Vibe Coding Rules</li>
+          </ol>
+        </nav>
+
+        <header class="article-header">
+          <span class="article-label">Engineering Teams</span>
+          <h1>Vibe Coding Rules: A Practical Guide for Engineering Teams</h1>
+          <p class="article-subtitle">Paul Graham sparked a debate. Here's how engineering teams are actually navigating it — the norms, the boundaries, and the unspoken agreements that keep both code quality and engineers intact.</p>
+          <div class="article-meta">
+            <time datetime="2026-04-11">April 11, 2026</time>
+            <span class="sep">·</span>
+            <span class="reading-time">12 min read</span>
+            <span class="sep">·</span>
+            <span>The Clearing</span>
+          </div>
+        </header>
+
+        <div class="article-share">
+          <span class="share-label">Share:</span>
+          <button class="share-btn" aria-label="Share on Twitter" onclick="window.open('https://twitter.com/intent/tweet?text=Vibe+Coding+Rules%3A+A+Practical+Guide+for+Engineering+Teams&url=https://clearing-ai.com/vibe-coding-rules.html','_blank','width=550,height=420')">𝕏</button>
+          <button class="share-btn" aria-label="Share on LinkedIn" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url=https://clearing-ai.com/vibe-coding-rules.html','_blank','width=600,height=480')">in</button>
+          <button class="share-btn" aria-label="Copy link" onclick="navigator.clipboard.writeText('https://clearing-ai.com/vibe-coding-rules.html').then(()=>this.textContent='✓')">🔗</button>
+        </div>
+
+        <div class="prose">
+
+          <section class="article-section">
+            <h2>What Vibe Coding Actually Means</h2>
+            <p>In February 2026, Paul Graham wrote an essay that split the engineering world in half. His term — <em>vibe coding</em> — described a new mode of software creation: describe what you want in plain language, let AI generate the code, iterate until it feels right. The goal isn't to write code. The goal is to produce working software that matches your intent.</p>
+            <p>The reactions were predictable and revealing. Senior engineers who spent a decade mastering their craft felt a pang of something between grief and recognition. Junior engineers saw it as permission. Managers saw a productivity lever. And the engineers actually doing it every day were somewhere in between — knowing it felt different, not entirely sure if the difference was good or catastrophic.</p>
+            <p>This page is for the teams having that conversation right now. Not the abstract debate about whether vibe coding is "real programming." The practical question: <strong>when should you vibe code, when should you not, and how do you set team norms that don't kill momentum or destroy craft?</strong></p>
+          </section>
+
+          <section class="article-section">
+            <h2>The Spectrum: Full Vibe to Full Manual</h2>
+            <p>Vibe coding isn't binary. Engineers sit on a spectrum, and the best teams are intentional about where they operate at any given moment:</p>
+            <div class="callout-grid">
+              <div class="callout-card callout-green">
+                <strong>Full Vibe</strong>
+                <p>Describe the feature in plain language. Accept the first AI generation. Test it. Iterate with follow-up prompts. Ship it. You may never read the implementation deeply.</p>
+              </div>
+              <div class="callout-card callout-yellow">
+                <strong>Guided Vibe</strong>
+                <p>AI generates the implementation but you review every significant block, ask for alternatives on non-trivial decisions, and understand the data flow before testing.</p>
+              </div>
+              <div class="callout-card callout-orange">
+                <strong>AI-Assisted</strong>
+                <p>You write the code but use AI for boilerplate, doc strings, test generation, and finding specific functions. The logic is yours. AI is the autocomplete.</p>
+              </div>
+              <div class="callout-card callout-red">
+                <strong>Full Manual</strong>
+                <p>No AI in the editor. You write every line. This is deliberate practice — protecting the skills that AI would otherwise erode.</p>
+              </div>
+            </div>
+            <p>The best engineers move along this spectrum throughout a single day, depending on what they're building. The problem isn't where you sit on the spectrum. The problem is not knowing which mode you're in.</p>
+          </section>
+
+          <section class="article-section">
+            <h2>Rule 1: Know What You're Surrendering</h2>
+            <p>Every time you vibe code, you're trading something. The question isn't whether the trade is worth it — it's whether you know what you're trading. Here's the honest ledger:</p>
+            <div class="callout-grid">
+              <div class="callout-card">
+                <strong>What You Gain</strong>
+                <ul>
+                  <li>Speed on boilerplate, tests, glue code</li>
+                  <li>Access to patterns you haven't memorized</li>
+                  <li>Reduced tedium on well-defined tasks</li>
+                  <li>Iteration speed on UI/layout problems</li>
+                  <li>Confidence you're not missing a common solution</li>
+                </ul>
+              </div>
+              <div class="callout-card">
+                <strong>What You Lose</strong>
+                <ul>
+                  <li>Deep understanding of what you shipped</li>
+                  <li>The muscle memory that makes you fast at debugging</li>
+                  <li>The intuition that tells you where a bug likely lives</li>
+                  <li>The ability to modify code you don't fully understand</li>
+                  <li>The productive struggle that builds real expertise</li>
+                </ul>
+              </div>
+            </div>
+            <p>Neither column is zero. The question your team needs to answer is: <strong>which column matters more for this particular piece of code?</strong></p>
+          </section>
+
+          <section class="article-section">
+            <h2>Rule 2: Never Vibe Code What You Can't Debug</h2>
+            <p>This is the single most important rule, and the one most frequently violated under deadline pressure. If you ship code that you don't understand well enough to debug, you're building a debt that will come due at the worst possible moment — in production, at 2 AM, when something goes wrong in a code path you never deeply read.</p>
+            <p>The test is simple: when the on-call alert fires at 3 AM and the stack trace points to the AI-generated function, can you reason through what's happening? Or are you just hoping the next AI prompt will fix it?</p>
+            <p>If you're hoping for the AI fix, you've crossed a line. That isn't vibe coding. That's <a href="productivity-theater.html">productivity theater</a> — looking like you're building while actually surrendering control to a system you can't operate.</p>
+            <p><strong>The rule:</strong> You should be able to trace any piece of code you shipped, step through it mentally, identify where it touches external systems, and explain why each major decision was made. If you can't, you either need to understand it better before shipping, or write it yourself.</p>
+          </section>
+
+          <section class="article-section">
+            <h2>Rule 3: Set Explicit Team Agreements</h2>
+            <p>The worst teams for vibe coding are the ones where everyone has a different implicit understanding of how much review is enough, what's okay to ship without deeply reading, and how to handle code you don't understand that your colleague wrote with AI.</p>
+            <p>The best teams have explicit agreements. These don't need to be lengthy policy documents. They need to be honest, specific, and agreed upon by everyone:</p>
+            <table class="data-table">
+              <thead>
+                <tr><th>Topic</th><th>The Question to Answer Together</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Security code</strong></td><td>Does this get vibe coded, or does it require manual authorship and review?</td></tr>
+                <tr><td><strong>Tests</strong></td><td>Can AI generate tests for AI-generated code? Who reviews the test quality?</td></tr>
+                <tr><td><strong>On-call ownership</strong></td><td>If you vibe coded it, are you still the right person for the on-call rotation for that code?</td></tr>
+                <tr><td><strong>PR review bar</strong></td><td>Does vibe-generated code get a higher review bar than manually-written code?</td></tr>
+                <tr><td><strong>Skill protection</strong></td><td>Do we have a policy on deliberate old-school sessions to prevent atrophy?</td></tr>
+                <tr><td><strong>Junior engineers</strong></td><td>Are there restrictions on when juniors vibe code vs. when they should write manually for learning purposes?</td></tr>
+              </tbody>
+            </table>
+            <p>These conversations are uncomfortable. Nobody wants to be the person saying "maybe we shouldn't use AI here." That's exactly why you need them before the situation forces them.</p>
+          </section>
+
+          <section class="article-section">
+            <h2>Rule 4: The Debugging Problem Is Fundamentally Different</h2>
+            <p>When you write code, debugging is natural. You have a mental model of what you intended, and when the output is wrong, you reason backward from the bug to the likely cause. Your model of the code and the code itself are connected through the act of writing it.</p>
+            <p>When you vibe code, this connection is severed. The AI generated the implementation to match your description, not your mental model. And the description may have been imprecise, or the AI may have made choices you didn't anticipate, or both.</p>
+            <p>So when the vibe-coded code has a bug, you're debugging something that was never fully yours to begin with. Here's what experienced vibe coders actually do:</p>
+            <ul>
+              <li><strong>Read the generated code before testing.</strong> Not perfectly — just enough to build a rough mental model. "I told it to sort by date, I wonder if it handles timezone edge cases."</li>
+              <li><strong>Add assertions you wouldn't have thought to add manually.</strong> If the AI wrote the sort, you should think about what inputs would break it that you wouldn't have worried about in code you wrote yourself.</li>
+              <li><strong>Test the edges the AI probably didn't think about.</strong> Empty inputs, null values, extremely large datasets, concurrent access. The AI tends to generate the happy path.</li>
+              <li><strong>When you find a bug, understand it before prompting the fix.</strong> "Why did it get this wrong?" is a question that builds your model. "Fix this bug" is a question that doesn't.</li>
+            </ul>
+            <p>The engineers who vibe code successfully long-term are the ones who treat debugging as a learning opportunity, not just a fix cycle. If every debug session ends with "I prompted it to fix the bug and it worked," you're not debugging. You're delegating.</p>
+          </section>
+
+          <section class="article-section">
+            <h2>Rule 5: Protect What You're Not Vibe Coding</h2>
+            <p>The engineers who feel worst about their vibe coding practice are the ones who stopped doing anything without AI. They vibe coded their work code, their side projects, their learning experiments. A year later, they realize they can't write a sorting function from memory anymore, they can't reason through a race condition without running it, and they don't trust themselves in an interview that asks them to code on a whiteboard.</p>
+            <p>The countermeasure is deliberate separation:</p>
+            <ul>
+              <li><strong>No-AI blocks:</strong> Time periods — a morning, a day, a week — where nothing gets AI assistance. Use these for learning, for practicing the hard things, for building the skills that feel rusty.</li>
+              <li><strong>Project-level choices:</strong> Some projects are vibe coding projects (experiments, MVPs, prototyping). Some projects are manual projects (learning a new language, building from scratch, rebuilding something you built five years ago).</li>
+              <li><strong>Weekly old-school sessions:</strong> One debug session a week without AI. One feature implementation without AI. Whatever feels like the biggest risk of atrophy — that's what you protect.</li>
+            </ul>
+            <p>The goal isn't to be equally good at vibe coding and manual coding. The goal is to be intentional about which mode you're in, and not slowly drift into vibe coding everything without noticing.</p>
+            <p>If you've already noticed the drift, the <a href="ai-detox-plan.html">30-Day AI Detox Plan</a> has a structured protocol for rebuilding the manual muscle.</p>
+          </section>
+
+          <section class="article-section">
+            <h2>Rule 6: Onboard Juniors Differently</h2>
+            <p>This is the rule most teams get catastrophically wrong. Vibe coding is seductive for junior engineers because it lets them ship working code quickly. The problem is that junior engineers who vibe code their way through their first two years are building on a foundation they don't understand, and at some point — usually during a high-stakes situation or when they're being evaluated for promotion — the gap between what they can do and what they understand becomes painfully visible.</p>
+            <p>The better approach for junior engineers:</p>
+            <ul>
+              <li><strong>Manual first, AI second:</strong> For the first 6-12 months, juniors should write significant amounts of code manually — not as punishment, but as the only way to build the pattern recognition they'll need forever.</li>
+              <li><strong>AI for explanation, not substitution:</strong> "Tell me what this code does" is a legitimate use of AI for juniors. "Write this code for me" is not.</li>
+              <li><strong>Review the AI output before accepting it:</strong> Every AI-generated block should be read and questioned. The habit of reading is essential even when you're not writing.</li>
+              <li><strong>Track what you've learned without AI:</strong> A simple log: every week, what did you build or understand this week that you couldn't have built or understood a month ago?</li>
+            </ul>
+            <p>The reason junior engineers need to write code manually isn't about purity or gatekeeping. It's that the skills you develop by writing code — debugging, reasoning about edge cases, building intuition about data structures — are the foundation that lets you evaluate whether AI output is correct. Without that foundation, you can't review AI code effectively. You're just hoping it works.</p>
+            <p>For more on the unique risks of AI tools for junior engineers, see <a href="junior-engineers.html">AI Fatigue for Junior Engineers</a>.</p>
+          </section>
+
+          <section class="article-section">
+            <h2>Rule 7: Measure the Health of Your Vibe Coding Practice</h2>
+            <p>How do you know if vibe coding is making you a better engineer or a more fragile one? Here are the signals that suggest it's working — and the warning signs that suggest it isn't:</p>
+            <div class="callout-grid">
+              <div class="callout-card callout-green">
+                <strong>Signs of Healthy Vibe Coding</strong>
+                <ul>
+                  <li>You can explain most of what you vibe coded</li>
+                  <li>You still remember how to debug without AI</li>
+                  <li>Your on-call incidents are decreasing over time</li>
+                  <li>You can modify vibe-coded sections when requirements change</li>
+                  <li>You feel increasing ownership of your codebase, not less</li>
+                  <li>You're building things you couldn't have built a year ago</li>
+                </ul>
+              </div>
+              <div class="callout-card callout-red">
+                <strong>Warning Signs</strong>
+                <ul>
+                  <li>You can't explain most of what you vibe coded</li>
+                  <li>You've forgotten how to debug certain code paths</li>
+                  <li>On-call incidents feel like mysteries you Google your way through</li>
+                  <li>You feel less capable without AI than a year ago</li>
+                  <li>You avoid the parts of the codebase you didn't write manually</li>
+                  <li>You feel anxiety when someone asks about a specific implementation</li>
+                </ul>
+              </div>
+            </div>
+            <p>If the warning column is growing, that's the time to act — not later, when the gap has widened further. The <a href="index.html#quiz">AI Fatigue Quiz</a> takes 2 minutes and gives you an honest read on where you stand.</p>
+          </section>
+
+          <section class="article-section">
+            <h2>Rule 8: The Real Goal Is Knowing Which Mode You're In</h2>
+            <p>After hundreds of conversations with engineers across companies using AI tools heavily, the pattern is clear: the engineers who feel best about their practice — who aren't burned out, who feel ownership, who are still learning — are the ones who are most intentional about their mode.</p>
+            <p>They know when they're vibe coding and when they're writing manually. They know what they're trading in each mode. They have team agreements that make those choices explicit. And they protect time and space for the manual practice that keeps their craft alive.</p>
+            <p>The engineers who are struggling — feeling foggy, disconnected from their code, anxious about their skills, dreading code reviews — are often the ones who drifted into vibe coding everything without ever making an explicit choice. The mode crept up on them. They look up and realize they haven't written a significant piece of code from scratch in months.</p>
+            <p>Vibe coding isn't the problem. Unconscious vibe coding is.</p>
+            <p>The best teams aren't the ones who banned AI tools or the ones who embraced them without guardrails. They're the ones who had the honest conversation early, set explicit agreements, and keep revisiting them as the technology changes — because it will keep changing, and the agreements will need to evolve with it.</p>
+          </section>
+
+          <section class="article-section faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq" role="faq">
+              <details>
+                <summary>What is vibe coding?</summary>
+                <div class="faq-answer">
+                  <p>Vibe coding is the practice of describing what you want in plain language and letting AI generate the code — treating the AI as a creative partner where you guide the direction but don't write every line yourself. popularized by Paul Graham in 2026. It's a spectrum from "full vibe" (AI generates everything, you iterate) to "AI-assisted" (you write, AI helps with boilerplate and tests).</p>
+                </div>
+              </details>
+              <details>
+                <summary>When should you NOT vibe code?</summary>
+                <div class="faq-answer">
+                  <p>Avoid vibe coding for: security-critical code (auth, payments, permissions), performance-sensitive hot paths, code you can't afford to misunderstand in production, algorithms where you need to understand the correctness proof, and anything where the cost of a subtle bug is catastrophic. The rule: never vibe code what you can't debug at 3 AM when something goes wrong.</p>
+                </div>
+              </details>
+              <details>
+                <summary>How do you set team norms around vibe coding?</summary>
+                <div class="faq-answer">
+                  <p>The best teams create explicit agreements on: what requires old-school writing, what requires thorough AI-output review, what can be shipped with a lighter touch, how to handle the knowledge gap when someone reviews code they didn't write, and policies for junior engineer onboarding. These don't need to be lengthy documents — they need to be honest, specific, and agreed upon by everyone.</p>
+                </div>
+              </details>
+              <details>
+                <summary>Does vibe coding make you a worse engineer?</summary>
+                <div class="faq-answer">
+                  <p>It can, if you never deeply engage with the underlying logic. The risk is craft erosion — losing the intuition that comes from building things by hand, the debugging reflex, the ability to reason about code you didn't write. The solution isn't to ban vibe coding. It's to practice deliberate old-school sessions where you build without AI, and to be intentional about which mode you're in at any given time.</p>
+                </div>
+              </details>
+              <details>
+                <summary>How should junior engineers use vibe coding?</summary>
+                <div class="faq-answer">
+                  <p>Juniors should write significant amounts of code manually for their first 6-12 months — not as gatekeeping, but because the skills developed by writing code manually (debugging, reasoning about edge cases, pattern recognition) are the foundation that lets you evaluate whether AI output is correct. Use AI for explanation ("tell me what this code does"), not substitution ("write this for me").</p>
+                </div>
+              </details>
+              <details>
+                <summary>How do I know if vibe coding is hurting my skills?</summary>
+                <div class="faq-answer">
+                  <p>Warning signs: you can't explain most of what you vibe coded, you've forgotten how to debug certain code paths, on-call incidents feel like mysteries you Google your way through, you feel less capable without AI than a year ago, you avoid parts of the codebase you didn't write manually. If this describes you, the <a href="ai-detox-plan.html">30-Day AI Detox Plan</a> can help you rebuild the manual muscle before the gap widens further.</p>
+                </div>
+              </details>
+            </div>
+          </section>
+
+          <section class="article-section">
+            <div class="continue-exploring">
+              <h3>Continue Exploring</h3>
+              <div class="explore-grid">
+                <a href="vibe-coding-ai-fatigue.html" class="explore-card">
+                  <span class="explore-icon">🎨</span>
+                  <span class="explore-title">Vibe Coding AI Fatigue</span>
+                  <span class="explore-desc">The specific kind of exhaustion that comes from shipping code you don't fully own.</span>
+                </a>
+                <a href="vibe-coding-self-assessment.html" class="explore-card">
+                  <span class="explore-icon">📋</span>
+                  <span class="explore-title">Vibe Coding Self-Assessment</span>
+                  <span class="explore-desc">Are you vibe coding consciously or compulsively? 7-question interactive assessment.</span>
+                </a>
+                <a href="skill-atrophy.html" class="explore-card">
+                  <span class="explore-icon">🧠</span>
+                  <span class="explore-title">Skill Atrophy and AI</span>
+                  <span class="explore-desc">The research on what's happening to engineer skills when AI does more of the building.</span>
+                </a>
+                <a href="ai-detox-plan.html" class="explore-card">
+                  <span class="explore-icon">🌱</span>
+                  <span class="explore-title">30-Day AI Detox Plan</span>
+                  <span class="explore-desc">If you've vibe coded too much and want to rebuild the manual muscle.</span>
+                </a>
+                <a href="team-guide.html" class="explore-card">
+                  <span class="explore-icon">👥</span>
+                  <span class="explore-title">Team Guide to AI Limits</span>
+                  <span class="explore-desc">How engineering teams set AI usage norms without killing velocity or morale.</span>
+                </a>
+                <a href="index.html#quiz" class="explore-card">
+                  <span class="explore-icon">🌿</span>
+                  <span class="explore-title">Take the AI Fatigue Quiz</span>
+                  <span class="explore-desc">2 minutes. Know where you stand. Start with the quiz.</span>
+                </a>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>The Clearing</h4>
+          <p>A resource for engineers experiencing AI fatigue. Free. No tracking. No ads.</p>
+          <p class="footer-tagline">You shipped a lot of code you didn't write. Let's figure out what that means.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Start Here</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#quiz">AI Fatigue Quiz</a></li>
+            <li><a href="recovery.html">Recovery Guide</a></li>
+            <li><a href="why.html">Why This Happens</a></li>
+            <li><a href="research.html">The Science</a></li>
+            <li><a href="ai-detox-plan.html">30-Day Detox Plan</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="stories.html">Engineer Stories</a></li>
+            <li><a href="resources.html">Reading List</a></li>
+            <li><a href="community.html">Communities</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="stats.html">Statistics</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <ul class="footer-links">
+            <li><a href="decompress.html">Deep Work Timer</a></li>
+            <li><a href="checkin.html">Daily Check-in</a></li>
+            <li><a href="journal.html">Reflective Journal</a></li>
+            <li><a href="badge.html">Quiz Badge</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 The Clearing · <a href="privacy.html">Privacy</a> · <a href="changelog.html">Changelog</a> · <a href="press-kit.html">Press Kit</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.querySelectorAll('.faq details').forEach(detail => {
+      detail.addEventListener('toggle', () => {
+        if (detail.open) {
+          document.querySelectorAll('.faq details[open]').forEach(d => { if (d !== detail) d.removeAttribute('open'); });
+        }
+      });
+    });
+    const progressBar = document.createElement('div');
+    progressBar.className = 'reading-progress';
+    progressBar.style.cssText = 'position:fixed;top:0;left:0;height:3px;background:var(--accent,#4ade80);z-index:9999;width:0%;transition:width .1s';
+    document.body.appendChild(progressBar);
+    window.addEventListener('scroll', () => {
+      const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+      progressBar.style.width = scrolled + '%';
+    }, { passive: true });
+  </script>
+  <style>
+    .callout-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin: 1.5rem 0; }
+    @media (max-width: 640px) { .callout-grid { grid-template-columns: 1fr; } }
+    .callout-card { background: var(--surface-2); border-radius: 12px; padding: 1.25rem; border: 1px solid var(--border); }
+    .callout-card strong { display: block; margin-bottom: 0.75rem; font-size: 0.95rem; }
+    .callout-card ul { margin: 0; padding-left: 1.25rem; }
+    .callout-card li { margin-bottom: 0.35rem; font-size: 0.9rem; color: var(--text-secondary); }
+    .callout-green { border-left: 3px solid #22c55e; }
+    .callout-yellow { border-left: 3px solid #eab308; }
+    .callout-orange { border-left: 3px solid #f97316; }
+    .callout-red { border-left: 3px solid #ef4444; }
+    .data-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
+    .data-table th { background: var(--surface-2); padding: 0.75rem 1rem; text-align: left; border-bottom:    border-bottom: 2px solid var(--border); }
+    .data-table td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); color: var(--text-secondary); vertical-align: top; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table strong { color: var(--text); }
+    .faq-section { margin-top: 3rem; }
+    .article-share { display: flex; align-items: center; gap: 0.5rem; margin: 1.5rem 0; }
+    .share-label { font-size: 0.85rem; color: var(--text-secondary); font-weight: 500; }
+    .share-btn { background: var(--surface-2); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.75rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; transition: background 0.2s; }
+    .share-btn:hover { background: var(--surface-3); }
+  </style>
+</body>
+</html>

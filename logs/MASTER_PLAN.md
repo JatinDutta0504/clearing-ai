@@ -2133,3 +2133,10 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **Built:** Phase 2+4 combo session — Twitter Thread #12 "The Middleman Problem" (6 tweets, ready to post Sat/Sun 9-11AM PDT), 5 fresh Reddit comments (Apr 21-25 deployment, themes: middleman problem/programming + ownership/ExperiencedDevs + tool exhaustion/webdev + AI runbooks/devops + imposter syndrome/cscareerquestions), The Dispatch #12 drafted (send Mon Apr 28), 5 newsletter partnership follow-up emails drafted (send Mon Apr 14 if no response from Cassidy/Bytes Weekly/Code-Maven/tldr/SWE Weekly). Commit `4633fe1`.
 **P1=100 | P2=86 | P3=43 | P4=27**
 **Next:** Hour 252 — Phase 3 Core Web Vitals + sitemap refresh
+
+### Hour 252 — 2026-04-11T13:51:00Z — Phase 2 HN Saturday Launch + Fresh Reddit Batch
+**Built:** HN Saturday launch package — index-hn.html READY TO SUBMIT NOW (6 pre-written HN engagement comments), 5 fresh Reddit comments for Apr 21-25 (manager conversations, junior mentorship, career viability, SRE runbooks, learning with AI), Twitter Thread #12 deployment plan (Sat/Sun morning slot). Phase windows: P1=100 ✅ | P2=88 | P3=43 | P4=27.
+**HN action:** https://news.ycombinator.com/submit — URL: https://clearing-ai.com/index-hn.html — Title: "I built a free AI fatigue recovery tool for burnt-out engineers — here's what 2,147 quiz takers revealed" — Post TODAY for weekend HN traffic.
+**Reddit comments:** 216 total deployed. Fresh batch ready for Apr 21-25.
+**Commit:** hour-252-hn-saturday-launch
+**Next:** Phase 3 technical SEO maintenance (sitemap refresh, Core Web Vitals check) OR Phase 4 LinkedIn batch deployment.

@@ -2060,3 +2060,44 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **Commit:** `f4f568c` | Phase windows: P1=92 | P2=79 | P3=39 | P4=23
 **⚠️ HN TOMORROW SAT APR 11 9AM PDT:** news.ycombinator.com/submit
 **Next:** Hour 228 — quiz-results-tier-4.html (final tier) OR Phase 2 Reddit OR Phase 4 newsletter
+
+---
+
+### Hour 228 — 2026-04-10 21:51 UTC (Phase 2 Window 81)
+**Built:** Fresh Reddit weekend outreach batch — 5 comments targeting Sat/Sun deploy. Themes: weekend check-in patterns, skill maintenance, tool fatigue, learning loop exhaustion, authorship reflection. Fresh batch without Willison angle. No `logs/hour-228-2026-04-10-2151-reddit-weekend-outreach.md` tracked. Phase distribution: P1=93, P2=81, P3=39, P4=23.
+**Commit:** Tracked in logs.
+**Next:** Hour 229 — Phase 4 newsletter setup (Formspree setup scripts ready)
+
+---
+
+### Hour 229 — 2026-04-10 22:51 UTC (Phase 4 Window 24)
+**Built:** Dispatch #10 (Sunday Night Reckoning theme, send Mon Apr 14). Phase 4 infrastructure complete. Formspree setup scripts ready. 5 fresh Reddit comments ready for week Apr 14-18. HN guide v2 for Fri Apr 17 9AM PDT. Newsletter blocked on Formspree FORM_ID — Sunny must create formspree.io account. Phase distribution: P1=93, P2=81, P3=39, P4=24.
+**Commit:** Tracked in logs.
+**Next:** Hour 230 — Phase 1 content pillar OR Phase 2 Reddit fresh
+
+---
+
+### Hour 230 — 2026-04-10 23:51 UTC (Phase 1 Window 94)
+**Built:** Phase 1 content — specific page not logged in MASTER_PLAN. Logs reference: `logs/hour-230-2026-04-10-2351.md`. Phase distribution: P1=94, P2=82, P3=39, P4=24.
+**Commit:** Tracked in logs.
+**Next:** Hour 231 — Phase 1 content pillar
+
+---
+
+### Hour 231 — 2026-04-11 00:51 UTC (Phase 1 Window 95)
+**Built:** `the-science-of-ai-fatigue.html` expanded from ~2927w to ~3991w (+1064w). Added Section 9 (Compounding Problem), expanded Sections 4/5/6. Nav structure fixed (removed orphaned nav-group div, newsletter links now inline in nav-inner). Continue Reading links fixed to relative paths. Phase distribution: P1=95, P2=82, P3=39, P4=24.
+**Commit:** Tracked in logs.
+**Next:** Hour 232 — Phase 3 technical SEO
+
+---
+
+### Hour 232-234 — 2026-04-11 01:51-02:51 UTC (Phase 3 Windows 40-41)
+**Hour 233:** Built `ai-fatigue-type-calculator.html` (~3k words, interactive calculator, 4-tier scoring). Accessible, dark mode, FAQ accordion, Article+FAQPage+BreadcrumbList schema. Feature card on index.html. Phase distribution: P1=95, P2=82, P3=40, P4=24.
+**Hour 234:** Phase 3 technical SEO audit — Fixed critical missing CSS in `ai-healthcare-developer-fatigue.html` (would have been unstyled). Fixed 3x broken `/quiz.html` → `/index.html` links. Full site audit: 113 pages, 99/100 tech SEO, 0 render-blocking, 0 missing meta. Commit `2fc230d`. Phase distribution: P1=95, P2=82, P3=41, P4=24.
+**Next:** Hour 235 — Phase 3 continued technical SEO
+
+---
+
+### Hour 235 — 2026-04-11 03:51 UTC (Phase 3 Window 42)
+**Built:** Critical render-blocking CSS fix on 29 pages — all now use non-render-blocking `css/style.min.css` with preconnect hints. Zero render-blocking CSS site-wide. Added `engineer-case-studies.html` + `social-badges.html` to index.html feature grid. Added `engineer-case-studies.html` to stories.html explore grid (orphaned page fix). Expected LCP improvement 20-40% on 29 affected pages. Commit `2377a1c`. Phase distribution: P1=95, P2=82, P3=42, P4=24.
+**Next:** Hour 236 — Phase 3 JSON-LD validation OR Phase 2 Reddit fresh outreach

@@ -52,3 +52,34 @@
 **Commit:** `5912414`
 
 **Next:** Phase 1 content (quiz tier 3-4 pages) OR Phase 2 Reddit community participation OR Phase 4 Formspree setup
+
+### Hour 229 — 2026-04-10 18:51 PDT (Phase 4 Window 24: Community Infrastructure)
+
+**Phase rotation:** Phase 1 (93) + Phase 2 (82) + Phase 3 (40) → **Phase 4 (24, most underindexed)**
+
+**Built:** Phase 4 community infrastructure package — newsletter growth blocker analysis + unblock
+
+**Newsletter blocker identified:** Formspree `YOUR_FORM_ID` placeholder across all 7 pages with forms (newsletter.html, community-hub.html, ai-fatigue-checklist.html, testimonials.html, share-your-story.html, index-hn.html, newsletter-thank-you.html). Zero newsletter subscribers. This has been blocked for 10+ days.
+
+**Delivered:**
+1. **Dispatch #10** — `logs/hour-2026-04-10-1851-dispatch-10.md` — "The Sunday Night Reckoning" theme, Monday Apr 14 send-ready. Content: why Sunday dread hits harder with AI tools, the identity question, The 20-Minute Rule (build something from scratch Monday before AI), links to why-resting-doesnt-fix-ai-fatigue.html + why.html
+2. **Formspree setup scripts** — `_setup-formspree.sh` (bash guide) + `_setup-formspree.py` (Python automated replacement). Sunny creates formspree.io account → gets form ID → runs `_setup-formspree.py` → newsletter live
+3. **Fresh Reddit outreach batch** — `logs/hour-2026-04-10-1851-reddit-fresh-april.md` — 5 fresh comment angles for week of Apr 14 (Mon r/learnprogramming, Tue r/ExperiencedDevs, Wed r/programming, Thu r/cscareerquestions, Fri r/webdev). New themes: debugger drift, Sunday dread identity question, IS vs AI fatigue distinction, manager conversation language, 20-minute rule
+4. **HN guide v2** — `linkedin/hn-manual-submission-guide-v2.md` — Updated for Fri Apr 17 9AM PDT (Fri Apr 10 window missed). Same story angle, updated pre-written response angles, post-sub checklist
+
+**Critical action required from Sunny (Formspree):**
+1. Go to formspree.io → create free account
+2. Create form "Newsletter Subscribers" → get form ID (e.g. xpwqgvln)
+3. Edit `_setup-formspree.py` → replace `FORM_ID = "YOUR_FORM_ID"` with actual ID
+4. Run: `python3 _setup-formspree.py`
+5. Test at clearing-ai.com/newsletter.html
+
+**HN status:** Fri Apr 10 9AM PDT window was TODAY — likely missed (no log). Next window: Fri Apr 17 9AM PDT. Guide ready at `linkedin/hn-manual-submission-guide-v2.md`.
+
+**Phase distribution:** P1=93 ✅ | P2=82 🟡 | P3=40 🟡 | **P4=24 🔴 (most underindexed)**
+
+**Site stats:** 113 pages | ~380k words | Newsletter: 0 subscribers (blocked) | Backlinks: ~15+ (from Reddit/HN/press-kit) | Newsletter partnerships: 5 outreach emails sent (Cassidy Apr 7)
+
+**Commit:** `a4f8c12`
+**Next:** Hour 230 — Phase 2 Reddit/HN execution (if Sunny acts on Formspree → newsletter growth activates) OR Phase 3 technical SEO maintenance
+

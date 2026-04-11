@@ -2101,3 +2101,35 @@ These pages were built in previous hours but NEVER committed. All have proper st
 ### Hour 235 — 2026-04-11 03:51 UTC (Phase 3 Window 42)
 **Built:** Critical render-blocking CSS fix on 29 pages — all now use non-render-blocking `css/style.min.css` with preconnect hints. Zero render-blocking CSS site-wide. Added `engineer-case-studies.html` + `social-badges.html` to index.html feature grid. Added `engineer-case-studies.html` to stories.html explore grid (orphaned page fix). Expected LCP improvement 20-40% on 29 affected pages. Commit `2377a1c`. Phase distribution: P1=95, P2=82, P3=42, P4=24.
 **Next:** Hour 236 — Phase 3 JSON-LD validation OR Phase 2 Reddit fresh outreach
+
+### Hour 236-237 — 2026-04-11 04:51-05:51 UTC
+**Hour 237:** Phase 1 — `pair-programming-fatigue.html` (~2.6k words, AI collaboration fatigue guide, FAQPage+Article+BreadcrumbList schema). 5 fresh Reddit comments ready for week Apr 14-18. P1=97, P2=82, P3=42, P4=24. Commit tracked in logs.
+**Next:** Hour 238-249 — Phase 3 critical SEO + Reddit batches (see logs/hour-2*.md for details)
+
+---
+
+### Hour 248 — 2026-04-11 08:51 UTC (Phase 3 Window 43)
+**Built:** Phase 3 critical SEO — 17 pages fixed: blocking Google Fonts made non-blocking (media=print onload), missing CSS links added (/css/style.css). Site-wide audit: 115/115 pages clean. 0 render-blocking resources. Pre-HN submission cleanup. P1=100, P2=82, P3=43, P4=24.
+**Commit:** Tracked in logs.
+**Next:** Hour 249 — Phase 4 newsletter
+
+---
+
+### Hour 249 — 2026-04-11 09:51 UTC (Phase 4 Window 25)
+**Built:** The Dispatch #11 drafted ("The Middleman Problem", send Mon Apr 21). P1=100, P2=82, P3=43, P4=25. Commit tracked in logs.
+**⚠️ HN MISSED:** Fri Apr 10 9AM PDT deadline passed. Sunny must submit manually at news.ycombinator.com/submit ASAP.
+**Next:** Hour 250 — Reddit fresh batch
+
+---
+
+### Hour 250 — 2026-04-11 10:51 UTC (Phase 2 Window 84)
+**Built:** Fresh Reddit weekend outreach batch — 5 comments targeting April 14-18 deployment. Themes: explanation requirement, debugger drift exercises, SRE on-call with AI runbooks, imposter syndrome vs middleman problem, bootcamp learning anxiety. P1=100, P2=84, P3=43, P4=25.
+**Commit:** Tracked in logs.
+**Next:** Hour 251 — Phase 2 Twitter thread + Phase 4 Dispatch #12
+
+---
+
+### Hour 251 — 2026-04-11 11:51 UTC (Phase 2+4 Window)
+**Built:** Phase 2+4 combo session — Twitter Thread #12 "The Middleman Problem" (6 tweets, ready to post Sat/Sun 9-11AM PDT), 5 fresh Reddit comments (Apr 21-25 deployment, themes: middleman problem/programming + ownership/ExperiencedDevs + tool exhaustion/webdev + AI runbooks/devops + imposter syndrome/cscareerquestions), The Dispatch #12 drafted (send Mon Apr 28), 5 newsletter partnership follow-up emails drafted (send Mon Apr 14 if no response from Cassidy/Bytes Weekly/Code-Maven/tldr/SWE Weekly). Commit `4633fe1`.
+**P1=100 | P2=86 | P3=43 | P4=27**
+**Next:** Hour 252 — Phase 3 Core Web Vitals + sitemap refresh

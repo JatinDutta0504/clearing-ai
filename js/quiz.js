@@ -137,7 +137,7 @@
         <div class="quiz-intro-note">
           Anonymous. Nothing is stored. This runs entirely in your browser.
         </div>
-        <button class="btn btn-primary quiz-start-btn" id="quiz-start">
+        <button class="quiz-start-btn" id="quiz-start">
           Take the assessment →
         </button>
       </div>

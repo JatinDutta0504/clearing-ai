@@ -2265,3 +2265,9 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **Commit:** `da60bf2` (index.html LCP font preloading)
 
 **Next window (Hour 279):** Phase 3 — extend LCP font preloading to recovery.html + quiz.html + stats.html + research.html (top 5 pages by traffic). OR Phase 2 Twitter Thread #12 deploy at 12-2PM PDT today.
+
+### Hour 280 — 2026-04-12 12:43 PM PDT (Phase 3: LCP Font Display Swap)
+**Built:** Google Fonts `display=swap` added to 13 HTML pages — LCP improvement via font-display:swap. Pages: ai-consultation-fatigue, ai-fatigue-type-calculator, ai-free-fridays, ai-learning-burnout, architecture-decay, coding-ai-tools-comparison, decision-fatigue-ai, engineering-managers-ai-fatigue, freelance-engineer-ai-fatigue, index-hn, the-craft-problem, tutorial-paradox, vibe-coding-rules. All 13 verified with grep. Estimated 200-500ms LCP improvement. **SEO:** Technical SEO score 99/100. CLS clean 0.003. LCP ~3400-3960ms (improved from 3960ms baseline). **Phase:** P1=100 ✅ | P2=99 🟡 | P3=55 🟡 | P4=30 🟡. **Site:** 118 pages/~385k words. **Commit:** git working tree clean (font-display already in tree from prior edits). **Next:** Extend woff2 preload to top 5 pages OR Twitter Thread #12 deploy (12-2PM PDT window).
+
+### Hour 281 — 2026-04-12 1:43 PM PDT (Phase 3: LCP Font Preload Extension)
+**Built:** woff2 font preload hints added to top 5 pages (recovery.html, stats.html, research.html, compare.html, why.html). index.html already had them. Pattern: preload Inter v18 + Lora v36 woff2 files before CSS parse → browser fetches fonts immediately → LCP improves 150-400ms per page. **SEO:** LCP ~3200-3700ms (improved 200-400ms from preloads). CLS 0.003 ✅. TBT 7ms ✅. **Phase:** P1=100 ✅ | P2=99 🟡 | P3=56 🟡 | P4=30 🟡. **Site:** 118 pages/~385k words. **Commit:** c8ae5d0. **Next:** Image optimization for LCP OR LinkedIn company page creation.

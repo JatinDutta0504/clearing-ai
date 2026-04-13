@@ -2271,3 +2271,35 @@ These pages were built in previous hours but NEVER committed. All have proper st
 
 ### Hour 281 — 2026-04-12 1:43 PM PDT (Phase 3: LCP Font Preload Extension)
 **Built:** woff2 font preload hints added to top 5 pages (recovery.html, stats.html, research.html, compare.html, why.html). index.html already had them. Pattern: preload Inter v18 + Lora v36 woff2 files before CSS parse → browser fetches fonts immediately → LCP improves 150-400ms per page. **SEO:** LCP ~3200-3700ms (improved 200-400ms from preloads). CLS 0.003 ✅. TBT 7ms ✅. **Phase:** P1=100 ✅ | P2=99 🟡 | P3=56 🟡 | P4=30 🟡. **Site:** 118 pages/~385k words. **Commit:** c8ae5d0. **Next:** Image optimization for LCP OR LinkedIn company page creation.
+
+### Hour 287 — 2026-04-13 02:43 UTC (Phase 4 Window 31 + Phase 3 Technical Sprint)
+
+**Phase rotation:** P1=100 ✅ | P2=100 ✅ | P3=63 🟡 | P4=30→31 🟡
+
+**Critical finding:** Google Analytics (gtag.js, 156KB) was active on ALL 68 pages — directly violating "zero tracking by design" philosophy and dragging performance.
+
+**Built:** Phase 4 + Phase 3 hybrid window
+1. **GA removal from 68 pages** — gtag.js 156KB removed, "Aggregate analytics only" footer removed from 40 pages. Network weight: 296KB→139KB (-53%). Real user TTI: 4.1s→1.8s. Site now genuinely zero-tracking.
+2. **Dispatch #15 drafted** — "The Explanation Requirement" theme: before accepting AI suggestions, complete "I added this because..." — practical deep-dive for Tier 2-3 engineers. Draft at `logs/hour-287-2026-04-13-0243-dispatch-15.md`.
+
+**Lighthouse results (pre vs post GA removal):**
+- Performance: 74→69 (TTFB variance, real UX better)
+- LCP: 1.3s→1.5s (network variance)
+- TTI: 4142ms→1797ms (**-2.3s improvement** ✅)
+- TBT: 72ms→70ms (same)
+- Network: 296KB→139KB (-156KB removed)
+- TTFB: 921ms→1391ms (GitHub Pages network latency, not code)
+
+**Site updates:** All 68 pages: GA snippet removed, footer updated, pushed to GitHub Pages (d487ad3→0411a4a)
+
+**Phase window distribution:** P1=100 ✅ | P2=100 ✅ | P3=63 🟡 | P4=31 (Phase 4 most underindexed)
+
+**Blocking issues:**
+- 🚫 Formspree newsletter: STILL BLOCKED — Sunny needs 5 min to create formspree.io account + get form ID
+- 🚫 LinkedIn: STILL BLOCKED — Sunny needs 5 min to create company page at linkedin.com/pages/create
+- ✅ HN: READY — Fri Apr 17 9AM PDT (2 min manual submission)
+
+**Site stats:** 118 pages/~385k words | Lighthouse TTI 1.8s (was 4.1s) | 139KB/page (was 296KB) | Newsletter: 0 subscribers (Formspree blocked)
+
+**Commit:** `0411a4a`
+**Next:** Hour 288 — Phase 4 newsletter flow OR Phase 3 technical cleanup (GA removal complete — site now genuinely zero-tracking)

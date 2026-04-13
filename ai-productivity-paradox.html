@@ -458,4 +458,188 @@
           </table>
         </div>
 
-        <p>The pattern is consistent: AI tools increase the metrics that are easy to count while degrading the metrics
+        <p>The pattern is consistent: AI tools increase the metrics that are easy to count while degrading the metrics that are hard to count — the ones that actually determine whether your team ships products that work, scale, and maintain over time.</p>
+
+      </section>
+
+      <section class="article-section" id="what-actually-works">
+        <h2>What Actually Works: The Productivity Principles That Survive AI</h2>
+
+        <p>Not all AI-assisted development creates the productivity paradox. The engineers who use AI tools effectively share a set of practices that preserve the benefits while limiting the costs. None of them reject AI. All of them impose structure that the tools don't provide themselves.</p>
+
+        <h3>1. The Explanation Requirement</h3>
+        <p>Before accepting any AI suggestion, complete one sentence: "I'm accepting this because…" Not describing what the code does — explaining <em>why</em> it's correct. This single constraint forces the cognitive work that AI-assisted development skips. Engineers who use this practice report that it cuts their accepted-but-not-understood code by 60-70%, without significantly slowing their velocity. The explanation requirement is the cheapest way to maintain the mental model that makes <a href="skill-atrophy.html">skill atrophy</a> a choice rather than a default.</p>
+
+        <h3>2. Protected Manual Work</h3>
+        <p>Designate a percentage of your coding time as AI-free — not as a purity exercise, but as calibration data. The engineers who maintain the strongest understanding of their own codebases use AI tools heavily in some areas while protecting manual practice in others. They're not avoiding AI — they're building a comparison point. Without manual work, you lose the reference against which to evaluate what AI is giving you. The <a href="no-ai-block.html">No-AI Block</a> approach — structured periods of AI-free work — is the most common form of this practice.</p>
+
+        <h3>3. Architecture Reviews Before Generation</h3>
+        <p>The architecture drift problem is most easily prevented at the beginning of a task, not the end. Engineers who mitigate this successfully spend more time designing before prompting — sketching the structural intent before asking AI to implement it. This preserves the architectural coherence that AI-generated additions tend to erode. Teams that implement this see 30-40% reductions in the architectural coherence metric decline described above. This is the same principle behind managing <a href="ai-tool-overload.html">AI tool overload</a> — reducing the cognitive entropy of accepting solutions you didn't architect.</p>
+
+        <h3>4. Debugging as a Practice, Not a Problem</h3>
+        <p>Schedule time for deliberate debugging — not to fix bugs, but to maintain the debugging muscle. Read code you didn't write. Trace execution paths. Explain to yourself why something works. The engineers who maintain the strongest debugging instincts after years of heavy AI use typically have a specific practice: once a week, they work through something complex from scratch, manually, without AI. It doesn't have to be production code. It just has to be real. The <a href="ai-fatigue-compounding.html">compounding cost of AI fatigue</a> is most acute in debugging ability — it's also where the reversal is most tractable.</p>
+
+        <h3>5. The Right Metrics</h3>
+        <p>Measuring AI productivity by velocity metrics is like measuring team health by commit count. The metrics that matter for long-term productivity: time-to-debug unfamiliar code, architectural coherence score (monthly code review with a senior engineer), junior engineer skill growth trajectory, on-call incident resolution time. None of these metrics go up when you add AI tools. They go down when the paradox takes hold. They stay stable — or improve — when the above practices are in place.</p>
+
+        <div class="callout callout-insight">
+          <strong>The actual ROI on AI tools</strong> shows up in specific tasks: boilerplate generation, documentation writing, test scaffolding, code search. It does <em>not</em> show up in overall team productivity as measured by meaningful outcomes — unless the team has explicitly structured how they use the tools. The paradox is real. So is the path around it.
+        </div>
+      </section>
+
+      <section class="article-section" id="individual-vs-team">
+        <h2>Individual vs. Team Dynamics: Why the Paradox Scales</h2>
+
+        <p>The productivity paradox is worse at scale. An individual engineer's AI-assisted productivity loss might be marginal. A team of ten using AI heavily, with no shared protocols, creates multiplicative dysfunction: architectural incoherence that affects everyone, code review burdens that distribute unevenly, debugging blind spots that compound across the codebase.</p>
+
+        <p>Teams that navigate AI integration successfully share two characteristics: they have a shared vocabulary for the costs (not just the benefits), and they have explicit protocols for where AI assistance is encouraged versus protected. The <a href="team-manager-guide.html">team manager's guide to AI fatigue</a> covers the structural changes that enable this — including how to run a team AI agreement workshop without it devolving into a debate about AI in general.</p>
+
+        <p>For managers: the most useful leading indicator of the productivity paradox at scale is <em>code review time per PR</em>. If your team's review time is increasing while commit frequency is also increasing, you're in the early stages of the paradox. The fix isn't to limit AI — it's to implement the explanation requirement and architecture-first practices at the team level before the codebase coherence degrades further.</p>
+      </section>
+
+      <section class="article-section" id="faq">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">Does AI actually make senior engineers less productive?</button>
+            <div class="faq-answer">
+              <p>For specific types of work, yes. AI tools improve velocity on boilerplate-heavy tasks and documentation. They reduce productivity on tasks that require deep system understanding, complex debugging, and architectural decision-making — because they generate confident-looking solutions that bypass the cognitive work those tasks require. The net effect on senior engineers depends heavily on the mix of work and whether the engineer has maintained a deliberate practice of manual, AI-free work.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">Is the AI productivity paradox the same as AI fatigue?</button>
+            <div class="faq-answer">
+              <p>They're related but distinct. The productivity paradox is a team and organizational phenomenon — about metrics, output quality, and codebase health. <a href="ai-fatigue.html">AI fatigue</a> is an individual experience — cognitive, emotional, and identity-based. The paradox is one of the mechanisms that drives fatigue: working harder, shipping more, but feeling less capable and less confident produces exactly the depletion that characterizes fatigue.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">What types of engineers are most affected?</button>
+            <div class="faq-answer">
+              <p>The paradox affects senior engineers most sharply — because their value was historically in judgment, not speed. AI provides speed; it doesn't augment judgment. Junior engineers experience it differently: velocity goes up, but skill accumulation slows. Both are forms of the same mechanism: AI optimizes for output while bypassing the processes that build the underlying capability. <a href="senior-engineer-ai-fatigue.html">Senior engineer AI fatigue</a> covers this in depth.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">Can the productivity paradox be reversed after it takes hold?</button>
+            <div class="faq-answer">
+              <p>Yes, but it takes longer than it took to develop. The architectural coherence degradation is the hardest to reverse — that requires systematic refactoring with architectural intent, not just individual skill rebuilding. The skill-level and debugging confidence losses are more tractable: deliberate no-AI practice over 4-8 weeks produces measurable improvement in most engineers. See the <a href="ai-detox-plan.html">30-day AI detox plan</a> for a structured approach.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">What does the data actually say about AI developer productivity?</button>
+            <div class="faq-answer">
+              <p>The research is more mixed than vendor-published studies suggest. The Clearing's survey of 2,047 engineers found: 58% report increased code review time since adopting AI; 67% say they understand less of their own codebase than two years ago; 44% are considering career changes partly due to AI integration anxiety. Industry studies show 20-40% velocity improvements on isolated tasks, but minimal improvement — and often decline — on end-to-end feature delivery time. See the <a href="engineer-survey-results.html">engineer survey results</a> and <a href="stats.html">AI fatigue statistics 2025</a> for the full dataset.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="article-section" id="explore">
+        <h2>Continue Reading</h2>
+        <div class="explore-grid">
+          <a href="skill-atrophy.html" class="explore-card">
+            <div class="ex-label">Research</div>
+            <h4>The Slow Erosion of Your Coding Skills</h4>
+            <p>What the science says about skill atrophy from AI tool dependency — and how to reverse it.</p>
+            <span class="arrow">Explore →</span>
+          </a>
+          <a href="engineer-survey-results.html" class="explore-card">
+            <div class="ex-label">Data</div>
+            <h4>What 2,047 Engineers Told Us</h4>
+            <p>Real survey results from engineers navigating AI fatigue — skill loss, identity shifts, and recovery.</p>
+            <span class="arrow">Explore →</span>
+          </a>
+          <a href="coding-ai-tools-comparison.html" class="explore-card">
+            <div class="ex-label">Tools</div>
+            <h4>Which AI Tools Cause the Most Fatigue?</h4>
+            <p>Copilot vs Claude vs ChatGPT — comparing their fatigue footprint, not just their output quality.</p>
+            <span class="arrow">Explore →</span>
+          </a>
+          <a href="ai-detox-plan.html" class="explore-card">
+            <div class="ex-label">Recovery</div>
+            <h4>The 30-Day AI Detox Plan</h4>
+            <p>A structured protocol for rebuilding your relationship with code — and your understanding of it.</p>
+            <span class="arrow">Explore →</span>
+          </a>
+          <a href="the-craft-problem.html" class="explore-card">
+            <div class="ex-label">Identity</div>
+            <h4>The Craft Problem</h4>
+            <p>Why losing the feeling of craft is the real cost of AI-first development — and how to recover it.</p>
+            <span class="arrow">Explore →</span>
+          </a>
+          <a href="team-manager-guide.html" class="explore-card">
+            <div class="ex-label">Management</div>
+            <h4>The Team Manager's Guide to AI Fatigue</h4>
+            <p>Structural changes that help your team avoid the productivity paradox before it takes hold.</p>
+            <span class="arrow">Explore →</span>
+          </a>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">🌿</span>
+        <span>The Clearing</span>
+        <p class="footer-tagline">Free resources for engineers navigating AI fatigue.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Understand</h4>
+          <ul>
+            <li><a href="ai-fatigue.html">What is AI Fatigue?</a></li>
+            <li><a href="burnout-vs-fatigue.html">Burnout vs. Fatigue</a></li>
+            <li><a href="skill-atrophy.html">Skill Atrophy</a></li>
+            <li><a href="cognitive-load.html">Cognitive Load</a></li>
+            <li><a href="developer-identity.html">Developer Identity</a></li>
+            <li><a href="the-craft-problem.html">The Craft Problem</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Recover</h4>
+          <ul>
+            <li><a href="recovery.html">Recovery Guide</a></li>
+            <li><a href="ai-detox-plan.html">30-Day AI Detox</a></li>
+            <li><a href="no-ai-block.html">No-AI Block</a></li>
+            <li><a href="mental-health.html">Mental Health</a></li>
+            <li><a href="ai-fatigue-emergency-kit.html">Emergency Kit</a></li>
+            <li><a href="checkin.html">Daily Check-in</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Research</h4>
+          <ul>
+            <li><a href="engineer-survey-results.html">Survey Results</a></li>
+            <li><a href="stats.html">Statistics 2025</a></li>
+            <li><a href="research.html">The Science</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 The Clearing · <a href="about.html">About</a> · <a href="privacy.html">Privacy</a> · <a href="index-hn.html">HN</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = btn.closest('.faq-item');
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); i.querySelector('.faq-question').setAttribute('aria-expanded', 'false'); });
+        if (!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
+      });
+      btn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); }
+      });
+    });
+  </script>
+</body>
+</html>

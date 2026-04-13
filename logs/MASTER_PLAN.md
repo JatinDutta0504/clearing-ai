@@ -2318,3 +2318,16 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **~2k words added**
 **Commit:** `1a2e962`
 **Next:** Phase 4 window — Dispatch #17 or testimonials outreach
+
+---
+
+### Hour 296 — 2026-04-13 01:43 AM PDT (Phase 2 Window)
+**Built:** LinkedIn posts (2) — "The Skill You Stopped Practicing" + "The Explanation Requirement"
+**Content:** 2 LinkedIn posts ready to deploy Mon-Tue Apr 13-14. Skill loss + Explanation Requirement themes from Dispatch #15/#16. Personal profile posts work immediately. Company page requires Sunny to create at linkedin.com/pages/create.
+**LinkedIn posts:** 9 total ready to publish
+**SEO:** LinkedIn engagement drives referral traffic + social authority signals
+**Phase:** P2=101 ✅ | P3=64 | P4=32
+**Commit:** linkedin/hour-296-linkedin-posts-monday.md
+**Next:** Hour 297 — Reddit Mon morning threads OR Phase 3 technical audit OR Phase 4 newsletter setup (Formspree blocker)
+**HN:** Fri Apr 17, 9 AM PDT (4 days away)
+

@@ -318,6 +318,335 @@
         </div>
       </section>
 
+      <!-- =========================================
+           ENGINEER SPOTLIGHT — Interactive Widget
+           ========================================= -->
+      <section class="spotlight-section" aria-label="Featured engineer stories">
+        <div class="spotlight-header">
+          <div class="spotlight-eyebrow">Featured Stories</div>
+          <h2 class="spotlight-title">Voices from the Clearing</h2>
+          <p class="spotlight-sub">Real engineers. Real recovery arcs. Scroll to hear from people who know exactly what you're going through.</p>
+        </div>
+
+
+        <div class="spotlight-widget" id="spotlight-widget" role="region" aria-label="Engineer story carousel" aria-live="polite">
+          <!-- Story cards injected by JS -->
+        </div>
+
+        <div class="spotlight-nav" aria-label="Story navigation">
+          <button class="spotlight-btn spotlight-prev" id="spotlight-prev" aria-label="Previous story">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="spotlight-dots" id="spotlight-dots" role="tablist" aria-label="Story indicators"></div>
+          <button class="spotlight-btn spotlight-next" id="spotlight-next" aria-label="Next story">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+
+        <div class="spotlight-footer">
+          <p class="spotlight-footer-text">Every story here started with one question: <em>"Why am I more tired than I should be?"</em></p>
+          <a href="share-your-story.html" class="spotlight-cta">Share Your Story →</a>
+        </div>
+      </section>
+
+      <style>
+        .spotlight-section {
+          background: linear-gradient(135deg, #0f1a0f 0%, #111a11 100%);
+          border: 1px solid rgba(90,140,90,0.15);
+          border-radius: 20px;
+          padding: 3rem 2.5rem;
+          margin-bottom: 3.5rem;
+          position: relative;
+          overflow: hidden;
+        }
+        .spotlight-section::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: radial-gradient(ellipse at 20% 50%, rgba(90,140,90,0.06) 0%, transparent 65%);
+          pointer-events: none;
+        }
+        .spotlight-header { text-align: center; margin-bottom: 2.5rem; }
+        .spotlight-eyebrow {
+          font-size: 0.65rem;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: #7aab8a;
+          font-weight: 600;
+          margin-bottom: 0.6rem;
+        }
+        .spotlight-title {
+          font-family: Georgia, serif;
+          font-size: clamp(1.4rem, 4vw, 2rem);
+          font-weight: 400;
+          color: #f5f0e8;
+          margin-bottom: 0.8rem;
+          line-height: 1.25;
+        }
+        .spotlight-sub {
+          font-size: 0.9rem;
+          color: rgba(245,240,232,0.55);
+          max-width: 440px;
+          margin: 0 auto;
+          line-height: 1.65;
+        }
+        .spotlight-widget {
+          min-height: 320px;
+          position: relative;
+          margin-bottom: 1.5rem;
+        }
+        .spot-card {
+          background: rgba(255,255,255,0.03);
+          border: 1px solid rgba(90,140,90,0.12);
+          border-radius: 14px;
+          padding: 2rem 2.2rem;
+          position: relative;
+          transition: opacity 0.35s cubic-bezier(0.4,0,0.2,1), transform 0.35s cubic-bezier(0.4,0,0.2,1);
+        }
+        .spot-card.fade-out { opacity: 0; transform: translateY(8px); }
+        .spot-card.fade-in  { opacity: 1; transform: translateY(0); }
+        .spot-tier-badge {
+          display: inline-block;
+          font-size: 0.6rem;
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          padding: 0.2rem 0.55rem;
+          border-radius: 20px;
+          margin-bottom: 1rem;
+        }
+        .spot-tier-badge.tier-2 { background: rgba(180,150,80,0.15); color: #c8a040; border: 1px solid rgba(180,150,80,0.3); }
+        .spot-tier-badge.tier-3 { background: rgba(160,100,50,0.15); color: #c07030; border: 1px solid rgba(160,100,50,0.3); }
+        .spot-tier-badge.tier-4 { background: rgba(150,60,60,0.15); color: #c04040; border: 1px solid rgba(150,60,60,0.3); }
+        .spot-quote-mark { font-family: Georgia, serif; font-size: 4rem; line-height: 0.8; color: #5c7a4e; opacity: 0.15; position: absolute; top: 0.6rem; left: 1.4rem; user-select: none; }
+        .spot-body { margin-bottom: 1.2rem; }
+        .spot-body p { font-size: 0.9rem; color: rgba(245,240,232,0.8); line-height: 1.75; margin-bottom: 0.7rem; }
+        .spot-body p:last-child { margin-bottom: 0; }
+        .spot-what-felt { margin-bottom: 1rem; }
+        .spot-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #7aab8a; margin-bottom: 0.3rem; }
+        .spot-text { font-size: 0.82rem; color: rgba(245,240,232,0.6); line-height: 1.6; font-style: italic; }
+        .spot-what-helped .spot-label { color: #9abca0; }
+        .spot-what-helped .spot-text { color: rgba(245,240,232,0.75); font-style: normal; }
+        .spot-meta {
+          display: flex;
+          align-items: center;
+          gap: 0.8rem;
+          margin-top: 1.2rem;
+          padding-top: 1rem;
+          border-top: 1px solid rgba(90,140,90,0.1);
+        }
+        .spot-avatar { width: 36px; height: 36px; border-radius: 50%; background: rgba(90,140,90,0.15); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; color: #9abca0; flex-shrink: 0; }
+        .spot-identity { flex: 1; min-width: 0; }
+        .spot-name { font-size: 0.78rem; font-weight: 600; color: #c8d8c0; }
+        .spot-role { font-size: 0.7rem; color: rgba(245,240,232,0.45); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .spot-tools { display: flex; gap: 0.35rem; flex-wrap: wrap; justify-content: flex-end; }
+        .spot-tool-tag { font-size: 0.58rem; padding: 0.15rem 0.5rem; border-radius: 12px; background: rgba(90,140,90,0.1); color: rgba(245,240,232,0.45); border: 1px solid rgba(90,140,90,0.15); white-space: nowrap; }
+        .spotlight-nav {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 1rem;
+          margin-bottom: 1.5rem;
+        }
+        .spotlight-btn {
+          width: 38px;
+          height: 38px;
+          border-radius: 50%;
+          border: 1px solid rgba(90,140,90,0.25);
+          background: rgba(90,140,90,0.06);
+          color: rgba(245,240,232,0.6);
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: background 0.2s, border-color 0.2s, color 0.2s;
+          flex-shrink: 0;
+        }
+        .spotlight-btn:hover { background: rgba(90,140,90,0.15); border-color: rgba(90,140,90,0.4); color: #f5f0e8; }
+        .spotlight-btn:focus-visible { outline: 2px solid #7aab8a; outline-offset: 2px; }
+        .spotlight-dots { display: flex; gap: 0.5rem; align-items: center; }
+        .spotlight-dot {
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: rgba(90,140,90,0.2);
+          border: none;
+          cursor: pointer;
+          padding: 0;
+          transition: background 0.2s, transform 0.2s;
+        }
+        .spotlight-dot.active { background: #7aab8a; transform: scale(1.3); }
+        .spotlight-dot:hover:not(.active) { background: rgba(90,140,90,0.5); }
+        .spotlight-footer { text-align: center; }
+        .spotlight-footer-text { font-size: 0.82rem; color: rgba(245,240,232,0.45); margin-bottom: 1rem; font-style: italic; }
+        .spotlight-footer-text em { font-style: normal; color: rgba(245,240,232,0.6); }
+        .spotlight-cta {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.4rem;
+          background: rgba(90,140,90,0.12);
+          border: 1px solid rgba(90,140,90,0.3);
+          color: #9abca0;
+          padding: 0.65rem 1.4rem;
+          border-radius: 8px;
+          font-size: 0.82rem;
+          font-weight: 500;
+          text-decoration: none;
+          transition: background 0.2s, border-color 0.2s, color 0.2s;
+        }
+        .spotlight-cta:hover { background: rgba(90,140,90,0.22); border-color: rgba(90,140,90,0.5); color: #b8d8b8; }
+        .spotlight-cta:focus-visible { outline: 2px solid #7aab8a; outline-offset: 2px; }
+        @media (max-width: 600px) {
+          .spotlight-section { padding: 2rem 1.2rem; }
+          .spot-card { padding: 1.4rem 1.2rem; }
+          .spot-tools { display: none; }
+          .spot-meta { flex-wrap: wrap; }
+        }
+      </style>
+
+      <script>
+        (function() {
+          var stories = [
+            {
+              tier: "tier-3",
+              tierLabel: "Tier 3 — Real Fatigue Is Setting In",
+              name: "Anonymous, 15 years in",
+              role: "Senior Staff Engineer · FinTech · 2,000+ employees",
+              avatar: "S",
+              tools: ["Copilot", "ChatGPT", "Claude"],
+              quote: "I have fifteen years of experience. I've shipped compilers, distributed systems, a database that didn't catch fire in production. Then, about eighteen months ago, I started noticing something: I couldn't debug things the way I used to.",
+              whatFelt: "Loss of craft identity — the thing that used to make me me as an engineer was eroding without me noticing. Sunday evenings became dread-filled because I knew Monday would be another week of shipping other people's solutions.",
+              whatHelped: "Protected no-AI hours on Fridays. Keeping a weekly 'what I actually figured out' list. Eventually changed teams to one with healthier AI norms."
+            },
+            {
+              tier: "tier-2",
+              tierLabel: "Tier 2 — Some Fatigue Is Normal",
+              name: "Anonymous, 5 years in",
+              role: "Mid-level Engineer · Healthcare startup · 80 employees",
+              avatar: "K",
+              tools: ["Claude", "ChatGPT"],
+              quote: "I feel guilty even writing this. The discourse around AI tools is so positive that saying anything less than 'this has been transformative' feels like admitting I'm not trying hard enough. I keep feeling like I'm the only one who spends thirty minutes prompting, getting output that isn't quite right, and then feeling vaguely dissatisfied.",
+              whatFelt: "Guilt disguised as fatigue. Everyone seemed fine; I felt vaguely broken. The tools were working for everyone else and I couldn't figure out why they left me feeling off.",
+              whatHelped: "Taking the quiz and reading the data. Sixty-three percent of engineers feeling like middlemen. Fifty-eight percent noticing skill drift. I'm not uniquely failing. That framing didn't fix the fatigue, but it made the guilt manageable."
+            },
+            {
+              tier: "tier-4",
+              tierLabel: "Tier 4 — You Need a Real Break",
+              name: "Anonymous, 9 years in",
+              role: "Engineering Manager · SaaS startup · 120 employees",
+              avatar: "M",
+              tools: ["Copilot", "Cursor"],
+              quote: "I could see it happening and I didn't have the language for it. HR thought I was worried about nothing. The CEO pointed to the velocity numbers. I felt like I was watching my team slowly lose something and nobody else could see it.",
+              whatFelt: "Watching a slow degradation of team craft culture while having no institutional language to name it. The velocity metrics looked good but the team was hollowing out.",
+              whatHelped: "Monthly no-AI retros to surface what people had figured out themselves. Changing code review norms to require explanation of AI-generated sections. Eventually: leaving for a team with healthier AI culture norms."
+            },
+            {
+              tier: "tier-3",
+              tierLabel: "Tier 3 — Real Fatigue Is Setting In",
+              name: "Anonymous, 6 years in",
+              role: "Software Engineer · Remote · US company, EU timezone",
+              avatar: "R",
+              tools: ["ChatGPT", "Claude"],
+              quote: "What I didn't notice happening: I stopped talking to my teammates. Not because I didn't like them. Because AI was a faster answer. And in a small overlap window, speed felt critical.",
+              whatFelt: "Efficient isolation — I was solving problems faster but losing the collaborative part of engineering that made me feel like part of a team. Remote work already creates isolation; AI turbocharged it.",
+              whatHelped: "Three-back-and-forth rule: if AI takes more than 3 exchanges to answer, I ask a teammate. Also started a weekly 30-min 'problem call' with a colleague where AI is banned."
+            },
+            {
+              tier: "tier-3",
+              tierLabel: "Tier 3 — Real Fatigue Is Setting In",
+              name: "Anonymous, 12 years in",
+              role: "Senior Engineer · E-commerce · 350 employees",
+              avatar: "P",
+              tools: ["Copilot", "Claude", "Cursor"],
+              quote: "About eighteen months into heavy AI tool use, I realized I couldn't sit with a problem anymore. I would literally reach for an AI tool before I'd finished reading a bug report. Not because I was lazy. Because the discomfort of not knowing had become unbearable.",
+              whatFelt: "The breaking point: I went on a two-week vacation to somewhere with very poor internet. I came back and opened a codebase I'd been working on. I couldn't read it. I'd written it with AI assistance so heavily that my own code felt foreign.",
+              whatHelped: "Three weeks with a strict no-AI rule for anything I was learning. Hard. Uncomfortable. But after about ten days, something shifted. The problems felt like mine again."
+            }
+          ];
+
+          var widget = document.getElementById('spotlight-widget');
+          var dotsContainer = document.getElementById('spotlight-dots');
+          var prevBtn = document.getElementById('spotlight-prev');
+          var nextBtn = document.getElementById('spotlight-next');
+          var current = 0;
+          var isTransitioning = false;
+
+          function buildCard(story) {
+            var tools = story.tools.map(function(t) {
+              return '<span class="spot-tool-tag">' + t + '</span>';
+            }).join('');
+            return '<div class="spot-card fade-in" role="tabpanel" aria-label="Story">' +
+              '<span class="spot-quote-mark" aria-hidden="true">"</span>' +
+              '<span class="spot-tier-badge ' + story.tier + '">' + story.tierLabel + '</span>' +
+              '<div class="spot-body"><p>' + story.quote + '</p></div>' +
+              '<div class="spot-what-felt"><div class="spot-label">What it felt like</div><div class="spot-text">' + story.whatFelt + '</div></div>' +
+              '<div class="spot-what-helped"><div class="spot-label">What helped</div><div class="spot-text">' + story.whatHelped + '</div></div>' +
+              '<div class="spot-meta">' +
+                '<div class="spot-avatar" aria-hidden="true">' + story.avatar + '</div>' +
+                '<div class="spot-identity">' +
+                  '<div class="spot-name">' + story.name + '</div>' +
+                  '<div class="spot-role">' + story.role + '</div>' +
+                '</div>' +
+                '<div class="spot-tools" aria-label="AI tools used">' + tools + '</div>' +
+              '</div>' +
+            '</div>';
+          }
+
+          function renderDots() {
+            dotsContainer.innerHTML = '';
+            stories.forEach(function(_, i) {
+              var btn = document.createElement('button');
+              btn.className = 'spotlight-dot' + (i === current ? ' active' : '');
+              btn.setAttribute('aria-label', 'Go to story ' + (i + 1));
+              btn.setAttribute('role', 'tab');
+              btn.setAttribute('aria-selected', i === current ? 'true' : 'false');
+              btn.addEventListener('click', function() { goTo(i); });
+              dotsContainer.appendChild(btn);
+            });
+          }
+
+          function goTo(index) {
+            if (isTransitioning || index === current) return;
+            isTransitioning = true;
+            var cards = widget.querySelectorAll('.spot-card');
+            cards.forEach(function(c) { c.classList.add('fade-out'); c.classList.remove('fade-in'); });
+            setTimeout(function() {
+              current = index;
+              widget.innerHTML = buildCard(stories[current]);
+              renderDots();
+              isTransitioning = false;
+            }, 360);
+          }
+
+          function next() { goTo((current + 1) % stories.length); }
+          function prev() { goTo((current - 1 + stories.length) % stories.length); }
+
+          prevBtn.addEventListener('click', prev);
+          nextBtn.addEventListener('click', next);
+
+          // Auto-advance every 6 seconds
+          var autoTimer = setInterval(next, 6000);
+
+          // Pause on hover/focus
+          widget.addEventListener('mouseenter', function() { clearInterval(autoTimer); });
+          widget.addEventListener('mouseleave', function() { autoTimer = setInterval(next, 6000); });
+          widget.addEventListener('focusin', function() { clearInterval(autoTimer); });
+          widget.addEventListener('focusout', function() { autoTimer = setInterval(next, 6000); });
+
+          // Keyboard nav
+          document.addEventListener('keydown', function(e) {
+            var focused = document.activeElement;
+            if (!widget.contains(focused)) return;
+            if (e.key === 'ArrowRight') { e.preventDefault(); next(); }
+            if (e.key === 'ArrowLeft')  { e.preventDefault(); prev(); }
+          });
+
+          // Initial render
+          widget.innerHTML = buildCard(stories[0]);
+          renderDots();
+        })();
+      </script>
+
       <!-- Testimonial 1 — Senior Staff IC -->
       <article class="testimonial-card" aria-label="Testimonial from a senior staff engineer">
         <span class="quote-mark" aria-hidden="true">"</span>

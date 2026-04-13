@@ -91,19 +91,27 @@
     },
     {
       min: 8, max: 11,
-      label: 'Real AI fatigue is present',
+      label: 'Real fatigue is setting in',
       emoji: '🌧',
       color: 'var(--earth)',
       description: 'You\'re carrying more than you should have to. The volume, the pace, the constant context-switching — it\'s taken a toll. You may have noticed your relationship with your own work changing. The good news: naming this is step one. There are real ways through.',
-      cta: { text: 'Read stories from engineers who feel this too →', href: 'stories.html' },
+      cta: { text: 'Read your Tier 2 breakdown →', href: 'quiz-results-tier-2.html' },
     },
     {
       min: 12, max: 15,
+      label: 'The identity crisis tier',
+      emoji: '🌨',
+      color: 'var(--bark)',
+      description: "The fatigue has moved past habits and into identity. You're not just tired — you're questioning whether you're still an engineer at all. Code ships but you don't feel like the author. The Sunday night dread is real. This is recoverable, but it requires more than a vacation.",
+      cta: { text: 'Read your Tier 3 breakdown →', href: 'quiz-results-tier-3.html' },
+    },
+    {
+      min: 16, max: 20,
       label: 'You need a real break',
       emoji: '🌑',
-      color: 'var(--bark)',
-      description: 'This isn\'t a mild slump — you\'re describing significant depletion. The markers you\'re hitting are the ones engineers describe just before burning out completely: disconnection from your own work, inability to explain what you\'ve built, anxiety about keeping pace. Please take this seriously. You matter more than your velocity.',
-      cta: { text: 'Start with the resources that helped others →', href: 'resources.html' },
+      color: '#c06060',
+      description: "You've pushed past the point where willpower can override the fatigue. This is significant depletion across cognitive, occupational, and identity dimensions. Please take this seriously — and please reach out for support. You matter more than your velocity.",
+      cta: { text: 'Read your Tier 4 breakdown →', href: 'quiz-results-tier-4.html' },
     },
   ];
 
@@ -341,7 +349,7 @@
         <p class="quiz-tier-desc">${tier.description}</p>
 
         <a href="${tier.cta.href}" class="btn btn-primary quiz-result-cta">${tier.cta.text}</a>
-        <a href="quiz-results.html#tier-${tiers.indexOf(tier) + 1}" class="btn btn-secondary quiz-result-cta" style="margin-top:0.5rem;">Read your full tier breakdown →</a>
+        <a href="quiz-results-tier-${tiers.indexOf(tier) + 1}.html" class="btn btn-secondary quiz-result-cta" style="margin-top:0.5rem;">Read your full tier breakdown →</a>
         <a href="badge.html?tier=${tiers.indexOf(tier) + 1}" class="btn btn-secondary quiz-result-cta" style="margin-top:0.5rem; font-size:0.85rem;">🏅 Generate your badge →</a>
 
         <div class="quiz-breakdown">

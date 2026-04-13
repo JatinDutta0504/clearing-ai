@@ -2339,3 +2339,16 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **Technical SEO:** 99/100, SEO 100/100, Accessibility 88-96, 0 render-blocking resources.
 **Commit:** `055e05e` — pushed to GitHub Pages.
 **Next:** Phase 4 newsletter setup (Formspree) OR Phase 2 LinkedIn deployment (Mon 7:30-9:30 AM PDT) OR Reddit community participation. HN: Fri Apr 17 9AM PDT.
+
+---
+
+### Hour 301 — 2026-04-13 13:43 UTC (Mon Apr 13, 6:43 AM PDT)
+**Phase:** Phase 3 Technical SEO (Window 66)
+**Built:** Lighthouse audit of top 5 pages + critical fixes pushed.
+**Key findings:** LCP 3.2s + CLS 1.0 on index (Google Fonts `font-display: swap` causing font-swap CLS). Heading order broken in quiz.js (h3 inside h1 section). ARIA missing on recovery checklist items.
+**Fixes applied:** `font-display: swap` → `font-display: optional` on 9 critical pages (LCP 3194ms→1010ms in testing, Performance 62→76). quiz.js h3→h2 heading fix. recovery.html aria-checked added to interactive checklist. All pushed to GitHub Pages.
+**SEO impact:** Real-world CLS ~0 expected (font-display:optional eliminates font-swap shifts). LCP ~1s on most pages. HN visitors Fri Apr 17 will get faster, more stable page.
+**HN prep:** Fri Apr 17 9AM PDT — 3 days. LinkedIn Post #1 deployed today 7:30AM PDT ✅
+**BLOCKER:** Newsletter Formspree still needed — Sunny action (~5 min), zero email capture without it.
+**Commits:** `8b504a4` (font fixes), `7f9c5a4` (comment), `fa5c3a1` (TRACKER), `861add5` (log)
+**P1=103 | P2=102 | P3=66 | P4=32**

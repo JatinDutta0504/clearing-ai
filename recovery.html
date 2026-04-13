@@ -195,8 +195,8 @@
   <!-- Non-render-blocking Google Fonts (LCP fix applied globally) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" /></noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=optional" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=optional" /></noscript>
   <style>
     /* ==============================
        Recovery Page Specific Styles
@@ -1650,14 +1650,17 @@
       items.forEach(item => {
         item.addEventListener('click', () => {
           item.classList.toggle('checked');
+          item.setAttribute('aria-checked', item.classList.contains('checked') ? 'true' : 'false');
           updateUI();
         });
         item.setAttribute('role', 'checkbox');
         item.setAttribute('tabindex', '0');
+        item.setAttribute('aria-checked', item.classList.contains('checked') ? 'true' : 'false');
         item.addEventListener('keydown', e => {
           if (e.key === ' ' || e.key === 'Enter') {
             e.preventDefault();
             item.classList.toggle('checked');
+            item.setAttribute('aria-checked', item.classList.contains('checked') ? 'true' : 'false');
             updateUI();
           }
         });

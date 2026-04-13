@@ -129,7 +129,7 @@
     container.innerHTML = `
       <div class="quiz-intro fade-in visible">
         <div class="quiz-intro-icon">🔍</div>
-        <h3 class="quiz-intro-title">Do you have AI fatigue?</h3>
+        <h2 class="quiz-intro-title">Do you have AI fatigue?</h2>
         <p class="quiz-intro-desc">
           5 questions. 2 minutes. An honest read on where you actually are right now —
           not where you think you should be.

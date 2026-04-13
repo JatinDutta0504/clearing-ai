@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Fatigue for Junior Engineers: The Problem No One…</title>
+
+  <!-- woff2 font preloads for LCP optimization -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEBrLy9d1UZF5p7lk.woff2" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/lora/v36/8IQJvFuJd87V_IYq_mvhDd-2XwWj2R38lLa4hZk.woff2" />
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="description" content="If you're a junior developer who depends on AI tools and quietly worries you're not really learning — you're not alone, and you're not weak. Here's what's..." />
+  <meta name="keywords" content="junior developer AI fatigue, learning programming with AI, junior engineer AI dependency, should junior engineers use AI tools, entry level developer burnout, AI coding tools junior developer problems, not learning to code AI, junior engineer imposter syndrome AI, bootcamp graduate AI dependency 2025" />
+  <meta name="author" content="The Clearing" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://clearing-ai.com/junior-engineers.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://clearing-ai.com/junior-engineers.html" />
+  <meta property="og:title" content="AI Fatigue for Junior Engineers: The Problem No One Talks About" />
+  <meta property="og:description" content="You're not falling behind. You're being handed a broken map. A honest guide for junior engineers experiencing AI-induced doubt, dependency, and fatigue." />
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png" />
+  <meta property="og:site_name" content="The Clearing" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Fatigue for Junior Engineers: The Problem No One Talks About" />
+  <meta name="twitter:description" content="If you're a junior dev who quietly worries AI is making you worse at your job — this is for you." />
+  <meta name="twitter:image" content="https://clearing-ai.com/og-image.png" />
+
+  <!-- Preload critical resources -->
+  <link rel="preload" href="css/style.min.css" as="style" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" as="style" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI Fatigue for Junior Engineers: The Problem No One Talks About",
+    "description": "A comprehensive guide for junior software engineers experiencing dependency, skill anxiety, and burnout from AI coding tools — with specific recovery strategies.",
+    "url": "https://clearing-ai.com/junior-engineers.html",
+    "datePublished": "2026-03-22",
+    "dateModified": "2026-03-22",
+    "author": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "wordCount": 3800,
+    "inLanguage": "en-US",
+    "keywords": "junior developer AI fatigue, learning programming with AI, junior engineer AI dependency, entry level developer burnout",
+    "isPartOf": { "@type": "WebSite", "name": "The Clearing", "url": "https://clearing-ai.com" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is it normal for junior engineers to feel worse at coding after using AI tools?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, and it's more common than anyone admits. AI tools give you output before you've built the mental model to understand it. When that happens repeatedly, your confidence erodes even as your output volume increases. You're not weaker — you've been given shortcuts before you had the map."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should junior developers avoid AI coding tools completely?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not necessarily. The goal isn't zero AI — it's intentional AI. Junior engineers benefit from using AI as a learning tool (ask it to explain, not just generate), not as an answer machine. Use it after you've attempted the problem yourself, not instead of attempting it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "My senior devs all use Copilot constantly. Why should I do it differently?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Senior engineers have a decade of mental models that let them quickly evaluate, correct, and adapt AI output. They're steering the tool. As a junior, you're still building the steering wheel. The same input has a completely different effect depending on what you already know."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I know if I have AI dependency as a junior engineer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Warning signs: you feel anxious starting a task without opening ChatGPT first; you can't explain your own code in a PR review; you've stopped reading documentation; you're unsure if you could pass a basic coding interview without AI access; you feel like a fraud even when you ship working features."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I talk to my manager about feeling like AI is hurting my learning?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Frame it as a learning concern, not a performance concern. Try: 'I want to make sure I'm building solid fundamentals, not just shipping AI output. Can we talk about what real growth looks like for me here?' Most good managers will appreciate the self-awareness."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can a junior engineer recover from AI dependency and become a strong developer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. The recovery path involves deliberate practice without AI assistance, reading source code, pair programming, and learning to debug without shortcuts. It takes some months, not years. Engineers who do this work tend to become unusually strong because they've thought carefully about their own learning."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com" },
+      { "@type": "ListItem", "position": 2, "name": "Stories", "item": "https://clearing-ai.com/stories.html" },
+      { "@type": "ListItem", "position": 3, "name": "For Junior Engineers", "item": "https://clearing-ai.com/junior-engineers.html" }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="css/style.min.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="css/style.min.css" /></noscript>
+  <style>
+    .jr-hero {
+      background: linear-gradient(160deg, #0f1f0f 0%, #1a2e1a 50%, #0d1a12 100%);
+      padding: 6rem 2rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .jr-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(74,124,89,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .jr-hero-eyebrow {
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--forest-pale);
+      opacity: 0.8;
+      margin-bottom: 1.25rem;
+    }
+    .jr-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.2;
+      color: var(--cream);
+      margin-bottom: 1.5rem;
+      max-width: 780px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .jr-hero-sub {
+      font-size: 1.1rem;
+      color: rgba(200,220,205,0.75);
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.75;
+    }
+    .jr-tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+    .jr-tag {
+      background: rgba(74,124,89,0.15);
+      border: 1px solid rgba(74,124,89,0.3);
+      border-radius: 100px;
+      padding: 0.35rem 1rem;
+      font-size: 0.78rem;
+      color: rgba(200,230,210,0.75);
+      font-family: var(--font-sans);
+    }
+
+    /* Callout boxes */
+    .jr-callout {
+      background: linear-gradient(135deg, rgba(74,124,89,0.08) 0%, rgba(74,124,89,0.03) 100%);
+      border-left: 3px solid var(--forest-light);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+    }
+    .jr-callout p {
+      margin: 0;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--text-primary);
+    }
+    .jr-callout-author {
+      margin-top: 0.75rem !important;
+      font-family: var(--font-sans) !important;
+      font-style: normal !important;
+      font-size: 0.82rem !important;
+      color: var(--text-secondary) !important;
+    }
+
+    /* Warning box */
+    .jr-warning {
+      background: rgba(183,110,60,0.08);
+      border: 1px solid rgba(183,110,60,0.25);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+    }
+    .jr-warning h4, .jr-warning h3 {
+      color: var(--earth-light);
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .jr-warning ul {
+      margin: 0;
+      padding-left: 1.25rem;
+    }
+    .jr-warning li {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 0.5rem;
+      color: var(--text-secondary);
+    }
+
+    /* Trap cards */
+    .jr-traps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+    .jr-trap {
+      background: var(--surface, #fff);
+      border: 1px solid var(--border-color, rgba(0,0,0,0.08));
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+    }
+    .jr-trap-num {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--forest-light);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .jr-trap h3 {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--text-primary);
+    }
+    .jr-trap p {
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    /* Experience gap diagram */
+    .jr-gap-diagram {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 1.5rem;
+      align-items: center;
+      margin: 2rem 0;
+    }
+    .jr-gap-side {
+      background: var(--surface, #fff);
+      border: 1px solid var(--border-color, rgba(0,0,0,0.08));
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+    }
+    .jr-gap-side h4 {
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .jr-gap-side.senior h3, .jr-gap-side.senior h4 { color: var(--forest-light); }
+    .jr-gap-side.junior h3, .jr-gap-side.junior h4 { color: var(--earth-light); }
+    .jr-gap-side ul {
+      padding-left: 1.1rem;
+      margin: 0;
+    }
+    .jr-gap-side li {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin-bottom: 0.4rem;
+      color: var(--text-secondary);
+    }
+    .jr-gap-vs {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      .jr-gap-diagram {
+        grid-template-columns: 1fr;
+      }
+      .jr-gap-vs { display: none; }
+    }
+
+    /* Recovery steps */
+    .jr-steps {
+      counter-reset: jr-step;
+      margin: 2rem 0;
+    }
+    .jr-step {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      align-items: flex-start;
+    }
+    .jr-step-num {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(74,124,89,0.12);
+      border: 2px solid rgba(74,124,89,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--forest-light);
+      counter-increment: jr-step;
+    }
+    .jr-step-body h3 {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+    .jr-step-body p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    /* Conversation script */
+    .jr-script {
+      background: rgba(74,124,89,0.05);
+      border: 1px solid rgba(74,124,89,0.15);
+      border-radius: var(--radius-md);
+      padding: 1.75rem 2rem;
+      margin: 1.5rem 0;
+      font-family: var(--font-serif);
+      font-size: 0.98rem;
+      line-height: 1.75;
+      color: var(--text-secondary);
+    }
+    .jr-script strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    /* FAQ */
+    .jr-faq { margin: 2rem 0; }
+    .jr-faq-item {
+      border-bottom: 1px solid var(--border-color, rgba(0,0,0,0.08));
+    }
+    .jr-faq-item:first-child { border-top: 1px solid var(--border-color, rgba(0,0,0,0.08)); }
+    .jr-faq-q {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 0;
+      cursor: pointer;
+      gap: 1rem;
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 0.97rem;
+      font-weight: 500;
+    }
+    .jr-faq-q:hover { color: var(--forest-light); }
+    .jr-faq-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(74,124,89,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      transition: transform 0.25s ease, background 0.2s ease;
+      color: var(--forest-light);
+    }
+    .jr-faq-item.open .jr-faq-icon {
+      transform: rotate(45deg);
+      background: rgba(74,124,89,0.2);
+    }
+    .jr-faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.22,1,0.36,1);
+    }
+    .jr-faq-item.open .jr-faq-a { max-height: 500px; }
+    .jr-faq-a p {
+      padding-bottom: 1.25rem;
+      font-size: 0.93rem;
+      line-height: 1.75;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    /* Explore grid */
+    .jr-explore {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .jr-explore-card {
+      background: var(--surface, #fff);
+      border: 1px solid var(--border-color, rgba(0,0,0,0.08));
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+      display: block;
+    }
+    .jr-explore-card:hover {
+      border-color: var(--forest-light);
+      transform: translateY(-2px);
+    }
+    .jr-explore-card .ec-icon { font-size: 1.5rem; margin-bottom: 0.5rem; display: block; }
+    .jr-explore-card h4, .jr-explore-card h3 {
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: var(--text-primary);
+    }
+    .jr-explore-card p {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* Dark mode */
+    [data-theme="dark"] .jr-trap,
+    [data-theme="dark"] .jr-gap-side,
+    [data-theme="dark"] .jr-explore-card {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.1);
+    }
+    [data-theme="dark"] .jr-callout { background: rgba(74,124,89,0.1); }
+    [data-theme="dark"] .jr-warning { background: rgba(183,110,60,0.1); }
+    [data-theme="dark"] .jr-script { background: rgba(74,124,89,0.08); }
+  </style>  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YHK9XCPG4M"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YHK9XCPG4M');
+  </script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Navigation -->
+  <nav class="main-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="ai-fatigue-type-calculator.html" style="color:var(--text2);text-decoration:none;font-size:0.9rem;padding:6px 12px;border-radius:6px;transition:all 0.2s;">Type Calculator</a>
+      <a href="index.html" class="nav-logo">🌿 The Clearing</a>
+      <button type="button" class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-dropdown">
+      <button type="button" class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">Why <span class="dropdown-arrow">▾</span></button>
+          <ul class="dropdown-menu">
+            <li><a href="why.html">Why AI Fatigue?</a></li>
+            <li><a href="burnout-vs-fatigue.html">Burnout vs Fatigue</a></li>
+            <li><a href="developer-burnout-2025.html">Developer Burnout 2025</a></li>
+            <li><a href="tech-layoffs-ai-era.html">Tech Layoffs & AI</a></li>
+            <li><a href="compare.html">Compare Tools</a></li>
+            <li><a href="coding-ai-tools-comparison.html">Coding Tools Compared</a></li>
+            <li><a href="ai-tool-overload.html">Tool Overload</a></li>
+            <li><a href="ai-documentation-fatigue.html">Documentation Fatigue</a></li>
+            <li><a href="ai-learning-burnout.html">AI Learning Burnout</a></li>
+            <li><a href="ai-code-review.html">AI Code Review</a></li>
+            <li><a href="the-science-of-ai-fatigue.html">The Science of AI Fatigue</a></li>
+            <li><a href="ai-productivity-paradox.html">AI Productivity Paradox</a></li>
+            <li><a href="ai-consultation-fatigue.html">AI Consultation Fatigue</a></li>
+            <li><a href="ai-skeptic-guide.html">AI Skeptic's Guide</a></li>
+            <li><a href="sre-oncall-ai-fatigue.html">SRE &amp; On-Call Fatigue</a></li>
+                        <li><a href="engineer-survey-results.html">Engineer Survey Results</a></li>
+<li><a href="research.html">Research</a></li>
+            <li><a href="stats.html">Statistics 2025</a></li>
+            <li><a href="productivity-theater.html">Productivity Theater</a>
+            <a href="debugger-drift.html">Debugger's Drift</a>
+            <a href="coders-block.html">Coder's Block</a></li>
+            <li><a href="flow-state.html">Flow State &amp; AI</a></li>
+            <li><a href="tutorial-paradox.html">Tutorial Paradox</a></li>
+            <li><a href="attention-residue.html">Attention Residue</a></li>
+            <li><a href="skill-atrophy.html">Skill Atrophy</a></li>
+            <li><a href="decision-fatigue-ai.html">Decision Fatigue</a></li>
+              <li><a href="cognitive-load.html">Cognitive Load</a></li>
+            <li><a href="developer-identity.html">Developer Identity</a></li>
+            <li><a href="automation-anxiety.html">Automation Anxiety</a></li>
+            <li><a href="imposter-syndrome-vs-ai-fatigue.html">Imposter Syndrome</a></li>
+            <li><a href="imposter-syndrome-ai.html">Imposter Syndrome &amp; AI</a></li>
+          <li><a href="ai-fatigue-by-role.html">AI Fatigue by Role</a></li><li><a href="vibe-coding-vs-traditional.html">Vibe Coding vs Traditional</a></li></ul>
+        </li>
+        <li class="nav-dropdown">
+      <button type="button" class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">Heal <span class="dropdown-arrow">▾</span></button>
+          <ul class="dropdown-menu">
+            <li><a href="recovery.html">Recovery Guide</a></li>
+            <li><a href="sleep-and-ai-fatigue.html">Sleep & AI Fatigue</a></li>
+            <li><a href="freelance-engineer-ai-fatigue.html">Freelance Engineers</a></li>
+              <li><a href="mental-health.html">Mental Health</a></li>
+            <li><a href="ai-fatigue-emergency-kit.html">Emergency Kit</a></li>
+            <li><a href="engineer-energy-management.html">Energy Management</a></li>
+            <li><a href="coping-strategies-2025.html">Coping Strategies</a></li>
+            <li><a href="developer-wellbeing.html">Wellbeing</a></li>
+            <li><a href="tips.html">Tips</a></li>
+            <li><a href="mindset.html">Mindset</a></li>
+            <li><a href="daily-practice.html">Daily Practice</a></li>
+            <li><a href="ai-fatigue-checklist.html">30-Day Checklist</a></li>
+            <li><a href="ai-fatigue-recovery-journal.html">Recovery Journal (Print)</a></li>
+            <li><a href="ai-detox-plan.html">30-Day Detox Plan</a></li>
+            <li><a href="no-ai-block.html">No-AI Block</a></li>
+            <li><a href="workplace.html">Workplace</a></li>
+            <li><a href="executive-burnout.html">Executive Burnout</a></li>
+            <li><a href="working-parent-burnout.html">Working Parent Burnout</a></li>
+            <li><a href="developer-burnout-recovery.html">Burnout Recovery Guide</a></li>
+            <li><a href="team-guide.html">For Managers</a></li>
+            <li><a href="hiring.html">Hiring &amp; Retention</a></li>
+            <li><a href="corporate-ai-wellness.html">Corporate Wellness</a></li>
+            <li><a href="daily-ai-boundaries.html">Daily AI Boundaries</a></li>
+            <li><a href="why-resting-doesnt-fix-ai-fatigue.html">Why Resting Doesn't Fix It</a></li>
+            
+            
+            
+            <li><a href="engineering-managers-ai-fatigue.html">Engineering Managers</a></li>
+            <li><a href="team-manager-guide.html">Team Manager Guide</a></li>
+            <li><a href="career-pivot-guide.html">Career Pivot Guide</a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+      <button type="button" class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">Stories <span class="dropdown-arrow">▾</span></button>
+          <ul class="dropdown-menu">
+            <li><a href="stories.html">Engineer Stories</a></li>
+            <li><a href="engineer-types.html">Your Type</a></li>
+            <li><a href="junior-engineers.html">For Juniors</a></li>
+            <li><a href="neurodivergent-engineer-ai-fatigue.html">Neurodivergent Engineers</a></li>
+<li><a href="ai-healthcare-developer-fatigue.html">Healthcare Engineers</a></li>
+            <li><a href="the-craft-problem.html">The Craft Problem</a></li>
+            <li><a href="senior-identity.html">Senior Identity</a>
+<a href="senior-engineer-ai-fatigue.html">Senior Engineer</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="glossary.html">Glossary</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="share-your-story.html">Share Your Story</a></li>
+          <li><a href="community-hub.html">Community Hub</a></li><li><a href="linkedin.html">Clearing on LinkedIn</a></li></ul>
+        </li>
+        <li class="nav-dropdown">
+      <button type="button" class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">Tools <span class="dropdown-arrow">▾</span></button>
+          <ul class="dropdown-menu">
+            <li><a href="index.html#quiz">Fatigue Quiz</a></li>
+            <li><a href="checkin.html">Daily Check-in</a></li>
+            <li><a href="decompress.html">Decompress</a></li>
+            <li><a href="journal.html">Journal</a></li>
+            <li><a href="ai-free-fridays.html">AI-Free Fridays</a></li>
+            <li><a href="badge.html">Fatigue Badge</a>
+            <li><a href="quiz-badge.html">Share Your Badge</a></li></li>
+          <li><a href="ai-fatigue-cost-calculator.html">AI Fatigue Cost Calculator</a></li></ul>
+        </li>
+        <li class="nav-dropdown">
+      <button type="button" class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">Read <span class="dropdown-arrow">▾</span></button>
+          <ul class="dropdown-menu">
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="newsletter-thank-you.html">Thank You</a></li>
+            <li><a href="newsletter-archive.html">Archive</a></li>
+            <li><a href="quiz-results.html">Quiz Results</a></li>
+            <li><a href="quiz-results-tier-4.html">Tier 4 Results</a></li>
+            <li><a href="quiz-results-tier-3.html">Tier 3 Results</a></li>
+            <li><a href="press-kit.html">Press Kit</a></li>
+            <li><a href="changelog.html">Changelog</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+      </ul>
+      <a href="index.html#quiz" class="nav-cta">Take Quiz →</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="jr-hero" aria-label="For junior engineers">
+      <p class="jr-hero-eyebrow">For junior engineers</p>
+      <h1>You're not falling behind.<br>You're being handed a broken map.</h1>
+      <p class="jr-hero-sub">
+        If you've been using AI tools since day one and quietly suspect
+        you don't really know what you're doing — this is the conversation
+        no one in your team is having with you.
+      </p>
+      <div class="jr-tag-row">
+        <span class="jr-tag">Junior developers</span>
+        <span class="jr-tag">Bootcamp graduates</span>
+        <span class="jr-tag">First 1–3 years</span>
+        <span class="jr-tag">CS students & new grads</span>
+        <span class="jr-tag">Career changers</span>
+      </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" style="padding:1rem 2rem; max-width:var(--max-content); margin:0 auto;">
+      <ol style="display:flex;gap:0.5rem;list-style:none;padding:0;margin:0;font-size:0.82rem;color:var(--text-muted);">
+        <li><a href="index.html" style="color:var(--forest-light);">Home</a></li>
+        <li>›</li>
+        <li><a href="stories.html" style="color:var(--forest-light);">Stories</a></li>
+        <li>›</li>
+        <li aria-current="page">For Junior Engineers</li>
+      </ol>
+    </nav>
+
+    <!-- Main content -->
+    <article class="section" aria-label="AI Fatigue for junior engineers">
+      <div class="container" style="max-width:var(--max-prose);">
+
+        <!-- Intro -->
+        <p style="font-size:1.15rem;line-height:1.8;color:var(--text-secondary);margin-bottom:2rem;">
+          There's a conversation happening in engineering right now — about AI fatigue, burnout, dependency — but it's mostly happening among senior engineers. The people with 8 or 10 years of experience who feel their skills eroding.
+        </p>
+        <p style="font-size:1.05rem;line-height:1.8;color:var(--text-secondary);margin-bottom:2rem;">
+          That conversation almost never includes you. The person who started their career when Copilot was already installed on day one. The bootcamp grad who learned to write code <em>alongside</em> ChatGPT. The junior developer who's never shipped a feature without AI assistance — and doesn't know if that's fine or if it's a problem.
+        </p>
+        <p style="font-size:1.05rem;line-height:1.8;color:var(--text-secondary);margin-bottom:2rem;">
+          It matters. A lot. And this page is for you.
+        </p>
+
+        <div class="jr-callout">
+          <p>"I can ship things. I can Google and prompt my way through most tickets. But in my one-on-ones I nod along to things I don't fully understand, and in code reviews I'm terrified someone will ask me to explain how something actually works. I feel like I'm performing competence rather than building it."</p>
+          <p class="jr-callout-author">— Anonymous junior developer, 14 months into their first engineering role</p>
+        </div>
+
+        <p style="font-size:1.05rem;line-height:1.8;color:var(--text-secondary);margin-bottom:2rem;">
+          That quote hit a nerve with a lot of engineers when it circulated in a private Slack. The response was always the same: "That's exactly how I feel but I never said it out loud."
+        </p>
+
+        <!-- Section: What's different for juniors -->
+        <h1 style="font-family:var(--font-serif);font-size:1.9rem;margin:3rem 0 1.25rem;">Why this hits differently when you're early career</h2>
+
+        <p style="font-size:1.05rem;line-height:1.8;color:var(--text-secondary);margin-bottom:1.5rem;">
+          Senior engineers who develop AI fatigue are dealing with erosion — something they built is slowly being taken away. That's real and painful.
+        </p>
+        <p style="font-size:1.05rem;line-height:1.8;color:var(--text-secondary);margin-bottom:1.5rem;">
+          Your situation is different. You're not losing something you had. You may never have had the chance to build it in the first place.
+        </p>
+        <p style="font-size:1.05rem;line-height:1.8;color:var(--text-secondary);margin-bottom:1.5rem;">
+          When you started, you were told (explicitly or implicitly): <em>use these tools, ship faster, this is the modern way to code.</em> Nobody pulled you aside and said: "Make sure you still wrestle with problems manually, because that wrestling is where your understanding actually comes from." If they did, the team velocity pressure immediately contradicted that advice.
+        </p>
+
+        <p style="font-size:1.05rem;line-height:1.8;color:var(--text-secondary);margin-bottom:1.5rem;">
+          There are three things that make this uniquely hard for junior engineers:
+        </p>
+
+        <ul style="padding-left:1.5rem;margin-bottom:2rem;">
+          <li style="margin-bottom:1.25rem;font-size:1rem;line-height:1.75;color:var(--text-secondary);">
+            <strong>Productive struggle is where you build intuition.</strong> Debugging something for two hours teaches you something that watching a 10-minute tutorial never does. When AI removes that struggle by default, you lose the learning, not just the time.
+          </li>
+          <li style="margin-bottom:1.25rem;font-size:1rem;line-height:1.75;color:var(--text-secondary);">
+            <strong>You can't yet evaluate AI output critically.</strong> A senior engineer who's seen a hundred edge cases can tell instantly when Copilot's suggestion is subtly wrong. You can't — and you shouldn't be expected to. But that means you're accepting answers you can't assess yet, which is a form of knowledge debt that compounds.
+          </li>
+          <li style="margin-bottom:1.25rem;font-size:1rem;line-height:1.75;color:var(--text-secondary);">
+            <strong>Imposter syndrome gets chemically fused with AI dependency.</strong> You already feel like you might be a fraud. AI makes it much easier to <em>perform</em> competence without building it. The gap between your output and your understanding quietly grows — and every PR that gets merged without you really understanding it adds another layer of anxiety.
+          </li>
+        </ul>
+
+        <!-- Section: The 4 traps -->
+        <h1 style="font-family:var(--font-serif);font-size:1.9rem;margin:3rem 0 1.25rem;">The 4 traps junior engineers fall into</h2>
+
+        <p style="font-size:1.05rem;line-height:1.8;color:var(--text-secondary);margin-bottom:1.75rem;">
+          These aren't character flaws. They're the predictable outcomes of using powerful autocomplete before you've built the underlying map.
+        </p>
+
+        <div class="jr-traps">
+          <div class="jr-trap">
+            <div class="jr-trap-num">Trap 01</div>
+            <h3>Cargo-culting AI output</h3>
+            <p>You paste code that works, ship it, and mark the ticket done. You don't understand <em>why</em> it works or what assumptions it makes. This is fine once. It becomes a debt spiral if it's your default move on every ticket for a year.</p>
+          </div>
+          <div class="jr-trap">
+            <div class="jr-trap-num">Trap 02</div>
+            <h3>Skipping debugging by re-prompting</h3>
+            <p>When something breaks, your first instinct is to describe the error to ChatGPT rather than read the stack trace yourself. Debugging is one of the highest-leverage skills in engineering. You're letting AI absorb it before it ever becomes yours.</p>
+          </div>
+          <div class="jr-trap">
+            <div class="jr-trap-num">Trap 03</div>
+            <h3>Avoiding documentation and source code</h3>
+            <p>Why read a library's actual documentation when you can ask AI to summarize it? Why look at the source when you can ask what it does? This feels faster — and it is — but reading source code is how you absorb coding patterns into your own thinking. AI summaries are digested food. They skip the chewing that makes nutrients yours.</p>
+          </div>
+          <div class="jr-trap">
+            <div class="jr-trap-num">Trap 04</div>
+            <h3>Measuring speed, not understanding</h3>
+            <p>Your team sees you ship tickets. You feel productive. But somewhere inside you know that the metric that matters most — "do I understand what I just built?" — is quietly failing. Speed is a lagging indicator of skill. Understanding is the thing that actually makes you hireable, promotable, and confident in two years.</p>
+          </div>
+        </div>
+
+        <!-- Section: The experience gap -->
+        <h2 style="font-family:var(--font-serif);font-size:1.9rem;margin:3rem 0 1.25rem;">"But my senior devs use Copilot constantly. Why should I do it differently?"</h2>
+
+        <p style="font-size:1.05rem;line-height:1.8;color:var(--text-secondary);margin-bottom:1.75rem;">
+          This is the most important thing to understand, and nobody explains it well. The same tool has a different effect depending on what you already know.
+        </p>
+
+        <div class="jr-gap-diagram" role="presentation">
+          <div class="jr-gap-side senior">
+            <h3>Senior using Copilot</h3>
+            <ul>
+              <li>Has mental models for the problem domain</li>
+              <li>Can instantly spot wrong or unsafe suggestions</li>
+              <li>Uses AI to type faster, not to think</li>
+              <li>Knows what good architecture looks like</li>
+              <li>Debugs instinctively when output fails</li>
+              <li>AI accelerates existing skill</li>
+            </ul>
+          </div>
+          <div class="jr-gap-vs">vs</div>
+          <div class="jr-gap-side junior">
+            <h3>Junior using Copilot</h3>
+            <ul>
+              <li>Still building the mental model</li>
+              <li>Can't easily spot subtle errors or bad patterns</li>
+              <li>AI substitutes for thinking, not just typing</li>
+              <li>No baseline to compare AI output against</li>
+              <li>Re-prompts instead of debugging</li>
+              <li>AI replaces skill before it forms</li>
+            </ul>
+          </div>
+        </div>
+
+        <p style="font-size:1.05rem;line-height:1.8;color:var(--text-secondary);margin:1.75rem 0 1.5rem;">
+          A surgeon with 20 years of experience using a new instrument is still a surgeon. They adapt, verify, adjust. A student using the same instrument in their first month is in a different situation entirely.
+        </p>
+        <p style="font-size:1.05rem;line-height:1.8;color:var(--text-secondary);margin-bottom:1.5rem;">
+          Your senior colleagues aren't being hypocritical when they push AI tooling while knowing it might be harder for you. They genuinely may not remember what it felt like to not have the map. They've forgotten that they learned by being lost.
+        </p>
+
+        <!-- Section: What you're actually missing -->
+        <h2 style="font-family:var(--font-serif);font-size:1.9rem;margin:3rem 0 1.25rem;">What heavy AI use might be costing you</h2>
+
+        <p style="font-size:1.05rem;line-height:1.8;color:var(--text-secondary);margin-bottom:1.5rem;">
+          These are the things that don't show up in your shipped tickets or your PR count, but do show up in whether you feel confident, competent, and capable in two or three years.
+        </p>
+
+        <ul style="padding-left:1.5rem;margin-bottom:2rem;">
+          <li style="margin-bottom:1.5rem;font-size:1rem;line-height:1.75;color:var(--text-secondary);">
+            <strong>Debugging instincts.</strong> The ability to look at a stack trace, form a hypothesis, test it, and iterate. This is genuinely one of the most valuable engineering skills, and it's only built through the uncomfortable work of being stuck and getting unstuck yourself.
+          </li>
+          <li style="margin-bottom:1.5rem;font-size:1rem;line-height:1.75;color:var(--text-secondary);">
+            <strong>Architectural intuition.</strong> Knowing why certain patterns exist, what tradeoffs they make, and when to reach for them. This comes from reading source code, reading architecture decision records, and — yes — making bad architectural choices yourself and having seniors explain why.
+          </li>
+          <li style="margin-bottom:1.5rem;font-size:1rem;line-height:1.75;color:var(--text-secondary);">
+            <strong>Mental models.</strong> Frameworks for thinking about problems that are yours, not borrowed. These form when you work through something to full understanding rather than stopping at "it works."
+          </li>
+          <li style="margin-bottom:1.5rem;font-size:1rem;line-height:1.75;color:var(--text-secondary);">
+            <strong>Ownership and authorship.</strong> The deep knowledge of what you built that lets you defend it in a design review, explain it in an incident postmortem, or refactor it six months later. If you couldn't write the code without AI, you probably can't do any of those things either.
+          </li>
+          <li style="margin-bottom:1.5rem;font-size:1rem;line-height:1.75;color:var(--text-secondary);">
+            <strong>Confidence under pressure.</strong> The quiet certainty that you know what you know. When you've genuinely built something yourself, you can defend it. When you've mostly assembled AI output, there's always a low-grade fear that someone will pull back the curtain. That fear is exhausting.
+          </li>
+        </ul>
+
+        <!-- Warning signs -->
+        <h2 style="font-family:var(--font-serif);font-size:1.9rem;margin:3rem 0 1.25rem;">5 signs this is affecting you right now</h2>
+
+        <div class="jr-warning">
+          <h3>⚠ Warning signs to sit with honestly</h3>
+          <ul>
+            <li>You feel anxious or lost when your internet is slow — not because of the task, but because you can't open ChatGPT.</li>
+            <li>In code reviews, you're afraid someone will ask you to explain how a piece of your code works at a deeper level than "it passed the tests."</li>
+            <li>You've started to avoid tickets that feel "too hard to prompt through" — gravitating toward comfortable, well-defined work.</li>
+            <li>When you try to code without AI for any stretch of time, you feel a specific dread that isn't just difficulty — it's something closer to identity anxiety.</li>
+            <li>You're not sure you could pass a basic CS interview for your current role without AI access — and that thought sits in the back of your mind every day.</li>
+          </ul>
+        </div>
+
+        <p style="font-size:1.05rem;line-height:1.8;color:var(--text-secondary);margin:1.75rem 0 1.5rem;">
+          If you recognized yourself in two or more of those, you're not broken. You're experiencing a predictable outcome of a genuinely difficult environment. And there's a path forward.
+        </p>
+
+        <!-- Recovery section -->
+        <h2 style="font-family:var(--font-serif);font-size:1.9rem;margin:3rem 0 0.5rem;">The recovery path for junior engineers</h2>
+        <p style="font-size:1.05rem;line-height:1.8;color:var(--text-secondary);margin-bottom:1.75rem;">
+          This isn't about quitting AI tools. It's about <a href="mindset.html" style="color:var(--forest-light);">using them intentionally</a> and building real skills alongside them.
+        </p>
+
+        <div class="jr-steps">
+          <div class="jr-step">
+            <div class="jr-step-num">1</div>
+            <div class="jr-step-body">
+              <h3>The "attempt first" rule — no exceptions</h3>
+              <p>Before you open ChatGPT or activate Copilot, spend at least 20 minutes attempting the problem yourself. Write bad code. Get confused. Look at the documentation. The discomfort you feel is the learning happening. AI is allowed after — as a teacher to explain, verify, or fill gaps. Not as a first move.</p>
+            </div>
+          </div>
+          <div class="jr-step">
+            <div class="jr-step-num">2</div>
+            <div class="jr-step-body">
+              <h3>Read the stack trace like it's a story</h3>
+              <p>Every error message is telling you something. Before you paste it into ChatGPT, read it out loud, start to finish. Form one hypothesis about what went wrong. Test that hypothesis — even if you think it's wrong. Do this for every error for 30 days. Your debugging instinct will change noticeably.</p>
+            </div>
+          </div>
+          <div class="jr-step">
+            <div class="jr-step-num">3</div>
+            <div class="jr-step-body">
+              <h3>Pick one library this month and read its source</h3>
+              <p>Choose a library you use every day and spend 30 minutes reading its actual source code. Not the docs. Not a tutorial. The real code. You won't understand all of it. That's the point. You'll see patterns, naming conventions, and design decisions that slowly build your coding intuition. Do this once a month.</p>
+            </div>
+          </div>
+          <div class="jr-step">
+            <div class="jr-step-num">4</div>
+            <div class="jr-step-body">
+              <h3>Be able to explain everything you ship</h3>
+              <p>Adopt this personal standard: before you open a PR, make sure you can explain out loud, in plain English, what the code does and why it works. If you can't, you have an AI-generated artifact, not code you own. Rework until you understand it — then ship it. This will slow you down temporarily. The compounding learning effect is real.</p>
+            </div>
+          </div>
+          <div class="jr-step">
+            <div class="jr-step-num">5</div>
+            <div class="jr-step-body">
+              <h3>Pair program with a senior — without AI open</h3>
+              <p>Ask for a pairing session and suggest leaving AI tools closed. You'll see how a senior engineer thinks in real time — the way they hold uncertainty, the way they reason aloud, the questions they ask before writing a line. This is the fastest transfer of debugging and architectural instinct that exists.</p>
+            </div>
+          </div>
+          <div class="jr-step">
+            <div class="jr-step-num">6</div>
+            <div class="jr-step-body">
+              <h3>Use AI as a Socratic teacher, not an oracle</h3>
+              <p>Change how you prompt. Instead of "write me a function that does X," try "I'm trying to do X. Here's my approach so far. What am I missing?" or "I wrote this code — can you tell me what assumptions it makes and where it might break?" This keeps you in the driver's seat and turns AI into a tutor rather than a crutch.</p>
+            </div>
+          </div>
+          <div class="jr-step">
+            <div class="jr-step-num">7</div>
+            <div class="jr-step-body">
+              <h3>Build one small thing with zero AI every two weeks</h3>
+              <p>Not a huge project. A small script, a tiny utility, a weekend toy. Something with a clear goal, just you and the documentation. It will be harder and slower than you're used to. That's the entire point. These sessions are where you verify what you've actually internalized versus what you've been outsourcing.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Talking to your manager -->
+        <h2 style="font-family:var(--font-serif);font-size:1.9rem;margin:3rem 0 1.25rem;">Talking to your manager or tech lead</h2>
+
+        <p style="font-size:1.05rem;line-height:1.8;color:var(--text-secondary);margin-bottom:1.5rem;">
+          This is a hard conversation to start, especially when your team sees AI usage as table stakes and "moving fast" as the primary metric. But most good engineering managers genuinely want to invest in your growth — they just haven't thought to ask about this specifically.
+        </p>
+
+        <div class="jr-script">
+          <strong>Suggested framing (adjust for your relationship):</strong><br><br>
+          "I wanted to be honest about something I've been thinking about. I rely heavily on AI tools to get work done, and I'm worried that I might be shipping code faster than I'm actually learning. I want to make sure that two years from now I'm a strong, independent engineer — not just someone who's good at prompting.
+          <br><br>
+          Can we talk about what real growth looks like for me here? I'm wondering if we could structure some of my tickets to give me more time to work through problems manually, or set up more pairing sessions with seniors."
+        </div>
+
+        <p style="font-size:1.05rem;line-height:1.8;color:var(--text-secondary);margin:1.5rem 0;">
+          A good manager will respond to this well. A manager who pushes back and says "just ship faster" is telling you something important about whether this environment can support your growth.
+        </p>
+        <p style="font-size:1.05rem;line-height:1.8;color:var(--text-secondary);margin-bottom:2rem;">
+          For more detailed scripts, see the <a href="workplace.html" style="color:var(--forest-light);">workplace guide</a> — there are templates specifically for these conversations at different severity levels.
+        </p>
+
+        <!-- A note on the system -->
+        <h2 style="font-family:var(--font-serif);font-size:1.9rem;margin:3rem 0 1.25rem;">The system put you here. You can still get out.</h2>
+
+        <p style="font-size:1.05rem;line-height:1.8;color:var(--text-secondary);margin-bottom:1.5rem;">
+          We want to be clear about something: this is not your fault.
+        </p>
+        <p style="font-size:1.05rem;line-height:1.8;color:var(--text-secondary);margin-bottom:1.5rem;">
+          Bootcamps under commercial pressure to report high placement rates started integrating AI heavily. Companies hiring recent grads prioritize velocity and shipping. AI tool vendors aggressively marketed to learners. The entire system pushed you toward faster output before you'd built the foundations.
+        </p>
+        <p style="font-size:1.05rem;line-height:1.8;color:var(--text-secondary);margin-bottom:1.5rem;">
+          <a href="research.html" style="color:var(--forest-light);">Research on skill atrophy</a> and <a href="stats.html" style="color:var(--forest-light);">surveys of engineering teams</a> consistently show that the people most at risk from premature AI dependency are those who haven't yet built the mental models to evaluate and correct AI output. That's not a failure of character — it's a known, predictable dynamic.
+        </p>
+        <p style="font-size:1.05rem;line-height:1.8;color:var(--text-secondary);margin-bottom:1.5rem;">
+          The engineers who will thrive in 5 years aren't the fastest prompters. They're the ones who used AI adoption as an opportunity to become more deliberate about their own learning — who understood that the tool is powerful exactly because it can replace deep thought, and chose to not let it.
+        </p>
+        <p style="font-size:1.05rem;line-height:1.8;color:var(--text-secondary);margin-bottom:2rem;">
+          You can start that choice today. It doesn't require quitting your job or doing a 6-month retreat. It requires a few intentional decisions per week — the <a href="daily-practice.html" style="color:var(--forest-light);">30-day practice</a> is a concrete place to start.
+        </p>
+
+        <!-- FAQ -->
+        <h2 style="font-family:var(--font-serif);font-size:1.9rem;margin:3rem 0 1.25rem;">Questions junior engineers ask</h2>
+
+        <div class="jr-faq" id="jr-faq">
+          <div class="jr-faq-item">
+      <button type="button" class="jr-faq-q" aria-expanded="false">
+              Is it normal to feel worse at coding after using AI tools?
+              <span class="jr-faq-icon">+</span>
+            </button>
+            <div class="jr-faq-a" role="region">
+              <p>Yes, and it's more common than anyone admits. AI tools give you output before you've built the mental model to evaluate it. When that happens repeatedly, your confidence erodes even as your output volume increases. You're not weaker — you've been given shortcuts before you had the map.</p>
+            </div>
+          </div>
+          <div class="jr-faq-item">
+      <button type="button" class="jr-faq-q" aria-expanded="false">
+              Should junior developers avoid AI coding tools completely?
+              <span class="jr-faq-icon">+</span>
+            </button>
+            <div class="jr-faq-a" role="region">
+              <p>Not necessarily. The goal isn't zero AI — it's <em>intentional</em> AI. Use it after you've attempted the problem yourself. Use it to explain, not just to generate. Ask it to break down why something works, not just to write working code. The difference between AI as a shortcut and AI as a teacher is huge — and it mostly comes down to the order you reach for it.</p>
+            </div>
+          </div>
+          <div class="jr-faq-item">
+      <button type="button" class="jr-faq-q" aria-expanded="false">
+              My team expects me to use AI. I can't just opt out.
+              <span class="jr-faq-icon">+</span>
+            </button>
+            <div class="jr-faq-a" role="region">
+              <p>You're right — you probably can't (and shouldn't) stop using AI tools entirely. The changes that matter most happen before and after you use AI, not in the using itself. Attempting the problem first. Reading and understanding the output. Being able to explain what you shipped. These don't conflict with team velocity — they just add a deliberate learning layer to your normal workflow.</p>
+            </div>
+          </div>
+          <div class="jr-faq-item">
+      <button type="button" class="jr-faq-q" aria-expanded="false">
+              My seniors use Copilot all day. Why should I do it differently?
+              <span class="jr-faq-icon">+</span>
+            </button>
+            <div class="jr-faq-a" role="region">
+              <p>Because they're using it differently than you can right now, even if the behavior looks the same. Senior engineers have a decade of mental models that let them instantly evaluate, correct, and adapt AI output. They're steering the tool. As a junior, you're still building the steering wheel. The same input has completely different effects depending on the knowledge you bring to it.</p>
+            </div>
+          </div>
+          <div class="jr-faq-item">
+      <button type="button" class="jr-faq-q" aria-expanded="false">
+              How do I know if I have AI dependency versus just being a junior?
+              <span class="jr-faq-icon">+</span>
+            </button>
+            <div class="jr-faq-a" role="region">
+              <p>Feeling uncertain as a junior is completely normal. The difference is the <em>locus</em> of the uncertainty. Normal junior difficulty: "I don't fully understand this yet but I'm working through it." AI dependency: "I can't start without AI open, I can't explain the code I wrote, I can't debug without re-prompting, and this makes me anxious rather than just challenged." Take the <a href="index.html#quiz" style="color:var(--forest-light);">AI Fatigue Quiz</a> for a more structured self-assessment.</p>
+            </div>
+          </div>
+          <div class="jr-faq-item">
+      <button type="button" class="jr-faq-q" aria-expanded="false">
+              Can I recover from this and become a strong developer?
+              <span class="jr-faq-icon">+</span>
+            </button>
+            <div class="jr-faq-a" role="region">
+              <p>Absolutely — and engineers who do this work often become unusually strong because they've thought carefully about their own learning in a way most people never do. The path involves deliberate practice without AI assistance, reading source code, pair programming, and learning to debug without shortcuts. It takes months, not years. You haven't missed anything that can't be built now.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quiz CTA -->
+        <div style="background:linear-gradient(135deg,rgba(74,124,89,0.08),rgba(74,124,89,0.03));border:1px solid rgba(74,124,89,0.2);border-radius:var(--radius-lg);padding:2.5rem;margin:3rem 0;text-align:center;">
+          <p style="font-size:0.82rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--forest-light);margin-bottom:0.75rem;">Not sure where you stand?</p>
+          <h3 style="font-family:var(--font-serif);font-size:1.6rem;margin-bottom:1rem;color:var(--text-primary);">Take the AI Fatigue Quiz</h3>
+          <p style="font-size:0.97rem;color:var(--text-secondary);max-width:480px;margin:0 auto 1.5rem;line-height:1.7;">5 questions. No account needed. Tells you your fatigue tier and what to do next — with resources specifically relevant to where you are.</p>
+          <a href="index.html#quiz" class="btn" style="display:inline-block;padding:0.85rem 2rem;background:var(--forest-light);color:var(--cream-dark);text-decoration:none;border-radius:var(--radius-full);font-weight:500;font-size:0.95rem;">Take the 5-minute quiz →</a>
+        </div>
+
+        <!-- Explore more -->
+        <h2 style="font-family:var(--font-serif);font-size:1.9rem;margin:3rem 0 1.25rem;">Keep going</h2>
+
+        <div class="jr-explore">
+          <a href="recovery.html" class="jr-explore-card">
+            <span class="ec-icon">🗺</span>
+            <h4>Recovery Guide</h4>
+            <p>The full recovery framework — works for juniors and seniors alike</p>
+          </a>
+          <a href="daily-practice.html" class="jr-explore-card">
+            <span class="ec-icon">📅</span>
+            <h4>30-Day Practice</h4>
+            <p>Daily exercises to rebuild skill confidence, one day at a time</p>
+          </a>
+          <a href="mindset.html" class="jr-explore-card">
+            <span class="ec-icon">🧠</span>
+            <h4>Mental Models</h4>
+            <p>12 frameworks for thinking about AI use in healthy ways</p>
+          </a>
+          <a href="workplace.html" class="jr-explore-card">
+            <span class="ec-icon">💬</span>
+            <h4>Workplace Guide</h4>
+            <p>Scripts for talking to your tech lead or manager</p>
+          </a>
+          <a href="engineer-types.html" class="jr-explore-card">
+            <span class="ec-icon">🪞</span>
+            <h4>Your Archetype</h4>
+            <p>What kind of AI-fatigued engineer are you? Take the self-assessment</p>
+          </a>
+          <a href="checkin.html" class="jr-explore-card">
+            <span class="ec-icon">✅</span>
+            <h4>Daily Check-in</h4>
+            <p>One question per day. Track how you're feeling over time.</p>
+          </a>
+        </div>
+
+      </div>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <p class="footer-logo">🌿 The Clearing</p>
+    <p class="footer-tagline">"Your brain is not a GPU."</p>
+    <ul class="footer-nav" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="why.html">Why AI Fatigue?</a></li>
+      <li><a href="burnout-vs-fatigue.html">Burnout vs Fatigue</a></li>
+      <li><a href="developer-burnout-2025.html">Developer Burnout 2025</a></li>
+      <li><a href="tech-layoffs-ai-era.html">Tech Layoffs &amp; AI</a></li>
+      <li><a href="compare.html">Compare Tools</a></li>
+            <li><a href="coding-ai-tools-comparison.html">Coding Tools Compared</a></li>
+      <li><a href="research.html">The Science</a></li>
+      <li><a href="recovery.html">Recovery</a></li>
+        <li><a href="recovery-tracker.html">Recovery Tracker</a></li>
+      <li><a href="software-engineer-mental-health.html">Mental Health</a></li></li>
+<li><a href="freelance-engineer-ai-fatigue.html">Freelance Engineers</a></li>
+              <li><a href="mental-health.html">Mental Health</a></li>
+            <li><a href="ai-fatigue-emergency-kit.html">Emergency Kit</a></li>
+            <li><a href="developer-wellbeing.html">Wellbeing</a></li>
+      <li><a href="flow-state.html">Flow State &amp; AI</a></li>
+            <li><a href="attention-residue.html">Attention Residue</a></li>
+      <li><a href="tips.html">Tips</a></li>
+      <li><a href="mindset.html">Mindset</a></li>
+      <li><a href="workplace.html">Workplace</a></li>
+            <li><a href="executive-burnout.html">Executive Burnout</a></li>
+      <li><a href="stories.html">Stories</a></li>
+      <li><a href="engineer-types.html">Your Type</a></li>
+      <li><a href="junior-engineers.html">For Juniors</a></li>
+            <li><a href="neurodivergent-engineer-ai-fatigue.html">Neurodivergent Engineers</a></li>
+<li><a href="ai-healthcare-developer-fatigue.html">Healthcare Engineers</a></li>
+      <li><a href="senior-identity.html">Senior Identity</a>
+<a href="senior-engineer-ai-fatigue.html">Senior Engineer</a></li>
+            
+            <li><a href="community.html">Community</a></li><li><a href="senior-identity.html">Senior Identity</a>
+<a href="senior-engineer-ai-fatigue.html">Senior Engineer</a></li>
+      
+            <li><a href="community.html">Community</a></li><li><a href="glossary.html">Glossary</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="checkin.html">Daily Check-in</a></li>
+      <li><a href="decompress.html">Decompress</a></li>
+      <li><a href="journal.html">Journal</a></li>
+            <li><a href="ai-free-fridays.html">AI-Free Fridays</a></li>
+      <li><a href="badge.html">Fatigue Badge</a>
+            <li><a href="quiz-badge.html">Share Your Badge</a></li></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="newsletter.html">Newsletter</a></li>
+      <li><a href="quiz-results.html">Quiz Results</a></li>          <li><a href="quiz-results-tier-4.html">Tier 4 Results</a></li>
+          <li><a href="quiz-results-tier-3.html">Tier 3 Results</a></li>
+
+      <li><a href="press-kit.html">Press Kit</a></li>
+      <li><a href="sitemap.html">Sitemap</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <p class="footer-copy">
+      © 2025 The Clearing · <a href="index.html#quiz">Take the AI Fatigue Quiz</a> · <a href="about.html">About</a>
+    </p>
+  </footer>
+
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.jr-faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.jr-faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.jr-faq-item.open').forEach(el => {
+          el.classList.remove('open');
+          el.querySelector('.jr-faq-q').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+  <script src="js/main.min.js" defer></script>
+</body>
+</html>

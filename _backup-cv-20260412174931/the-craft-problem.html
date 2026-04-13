@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Craft Problem: Why Engineers Are Shipping Code They…</title>
+
+  <!-- woff2 font preloads for LCP optimization -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEBrLy9d1UZF5p7lk.woff2" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/lora/v36/8IQJvFuJd87V_IYq_mvhDd-2XwWj2R38lLa4hZk.woff2" />
+
+  <meta name="description" content="You wrote elegant solutions once. Now you ship features you don't understand. Here's why the craft problem is real — and what it costs you. You wrote elegant so">
+  <meta name="keywords" content="software engineer craft, code quality identity, engineering craftsmanship, senior engineer AI fatigue, developer craft decline, code ownership, engineering identity AI era">
+  <meta name="author" content="The Clearing">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://clearing-ai.com/the-craft-problem.html">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/the-craft-problem.html">
+  <meta property="og:title" content="The Craft Problem: Why Engineers Are Shipping Code They Don't Recognize">
+  <meta property="og:description" content="You wrote elegant solutions once. Now you ship features you don't fully understand. Here's why the craft problem is real — and what it's costing you.">
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Craft Problem: Why Engineers Are Shipping Code They Don't Recognize">
+  <meta name="twitter:description" content="You wrote elegant solutions once. Now you ship features you don't understand. Here's why the craft problem is real.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="css/style.min.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="css/style.min.css"></noscript>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Craft Problem: Why Engineers Are Shipping Code They Don't Recognize",
+    "description": "You wrote elegant solutions once. Now you ship features you don't fully understand. Here's why the craft problem is real — and what it's costing you.",
+    "author": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "datePublished": "2026-04-05",
+    "dateModified": "2026-04-05",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://clearing-ai.com/the-craft-problem.html" },
+    "wordCount": 3200
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com" },
+      { "@type": "ListItem", "position": 2, "name": "Stories", "item": "https://clearing-ai.com/stories.html" },
+      { "@type": "ListItem", "position": 3, "name": "The Craft Problem", "item": "https://clearing-ai.com/the-craft-problem.html" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is the craft problem the same as burnout?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Burnout is exhaustion — you can't do more. The craft problem is worse: you can still ship, still perform, still ship velocity. But you can't feel the work anymore. The code compiles and ships but you don't recognize it as something you made. This distinction matters because the recovery path is different: burnout needs rest, the craft problem needs reconnection to intentional practice."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does this only affect senior engineers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It's most visible in senior engineers because they have the sharpest contrast — they remember what their craft used to feel like. But junior engineers are hit differently: they never develop the craft baseline in the first place. By the time they reach senior level, they've never had the experience of building something purely from their own knowledge. Both are craft problems. Both are preventable."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Isn't this just imposter syndrome?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Imposter syndrome is a cognitive distortion — you think you're not capable when you actually are. The craft problem is structural: you genuinely are less capable than you were two years ago, and you can name the specific skills that have dulled. The AI writes code you can't read at depth anymore. The tests pass but you don't know why. Your intuition for system behavior is degrading. This isn't doubt. It's observation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will using AI less damage my career prospects?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The evidence suggests the opposite. The engineers most in demand right now are the ones who understand systems deeply enough to catch AI's mistakes, ask the right questions, and know when the output is wrong. Tool fluency without craft depth produces engineers who can prompt but can't debug. Teams are already discovering that the velocity from AI-assisted junior engineers comes with a hidden cost: architectural debt that compounds. Deep craft is the counterbalance that makes AI useful instead of dangerous."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I start recovering my craft?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The most consistently effective starting point we've seen in our data is what we call the Explanation Requirement: before you ship any AI-generated code, you must be able to explain every function, every decision, and every trade-off to a colleague — without using the word 'it'. If you can't explain it, you don't own it. You don't ship it. This single practice re-engages the learning loop that AI assistance bypasses."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the craft problem solvable, or is it too late?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It's solvable. Skill atrophy from disuse is not permanent — it's reversible. The research on desirable difficulties (Bjork, 1994) shows that the conditions that feel hardest during learning produce the strongest long-term retention. The first week of deliberate practice after a long AI-dependency period will feel slow and uncomfortable. That discomfort is the point. Your craft is not gone. It's dormant. You can wake it up."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="site-header">
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">🌿</span>
+        <span class="logo-text">The Clearing</span>
+      </a>
+      <button type="button" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-list">
+        <li class="nav-item-has-dropdown">
+          <a href="why.html">Understand ▾</a>
+          <ul class="nav-dropdown">
+            <li><a href="ai-fatigue.html">What is AI Fatigue?</a></li>
+            <li><a href="burnout-vs-fatigue.html">Burnout vs. Fatigue</a></li>
+            <li><a href="tutorial-paradox.html">Tutorial Paradox</a>
+            <a href="decision-fatigue-ai.html">Decision Fatigue</a></li>
+              <li><a href="cognitive-load.html">Cognitive Load</a></li>
+            <li><a href="skill-atrophy.html">Skill Atrophy</a></li>
+            <li><a href="developer-identity.html">Developer Identity</a></li>
+            <li><a href="automation-anxiety.html">Automation Anxiety</a></li>
+            <li><a href="productivity-theater.html">Productivity Theater</a></li>
+            <li><a href="imposter-syndrome-vs-ai-fatigue.html">Imposter Syndrome vs. Fatigue</a></li>
+            <li><a href="senior-identity.html">Senior Engineer Identity</a></li>
+            <li><a href="junior-engineers.html">Junior Engineers</a></li>
+            <li><a href="career-pivot-guide.html">Career Pivot Guide</a></li>
+            <li><a href="debugger-drift.html">Debugger's Drift</a></li>
+            <li><a href="coders-block.html">Coder's Block</a></li>
+            <li><a href="ai-code-review.html">AI Code Review</a></li>
+            <li><a href="vibe-coding-ai-fatigue.html">Vibe Coding</a></li>
+          </ul>
+        </li>
+        <li class="nav-item-has-dropdown">
+          <a href="recovery.html">Recover ▾</a>
+          <ul class="nav-dropdown">
+            <li><a href="recovery.html">Recovery Guide</a></li>
+            <li><a href="ai-detox-plan.html">30-Day AI Detox</a></li>
+            <li><a href="freelance-engineer-ai-fatigue.html">Freelance Engineers</a></li>
+              <li><a href="mental-health.html">Mental Health</a></li>
+            <li><a href="ai-fatigue-emergency-kit.html">Emergency Kit</a></li>
+<li><a href="ai-healthcare-developer-fatigue.html">Healthcare Engineers</a></li>
+            <li><a href="developer-wellbeing.html">Developer Wellbeing</a></li>
+            <li><a href="daily-practice.html">Daily Practice</a></li>
+            <li><a href="checkin.html">Daily Check-in</a></li>
+            <li><a href="ai-fatigue-checklist.html">30-Day Checklist</a></li>
+            <li><a href="ai-fatigue-recovery-journal.html">Recovery Journal (Print)</a></li>
+            <li><a href="no-ai-block.html</a></li>
+            <li><a href="golden-handcuffs-ai-engineers.html">Golden Handcuffs</a></li></ul>
+        </li>
+        <li class="nav-item-has-dropdown">
+          <a href="stories.html">Stories ▾</a>
+          <ul class="nav-dropdown">
+            <li><a href="stories.html">Engineer Stories</a></li>
+            <li><a href="senior-identity.html">Senior Identity Crisis</a></li>
+            <li><a href="junior-engineers.html">Junior Engineer Trap</a></li>
+            <li><a href="engineer-survey-results.html">Survey Results</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="share-your-story.html">Share Your Story</a></li>
+          </ul>
+        </li>
+        <li class="nav-item-has-dropdown">
+          <a href="compare.html">Tools ▾</a>
+          <ul class="nav-dropdown">
+            <li><a href="index.html#quiz">AI Fatigue Quiz</a></li>
+            <li><a href="checkin.html">Daily Check-in</a></li>
+            <li><a href="decompress.html">Deep Work Timer</a></li>
+            <li><a href="ai-fatigue-checklist.html">Recovery Checklist</a></li>
+            <li><a href="journal.html">Reflective Journal</a></li>
+            <li><a href="ai-free-fridays.html">AI-Free Fridays</a></li>
+            <li><a href="quiz-badge.html">Quiz Result Badge</a></li>
+          </ul>
+        </li>
+        <li><a href="research.html">Science</a></li>
+        <li><a href="newsletter.html">Newsletter</a></li>
+      </ul>
+      <div class="nav-actions">
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode">
+          <span class="theme-icon">☀️</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <article class="content-page">
+      <div class="page-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="stories.html">Stories</a></li>
+            <li aria-current="page">The Craft Problem</li>
+          </ol>
+        </nav>
+        <span class="reading-time"></span>
+      </div>
+
+      <header class="page-hero">
+        <h1>The Craft Problem</h1>
+        <p class="page-subtitle">You wrote elegant solutions once. Now you ship features you don't fully understand. Here's why the craft problem is real — and what it's costing you.</p>
+        <div class="post-meta">
+          <time datetime="2026-04-05">April 5, 2026</time>
+          <span class="separator">·</span>
+          <span>12 min read</span>
+          <span class="separator">·</span>
+          <span>The Clearing</span>
+        </div>
+      </header>
+
+      <div class="page-body">
+
+        <section class="content-section">
+          <p class="lead">It's 11 PM. You're reviewing a pull request. The AI wrote most of it. The tests pass. The linter is green. You can't actually explain why the main function works the way it does — not in detail, not without reading it three more times. You approve the PR anyway because the deadline is tomorrow and the code looks reasonable enough.</p>
+
+          <p>This is the craft problem.</p>
+
+          <p>Not burnout. Not imposter syndrome. Not "learning new things is hard." Something more specific and more insidious: the slow, invisible replacement of <em>craft knowledge</em> with <em>tool fluency</em>. You can use the tool. You can't do the thing the tool is doing.</p>
+        </section>
+
+        <section class="content-section">
+          <h2>What Craft Actually Means</h2>
+
+          <p>When engineers talk about craft, they mean something specific. Not "being good at coding." Not "ship fast." Craft is the accumulated, embodied knowledge of <em>why</em> things work the way they do — and why they sometimes don't.</p>
+
+          <p>A craftsperson doesn't just know the solution. They know:</p>
+
+          <ul>
+            <li><strong>Why this approach and not that one?</strong> — not the answer AI gives ("Option A is more performant"), but the felt sense of trade-offs accumulated over years of watching systems fail</li>
+            <li><strong>What will break first?</strong> — not pattern-matching on error messages, but a trained intuition for where the edge cases live</li>
+            <li><strong>What does this smell like?</strong> — not a vocabulary for code review, but an actual visceral discomfort when something is wrong that you've earned through years of debugging your own mistakes</li>
+            <li><strong>How will this evolve?</strong> — not predicting the future, but having seen enough systems age to know which decisions compound and which ones don't</li>
+          </ul>
+
+          <p>That knowledge is earned through friction. Through bugs that took days to find. Through features that shipped broken and taught you something no tutorial ever could. Through the specific, non-transferable experience of being responsible for something you built with your own hands.</p>
+
+          <p>AI is routing around that friction. Which is efficient. And which is slowly dissolving the craft.</p>
+        </section>
+
+        <section class="content-section">
+          <h2>The Four Losses</h2>
+
+          <p>The craft problem isn't one thing. It's four distinct losses that compound each other:</p>
+
+          <div class="loss-grid">
+            <div class="loss-card">
+              <h3>1. The Ownership Loop Breaks</h3>
+              <p>Ownership isn't just accountability. It's the cognitive investment that makes learning happen. When you build something, you remember it — because you had to make decisions, weigh trade-offs, live with the consequences. When AI builds it for you, the ownership loop is broken before the first line is written. The code is yours to ship but not yours to own. And without that ownership, the learning that should happen during the build never happens.</p>
+            </div>
+
+            <div class="loss-card">
+              <h3>2. The Struggle Is Bypassed</h3>
+              <p>Productive struggle — the specific discomfort of working through a hard problem without a clear path — is not a bug in the learning process. It's the feature. The research on desirable difficulties (Bjork, 1994) is unambiguous: conditions that make learning feel harder in the moment produce dramatically better long-term retention. AI eliminates productive struggle. Which makes everything feel easier. Which produces nothing that sticks.</p>
+            </div>
+
+            <div class="loss-card">
+              <h3>3. The Baseline Shifts</h3>
+              <p>You used to know where the ground was. You had an internal model of how systems behaved — not a perfect model, but a working one, calibrated by thousands of hours of debugging, deploying, and watching things fail in unexpected ways. AI assistance slowly replaces that model with a new one: "I know roughly what I want, and AI knows how to get there." The new baseline is shallower. And because it's been calibrated against AI output rather than reality, it degrades faster than the old one.</p>
+            </div>
+
+            <div class="loss-card">
+              <h3>4. The Identity Hollows Out</h3>
+              <p>Engineers have always derived identity from craft — not from shipping features, but from being the person who could figure things out. The one who knew why. The one who could look at a system and understand it. As craft erodes, that identity doesn't vanish cleanly. It hollows out. You still perform the role of engineer. But the interior — the private confidence that you know what you're doing — becomes harder to locate.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <h2>What It Looks Like in Practice</h2>
+
+          <p>The craft problem doesn't announce itself. It shows up as:</p>
+
+          <div class="callout">
+            <div class="callout-title">Sunday evenings</div>
+            <p>You can't remember the last time you built something from scratch. Not a feature. Not a side project. Not even a script. Every creative impulse gets immediately routed through "let me ask AI." By Sunday evening, you're aware that you haven't had an original technical thought in weeks.</p>
+          </div>
+
+          <div class="callout">
+            <div class="callout-title">Debugging without intuition</div>
+            <p>When something breaks in a way that isn't covered by Stack Overflow or caught by AI review, you feel genuinely lost. Not because the problem is unsolvable, but because your gut no longer has a starting point. You open the file and wait for AI to tell you where to look.</p>
+          </div>
+
+          <div class="callout">
+            <div class="callout-title">The approval reflex</div>
+            <p>You review AI-generated PRs quickly because you can't read them at depth. Not because you're lazy — because reading AI code at depth is genuinely harder than reading code you wrote. You developed a skill for reading code by writing code. AI code bypasses that path. You approve things you don't fully understand because the deadline is real and the tests are green.</p>
+          </div>
+
+          <div class="callout">
+            <div class="callout-title">The vocabulary remains, the meaning fades</div>
+            <p>You can still talk about architecture decisions. You can still explain trade-offs. You can write a PR description that sounds like an experienced engineer wrote it. But the words are doing less work. They're describing a decision you didn't really make. The vocabulary is real. The craft underneath it is thinning.</p>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <h2>Why This Is Different From Past Transitions</h2>
+
+          <p>Engineers have survived previous technology transitions. Object-oriented programming didn't make procedural engineers worthless. Git didn't make CVS experts useless. Web frameworks didn't eliminate the value of understanding HTTP.</p>
+
+          <p>The difference with AI is a difference of <strong>kind</strong>, not degree. Previous tools extended your capabilities. AI substitutes for the underlying knowledge. When your IDE autocompletes a for-loop, that's an extension. When AI writes the core algorithm and you can no longer read it at depth, that's a substitution. The distinction matters because extension preserves the craft underneath. Substitution erodes it.</p>
+
+          <p>Here's the specific mechanism: AI assistance short-circuits the retrieval practice that makes skills durable. Every time you retrieve a solution from memory rather than looking it up, you're strengthening that memory trace. AI makes looking up faster than retrieving. So you stop retrieving. The trace weakens. The skill atrophies. The felt sense of knowing what you're doing fades.</p>
+
+          <p>This is not an opinion. This is the generation effect (Slamecka & Graf, 1978) and the testing effect (Roediger & Butler, 2011) applied to software engineering in real time.</p>
+        </section>
+
+        <section class="content-section">
+          <h2>The Juniors Are Hit Hardest</h2>
+
+          <p>Senior engineers who are experiencing the craft problem at least have a baseline to compare against. They remember what it felt like to build something from scratch, to debug for three days and finally find the issue, to understand a system well enough to explain it to a junior. That memory creates the discomfort. They know something is wrong.</p>
+
+          <p>Junior engineers who started their careers with AI don't have that baseline. They never developed it. They graduated into an environment where the expectation was to use AI to close the expertise gap — and they did. They shipped features. They shipped velocity. They did exactly what they were supposed to do.</p>
+
+          <p>And they never developed the craft foundation that would let them grow beyond AI-assisted productivity. The skill of starting from nothing. The skill of debugging without a copilot. The skill of understanding a system well enough to know when the AI is wrong.</p>
+
+          <p>The juniors who will be in the most trouble in five years are the ones who feel most productive right now.</p>
+
+          <div class="callout callout-warning">
+            <div class="callout-title">The 67% problem</div>
+            <p>In our survey of 2,047 engineers, 67% of engineers with 4–8 years of experience reported measurable skill decline they could name. Not confidence issues. Not imposter syndrome. Specific, observable degradation in skills they once had. The median years of experience at which this peaks: year 5–7. Exactly when you should be developing the expertise that compounds.</p>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <h2>The Compounding Effect</h2>
+
+          <p>Here's what makes the craft problem dangerous: it compounds.</p>
+
+          <p>Each month of AI dependency makes the next month harder to reverse. The baseline you're comparing against keeps shifting — what you know now becomes the new "you" against which future degradation is measured. You adapt to the lower baseline. You stop noticing how far you've drifted. The felt sense of craft fades so gradually that you mistake it for normal.</p>
+
+          <p>And the costs compound too. The engineer who can't debug without AI assistance takes longer on hard problems. The engineer who doesn't understand the architecture they inherited makes worse decisions. The engineer who never learned to build from scratch has no reference point for evaluating AI output. The AI becomes necessary precisely because you stopped developing the capability it replaced.</p>
+
+          <p>This is the trap. And it's fully escapable — but only if you see it clearly.</p>
+        </section>
+
+        <section class="content-section">
+          <h2>What Actually Helps</h2>
+
+          <p>The recovery from the craft problem is not "use less AI." That's advice that doesn't survive contact with a deadline. The recovery is more specific:</p>
+
+          <div class="practice-card">
+            <h3>The Explanation Requirement</h3>
+            <p>Before you ship any AI-generated code, you must be able to explain it — every function, every decision, every trade-off — to a colleague. Without using the words "it" or "the code." If you can't explain it, you don't own it. You don't ship it. This single practice re-engages the learning loop that AI assistance bypasses. It's uncomfortable at first. That discomfort is the point.</p>
+          </div>
+
+          <div class="practice-card">
+            <h3>No-AI Sessions</h3>
+            <p>Designate one recurring block of time — start with 90 minutes, once a week — where the rule is: no AI assistance. No Copilot. No ChatGPT. No code completion. Just you, a blank file, and the problem. It will feel slow and inefficient. That inefficiency is the productive struggle you're recreating. The goal is not to produce. The goal is to practice.</p>
+          </div>
+
+          <div class="practice-card">
+            <h3>The Quarterly Full-Build</h3>
+            <p>Once per quarter, build something real — a side project, a tool for your team, an exploration of a system you want to understand — with no AI assistance. Document what you learn. Compare your debugging time to what it would have been with AI. Notice what you had to look up vs. what you retrieved. The contrast will be informative.</p>
+          </div>
+
+          <div class="practice-card">
+            <h3>The Reading Practice</h3>
+            <p>AI doesn't just write code for you. It reads code for you too. Start reading AI-generated PRs at depth again — not to review them, but to understand them. Force yourself to be able to articulate why each function is written the way it is. If you can't, add it to your learning queue. Not to feel bad about. To learn.</p>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <h2>The Career Argument</h2>
+
+          <p>There's a practical case for preserving your craft that isn't about identity or meaning or the philosophy of engineering: craft is your career insurance.</p>
+
+          <p>The engineers who are currently most in demand — the ones who can debug novel failures, evaluate AI output for correctness, ask the right questions, understand system behavior at depth — are the ones who kept developing their craft through the AI transition. Not by refusing AI. By using it intentionally while preserving the underlying capabilities it was augmenting.</p>
+
+          <p>Teams are already discovering that AI-assisted velocity has a hidden cost. The code ships faster. The bugs show up in production. The architectural decisions compound in ways that aren't visible until the system ages. The engineers who can see those problems coming are the ones who kept their craft alive.</p>
+
+          <p>Tool fluency without craft depth is a career with an expiration date. Craft is what makes AI useful instead of dangerous — to you, to your team, and to the systems you build.</p>
+        </section>
+
+        <section class="content-section">
+          <h2>The Reframe That Helps</h2>
+
+          <p>The craft problem is not a failure of character. It's not laziness or imposter syndrome or an inability to adapt. It's a structural consequence of how AI assistance works — one that's invisible by default because the performance metrics (velocity, output, passing tests) all look fine.</p>
+
+          <p>The craft problem is also not inevitable. It is reversible. Skill atrophy from disuse is not permanent. The conditions that produce the strongest learning are the ones that feel hardest during the learning. The first week of deliberate practice will feel slow. That slowness is the point. Your craft is not gone. It's dormant.</p>
+
+          <p>You can wake it up.</p>
+
+          <p>The engineers who navigate this transition successfully will be the ones who see the craft problem clearly — not as a reason to reject AI, but as a reason to use it with more intentionality. To protect the friction that makes learning stick. To stay owners of the systems they build, even when the tools change.</p>
+
+          <p>The code you ship should still be yours. Not just legally. Cognitively. That's the craft problem. And that's where the recovery starts.</p>
+        </section>
+
+        <section class="content-section">
+          <div class="explore-grid">
+            <div class="explore-card">
+              <h3>Take the Quiz</h3>
+              <p>Find out where you stand. 2,047 engineers have taken our AI Fatigue Quiz.</p>
+              <a href="index.html#quiz" class="btn btn-primary">Take the Quiz →</a>
+            </div>
+            <div class="explore-card">
+              <h3>Developer Identity</h3>
+              <p>The deeper crisis underneath: who are you without your code?</p>
+              <a href="developer-identity.html" class="btn btn-secondary">Read More →</a>
+            </div>
+            <div class="explore-card">
+              <h3>Skill Atrophy</h3>
+              <p>The research on what happens to your skills when AI takes over the hard parts.</p>
+              <a href="skill-atrophy.html" class="btn btn-secondary">Read More →</a>
+            </div>
+            <div class="explore-card">
+              <h3>Recovery Guide</h3>
+              <p>A practical, science-based path back to sustainable engineering.</p>
+              <a href="recovery.html" class="btn btn-secondary">Read More →</a>
+            </div>
+            <div class="explore-card">
+              <h3>30-Day AI Detox</h3>
+              <p>A structured plan for rebuilding your relationship with AI tools.</p>
+              <a href="ai-detox-plan.html" class="btn btn-secondary">Try It →</a>
+            </div>
+            <div class="explore-card">
+              <h3>The Survey Data</h3>
+              <p>What 2,047 engineers told us about skill decline, identity, and recovery.</p>
+              <a href="engineer-survey-results.html" class="btn btn-secondary">See the Data →</a>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">🌿</span>
+        <span>The Clearing</span>
+        <p class="footer-tagline">Free resources for engineers navigating AI fatigue.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Understand</h4>
+          <ul>
+            <li><a href="ai-fatigue.html">What is AI Fatigue?</a></li>
+            <li><a href="burnout-vs-fatigue.html">Burnout vs. Fatigue</a></li>
+            <li><a href="decision-fatigue-ai.html">Decision Fatigue</a></li>
+              <li><a href="cognitive-load.html">Cognitive Load</a></li>
+            <li><a href="skill-atrophy.html">Skill Atrophy</a></li>
+            <li><a href="developer-identity.html">Developer Identity</a></li>
+            <li><a href="the-craft-problem.html">The Craft Problem</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Recover</h4>
+          <ul>
+            <li><a href="recovery.html">Recovery Guide</a></li>
+            <li><a href="ai-detox-plan.html">30-Day AI Detox</a></li>
+            <li><a href="freelance-engineer-ai-fatigue.html">Freelance Engineers</a></li>
+              <li><a href="mental-health.html">Mental Health</a></li>
+            <li><a href="ai-fatigue-emergency-kit.html">Emergency Kit</a></li>
+<li><a href="ai-healthcare-developer-fatigue.html">Healthcare Engineers</a></li>
+            <li><a href="developer-wellbeing.html">Wellbeing</a></li>
+            <li><a href="no-ai-block.html">No-AI Block</a></li>
+            <li><a href="checkin.html">Daily Check-in</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="index.html#quiz">AI Fatigue Quiz</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="stories.html">Stories</a></li>
+            <li><a href="resources.html">Reading List</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 The Clearing · <a href="about.html">About</a> · <a href="privacy.html">Privacy</a> · <a href="index-hn.html">HN</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

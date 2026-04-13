@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Fatigue by Engineering Role: How Specializations…</title>
+
+  <!-- woff2 font preloads for LCP optimization -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEBrLy9d1UZF5p7lk.woff2" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/lora/v36/8IQJvFuJd87V_IYq_mvhDd-2XwWj2R38lLa4hZk.woff2" />
+
+  <meta name="description" content="Frontend, backend, SRE, data, and mobile engineers experience AI fatigue differently. Here's how your specialization changes what AI tools cost you — and..." />
+  <meta name="keywords" content="AI fatigue frontend engineers, backend engineer AI burnout, SRE AI fatigue, data engineer AI overwhelm, mobile developer AI fatigue, AI fatigue by role, software engineer specialization AI tools" />
+  <meta name="author" content="The Clearing" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://clearing-ai.com/ai-fatigue-by-role.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://clearing-ai.com/ai-fatigue-by-role.html" />
+  <meta property="og:title" content="AI Fatigue by Engineering Role: How Your Specialization Shapes the Pain" />
+  <meta property="og:description" content="Frontend, backend, SRE, data, and mobile engineers experience AI fatigue differently." />
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png" />
+  <meta property="og:site_name" content="The Clearing" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Fatigue by Engineering Role: How Your Specialization Shapes the Pain" />
+  <meta name="twitter:description" content="Frontend, backend, SRE, data, and mobile engineers experience AI fatigue differently." />
+  <meta name="twitter:image" content="https://clearing-ai.com/og-image.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI Fatigue by Engineering Role: How Software Specializations Shape the Pain",
+    "description": "Frontend, backend, SRE, data, and mobile engineers experience AI fatigue differently. Here's how your specialization changes what AI tools cost you — and what actually helps.",
+    "url": "https://clearing-ai.com/ai-fatigue-by-role.html",
+    "datePublished": "2026-04-09",
+    "dateModified": "2026-04-09",
+    "author": { "@type": "Organization", "name": "The Clearing" },
+    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://clearing-ai.com/ai-fatigue-by-role.html" },
+    "keywords": ["AI fatigue frontend engineers", "backend engineer AI burnout", "SRE AI fatigue", "data engineer AI overwhelm", "mobile developer AI fatigue"],
+    "wordCount": 4100
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Understand", "item": "https://clearing-ai.com/ai-fatigue.html" },
+      { "@type": "ListItem", "position": 3, "name": "AI Fatigue by Role", "item": "https://clearing-ai.com/ai-fatigue-by-role.html" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do frontend engineers experience AI fatigue differently than backend engineers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Frontend engineers face rapid iteration cycles where AI creates a style-homogenization problem — UIs start looking alike. Backend engineers face deeper risks: AI-generated infrastructure code, query logic, and API integrations that are hard to fully understand and expensive to debug in production. Frontend fatigue is often aesthetic and creative; backend fatigue is structural and cognitive."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is SRE and platform engineering AI fatigue particularly dangerous?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SRE and platform engineers bear system-wide responsibility. AI-generated infrastructure code that ships with subtle misconfigurations creates blast radius risks beyond a single service. On-call engineers who didn't write AI-generated infrastructure are debugging it at 3am with incomplete mental models. This is the automation-complacency trap at its most consequential."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What about AI fatigue for data engineers and ML engineers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Data engineers face a double bind: AI tools are most capable in their domain (SQL generation, pipeline orchestration), so adoption pressure is highest. But the skills at risk — data modeling intuition, pipeline debugging, performance tuning — are exactly what makes them senior. ML engineers face an additional dimension: prompt dependency for model evaluation can erode statistical intuition that took years to build."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is AI fatigue worse for junior engineers in any particular role?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mobile and embedded systems engineers are particularly at risk because their domains have steepest learning curves and least forgiving failure modes. Mobile engineers face App Store review pressure to ship AI-generated features before properly understanding them. Embedded engineers face safety implications that pure software engineers don't encounter. Early-career engineers in these domains who lean heavily on AI risk never building the deep mental models their seniors rely on."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the single most role-specific AI fatigue risk in backend engineering?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Database query and API integration code. AI generates plausible SQL and API client code. It's much less good at generating correct, performant, edge-case-aware implementations for your specific data volumes, access patterns, and business logic. This code ships, passes review, and then behaves unexpectedly under production load — weeks later, when the author has only a vague memory of accepting the AI's suggestion."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What practice helps most across all engineering roles?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Explanation Requirement — explaining AI-generated code out loud before accepting it — works universally because it forces retrieval practice regardless of domain. Role-specific: frontend engineers benefit from building UI components from scratch to maintain design intuition; backend engineers from reviewing and explaining AI-generated SQL; SREs from maintaining manual incident response competency alongside AI tooling."
+        }
+      }
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="css/style.min.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="css/style.min.css"></noscript>
+  <script src="main.js" defer></script>
+  <style>
+    .role-nav { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+    .role-pill { background: var(--bg3); border: 1px solid var(--border); color: var(--text2); padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; transition: all 0.2s; text-decoration: none; display: inline-block; }
+    .role-pill:hover, .role-pill.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .role-section { margin-bottom: 56px; scroll-margin-top: 80px; }
+    .role-header { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
+    .role-icon { font-size: 2rem; flex-shrink: 0; width: 52px; height: 52px; background: var(--bg3); border: 1px solid var(--border); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+    .role-title-block h2 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 4px; }
+    .role-title-block .role-tagline { font-size: 0.9rem; color: var(--text2); font-style: italic; }
+    .risk-meter { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .risk-meter span { font-size: 0.8rem; color: var(--text3); font-weight: 600; }
+    .risk-bar { flex: 1; max-width: 200px; height: 8px; background: var(--bg3); border-radius: 4px; overflow: hidden; }
+    .risk-fill { height: 100%; border-radius: 4px; }
+    .risk-high { background: #e05555; }
+    .risk-mid-high { background: #e08855; }
+    .risk-mid { background: #e0c055; }
+    .fatigue-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 24px 0; }
+    .fatigue-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+    .fatigue-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+    .fatigue-card p { font-size: 0.875rem; color: var(--text2); line-height: 1.65; }
+    .fatigue-card .card-icon { font-size: 1.2rem; margin-bottom: 8px; display: block; }
+    .fatigue-card.alert { border-color: rgba(224,85,85,0.3); }
+    .fatigue-card.insight { border-color: rgba(58,124,92,0.3); }
+    .fatigue-card.tip { border-color: rgba(100,149,237,0.3); }
+    .cross-role { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 28px; margin: 36px 0; }
+    .cross-role h3 { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .cross-role > p { font-size: 0.9rem; color: var(--text2); margin-bottom: 20px; line-height: 1.7; }
+    .cross-role > p strong { color: var(--text); }
+    .pattern-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+    .pattern-item { display: flex; gap: 10px; align-items: flex-start; }
+    .pattern-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+    .pattern-text { font-size: 0.85rem; color: var(--text2); line-height: 1.6; }
+    .pattern-text strong { color: var(--text); }
+    .section-divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+    .warning-box { background: rgba(224,85,85,0.1); border: 1px solid rgba(224,85,85,0.3); border-radius: 8px; padding: 16px 20px; margin: 20px 0; }
+    .warning-box strong { color: #e05555; }
+    .warning-box p { font-size: 0.875rem; color: var(--text2); margin-top: 6px; }
+    .explore-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 40px; }
+    .explore-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 16px; transition: all 0.2s; text-decoration: none; display: block; }
+    .explore-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .explore-card .ec-eyebrow { font-size: 0.7rem; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+    .explore-card .ec-title { font-size: 0.9rem; font-weight: 600; color: var(--text); line-height: 1.4; }
+    .explore-card .ec-desc { font-size: 0.78rem; color: var(--text2); margin-top: 4px; }
+    .faq-section { margin-top: 48px; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-question { width: 100%; background: none; border: none; padding: 18px 0; text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.95rem; font-weight: 600; color: var(--text); font-family: inherit; }
+    .faq-question:hover { color: var(--accent); }
+    .faq-question .chevron { transition: transform 0.2s; flex-shrink: 0; color: var(--text3); font-size: 0.8rem; }
+    .faq-question[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+    .faq-answer { display: none; padding: 0 0 18px; font-size: 0.9rem; color: var(--text2); line-height: 1.75; }
+    .faq-answer.open { display: block; }
+    .mobile-section { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 28px; margin-top: 20px; }
+    .mobile-section h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.02em; }
+    .mobile-section p { font-size: 0.875rem; color: var(--text2); line-height: 1.7; }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" /></noscript>
+
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="site-header">
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+      <a href="index.html" class="logo">🌿 The Clearing</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="ai-fatigue.html">Understand</a>
+        <a href="recovery.html">Recover</a>
+        <a href="research.html">Science</a>
+        <a href="index.html#quiz">Quiz</a>
+        <a href="newsletter.html">Newsletter</a>
+      </div>
+      <button type="button" class="theme-toggle" aria-label="Toggle dark/light mode" onclick="toggleTheme()">☀️</button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="content-container">
+      <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <a href="ai-fatigue.html">Understand</a>
+        <span>›</span>
+        <span>AI Fatigue by Role</span>
+      </nav>
+
+      <h1>AI Fatigue by Engineering Role</h1>
+      <p class="lead">The way AI tools cost you depends on what you specialize in. Frontend, backend, SRE, data, and mobile engineers all experience AI fatigue differently — different failure modes, different compounding risks, and different recovery paths. Here's the honest breakdown.</p>
+
+      <div class="role-nav" role="navigation" aria-label="Jump to engineering role">
+        <a href="#frontend" class="role-pill">🎨 Frontend</a>
+        <a href="#backend" class="role-pill">⚙️ Backend</a>
+        <a href="#sre" class="role-pill">🛡️ SRE / Platform</a>
+        <a href="#data" class="role-pill">📊 Data / ML</a>
+        <a href="#mobile" class="role-pill">📱 Mobile</a>
+      </div>
+
+      <!-- Cross-Role Patterns -->
+      <div class="cross-role">
+        <h3>The Pattern Every Role Shares</h3>
+        <p>Every engineering role shares one underlying AI fatigue mechanism: <strong>AI increases your output velocity while decreasing your output understanding</strong>. The gap between what you ship and what you understand compounds differently by domain — but it compounds everywhere.</p>
+        <div class="pattern-grid">
+          <div class="pattern-item">
+            <span class="pattern-icon">🔁</span>
+            <p class="pattern-text"><strong>The velocity trap:</strong> Shipping faster feels like productivity. The understanding cost shows up later — when the code breaks, when you're on-call, when a junior asks you to explain it.</p>
+          </div>
+          <div class="pattern-item">
+            <span class="pattern-icon">🧩</span>
+            <p class="pattern-text"><strong>The integration gap:</strong> AI is best at individual components. Every role now faces more integration work than ever — and integration is exactly where AI assistance creates the most subtle, expensive failures.</p>
+          </div>
+          <div class="pattern-item">
+            <span class="pattern-icon">📉</span>
+            <p class="pattern-text"><strong>The skill erosion pattern:</strong> The skills that make you senior in your domain are the ones AI assistance bypasses most efficiently. Engineers who notice this first are usually the most senior ones.</p>
+          </div>
+          <div class="pattern-item">
+            <span class="pattern-icon">🔍</span>
+            <p class="pattern-text"><strong>The review illusion:</strong> AI-generated code passes review more easily than you'd expect — it looks correct. The gap between "looks correct" and "is correct for your specific context" is where production bugs live.</p>
+          </div>
+        </div>
+      </div>
+
+      <hr class="section-divider" />
+
+      <!-- Frontend -->
+      <section class="role-section" id="frontend">
+        <div class="role-header">
+          <div class="role-icon">🎨</div>
+          <div class="role-title-block">
+            <h2>Frontend Engineers</h2>
+            <p class="role-tagline">"My UIs look fine. I can't tell you why."</p>
+          </div>
+        </div>
+        <div class="risk-meter">
+          <span>AI fatigue risk:</span>
+          <div class="risk-bar"><div class="risk-fill risk-mid-high" style="width:65%"></div></div>
+          <span style="color:#e08855;font-weight:700">Moderate-High</span>
+        </div>
+        <p>Frontend engineering has the highest AI adoption rate of any specialization — and the most visible symptoms when it goes wrong. AI code generation for UI components, CSS layouts, and React logic is genuinely useful and genuinely dangerous in equal measure.</p>
+
+        <div class="fatigue-cards">
+          <div class="fatigue-card insight">
+            <span class="card-icon">✨</span>
+            <h4>The Design Homogenization Problem</h4>
+            <p>When every team uses the same AI code generators, UIs start looking and behaving identically. Components generated from the same prompts carry the same structural fingerprints. The result: a subtle homogenization of the web's visual language that nobody consciously chose. Engineers who care about craft notice this. Users feel it without knowing why.</p>
+          </div>
+          <div class="fatigue-card">
+            <span class="card-icon">🧠</span>
+            <h4>CSS Intuition Erosion</h4>
+            <p>AI generates CSS faster than engineers write it — which means engineers spend less time thinking about layout, cascade, specificity, and rendering performance. Junior frontend engineers who lean on AI for CSS are at particular risk of never building the visual debugging intuition that separates frontend specialists from component assemblers.</p>
+          </div>
+          <div class="fatigue-card alert">
+            <span class="card-icon">⚡</span>
+            <h4>The Framework Drift Trap</h4>
+            <p>Frontend frameworks evolve fast. AI tooling trains on existing patterns. The result: your AI-assisted codebase gradually drifts toward last year's best practices. Engineers who don't read release notes become trapped in a local maximum of AI-generated legacy patterns — unable to leverage new framework capabilities because AI doesn't suggest them.</p>
+          </div>
+          <div class="fatigue-card tip">
+            <span class="card-icon">🛠️</span>
+            <h4>What Actually Helps</h4>
+            <p>One CSS-from-scratch session per week: rebuild a real component without AI, even if it takes 3x longer. The goal isn't purity — it's maintaining the calibration between what you generate and what you understand. Also: periodically read your AI-generated CSS and ask "why does this work?" for at least one rule.</p>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-divider" />
+
+      <!-- Backend -->
+      <section class="role-section" id="backend">
+        <div class="role-header">
+          <div class="role-icon">⚙️</div>
+          <div class="role-title-block">
+            <h2>Backend Engineers</h2>
+            <p class="role-tagline">"The query ran. I shipped it. Then the incident happened at 2am."</p>
+          </div>
+        </div>
+        <div class="risk-meter">
+          <span>AI fatigue risk:</span>
+          <div class="risk-bar"><div class="risk-fill risk-high" style="width:85%"></div></div>
+          <span style="color:#e05555;font-weight:700">High</span>
+        </div>
+        <p>Backend engineering carries some of the highest-stakes AI fatigue risks because production failures have blast radius beyond a single page render. Database queries, API integrations, infrastructure code, and concurrency patterns generated by AI all carry hidden risks that only surface under production load or unusual conditions.</p>
+
+        <div class="fatigue-cards">
+          <div class="fatigue-card alert">
+            <span class="card-icon">🗄️</span>
+            <h4>The SQL Generation Trap</h4>
+            <p>AI is very good at generating plausible SQL. It's much less good at generating correct, performant SQL for your specific data volumes, access patterns, and edge cases. AI-generated SQL works for simple queries and fails expensively in the production cases. Engineers who didn't write the query can't predict which category they're in.</p>
+          </div>
+          <div class="fatigue-card alert">
+            <span class="card-icon">🔌</span>
+            <h4>API Integration Blindness</h4>
+            <p>AI generates API client code, authentication flows, and integration logic rapidly. Integrations have failure modes that only appear when the external service changes, unusual edge cases occur, or you need to debug at 3am. If you didn't build the integration logic, your mental model of how it handles these cases is incomplete at best.</p>
+          </div>
+          <div class="fatigue-card">
+            <span class="card-icon">🏗️</span>
+            <h4>Concurrency and State Management Blindspots</h4>
+            <p>AI-generated code handling concurrent requests, distributed locks, or queue consumers looks deceptively simple. The subtle correctness requirements — race conditions, deadlocks, eventual consistency — are exactly where AI generates plausible-but-wrong code most frequently. Testing often doesn't catch these failures because edge cases are hard to reproduce locally.</p>
+          </div>
+          <div class="fatigue-card insight">
+            <span class="card-icon">📋</span>
+            <h4>The Code Review Illusion</h4>
+            <p>AI-generated backend code passes code review more convincingly than you'd expect. It looks structured, uses correct-looking patterns, follows conventions. The reviewer who didn't write it and lacks full context often approves it without catching the domain-specific assumption that will cause problems in production.</p>
+          </div>
+          <div class="fatigue-card tip">
+            <span class="card-icon">🛡️</span>
+            <h4>What Actually Helps</h4>
+            <p>The Explanation Requirement is most critical for backend code: explain the AI-generated SQL out loud before accepting it. Ask: what does this do under load? What happens when this returns 10x more rows than expected? What failure modes does it not handle? If you can't answer, the code isn't ready to ship — AI suggestion or not.</p>
+          </div>
+        </div>
+
+        <div class="warning-box">
+          <strong>⚠️ The 2am Debugging Problem</strong>
+          <p>When a production incident happens at 2am and the code was AI-generated, the on-call engineer faces a double deficit: they didn't write the code (no muscle memory), and the code is structured in ways they don't fully understand. AI-generated backend code creates incidents that are harder to debug under pressure than code you wrote yourself.</p>
+        </div>
+      </section>
+
+      <hr class="section-divider" />
+
+      <!-- SRE / Platform -->
+      <section class="role-section" id="sre">
+        <div class="role-header">
+          <div class="role-icon">🛡️</div>
+          <div class="role-title-block">
+            <h2>SRE & Platform Engineers</h2>
+            <p class="role-tagline">"AI generated the Kubernetes config. I don't know the blast radius."</p>
+          </div>
+        </div>
+        <div class="risk-meter">
+          <span>AI fatigue risk:</span>
+          <div class="risk-bar"><div class="risk-fill risk-high" style="width:92%"></div></div>
+          <span style="color:#e05555;font-weight:700">Very High</span>
+        </div>
+        <p>SRE and platform engineers face the most severe AI fatigue risks of any specialization — not because they use AI more, but because the blast radius of AI-generated infrastructure code is wider than almost any application code. When a Kubernetes manifest, Terraform plan, or CI/CD pipeline ships with a subtle misconfiguration, the impact can cascade across services and teams simultaneously.</p>
+
+        <div class="fatigue-cards">
+          <div class="fatigue-card alert">
+            <span class="card-icon">☸️</span>
+            <h4>The Kubernetes Manifest Trap</h4>
+            <p>AI can generate Kubernetes configurations rapidly. It cannot reliably generate correct configurations for your specific cluster state, resource constraints, network policies, and multi-tenant requirements. A plausible-looking manifest that passes review can create security boundary violations, resource starvation for other services, or scheduling failures that only surface under specific cluster conditions.</p>
+          </div>
+          <div class="fatigue-card alert">
+            <span class="card-icon">🏢</span>
+            <h4>Infrastructure as Code Without Understanding</h4>
+            <p>Terraform, Pulumi, and CloudFormation generated by AI often "works" for the happy path. The failure modes — IAM scopes too broad, state drift, destroy operations that cascade — require deep understanding that AI-generated code doesn't transfer. An engineer who accepts AI-generated IAM policies without understanding the security model is accepting significant organizational risk.</p>
+          </div>
+          <div class="fatigue-card alert">
+            <span class="card-icon">🚨</span>
+            <h4>The On-Call Competency Gap</h4>
+            <p>AI-generated infrastructure creates a specific on-call hazard: engineers are increasingly paged for incidents in infrastructure they didn't design, don't fully understand, and can't reliably debug under pressure. The on-call rotation's implicit assumption — that the on-call engineer has enough context — breaks down when significant infrastructure was assembled by AI.</p>
+          </div>
+          <div class="fatigue-card insight">
+            <span class="card-icon">🔬</span>
+            <h4>The Blast Radius Asymmetry</h4>
+            <p>Application code failures typically affect one service. Infrastructure failures can affect multiple services, multiple teams, or your entire production environment simultaneously. The "understanding cost" of AI-generated infrastructure is categorically higher. The risk profile demands a higher standard of comprehension before acceptance.</p>
+          </div>
+          <div class="fatigue-card tip">
+            <span class="card-icon">⚙️</span>
+            <h4>What Actually Helps</h4>
+            <p>Maintain a "no-AI infrastructure review" practice: at least one infrastructure change per week reviewed without AI. Run incident drills reproducing failure modes in AI-generated configs. If you can't explain what happens when this Kubernetes manifest meets your actual cluster state, it shouldn't ship.</p>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-divider" />
+
+      <!-- Data / ML -->
+      <section class="role-section" id="data">
+        <div class="role-header">
+          <div class="role-icon">📊</div>
+          <div class="role-title-block">
+            <h2>Data & ML Engineers</h2>
+            <p class="role-tagline">"The pipeline ran. I don't know why it worked. It failed differently the next day."</p>
+          </div>
+        </div>
+        <div class="risk-meter">
+          <span>AI fatigue risk:</span>
+          <div class="risk-bar"><div class="risk-fill risk-high" style="width:88%"></div></div>
+          <span style="color:#e05555;font-weight:700">High</span>
+        </div>
+        <p>Data engineers and ML engineers face a unique double bind: AI tools are genuinely most capable in their domain — SQL generation, pipeline orchestration, data transformation logic, even model selection. The adoption pressure is therefore highest. And the skills most at risk — data modeling intuition, pipeline debugging, performance tuning, statistical reasoning — are exactly the skills that make them senior.</p>
+
+        <div class="fatigue-cards">
+          <div class="fatigue-card alert">
+            <span class="card-icon">📈</span>
+            <h4>The SQL Dependency Spiral</h4>
+            <p>Data engineers who use AI to generate SQL increasingly rely on it for tasks they used to do from scratch — window functions, complex aggregations, schema migrations. The intuition that comes from writing complex SQL by hand — execution plans, performance at scale, when denormalization helps — erodes quietly while the work still gets done.</p>
+          </div>
+          <div class="fatigue-card">
+            <span class="card-icon">🤖</span>
+            <h4>ML Prompt Dependency</h4>
+            <p>ML engineers who rely on AI for model selection, hyperparameter tuning, and evaluation prompts risk eroding the statistical intuition that took years to build. The danger isn't using AI for ML tasks — it's accepting AI outputs without being able to interrogate whether the outputs make sense relative to your domain knowledge and data characteristics.</p>
+          </div>
+          <div class="fatigue-card">
+            <span class="card-icon">🔮</span>
+            <h4>Data Modeling Atrophy</h4>
+            <p>Data modeling — understanding what your data actually represents, what relationships matter, what transformations preserve meaning — is deeply contextual work that AI assistance handles poorly. Engineers who offload data modeling to AI risk building pipelines that are technically correct but semantically wrong: they process the data correctly while the data's actual meaning gets lost in translation.</p>
+          </div>
+          <div class="fatigue-card insight">
+            <span class="card-icon">⚖️</span>
+            <h4>The Validation Gap</h4>
+            <p>Data pipelines that look correct often aren't — subtle data quality issues, schema drift, and transformation errors only surface under specific data conditions. AI-generated pipelines that appear correct are particularly dangerous because the validation (exploratory data analysis, data profiling, edge case testing) is exactly the work that's most tempting to skip when AI "already handled it."</p>
+          </div>
+          <div class="fatigue-card tip">
+            <span class="card-icon">📐</span>
+            <h4>What Actually Helps</h4>
+            <p>Schema review before pipeline acceptance: explain the data model's assumptions out loud. What does each field represent? What invariants must hold? What happens when data quality degrades? If you can't answer these from your own understanding of the domain — not the AI's explanation — the pipeline isn't ready for production.</p>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-divider" />
+
+      <!-- Mobile -->
+      <section class="role-section" id="mobile">
+        <div class="role-header">
+          <div class="role-icon">📱</div>
+          <div class="role-title-block">
+            <h2>Mobile Engineers</h2>
+            <p class="role-tagline">"It passed review. The App Store rejected it for a different reason each time."</p>
+          </div>
+        </div>
+        <div class="risk-meter">
+          <span>AI fatigue risk:</span>
+          <div class="risk-bar"><div class="risk-fill risk-mid-high" style="width:72%"></div></div>
+          <span style="color:#e08855;font-weight:700">Moderate-High</span>
+        </div>
+        <p>Mobile engineers face a distinct AI fatigue profile shaped by two forces: platform-specific constraints (App Store review, device fragmentation, performance budgets) that create pressure to ship before fully understanding code, and the steep learning curves of native development that make junior engineers particularly vulnerable to skill atrophy.</p>
+
+        <div class="fatigue-cards">
+          <div class="fatigue-card alert">
+            <span class="card-icon">🍎</span>
+            <h4>The App Store Pressure Cooker</h4>
+            <p>Mobile engineers face a unique iteration constraint: every code change requires App Store or Play Store review to reach users. This creates pressure to ship AI-generated features before fully understanding them — you can't quickly iterate to understanding the way web engineers can. The result: AI-generated features that ship with subtle bugs that take weeks to fix through the review cycle.</p>
+          </div>
+          <div class="fatigue-card">
+            <span class="card-icon">⚡</span>
+            <h4>Platform Convention Erosion</h4>
+            <p>iOS and Android have deep platform conventions — lifecycle management, memory pressure handling, threading models, platform API idioms — that AI-generated code often violates or ignores. Junior mobile engineers who rely on AI for implementation details risk building apps that work in testing and fail on specific devices, OS versions, or under real-world conditions.</p>
+          </div>
+          <div class="fatigue-card">
+            <span class="card-icon">📦</span>
+            <h4>Dependency Bloat from AI Snippets</h4>
+            <p>AI coding assistants often suggest third-party libraries for tasks that have simple native solutions. Mobile engineers who accept these suggestions accumulate dependency bloat — each new library is a potential crash surface, compatibility risk, and performance hit on devices with limited resources. The compounding: each AI-suggested dependency adds complexity that subsequent AI code doesn't account for.</p>
+          </div>
+          <div class="fatigue-card insight">
+            <span class="card-icon">🔋</span>
+            <h4>Performance Intuition Loss</h4>
+            <p>Mobile performance — battery life, memory footprint, background task management, and network efficiency — requires deep understanding of how mobile OSes schedule and constrain applications. AI-generated mobile code often ignores these constraints, producing implementations that perform acceptably on developer machines and poorly on actual user devices under real-world conditions. Engineers who don't understand the constraints can't evaluate whether AI code is violating them.</p>
+          </div>
+          <div class="fatigue-card tip">
+            <span class="card-icon">🛠️</span>
+            <h4>What Actually Helps</h4>
+            <p>Before accepting AI-generated mobile code: run it on the oldest device your app supports, under memory pressure, with a slow network. If you don't know what that means for your specific platform, that's the skill gap to close first. Platform conventions matter more on mobile than anywhere else — understanding them is what makes you a mobile engineer, not just a coder who targets a mobile platform.</p>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-divider" />
+
+      <!-- FAQ -->
+      <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+      <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+              Do frontend engineers experience AI fatigue differently than backend engineers?
+              <span class="chevron">▼</span>
+            </button>
+            <div class="faq-answer">Yes. Frontend engineers face rapid UI/UX iteration cycles where AI code generation is genuinely useful but creates a style-homogenization problem — designs start looking alike. Backend engineers face deeper risks: AI-generated infrastructure code, query logic, and API integrations that are hard to fully understand and expensive to debug in production. The fatigue patterns are different: frontend fatigue is often aesthetic and creative; backend fatigue is structural and cognitive.</div>
+          </div>
+          <div class="faq-item">
+      <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+              Why is SRE and platform engineering AI fatigue particularly dangerous?
+              <span class="chevron">▼</span>
+            </button>
+            <div class="faq-answer">SRE and platform engineers bear system-wide responsibility. AI-generated infrastructure code (Kubernetes, Terraform, CI/CD pipelines) that ships with subtle misconfigurations creates blast radius risks beyond a single service. The compounding problem: on-call engineers who didn't write the AI-generated infrastructure are debugging it at 3am with incomplete mental models. This is the automation-complacency trap at its most consequential.</div>
+          </div>
+          <div class="faq-item">
+      <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+              What about AI fatigue for data engineers and ML engineers?
+              <span class="chevron">▼</span>
+            </button>
+            <div class="faq-answer">Data engineers face a unique double bind: AI tools are most capable in their domain (SQL generation, pipeline orchestration, schema management), so adoption pressure is highest. But the skills at risk — data modeling intuition, pipeline debugging, performance tuning — are exactly the skills that make them senior. ML engineers face an additional dimension: prompt dependency for model selection and evaluation can erode statistical intuition that took years to build.</div>
+          </div>
+          <div class="faq-item">
+      <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+              Is AI fatigue worse for junior engineers in any particular role?
+              <span class="chevron">▼</span>
+            </button>
+            <div class="faq-answer">Mobile engineers and embedded systems engineers are particularly at risk because their domains have the steepest learning curves and least forgiving failure modes. Mobile: App Store review cycles create pressure to ship AI-generated features before properly understood. Embedded: AI-generated code for resource-constrained environments can have safety implications that pure software engineers don't face. Early-career engineers in these domains who lean heavily on AI risk never building the deep mental models that senior engineers rely on.</div>
+          </div>
+          <div class="faq-item">
+      <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+              What's the single most role-specific AI fatigue risk in backend engineering?
+              <span class="chevron">▼</span>
+            </button>
+            <div class="faq-answer">Database query and API integration code. AI is very good at generating plausible SQL, ORMs, and API client code. It's much less good at generating correct, performant, edge-case-aware implementations for your specific data volumes, access patterns, and business logic. This code ships, passes review, and then behaves unexpectedly under production load — weeks or months later, when the author has only a vague memory of accepting the AI's suggestion.</div>
+          </div>
+          <div class="faq-item">
+      <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+              What practice helps most across all engineering roles?
+              <span class="chevron">▼</span>
+            </button>
+            <div class="faq-answer">The Explanation Requirement — explaining AI-generated code out loud before accepting it — works universally because it forces retrieval practice regardless of domain. Role-specific: frontend engineers benefit most from building UI components from scratch periodically to maintain design intuition; backend engineers from reviewing and explaining AI-generated SQL and API code; SREs from maintaining manual incident response competency alongside AI tooling; data engineers from schema review before pipeline acceptance.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Explore -->
+      <div class="explore-grid">
+        <a href="ai-fatigue.html" class="explore-card">
+          <div class="ec-eyebrow">Understand</div>
+          <div class="ec-title">What is AI Fatigue?</div>
+          <div class="ec-desc">The nameable thing that's been happening to your craft.</div>
+        </a>
+        <a href="recovery.html" class="explore-card">
+          <div class="ec-eyebrow">Recover</div>
+          <div class="ec-title">The Recovery Plan</div>
+          <div class="ec-desc">30-day structured plan to reclaim your craft.</div>
+        </a>
+        <a href="compare.html" class="explore-card">
+          <div class="ec-eyebrow">Compare</div>
+          <div class="ec-title">AI Coding Tool Comparison</div>
+          <div class="ec-desc">Which tools cause the most fatigue? An honest guide.</div>
+        </a>
+        <a href="index.html#quiz" class="explore-card">
+          <div class="ec-eyebrow">Quiz</div>
+          <div class="ec-title">AI Fatigue Quiz</div>
+          <div class="ec-desc">5 questions. Find out where you stand.</div>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>🌿 The Clearing — Free forever. No trackers. No account required.</p>
+      <nav aria-label="Footer navigation">
+        <a href="index.html">Home</a> ·
+        <a href="ai-fatigue.html">AI Fatigue</a> ·
+        <a href="recovery.html">Recovery</a> ·
+        <a href="research.html">Science</a> ·
+        <a href="index.html#quiz">Quiz</a> ·
+        <a href="newsletter.html">Newsletter</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    function toggleFaq(btn) {
+      const answer = btn.nextElementSibling;
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', !isOpen);
+      answer.classList.toggle('open', !isOpen);
+    }
+    // Smooth scroll for role pills
+    document.querySelectorAll('.role-pill').forEach(function(pill) {
+      pill.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

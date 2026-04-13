@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Code Review in the AI Era: How AI Changes Everything…</title>
+
+  <!-- woff2 font preloads for LCP optimization -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEBrLy9d1UZF5p7lk.woff2" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/lora/v36/8IQJvFuJd87V_IYq_mvhDd-2XwWj2R38lLa4hZk.woff2" />
+
+  <meta name="description" content="AI is changing code review fundamentally. Here's how it affects author accountability, reviewer skills, team dynamics, and what to do when AI flags everything.">
+  <meta property="og:title" content="AI Code Review in the AI Era: How AI Changes Everything">
+  <meta property="og:description" content="AI is changing code review fundamentally. Here's how it affects author accountability, reviewer skills, team dynamics, and what to do when AI flags everything.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/ai-code-review.html">
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Code Review in the AI Era">
+  <meta name="twitter:description" content="AI is changing code review fundamentally. Here's how it affects author accountability, team dynamics, and reviewer skills.">
+  <link rel="canonical" href="https://clearing-ai.com/ai-code-review.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="css/style.min.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="css/style.min.css"></noscript>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI Code Review in the AI Era: How AI Changes Everything",
+    "description": "AI is changing code review fundamentally. Here's how it affects author accountability, reviewer skills, team dynamics, and what to do when AI flags everything.",
+    "author": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+    "publisher": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+    "datePublished": "2026-04-04",
+    "dateModified": "2026-04-04",
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://clearing-ai.com/ai-code-review.html"},
+    "wordCount": 4200
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Recover", "item": "https://clearing-ai.com/recovery.html"},
+      {"@type": "ListItem", "position": 3, "name": "AI Code Review", "item": "https://clearing-ai.com/ai-code-review.html"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does AI code review replace human code review?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. AI catches syntax errors, style violations, and common bugs — but it cannot assess architecture trade-offs, domain-specific edge cases, business logic correctness, or whether the code serves the actual user need. Human review remains essential for meaning, maintainability, and intent."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do senior engineers sometimes feel worse after AI code review?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Expertise Reversal Effect: techniques optimized for novices can feel condescending or disruptive to experts. When AI flags things a senior engineer already knew, it creates friction without value. This is why calibrating AI review sensitivity by seniority level matters."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does AI code review affect author accountability?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "When AI pre-approves code, authors can lose the psychological ownership that comes from being meaningfully reviewed. This erosion of accountability is subtle but real — it affects how carefully engineers consider trade-offs before submission."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens to junior developer growth when AI reviews their code?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Juniors lose the productive struggle of having a senior thoughtfully dissect their work. A senior who takes 20 minutes to explain a pattern gives context, reasoning, and institutional knowledge that an AI flag does not. Junior growth depends on this bidirectional exchange."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How should teams handle AI-flagged PRs with no comments from humans?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This is a signal, not a green light. If AI approves a PR and no human reviews it, the team has lost a knowledge-sharing opportunity. Teams should establish norms: AI approval does not replace human review, especially for changes to critical paths, shared libraries, or business logic."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can AI help reviewers be more effective rather than replacing them?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The best use of AI in code review is handling the mechanical checks (naming conventions, test coverage, obvious bugs) so human reviewers can focus on architecture, business logic, and team learning. AI as a first pass, human as a second pass — with intentionality about what each catches."
+        }
+      }
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" /></noscript>
+
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <header class="site-header">
+    <nav class="nav-container" role="navigation" aria-label="Main navigation">
+      <a href="index.html" class="nav-home">
+        <span class="nav-logo">🌿</span>
+        <span class="nav-title">The Clearing</span>
+      </a>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li class="nav-dropdown">
+          <a href="index.html#quiz" class="nav-link">Quiz</a>
+        </li>
+        <li class="nav-dropdown">
+          <a href="#" class="nav-link">Recover ▾</a>
+          <ul class="nav-sub">
+            <li><a href="recovery.html">Recovery Guide</a></li>
+            <li><a href="ai-detox-plan.html">30-Day Detox Plan</a></li>
+            <li><a href="no-ai-block.html">No-AI Block</a></li>
+            <li><a href="why-resting-doesnt-fix-ai-fatigue.html">Why Resting Doesn't Fix It</a></li>
+            <li><a href="daily-practice.html">Daily Practice</a></li>
+            <li><a href="freelance-engineer-ai-fatigue.html">Freelance Engineers</a></li>
+              <li><a href="mental-health.html">Mental Health</a></li>
+            <li><a href="engineer-energy-management.html">Energy Management</a></li>
+            <li><a href="developer-wellbeing.html">Wellbeing</a></li>
+            <li><a href="checkin.html">Daily Check-in</a></li>
+            <li><a href="ai-fatigue-checklist.html">30-Day Checklist</a></li>
+            <li><a href="ai-fatigue-recovery-journal.html">Recovery Journal (Print)</a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <a href="#" class="nav-link">Understand ▾</a>
+          <ul class="nav-sub">
+            <li><a href="why.html">Why It Happens</a></li>
+            <li><a href="mindset.html">Mental Models</a></li>
+            <li><a href="decision-fatigue-ai.html">Decision Fatigue</a></li>
+              <li><a href="cognitive-load.html">Cognitive Load</a></li>
+            <li><a href="skill-atrophy.html">Skill Atrophy</a></li>
+            <li><a href="tutorial-paradox.html">Tutorial Paradox</a></li>
+            <li><a href="attention-residue.html">Attention Residue</a></li>
+            <li><a href="developer-identity.html">Identity Crisis</a></li>
+            <li><a href="automation-anxiety.html">Automation Anxiety</a></li>
+            <li><a href="flow-state.html">Flow State</a></li>
+            <li><a href="productivity-theater.html">Productivity Theater</a></li>
+            <li><a href="remote-work-ai-fatigue.html">Remote Work</a></li>
+            <li><a href="vibe-coding-ai-fatigue.html">Vibe Coding</a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <a href="#" class="nav-link">Stories ▾</a>
+          <ul class="nav-sub">
+            <li><a href="stories.html">Engineer Stories</a></li>
+            <li><a href="testimonials.html">Recovery Stories</a></li>
+            <li><a href="share-your-story.html">Share Your Story</a></li>
+            <li><a href="journal.html">Engineer Journal</a></li>
+            <li><a href="the-craft-problem.html">The Craft Problem</a></li>
+            <li><a href="senior-identity.html">Senior Identity</a>
+<a href="senior-engineer-ai-fatigue.html">Senior Engineer</a></li>
+            <li><a href="junior-engineers.html">For Juniors</a></li>
+            <li><a href="neurodivergent-engineer-ai-fatigue.html">Neurodivergent Engineers</a></li>
+<li><a href="ai-healthcare-developer-fatigue.html">Healthcare Engineers</a></li>
+            <li><a href="community.html">Community</a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <a href="#" class="nav-link">Science ▾</a>
+          <ul class="nav-sub">
+            <li><a href="research.html">Research</a></li>
+            <li><a href="stats.html">Statistics</a></li>
+            <li><a href="engineer-survey-results.html">Survey Data</a></li>
+            <li><a href="ai-fatigue-statistics-2025.html">2025 Stats</a></li>
+            <li><a href="the-science-of-ai-fatigue.html">The Science</a></li>
+            <li><a href="compare.html">Tool Comparison</a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <a href="#" class="nav-link">Tools ▾</a>
+          <ul class="nav-sub">
+            <li><a href="index.html#quiz">AI Fatigue Quiz</a></li>
+            <li><a href="decompress.html">Focus Timer</a></li>
+            <li><a href="checkin.html">Daily Check-in</a></li>
+            <li><a href="journal.html">Reflection Journal</a></li>
+            <li><a href="badge.html">Quiz Badge</a></li>
+            <li><a href="resources.html">Reading List</a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <a href="#" class="nav-link">Workplace ▾</a>
+          <ul class="nav-sub">
+            <li><a href="workplace.html">Set Limits at Work</a></li>
+            <li><a href="hiring.html">Hiring & Retention</a></li>
+            <li><a href="team-guide.html">Team Guide</a></li>
+            <li><a href="executive-burnout.html">For Leaders</a></li>
+            <li><a href="working-parent-burnout.html">Working Parent Burnout</a></li>
+            <li><a href="corporate-ai-wellness.html">Enterprise</a></li>
+            <li><a href="career-pivot-guide.html">Career Pivot</a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+          <a href="newsletter.html" class="nav-link">Newsletter</a>
+        </li>
+      </ul>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle color theme">
+        <span class="theme-icon">☀️</span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <article class="content-page">
+      <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
+
+      <header class="page-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="recovery.html">Recover</a></li>
+            <li aria-current="page">AI Code Review</li>
+          </ol>
+        </nav>
+        <h1>AI Code Review in the AI Era:<br>How AI Changes Everything</h1>
+        <p class="page-subtitle">The shift from human-reviewed PRs to AI-flagged submissions is quietly reshaping what it means to write, own, and ship software</p>
+        <div class="page-meta">
+          <span class="reading-time" id="reading-time"></span>
+          <span class="meta-divider">·</span>
+          <time datetime="2026-04-04">April 4, 2026</time>
+          <span class="meta-divider">·</span>
+          <span>The Clearing</span>
+        </div>
+      </header>
+
+      <div class="page-content">
+
+        <section class="content-section">
+          <h1>The scene nobody talks about</h2>
+          <p>It's 6pm on a Thursday. You've been in meetings all day. You managed to write about 200 lines of code between 5 and 6pm, got it working, and pushed it up before logging off. The CI pipeline ran. An AI review bot left four comments. You addressed them in ten minutes. The PR merged.</p>
+          <p>You felt productive. You weren't wrong. But something was missing.</p>
+          <p>Nobody reviewed your code. Not really. Not the way Sarah used to — asking why you chose that approach, pointing out the implicit assumption in that third function, explaining how that pattern would interact with the billing module that was written two years ago. Nobody asked the question that would have made you stop and rethink.</p>
+          <p>Your AI review bot approved you. You approved yourself.</p>
+          <p>This is the new code review. And it's changing software engineering in ways we're only beginning to understand.</p>
+        </section>
+
+        <section class="content-section">
+          <h2>What AI actually does in code review</h2>
+          <p>Let's be precise about what AI code review tools actually handle well, and what they can't touch.</p>
+
+          <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+            <div class="card">
+              <h3 style="color: var(--success);">✅ What AI catches reliably</h3>
+              <ul style="padding-left: 1.5rem;">
+                <li>Syntax errors and type mismatches</li>
+                <li>Style guide violations and formatting</li>
+                <li>Missing null checks and obvious edge cases</li>
+                <li>Common security vulnerabilities (SQL injection patterns, hardcoded secrets)</li>
+                <li>Test coverage gaps for touched code</li>
+                <li>Duplicate code within the PR</li>
+                <li>Outdated dependency versions</li>
+                <li>Obvious performance regressions</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3 style="color: var(--warning);">⚠️ What AI partially handles</h3>
+              <ul style="padding-left: 1.5rem;">
+                <li>Algorithmic efficiency (can suggest, often wrong on complexity)</li>
+                <li>Name choices (context-blind, goes by pattern matching)</li>
+                <li>Comment quality (can spot bad comments, not whether they're accurate)</li>
+                <li>Obvious architectural mismatches</li>
+                <li>API contract violations within a known service</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3 style="color: var(--danger);">❌ What AI cannot assess</h3>
+              <ul style="padding-left: 1.5rem;">
+                <li>Whether the solution serves the actual user need</li>
+                <li>Domain-specific edge cases that only make sense in context</li>
+                <li>Architecture trade-offs and their long-term implications</li>
+                <li>Team-specific conventions and their reasons</li>
+                <li>Business logic correctness or regulatory implications</li>
+                <li>Whether this change makes the codebase more or less understandable for the next engineer</li>
+                <li>What this code will need to do when requirements change next quarter</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <h2>The accountability gap</h2>
+          <p>Here's the problem that nobody's naming: code review has always been about more than catching bugs.</p>
+          <p>It's about accountability. When you know someone will review your work — really review it, with context, with judgment, with skin in the game — you write differently. You think harder before you submit. You anticipate questions. You reconsider the thing you're not sure about, because you're going to have to explain it.</p>
+          <p>When you know an AI will review your work, you write to satisfy the AI. The goal shifts from "solve the problem well" to "don't trigger the linter, don't fail the coverage check, don't get flagged."</p>
+          <p>This is a subtle but profound change in the psychology of authoring code.</p>
+
+          <div class="callout callout-warning" style="margin: 2rem 0;">
+            <h4>The Ghost Authorship Problem</h4>
+            <p>When AI participates in writing and reviewing code, the question "who owns this?" becomes genuinely ambiguous. This isn't just philosophical — it affects how carefully engineers consider the downstream implications of their decisions. Ghost authorship erodes the carefulness that comes from genuine ownership.</p>
+          </div>
+
+          <p>Studies on automation in other fields are instructive here. Radiologists who used AI assist tools showed reduced diagnostic accuracy on cases the AI didn't flag — because they trusted the AI's silence as approval. The absence of a flag became psychologically equivalent to a sign-off. Engineers are not immune to this. When AI doesn't flag something, the implicit message is "this is fine." The engineer moves on.</p>
+        </section>
+
+        <section class="content-section">
+          <h2>The seniority trap</h2>
+          <p>If you think senior engineers are immune to AI code review problems, you're wrong. They're often the most affected.</p>
+          <p>The reason is something cognitive scientists call the <strong>Expertise Reversal Effect</strong>: techniques optimized for novices can become counterproductive for experts. When an AI flags things a senior engineer already knew — style issues, naming conventions, obvious edge cases — it creates friction without providing value. The senior engineer starts to resent the review process because it doesn't respect what they actually bring.</p>
+
+          <div class="callout" style="margin: 2rem 0;">
+            <h4>Why this matters practically</h4>
+            <p>When senior engineers disengage from code review because "the AI handles it," teams lose the one thing AI cannot replicate: institutional context. Senior engineers know which modules are fragile, which decisions were made under time pressure and should be revisited, which patterns are load-bearing for the architecture. That knowledge doesn't get captured in an AI flag. It gets passed through conversation — or it doesn't get passed at all.</p>
+          </div>
+
+          <p>The engineers most likely to disengage from thorough code review are the ones whose context is most valuable. That's the seniority trap.</p>
+        </section>
+
+        <section class="content-section">
+          <h2>The junior developer problem</h2>
+          <p>Juniors face the opposite problem, but it's equally serious.</p>
+          <p>Code review has always been one of the most powerful learning mechanisms in software development. When a senior engineer spends 20 minutes on your PR — not just flagging what's wrong but explaining <em>why</em> it's wrong and what the right approach is — that's education. Real education. Contextual, applied, immediately relevant to the thing you just tried to do.</p>
+          <p>AI code review cannot do this. It can tell you the variable is poorly named. It cannot explain why the naming convention exists, which other modules use a similar pattern, and what the original author was thinking. It can tell you the test is missing. It cannot explain what the test is actually checking for and why it matters in this specific domain.</p>
+
+          <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+            <div class="card">
+              <h4>Traditional review → junior growth</h4>
+              <p>Senior explains: "This approach will cause problems when we add multi-tenancy because you assumed a single-tenant context. Here's how we've handled this in other modules."</p>
+              <p><strong>Result:</strong> Junior learns about the domain, the architecture, the reasoning. Grows.</p>
+            </div>
+            <div class="card">
+              <h4>AI review → junior growth gap</h4>
+              <p>AI flags: "Consider adding null check on line 47."</p>
+              <p><strong>Result:</strong> Junior adds null check. Does not learn why nulls were likely here, what the calling context expects, or how to reason about this class of problem in the future.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <h2>The "AI approved it" problem</h2>
+          <p>Teams that fully automate code review often develop an informal norm: if CI passes and AI review passes, the PR can merge without human review. This is becoming more common, especially for small, mechanical changes.</p>
+          <p>This is understandable. Human reviewers are expensive. AI is fast. But the trade-off has hidden costs that don't show up in any metric.</p>
+
+          <div class="comparison-table" style="margin: 2rem 0;">
+            <table style="width:100%; border-collapse: collapse;">
+              <thead>
+                <tr>
+                  <th>What AI review misses</th>
+                  <th>What teams lose when they skip human review</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Cross-cutting concerns that span multiple PRs</td>
+                  <td>Senior engineers building a mental model of how the codebase is evolving</td>
+                </tr>
+                <tr>
+                  <td>Business logic correctness</td>
+                  <td>Context transfer from author to reviewer about why a decision was made</td>
+                </tr>
+                <tr>
+                  <td>Team-specific conventions that aren't enforced in code</td>
+                  <td>Junior engineers learning by reading thoughtful review comments</td>
+                </tr>
+                <tr>
+                  <td>Whether the PR addresses the actual user need</td>
+                  <td>The accountability signal that makes authors more careful</td>
+                </tr>
+                <tr>
+                  <td>Long-term maintenance implications</td>
+                  <td>Relationship building between team members through collaborative review</td>
+                </tr>
+                <tr>
+                  <td>Whether this change makes the codebase more or less understandable</td>
+                  <td>Senior engineers staying aware of changes in areas they'll need to maintain later</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <h2>The reviewer's dilemma</h2>
+          <p>If you're a human reviewer on a team that uses AI review, you face a strange problem: when AI flags things, you're supposed to agree with the flags. When AI doesn't flag things, you're supposed to catch what the AI missed. But if the AI approved the PR and you start finding real problems, you're now the person blocking a merge that the AI already passed.</p>
+          <p>This creates a perverse dynamic. Reviewers become reluctant to leave critical comments on AI-approved PRs because it makes them look like they're disagreeing with the AI. And agreeing with the AI feels pointless — why are you here?</p>
+          <p>The result is reviewer disengagement. The human review becomes a rubber stamp. "LGTM, nice work" on an AI-approved PR. The AI review replaced the human review, but nobody admitted it.</p>
+        </section>
+
+        <section class="content-section">
+          <h2>What actually helps</h2>
+
+          <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+            <div class="card">
+              <h4>1. Reserve human review for meaning</h4>
+              <p>Use AI for the mechanical checks (style, coverage, obvious bugs). Reserve human review for what AI cannot assess: intent, architecture, domain logic, team context. Be explicit about this division.</p>
+            </div>
+            <div class="card">
+              <h4>2. Calibrate AI review by seniority</h4>
+              <p>Configure AI review to be more permissive for senior engineers and more educational for juniors. A junior getting flagged on naming conventions is learning. A senior being flagged on the same thing is noise that trains them to ignore the AI.</p>
+            </div>
+            <div class="card">
+              <h4>3. Protect the review comment as a learning artifact</h4>
+              <p>When you leave a review comment, write it for the next engineer who encounters this pattern — not just for the author. Good review comments are institutional knowledge transfer. AI flags are not.</p>
+            </div>
+            <div class="card">
+              <h4>4. Track review quality, not just review quantity</h4>
+              <p>If your team tracks PR cycle time and review count but not the quality of review conversations, you're optimizing for the wrong thing. A team that does 5 thorough reviews per week is healthier than one that does 20 rubber-stamp reviews.</p>
+            </div>
+            <div class="card">
+              <h4>5. Require human review for architectural decisions</h4>
+              <p>Establish a norm: changes to shared modules, public APIs, data models, and architectural patterns require human review, regardless of AI approval. AI cannot assess architectural implications.</p>
+            </div>
+            <div class="card">
+              <h4>6. Rotate reviewers intentionally</h4>
+              <p>When AI handles the routine, human reviewers should rotate more broadly across the codebase — not just reviewing their own area, but understanding what other parts of the system are doing. This is how institutional knowledge spreads.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <h2>The question worth asking</h2>
+          <p>Before you accept your next AI-approved PR without a second look, ask yourself: what am I not thinking about because I trust the AI?</p>
+          <p>The best code review was never just about catching bugs. It was about thought partnership. The author explaining their reasoning. The reviewer asking the question the author hadn't thought to ask. Both people learning something from the exchange.</p>
+          <p>AI can catch the things that are wrong. It cannot yet replace the things that are missing.</p>
+          <p>Don't let the efficiency of AI review become the enemy of the depth that human review provided.</p>
+        </section>
+
+        <section class="content-section explore-grid">
+          <h2>Continue exploring</h2>
+          <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+            <a href="skill-atrophy.html" class="card card-link">
+              <h4>Skill Atrophy</h4>
+              <p>How AI tools quietly erode the skills engineers rely on</p>
+            </a>
+            <a href="developer-identity.html" class="card card-link">
+              <h4>Developer Identity</h4>
+              <p>Who you are without your code — and why it matters</p>
+            </a>
+            <a href="decision-fatigue-ai.html">Decision Fatigue</a></li>
+              <li><a href="cognitive-load.html" class="card card-link">
+              <h4>Cognitive Load</h4>
+              <p>Why AI is drowning your brain's working memory</p>
+            </a>
+            <a href="recovery.html" class="card card-link">
+              <h4>Recovery Guide</h4>
+              <p>Practical steps to regain your footing with AI tools</p>
+            </a>
+            <a href="compare.html" class="card card-link">
+              <h4>Tool Comparison</h4>
+              <p>Which AI coding tools cause the most fatigue</p>
+            </a>
+            <a href="mindset.html" class="card card-link">
+              <h4>Mental Models</h4>
+              <p>Frameworks for using AI without losing yourself</p>
+            </a>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <h2>Frequently asked questions</h2>
+          <div class="faq-accordion" id="faq-accordion">
+            <details>
+              <summary>Does AI code review replace human code review?</summary>
+              <div class="faq-answer">
+                <p>No. AI catches syntax errors, style violations, and common bugs — but it cannot assess architecture trade-offs, domain-specific edge cases, business logic correctness, or whether the code serves the actual user need. Human review remains essential for meaning, maintainability, and intent.</p>
+              </div>
+            </details>
+            <details>
+              <summary>Why do senior engineers sometimes feel worse after AI code review?</summary>
+              <div class="faq-answer">
+                <p>The Expertise Reversal Effect: techniques optimized for novices can feel condescending or disruptive to experts. When AI flags things a senior engineer already knew, it creates friction without value. This is why calibrating AI review sensitivity by seniority level matters.</p>
+              </div>
+            </details>
+            <details>
+              <summary>How does AI code review affect author accountability?</summary>
+              <div class="faq-answer">
+                <p>When AI pre-approves code, authors can lose the psychological ownership that comes from being meaningfully reviewed. This erosion of accountability is subtle but real — it affects how carefully engineers consider trade-offs before submission.</p>
+              </div>
+            </details>
+            <details>
+              <summary>What happens to junior developer growth when AI reviews their code?</summary>
+              <div class="faq-answer">
+                <p>Juniors lose the productive struggle of having a senior thoughtfully dissect their work. A senior who takes 20 minutes to explain a pattern gives context, reasoning, and institutional knowledge that an AI flag does not. Junior growth depends on this bidirectional exchange.</p>
+              </div>
+            </details>
+            <details>
+              <summary>How should teams handle AI-flagged PRs with no comments from humans?</summary>
+              <div class="faq-answer">
+                <p>This is a signal, not a green light. If AI approves a PR and no human reviews it, the team has lost a knowledge-sharing opportunity. Teams should establish norms: AI approval does not replace human review, especially for changes to critical paths, shared libraries, or business logic.</p>
+              </div>
+            </details>
+            <details>
+              <summary>Can AI help reviewers be more effective rather than replacing them?</summary>
+              <div class="faq-answer">
+                <p>Yes. The best use of AI in code review is handling the mechanical checks (naming conventions, test coverage, obvious bugs) so human reviewers can focus on architecture, business logic, and team learning. AI as a first pass, human as a second pass — with intentionality about what each catches.</p>
+              </div>
+            </details>
+          </div>
+        </section>
+
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>🌿 The Clearing</h3>
+        <p>A resource for engineers navigating AI fatigue.</p>
+        <p class="footer-tagline">You are not behind. You are recovering.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Recover</h4>
+        <ul>
+          <li><a href="recovery.html">Recovery Guide</a></li>
+          <li><a href="ai-detox-plan.html">30-Day Detox</a></li>
+          <li><a href="ai-fatigue-checklist.html">Checklist</a></li>
+            <li><a href="ai-fatigue-emergency-kit.html">Emergency Kit</a></li>
+          <li><a href="daily-practice.html">Daily Practice</a></li>
+          <li><a href="freelance-engineer-ai-fatigue.html">Freelance Engineers</a></li>
+              <li><a href="mental-health.html">Mental Health</a></li>
+          <li><a href="checkin.html">Daily Check-in</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Understand</h4>
+        <ul>
+          <li><a href="why.html">Why It Happens</a></li>
+          <li><a href="decision-fatigue-ai.html">Decision Fatigue</a></li>
+              <li><a href="cognitive-load.html">Cognitive Load</a></li>
+          <li><a href="skill-atrophy.html">Skill Atrophy</a></li>
+          <li><a href="attention-residue.html">Attention Residue</a></li>
+          <li><a href="developer-identity.html">Identity</a></li>
+          <li><a href="flow-state.html">Flow State</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="index.html#quiz">AI Fatigue Quiz</a></li>
+          <li><a href="decompress.html">Focus Timer</a></li>
+          <li><a href="journal.html">Journal</a></li>
+            <li><a href="ai-free-fridays.html">AI-Free Fridays</a></li>
+          <li><a href="resources.html">Reading List</a></li>
+          <li><a href="newsletter.html">Newsletter</a></li>
+          <li><a href="ai-code-review.html">AI Code Review</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="community.html">Community</a></li>
+          <li><a href="testimonials.html">Recovery Stories</a></li>
+          <li><a href="share-your-story.html">Share Your Story</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="changelog.html">Changelog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div    <div class="footer-bottom">
+      <p>&copy; 2026 The Clearing. Built for engineers, by engineers who understand.</p>
+    </div>
+  </footer>
+
+  <script src="main.js?v=1.1" defer></script>
+  <script>
+    window.addEventListener('scroll', () => {
+      const progress = document.getElementById('reading-progress');
+      const article = document.querySelector('.page-content');
+      if (progress && article) {
+        const articleTop = article.offsetTop;
+        const articleHeight = article.offsetHeight;
+        const windowHeight = window.innerHeight;
+        const scrolled = window.scrollY - articleTop;
+        const progressPct = Math.min(100, Math.max(0, (scrolled / (articleHeight - windowHeight)) * 100));
+        progress.style.width = progressPct + '%';
+      }
+    });
+
+    document.querySelectorAll('.faq-accordion details').forEach(details => {
+      details.addEventListener('toggle', () => {
+        if (details.open) {
+          document.querySelectorAll('.faq-accordion details[open]').forEach(d => {
+            if (d !== details) d.open = false;
+          });
+        }
+      });
+    });
+
+    const article = document.querySelector('.page-content');
+    if (article) {
+      const text = article.textContent || '';
+      const words = text.trim().split(/\s+/).length;
+      const minutes = Math.ceil(words / 220);
+      const rt = document.getElementById('reading-time');
+      if (rt) rt.textContent = minutes + ' min read';
+    }
+  </script>
+</body>
+</html>

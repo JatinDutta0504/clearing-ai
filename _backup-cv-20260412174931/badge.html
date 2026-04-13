@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Fatigue Score Badge Generator — Share to LinkedIn |…</title>
+
+  <!-- woff2 font preloads for LCP optimization -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEBrLy9d1UZF5p7lk.woff2" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/lora/v36/8IQJvFuJd87V_IYq_mvhDd-2XwWj2R38lLa4hZk.woff2" />
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="description" content="Generate a personalized AI Fatigue Score badge from your quiz results. Download as PNG and share to LinkedIn, Twitter, or wherever engineers gather. Start a..." />
+  <meta name="keywords" content="AI fatigue badge generator, developer burnout badge LinkedIn, software engineer AI fatigue score, engineer burnout badge download, AI fatigue quiz share, tech burnout badge" />
+  <meta name="author" content="The Clearing" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://clearing-ai.com/badge.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://clearing-ai.com/badge.html" />
+  <meta property="og:title" content="AI Fatigue Score Badge Generator — The Clearing" />
+  <meta property="og:description" content="Take the quiz. Generate your badge. Start the conversation about AI fatigue in engineering." />
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png" />
+  <meta property="og:site_name" content="The Clearing" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Fatigue Score Badge Generator — The Clearing" />
+  <meta name="twitter:description" content="Generate your AI Fatigue Score badge. Share to LinkedIn. Start the conversation." />
+  <meta name="twitter:image" content="https://clearing-ai.com/og-image.png" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "AI Fatigue Score Badge Generator",
+    "url": "https://clearing-ai.com/badge.html",
+    "description": "A canvas-based badge generator that creates a personalized AI Fatigue Score image for software engineers to download and share on LinkedIn, Twitter, or other platforms.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Web Browser",
+    "isAccessibleForFree": true,
+    "featureList": ["Canvas-based badge generation", "PNG download", "4 fatigue tiers", "Custom name support", "LinkedIn share text"],
+    "audience": { "@type": "Audience", "audienceType": "Software Engineers" },
+    "isPartOf": { "@type": "WebSite", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com" },
+        { "@type": "ListItem", "position": 2, "name": "Badge Generator", "item": "https://clearing-ai.com/badge.html" }
+      ]
+    }
+  }
+  </script>  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" /></noscript>
+
+
+
+  <link rel="stylesheet" href="css/style.min.css" />
+  <style>
+    .badge-page {
+      min-height: 100vh;
+      background: var(--bg);
+    }
+
+    .badge-hero {
+      background: linear-gradient(135deg, #1a2a1a 0%, #0d1a0d 100%);
+      padding: 4.5rem 2rem 3.5rem;
+      text-align: center;
+      color: white;
+    }
+    .badge-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-family: var(--font-serif);
+      color: var(--forest-pale);
+      margin-bottom: 1rem;
+    }
+    .badge-hero p {
+      color: rgba(200,230,210,0.8);
+      font-size: 1rem;
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .badge-main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    /* Step blocks */
+    .badge-step {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem 2.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .badge-step-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .badge-step-num {
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 50%;
+      background: var(--forest-mid);
+      color: white;
+      font-weight: 800;
+      font-size: 0.82rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: var(--font-sans);
+    }
+    .badge-step-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      font-family: var(--font-sans);
+    }
+
+    /* Tier selector */
+    .tier-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+    .tier-option {
+      border: 2px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background: transparent;
+      text-align: left;
+      width: 100%;
+    }
+    .tier-option:hover { border-color: var(--forest-mid); }
+    .tier-option.selected {
+      border-color: var(--forest-mid);
+      background: rgba(74,124,89,0.08);
+    }
+    .tier-option-emoji { font-size: 1.4rem; margin-bottom: 0.3rem; display: block; }
+    .tier-option-name { font-size: 0.88rem; font-weight: 700; color: var(--text-dark); display: block; margin-bottom: 0.2rem; }
+    .tier-option-score { font-size: 0.75rem; color: var(--text-muted); display: block; }
+
+    /* Name input */
+    .badge-name-input {
+      width: 100%;
+      padding: 0.85rem 1.1rem;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--bg);
+      color: var(--text-dark);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      transition: border-color 0.2s ease;
+      box-sizing: border-box;
+    }
+    .badge-name-input:focus {
+      outline: none;
+      border-color: var(--forest-mid);
+    }
+    .badge-name-hint {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    /* Style selector */
+    .style-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+    .style-option {
+      border: 2px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background: transparent;
+      text-align: center;
+      width: 100%;
+    }
+    .style-option:hover { border-color: var(--forest-mid); }
+    .style-option.selected { border-color: var(--forest-mid); background: rgba(74,124,89,0.08); }
+    .style-option-name { font-size: 0.82rem; font-weight: 700; color: var(--text-dark); display: block; margin-bottom: 0.2rem; }
+    .style-option-desc { font-size: 0.72rem; color: var(--text-muted); display: block; }
+
+    /* Canvas preview */
+    .badge-preview-section {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .badge-canvas-wrap {
+      display: inline-block;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+      margin-bottom: 1.5rem;
+    }
+    #badgeCanvas {
+      display: block;
+      max-width: 100%;
+    }
+
+    .badge-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .badge-btn-download {
+      background: var(--forest-mid);
+      color: white;
+      border: none;
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1.75rem;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: background 0.2s ease;
+    }
+    .badge-btn-download:hover { background: var(--forest-dark); }
+
+    .badge-btn-share {
+      background: transparent;
+      color: var(--text-dark);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1.75rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .badge-btn-share:hover { border-color: var(--forest-mid); color: var(--forest-mid); }
+
+    /* LinkedIn copy box */
+    .linkedin-copy-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      margin-top: 1rem;
+    }
+    .linkedin-copy-box h3 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.75rem;
+      font-family: var(--font-sans);
+    }
+    .linkedin-copy-text {
+      font-size: 0.82rem;
+      color: var(--text-body);
+      line-height: 1.65;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.85rem 1rem;
+      margin-bottom: 0.75rem;
+      white-space: pre-wrap;
+      font-family: var(--font-sans);
+    }
+    .btn-copy-text {
+      background: none;
+      border: 1px solid var(--forest-mid);
+      color: var(--forest-mid);
+      border-radius: var(--radius-md);
+      padding: 0.5rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: all 0.2s ease;
+    }
+    .btn-copy-text:hover { background: rgba(74,124,89,0.1); }
+
+    /* Why share section */
+    .why-share {
+      background: linear-gradient(135deg, rgba(74,124,89,0.06), transparent);
+      border: 1px solid rgba(74,124,89,0.2);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.75rem;
+      margin-top: 1.5rem;
+    }
+    .why-share h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.75rem;
+    }
+    .why-share ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .why-share li {
+      font-size: 0.88rem;
+      color: var(--text-body);
+      line-height: 1.5;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    .why-share li::before {
+      content: '🌿';
+      position: absolute;
+      left: 0;
+      font-size: 0.8rem;
+    }
+
+    /* Explore grid */
+    .badge-explore {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .badge-explore-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .badge-explore-card:hover { border-color: var(--forest-mid); transform: translateY(-2px); }
+    .badge-explore-emoji { font-size: 1.3rem; margin-bottom: 0.4rem; }
+    .badge-explore-title { font-size: 0.88rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.2rem; }
+    .badge-explore-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; }
+
+    [data-theme="dark"] .badge-step { background: #1a2a1a; }
+    [data-theme="dark"] .linkedin-copy-box { background: #1a2a1a; }
+    [data-theme="dark"] .badge-explore-card { background: #1a2a1a; }
+    [data-theme="dark"] .badge-name-input { background: #1a2a1a; }
+
+    @media (max-width: 600px) {
+      .badge-main { padding: 2rem 1.25rem; }
+      .tier-grid { grid-template-columns: 1fr; }
+      .style-grid { grid-template-columns: repeat(2, 1fr); }
+      .badge-actions { flex-direction: column; align-items: stretch; }
+      .badge-btn-download, .badge-btn-share { text-align: center; }
+    }
+  </style>  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YHK9XCPG4M"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YHK9XCPG4M');
+  </script>
+</head>
+<body class="badge-page">
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Navigation -->
+  <nav class="main-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="ai-fatigue-type-calculator.html" style="color:var(--text2);text-decoration:none;font-size:0.9rem;padding:6px 12px;border-radius:6px;transition:all 0.2s;">Type Calculator</a>
+      <a href="index.html" class="nav-logo">🌿 The Clearing</a>
+      <button type="button" class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-dropdown">
+      <button type="button" class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">Why <span class="dropdown-arrow">▾</span></button>
+          <ul class="dropdown-menu">
+            <li><a href="why.html">Why AI Fatigue?</a></li>
+            <li><a href="burnout-vs-fatigue.html">Burnout vs Fatigue</a></li>
+            <li><a href="developer-burnout-2025.html">Developer Burnout 2025</a></li>
+            <li><a href="tech-layoffs-ai-era.html">Tech Layoffs & AI</a></li>
+            <li><a href="compare.html">Compare Tools</a></li>
+            <li><a href="coding-ai-tools-comparison.html">Coding Tools Compared</a></li>
+            <li><a href="ai-tool-overload.html">Tool Overload</a></li>
+            <li><a href="ai-documentation-fatigue.html">Documentation Fatigue</a></li>
+            <li><a href="ai-learning-burnout.html">AI Learning Burnout</a></li>
+            <li><a href="ai-code-review.html">AI Code Review</a></li>
+            <li><a href="the-science-of-ai-fatigue.html">The Science of AI Fatigue</a></li>
+            <li><a href="ai-productivity-paradox.html">AI Productivity Paradox</a></li>
+            <li><a href="ai-consultation-fatigue.html">AI Consultation Fatigue</a></li>
+            <li><a href="ai-skeptic-guide.html">AI Skeptic's Guide</a></li>
+            <li><a href="sre-oncall-ai-fatigue.html">SRE &amp; On-Call Fatigue</a></li>
+                        <li><a href="engineer-survey-results.html">Engineer Survey Results</a></li>
+<li><a href="research.html">Research</a></li>
+            <li><a href="stats.html">Statistics 2025</a></li>
+            <li><a href="productivity-theater.html">Productivity Theater</a>
+            <a href="debugger-drift.html">Debugger's Drift</a>
+            <a href="coders-block.html">Coder's Block</a></li>
+            <li><a href="flow-state.html">Flow State &amp; AI</a></li>
+            <li><a href="tutorial-paradox.html">Tutorial Paradox</a></li>
+            <li><a href="attention-residue.html">Attention Residue</a></li>
+            <li><a href="skill-atrophy.html">Skill Atrophy</a></li>
+            <li><a href="decision-fatigue-ai.html">Decision Fatigue</a></li>
+              <li><a href="cognitive-load.html">Cognitive Load</a></li>
+            <li><a href="developer-identity.html">Developer Identity</a></li>
+            <li><a href="automation-anxiety.html">Automation Anxiety</a></li>
+            <li><a href="imposter-syndrome-vs-ai-fatigue.html">Imposter Syndrome</a></li>
+            <li><a href="imposter-syndrome-ai.html">Imposter Syndrome &amp; AI</a></li>
+          <li><a href="ai-fatigue-by-role.html">AI Fatigue by Role</a></li><li><a href="vibe-coding-vs-traditional.html">Vibe Coding vs Traditional</a></li></ul>
+        </li>
+        <li class="nav-dropdown">
+      <button type="button" class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">Heal <span class="dropdown-arrow">▾</span></button>
+          <ul class="dropdown-menu">
+            <li><a href="recovery.html">Recovery Guide</a></li>
+            <li><a href="sleep-and-ai-fatigue.html">Sleep & AI Fatigue</a></li>
+            <li><a href="freelance-engineer-ai-fatigue.html">Freelance Engineers</a></li>
+              <li><a href="mental-health.html">Mental Health</a></li>
+            <li><a href="ai-fatigue-emergency-kit.html">Emergency Kit</a></li>
+            <li><a href="engineer-energy-management.html">Energy Management</a></li>
+            <li><a href="coping-strategies-2025.html">Coping Strategies</a></li>
+            <li><a href="developer-wellbeing.html">Wellbeing</a></li>
+            <li><a href="tips.html">Tips</a></li>
+            <li><a href="mindset.html">Mindset</a></li>
+            <li><a href="daily-practice.html">Daily Practice</a></li>
+            <li><a href="ai-fatigue-checklist.html">30-Day Checklist</a></li>
+            <li><a href="ai-fatigue-recovery-journal.html">Recovery Journal (Print)</a></li>
+            <li><a href="ai-detox-plan.html">30-Day Detox Plan</a></li>
+            <li><a href="no-ai-block.html">No-AI Block</a></li>
+            <li><a href="workplace.html">Workplace</a></li>
+            <li><a href="executive-burnout.html">Executive Burnout</a></li>
+            <li><a href="working-parent-burnout.html">Working Parent Burnout</a></li>
+            <li><a href="developer-burnout-recovery.html">Burnout Recovery Guide</a></li>
+            <li><a href="team-guide.html">For Managers</a></li>
+            <li><a href="hiring.html">Hiring &amp; Retention</a></li>
+            <li><a href="corporate-ai-wellness.html">Corporate Wellness</a></li>
+            <li><a href="daily-ai-boundaries.html">Daily AI Boundaries</a></li>
+            <li><a href="why-resting-doesnt-fix-ai-fatigue.html">Why Resting Doesn't Fix It</a></li>
+            
+            
+            
+            <li><a href="engineering-managers-ai-fatigue.html">Engineering Managers</a></li>
+            <li><a href="team-manager-guide.html">Team Manager Guide</a></li>
+            <li><a href="career-pivot-guide.html">Career Pivot Guide</a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+      <button type="button" class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">Stories <span class="dropdown-arrow">▾</span></button>
+          <ul class="dropdown-menu">
+            <li><a href="stories.html">Engineer Stories</a></li>
+            <li><a href="engineer-types.html">Your Type</a></li>
+            <li><a href="junior-engineers.html">For Juniors</a></li>
+            <li><a href="neurodivergent-engineer-ai-fatigue.html">Neurodivergent Engineers</a></li>
+<li><a href="ai-healthcare-developer-fatigue.html">Healthcare Engineers</a></li>
+            <li><a href="the-craft-problem.html">The Craft Problem</a></li>
+            <li><a href="senior-identity.html">Senior Identity</a>
+<a href="senior-engineer-ai-fatigue.html">Senior Engineer</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="glossary.html">Glossary</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="share-your-story.html">Share Your Story</a></li>
+          <li><a href="community-hub.html">Community Hub</a></li><li><a href="linkedin.html">Clearing on LinkedIn</a></li></ul>
+        </li>
+        <li class="nav-dropdown">
+      <button type="button" class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">Tools <span class="dropdown-arrow">▾</span></button>
+          <ul class="dropdown-menu">
+            <li><a href="index.html#quiz">Fatigue Quiz</a></li>
+            <li><a href="checkin.html">Daily Check-in</a></li>
+            <li><a href="decompress.html">Decompress</a></li>
+            <li><a href="journal.html">Journal</a></li>
+            <li><a href="ai-free-fridays.html">AI-Free Fridays</a></li>
+            <li><a href="badge.html">Fatigue Badge</a>
+            <li><a href="quiz-badge.html">Share Your Badge</a></li></li>
+          <li><a href="ai-fatigue-cost-calculator.html">AI Fatigue Cost Calculator</a></li></ul>
+        </li>
+        <li class="nav-dropdown">
+      <button type="button" class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">Read <span class="dropdown-arrow">▾</span></button>
+          <ul class="dropdown-menu">
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="newsletter-thank-you.html">Thank You</a></li>
+            <li><a href="newsletter-archive.html">Archive</a></li>
+            <li><a href="quiz-results.html">Quiz Results</a></li>
+            <li><a href="quiz-results-tier-4.html">Tier 4 Results</a></li>
+            <li><a href="quiz-results-tier-3.html">Tier 3 Results</a></li>
+            <li><a href="press-kit.html">Press Kit</a></li>
+            <li><a href="changelog.html">Changelog</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+      </ul>
+      <a href="index.html#quiz" class="nav-cta">Take Quiz →</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="badge-hero">
+    <p class="section-label" style="color:rgba(200,230,210,0.7);">Shareable badge</p>
+    <h1>Your AI Fatigue Score</h1>
+    <p>
+      Generate a badge from your quiz result. Download it. Share it on LinkedIn or Twitter.
+      Start a real conversation — because the engineers around you are probably feeling it too.
+    </p>
+  </header>
+
+  <main id="main-content" class="badge-main">
+
+    <!-- Step 1: Take the quiz prompt / Tier selection -->
+    <div class="badge-step">
+      <div class="badge-step-header">
+        <div class="badge-step-num">1</div>
+        <div class="badge-step-title">Select your AI Fatigue Tier</div>
+      </div>
+      <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1.25rem; line-height:1.6;">
+        Haven't taken the quiz yet? <a href="index.html#quiz" style="color:var(--forest-mid);">Take it first →</a> Then come back with your tier.
+      </p>
+      <div class="tier-grid" role="group" aria-label="Select your tier">
+      <button type="button" class="tier-option" data-tier="1" onclick="selectTier(1)" aria-label="Tier 1: Holding Up" aria-pressed="false">
+          <span class="tier-option-emoji">🌿</span>
+          <span class="tier-option-name">Holding Up</span>
+          <span class="tier-option-score">Score 0–3 · Some awareness, mostly fine</span>
+        </button>
+      <button type="button" class="tier-option" data-tier="2" onclick="selectTier(2)" aria-label="Tier 2: Some Fatigue" aria-pressed="false">
+          <span class="tier-option-emoji">🌤</span>
+          <span class="tier-option-name">Some Fatigue</span>
+          <span class="tier-option-score">Score 4–7 · Real patterns forming</span>
+        </button>
+      <button type="button" class="tier-option" data-tier="3" onclick="selectTier(3)" aria-label="Tier 3: Real Fatigue" aria-pressed="false">
+          <span class="tier-option-emoji">🌧</span>
+          <span class="tier-option-name">Real Fatigue</span>
+          <span class="tier-option-score">Score 8–11 · Needs attention now</span>
+        </button>
+      <button type="button" class="tier-option" data-tier="4" onclick="selectTier(4)" aria-label="Tier 4: Need a Real Break" aria-pressed="false">
+          <span class="tier-option-emoji">🌑</span>
+          <span class="tier-option-name">Need a Break</span>
+          <span class="tier-option-score">Score 12–15 · Serious. Please rest.</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 2: Name -->
+    <div class="badge-step">
+      <div class="badge-step-header">
+        <div class="badge-step-num">2</div>
+        <div class="badge-step-title">Your name (optional)</div>
+      </div>
+      <input
+        type="text"
+        class="badge-name-input"
+        id="badgeName"
+        placeholder="e.g. Sarah K., Anonymous, or leave blank"
+        maxlength="32"
+        aria-label="Your name for the badge"
+        oninput="renderBadge()"
+      />
+      <p class="badge-name-hint">First name or handle only. Leave blank for an anonymous badge.</p>
+    </div>
+
+    <!-- Step 3: Style -->
+    <div class="badge-step">
+      <div class="badge-step-header">
+        <div class="badge-step-num">3</div>
+        <div class="badge-step-title">Badge style</div>
+      </div>
+      <div class="style-grid" role="group" aria-label="Badge style">
+      <button type="button" class="style-option selected" data-style="forest" onclick="selectStyle('forest')" aria-label="Forest badge style" aria-pressed="true">
+          <span class="style-option-name">🌲 Forest</span>
+          <span class="style-option-desc">Dark green · Calming</span>
+        </button>
+      <button type="button" class="style-option" data-style="slate" onclick="selectStyle('slate')" aria-label="Slate badge style" aria-pressed="false">
+          <span class="style-option-name">🌫 Slate</span>
+          <span class="style-option-desc">Dark neutral · Professional</span>
+        </button>
+      <button type="button" class="style-option" data-style="dawn" onclick="selectStyle('dawn')" aria-label="Dawn badge style" aria-pressed="false">
+          <span class="style-option-name">🌅 Dawn</span>
+          <span class="style-option-desc">Warm earth · Grounding</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 4: Preview & Download -->
+    <div class="badge-step">
+      <div class="badge-step-header">
+        <div class="badge-step-num">4</div>
+        <div class="badge-step-title">Preview & download</div>
+      </div>
+
+      <div class="badge-preview-section">
+        <div id="noBadgeMsg" style="padding:2rem; color:var(--text-muted); font-size:0.9rem;">
+          ← Select your tier above to generate your badge
+        </div>
+        <div class="badge-canvas-wrap" id="canvasWrap" style="display:none;">
+          <canvas id="badgeCanvas" width="600" height="314" aria-label="Your AI Fatigue Score badge preview"></canvas>
+        </div>
+
+        <div class="badge-actions" id="badgeActions" style="display:none;">
+      <button type="button" class="badge-btn-download" onclick="downloadBadge()" aria-label="Download AI Fatigue Score badge as PNG">⬇ Download PNG</button>
+          <a
+            id="twitterShare"
+            href="#"
+            class="badge-btn-share"
+            target="_blank"
+            rel="noopener noreferrer"
+          >🐦 Share on Twitter</a>
+        </div>
+
+        <div id="linkedinBox" class="linkedin-copy-box" style="display:none;">
+          <h3>LinkedIn post (copy + paste, then attach the downloaded image):</h3>
+          <div class="linkedin-copy-text" id="linkedinText"></div>
+      <button type="button" class="btn-copy-text" onclick="copyLinkedin()" aria-label="Copy LinkedIn post text to clipboard">Copy post text</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Why share section -->
+    <div class="why-share">
+      <h3>Why share this?</h3>
+      <ul>
+        <li>Most engineers are experiencing AI fatigue silently — seeing your badge gives them permission to name it.</li>
+        <li>LinkedIn and Twitter posts about AI fatigue consistently get high engagement because they say what engineers aren't saying out loud at work.</li>
+        <li>The engineers you manage, work with, or mentor might be suffering. A single badge can open a real conversation.</li>
+        <li>You don't have to be at crisis level to share — even "Holding Up" starts the dialogue about why we're tracking this at all.</li>
+      </ul>
+    </div>
+
+    <!-- Explore more -->
+    <section aria-label="More tools" style="margin-top:3rem;">
+      <p class="section-label">Keep going</p>
+      <h2 style="font-size:1.2rem; margin-bottom:1rem; color:var(--text-dark);">More from The Clearing</h2>
+      <div class="badge-explore">
+        <a href="index.html#quiz" class="badge-explore-card">
+          <div class="badge-explore-emoji">🎯</div>
+          <div class="badge-explore-title">Take the Quiz</div>
+          <div class="badge-explore-desc">5 questions. Find your tier before generating your badge.</div>
+        </a>
+        <a href="quiz-results.html" class="badge-explore-card">
+          <div class="badge-explore-emoji">📊</div>
+          <div class="badge-explore-title">Full Tier Breakdown</div>
+          <div class="badge-explore-desc">Deep advice for each tier — what it means and what to do.</div>
+        </a>
+        <a href="recovery.html" class="badge-explore-card">
+          <div class="badge-explore-emoji">🌱</div>
+          <div class="badge-explore-title">Recovery Guide</div>
+          <div class="badge-explore-desc">7 practical phases. Honest. No toxic positivity.</div>
+        </a>
+        <a href="checkin.html" class="badge-explore-card">
+          <div class="badge-explore-emoji">📅</div>
+          <div class="badge-explore-title">Daily Check-in</div>
+          <div class="badge-explore-desc">One question a day. Track how you're doing over time.</div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <p class="footer-logo">🌿 The Clearing</p>
+    <p class="footer-tagline">"Your brain is not a GPU."</p>
+    <ul class="footer-nav" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="why.html">Why AI Fatigue?</a></li>
+      <li><a href="burnout-vs-fatigue.html">Burnout vs Fatigue</a></li>
+      <li><a href="developer-burnout-2025.html">Developer Burnout 2025</a></li>
+      <li><a href="tech-layoffs-ai-era.html">Tech Layoffs &amp; AI</a></li>
+      <li><a href="compare.html">Compare Tools</a></li>
+            <li><a href="coding-ai-tools-comparison.html">Coding Tools Compared</a></li>
+      <li><a href="research.html">The Science</a></li>
+      <li><a href="recovery.html">Recovery</a></li>
+        <li><a href="recovery-tracker.html">Recovery Tracker</a></li>
+      <li><a href="software-engineer-mental-health.html">Mental Health</a></li></li>
+<li><a href="freelance-engineer-ai-fatigue.html">Freelance Engineers</a></li>
+              <li><a href="mental-health.html">Mental Health</a></li>
+            <li><a href="ai-fatigue-emergency-kit.html">Emergency Kit</a></li>
+            <li><a href="developer-wellbeing.html">Wellbeing</a></li>
+      <li><a href="flow-state.html">Flow State &amp; AI</a></li>
+            <li><a href="attention-residue.html">Attention Residue</a></li>
+      <li><a href="tips.html">Tips</a></li>
+      <li><a href="mindset.html">Mindset</a></li>
+      <li><a href="workplace.html">Workplace</a></li>
+            <li><a href="executive-burnout.html">Executive Burnout</a></li>
+      <li><a href="stories.html">Stories</a></li>
+      <li><a href="engineer-types.html">Your Type</a></li>
+      <li><a href="junior-engineers.html">For Juniors</a></li>
+            <li><a href="neurodivergent-engineer-ai-fatigue.html">Neurodivergent Engineers</a></li>
+<li><a href="ai-healthcare-developer-fatigue.html">Healthcare Engineers</a></li>
+            <li><a href="senior-identity.html">Senior Identity</a>
+<a href="senior-engineer-ai-fatigue.html">Senior Engineer</a></li>
+            
+      
+            <li><a href="community.html">Community</a></li><li><a href="glossary.html">Glossary</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="checkin.html">Daily Check-in</a></li>
+      <li><a href="decompress.html">Decompress</a></li>
+      <li><a href="journal.html">Journal</a></li>
+            <li><a href="ai-free-fridays.html">AI-Free Fridays</a></li>
+      <li><a href="badge.html">Fatigue Badge</a>
+            <li><a href="quiz-badge.html">Share Your Badge</a></li></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="newsletter.html">Newsletter</a></li>
+      <li><a href="quiz-results.html">Quiz Results</a></li>          <li><a href="quiz-results-tier-4.html">Tier 4 Results</a></li>
+          <li><a href="quiz-results-tier-3.html">Tier 3 Results</a></li>
+
+      <li><a href="press-kit.html">Press Kit</a></li>
+      <li><a href="sitemap.html">Sitemap</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <p class="footer-copy">
+      © 2025 The Clearing · <a href="index.html#quiz">Take the AI Fatigue Quiz</a> · <a href="about.html">About</a>
+    </p>
+  </footer>
+
+  <script>
+    // =====================
+    //  STATE
+    // =====================
+    let selectedTier = null;
+    let selectedStyle = 'forest';
+
+    const TIERS = {
+      1: {
+        emoji: '🌿',
+        name: 'Holding Up',
+        score: '0–3',
+        subtitle: 'Some awareness of AI fatigue. Mostly intact.',
+        message: 'You\'re noticing the patterns before they take hold.',
+        color1: '#2d5a27',
+        color2: '#1a3a15',
+        accent: '#7aab8a',
+        badge: '#a8d5b5'
+      },
+      2: {
+        emoji: '🌤',
+        name: 'Some Fatigue',
+        score: '4–7',
+        subtitle: 'Real patterns forming. Worth paying attention to.',
+        message: 'These patterns are worth addressing now, before they compound.',
+        color1: '#3a4a2a',
+        color2: '#2a3a1a',
+        accent: '#8aab6a',
+        badge: '#b5d595'
+      },
+      3: {
+        emoji: '🌧',
+        name: 'Real Fatigue',
+        score: '8–11',
+        subtitle: 'Significant impact on craft, identity, and wellbeing.',
+        message: 'This is significant. You deserve more than just pushing through.',
+        color1: '#2a3a4a',
+        color2: '#1a2a3a',
+        accent: '#6a8aab',
+        badge: '#95b5d5'
+      },
+      4: {
+        emoji: '🌑',
+        name: 'Need a Real Break',
+        score: '12–15',
+        subtitle: 'Serious AI fatigue. Please rest. Seriously.',
+        message: 'You\'ve been carrying this alone for too long. It\'s time to rest.',
+        color1: '#1a1a2a',
+        color2: '#0d0d1a',
+        accent: '#7a6aab',
+        badge: '#b5a5d5'
+      }
+    };
+
+    const STYLES = {
+      forest: { bg1: '#0d1a0d', bg2: '#1a2a1a', border: 'rgba(122,171,138,0.3)' },
+      slate:  { bg1: '#111820', bg2: '#1a2432', border: 'rgba(100,140,180,0.3)' },
+      dawn:   { bg1: '#1a140d', bg2: '#2a1e10', border: 'rgba(180,140,80,0.3)' }
+    };
+
+    // =====================
+    //  TIER SELECTION
+    // =====================
+    function selectTier(tier) {
+      selectedTier = tier;
+      document.querySelectorAll('.tier-option').forEach(btn => {
+        const selected = parseInt(btn.dataset.tier) === tier;
+        btn.classList.toggle('selected', selected);
+        btn.setAttribute('aria-pressed', selected ? 'true' : 'false');
+      });
+      renderBadge();
+    }
+
+    // =====================
+    //  STYLE SELECTION
+    // =====================
+    function selectStyle(style) {
+      selectedStyle = style;
+      document.querySelectorAll('.style-option').forEach(btn => {
+        const selected = btn.dataset.style === style;
+        btn.classList.toggle('selected', selected);
+        btn.setAttribute('aria-pressed', selected ? 'true' : 'false');
+      });
+      renderBadge();
+    }
+
+    // =====================
+    //  BADGE RENDERER
+    // =====================
+    function renderBadge() {
+      if (!selectedTier) return;
+
+      const tier = TIERS[selectedTier];
+      const style = STYLES[selectedStyle];
+      const name = document.getElementById('badgeName').value.trim();
+
+      const canvas = document.getElementById('badgeCanvas');
+      const ctx = canvas.getContext('2d');
+      const W = canvas.width;  // 600
+      const H = canvas.height; // 314
+
+      // Show canvas
+      document.getElementById('noBadgeMsg').style.display = 'none';
+      document.getElementById('canvasWrap').style.display = 'inline-block';
+      document.getElementById('badgeActions').style.display = 'flex';
+      document.getElementById('linkedinBox').style.display = 'block';
+
+      // Clear
+      ctx.clearRect(0, 0, W, H);
+
+      // Background gradient
+      const bgGrad = ctx.createLinearGradient(0, 0, W, H);
+      bgGrad.addColorStop(0, style.bg1);
+      bgGrad.addColorStop(1, style.bg2);
+      ctx.fillStyle = bgGrad;
+      roundRect(ctx, 0, 0, W, H, 16);
+      ctx.fill();
+
+      // Subtle noise overlay (decorative dots)
+      ctx.save();
+      ctx.globalAlpha = 0.04;
+      for (let i = 0; i < 120; i++) {
+        const x = Math.random() * W;
+        const y = Math.random() * H;
+        const r = Math.random() * 2 + 0.5;
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, Math.PI * 2);
+        ctx.fillStyle = '#ffffff';
+        ctx.fill();
+      }
+      ctx.restore();
+
+      // Border
+      ctx.strokeStyle = style.border;
+      ctx.lineWidth = 1.5;
+      roundRect(ctx, 1, 1, W - 2, H - 2, 15);
+      ctx.stroke();
+
+      // Left accent bar
+      const barGrad = ctx.createLinearGradient(0, 0, 0, H);
+      barGrad.addColorStop(0, tier.accent);
+      barGrad.addColorStop(1, tier.color1);
+      ctx.fillStyle = barGrad;
+      roundRect(ctx, 20, 24, 4, H - 48, 2);
+      ctx.fill();
+
+      // Emoji (large)
+      ctx.font = '56px serif';
+      ctx.textAlign = 'left';
+      ctx.fillText(tier.emoji, 40, 88);
+
+      // "AI FATIGUE SCORE" label
+      ctx.fillStyle = tier.accent;
+      ctx.font = `600 11px -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`;
+      ctx.letterSpacing = '0.1em';
+      ctx.fillText('AI FATIGUE SCORE  ·  THE CLEARING', 40, 116);
+
+      // Tier name (big)
+      ctx.fillStyle = '#e8f5ec';
+      ctx.font = `bold 38px Georgia, 'Times New Roman', serif`;
+      ctx.letterSpacing = '0';
+      ctx.fillText(tier.name, 40, 162);
+
+      // Score range
+      ctx.fillStyle = tier.badge;
+      ctx.font = `600 15px -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`;
+      ctx.fillText(`Score range: ${tier.score} / 15`, 40, 190);
+
+      // Subtitle
+      ctx.fillStyle = 'rgba(200,230,210,0.7)';
+      ctx.font = `14px -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`;
+      const subtitleLines = wrapText(ctx, tier.subtitle, 40, 216, W - 200, 20);
+      subtitleLines.forEach((line, i) => {
+        ctx.fillText(line, 40, 216 + i * 20);
+      });
+
+      // Personal message / quote
+      ctx.fillStyle = 'rgba(200,230,210,0.5)';
+      ctx.font = `italic 13px Georgia, 'Times New Roman', serif`;
+      const msgLines = wrapText(ctx, `"${tier.message}"`, 40, H - 50, W - 80, 19);
+      msgLines.slice(0, 2).forEach((line, i) => {
+        ctx.fillText(line, 40, H - 50 + i * 19);
+      });
+
+      // Right side: score meter
+      const meterX = W - 155;
+      const meterY = 30;
+      const meterW = 130;
+      const meterH = H - 60;
+
+      // Score circle
+      const circleCX = W - 90;
+      const circleCY = 100;
+      const circleR = 52;
+
+      // Circle bg
+      ctx.beginPath();
+      ctx.arc(circleCX, circleCY, circleR, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255,255,255,0.04)';
+      ctx.fill();
+      ctx.strokeStyle = tier.accent;
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // Circle arc (progress)
+      const progress = selectedTier / 4;
+      ctx.beginPath();
+      ctx.arc(circleCX, circleCY, circleR - 6, -Math.PI / 2, -Math.PI / 2 + progress * Math.PI * 2);
+      const arcGrad = ctx.createLinearGradient(circleCX - circleR, circleCY, circleCX + circleR, circleCY);
+      arcGrad.addColorStop(0, tier.badge);
+      arcGrad.addColorStop(1, tier.accent);
+      ctx.strokeStyle = arcGrad;
+      ctx.lineWidth = 5;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+
+      // Circle text
+      ctx.fillStyle = '#e8f5ec';
+      ctx.font = `bold 28px -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.fillText(`T${selectedTier}`, circleCX, circleCY + 10);
+      ctx.fillStyle = tier.accent;
+      ctx.font = `11px -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`;
+      ctx.fillText('TIER', circleCX, circleCY + 26);
+
+      // Name (if provided)
+      if (name) {
+        ctx.fillStyle = 'rgba(200,230,210,0.6)';
+        ctx.font = `12px -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`;
+        ctx.textAlign = 'center';
+        const displayName = name.length > 18 ? name.substring(0, 18) + '…' : name;
+        ctx.fillText(displayName, circleCX, circleCY + 58);
+      }
+
+      // Site URL (bottom right)
+      ctx.fillStyle = 'rgba(200,230,210,0.4)';
+      ctx.font = `11px -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`;
+      ctx.textAlign = 'right';
+      ctx.fillText('clearing-ai.com', W - 24, H - 18);
+
+      // Date
+      const now = new Date();
+      const dateStr = now.toLocaleDateString('en-US', { year: 'numeric', month: 'short' });
+      ctx.fillStyle = 'rgba(200,230,210,0.3)';
+      ctx.font = `10px -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`;
+      ctx.textAlign = 'left';
+      ctx.fillText(dateStr, 40, H - 18);
+
+      // Update Twitter link
+      const tweetText = encodeURIComponent(`I just got my AI Fatigue Score: ${tier.emoji} ${tier.name} (Tier ${selectedTier}/4)\n\n"${tier.subtitle}"\n\nIf you're a software engineer dealing with AI overwhelm, check out The Clearing:\nhttps://clearing-ai.com\n\n#AIFatigue #SoftwareEngineering #DeveloperWellbeing`);
+      document.getElementById('twitterShare').href = `https://twitter.com/intent/tweet?text=${tweetText}`;
+
+      // LinkedIn text
+      updateLinkedinText(tier, name, selectedTier);
+    }
+
+    function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+      const words = text.split(' ');
+      const lines = [];
+      let currentLine = words[0];
+      for (let i = 1; i < words.length; i++) {
+        const testLine = currentLine + ' ' + words[i];
+        const { width } = ctx.measureText(testLine);
+        if (width > maxWidth) {
+          lines.push(currentLine);
+          currentLine = words[i];
+        } else {
+          currentLine = testLine;
+        }
+      }
+      lines.push(currentLine);
+      return lines;
+    }
+
+    function roundRect(ctx, x, y, w, h, r) {
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.lineTo(x + w - r, y);
+      ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+      ctx.lineTo(x + w, y + h - r);
+      ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+      ctx.lineTo(x + r, y + h);
+      ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+      ctx.lineTo(x, y + r);
+      ctx.quadraticCurveTo(x, y, x + r, y);
+      ctx.closePath();
+    }
+
+    // =====================
+    //  LINKEDIN TEXT
+    // =====================
+    function updateLinkedinText(tier, name, tierNum) {
+      const nameIntro = name ? `Hi, I'm ${name}. ` : '';
+      const texts = {
+        1: `${nameIntro}I just measured my AI Fatigue Score and I'm at ${tier.emoji} ${tier.name} (Tier 1/4).\n\nHonestly? I'm glad there's a name for this now.\n\nAs software engineers, we're under enormous pressure to adopt AI tools faster than our brains can actually process. The constant accept/reject loop, the context switching, the quiet anxiety about whether the code we ship is really ours — it adds up.\n\nIf you're feeling any version of this, you're not alone. The Clearing is a site built specifically for engineers navigating AI fatigue:\n\n👉 clearing-ai.com\n\nTake the quiz. Share your score. Start the conversation.\n\n#AIFatigue #SoftwareEngineering #DeveloperWellbeing #EngineeringLife`,
+        2: `${nameIntro}My AI Fatigue Score: ${tier.emoji} ${tier.name} (Tier 2/4).\n\nI've been noticing it for a while — the decision fatigue from hundreds of AI suggestions a day, the vague anxiety about whether I'm still actually learning anything, the feeling of just... verifying rather than creating.\n\nThere's a site called The Clearing that finally puts language to what a lot of us are experiencing:\n\n👉 clearing-ai.com\n\nIf you're a software engineer in an AI-heavy environment, take the quiz. See where you land. It's worth knowing.\n\n#AIFatigue #DeveloperBurnout #SoftwareEngineering #TechWellbeing`,
+        3: `${nameIntro}Sharing something vulnerable: My AI Fatigue Score is ${tier.emoji} ${tier.name} (Tier 3/4).\n\nI've been carrying this for a while and didn't have a name for it. It's not that I'm against AI tools — it's that the constant pressure to use them faster, better, more — while also verifying everything, maintaining quality, and somehow staying creative — is genuinely exhausting.\n\nIf you're feeling this way and you're a software engineer, you're not alone and it's not weakness:\n\n👉 clearing-ai.com\n\nThere are tools there, science behind what's happening, and stories from other engineers. It helped me.\n\n#AIFatigue #DeveloperWellbeing #SoftwareEngineering #BurnoutRecovery`,
+        4: `${nameIntro}This is a difficult post to write: My AI Fatigue Score is ${tier.emoji} ${tier.name} (Tier 4/4).\n\nI know I'm not the only one. The pressure to adopt AI tools faster than we can meaningfully integrate them is real. The erosion of the skills we spent years building is real. The quiet identity crisis of not knowing whose code we're shipping anymore is real.\n\nFor engineers in this place, there's a sanctuary:\n\n👉 clearing-ai.com\n\nTake the quiz. Read the stories. You'll find you're not as alone in this as you feel right now.\n\nAnd please — rest when you need to. The code will wait.\n\n#AIFatigue #DeveloperBurnout #SoftwareEngineering #EngineersAreHumans`
+      };
+      document.getElementById('linkedinText').textContent = texts[tierNum];
+    }
+
+    // =====================
+    //  DOWNLOAD
+    // =====================
+    function downloadBadge() {
+      if (!selectedTier) return;
+      const canvas = document.getElementById('badgeCanvas');
+      const tier = TIERS[selectedTier];
+      const link = document.createElement('a');
+      link.download = `ai-fatigue-score-tier-${selectedTier}-${tier.name.toLowerCase().replace(/\s+/g,'-')}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+
+    // =====================
+    //  COPY LINKEDIN
+    // =====================
+    function copyLinkedin() {
+      const text = document.getElementById('linkedinText').textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.querySelector('.btn-copy-text');
+        btn.textContent = 'Copied ✓';
+        setTimeout(() => { btn.textContent = 'Copy post text'; }, 2500);
+      });
+    }
+
+    // =====================
+    //  AUTO-DETECT QUIZ RESULT
+    // =====================
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const tier = parseInt(params.get('tier'));
+      if (tier >= 1 && tier <= 4) {
+        selectTier(tier);
+      }
+    })();
+  </script>
+  <script src="js/main.min.js" defer></script>
+</body>
+</html>

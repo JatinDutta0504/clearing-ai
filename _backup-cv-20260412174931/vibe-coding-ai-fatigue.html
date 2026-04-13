@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vibe Coding & AI Fatigue: The Hidden Cost of Effortless…</title>
+
+  <!-- woff2 font preloads for LCP optimization -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEBrLy9d1UZF5p7lk.woff2" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/lora/v36/8IQJvFuJd87V_IYq_mvhDd-2XwWj2R38lLa4hZk.woff2" />
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="description" content="Vibe coding — letting AI write your code while you supervise — is trending. But what happens to your skills, confidence, and identity as an engineer when..." />
+  <meta name="keywords" content="vibe coding, vibe coding AI fatigue, Andrej Karpathy vibe coding, AI code generation burnout, no-code burnout, prompt-based coding problems, software engineer identity AI, AI coding tools mental health, vibe coding skills" />
+  <meta name="author" content="The Clearing" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://clearing-ai.com/vibe-coding-ai-fatigue.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://clearing-ai.com/vibe-coding-ai-fatigue.html" />
+  <meta property="og:title" content="Vibe Coding & AI Fatigue: What Happens When 'It Works' Isn't Enough" />
+  <meta property="og:description" content="Vibe coding is trending among engineers who let AI write their code while they supervise. But the long-term cost to skills, confidence, and professional identity is just starting to surface." />
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png" />
+  <meta property="og:site_name" content="The Clearing" />
+  <meta property="article:published_time" content="2026-03-31T00:00:00Z" />
+  <meta property="article:section" content="AI Tools" />
+  <meta property="article:tag" content="vibe coding" />
+  <meta property="article:tag" content="AI fatigue" />
+  <meta property="article:tag" content="developer burnout" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vibe Coding & AI Fatigue: The Hidden Cost of Effortless Code" />
+  <meta name="twitter:description" content="When Andrej Karpathy coined 'vibe coding,' thousands of engineers recognized themselves immediately. Here's the cost." />
+  <meta name="twitter:image" content="https://clearing-ai.com/og-image.png" />
+
+  <!-- Schema.org: Article + FAQPage + BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Vibe Coding & AI Fatigue: The Hidden Cost of Effortless Code",
+    "description": "Vibe coding — letting AI write your code while you supervise — is trending. But what happens to your skills, confidence, and identity when 'it works' is no longer enough?",
+    "url": "https://clearing-ai.com/vibe-coding-ai-fatigue.html",
+    "datePublished": "2026-03-31",
+    "dateModified": "2026-03-31",
+    "author": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "keywords": "vibe coding, AI fatigue, Andrej Karpathy, software engineer burnout, AI code generation mental health",
+    "image": "https://clearing-ai.com/og-image.png",
+    "articleSection": "AI Tools"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Understand", "item": "https://clearing-ai.com/why.html" },
+      { "@type": "ListItem", "position": 3, "name": "Vibe Coding & AI Fatigue", "item": "https://clearing-ai.com/vibe-coding-ai-fatigue.html" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is vibe coding?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Vibe coding is a term coined by Andrej Karpathy in early 2025 describing a mode of software development where you tell an AI to write code, see what it produces, copy-paste it, and iterate — essentially supervising AI-generated code rather than writing it yourself. Karpathy described it as 'promising yes, understandable partly, runnable yes, and good vibes.'"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is vibe coding bad for software engineers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Vibe coding is not inherently bad, but it creates specific risks when practiced without boundaries: skill atrophy, loss of code ownership, identity erosion, and reduced deep work. The issue is not AI-assisted coding itself, but practicing it exclusively without maintaining your unaided problem-solving muscles."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does vibe coding differ from normal AI-assisted coding?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Traditional AI-assisted coding uses AI as a power tool within an engineer's existing skill framework. Vibe coding shifts the engineer's role from author to curator — the AI generates complete solutions while the human primarily evaluates and assembles them. The distinction is subtle but psychologically significant."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the signs that vibe coding is hurting your skills?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Warning signs include: feeling lost when AI is unavailable, inability to read or debug code you recently shipped, declining performance in technical interviews you used to pass easily, growing anxiety when asked to explain how something works, and using AI output as your primary source of confidence rather than your own understanding."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you practice vibe coding without burning out?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sustainable vibe coding requires three practices: no-AI sessions where you solve problems without assistance to maintain baseline skills, the Explanation Requirement where you must be able to explain every line of AI-generated code in your own words, and periodic full-build challenges where you construct something from scratch without AI assistance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does vibe coding lead to actual burnout or just skill fade?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Vibe coding primarily causes skill fade and identity erosion initially, which can compound into full burnout if left unaddressed. The path is: skill anxiety → compensatory over-reliance on AI → deeper skill loss → confidence collapse → burnout. Early intervention with deliberate practice and boundaries can prevent the full burnout cycle."
+        }
+      }
+    ]
+  }
+  </script>
+  <link rel="preload" href="css/style.min.css" as="style" />  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" /></noscript>
+
+
+  <link rel="stylesheet" href="css/style.min.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="css/style.min.css" /></noscript>
+  <script src="js/main.min.js" defer></script>  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YHK9XCPG4M"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YHK9XCPG4M');
+  </script>
+</head>
+<body>
+
+<div id="reading-progress"></div>
+
+<!-- Skip to content -->
+<a href="#main" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to main content</a>
+
+<!-- Nav -->
+<nav aria-label="Main navigation">
+  <a href="index.html" class="nav-logo">The <span>Clearing</span></a>
+  <ul role="list">
+    <li><a href="index.html">Quiz</a></li>
+    <li>
+      <a href="recovery.html">Recover ▾</a>
+      <div class="dropdown" role="menu">
+        <a href="recovery.html" role="menuitem">Recovery Guide</a>
+        <a href="mental-health.html" role="menuitem">Mental Health</a>
+        <a href="developer-wellbeing.html" role="menuitem">Wellbeing</a>
+        <a href="ai-detox-plan.html" role="menuitem">30-Day Detox Plan</a>
+        <a href="ai-fatigue-checklist.html" role="menuitem">Checklist</a>
+        <a href="daily-practice.html" role="menuitem">Daily Practice</a>
+        <a href="checkin.html" role="menuitem">Daily Check-in</a>
+      </div>
+    </li>
+    <li>
+      <a href="why.html">Understand ▾</a>
+      <div class="dropdown" role="menu">
+        <a href="why.html" role="menuitem">Why This Happens</a>
+        <a href="signs-ai-fatigue.html" role="menuitem">10 Signs</a>
+        <a href="stats.html" role="menuitem">Statistics</a>
+        <a href="research.html" role="menuitem">The Science</a>
+        <a href="skill-atrophy.html" role="menuitem">Skill Atrophy</a>
+        <a href="decision-fatigue-ai.html">Decision Fatigue</a></li>
+              <li><a href="cognitive-load.html" role="menuitem">Cognitive Load</a>
+        <a href="developer-identity.html" role="menuitem">Identity Crisis</a>
+        <a href="vibe-coding-ai-fatigue.html" role="menuitem">Vibe Coding</a>
+      </div>
+    </li>
+    <li>
+      <a href="stories.html">Stories ▾</a>
+      <div class="dropdown" role="menu">
+        <a href="stories.html" role="menuitem">Engineer Stories</a>
+        <a href="testimonials.html" role="menuitem">Testimonials</a>
+        <a href="senior-identity.html" role="menuitem">Senior Identity</a>
+        <a href="junior-engineers.html" role="menuitem">Junior Engineers</a>
+      </div>
+    </li>
+    <li>
+      <a href="resources.html">Tools ▾</a>
+      <div class="dropdown" role="menu">
+        <a href="decompress.html" role="menuitem">Deep Work Timer</a>
+        <a href="checkin.html" role="menuitem">Daily Check-in</a>
+        <a href="compare.html" role="menuitem">Tool Comparison</a>
+        <a href="badge.html" role="menuitem">Quiz Badge</a>
+      </div>
+    </li>
+    <li><a href="community.html">Community</a></li>
+    <li><a href="newsletter.html">Newsletter</a></li>
+          <li><a href="newsletter-thank-you.html">Thank You</a></li>
+            <li><a href="newsletter-archive.html">Archive</a></li>
+  </ul>
+  <!-- Theme toggle injected by main.js -->
+</nav>
+
+<!-- Main Content -->
+<main id="main">
+
+  <!-- Hero -->
+  <header class="page-hero">
+    <span class="hero-label">AI Tools &amp; Fatigue</span>
+    <h1>Vibe Coding &amp; AI Fatigue: The Hidden Cost of Effortless Code</h1>
+    <p class="hero-desc">Andrej Karpathy coined the term in February 2025. Within weeks, thousands of engineers recognized themselves in it. Here's what vibe coding is doing to your skills, confidence, and identity as a software engineer.</p>
+    <div class="hero-meta">
+      <span>📖 14 min read</span>
+      <span>📅 March 2026</span>
+      <span>🌿 The Clearing</span>
+    </div>
+  </header>
+
+  <div class="content-wrap">
+
+    <!-- Karpathy Quote -->
+    <div class="karpathy-quote">
+      <blockquote>
+        <p>"There is a new way to code that I call vibe coding. You just say things, and it's done. Promising yes, understandable partly, runnable yes, and good vibes."</p>
+      </blockquote>
+      <cite>— Andrej Karpathy, former Director of AI at Tesla and founding member of OpenAI, February 2025</cite>
+    </div>
+
+    <!-- Intro -->
+    <p>In the weeks following Karpathy's post, the response was electric — and revealing. Engineers across experience levels posted versions of the same confession: <em>"I thought I was the only one."</em> The term gave language to a behavior that had become widespread almost overnight, driven by increasingly capable AI coding tools like Claude, Copilot, Cursor, and ChatGPT.</p>
+
+    <p>But something else surfaced in those responses. Beneath the jokes and the relief of having a name for it, there was something closer to anxiety. Engineers weren't just vibe coding because it felt good. Many were vibe coding because they felt they <em>had</em> to — because their teams expected it, because their peers seemed to move faster, because the baseline for what "keeping up" meant had changed overnight.</p>
+
+    <p>This page is about the hidden cost. Not the moral case against AI coding tools — those tools are genuinely useful. The question is: what happens to you when vibe coding becomes your only mode?</p>
+
+    <h2>What Vibe Coding Actually Means</h2>
+
+    <p>Let's be precise, because "vibe coding" can mean different things depending on who's doing it and why.</p>
+
+    <p>At its core, vibe coding describes a workflow where:</p>
+    <ul>
+      <li>You describe what you want in natural language</li>
+      <li>AI generates the code</li>
+      <li>You copy-paste, run it, see what happens</li>
+      <li>You iterate based on errors or desired changes</li>
+      <li>The AI handles the implementation details; you handle the direction</li>
+    </ul>
+
+    <p>This is genuinely useful for prototyping, exploring unfamiliar APIs, scaffolding projects, or writing boilerplate. No one is arguing against that. The problem — and the source of the anxiety — is the boundary between "this is a useful tool" and "this is all I do."</p>
+
+    <h2>The Spectrum: From Tool to Dependency</h2>
+
+    <div class="vibe-spectrum">
+      <h3>Where Does Your Practice Fall?</h3>
+      <div class="spectrum-bar" aria-label="Vibe coding spectrum from healthy to concerning">
+        <div class="spectrum-green" title="AI as amplifier"></div>
+        <div class="spectrum-yellow" title="Increasing reliance"></div>
+        <div class="spectrum-red" title="Dependency zone"></div>
+      </div>
+      <div class="spectrum-labels">
+        <span>AI as amplifier (intentional use)</span>
+        <span>Growing reliance</span>
+        <span>Dependency zone (skills at risk)</span>
+      </div>
+    </div>
+
+    <p>Most engineers start at the green end of this spectrum. A new tool comes out, you try it on something small, it works surprisingly well. You start using it more. At some point — often without realizing it — you've crossed into yellow territory. The yellow zone isn't inherently bad, but it's where the slippery slope begins.</p>
+
+    <p>The red zone is where the AI fatigue shows up. Here's how to know if you're there:</p>
+
+    <!-- Warning Signs -->
+    <div class="card-grid">
+      <div class="card">
+        <h3>You can't debug without AI</h3>
+        <p>A bug surfaces in code you vibe coded into existence. Your first instinct is to paste the error into a chat window rather than open the file and reason through it.</p>
+      </div>
+      <div class="card">
+        <h3>You don't recognize your own commits</h3>
+        <p>You look at a PR from two months ago and genuinely cannot explain how certain logic was arrived at. It "just worked."</p>
+      </div>
+      <div class="card">
+        <h3>Interviews feel like starting over</h3>
+        <p>Problems you used to solve fluently now feel alien. Your muscle memory for structured problem-solving has gone quiet.</p>
+      </div>
+      <div class="card">
+        <h3>The "it works" reflex</h3>
+        <p>Your primary criterion for accepting code is whether it runs, not whether you understand why. The black-box feeling has become normal.</p>
+      </div>
+    </div>
+
+    <h2>The Four Losses of Vibe Coding Without Boundaries</h2>
+
+    <h3>1. The Skill That Compounds</h3>
+    <p>Programming skill is not a fixed quantity you acquire and retain. It's more like a physical capacity — cardiovascular fitness, say. It builds through repeated challenge and recovers through rest. If you stop challenging yourself and rely on AI to carry the load, the skill doesn't just pause. It actively erodes.</p>
+
+    <p>Betsy Sparrow's research on the "Google Effect" (2011) showed that people became worse at recalling information they knew they could look up. The same mechanism applies to problem-solving: when you know an AI can generate the solution, your brain is less motivated to build the path to it. Robert Bjork's research on "desirable difficulties" explains why this matters — the struggle to retrieve or construct something is precisely what makes the memory or skill more durable.</p>
+
+    <h3>2. The Identity That Hollows Out</h3>
+    <p>Software engineers derive significant professional identity from their ability to build things. Not just "ship things" — <em>build</em> them. To understand them deeply enough to reason about them, debug them, teach them to someone else, make trade-offs in them.</p>
+
+    <p>When you vibe code extensively, you can still ship. But the inner experience changes. The work starts to feel more like curation than creation. And over time, many engineers report a creeping sense of fraudulence — not quite imposter syndrome, but something adjacent. A sense that the competence other people see in you is partly borrowed from a machine.</p>
+
+    <h3>3. The Ownership That Never Forms</h3>
+    <p>Deep ownership over work — the feeling that something is genuinely <em>yours</em> — requires that you were there for the hard parts. The凌晨 debugging. The architecture decision. The moment when you understood why a particular approach was wrong before you understood why the right one was right.</p>
+
+    <p>Vibe coding skips most of those moments. The result is engineers who ship a lot of code they have a surface-level relationship with. When that code breaks in production at 2am, or when a colleague asks a probing question about it, the anxiety that surfaces is not about the code — it's about the gap between the responsibility you hold and the understanding you have.</p>
+
+    <h3>4. The Confidence That's Backward</h3>
+    <p>Here's one of the most insidious effects: vibe coding can generate a peculiar form of inflated confidence that doesn't survive contact with reality. Because you can get things working quickly, you feel capable. But the actual underlying competence — the ability to build, debug, and reason about software without AI assistance — diverges downward even as the output surface looks impressive.</p>
+
+    <p>This is the "competence illusion" we wrote about in the <a href="tutorial-paradox.html">Tutorial Paradox</a>
+            <a href="skill-atrophy.html">skill atrophy page</a>. The gap between your perceived competence (high, because things work) and your actual competence (declining, because you haven't built the underlying structures) creates a specific form of vulnerability: you're most at risk precisely when you feel most confident.</p>
+
+    <h2>The Compounding Trap: Why Engineers Can't Stop</h2>
+
+    <p>Here's what makes vibe coding so difficult to pull back from once it becomes habitual: it works — at least at first, and at least superficially. The immediate feedback loop is rewarding. You get code quickly. Things appear to work. Teammates see output.</p>
+
+    <p>The problem is what happens over months, not weeks:</p>
+
+    <ul>
+      <li><strong>Skill drift:</strong> Your unaided problem-solving ability quietly declines. You don't notice because AI is always there to bridge the gap.</li>
+      <li><strong>Compensatory reliance:</strong> As skill drifts, you lean more heavily on AI to maintain output. This accelerates the drift. The loop reinforces itself.</li>
+      <li><strong>Exit cost rises:</strong> The longer you've vibe coded, the more daunting the prospect of "going back to doing it yourself" becomes. The gap between where you are and where you want to be feels larger.</li>
+      <li><strong>Identity investment:</strong> By the time the anxiety surfaces, you've built months of portfolio and reputation around a mode of working you're not sure you can sustain without AI. There's now a lot riding on the story being true.</li>
+    </ul>
+
+    <p>This is the compounding trap. The earlier you intervene, the easier it is to reverse. The longer you wait, the more the compounding works against you.</p>
+
+    <h2>How Vibe Coding Compares to Normal AI-Assisted Coding</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th>Traditional AI-Assisted Coding</th>
+            <th>Vibe Coding (Boundary Erosion)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Engineer's role</strong></td>
+            <td class="td-green">Author with AI power tool</td>
+            <td class="td-red">Curator/supervisor of AI output</td>
+          </tr>
+          <tr>
+            <td><strong>AI's role</strong></td>
+            <td class="td-green">Accelerator within existing framework</td>
+            <td class="td-red">Primary implementation engine</td>
+          </tr>
+          <tr>
+            <td><strong>Code ownership</strong></td>
+            <td class="td-green">High — engineer understands most of it</td>
+            <td class="td-yellow">Low — large portions unexamined</td>
+          </tr>
+          <tr>
+            <td><strong>Skill trajectory</strong></td>
+            <td class="td-green">Stable or improving</td>
+            <td class="td-red">Gradually declining</td>
+          </tr>
+          <tr>
+            <td><strong>Confidence source</strong></td>
+            <td class="td-green">Own understanding + AI output</td>
+            <td class="td-yellow">Primarily AI output</td>
+          </tr>
+          <tr>
+            <td><strong>Recovery when AI unavailable</strong></td>
+            <td class="td-green">Mild inconvenience</td>
+            <td class="td-red">Significant anxiety and disorientation</td>
+          </tr>
+          <tr>
+            <td><strong>Debugging approach</strong></td>
+            <td class="td-green">Structured reasoning + AI assistance</td>
+            <td class="td-red">Copy-paste error into AI, repeat</td>
+          </tr>
+          <tr>
+            <td><strong>Learning per project</strong></td>
+            <td class="td-green">High — deliberate practice embedded</td>
+            <td class="td-red">Low — passive consumption of AI output</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>The Engineers Most at Risk</h2>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>Early-career engineers (0–3 years)</h3>
+        <p>Still building foundational mental models. Vibe coding skips the productive struggle that would normally consolidate those models. The skill gap compounds invisibly for years.</p>
+      </div>
+      <div class="card">
+        <h3>Engineers on high-velocity teams</h3>
+        <p>When "move fast" is the primary cultural value, vibe coding becomes the rational individual choice even when it's harmful to long-term skill development.</p>
+      </div>
+      <div class="card">
+        <h3>Senior engineers in new domains</h3>
+        <p>Seniors who move into unfamiliar technical territory are especially vulnerable because the knowledge gap is visible and the AI assistance feels necessary — but it bypasses exactly the learning that would close the gap.</p>
+      </div>
+      <div class="card">
+        <h3>Engineers in performance review cycles</h3>
+        <p>When output quantity is visibly tracked (commits, PRs, features shipped), vibe coding's output advantages look like competence advantages in ways that are hard to distinguish in the short term.</p>
+      </div>
+    </div>
+
+    <h2>The Self-Assessment: Is Vibe Coding Hurting You?</h2>
+
+    <div class="self-check">
+      <h3>Signs of Healthy vs. Concerning Vibe Coding</h3>
+      <ul class="self-check-list">
+        <li>
+          <input type="checkbox" id="sc1">
+          <label for="sc1">When AI generates code, I read and understand every section before accepting it.</label>
+        </li>
+        <li>
+          <input type="checkbox" id="sc2">
+          <label for="sc2">I can explain how the key components of my recent projects work, in my own words, without AI present.</label>
+        </li>
+        <li>
+          <input type="checkbox" id="sc3">
+          <label for="sc3">I regularly solve problems without AI — not because I forbid it, but because I choose to when I want to learn or practice.</label>
+        </li>
+        <li>
+          <input type="checkbox" id="sc4">
+          <label for="sc4">When AI produces a wrong answer, I can identify <em>why</em> it's wrong before asking it to try again.</label>
+        </li>
+        <li>
+          <input type="checkbox" id="sc5">
+          <label for="sc5">My technical interview performance has remained stable over the past 6–12 months.</label>
+        </li>
+        <li>
+          <input type="checkbox" id="sc6">
+          <label for="sc6">I feel genuine satisfaction from building things — not just from shipping them.</label>
+        </li>
+        <li>
+          <input type="checkbox" id="sc7">
+          <label for="sc7">If AI became unavailable for a week, I'd feel capable of continuing my work with temporary slowdown, not panic.</label>
+        </li>
+      </ul>
+      <div class="check-result result-green" id="result-green">
+        <strong>Low risk:</strong> Your vibe coding practice appears balanced with intentional skill maintenance. Keep observing the signs — the risk is in gradual drift, not dramatic collapse.
+      </div>
+      <div class="check-result result-yellow" id="result-yellow">
+        <strong>Moderate concern:</strong> Several indicators suggest growing reliance. Consider implementing one of the three practices below — especially regular no-AI sessions — before the drift becomes harder to reverse.
+      </div>
+      <div class="check-result result-red" id="result-red">
+        <strong>High concern:</strong> The pattern matches the compounding trap. You're likely in the phase where skill anxiety drives more AI reliance, which deepens the skill gap. Early intervention matters — the recovery path is shorter when you start now.
+      </div>
+    </div>
+
+    <h2>How to Vibe Code Without Burning Out</h2>
+
+    <p>This is not an argument for abandoning AI coding tools. Used deliberately, they are extraordinary amplifiers. The question is how to use them without eroding the underlying competence that makes you valuable — and that gives your work meaning.</p>
+
+    <h3>The Three Non-Negotiable Practices</h3>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>No-AI Sessions</h3>
+        <p>One to two hours per week where you solve problems with zero AI assistance. Not as punishment or deprivation — as practice. Like a musician who still does scales even after they're famous. These sessions maintain the baseline skill that everything else depends on.</p>
+      </div>
+      <div class="card">
+        <h3>The Explanation Requirement</h3>
+        <p>Before accepting any AI-generated code, you must be able to explain it — in plain language, to yourself or someone else — in your own words. Not what the code does mechanically, but why this approach was chosen. If you can't, the code doesn't ship until you understand it.</p>
+      </div>
+      <div class="card">
+        <h3>Quarterly Full-Build Challenges</h3>
+        <p>Once per quarter, build something meaningful from scratch without AI assistance. Not to prove anything, but to calibrate. To know where your skills actually are relative to where you think they are. To close the confidence gap before it closes you.</p>
+      </div>
+    </div>
+
+    <h3>The Thought Experiment for Teams</h3>
+
+    <p>If you're a tech lead or manager reading this: ask yourself what would happen if AI tools disappeared from your team's workflow for one month. Not a pessimistic fantasy — just a genuine calibration exercise. How much of your team's actual competence would remain? How much of what you call "velocity" is AI-generated output that would not survive a competence audit?</p>
+
+    <p>This is not about AI being bad. It's about the difference between a team that uses AI as an amplifier and a team that's become dependent on it as a crutch. The former gets the benefits of AI <em>and</em> retains competence. The latter risks both the skill erosion and the identity damage that comes with it.</p>
+
+    <div class="warning-box">
+      <h3>If This Resonates, Start Now</h3>
+      <p>If reading this felt like having something you've been avoiding finally named out loud: you're probably right to be concerned, and the concern is a signal, not a failure. The compounding trap gets harder to escape the longer you wait. The good news: early intervention is genuinely effective. The skill rebuilds. The confidence returns. The identity re-anchors. It just takes intentional practice — and admitting you need it is the first step.</p>
+    </div>
+
+    <h2>FAQ</h2>
+
+    <div class="faq-section">
+      <div class="faq-item">
+      <button type="button" class="faq-question" aria-expanded="false">
+          <h3>What is vibe coding?</h3>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Vibe coding is a term coined by Andrej Karpathy in early 2025 describing a mode of software development where you tell an AI to write code, see what it produces, copy-paste it, and iterate — essentially supervising AI-generated code rather than writing it yourself. Karpathy described it as "promising yes, understandable partly, runnable yes, and good vibes."</p>
+        </div>
+      </div>
+      <div class="faq-item">
+      <button type="button" class="faq-question" aria-expanded="false">
+          <h3>Is vibe coding bad for software engineers?</h3>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Vibe coding is not inherently bad, but it creates specific risks when practiced without boundaries: skill atrophy, loss of code ownership, identity erosion, and reduced deep work. The issue is not AI-assisted coding itself, but practicing it exclusively without maintaining your unaided problem-solving muscles.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+      <button type="button" class="faq-question" aria-expanded="false">
+          <h3>How does vibe coding differ from normal AI-assisted coding?</h3>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Traditional AI-assisted coding uses AI as a power tool within an engineer's existing skill framework. Vibe coding shifts the engineer's role from author to curator — the AI generates complete solutions while the human primarily evaluates and assembles them. The distinction is subtle but psychologically significant.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+      <button type="button" class="faq-question" aria-expanded="false">
+          <h3>What are the signs that vibe coding is hurting your skills?</h3>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Warning signs include: feeling lost when AI is unavailable, inability to read or debug code you recently shipped, declining performance in technical interviews you used to pass easily, growing anxiety when asked to explain how something works, and using AI output as your primary source of confidence rather than your own understanding.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+      <button type="button" class="faq-question" aria-expanded="false">
+          <h3>How do you practice vibe coding without burning out?</h3>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Sustainable vibe coding requires three practices: no-AI sessions where you solve problems without assistance to maintain baseline skills, the Explanation Requirement where you must be able to explain every line of AI-generated code in your own words, and periodic full-build challenges where you construct something from scratch without AI assistance.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+      <button type="button" class="faq-question" aria-expanded="false">
+          <h3>Does vibe coding lead to actual burnout or just skill fade?</h3>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Vibe coding primarily causes skill fade and identity erosion initially, which can compound into full burnout if left unaddressed. The path is: skill anxiety → compensatory over-reliance on AI → deeper skill loss → confidence collapse → burnout. Early intervention with deliberate practice and boundaries can prevent the full burnout cycle.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Explore Grid -->
+    <h2>Continue Exploring</h2>
+    <div class="explore-grid">
+      <a href="skill-atrophy.html" class="explore-card">
+        <h4>Skill Atrophy</h4>
+        <p>The cognitive science of how AI-assisted workflows quietly erode the skills that took years to build.</p>
+      </a>
+      <a href="productivity-theater.html" class="explore-card">
+        <h4>Productivity Theater</h4>
+        <p>When shipping more code than ever feels like progress — but isn't. The performance trap of AI-era engineering.</p>
+      </a>
+      <a href="developer-identity.html" class="explore-card">
+        <h4>Developer Identity</h4>
+        <p>Who are you without your code? The identity crisis at the heart of AI-era engineering.</p>
+      </a>
+      <a href="compare.html" class="explore-card">
+        <h4>Tool Comparison</h4>
+        <p>Claude vs. Copilot vs. Cursor vs. ChatGPT — which AI coding tools cause the most fatigue?</p>
+      </a>
+      <a href="decision-fatigue-ai.html">Decision Fatigue</a></li>
+              <li><a href="cognitive-load.html" class="explore-card">
+        <h4>Cognitive Load</h4>
+        <p>Why AI is drowning your brain. The Sweller framework applied to modern AI-assisted workflows.</p>
+      </a>
+      <a href="vibe-coding-self-assessment.html" class="explore-card">
+        <h4>Vibe Coding Self-Assessment</h4>
+        <p>7 honest questions about your actual coding behavior. Find out where you stand on the AI dependency spectrum.</p>
+      </a>
+      <a href="recovery.html" class="explore-card">
+        <h4>Recovery Guide</h4>
+        <p>How to recover from AI fatigue — the practical, evidence-based path back to sustainable engineering.</p>
+      </a>
+    </div>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>The Clearing</h3>
+      <p>A sanctuary for engineers experiencing AI fatigue. Free, no sign-up required, no tracking.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Recover</h4>
+      <ul>
+        <li><a href="recovery.html">Recovery Guide</a></li>
+            <li><a href="sleep-and-ai-fatigue.html">Sleep & AI Fatigue</a></li>
+            <li><a href="engineering-managers-ai-fatigue.html">Engineering Managers</a></li>
+        <li><a href="ai-detox-plan.html">30-Day Detox</a></li>
+            <li><a href="no-ai-block.html">No-AI Block</a></li>
+            <li><a href="why-resting-doesnt-fix-ai-fatigue.html">Why Resting Doesn't Fix It</a></li>
+        <li><a href="freelance-engineer-ai-fatigue.html">Freelance Engineers</a></li>
+              <li><a href="mental-health.html">Mental Health</a></li>
+            <li><a href="ai-fatigue-emergency-kit.html">Emergency Kit</a></li>
+<li><a href="ai-healthcare-developer-fatigue.html">Healthcare Engineers</a></li>
+            <li><a href="engineer-energy-management.html">Energy Management</a></li>
+            <li><a href="coping-strategies-2025.html">Coping Strategies</a></li>
+        <li><a href="developer-wellbeing.html">Wellbeing</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Understand</h4>
+      <ul>
+        <li><a href="why.html">Why It Happens</a></li>
+                      <li><a href="imposter-syndrome-ai.html">Imposter Syndrome & AI</a></li>
+              <li><a href="signs-ai-fatigue.html">10 Signs</a></li>
+        <li><a href="stats.html">Statistics</a></li>
+        <li><a href="research.html">The Science</a></li>
+        <li><a href="vibe-coding-ai-fatigue.html">Vibe Coding</a></li>
+      <li><a href="/ai-learning-burnout.html">AI Learning Burnout</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="decompress.html">Deep Work Timer</a></li>
+        <li><a href="checkin.html">Daily Check-in</a></li>
+        <li><a href="compare.html">Tool Compare</a></li>
+        <li><a href="index.html">AI Fatigue Quiz</a></li>
+        <li><a href="newsletter.html">Newsletter</a></li>
+        <li><a href="community.html">Community</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 The Clearing · <a href="index.html" style="color:rgba(245,240,232,0.3);text-decoration:none;">clearing-ai.com</a> · Free forever.</p>
+  </div>
+</footer>
+
+<script>
+// Reading progress bar
+window.addEventListener('scroll', () => {
+  const bar = document.getElementById('reading-progress');
+  const doc = document.documentElement;
+  const pct = (doc.scrollTop || document.body.scrollTop) / (doc.scrollHeight - doc.clientHeight) * 100;
+  bar.style.width = pct + '%';
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    document.querySelectorAll('.faq-question').forEach(b => b.setAttribute('aria-expanded', 'false'));
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+
+// Self-check
+const checkboxes = document.querySelectorAll('.self-check-list input[type="checkbox"]');
+function updateCheckResult() {
+  const checked = document.querySelectorAll('.self-check-list input:checked').length;
+  const g = document.getElementById('result-green');
+  const y = document.getElementById('result-yellow');
+  const r = document.getElementById('result-red');
+  g.classList.remove('show'); y.classList.remove('show'); r.classList.remove('show');
+  if (checked >= 6) r.classList.add('show');
+  else if (checked >= 4) y.classList.add('show');
+  else g.classList.add('show');
+}
+checkboxes.forEach(cb => cb.addEventListener('change', updateCheckResult));
+
+</script>
+</body>
+</html>

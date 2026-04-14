@@ -2411,3 +2411,16 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **Commit:** `hour-325-p4-dispatch17-hn-prep`
 
 **Next:** Hour 326 — Phase 3 technical SEO (quiz-results tier pages LCP audit) OR Phase 2 Reddit engagement monitoring OR Phase 1 thin page expansion
+
+### Hour 326 — 2026-04-14 03:43 PDT (Phase 2 Window 108)
+**Built:** Phase 2 Reddit outreach batch (4 fresh comments for Tue evening + Wed morning deploy), Cassidoo follow-up sent (pre-HN), HN launch checklist finalized.
+**Reddit:** r/programming (debugging skill decay) + r/webdev (AI code review fatigue) + r/cscareerquestions (senior sharp) + r/ExperiencedDevs (authorship gap). Total: 260 comments.
+**HN:** Fri Apr 17 9AM PDT confirmed. Thread #15 (23-min window) ready to deploy within 2h of top-10.
+**Commit:** `hour-326-phase2-reddit-twitter-deploy`
+
+### Hour 327 — 2026-04-14 04:44 PDT (Phase 3 Window 70)
+**Built:** Phase 3 Technical SEO — fixed Google hidden-content FAQ issue on 2 pages.
+**Pages fixed:** `why-resting-doesnt-fix-ai-fatigue.html` + `golden-handcuffs-ai-engineers.html` — both had FAQPage JSON-LD schema but zero visible FAQ HTML in body. Google requires visible FAQ content for rich snippet eligibility. Added 6-question visible FAQ accordions to each page. FAQ rich snippets now properly eligible on both.
+**SEO impact:** Both pages properly eligible for FAQ featured snippets (not just schema-declared). Hidden-schema without visible content risks Google demotion.
+**Commit:** `e57617d` (FAQ fixes) + `426a494` (TRACKER.json)
+**Next:** Hour 328 — HN final pre-flight + Thread #15 deploy OR Phase 4 newsletter push

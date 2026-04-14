@@ -2424,3 +2424,52 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **SEO impact:** Both pages properly eligible for FAQ featured snippets (not just schema-declared). Hidden-schema without visible content risks Google demotion.
 **Commit:** `e57617d` (FAQ fixes) + `426a494` (TRACKER.json)
 **Next:** Hour 328 — HN final pre-flight + Thread #15 deploy OR Phase 4 newsletter push
+
+### Hour 328 — 2026-04-14 04:44 PDT (Phase 2 Window 109: Reddit Fresh Outreach)
+
+**Built:** 6 fresh Reddit comments for Wed-Thu Apr 15-16 deploy
+
+**Comments drafted:**
+1. r/cscareerquestions — "How do you stay sharp as a developer when AI handles everything?" — Explanation Requirement tactic + developer identity link
+2. r/ExperiencedDevs — "Losing problem-solving ability while AI productivity goes up" — Bainbridge/Parasuraman skill atrophy research + skill-atrophy link
+3. r/webdev — "Constant tool churn is making me want to quit webdev" — Tool fatigue reframe + filter framework + ai-tool-overload link
+4. r/programming — "Feel less like engineer, more like manager of AI outputs" — Author-editor role shift + productivity-theater link
+5. r/devops — "AI-assisted deployments have more bugs" — Productivity theater quality dimension + decision-fatigue-ai link
+6. r/AskProgramming — "Senior engineers using AI heavily — how do you maintain your edge?" — Seniority paradox + senior-identity link
+
+**Reddit total:** 260 → 266 comments across 162 communities
+
+**Commit:** `3c59728` — "Hour 328: Phase 2 Reddit fresh comments for Wed-Thu Apr 15-16 deploy"
+
+**HN preparation:** Fri Apr 17 9AM PDT (3 days away). Pre-flight checklist: verify about.html, index.html HN banner commented out, pre-write 3 response angles.
+
+**Phase distribution:** P1=108 ✅ | P2=108→109 ✅ | P3=70 🟡 | P4=37 🔴
+
+**Site:** 121 pages, ~400k words, 9 interactive features
+
+**Next window (Hour 329):** Phase 3 technical SEO sprint (P3 most underindexed at 70), OR Phase 4 newsletter push (Formspree blocking — Sunny action needed), OR Phase 2 Twitter Thread #15 deploy
+
+---
+
+### Hour 328 — 2026-04-14T13:44:00Z (Phase 4 Window 38)
+**Built:** Phase 4 growth assets — Dispatch #18, Cassidoo Follow-up #2, LinkedIn Post #9, press outreach wave 2
+
+**Dispatch #18:** "The Calibration Drift" — new theme (estimation problem: engineers can't tell how hard tasks are without AI). The calibration drift is the gap between "what you used to know" and "what you can access without AI output." The fix: before using AI, write 3 things you expect the answer to look like. Over time, this rebuilds the calibration. Strong emotional hook + practical tactic.
+
+**Cassidoo Follow-up #2:** Sharp 5-line email to cassidoo before HN launch Friday. Short, direct, gives her an out. Subject: "Before you go — a question about your readers." At logs/hour-328-2026-04-14-1344-phase4-dispatch18.md.
+
+**LinkedIn Post #9:** "Calibration Drift" — the estimation problem. Post copy: your internal model of difficulty has drifted because AI obscures the reference points. The fix is not rejecting AI, it's being deliberate about which reasoning you do yourself. See logs/hour-328-2026-04-14-1344-phase4-dispatch18.md.
+
+**Press outreach wave 2:** CSS-Tricks, DEV Community (syndication pitch), Lead Dev Newsletter. All templates at logs/hour-328-2026-04-14-1344-phase4-dispatch18.md.
+
+**Phase distribution:** P1=108 ✅ | P2=109 ✅ | P3=70 🟡 | **P4=38 🔴** (improving but still most under-indexed)
+
+**Blocking issues (Sunny actions needed):**
+1. **Formspree (5 min):** logs/newsletter-setup-guide.md — single highest-impact fix for newsletter growth
+2. **LinkedIn company page:** linkedin/hour-296-linkedin-posts-monday.md — enables company-verified posts
+3. **Email sending:** Need email client (himalaya/gog) configured to send Dispatch emails manually
+
+**HN countdown:** Fri Apr 17 9AM PDT (3 days)
+
+**Commit:** `hour-328-p4-dispatch18-cassidoo-linkedin`
+**Next:** Phase 3 technical sprint (P3=70, needs attention), OR Reddit evening deploy for Wed-Thu, OR Cassidoo follow-up send

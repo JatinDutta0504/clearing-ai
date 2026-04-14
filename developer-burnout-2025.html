@@ -121,6 +121,8 @@
 
   <link rel="stylesheet" href="css/style.min.css" />
   <style>
+.faq-answer { display: none; } .faq-answer.open { display: block; }
+
     /* ===== READING TIME BADGE ===== */
     .reading-time {
       display: inline-flex;
@@ -875,7 +877,7 @@
             Why is developer burnout worse in 2025 than previous years?
             <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
           </button>
-          <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" hidden>
+          <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p itemsprop="text">2025 combines three compounding pressures: post-layoff survivors carrying doubled workloads, mandatory AI tool adoption creating cognitive overhead, and constant velocity pressure from companies trying to do more with fewer engineers. The result is a burnout rate that exceeds historical norms.</p>
           </div>
         </div>
@@ -884,7 +886,7 @@
             What's the difference between burnout and regular tiredness for software engineers?
             <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
           </button>
-          <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" hidden>
+          <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p itemsprop="text">Regular tiredness improves with a weekend or vacation. Developer burnout is a sustained depletion of energy, motivation, and sense of efficacy that persists even after time off. It affects your identity ("I am a developer") rather than just your energy level, and it compounds over months rather than days.</p>
           </div>
         </div>
@@ -893,7 +895,7 @@
             How do layoffs contribute to burnout for engineers who weren't laid off?
             <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
           </button>
-          <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" hidden>
+          <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p itemsprop="text">Survivor guilt, increased workload from reduced headcount, constant anxiety about being next, and the loss of psychological safety all contribute. Studies on layoff survivors show a documented "survivor syndrome" — guilt combined with fear and increased workload that creates chronic stress even without losing your job.</p>
           </div>
         </div>
@@ -902,7 +904,7 @@
             Does AI help or worsen developer burnout?
             <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
           </button>
-          <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" hidden>
+          <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p itemsprop="text">Both, depending on how it is used. AI can reduce some tedium but introduces new cognitive load: constant context-switching, output verification, prompt management, and the unsettling feeling of shipping code you do not fully own. The engineers most burned out are often the ones using AI most aggressively to keep up with velocity demands.</p>
           </div>
         </div>
@@ -911,7 +913,7 @@
             How long does recovery from developer burnout take?
             <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
           </button>
-          <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" hidden>
+          <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p itemsprop="text">Genuine burnout recovery typically takes 3 to 6 months of sustained structural changes — not just a vacation. The recovery path involves reducing cognitive load, re-establishing craft satisfaction, restoring sleep, and often making bigger decisions about role, team, or company. Quick fixes do not work because burnout is a systemic problem.</p>
           </div>
         </div>
@@ -920,7 +922,7 @@
             Should I quit my job if I am burned out as a software engineer?
             <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
           </button>
-          <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" hidden>
+          <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p itemsprop="text">Quitting is not always necessary and sometimes is not the right move. The decision depends on whether your company will support recovery, whether you have financial runway, and whether the problems are specific to this role or likely to follow you. A deliberate career move with a plan is different from fleeing in crisis. Explore recovery options first — and if nothing changes, then yes, consider leaving.</p>
           </div>
         </div>
@@ -1047,18 +1049,20 @@
         const expanded = trigger.getAttribute('aria-expanded') === 'true';
         document.querySelectorAll('.faq-trigger').forEach(t => {
           t.setAttribute('aria-expanded', 'false');
-          t.nextElementSibling.hidden = true;
+          t.nextElementSibling.classList.remove('open'); t.nextElementSibling.classList.add('hidden');
           t.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
         });
         if (!expanded) {
           trigger.setAttribute('aria-expanded', 'true');
-          trigger.nextElementSibling.hidden = false;
+          trigger.nextElementSibling.classList.remove('hidden'); trigger.nextElementSibling.classList.add('open');
           trigger.querySelector('.faq-icon').style.transform = 'rotate(180deg)';
         }
       });
     });
   </script>
   <style>
+.faq-answer { display: none; } .faq-answer.open { display: block; }
+
     .faq-trigger {
       display: flex;
       justify-content: space-between;

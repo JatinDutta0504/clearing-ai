@@ -111,6 +111,9 @@ pubDate: "2026-04-01"
     ]
   }
   </script>  <!-- Google Analytics -->
+<style>
+.faq-answer { display: none; } .faq-answer.open { display: block; }
+</style>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to main content</a>
@@ -581,7 +584,7 @@ pubDate: "2026-04-01"
               How is AI changing engineering manager burnout?
               <span class="faq-icon">+</span>
             </button>
-            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" hidden>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
               <p itemscope itemprop="text">AI is compounding manager burnout through three mechanisms: increased oversight burden as teams adopt AI tools without clear policies, identity threat as managers who were strong ICs feel their technical judgment questioned by AI outputs, and velocity pressure from leadership who see AI-accelerated teams and expect the same output from non-AI teams. The combination creates impossible performance expectations layered on top of existing management stress.</p>
             </div>
           </div>
@@ -590,7 +593,7 @@ pubDate: "2026-04-01"
               What are the warning signs of engineering manager burnout?
               <span class="faq-icon">+</span>
             </button>
-            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" hidden>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
               <p itemscope itemprop="text">Warning signs include: dreading 1:1s instead of finding them energizing, losing patience with team questions you used to welcome, physical symptoms like headaches or insomnia, attributing team struggles to laziness rather than systemic issues, declining to make decisions and deferring everything, micromanaging to compensate for feeling out of control, withdrawing from cross-team relationships, and feeling like your calendar controls you rather than the reverse.</p>
             </div>
           </div>
@@ -599,7 +602,7 @@ pubDate: "2026-04-01"
               How do I protect my team from AI fatigue as a manager?
               <span class="faq-icon">+</span>
             </button>
-            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" hidden>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
               <p itemscope itemprop="text">Start with your own relationship to AI tools — if you anxiously adopt every new tool, your team will feel pressured to do the same. Establish explicit team AI agreements. Protect no-AI learning time. Make skill atrophy a conversation, not a judgment. Create psychological safety for engineers who are struggling. Measure outcome quality over velocity. And advocate upward for realistic expectations around AI productivity gains.</p>
             </div>
           </div>
@@ -608,7 +611,7 @@ pubDate: "2026-04-01"
               Should engineering managers disclose burnout to their manager?
               <span class="faq-icon">+</span>
             </button>
-            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" hidden>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
               <p itemscope itemprop="text">Yes, when you trust your manager and the organizational culture supports it. Disclosing to your manager or HR opens the door to accommodations, workload adjustments, and support. The risk of silence is continued deterioration. Assess your environment honestly — in supportive environments, disclosure leads to recovery; in high-pressure cultures, it may lead to replacement.</p>
             </div>
           </div>
@@ -617,7 +620,7 @@ pubDate: "2026-04-01"
               How do I lead through AI transformation without burning out?
               <span class="faq-icon">+</span>
             </button>
-            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" hidden>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
               <p itemscope itemprop="text">Lead with questions, not answers — your role is to create conditions for the team to figure things out, not to have all the AI strategy yourself. Set boundaries around your own AI use so you model sustainable practice. Build team agreements rather than top-down AI mandates. Protect your identity outside of work. Normalize recovery, rest, and limits as leadership acts, not weaknesses.</p>
             </div>
           </div>
@@ -626,7 +629,7 @@ pubDate: "2026-04-01"
               What is the difference between CTO/VP burnout and IC burnout?
               <span class="faq-icon">+</span>
             </button>
-            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" hidden>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
               <p itemscope itemprop="text">IC burnout is primarily about authorship, skill, and craft. Manager burnout is about identity, responsibility, and systems. EMs and CTOs carry the weight of everyone else's wellbeing, performance, and career — plus organizational pressure from above. The loneliness of leadership compounds this. ICs can often find refuge in doing; managers feel trapped in meetings, decisions, and the performance of being in control. When impact feels hollow, there is less to fall back on.</p>
             </div>
           </div>
@@ -635,7 +638,7 @@ pubDate: "2026-04-01"
               How do I have honest conversations about AI fatigue with my team?
               <span class="faq-icon">+</span>
             </button>
-            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" hidden>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
               <p itemscope itemprop="text">Start with your own vulnerability: share your own moments of doubt or fatigue. Create space in 1:1s specifically for craft and learning concerns, not just project status. Name the tension explicitly: AI tools help us ship faster but may be affecting how we're learning and growing. Make it safe to say "I'm struggling with this" by responding with support, not solutions, when someone opens up.</p>
             </div>
           </div>
@@ -793,12 +796,12 @@ pubDate: "2026-04-01"
           document.querySelectorAll('.faq-question[aria-expanded="true"]').forEach(b => {
             b.setAttribute('aria-expanded', 'false');
             const a = b.nextElementSibling;
-            if (a) a.hidden = true;
+            if (a) { a.classList.remove(\'open\'); a.classList.add(\'hidden\'); }
             b.querySelector('.faq-icon').textContent = '+';
           });
           if (!expanded) {
             btn.setAttribute('aria-expanded', 'true');
-            ans.hidden = false;
+            ans.classList.remove(\'hidden\'); ans.classList.add(\'open\');
             btn.querySelector('.faq-icon').textContent = '−';
           }
         });

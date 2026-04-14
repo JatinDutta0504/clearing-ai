@@ -104,6 +104,8 @@
   <noscript><link rel="stylesheet" href="css/style.min.css" /></noscript>
 
   <style>
+.faq-answer { display: none; } .faq-answer.open { display: block; }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #fafaf8; color: #2a2a22; line-height: 1.6; }
@@ -351,6 +353,8 @@
       </section>
 
       <style>
+.faq-answer { display: none; } .faq-answer.open { display: block; }
+
         .spotlight-section {
           background: linear-gradient(135deg, #0f1a0f 0%, #111a11 100%);
           border: 1px solid rgba(90,140,90,0.15);
@@ -979,7 +983,7 @@
           Are these testimonials real?
           <span class="arrow" aria-hidden="true">▾</span>
         </button>
-        <div class="faq-answer" aria-hidden="true">
+        <div class="faq-answer">
           <div class="faq-answer-inner">Yes. Every testimonial comes from a real engineer who took The Clearing's AI Fatigue Quiz or read our resources. Stories are published with permission and edited only for clarity or to remove identifying details.</div>
         </div>
       </div>
@@ -988,7 +992,7 @@
           Can I share my own AI fatigue story?
           <span class="arrow" aria-hidden="true">▾</span>
         </button>
-        <div class="faq-answer" aria-hidden="true">
+        <div class="faq-answer">
           <div class="faq-answer-inner">Absolutely. If you're an engineer who has experienced AI fatigue and want to share your story to help others, scroll up to the share form. We read every submission and may feature anonymized stories in future updates.</div>
         </div>
       </div>
@@ -997,7 +1001,7 @@
           Is The Clearing affiliated with any AI tool company?
           <span class="arrow" aria-hidden="true">▾</span>
         </button>
-        <div class="faq-answer" aria-hidden="true">
+        <div class="faq-answer">
           <div class="faq-answer-inner">No. The Clearing is completely independent. We have no investors, no partnerships with AI tool companies, and no financial interest in whether you use or avoid any particular tool.</div>
         </div>
       </div>
@@ -1006,7 +1010,7 @@
           How long does recovery from AI fatigue take?
           <span class="arrow" aria-hidden="true">▾</span>
         </button>
-        <div class="faq-answer" aria-hidden="true">
+        <div class="faq-answer">
           <div class="faq-answer-inner">Every engineer's experience is different. Based on what quiz takers and readers have told us: mild AI fatigue often improves within 2–4 weeks of intentional boundaries. Moderate to severe cases typically need 1–3 months of consistent practice. Recovery is not linear — there will be good weeks and harder weeks.</div>
         </div>
       </div>
@@ -1015,7 +1019,7 @@
           I feel guilty for struggling with AI tools. Is that normal?
           <span class="arrow" aria-hidden="true">▾</span>
         </button>
-        <div class="faq-answer" aria-hidden="true">
+        <div class="faq-answer">
           <div class="faq-answer-inner">Extremely normal. Almost every engineer who writes to us says some version of "I should be grateful and I'm just tired." That guilt is part of the exhaustion. The industry has framed AI tool adoption as inevitable and effortless. When it isn't effortless for you, the shame compounds the fatigue. You are not broken. You're paying attention.</div>
         </div>
       </div>
@@ -1104,13 +1108,13 @@
         document.querySelectorAll('.faq-item').forEach(function(i) {
           i.classList.remove('open');
           i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-          i.querySelector('.faq-answer').setAttribute('aria-hidden', 'true');
+          i.querySelector('.faq-answer').classList.remove('open'); i.querySelector('.faq-answer').classList.add('hidden');
         });
         // Open clicked if was closed
         if (!isOpen) {
           item.classList.add('open');
           btn.setAttribute('aria-expanded', 'true');
-          item.querySelector('.faq-answer').setAttribute('aria-hidden', 'false');
+          item.querySelector('.faq-answer').classList.remove('hidden'); item.querySelector('.faq-answer').classList.add('open');
         }
       });
     });

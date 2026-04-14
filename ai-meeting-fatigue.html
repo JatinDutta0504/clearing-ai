@@ -391,55 +391,8 @@
         </details>
       </section>
 
-    </article>
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <p><strong>The Clearing</strong> — A free resource for engineers navigating AI fatigue.</p>
-      <p>No tracking. No accounts required. Your data stays on your device.</p>
-      <nav class="footer-nav" aria-label="Footer navigation">
-        <a href="index.html">Home</a> ·
-        <a href="recovery.html">Recovery</a> ·
-        <a href="research.html">Research</a> ·
-        <a href="newsletter.html">Newsletter</a> ·
-        <a href="community.html">Community</a>
-      </nav>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
-  <script>
-    // Reading progress bar
-    (function() {
-      const bar = document.getElementById('reading-progress');
-      if (!bar) return;
-      function update() {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const pct = docHeight > 0 ? Math.round((scrollTop / docHeight) * 100) : 0;
-        bar.style.width = pct + '%';
-      }
-      window.addEventListener('scroll', update, { passive: true });
-      update();
-    })();
-
-    // FAQ accordion
-    document.querySelectorAll('.faq-item details').forEach(details => {
-      details.addEventListener('toggle', () => {
-        if (details.open) {
-          document.querySelectorAll('.faq-item details[open]').forEach(d => {
-            if (d !== details) d.open = false;
-          });
-        }
-      });
-    });
-
-    // Theme toggle
-    function toggleTheme() {
-      const html = document.documentElement;
-      const current = html.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-      document.querySelector('.theme-icon').
+    
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="main.js" defer></script>
+</body>
+</html>

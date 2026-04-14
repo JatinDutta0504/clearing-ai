@@ -2473,3 +2473,12 @@ These pages were built in previous hours but NEVER committed. All have proper st
 
 **Commit:** `hour-328-p4-dispatch18-cassidoo-linkedin`
 **Next:** Phase 3 technical sprint (P3=70, needs attention), OR Reddit evening deploy for Wed-Thu, OR Cassidoo follow-up send
+
+### Hour 329 — 2026-04-14 14:44 UTC (Phase 1 Window 109)
+**Built:** `ai-fatigue-in-2026.html` (~4,800 words) — "AI Fatigue in 2026: What Two Years of Data Reveals About Developer Burnout"
+**Page structure:** Three waves framework, 5 surprises (senior paradox / velocity trap / tool juggling / 23-min window / compounding skill loss), 5-row research table, recovery patterns (Explanation Requirement / No-AI Blocks / Teaching / Calibration), organizational contradictions, FAQ accordion (6 Q&As), explore grid, social share bar
+**Schema:** Article + FAQPage (6 Q&As) + BreadcrumbList
+**SEO:** "AI fatigue 2026", "developer burnout AI era", "software engineer wellness 2026" — perfect for HN submission Fri Apr 17
+**~4,800 words added**
+**Commit:** `9a7e9f3` (pushed)
+**Next:** Formspree setup (Sunny action) OR HN pre-flight Fri OR Phase 2 fresh Reddit comments

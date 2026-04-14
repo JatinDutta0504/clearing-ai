@@ -132,6 +132,11 @@
     ]
   }
   </script>  <!-- Google Analytics -->
+  <style>
+    .faq-answer { display: none; }
+    .faq-answer.open { display: block; }
+    .faq-item .hidden { display: none; }
+  </style>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to main content</a>
@@ -638,42 +643,42 @@
 
           <div class="faq-item">
       <button type="button" class="faq-question" aria-expanded="false">What is the difference between imposter syndrome and AI fatigue?</button>
-            <div class="faq-answer" hidden>
+            <div class="faq-answer hidden">
               <p>Imposter syndrome is a cognitive distortion: your perception of your competence is lower than your actual competence. AI fatigue can involve genuine functional change: skill degradation, cognitive exhaustion, identity disruption, and actual competence ambiguity caused by outsourcing mental work to AI tools. The key difference: imposter syndrome is about fearing others will discover your 'inadequacy'; AI fatigue involves actually feeling your capability changing or eroding.</p>
             </div>
           </div>
 
           <div class="faq-item">
       <button type="button" class="faq-question" aria-expanded="false">Can you have both imposter syndrome and AI fatigue at the same time?</button>
-            <div class="faq-answer" hidden>
+            <div class="faq-answer hidden">
               <p>Yes — and it's very common. AI fatigue often triggers or amplifies imposter syndrome by creating genuine competence ambiguity. When you genuinely can't tell how much of your output was you vs. the AI, the self-doubt of imposter syndrome gets new, seemingly valid evidence. The two conditions create a reinforcing loop that's harder to break than either alone.</p>
             </div>
           </div>
 
           <div class="faq-item">
       <button type="button" class="faq-question" aria-expanded="false">Why is it important to distinguish imposter syndrome from AI fatigue?</button>
-            <div class="faq-answer" hidden>
+            <div class="faq-answer hidden">
               <p>Because the treatments are almost opposite. Imposter syndrome is treated by recognizing your actual competence — you already have the skills, you just don't believe it. AI fatigue may actually involve degraded skills that need active rebuilding through deliberate practice without AI. Applying imposter syndrome reframes to AI fatigue can backfire by preventing you from taking the real action needed.</p>
             </div>
           </div>
 
           <div class="faq-item">
       <button type="button" class="faq-question" aria-expanded="false">Has AI made imposter syndrome worse for software engineers?</button>
-            <div class="faq-answer" hidden>
+            <div class="faq-answer hidden">
               <p>Evidence strongly suggests yes. AI tools create competence ambiguity — you don't know if your successes came from you or the AI. This removes the real-world evidence of competence that normally resolves imposter syndrome over time. Additionally, the rapid pace of AI tool change means even experienced engineers regularly face steep learning curves, resetting the self-doubt cycle repeatedly.</p>
             </div>
           </div>
 
           <div class="faq-item">
       <button type="button" class="faq-question" aria-expanded="false">What questions help me figure out which one I have?</button>
-            <div class="faq-answer" hidden>
+            <div class="faq-answer hidden">
               <p>Three key questions: (1) Do I feel this way in domains unrelated to AI tools? Imposter syndrome tends to be global; AI fatigue is more tied to AI-assisted contexts. (2) Have my actual outputs declined, or just my confidence? AI fatigue often has measurable functional changes; imposter syndrome does not. (3) Is my self-doubt about being "found out," or about losing something real? Imposter syndrome fears exposure; AI fatigue grieves loss.</p>
             </div>
           </div>
 
           <div class="faq-item">
       <button type="button" class="faq-question" aria-expanded="false">Are junior engineers more likely to have imposter syndrome while seniors have AI fatigue?</button>
-            <div class="faq-answer" hidden>
+            <div class="faq-answer hidden">
               <p>There's something to this, but it's not a clean split. Junior engineers have higher baseline imposter syndrome rates regardless of AI, but they're also especially vulnerable to AI fatigue because they're building foundational skills during a period of heavy AI reliance. Senior engineers experience more AI fatigue tied to skill displacement and identity loss, but imposter syndrome can resurface for seniors when AI makes their hard-won expertise feel suddenly uncertain.</p>
             </div>
           </div>
@@ -817,13 +822,20 @@
 
   <script src="js/main.min.js" defer></script>
   <script>
-    // FAQ accordion
+    // FAQ accordion — uses class toggling so Googlebot can crawl hidden answers
     document.querySelectorAll('.faq-question').forEach(btn => {
       btn.addEventListener('click', () => {
         const expanded = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', !expanded);
-        const answer = btn.nextElementSibling;
-        answer.hidden = expanded;
+        document.querySelectorAll('.faq-question').forEach(b => {
+          b.setAttribute('aria-expanded', 'false');
+          b.nextElementSibling.classList.remove('open');
+          b.nextElementSibling.classList.add('hidden');
+        });
+        if (!expanded) {
+          btn.setAttribute('aria-expanded', 'true');
+          btn.nextElementSibling.classList.remove('hidden');
+          btn.nextElementSibling.classList.add('open');
+        }
       });
     });
 

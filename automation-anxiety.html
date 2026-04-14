@@ -132,6 +132,11 @@
     ]
   }
   </script>  <!-- Google Analytics -->
+  <style>
+    .faq-answer { display: none; }
+    .faq-answer.open { display: block; }
+    .faq-item .hidden { display: none; }
+  </style>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to main content</a>
@@ -622,42 +627,42 @@
 
           <div class="faq-item" role="listitem">
       <button type="button" class="faq-question" aria-expanded="false">Is automation anxiety a real psychological condition?</button>
-            <div class="faq-answer" hidden>
+            <div class="faq-answer hidden">
               <p>Automation anxiety is a recognized occupational stressor studied in psychology and management literature. While not a clinical diagnosis in the DSM-5, it presents with real symptoms including hypervigilance, career rumination, sleep disruption, and avoidance behaviors. In engineering contexts it often co-occurs with AI fatigue and occupational burnout. Research by scholars including Brougham and Haar (2018) on workplace automation and wellbeing directly documents its effects.</p>
             </div>
           </div>
 
           <div class="faq-item" role="listitem">
       <button type="button" class="faq-question" aria-expanded="false">Will AI actually replace software engineers?</button>
-            <div class="faq-answer" hidden>
+            <div class="faq-answer hidden">
               <p>The honest answer is: some roles will shrink, most will transform, and new ones will emerge — but the timeline and extent are genuinely uncertain. What's more useful than predicting replacement is understanding which engineering skills are durable (judgment, context, communication, ethics, systems thinking) and investing deliberately in those rather than competing with AI on volume output.</p>
             </div>
           </div>
 
           <div class="faq-item" role="listitem">
       <button type="button" class="faq-question" aria-expanded="false">Why do I feel anxious about AI tools even when I use them successfully?</button>
-            <div class="faq-answer" hidden>
+            <div class="faq-answer hidden">
               <p>Successful AI use can paradoxically increase anxiety through a mechanism called competence ambiguity — you don't know how much of the success was you vs. the AI. This creates a persistent background doubt ("could I do this without it?") that anxiety attaches to. The fix is deliberate no-AI sessions to rebuild confidence in your independent capability.</p>
             </div>
           </div>
 
           <div class="faq-item" role="listitem">
       <button type="button" class="faq-question" aria-expanded="false">How is automation anxiety different from normal career anxiety?</button>
-            <div class="faq-answer" hidden>
+            <div class="faq-answer hidden">
               <p>Normal career anxiety focuses on specific threats: a bad performance review, a shaky project, a difficult manager. Automation anxiety is diffuse — the threat is ambient, systemic, and accelerating. It also attacks professional identity specifically, not just job security, which makes it harder to resolve because there's no clear action that "fixes" it.</p>
             </div>
           </div>
 
           <div class="faq-item" role="listitem">
       <button type="button" class="faq-question" aria-expanded="false">Should I be learning more AI tools to manage automation anxiety?</button>
-            <div class="faq-answer" hidden>
+            <div class="faq-answer hidden">
               <p>More AI tool learning can actually increase automation anxiety if it's driven by fear rather than genuine interest. The compulsive adoption of new AI tools — trying to stay ahead — is itself a symptom of automation anxiety, not a remedy. A more effective approach is deliberate skill investment in areas where you have genuine depth, combined with selective AI adoption where it genuinely helps your work.</p>
             </div>
           </div>
 
           <div class="faq-item" role="listitem">
       <button type="button" class="faq-question" aria-expanded="false">What's the difference between automation anxiety and automation bias?</button>
-            <div class="faq-answer" hidden>
+            <div class="faq-answer hidden">
               <p>They're almost opposites. Automation anxiety is fear of AI — the dread that it will replace or undermine you. Automation bias is over-trust in AI — accepting AI outputs without critical evaluation. Ironically, people experiencing automation anxiety often develop automation bias as a coping mechanism: if the AI is so powerful and inevitable, why fight it? Both patterns are harmful to engineering quality.</p>
             </div>
           </div>
@@ -809,15 +814,19 @@
 
   <script src="js/main.min.js" defer></script>
   <script>
+    // FAQ accordion — uses class toggling so Googlebot can crawl hidden answers
     document.querySelectorAll('.faq-question').forEach(btn => {
       btn.addEventListener('click', () => {
         const expanded = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', !expanded);
-        const answer = btn.nextElementSibling;
-        if (expanded) {
-          answer.hidden = true;
-        } else {
-          answer.hidden = false;
+        document.querySelectorAll('.faq-question').forEach(b => {
+          b.setAttribute('aria-expanded', 'false');
+          b.nextElementSibling.classList.remove('open');
+          b.nextElementSibling.classList.add('hidden');
+        });
+        if (!expanded) {
+          btn.setAttribute('aria-expanded', 'true');
+          btn.nextElementSibling.classList.remove('hidden');
+          btn.nextElementSibling.classList.add('open');
         }
       });
     });

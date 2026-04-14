@@ -121,6 +121,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" /></noscript>  <!-- Google Analytics -->
+  <style>
+    .faq-answer { display: none; }
+    .faq-answer.open { display: block; }
+    .faq-item .hidden { display: none; }
+  </style>
 </head>
 <body>
 
@@ -614,7 +619,7 @@
                 <span>Why does having more AI tools make me less productive?</span>
                 <span class="faq-icon" aria-hidden="true">+</span>
               </button>
-              <div class="faq-answer" hidden>
+              <div class="faq-answer hidden">
                 <p>More tools mean more context switching, more setup, more outputs to evaluate, and more integrations to maintain. The cognitive cost of managing tools often exceeds the productivity gain they provide. This is the tool overload paradox: every new tool you add creates switching costs that compound.</p>
               </div>
             </div>
@@ -623,7 +628,7 @@
                 <span>How many AI coding tools should an engineer actually use?</span>
                 <span class="faq-icon" aria-hidden="true">+</span>
               </button>
-              <div class="faq-answer" hidden>
+              <div class="faq-answer hidden">
                 <p>Most engineers function best with 1-2 primary AI tools. The goal isn't to use every capable tool — it's to go deep enough with a small set that they become transparent extensions of your thinking rather than additional things to manage.</p>
               </div>
             </div>
@@ -632,7 +637,7 @@
                 <span>What is the tool treadmill and how does it trap engineers?</span>
                 <span class="faq-icon" aria-hidden="true">+</span>
               </button>
-              <div class="faq-answer" hidden>
+              <div class="faq-answer hidden">
                 <p>The tool treadmill is the cycle where engineers constantly evaluate, adopt, and migrate between AI tools, never giving any tool enough time to become deeply熟练. Each switch costs weeks of productivity before the new tool becomes second nature, creating a chronic state of shallow tool proficiency.</p>
               </div>
             </div>
@@ -641,7 +646,7 @@
                 <span>How does tool overload cause imposter syndrome?</span>
                 <span class="faq-icon" aria-hidden="true">+</span>
               </button>
-              <div class="faq-answer" hidden>
+              <div class="faq-answer hidden">
                 <p>When you spread yourself across many tools, you never develop deep skill in any of them. This creates a persistent feeling of surface-level competence — you're always context-switching and never fully confident. Meanwhile, others going deep with fewer tools seem more competent by comparison.</p>
               </div>
             </div>
@@ -650,7 +655,7 @@
                 <span>What's the difference between tool overload and normal learning curve?</span>
                 <span class="faq-icon" aria-hidden="true">+</span>
               </button>
-              <div class="faq-answer" hidden>
+              <div class="faq-answer hidden">
                 <p>A learning curve is temporary friction that resolves as you master a tool. Tool overload is chronic cognitive overhead from managing multiple tools simultaneously — the switching costs never fully disappear. If you feel the problem getting worse over time rather than better, it's overload.</p>
               </div>
             </div>
@@ -659,7 +664,7 @@
                 <span>How do I break free from the tool evaluation cycle?</span>
                 <span class="faq-icon" aria-hidden="true">+</span>
               </button>
-              <div class="faq-answer" hidden>
+              <div class="faq-answer hidden">
                 <p>Pick one primary tool and commit to going deep for 90 days before evaluating alternatives. Build your workflow around it rather than around the tool. If you discover a genuine gap in capability, research that specific gap — don't let marketing emails or Twitter hype drive tool adoption.</p>
               </div>
             </div>
@@ -791,20 +796,22 @@
 document.querySelector('.reading-time')?.setAttribute('datetime', 'PT4M');
 document.querySelector('.reading-time')?.textContent = '~4 min read';
 
-// FAQ accordion
+// FAQ accordion — uses class toggling so Googlebot can crawl hidden answers
 document.querySelectorAll('.faq-question').forEach(btn => {
   btn.addEventListener('click', () => {
     const expanded = btn.getAttribute('aria-expanded') === 'true';
     // Close all
     document.querySelectorAll('.faq-question').forEach(b => {
       b.setAttribute('aria-expanded', 'false');
-      b.nextElementSibling.hidden = true;
+      b.nextElementSibling.classList.remove('open');
+      b.nextElementSibling.classList.add('hidden');
       b.querySelector('.faq-icon').textContent = '+';
     });
     // Open clicked if was closed
     if (!expanded) {
       btn.setAttribute('aria-expanded', 'true');
-      btn.nextElementSibling.hidden = false;
+      btn.nextElementSibling.classList.remove('hidden');
+      btn.nextElementSibling.classList.add('open');
       btn.querySelector('.faq-icon').textContent = '−';
     }
   });

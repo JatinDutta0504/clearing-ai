@@ -112,6 +112,11 @@
     ]
   }
   </script>  <!-- Google Analytics -->
+  <style>
+    .faq-answer { display: none; }
+    .faq-answer.open { display: block; }
+    .faq-item .hidden { display: none; }
+  </style>
 </head>
 <body>
 
@@ -490,7 +495,7 @@
               Is AI actually causing skill atrophy in software engineers?
               <span class="faq-icon" aria-hidden="true">+</span>
             </button>
-            <div class="faq-answer" hidden>
+            <div class="faq-answer hidden">
               <p>Research strongly suggests yes. Multiple studies on automation bias, cognitive offloading, and skill rust show that skills not actively practiced deteriorate — often faster than people expect. When AI tools handle the parts of programming that require the most skill (debugging logic, algorithmic thinking, reading errors), those neural pathways weaken from disuse. The effect is gradual and invisible until it's not.</p>
             </div>
           </div>
@@ -500,7 +505,7 @@
               Which skills are most at risk from AI coding assistants?
               <span class="faq-icon" aria-hidden="true">+</span>
             </button>
-            <div class="faq-answer" hidden>
+            <div class="faq-answer hidden">
               <p>The most vulnerable skills are those AI handles most fluently: debugging unfamiliar code, writing algorithms from first principles, reading and interpreting error messages, building mental models of systems, and the productive struggle that cements deep understanding. Less at risk: high-level system design judgment, stakeholder communication, and architectural intuition — though these are slower to degrade and harder to test.</p>
             </div>
           </div>
@@ -510,7 +515,7 @@
               What is automation bias and how does it affect developers?
               <span class="faq-icon" aria-hidden="true">+</span>
             </button>
-            <div class="faq-answer" hidden>
+            <div class="faq-answer hidden">
               <p>Automation bias, first documented by Lisanne Bainbridge in 1983 and formalized by Raja Parasuraman, is the tendency to over-rely on automated systems — accepting their output without critical evaluation. In software engineering, it shows up as accepting AI suggestions without understanding them, letting Copilot complete logic you haven't fully reasoned through, and trusting generated code simply because it compiles and passes tests.</p>
             </div>
           </div>
@@ -520,7 +525,7 @@
               How quickly do programming skills deteriorate from disuse?
               <span class="faq-icon" aria-hidden="true">+</span>
             </button>
-            <div class="faq-answer" hidden>
+            <div class="faq-answer hidden">
               <p>Skill decay rates vary by skill type. Procedural motor skills can begin declining within weeks of disuse. Cognitive skills like algorithm design, debugging strategy, and language internals can show measurable degradation within 3–6 months of low exposure. The troubling part: you often don't notice until you're handed a problem AI can't solve.</p>
             </div>
           </div>
@@ -530,7 +535,7 @@
               Can you rebuild skills that have atrophied from AI use?
               <span class="faq-icon" aria-hidden="true">+</span>
             </button>
-            <div class="faq-answer" hidden>
+            <div class="faq-answer hidden">
               <p>Yes — but it requires deliberate effort, not passive use. The key mechanisms are retrieval practice (forcing yourself to recall without help), desirable difficulty (working in conditions slightly beyond your comfort zone without AI rescue), and spaced repetition. This means intentional no-AI coding sessions, solving problems from scratch, and accepting the discomfort of not knowing as a productive state, not a problem to outsource.</p>
             </div>
           </div>
@@ -540,7 +545,7 @@
               Is skill atrophy the same as AI fatigue?
               <span class="faq-icon" aria-hidden="true">+</span>
             </button>
-            <div class="faq-answer" hidden>
+            <div class="faq-answer hidden">
               <p>They're related but distinct. AI fatigue is the exhaustion, disconnection, and loss of craft satisfaction from over-reliance on AI tools. Skill atrophy is one of the root causes — when you can feel that your abilities are eroding, that you reach for AI because you're no longer confident without it, that contributes directly to the identity anxiety and disengagement that defines AI fatigue.</p>
             </div>
           </div>
@@ -701,18 +706,20 @@
 
   <script src="js/main.min.js" defer></script>
   <script>
-    // FAQ accordion
+    // FAQ accordion — uses class toggling so Googlebot can crawl hidden answers
     document.querySelectorAll('.faq-question').forEach(btn => {
       btn.addEventListener('click', () => {
         const expanded = btn.getAttribute('aria-expanded') === 'true';
         document.querySelectorAll('.faq-question').forEach(b => {
           b.setAttribute('aria-expanded', 'false');
-          b.nextElementSibling.hidden = true;
+          b.nextElementSibling.classList.remove('open');
+          b.nextElementSibling.classList.add('hidden');
           b.querySelector('.faq-icon').textContent = '+';
         });
         if (!expanded) {
           btn.setAttribute('aria-expanded', 'true');
-          btn.nextElementSibling.hidden = false;
+          btn.nextElementSibling.classList.remove('hidden');
+          btn.nextElementSibling.classList.add('open');
           btn.querySelector('.faq-icon').textContent = '−';
         }
       });

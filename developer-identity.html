@@ -117,6 +117,11 @@
     ]
   }
   </script>  <!-- Google Analytics -->
+  <style>
+    .faq-answer { display: none; }
+    .faq-answer.open { display: block; }
+    .faq-item .hidden { display: none; }
+  </style>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -526,42 +531,42 @@
 
           <div class="faq-item">
       <button type="button" class="faq-question" aria-expanded="false">Why does AI make software engineers question their identity?</button>
-            <div class="faq-answer" hidden>
+            <div class="faq-answer hidden">
               <p>Software engineering identity is deeply tied to craft — the ability to solve hard problems, write elegant code, and understand systems deeply. When AI handles significant portions of that work, engineers lose the feedback loop that validates their competence and expertise. The result is a creeping sense of "am I actually doing this, or is the AI doing it for me?" — a genuine identity disruption that goes far deeper than imposter syndrome.</p>
             </div>
           </div>
 
           <div class="faq-item">
       <button type="button" class="faq-question" aria-expanded="false">Is it normal to feel like "not a real developer" when using AI tools?</button>
-            <div class="faq-answer" hidden>
+            <div class="faq-answer hidden">
               <p>Extremely normal — and important to name. Many engineers feel they're becoming "prompt engineers" rather than software engineers, and grieve the loss of the craft that made them love their work. This isn't weakness or failure to adapt; it's a healthy signal that something meaningful is being eroded. The engineers who feel this most acutely are often the ones who cared most deeply about their craft.</p>
             </div>
           </div>
 
           <div class="faq-item">
       <button type="button" class="faq-question" aria-expanded="false">How does developer identity loss differ from imposter syndrome?</button>
-            <div class="faq-answer" hidden>
+            <div class="faq-answer hidden">
               <p>Imposter syndrome is a persistent fear that you're not good enough despite evidence to the contrary. Developer identity loss is different: it's the accurate perception that your relationship with your craft is changing in ways that feel like loss. Imposter syndrome says "I don't belong here." Identity disruption says "I don't know who I am here anymore." The latter requires a different response — not reassurance, but reconstruction.</p>
             </div>
           </div>
 
           <div class="faq-item">
       <button type="button" class="faq-question" aria-expanded="false">Can you reclaim your developer identity after AI disrupts it?</button>
-            <div class="faq-answer" hidden>
+            <div class="faq-answer hidden">
               <p>Yes — but not by going back to the way things were. Reclaiming developer identity in the AI era means expanding your definition of craft to include what AI cannot replicate: judgment, context, values, collaboration, and design thinking. It means deliberately practicing no-AI work to stay connected to fundamentals. And it means finding communities where craft is still valued — where "how did you solve that?" still matters more than "how fast did you ship?"</p>
             </div>
           </div>
 
           <div class="faq-item">
       <button type="button" class="faq-question" aria-expanded="false">What is "ghost authorship" in software engineering?</button>
-            <div class="faq-answer" hidden>
+            <div class="faq-answer hidden">
               <p>Ghost authorship in software engineering is when you accept and ship AI-generated code without deeply understanding it — the code exists in the codebase, but you don't genuinely own it intellectually. You're listed as the author, but the cognitive work was done elsewhere. This erodes the fundamental satisfaction of craft (the sense of "I built this") and creates anxiety around future maintenance, review, and debugging.</p>
             </div>
           </div>
 
           <div class="faq-item">
       <button type="button" class="faq-question" aria-expanded="false">How do I talk to my manager about feeling like AI is eroding my professional identity?</button>
-            <div class="faq-answer" hidden>
+            <div class="faq-answer hidden">
               <p>Frame it in terms of sustainable performance rather than resistance to tools: "I want to share something that's affecting my engagement. I've noticed I'm feeling disconnected from my work in a way that's affecting my motivation and long-term growth. I'd like to talk about how we can structure my AI use in a way that preserves the deep skill-building that makes me effective long-term." Most thoughtful managers will hear this as a retention and quality signal, not a complaint.</p>
             </div>
           </div>
@@ -723,11 +728,11 @@
         const expanded = btn.getAttribute('aria-expanded') === 'true';
         document.querySelectorAll('.faq-question').forEach(b => {
           b.setAttribute('aria-expanded', 'false');
-          b.nextElementSibling.hidden = true;
+          b.nextElementSibling.classList.remove('open'); b.nextElementSibling.classList.add('hidden');
         });
         if (!expanded) {
           btn.setAttribute('aria-expanded', 'true');
-          btn.nextElementSibling.hidden = false;
+          btn.nextElementSibling.classList.remove('hidden'); btn.nextElementSibling.classList.add('open');
         }
       });
     });

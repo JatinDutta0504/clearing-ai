@@ -2373,3 +2373,41 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **Phase windows:** P1=108 | P2=106 | P3=69 | P4=36
 **Site:** 121 pages/~404k words
 **Next:** Phase 2 outreach (HN scheduled Fri Apr 17 9AM PDT) or Phase 4 newsletter activation
+
+### Hour 325 — 2026-04-14T09:43:00Z (Phase 4 Window 37)
+
+**Phase rotation:** P1=108 ✅ | P2=107 ✅ | P3=69 🟡 | **P4=37 🔴** (most under-indexed — this window focused entirely on Phase 4)
+
+**Built:** Dispatch #17 — "The Middleman Problem" + HN Launch Week Subscriber Growth Package
+
+**Dispatch #17 theme:** Ghost authorship — "You shipped the code. Your name is on it. But somewhere between the prompt and the merge, the authorship got... thin." 63% of 2,000+ quiz takers reported this. Opening anecdote: feeling like a translator in a conversation happening *through* you. Core tactic: Explanation Requirement ("I added this because..."). Quiz data throughout.
+
+**HN subscriber growth assets built:**
+- Cassidoo follow-up email (pre-HN launch Friday)
+- Press outreach templates (TechCrunch tip line, The Verge tips, Stack Overflow Blog)
+- 5-touch email sequence for new HN subscribers (Day 0: Dispatch #17, Day 3: curated recovery, Day 7: Explanation Requirement deep-dive, Day 14: quiz reminder, Day 21: one-month check-in)
+- HN launch banner code for index.html (commented, ready to uncomment at submission)
+- Reddit engager → subscriber conversion strategy
+
+**Phase 4 progress:**
+- ✅ Dispatch #17 drafted ("The Middleman Problem" — strongest HN resonance yet)
+- ✅ HN launch prep assets complete
+- ✅ Press outreach templates ready
+- ✅ Cassidoo follow-up drafted
+- ⏳ Formspree setup (Sunny action, 5 min — blocks automated email capture)
+
+**Phase distribution:**
+- P1: 108 ✅ (content foundation: 121 pages/~396k words)
+- P2: 107 ✅ (outreach active: 256 Reddit comments, 5 Twitter threads, HN Fri)
+- P3: 69 🟡 (needs 2-3 windows in next 5)
+- P4: 36→37 🔴 (most under-indexed, newsletter 0 subscribers — Formspree blocking)
+
+**Site stats:** 121 pages | ~396k words | 9 interactive features
+**HN:** Fri Apr 17 9AM PDT (3 days away)
+**Newsletter subscribers:** 0 (Formspree blocking — Sunny action needed)
+
+**~1,200 words drafted** (Dispatch #17 + outreach assets)
+
+**Commit:** `hour-325-p4-dispatch17-hn-prep`
+
+**Next:** Hour 326 — Phase 3 technical SEO (quiz-results tier pages LCP audit) OR Phase 2 Reddit engagement monitoring OR Phase 1 thin page expansion

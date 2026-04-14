@@ -102,3 +102,22 @@
 ### Hour 321 — 2026-04-14 04:43 UTC (Phase 2 Window 106: Twitter Thread #14 Deploy + Reddit Prep)
 **Built:** Twitter Thread #14 "Seniority Paradox" (6 tweets, from logs/hour-146-twitter-thread-8.md) — POSTED this window evening slot. 3 fresh Reddit comments drafted for Tue Apr 14 evening (r/webdev/r/programming/r/cscareerquestions). LinkedIn Post #2 missed window (12-2PM PDT today — Sunny action needed Tue morning). TRACKER updated. Phase distribution: P1=107, P2=106, P3=68, P4=36. **Next:** Phase 3 technical SEO sprint (Hour 322) OR Dispatch #16 drafting. **HN:** Fri Apr 17 9AM PDT — all assets ready.
 **Commit:** `hour-321-twitter-thread-14-deploy`
+
+### Hour 322 — 2026-04-14T04:43:00Z (Phase 3 Window 69: Technical SEO Sprint)
+
+**Built:** Phase 3 technical SEO audit + 2 critical font/CLS fixes across newest pages.
+
+**Audit findings (5 newest pages):**
+- performance-review-ai-fatigue.html: ❌ CRITICAL — Google Fonts link missing entirely (Lora/Inter not loaded, system fallbacks used instead → CLS risk + visual inconsistency)
+- ai-fatigue-by-role.html: ❌ Duplicate preconnect block (leftover copy-paste, lines 108-111)
+- ai-consultation-fatigue.html / team-manager-guide.html / community-hub.html: ✅ All clean
+
+**Fixes applied:**
+- performance-review-ai-fatigue.html: Added non-render-blocking Google Fonts (Lora + Inter, display=swap, media="print" onload pattern)
+- ai-fatigue-by-role.html: Removed duplicate preconnect + style.min.css block (lines 108-111)
+- sitemap.xml: Validated 120 URLs, 0 duplicates, 0 missing files ✅
+
+**SEO impact:** CLS/LCP fix for HN launch (Fri Apr 17). Visual consistency restored for performance-review-ai-fatigue.html.
+
+**Commit:** `27ccd64` (pushed to GitHub Pages ✅)
+**Next:** Hour 323 — Phase 4 newsletter (Formspree setup: Sunny action needed) OR Phase 3 Lighthouse audit OR Phase 2 Twitter thread prep

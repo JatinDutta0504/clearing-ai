@@ -2482,3 +2482,48 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **~4,800 words added**
 **Commit:** `9a7e9f3` (pushed)
 **Next:** Formspree setup (Sunny action) OR HN pre-flight Fri OR Phase 2 fresh Reddit comments
+
+### Hour 336 — 2026-04-14 23:44 UTC (Tue Apr 14 4:44 PM PDT)
+**Built:** `ai-architecture-fatigue.html` (~4,055 words) — Pillar 1 Understand page on AI architecture fatigue for senior/staff ICs
+**Page structure:** What architectural thinking is, why AI generates plausible-but-dangerous architecture (4 cards), 5 fatigue patterns, what engineers are losing (expertise reversal effect), 7-dimension AI vs human architecture comparison table, 5-step recovery path, team norms, deeper reflection, FAQ accordion (6 Q&As), continue grid
+**Schema:** Article + FAQPage (6 Q&As) + BreadcrumbList
+**Internal links:** cognitive-load, skill-atrophy, senior-identity, recovery, research, developer-identity, attention-residue, flow-state
+**Nav/footer:** Understand dropdown + footer on all 123 existing pages
+**sitemap.xml:** 124 URLs (added ai-architecture-fatigue.html)
+**sitemap.html:** Updated to 124 pages/~408k words
+**Phase 2 assets:** 6 fresh Reddit comments for Tue evening deploy (r/programming, r/cscareerquestions, r/ExperiencedDevs, r/webdev, r/AskProgramming, r/devops), LinkedIn Post #2 missed Mon morning — deploy today or Wed
+**Commit:** `7748611`
+**Next:** LinkedIn Post #2 deploy (Sunny action), Reddit deploy tonight, HN Fri Apr 17 pre-flight, Formspree setup (Sunny action)
+
+---
+
+### Hour 337 — 2026-04-15T00:44 UTC (Phase 2 Window 111: Pre-HN Outreach Sprint)
+
+**Built:** `ai-debugging-fatigue.html` (~3,800 words) + full HN-week outreach package
+
+**ai-debugging-fatigue.html structure:**
+- What debugging actually is (4 cognitive phases: recognize/isolate/hypothesize/verify)
+- How AI collapses all 4 phases (skip the cognitive work → skip the model update)
+- Skill erosion timeline (month-by-month from honeymoon to 2 AM problem)
+- 7-sign interactive self-assessment checklist
+- The explanation requirement (preserve learning while using AI)
+- 5-step no-AI debugging rebuild practice
+- FAQ accordion (6 Q&As)
+- Explore grid (6 cards)
+
+**Schema:** Article + FAQPage (6 Q&As) + BreadcrumbList
+
+**Internal links:** skill-atrophy.html, cognitive-load.html, recovery.html, developer-identity.html, compare.html, ai-consultation-fatigue.html
+
+**Nav/footer:** Updated on 27 navs + 41 footers. sitemap.xml: 125 URLs.
+
+**HN-week outreach package (at `logs/hour-337-2026-04-15-0044-phase2-hn-prep-reddit-twitter.md`):**
+- 6 fresh Reddit comments for Thu Apr 17 evening deploy (r/programming, r/cscareerquestions, r/ExperiencedDevs, r/webdev, r/AskProgramming, r/devops)
+- Twitter Thread #16 READY (HN day deploy Fri Apr 17 10-11 AM PDT)
+- Cassidoo Follow-up #3 drafted (send Thu Apr 16 AM)
+
+**Phase windows:** P1=111 ✅ | P2=111 ✅ | P3=72 🟡 | P4=39 🔴
+
+**~3,800 words added | Commit:** `8f2bc20`
+
+**Next:** Hour 338 — Phase 3 Lighthouse + Dispatch #20 pre-HN

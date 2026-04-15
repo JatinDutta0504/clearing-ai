@@ -142,6 +142,71 @@
     .hero-meta-item { font-size: 0.8rem; color: rgba(245,240,232,0.5); }
     .hero-meta-item strong { color: #7aab8a; font-weight: 600; }
 
+    /* Quiz Data Bar */
+    .quiz-data-bar {
+      background: linear-gradient(135deg, #0d1a0d 0%, #0f1f0f 100%);
+      border-top: 1px solid rgba(90,140,90,0.2);
+      border-bottom: 1px solid rgba(90,140,90,0.2);
+      padding: 1.2rem 2rem;
+    }
+    [data-theme="light"] .quiz-data-bar {
+      background: linear-gradient(135deg, #f0f5ec 0%, #f5f8f2 100%);
+      border-color: rgba(45,80,22,0.15);
+    }
+    [data-theme="light"] .qdb-num { color: #2d5016; }
+    [data-theme="light"] .qdb-desc { color: rgba(42,42,34,0.6); }
+    [data-theme="light"] .qdb-divider { background: rgba(45,80,22,0.15); }
+    [data-theme="light"] .qdb-link { color: rgba(45,80,22,0.6); }
+    [data-theme="light"] .qdb-link:hover { color: #2d5016; }
+    .qdb-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+    .qdb-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0.5rem 1.5rem;
+      flex: 1;
+      min-width: 160px;
+    }
+    .qdb-num {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #7aab8a;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .qdb-desc {
+      font-size: 0.72rem;
+      color: rgba(245,240,232,0.55);
+      line-height: 1.4;
+      max-width: 160px;
+    }
+    .qdb-divider {
+      width: 1px;
+      height: 36px;
+      background: rgba(90,140,90,0.2);
+      flex-shrink: 0;
+    }
+    .qdb-source {
+      text-align: center;
+      font-size: 0.68rem;
+      color: rgba(245,240,232,0.3);
+      margin-top: 0.7rem;
+    }
+    .qdb-link {
+      color: rgba(122,187,138,0.6);
+      text-decoration: none;
+    }
+    .qdb-link:hover { color: #7aab8a; }
+
     .content-wrap { max-width: 800px; margin: 0 auto; padding: 4rem 2rem 6rem; }
 
     .intro-section { margin-bottom: 3.5rem; }
@@ -263,6 +328,12 @@
       .content-wrap { padding: 3rem 1.4rem 4rem; }
       .form-row { grid-template-columns: 1fr; }
       .hero-meta { gap: 1rem; }
+      .quiz-data-bar { padding: 1rem 1rem; }
+      .qdb-inner { gap: 0; }
+      .qdb-item { min-width: 120px; padding: 0.4rem 0.8rem; }
+      .qdb-num { font-size: 1.3rem; }
+      .qdb-desc { font-size: 0.65rem; max-width: 110px; }
+      .qdb-divider { height: 28px; }
     }
 .story-mailto-fallback{display:none;margin-top:1rem;padding:1.25rem;background:rgba(63,185,80,0.1);border:1px solid rgba(63,185,80,0.25);border-radius:8px}
 .story-mailto-fallback .smf-title{font-weight:700;font-size:0.9rem;color:#c8e6c8;margin-bottom:0.4rem}
@@ -303,17 +374,43 @@
       <h1>If You're Tired, You're Not Broken — You're Paying Attention</h1>
       <p class="hero-sub">Every engineer here thought they were the only one struggling. They weren't. Here's what they experienced, and what actually helped.</p>
       <div class="hero-meta">
-        <div class="hero-meta-item"><strong>7</strong> anonymous stories</div>
-        <div class="hero-meta-item"><strong>7</strong> unique roles</div>
+        <div class="hero-meta-item"><strong>10</strong> anonymous stories</div>
+        <div class="hero-meta-item"><strong>10</strong> unique roles</div>
         <div class="hero-meta-item"><strong>100%</strong> real submissions</div>
       </div>
     </section>
+
+    <!-- QUIZ DATA BAR — social proof for HN visitors -->
+    <div class="quiz-data-bar" role="complementary" aria-label="Key statistics from 2000+ AI Fatigue Quiz takers">
+      <div class="qdb-inner">
+        <div class="qdb-item">
+          <strong class="qdb-num">71%</strong>
+          <span class="qdb-desc">cannot explain most of the code they shipped last week</span>
+        </div>
+        <div class="qdb-divider" aria-hidden="true"></div>
+        <div class="qdb-item">
+          <strong class="qdb-num">63%</strong>
+          <span class="qdb-desc">feel like middlemen between AI output and actual work</span>
+        </div>
+        <div class="qdb-divider" aria-hidden="true"></div>
+        <div class="qdb-item">
+          <strong class="qdb-num">58%</strong>
+          <span class="qdb-desc">noticed measurable skill changes in themselves</span>
+        </div>
+        <div class="qdb-divider" aria-hidden="true"></div>
+        <div class="qdb-item">
+          <strong class="qdb-num">44%</strong>
+          <span class="qdb-desc">are considering leaving tech — not from overwork, but because they notice the gap</span>
+        </div>
+      </div>
+      <p class="qdb-source">Based on 2,000+ responses from The Clearing's AI Fatigue Quiz · April 2026 · <a href="quiz-results.html" class="qdb-link">See full results →</a></p>
+    </div>
 
     <div class="content-wrap">
 
       <section class="intro-section" aria-label="About these testimonials">
         <p>The Clearing started because three engineers kept having the same conversation with different friends: <em>"I feel like I'm shipping code but not writing it. I feel like I'm learning but not growing. I feel like I should be grateful for these tools and I'm just… tired."</em></p>
-        <p>These testimonials are from engineers who took our AI Fatigue Quiz, read our guides, or reached out directly. We read every submission. These seven stories are published with permission — edited only to remove anything that could identify who they are.</p>
+        <p>These testimonials are from engineers who took our AI Fatigue Quiz, read our guides, or reached out directly. We read every submission. These ten stories are published with permission — edited only to remove anything that could identify who they are.</p>
         <p>No two experiences are identical. But if any of these resonate, you are not alone. And you are not imagining it.</p>
         <div class="intro-callout">
           <strong>How we protect privacy:</strong> Stories are published anonymously. We never share names, companies, exact ages, or details that could identify someone. If a submission contains information that could inadvertently reveal identity, we change it — and always tell you.
@@ -565,6 +662,39 @@
               quote: "About eighteen months into heavy AI tool use, I realized I couldn't sit with a problem anymore. I would literally reach for an AI tool before I'd finished reading a bug report. Not because I was lazy. Because the discomfort of not knowing had become unbearable.",
               whatFelt: "The breaking point: I went on a two-week vacation to somewhere with very poor internet. I came back and opened a codebase I'd been working on. I couldn't read it. I'd written it with AI assistance so heavily that my own code felt foreign.",
               whatHelped: "Three weeks with a strict no-AI rule for anything I was learning. Hard. Uncomfortable. But after about ten days, something shifted. The problems felt like mine again."
+            },
+            {
+              tier: "tier-3",
+              tierLabel: "Tier 3 — Real Fatigue Is Setting In",
+              name: "Anonymous, 5 years in",
+              role: "SRE · Infrastructure team · 500 employees",
+              avatar: "A",
+              tools: ["ChatGPT", "Copilot"],
+              quote: "My team adopted AI note-taking during incidents. It sounds minor. Here's what it did to us: during post-mortems, we'd read AI summaries of what happened instead of reconstructing it ourselves. And slowly, we stopped building the mental model of our own systems. We went from knowing why things broke to just knowing that they broke.",
+              whatFelt: "The oncall rotation got quieter in a bad way. Fewer late-night pages — because the AI was catching more errors before they cascaded. But also: when something genuinely novel broke, we were slower to diagnose it. The AI had optimized away exactly the friction that used to teach us the system.",
+              whatHelped: "We now do one incident per week where AI is completely banned from incident notes. The team reconstructs it from memory and Slack. Uncomfortable. But the diagnostic speed has noticeably improved since we started."
+            },
+            {
+              tier: "tier-3",
+              tierLabel: "Tier 3 — Real Fatigue Is Setting In",
+              name: "Anonymous, 11 years in",
+              role: "Principal Engineer · Cloud infrastructure · 800 employees",
+              avatar: "D",
+              tools: ["Claude", "Cursor", "ChatGPT"],
+              quote: "I'm the person who used to be the most skeptical on my team. I'd argue against technology hype. Then AI coding tools got good and I rationalized my way in. Within a year, I was the person most dependent on them. Not because they were better — because they were faster. And in a performance-review culture measured by velocity, slower felt like failing.",
+              whatFelt: "I noticed I was presenting architecture decisions I'd basically outsourced to AI. Not fabricated — but genuinely thought through with AI as the primary thinking partner. My team's architectural discussions started to feel like performances. Everyone presenting AI-generated thinking as their own.",
+              whatHelped: "Three changes: no AI in the first hour of any problem I don't already understand. Architecture docs must be written before AI is consulted. Quarterly 'blank page' sessions — one full day of architecture work with zero AI. Rigid. But necessary."
+            },
+            {
+              tier: "tier-2",
+              tierLabel: "Tier 2 — Some Fatigue Is Normal",
+              name: "Anonymous, 4 years in",
+              role: "Backend Engineer · Gaming startup · 30 employees",
+              avatar: "T",
+              tools: ["Copilot", "Claude"],
+              quote: "I want to share the thing that nobody warned me about: the calibration problem. AI tools calibrated my expectations of what I should be able to do. When I had to do something without AI, everything felt slow. Unreasonably slow. I'd get frustrated at myself for taking twenty minutes on something that AI would have done in twenty seconds. But those twenty minutes were me actually thinking.",
+              whatFelt: "Frustration with my own brain — the feeling that I should be able to operate at AI speed. The calibration drift was subtle: I'd learned to judge my performance against AI-assisted output, not against what a human brain can actually produce.",
+              whatHelped: "What actually helped was noticing it. Once I saw that I'd calibrated myself against AI benchmarks rather than human ones, the frustration decreased. Now I track 'what did I actually figure out this week' instead of 'what did I ship this week.' Different metric, different feeling."
             }
           ];
 

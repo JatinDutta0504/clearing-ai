@@ -171,13 +171,23 @@ strong {
   .nav-dropdown.open .dropdown-menu { display: block; }
 }
 
-/* CONTRAST FIXES */
-body { color: #e0ece0; }
-.feature-card, .resource-card, .story-card, .tip-card, .essay-section, .section { color: #d8ecd8; }
-.feature-card h2, .feature-card h3, h1, h2, h3 { color: #ffffff; }
-.stat-number, .score-number, .highlight, mark { color: #d4b483; }
-a { color: #8abd9a; }
-a:hover { color: #b0d5be; }
+/* Light mode body text (readable on cream background) */
+body { color: var(--text-primary, #2a2a22); }
+
+/* Headings in light mode — dark readable text */
+.feature-card h2, .feature-card h3, h1, h2, h3 { color: var(--text-primary, #2a2a22); }
+
+/* Dark mode contrast overrides — scoped to prevent light mode breakage */
+[data-theme="dark"] body { color: #e0ece0; }
+[data-theme="dark"] .feature-card, [data-theme="dark"] .resource-card,
+[data-theme="dark"] .story-card, [data-theme="dark"] .tip-card,
+[data-theme="dark"] .essay-section, [data-theme="dark"] .section { color: #d8ecd8; }
+[data-theme="dark"] .feature-card h2, [data-theme="dark"] .feature-card h3,
+[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3 { color: #ffffff; }
+[data-theme="dark"] .stat-number, [data-theme="dark"] .score-number,
+[data-theme="dark"] .highlight, [data-theme="dark"] mark { color: #d4b483; }
+[data-theme="dark"] a { color: #8abd9a; }
+[data-theme="dark"] a:hover { color: #b0d5be; }
 
 /* ---- Legacy .nav (kept for backward compat, no longer main layout) ---- */
 .nav {

@@ -2577,3 +2577,29 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **Commit:** `1ad50bb` (severity index + nav/footer updates)
 
 **Next:** Hour 346 — Phase 3 technical SEO pre-HN sprint OR Phase 4 community prep for HN launch
+
+### Hour 347 — 2026-04-15T14:44:00Z (Phase 4 Window 45)
+**Built:** Phase 4 owned-audience growth assets — HN in ~47 hours, Phase 4 severely under-indexed (44/95 windows)
+
+**Assets created:**
+- **Dispatch #22** — "The First Real Bug" (~900 words drafted, send Thu Apr 23). Theme: reclaiming confidence after AI fatigue — the emotional moment an engineer fixes something themselves without AI and feels like themselves again. Perfect post-HN arc: engineers discover site Fri → Dispatch #22 Thu Apr 23 gives them a week to settle. 5 sections: Marcus story (real quote), the confidence-eroding cycle, small-wins prescription, curiosity-as-recovery-signal, CTA.
+- **Twitter Thread #16** — ready to deploy Fri Apr 17 12–2 PM PDT immediately post-HN launch. Theme: "The first real bug you fixed without AI in months." 5-tweet thread: Marcus story hook → the cycle nobody talks about → small wins prescription → curiosity signal → CTA (clearing-ai.com/ai-detox-plan). Tag targets: @swyx @rauchg @dhh @pnegre @b0rk.
+- **HN countdown image** — hn-launch-countdown.jpg (1.9MB, 1200×628 Twitter card size, dark forest green aesthetic). Ready for @clearing_ai Twitter deployment Fri Apr 17 8–9 AM PDT (30–60 min before HN submission).
+
+**Phase 4 priority rationale:** HN Friday 9 AM PDT is Phase 4's best owned-audience growth opportunity. Every HN visitor who subscribes = permanent email asset. Phase 4 at 44 windows vs ~95 target — most under-indexed phase. Prioritizing P4 to close gap before Month 3.
+
+**Phase window distribution (post-this-window):**
+- P1: 111 ✅ | P2: 112 ✅ | P3: 77 🟡 | P4: 45 🔴 (severely under-indexed)
+
+**HN readiness (Fri Apr 17 9AM PDT — ~47h away):**
+- ✅ index-hn.html + hn-launch.html (HN-optimized)
+- ✅ 5 pillar pages with April 2026 perspective
+- ✅ Twitter Thread #16 ready (deploy Fri 12–2PM)
+- ✅ Dispatch #21 (Sun Apr 19) + #22 (Thu Apr 23) cadence
+- ✅ HN countdown image ready
+- ⏳ Formspree still blocking automated newsletter capture (Sunny action needed)
+
+**Site stats:** 128 pages/~412k words | Interactive features: 11
+**Commit:** `23c29fe`
+
+**Next:** Hour 348 — Reddit pre-HN push (6 fresh comments Thu-Fri evening deploy) OR Phase 3 final tech check on HN pages

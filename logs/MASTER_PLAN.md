@@ -2527,3 +2527,24 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **~3,800 words added | Commit:** `8f2bc20`
 
 **Next:** Hour 338 — Phase 3 Lighthouse + Dispatch #20 pre-HN
+
+### Hour 343 — 2026-04-15 00:44 UTC (PHASE 3 WINDOW 76: HTML HEALTH + 404 REBUILD)
+
+**Phase rotation:** Phase 3 under-indexed (76/~83 target) — THIS WINDOW
+
+**Built:** Comprehensive HTML health audit + 404.html rebuild + 2 critical bug fixes (all pre-HN).
+
+**Bugs fixed:**
+1. `404.html` — Complete rebuild (543→415 lines). Previous: broken nav (6 unclosed `<li>`), malformed `</style>` inside style block, broken footer. New: proper nav, 6-card suggestions grid, stats strip, quote block, full footer, noindex WebPage schema — now converts lost HN visitors.
+2. `newsletter-thank-you.html` — Malformed `<div class` truncated mid-tag on community explore card (broken grid rendering). Fixed.
+3. `ai-skeptic-guide.html` — Same truncated div pattern in FAQ item 3. Fixed.
+
+**Validation:** Malformed div scan on all 125 pages — 2 issues found, 2 fixed. `details` tag balance clean on all pages. sitemap.xml: 125 URLs clean. Git commit `4f89feb`.
+
+**SEO impact:** HN visitors hitting 404 pages (inevitable with 300-800 visitor spike) will now see a properly rendered, conversion-optimized page instead of broken HTML. Newsletter thank-you page (HN → subscribe → thank-you) renders correctly for new subscribers.
+
+**~360 lines fixed/added across 3 files**
+
+**Commit:** `4f89feb`
+
+**Next:** Hour 344 — Reddit fresh comments (Wed Apr 15 evening = 36h pre-HN) OR Cassidoo HN follow-up #4 OR Phase 3 Lighthouse audit on index-hn.html

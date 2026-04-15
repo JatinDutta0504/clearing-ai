@@ -2603,3 +2603,9 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **Commit:** `23c29fe`
 
 **Next:** Hour 348 — Reddit pre-HN push (6 fresh comments Thu-Fri evening deploy) OR Phase 3 final tech check on HN pages
+
+**Hour 348:** Phase 1 — Expanded ai-consultation-fatigue.html content (502→697 lines, ~3,550→5,752 words). New sections: real engineer case study (Marcus + 2,047-survey data), 8-question self-assessment quiz, quality erosion mechanism, 4-week recovery timeline. Added 3 new FAQ entries (9 total). Fixed malformed nav dropdown + footer link. Updated wordCount in JSON-LD (3600→5800). wordCount: 5,752 | lines: 697. Phase windows: P1=112, P2=112, P3=77, P4=45.
+**Site stats:** 128 pages/~415k words | Interactive features: 11
+**Commit:** `8cee7cf`
+
+**Next:** Hour 349 — Reddit pre-HN push (6 fresh comments Thu-Fri evening deploy) OR Phase 3 final tech check on HN pages

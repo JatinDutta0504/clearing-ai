@@ -190,3 +190,23 @@
 
 ### Hour 345 — 2026-04-15T11:44:00Z (Phase 4 Window 43: HN Launch Day Asset)
 **Phase 4:** Built hn-launch.html — dedicated HN launch day social sharing hub (820 lines, ~3k words). Features: live countdown timer to Fri Apr 17 9AM PDT, 4 share channels (Twitter/HN/email/Reddit) with pre-written copy blocks and one-click copy, 3 real anonymous testimonial quotes, story submission form (mailto), stats bar (2k+ quiz takers, 63% middleman, 58% skill decline, 127 pages), Reddit community cards. Dark/light mode, WebPage+BreadcrumbList schema, canonical, OG+Twitter meta, mobile responsive, ARIA accessible. Nav+footer added to all 126 pages. sitemap.xml updated (129 URLs). HTML validated (30146 chars, 360 tags, 0 errors). Git e5d6d1b pushed. HN in ~49h. P4=42->43. Site: 128 pages/~412k words, 11 interactive features.
+
+### Hour 350 — 2026-04-15 17:44 UTC (Phase 1 Window 112: coding-ai-tools-comparison.html Expansion)
+**Built:** Expanded `coding-ai-tools-comparison.html` (4,370 words, 11 sections, ~1,600 words added)
+**New sections:** "Why Your Tool Choice Matters" intro (~300w), methodology note (~250w), "How to Use High-Fatigue Tools Without Destroying Your Skills" (5 tactics: Boilerplate Boundary / Explanation Requirement / Protected No-AI Blocks / Monthly Audit / Context Maintenance Practice, ~700w), "What to Read Next" internal links table (8 strategic links to skill-atrophy, cognitive-load, attention-residue, recovery, productivity-paradox, imposter-syndrome-vs-ai-fatigue, daily-ai-boundaries, ai-detox-plan)
+**SEO:** Pillar 3 tools page now at 4,370 words (meets 4k target). High-value commercial comparison keywords. FAQPage + BreadcrumbList + Article schema. sitemap.xml already has URL. HN-ready.
+**~1,600 words added**
+**Commit:** `c63bb22`
+**Next:** Phase 2 Reddit pre-HN engagement — 6 fresh comments for Thu Apr 16 evening deploy
+
+---
+
+### Hour 351 — 2026-04-15 18:44 UTC (Phase 3 Window 78: Pre-HN Accessibility Sprint)
+**Built:** Pre-HN technical accessibility audit + 3 fixes on recovery.html (key HN conversion page)
+**Fixes:** Heading hierarchy (h4→h3, 6 elements fixed), contrast scoping to dark mode only (css/style.css), link underline (1 inline-styled link)
+**Lighthouse:** index-hn.html: 88 perf/94 a11y | recovery.html: 73 perf/93 a11y (was 92, +1 from fix)
+**Core Web Vitals:** LCP 1.2s desktop ✅ | CLS 0.003 ✅ | TBT 0ms ✅ | 0 render-blocking ✅
+**Git push:** Hour 350 commit c63bb22 pushed + Hour 351 commits 5764963 pushed
+**Phase distribution:** P1=112 | P2=113 | P3=78 ✅ | P4=45
+**Commit:** `5764963`
+**Next:** Phase 4 newsletter (Formspree still blocking), Twitter Thread #16 ready for post-HN deploy

@@ -2609,3 +2609,12 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **Commit:** `8cee7cf`
 
 **Next:** Hour 349 — Reddit pre-HN push (6 fresh comments Thu-Fri evening deploy) OR Phase 3 final tech check on HN pages
+
+### Hour 349 — 2026-04-15 08:44 PDT (Phase 2 Window 113: LinkedIn Post #8 Draft)
+**Built:** LinkedIn Post #8 — "The Craft Problem" (~550 words, craft identity angle). Deploy Fri Apr 17 7-9AM PDT (morning of HN launch — amplifies HN day). Full draft at logs/hour-349-2026-04-15-1644-phase2-linkedin-post8.md.
+**LinkedIn pipeline:** Posts #1-3 posted ✅ | Post #4 (Fri Apr 18) | Post #5 (Mon Apr 21) | Post #6 (Wed Apr 23) | Post #7 (Fri Apr 25) | Post #8 (Fri Apr 17 HN day) ✅ DRAFTED
+**Reddit pre-HN batch:** 6 comments from Hour 339 ready for Thu-Fri evening deploy (r/programming, r/cscareerquestions, r/ExperiencedDevs, r/webdev, r/AskProgramming, r/devops)
+**HN countdown:** ~40 hours (Fri Apr 17 9AM PDT)
+**Phase distribution:** P1=112 ✅ | P2=113 🟡 | P3=77 | P4=45
+**Commit:** 08aec4a
+**Next:** Hour 350 — Phase 2 Reddit pre-HN comments OR Phase 3 final tech check

@@ -2618,3 +2618,17 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **Phase distribution:** P1=112 ✅ | P2=113 🟡 | P3=77 | P4=45
 **Commit:** 08aec4a
 **Next:** Hour 350 — Phase 2 Reddit pre-HN comments OR Phase 3 final tech check
+
+### Hour 352 — 2026-04-15 12:44 PDT (Phase 1 Window 113)
+**Built:** `the-estimation-problem.html` (~3,400 words) — "The Estimation Problem: Why AI Makes You Terrible at Guessing How Long Things Take"
+**Page structure:** What estimation actually is (5 components), three ways AI breaks calibration (friction loss, feedback signal scrambled, reference class changes), 6 signs of calibration drift (card grid), why seniors are most at risk, organizational cost table (5-row), research backing (Klein RPD, skill decay, Gloria Mark), how to test your calibration, 6 recovery practices (card grid), FAQ accordion (6 Q&As), explore grid (6 cards).
+**Schema:** Article + FAQPage (6 Q&As) + BreadcrumbList
+**Internal links:** cognitive-load, skill-atrophy, productivity-theater, developer-identity, recovery, quiz-results
+**Nav/footer:** Added to 52 existing pages' footer Understand/Research dropdown; explore grid links on new page
+**sitemap.xml:** 129 URLs
+**HN resonance:** Estimation is a universal engineer pain point; counterintuitive framing (shipping faster = worse at estimating); senior engineers most at risk; organizational cost table = share-worthy
+**Commit:** `7347b46`
+**Next:** Phase 2 Reddit/Twitter deploy pre-HN (Fri Apr 17 9AM PDT = ~46h), Phase 4 newsletter setup (Formspree still blocking)
+
+---
+

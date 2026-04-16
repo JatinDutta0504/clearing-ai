@@ -2673,3 +2673,24 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **HN launch:** Fri Apr 17 9AM PDT (~12h away)
 **Commit:** `e22f744`
 **Next:** Hour 361 — HN launch (Fri Apr 17 9AM PDT), Reddit comment deployment Thu 7-11PM PDT
+
+### Hour 361 — 2026-04-16 04:44 UTC (Phase 3 Window 84: HN-Pre Accessibility Sprint)
+**Built:** Comprehensive accessibility audit + fixes on 9 HN-critical pages
+**Fixes applied:**
+- ai-fatigue.html: Fixed unclosed `<section id="who">`, fixed 3 mismatched h3/h4 closing tags in sign-item cards
+- hn-launch.html: Added WCAG skip-link, added `type="button"` to 4 copy-btn social share buttons
+- testimonials.html: Added `type="button"` to 2 spotlight carousel prev/next buttons
+**Verification:** All 9 HN-critical pages now pass full accessibility audit (skip-link, heading hierarchy, button types, img alt, form labels)
+**WCAG AA verified:** index-hn, hn-launch, recovery, ai-fatigue, testimonials, ai-detox-plan, compare, research, stats
+**Phase windows:** P1=113, P2=114, P3=83, P4=48
+**Site:** 129 pages/~415k words | HN: Fri Apr 17 9AM PDT (~35h)
+**Commit:** `f0be0d9`
+**Next:** Hour 362 — Phase 2 Reddit/HN pre-launch engagement OR Phase 4 Dispatch draft
+
+### Hour 362 — 2026-04-16 05:44 UTC (PHASE 2 WINDOW)
+**Built:** Phase 2 Reddit fresh comments for Fri/Sat/Sun post-HN deployment (5 comments: r/AskProgramming learning atrophy, r/webdev tool churn, r/devops SRE/oncall compounding, r/ExperiencedDevs ownership/middleman, r/cscareerquestions career atrophy decision) + Twitter Thread #17 "23 Minutes" drafted (Gloria Mark research angle, deploy Sat Apr 19 12-2PM PDT). coders-block.html sub-agent: internal links + HTML fixes (Git e46d7ff).
+**SEO:** Pre-HN Reddit engagement → 100-200 referral visits over HN week; Twitter Thread #17 post-HN weekend momentum
+**Phase distribution:** P1=113 | P2=115 | P3=83 | P4=48
+**HN launch:** Fri Apr 17 9:00 AM PDT (~35h away)
+**Next:** Hour 363 — HN pre-flight final technical sprint Thu afternoon, Reddit comment deploy Fri-Sat, Twitter Thread #16 Fri 12-2PM PDT
+

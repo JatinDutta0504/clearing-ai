@@ -874,6 +874,7 @@
         <input type="hidden" name="_next" value="https://clearing-ai.com/newsletter-thank-you" />
 
         <button type="submit" class="signup-btn">Join the letter →</button>
+        <p style="text-align:center; margin: 0.6rem 0 0; font-size:0.78rem; color:rgba(232,237,229,0.38);"><a href="mailto:hello@clearing-ai.com?subject=Subscribe%20to%20The%20Dispatch%20%F0%9F%8C%BF&body=Hi%2C%20please%20subscribe%20me%20to%20The%20Dispatch.%0A%0AEmail%3A%20%0A%0ARole%20(optional)%3A%20" style="color:rgba(232,237,229,0.45); text-decoration:underline;">Or email us directly →</a> — no form needed</p>
         <p class="form-note">
           By joining you agree to receive the weekly Dispatch email. Unsubscribe any time — one click,
           no dark patterns. We use <a href="https://formspree.io" target="_blank" rel="noopener noreferrer" style="color: rgba(232,237,229,0.55); text-decoration: underline;">Formspree</a> to process submissions.
@@ -881,12 +882,13 @@
       </form>
 
       <!-- Mailto fallback — shown when Formspree is not yet configured -->
-      <div class="mailto-fallback" id="mailto-fallback" style="display:none; margin-top: 1.5rem; padding: 1.5rem; background: rgba(232,237,229,0.08); border: 1px solid rgba(232,237,229,0.2); border-radius: 10px;">
-        <p style="font-family: var(--font-serif); color: rgba(232,237,229,0.85); margin: 0 0 0.6rem; font-size: 0.95rem; font-weight: 600;">📬 Form not configured yet — subscribe via email instead:</p>
-        <p style="font-family: var(--font-serif); color: rgba(232,237,229,0.6); margin: 0 0 1rem; font-size: 0.85rem;">Click the button below — it opens your email app with everything pre-filled. Takes 5 seconds.</p>
-        <a id="mailto-link" href="#" style="display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(139,195,105,0.15); color: rgba(139,195,105,0.95); padding: 0.7rem 1.2rem; border-radius: 6px; text-decoration: none; font-size: 0.88rem; font-family: var(--font-mono); border: 1px solid rgba(139,195,105,0.3); transition: background 0.2s;" onmouseover="this.style.background='rgba(139,195,105,0.25)'" onmouseout="this.style.background='rgba(139,195,105,0.15)'">
-          ✉️ Subscribe via email client
+      <div class="mailto-fallback" id="mailto-fallback" style="display:none; margin-top: 1.5rem; padding: 1.5rem; background: rgba(74,124,89,0.12); border: 1px solid rgba(74,124,89,0.35); border-radius: 10px;">
+        <p style="font-family: var(--font-serif); color: rgba(232,237,229,0.85); margin: 0 0 0.6rem; font-size: 0.95rem; font-weight: 600;">📬 Your email app opened — you're one step away:</p>
+        <p style="font-family: var(--font-serif); color: rgba(232,237,229,0.6); margin: 0 0 1rem; font-size: 0.85rem;">Click the button below, then hit <strong>Send</strong> in your email app. We'll add you to the list manually and you'll get your first Dispatch this Sunday.</p>
+        <a id="mailto-link" href="#" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(74,124,89,0.3); color: var(--forest-pale); padding: 0.7rem 1.2rem; border-radius: 6px; text-decoration: none; font-size: 0.88rem; font-family: var(--font-mono); border: 1px solid rgba(74,124,89,0.5); transition: background 0.2s;" onmouseover="this.style.background='rgba(74,124,89,0.45)'" onmouseout="this.style.background='rgba(74,124,89,0.3)'">
+          ✉️ Open email to subscribe
         </a>
+        <p style="font-family: var(--font-sans); font-size: 0.75rem; color: rgba(232,237,229,0.35); margin: 0.75rem 0 0; line-height: 1.5;">Or copy the address below and send manually: <strong style="color:rgba(232,237,229,0.5);font-family:var(--font-mono);font-size:0.73rem;">hello@clearing-ai.com</strong> — Subject: <em>Subscribe to The Dispatch 🌿</em></p>
       </div>
 
       <div class="signup-success" id="signup-success" role="status" aria-live="polite">
@@ -1220,10 +1222,11 @@
           if (mailtoEl && mailtoAnchor) {
             mailtoAnchor.href = mailtoLink;
             mailtoEl.style.display = 'block';
+            mailtoEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
           }
           form.style.display = 'none';
-          success.style.display = 'block';
-          success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          // Don't show the standard success div for mailto fallback —
+          // the fallback div IS the confirmation UX in this case
           return;
         }
 

@@ -2732,3 +2732,12 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **Built:** 2 stat card images for HN/Reddit comments (hn-stat-card-1.jpg: 71% middlemen stat, hn-stat-card-2.jpg: 63% strangers stat, 354KB+347KB, 1200×675, dark green brand). Full pre-launch checklist (HN submit checklist/Twitter Thread #19/Cassidoo Follow-up #4/Reddit comment packages 1-3/stat cards). All HN-critical pages verified technically ready (LCP 1949ms/canonical/schema/OG/Twitter). Git push 1148862. **BLOCKERS:** Formspree setup (Sunny action, 5min), Cassidoo Follow-up #4 send Fri Apr 17 8AM PDT. **⏰ HN LAUNCH: Fri Apr 17 9AM PDT (~24h). Site: 129/~415k words.**
 **Commit:** 1148862
 **Next:** Hour 372 — HN monitoring OR Twitter Thread #19 deploy OR Phase 4 Formspree activation
+
+### Hour 373 — 2026-04-16 10:44 PDT (Phase 3 Window 13: HN-Critical SEO)
+**Built:** Technical SEO audit + fixes on 5 HN-critical pages.
+**Fixes:** (1) the-middleman-problem.html — title 71→53 chars, description 161→87 chars. (2) startup-engineer-ai-fatigue.html — title 69→60 chars, description 187→125 chars. All 5 HN-critical pages verified clean (canonical, og:image, twitter:card, title ≤60, desc ≤160). Git commit b112ac2 pushed.
+**SEO impact:** HN launch ready — all critical pages pass Google SERP snippet standards.
+**~0 new words** (technical optimization)
+**Commit:** `b112ac2`
+**Next:** Hour 374 — Reddit pre-HN comment deploy OR Cassidoo Follow-up #4 final check OR Phase 1 content
+

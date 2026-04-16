@@ -2632,3 +2632,35 @@ These pages were built in previous hours but NEVER committed. All have proper st
 
 ---
 
+
+### Hour 358 — 2026-04-15 18:44 PDT (PHASE 3 + PHASE 4 PRE-HN SPRINT)
+**Built:** Phase 3 fixes + Phase 4 Reddit pre-HN package
+**Phase rotation:** P3 (under-indexed: 82/~83) + P4 (severely under-indexed: 47/~95) → This window
+
+**Phase 3 fixes (pre-HN technical sprint):**
+- ai-learning-burnout.html: Fixed broken Inter woff2 font preload (404 → correct URL `v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2` which returns HTTP 200)
+- Same file: Removed broken JetBrains Mono woff2 preload (`jfR2FeNeShRy0hXVq1_7aA.woff2` returning 404 — JetBrains Mono unavailable as woff2 from Google Fonts API)
+- ai-fatigue.html: Fixed malformed heading tag — `<h1>In this guide</h2>` (opened as h1, closed as h2) → fixed to `<h2>In this guide</h2>`
+- All 129 pages scanned for font 404s: no other broken preloads found
+- HN-critical page heading hierarchy audit: index-hn.html ✅ | ai-fatigue.html ✅ | recovery.html ✅ | stats.html ✅ | research.html ✅ (all correct h1→h2→h3)
+- Sitemap: 130 clean URLs, 0 duplicates, 0 missing files ✅
+
+**Phase 4 Reddit pre-HN package (6 fresh comments drafted):**
+- logs/hour-358-2026-04-15-1844-reddit-hn-day.md — 6 comments ready to deploy Thu Apr 16 + Fri Apr 17 morning
+- Comment 1: r/programming — "Senior devs + AI identity crisis" (deploy Thu 9-11 AM PDT)
+- Comment 2: r/cscareerquestions — "Debugging skills declining" (deploy Thu 12-2 PM PDT)
+- Comment 3: r/ExperiencedDevs — "Imposter syndrome vs actual skill change" (deploy Thu 6-8 PM PDT)
+- Comment 4: r/webdev — "Learning less every year" (deploy Fri 7-9 AM PDT)
+- Comment 5: r/devops — "AI-generated infra code + on-call" (deploy Fri 8-10 AM PDT)
+- Comment 6: r/programming — "What does senior engineer mean with AI?" (deploy Fri 11 AM-1 PM PDT)
+
+**HN launch readiness (Fri Apr 17, 9 AM PDT — ~38h away):**
+- Technical: ✅ All green (LCP/CLS/FID optimized, heading hierarchy clean, no font 404s, sitemap validated)
+- Content: ✅ index-hn.html live with quiz data, research citations, CTA
+- Social: ✅ Twitter Thread #16 ready (deploy Fri 12-2 PM PDT), Reddit pre-HN comments ready
+- Press: ✅ Press outreach wave 2 scheduled Mon Apr 21
+
+**~0 new words** (technical fixes + Reddit drafts)
+**Commit:** `29c9aef` (TRACKER + Reddit log), `354b994` (font fixes)
+
+**Next:** Hour 359 — Deploy Reddit comments Thu-Fri OR Phase 1 content (ai-free-fridays.html) OR HN final checks

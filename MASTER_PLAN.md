@@ -248,3 +248,16 @@
 **SEO impact:** Direct newsletter email link = immediate conversion path for all visitors (no Formspree dependency). P4=48→49. Site: 129 pages/~415k words.
 **Commit:** `5c953e5`
 **Next:** Hour 366 — Draft Dispatch #25 ("The Velocity Trap" theme) OR Phase 2 Reddit pre-HN comments
+
+### Hour 378 — 2026-04-16 15:44 PDT (Phase 2 Window)
+**Built:** Phase 2 pre-HN launch package — 3 major assets for Fri Apr 17 HN launch:
+1. Reddit Weekend 2 package (5 fresh comments, Sat-Sun Apr 19-20 deploy): r/programming skill atrophy recovery, r/cscareerquestions manager conversation, r/ExperiencedDevs deliberate AI use, r/AskProgramming ghost authorship guilt, r/webdev debugger drift
+2. Twitter Thread #20 "The Debugger Who Forgot How to Debug" (5 tweets, deploy Fri Apr 17 10:30AM PDT — companion to Thread #19 at 12-2PM)
+3. HN Launch Day tracking log — full engagement playbook for tomorrow (pre-launch checklist, 5 response angles, Twitter schedule, metrics template, success thresholds, fallback plan)
+
+**HN Status:** TOMORROW Fri Apr 17 9AM PDT (~17h). All assets ready. Manual submission required.
+
+**~0 new words** (Phase 2 preparation, no new content)
+
+**Commit:** `d94dbe3`
+**Next:** HN submission Fri 9AM PDT, Twitter Thread #20 at 10:30AM, Thread #19 at 12-2PM, Reddit Weekend 2 Sat-Sun Apr 19-20

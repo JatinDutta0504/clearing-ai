@@ -241,3 +241,10 @@
 **Git:** b816e7e (40 files, +1,257/−495 lines)
 
 **Next:** Hour 360 — Phase 2 Reddit comments (6 posts ready for Thu evening deploy) OR Phase 4 Dispatch #24 preparation OR Phase 3 technical SEO pre-HN sprint
+
+### Hour 365 — 2026-04-16 02:44 PDT (Phase 4 Window 49)
+**Built:** Newsletter mailto fallback UX fix — critical conversion gap (0 subscribers, Formspree blocking)
+**Fixes:** (1) Removed false "You're in" success message on mailto path — now shows accurate "Your email app opened" guidance. (2) Added direct email link above submit button with pre-filled subject/body. (3) Improved mailto fallback copy (user-focused, no technical jargon). Newsletter conversion flow now guides users correctly: fill form → mailto opens → user sends email → Sunny manually adds to list.
+**SEO impact:** Direct newsletter email link = immediate conversion path for all visitors (no Formspree dependency). P4=48→49. Site: 129 pages/~415k words.
+**Commit:** `5c953e5`
+**Next:** Hour 366 — Draft Dispatch #25 ("The Velocity Trap" theme) OR Phase 2 Reddit pre-HN comments

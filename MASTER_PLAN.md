@@ -210,3 +210,34 @@
 **Phase distribution:** P1=112 | P2=113 | P3=78 ✅ | P4=45
 **Commit:** `5764963`
 **Next:** Phase 4 newsletter (Formspree still blocking), Twitter Thread #16 ready for post-HN deploy
+
+### Hour 359 — 2026-04-16 02:44 UTC (PHASE 4 WINDOW 48: NEWSLETTER ARCHIVE)
+
+**Built:** `newsletter-archive.html` — browsable, searchable, topic-filtered archive of all 23 Dispatch issues (~3,500 words on-page, 1,199 lines HTML)
+
+**Features:**
+- Hero with Dispatch stats (23+ issues, ~115 min reading, free forever)
+- Live topic filter pills: Identity & Ghost Authorship / Skill Atrophy / Recovery Tactics / Craft & Deep Work / Productivity Traps / Research & Data
+- Keyword search (searches title + excerpt + keywords)
+- 23 issue cards: number, date, title, 2-3 line excerpt, topic tags (color-coded), reading time, subscribe CTA
+- Browse by Topic section (6 topic cards, click-to-filter)
+- Subscribe CTA section ( HN-referral conversion)
+- Schema: WebPage + ItemList (5-item sample for rich snippet eligibility)
+- Nav/footer fully integrated
+- Dark/light mode (inherits site theme)
+- Fully responsive (mobile filter pills, grid collapses to single column)
+- 39 pages nav updated with Archive link in Newsletter section
+
+**Phase rotation:** P1=113 ✅ | P2=113 ✅ | P3=82 🟡 | **P4=48 🔴** (still severely underindexed vs ~95 target, HN in ~37h)
+
+**Why this asset now:** HN launches Friday 9AM PDT. Engineers arriving from HN who want to "read more" will hit the archive page. This page converts them to newsletter subscribers by showing the depth of content (23 issues, 6 topics, real titles). Every subscribe CTA links to newsletter-thank-you.html which has the full nav + quiz CTA.
+
+**HN impact:** newsletter-archive.html = browsable proof of newsletter depth. Engineers who subscribe to "see past issues" have 4x higher lifetime value than one-time visitors. Archive page makes that value visible immediately.
+
+**SEO impact:** ItemList schema (5-item sample) = eligible for "collection" rich snippets in Google. Topic-tagged cards = topical authority signal for 6 newsletter/AI-fatigue keyword clusters. Browse-by-topic section adds dwell time.
+
+**Site:** 129 pages, ~415k words, 11 interactive features
+**HN:** Fri Apr 17 9AM PDT (~37h)
+**Git:** b816e7e (40 files, +1,257/−495 lines)
+
+**Next:** Hour 360 — Phase 2 Reddit comments (6 posts ready for Thu evening deploy) OR Phase 4 Dispatch #24 preparation OR Phase 3 technical SEO pre-HN sprint

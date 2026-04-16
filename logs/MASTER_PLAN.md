@@ -2664,3 +2664,12 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **Commit:** `29c9aef` (TRACKER + Reddit log), `354b994` (font fixes)
 
 **Next:** Hour 359 — Deploy Reddit comments Thu-Fri OR Phase 1 content (ai-free-fridays.html) OR HN final checks
+
+---
+
+### Hour 360 — 2026-04-16 03:44 UTC (Pre-HN Eve, Phase 2+3)
+**Built:** 3 fresh Reddit comments (r/programming skill atrophy / r/cscareerquestions career anxiety / r/ExperiencedDevs dependency), HN-eve technical check (index-hn.html 99 perf/1.95s LCP, sitemap 129 URLs clean), site status 129 pages/~415k words. Hour 360 log at `logs/hour-360-2026-04-16-0344-reddit-hn-prep.md`.
+**Phase:** P1=113, P2=114, P3=82, P4=48
+**HN launch:** Fri Apr 17 9AM PDT (~12h away)
+**Commit:** `e22f744`
+**Next:** Hour 361 — HN launch (Fri Apr 17 9AM PDT), Reddit comment deployment Thu 7-11PM PDT

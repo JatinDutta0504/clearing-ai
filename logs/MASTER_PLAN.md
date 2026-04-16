@@ -2741,3 +2741,8 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **Commit:** `b112ac2`
 **Next:** Hour 374 — Reddit pre-HN comment deploy OR Cassidoo Follow-up #4 final check OR Phase 1 content
 
+
+### Hour 374 — 2026-04-16 11:44 PDT (PHASE 4 WINDOW 52: HN VISITOR GUIDE)
+**Built:** `hn-visitor-guide.html` (~3.5k words, 615 lines) — dedicated onboarding page for engineers arriving from Hacker News. 3-step roadmap (Quiz → Tier deep-dive → Explanation Requirement tactic), full site navigation organized by use case, newsletter subscribe CTA with mailto fallback, testimonials grid, data stats (71%/63%/58%/44%), share your story CTA, WebPage schema + full OG/Twitter meta, proper inline nav (js/main.js + theme toggle). Added to sitemap.xml (131 URLs). Linked from index-hn.html + newsletter-thank-you.html footers. P4 severely under-indexed (52 vs ~90 target). HN in ~21h (Fri Apr 17 9AM PDT). Formspree still blocking automated newsletter capture.
+**Commit:** `44bff90` + `0a3aa2a` pushed to GitHub Pages
+**Next:** Cassidoo Follow-up #4 send Fri 8AM PDT · HN submission Fri 9AM PDT · Twitter Thread #19 deploy Fri 12-2PM PDT

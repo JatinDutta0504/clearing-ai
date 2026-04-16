@@ -2711,9 +2711,24 @@ These pages were built in previous hours but NEVER committed. All have proper st
 - Git commit: `Hour 368: fix HTML div balance...`
 
 **Remaining:**
-- vibe-coding-vs-traditional.html: -10 balance, sub-agent deployed
+- vibe-coding-vs-traditional.html: FIXED ✅ (10 cards repaired, sub-agent 1m5s, balance=0)
+  - ALL 129 PAGES NOW HTML-VALID
 - TRACKER.json: needs update (phase_windows, last_updated)
 
 **Phase distribution:** P1=113 | P2=116 | P3=84 | P4=49
 **HN launch:** Fri Apr 17 9:00 AM PDT (~27h away)
 **Next:** Await vibe-coding fix, final HN pre-flight, Phase 1 content pillars
+
+### Hour 370 — 2026-04-16 07:44 PDT (Phase 4 Window: The Dispatch #26)
+**Built:** The Dispatch #26 — "The Learned Helplessness Problem" (~3,000 words) — psychology angle on AI eroding problem-solving before engineers ask. Theme: Seligman's 1975 learned helplessness experiment mapped to IDE copilot use, 4 mechanisms (pre-solved problem / confidence transfusion / effort tax / undoing productive failure), Struggle First principle (5-min think before AI), 71% stat connection, community quote, 3 CTAs. Send: Wed May 27 post-HN. P4=51.
+**Phase:** P4=50→51 | HN in ~17h | Site: 129/~415k words
+**Commit:** 3ca0253
+**Next:** Hour 371 — Phase 2 Reddit pre-HN deploy OR Phase 4 Cassidoo #5
+
+
+---
+
+### Hour 371 — 2026-04-16 08:44 PDT (Phase 4 Window: HN Launch Final Prep)
+**Built:** 2 stat card images for HN/Reddit comments (hn-stat-card-1.jpg: 71% middlemen stat, hn-stat-card-2.jpg: 63% strangers stat, 354KB+347KB, 1200×675, dark green brand). Full pre-launch checklist (HN submit checklist/Twitter Thread #19/Cassidoo Follow-up #4/Reddit comment packages 1-3/stat cards). All HN-critical pages verified technically ready (LCP 1949ms/canonical/schema/OG/Twitter). Git push 1148862. **BLOCKERS:** Formspree setup (Sunny action, 5min), Cassidoo Follow-up #4 send Fri Apr 17 8AM PDT. **⏰ HN LAUNCH: Fri Apr 17 9AM PDT (~24h). Site: 129/~415k words.**
+**Commit:** 1148862
+**Next:** Hour 372 — HN monitoring OR Twitter Thread #19 deploy OR Phase 4 Formspree activation

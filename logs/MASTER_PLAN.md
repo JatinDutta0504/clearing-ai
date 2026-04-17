@@ -2795,3 +2795,31 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **P3 completion:** All 8 Pillar 3 pages now built (ai-tool-overload gap filled)
 **Commit:** `eb2bcad`
 **Next:** Hour 378 — Phase 2 Reddit/HN pre-launch prep + Phase 4 community assets
+
+---
+
+### Hour 383 — 2026-04-17 09:44 UTC (Phase 4 Window 59: HN Week Email Sequence)
+
+**Built:** Complete HN Week Email Sequence — 6-email drip for post-HN subscriber onboarding (~17k words documentation, execution-ready)
+
+**Emails in sequence:**
+1. **Email 1 (Day 0):** Welcome + quiz CTA + 3 immediate next steps (Explanation Requirement / tier breakdown / quiz)
+2. **Email 2 (Day 1):** "What happened on HN" social proof — conditional (only send if thread 50+ pts)
+3. **Email 3 (Day 3):** Explanation Requirement deep-dive (mechanism + 67% data point from n=3,000)
+4. **Email 4 (Day 7):** Week 1 reflection + 4-question self-audit + open-ended response prompt
+5. **Email 5 (Week 2, May 27):** The Dispatch #27 retrospective (full content at logs/hour-379)
+6. **Email 6 (Week 2+2, May 29):** "Still Here?" re-engagement — A/B/C/D response question
+
+**Execution checklist included:** Day 0 → Day 1 → Day 2 → Day 3 → Day 7 → Week 2 full checklist for Sunny
+**Formspree reminder included:** 5-min setup to unblock auto newsletter capture
+**Success metrics template:** Track subscribers, quiz completions, referral sessions, open rates weekly
+
+**Phase distribution:** P1=115 | P2=119 | P3=85 | P4=59 (P4 severely under-indexed — newsletter owned audience is the critical gap)
+
+**Phase 4 rationale:** With 0 newsletter subscribers despite 133 pages/~415k words, the owned audience is the #1 gap. HN launch today will drive 300-800 referral visits — the email sequence converts those visitors into subscribers and regular readers. Without this sequence, HN traffic bounces. With it, we build an owned list that compounds.
+
+**HN launch:** Fri Apr 17, 9:00 AM PDT (~6h from this log entry)
+
+**Commit:** `2a5fe09`
+
+**Next:** Hour 384 — Phase 1 content pillar (expansion of high-traffic existing page)

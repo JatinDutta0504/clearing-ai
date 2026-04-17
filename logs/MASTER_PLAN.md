@@ -2844,3 +2844,35 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **Commit:** `ec78f49`
 
 **Next:** Post-HN engagement sprint — thread monitoring, community responses, Dispatch send schedule, Phase 1 expansion if bandwidth allows
+
+### Hour 388 — 2026-04-17 13:44 UTC (Fri Apr 17, 2026 — 6:44 AM PDT)
+**Phase 4 Window** — HN Newsletter Capture Sprint (under-indexed: 60→62 vs ~90 target)
+
+**Built:** HN Welcome Dispatch — Special Issue for HN traffic
+- Crafted as primary newsletter capture asset for imminent HN wave (9AM PDT, ~2h 10m away)
+- Content: founder story (12yr engineer friend's diff at 6pm) → 3k quiz data (71%/63%/58%/44%) → middleman problem mechanism → one-today tactic (Explanation Requirement) → quiz CTA
+- Logged at logs/hour-388-2026-04-17-0644-hn-welcome-dispatch.md
+
+**hn-subscribe.html updates (conversion optimization):**
+- Sample issue: replaced Issue #24 with HN Welcome Dispatch content (HN-specific)
+- Hero: "If HN brought you here: subscribe." (direct HN address)
+- Meta: Updated title/description/OG/Twitter to reference HN specifically
+- Result: HN visitors now land on a page built specifically for them
+
+**HN Launch Status (9:00 AM PDT — ~2h 10m away):**
+| Asset | Status |
+|-------|--------|
+| HN submission | ✅ READY |
+| Cassidoo Follow-up #4 | 📋 Send 8:00 AM PDT (Sunny action) |
+| Twitter Thread #19 (Middleman) | ✅ READY (12-2PM PDT) |
+| Twitter Thread #20 (Debugger) | ✅ READY (10:30AM PDT) |
+| hn-subscribe.html | ✅ LIVE (updated with HN Welcome Dispatch) |
+| hn-quick-start.html | ✅ LIVE |
+| hn-visitor-guide.html | ✅ LIVE |
+| index-hn.html | ✅ LIVE |
+
+**Phase 4 impact:** Newsletter funnel now HN-optimized. Expected 30-120 new subscribers from HN wave (300-800 visitors × 10-15% signup). Without this: 0 captured.
+
+**Commit:** 9226646
+**Next:** Hour 389 — HN monitoring + Twitter Thread #20 final prep OR Cassidoo send confirmation
+

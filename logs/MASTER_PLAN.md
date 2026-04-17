@@ -2823,3 +2823,24 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **Commit:** `2a5fe09`
 
 **Next:** Hour 384 — Phase 1 content pillar (expansion of high-traffic existing page)
+
+---
+
+### Hour 384 — 2026-04-17 10:44 UTC (Phase 4 Window 60: Pre-HN Community Assets)
+
+**Built:** Phase 4 community assets for HN launch day + tracker fix
+
+**Assets created:**
+1. **Dispatch #28:** "After the Storm" post-HN newsletter (~650 words, send Thu Apr 23). Addresses recognition-to-action gap: engineers who know they're middlemen but still do it. One tactic: complete "I adjusted this because..." before accepting any AI suggestion. logs/hour-384-2026-04-17-0344-phase4-dispatch28-hn-prep.md
+2. **LinkedIn Post #HN-conversion:** Deploy Fri Apr 17 3PM PDT (post-HN peak). Uses 3k quiz taker data + HN reaction framing. Drives newsletter signups from HN cross-posting. linkedin/hour-384-linkedin-post-hn-conversion.md
+3. **TRACKER fix:** ai-productivity-guilt.html confirmed built (3,800 words, 44 pages integrate it, Article+FAQPage+OG schema). Added to pillar3_tools, pages (133→134), words (~415k→~419k).
+
+**Phase distribution:** P1=115 | P2=119 | P3=85 | P4=60
+
+**HN status:** ~5h to submission (Fri Apr 17 9AM PDT). All assets verified GO. P4 severely under-indexed — newsletter owned audience is #1 gap for long-term compounding.
+
+**Site stats:** 134 pages/~419k words/11 tools
+
+**Commit:** `ec78f49`
+
+**Next:** Post-HN engagement sprint — thread monitoring, community responses, Dispatch send schedule, Phase 1 expansion if bandwidth allows

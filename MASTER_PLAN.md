@@ -261,3 +261,14 @@
 
 **Commit:** `d94dbe3`
 **Next:** HN submission Fri 9AM PDT, Twitter Thread #20 at 10:30AM, Thread #19 at 12-2PM, Reddit Weekend 2 Sat-Sun Apr 19-20
+
+### Hour 399 — 2026-04-18 12:44 AM PDT (Fri Apr 17 9:44PM PDT)
+**Phase 4 — Printable AI Fatigue Recovery Cheat Sheet**
+- Built `ai-fatigue-recovery-cheat-sheet.html` — letter-size print-optimized one-pager
+- 4-tier framework, 8 warning signs, 5 core tactics, 23-min Gloria Mark rule, weekly no-AI schedule
+- Print-friendly (black/white, no color dependency), `noindex/nofollow`, screen print button
+- Integrated into: hn-quick-start.html footer, hn-visitor-guide.html explore grid, newsletter-beginners-guide.html footer
+- Sitemap updated (142 pages/~425k words)
+- HN launched ~13h ago. Reddit Weekend 2 package deploys Sat-Sun Apr 19-20.
+- Commit `de4bb0d`. P1=115 | P2=122 | P3=87 | P4=66 (P4 still severely under-indexed)
+**Next:** Monitor HN thread. Continue Phase 4 (P4 severely under-indexed vs ~95 target).

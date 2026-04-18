@@ -30,93 +30,104 @@
 
   <!-- Schema.org: Article + FAQPage + BreadcrumbList -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "AI Code Review Fatigue: Why AI Suggestions During PRs Are Exhausting",
-    "description": "Why AI code review suggestions drain you more than human review. 6 specific exhaustion patterns, the judgment erosion cycle, and how to reclaim your code ownership.",
-    "url": "https://clearing-ai.com/ai-code-review-fatigue.html",
-    "datePublished": "2026-04-14",
-    "dateModified": "2026-04-14",
-    "author": {
-      "@type": "Organization",
-      "name": "The Clearing",
-      "url": "https://clearing-ai.com"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "AI Code Review Fatigue: Why AI Suggestions During PRs Are Exhausting",
+      "description": "Why AI code review suggestions drain you more than human review. 6 specific exhaustion patterns, the judgment erosion cycle, and how to reclaim your code ownership.",
+      "url": "https://clearing-ai.com/ai-code-review-fatigue.html",
+      "datePublished": "2026-04-14",
+      "dateModified": "2026-04-14",
+      "author": {
+        "@type": "Organization",
+        "name": "The Clearing",
+        "url": "https://clearing-ai.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "The Clearing",
+        "url": "https://clearing-ai.com"
+      },
+      "keywords": "AI code review fatigue, Copilot PR review burnout, code review exhaustion, AI suggestion fatigue"
     },
-    "publisher": {
-      "@type": "Organization",
-      "name": "The Clearing",
-      "url": "https://clearing-ai.com"
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why does AI code review feel more exhausting than human review?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI code review runs continuously, comments on every function, and offers refactoring suggestions for code you already considered settled. Unlike a human reviewer who focuses on logic gaps, AI comments on style, naming, structure, and approach simultaneously \u2014 fragmenting your attention and triggering constant context switches. The volume and persistence of AI comments creates a compliance loop that human review never does."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it normal to feel anxious about PRs after using AI code review tools?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. This is one of the clearest signals of AI code review fatigue. If you find yourself preemptively opening Copilot or Cursor before submitting a PR \u2014 checking whether the AI will 'approve' your work \u2014 you've entered an approval-seeking loop. Healthy code review is collaborative. Approval-seeking code review is dependency. The anxiety disappears when you relearn to trust your own judgment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I know if AI is eroding my code review judgment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Test this: disable AI suggestions for one PR and review your own code manually first. If you feel uncertain about whether your code is 'good enough' without AI validation, your judgment is being outsourced. Another sign: you can explain what the AI suggested but struggle to articulate why you chose your original approach \u2014 you've lost the justification loop."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does AI code review actually improve code quality?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sometimes, but less than its proponents claim. AI code review excels at catching style violations, obvious bugs, and security anti-patterns \u2014 things experienced engineers would catch anyway. It consistently underperforms on architecture decisions, context-dependent tradeoffs, and code that's correct but stylistically non-standard for your codebase. The net quality gain is real but modest, and the cognitive cost is frequently undercounted."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I set healthy boundaries with AI code review tools?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Three practices help: First, review your own code before enabling AI suggestions \u2014 establish your baseline judgment. Second, treat AI comments as a second opinion, not a required approval gate \u2014 accept what resonates, discard what doesn't with a reason. Third, have explicit no-AI review days where you submit PRs without AI suggestions active. This keeps your calibration sharp and prevents drift."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can AI code review contribute to skill atrophy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The same mechanism that makes AI code review feel efficient is what erodes skills: you're outsourcing the evaluation step. When you accept an AI suggestion instead of deciding whether to accept it, you skip the practice of evaluation. Over months, this weakens your ability to assess code independently. The Explanation Requirement \u2014 forcing yourself to articulate why the AI suggestion is better before accepting it \u2014 counteracts this directly."
+          }
+        }
+      ]
     },
-    "keywords": "AI code review fatigue, Copilot PR review burnout, code review exhaustion, AI suggestion fatigue"
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Why does AI code review feel more exhausting than human review?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "AI code review runs continuously, comments on every function, and offers refactoring suggestions for code you already considered settled. Unlike a human reviewer who focuses on logic gaps, AI comments on style, naming, structure, and approach simultaneously — fragmenting your attention and triggering constant context switches. The volume and persistence of AI comments creates a compliance loop that human review never does."
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Recovery",
+          "item": "https://clearing-ai.com/recovery.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "AI Code Review Fatigue",
+          "item": "https://clearing-ai.com/ai-code-review-fatigue.html"
         }
-      },
-      {
-        "@type": "Question",
-        "name": "Is it normal to feel anxious about PRs after using AI code review tools?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. This is one of the clearest signals of AI code review fatigue. If you find yourself preemptively opening Copilot or Cursor before submitting a PR — checking whether the AI will 'approve' your work — you've entered an approval-seeking loop. Healthy code review is collaborative. Approval-seeking code review is dependency. The anxiety disappears when you relearn to trust your own judgment."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I know if AI is eroding my code review judgment?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Test this: disable AI suggestions for one PR and review your own code manually first. If you feel uncertain about whether your code is 'good enough' without AI validation, your judgment is being outsourced. Another sign: you can explain what the AI suggested but struggle to articulate why you chose your original approach — you've lost the justification loop."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does AI code review actually improve code quality?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sometimes, but less than its proponents claim. AI code review excels at catching style violations, obvious bugs, and security anti-patterns — things experienced engineers would catch anyway. It consistently underperforms on architecture decisions, context-dependent tradeoffs, and code that's correct but stylistically non-standard for your codebase. The net quality gain is real but modest, and the cognitive cost is frequently undercounted."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I set healthy boundaries with AI code review tools?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Three practices help: First, review your own code before enabling AI suggestions — establish your baseline judgment. Second, treat AI comments as a second opinion, not a required approval gate — accept what resonates, discard what doesn't with a reason. Third, have explicit no-AI review days where you submit PRs without AI suggestions active. This keeps your calibration sharp and prevents drift."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can AI code review contribute to skill atrophy?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. The same mechanism that makes AI code review feel efficient is what erodes skills: you're outsourcing the evaluation step. When you accept an AI suggestion instead of deciding whether to accept it, you skip the practice of evaluation. Over months, this weakens your ability to assess code independently. The Explanation Requirement — forcing yourself to articulate why the AI suggestion is better before accepting it — counteracts this directly."
-        }
-      }
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Recovery", "item": "https://clearing-ai.com/recovery.html"},
-      {"@type": "ListItem", "position": 2, "name": "AI Code Review Fatigue", "item": "https://clearing-ai.com/ai-code-review-fatigue.html"}
-    ]
-  }
-  </script>
+      ]
+    }
+  ]
+}
+</script>
 
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />

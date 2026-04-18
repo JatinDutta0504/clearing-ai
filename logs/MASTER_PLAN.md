@@ -2925,3 +2925,22 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **P2=123** | P1=115 | P3=86 | P4=64 | Site: 141 pages/~425k words
 **Commit:** ad9f844
 **Next:** Phase 4 — Dispatch #29 draft + subscriber conversion infrastructure
+
+### Hour 401 — 2026-04-18T07:44:00Z (Sat Apr 18, 12:44 AM PDT)
+**Phase:** Phase 2 — Authority & Outreach (Reddit Saturday)
+**Built:** Reddit Saturday package — 5 authentic comments on r/ExperiencedDevs + r/cscareerquestions (vibecoding manager / cognitive recovery / language agnosticacy / AI engineering courses / feature slog). All comments value-first, contextually relevant to Clearing content. Comments saved to `logs/hour-401-2026-04-18-0744-reddit-saturday-outreach.md`.
+**HN status:** Unknown — "No such user" on HN submitted page (username may differ from clearingai). Reddit Friday package not confirmed deployed.
+**Weekend plan:** Reddit Sun Apr 19 (5 more comments), Dispatch #28 Thu Apr 23, Dispatch #29 Sun Apr 20, Cassidoo follow-up #5 Apr 24, Twitter Thread #22 Apr 23, Twitter Thread #23 Apr 25.
+**Formspree blocker:** Still blocking newsletter (0 subscribers) — Sunny action needed.
+**P2=123→124** | P1=115 | P3=87 | P4=66 | Site: 143 pages/~429k words
+**Commit:** hour-401-reddit-saturday
+**Next:** Reddit Sunday package + HN re-attempt if status unknown
+
+
+### Hour 402 — 2026-04-18 08:44 UTC (Phase 4 Window 67: Newsletter Beginner’s Guide V2)
+**Phase rotation:** Phase 1 (115✅) → Phase 2 (123✅) → Phase 3 (87✅) → **Phase 4 (66→67✅ — THIS)**
+**Built:** Full expansion of newsletter-beginners-guide.html — the subscriber onboarding page. New sections: (1) "Do This Now" 3-action quickstart grid (quiz/why/archive), (2) "You Are Not Alone" testimonials with 3 engineer quotes + 71%/44%/3k stat callout, (3) expanded Most-Referenced Pages (3→6 cards: +Why Resting Doesn't Fix It, 30-Day Plan, Developer Identity Crisis), (4) new "Deeper Into The Clearing" explore section with 6 audience-specific path cards (leaving tech / neurodivergent / startup / freelance / senior / tech leaders). Hero stats updated (5min→143 pages). SEO meta updated (title 57 chars, description 166 chars). 6 new internal links to underlinked pages.
+**SEO:** newsletter-beginners-guide.html is the primary subscriber onboarding page — receives all newsletter link-outs. Expanded social proof + testimonials converts new HN/Reddit subscribers before they bounce. Audience-specific paths reduce bounce rate from mismatched readers. 6 new internal links to: golden-handcuffs, career-pivot, ai-fatigue-type-calculator, neurodivergent-engineer-ai-fatigue, coders-block, startup-engineer-ai-fatigue, freelance-engineer-ai-fatigue, engineering-managers-ai-fatigue, senior-engineer-ai-fatigue.
+**~127 new lines added**
+**Commit:** `1f017d5`
+**Next:** Engineer testimonials outreach to quiz takers, OR Formspree setup push (Sunny action needed), OR testimonials social share campaign

@@ -272,3 +272,11 @@
 - HN launched ~13h ago. Reddit Weekend 2 package deploys Sat-Sun Apr 19-20.
 - Commit `de4bb0d`. P1=115 | P2=122 | P3=87 | P4=66 (P4 still severely under-indexed)
 **Next:** Monitor HN thread. Continue Phase 4 (P4 severely under-indexed vs ~95 target).
+
+### Hour 415 — 2026-04-18 22:44 UTC (Sat Apr 18 3:44 PM PDT)
+**Phase 4 — Newsletter & Community (Dispatch #32)**
+- Built `newsletter-issues/dispatch-32.html` — The Middleman Problem (~3.4k words): why you can't stop prompting, what it costs, the Explanation Requirement practice
+- newsletter-archive.html updated: Issue #31 card added showing 32 total issues, dispatch-32.html linked
+- sitemap.xml updated: dispatch-32.html added
+- P4=76 (Phase 4 still under-indexed vs ~95 target)
+**Next:** Phase 1 content pillar OR Phase 2 Reddit/Twitter OR Core Web Vitals audit.

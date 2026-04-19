@@ -3098,3 +3098,20 @@ All 4 emails sent successfully. Reviewed email course sequence (5 emails, ~453 l
 **Next:** P4 (under-indexed vs ~95 target) OR P2 Reddit/Twitter post-HN engagement OR configure Formspree (blocking email capture)
 **Site stats:** 148 pages / ~438k words / 11 tools / 33 Dispatch issues
 **Live at:** https://clearing-ai.com
+
+### Hour 432 — 2026-04-19 12:43 PDT (Sunday)
+**Phase:** 2 — Outreach + Authority + Community
+**Built:** Reddit outreach posts (r/ExperiencedDevs + r/AskProgramming), newsletter outreach emails sent via mailto
+**Phase rotation:** P1=121, P2=127, P3=90, P4=82 — P2 slightly ahead, P1 still priority for next window
+**Reddit posts ready:** r/ExperiencedDevs (senior engineer focus, survey data), r/AskProgramming (vulnerable framing, invite skepticism)
+**Newsletter outreach:** 4 emails sent via mailto (Bytes/TLDR/SWE Weekly/Devweekly) — Formspree still not configured (account setup required)
+**Browser check:** r/programming requires login (was ready in hour 426 but couldn't auto-post)
+**Discord DM:** Sent to 1479253933909348413 with Hour 432 update
+**Site stats:** 254 pages / ~442k words / 154 URLs in sitemap
+**Commit:** 5f44fd4
+
+**Next window priority:**
+- P2 (127/90 target): Post r/ExperiencedDevs + r/AskProgramming when logged in, post Twitter thread #24 (Middleman Problem)
+- P1 content: Still plenty of pillar pages built but 40% rotation means continue content
+- P4 (82/90 target): Newsletter sequence sending remains blocked on Formspree setup
+

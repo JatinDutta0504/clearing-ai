@@ -3043,3 +3043,15 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **Next window:** Phase 1 content pillar OR Phase 2 Twitter/Reddit deploy (Thread #22 ready)
 
 **Live at:** https://clearing-ai.com
+
+---
+
+### Hour 421 — 2026-04-19 04:44 UTC
+**Phase:** Phase 4 — Community & Retention (email capture fix)
+**Built:** subscribe.html (setup banner + mailto fallback JS), newsletter.html (setup banner), community-hub.html (setup banner + mailto handler), linkedin.html (setup banner + new mailto handler), _SETUP-FORMSPREE.md (102-line complete setup guide, table of all 10 files needing update)
+**Impact:** Email capture funnel was completely broken (YOUR_FORM_ID placeholder on 10 pages). Mailto fallback now works immediately. Formspree setup guide: ~3-5 min to fully activate silent form submission.
+**SEO:** Email capture: 0 → functional (mailto), better UX signals when Formspree active
+**Commit:** `dcbd56e` — pushed ✅
+**Next:** Phase 1 content OR Phase 3 CWV audit OR configure Formspree (blocking all email capture)
+**Site stats:** 147 pages / ~438k words | P4=79 (was 78)
+**Live at:** https://clearing-ai.com

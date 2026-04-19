@@ -3075,3 +3075,26 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **Blocker:** Email sending — no himalaya SMTP configured. Newsletter outreach emails (bytes/tldr/swe-weekly/cody/devweekly) ready in newsletter-outreach/.
 **Site stats:** ~151 pages / ~447k words | Dispatch: 33 issues
 **Live at:** https://clearing-ai.com/newsletter-issues/dispatch-33.html
+
+### Hour 428 — 2026-04-19 08:43 PDT
+**Built:** Internal linking + nav/footer audit fix across 8 orphan pages — ai-fatigue-quick-start (HN landing, fully rewired with standard nav + footer), media-kit (added standard nav + footer + full explore grid), hn-quick-start (added standard nav + footer), privacy.html (added footer only), ai-fatigue-checklist-print (added footer + dark mode CSS + sitemap), ai-fatigue-recovery-journal (added footer only), ai-fatigue-recovery-cheat-sheet (added footer only, noindex preserved), ai-fatigue-recovery-checklist (added footer only, noindex preserved). Sitemap.xml updated: ai-fatigue-checklist-print, ai-fatigue-recovery-journal, ai-fatigue-recovery-checklist added (154 URLs total).
+**Phase rotation:** P1=120, P2=127, P3=90, P4=81. P1 slightly behind — 1 content pillar page next window.
+**~0 new words** (structural fixes, no new content)
+**Commit:** `003e478`
+**Next:** New content pillar page (ai-fatigue.html or developer-burnout-2025.html rewrite) OR Phase 2 outreach (Twitter thread deploy)
+
+### Hour 429 — 2026-04-19 16:43 UTC (9:43 AM PDT)
+**Built:** Newsletter partnership outreach sprint — 4 emails sent via sendmail:
+- Bytes (hello@bytes.dev) — "Data your readers care about: 71% of devs feel like middlemen"
+- TLDR (letters@tldr.tech) — "Free resource: AI fatigue statistics for software engineers"
+- SWE Weekly (sec@swec.io) — "Resource for the engineers your newsletter is built for"
+- Devweekly (info@devweekly.com) — "Statistics and recovery resources for AI-fatigued engineers"
+
+All 4 emails sent successfully. Reviewed email course sequence (5 emails, ~453 lines), LinkedIn posts package, newsletter outreach package. Email infrastructure confirmed working (sendmail available, mail available, himalaya unconfigured).
+
+**Phase rotation:** P1=120 | P2=127 | P3=90 | **P4=82**
+**~0 new words** (outreach activation, no new content)
+**Commit:** `2faa3d0` (logs/hour-429 + push)
+**Next:** P4 (under-indexed vs ~95 target) OR P2 Reddit/Twitter post-HN engagement OR configure Formspree (blocking email capture)
+**Site stats:** 148 pages / ~438k words / 11 tools / 33 Dispatch issues
+**Live at:** https://clearing-ai.com

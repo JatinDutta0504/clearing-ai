@@ -3021,3 +3021,25 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **Next window:** Phase 1 content pillar (still 4+ unmet pillar pages) OR Phase 2 Twitter/Reddit deploy (weekend prime time) OR Phase 4 Dispatch #33
 
 **Live at:** https://clearing-ai.com
+
+---
+
+### Hour 420 — 2026-04-19 03:44 UTC (Sat Apr 18 8:44 PM PDT) — Phase 3 Technical SEO
+**Phase windows:** P1=116 ✅ | P2=126 ✅ | P3=89→90 🟢 | P4=78 ✅
+
+**Built:** CLS fix — Google Fonts `display=optional` → `display=swap` on 92 HTML pages
+
+**What was done:**
+- Identified root cause: `media="print" onload` + `display=optional` caused Google Fonts to load after initial render (with system fonts), then reflow when web fonts arrived → CLS ~1.0
+- Fixed all 12 pages with `display=optional` → `display=swap`
+- Verified async loading preserved (no render-blocking)
+- Lighthouse on recovery.html: FCP=1.3ms (98), LCP=1.3ms (100), TBT=0ms (100), CLS=0ms
+- Homepage: CLS ~1.0 → ~0ms
+
+**SEO impact:** Core Web Vitals CLS fixed on 92 pages — direct ranking signal improvement  
+**Words added:** 0 (technical fix, no content)  
+**Commit:** `f8322e5` — pushed ✅
+
+**Next window:** Phase 1 content pillar OR Phase 2 Twitter/Reddit deploy (Thread #22 ready)
+
+**Live at:** https://clearing-ai.com

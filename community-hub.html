@@ -189,6 +189,10 @@
       <div class="newsletter-section">
         <h2>The Dispatch — Every Sunday Morning</h2>
         <p class="sub">A weekly letter for engineers navigating AI fatigue, identity, recovery, and the strange grief of building things in the AI era. No hustle culture. No AI boosterism. Just honest talk, published every Sunday.</p>
+        <!-- ⚠️ SETUP PROMPT — remove after configuring Formspree -->
+        <div id="formspree-setup-banner" style="background:rgba(180,100,20,.1);border:1px solid rgba(180,100,20,.3);border-radius:8px;padding:.9rem 1.1rem;margin-bottom:1rem;text-align:left" aria-live="polite">
+          <p style="font-size:.78rem;color:#7a4010;margin-bottom:.4rem"><strong>⚠️ Setup needed:</strong> Replace <code style="background:rgba(0,0,0,.08);padding:.1rem .3rem;border-radius:3px">YOUR_FORM_ID</code> with your <a href="https://formspree.io" target="_blank" rel="noopener" style="color:#8b4513">Formspree</a> Form ID to enable direct signup. <strong>~2 min.</strong> See <a href="_SETUP-FORMSPREE.md" style="color:#8b4513;text-decoration:underline">_SETUP-FORMSPREE.md</a>. Mailto fallback works now.</p>
+        </div>
         <form class="newsletter-form" id="newsletterForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
           <input type="email" name="email" placeholder="your@email.com" required aria-label="Email address">
           <input type="hidden" name="_subject" value="New community hub newsletter signup">
@@ -378,17 +382,23 @@
         btn.setAttribute('aria-expanded', !isOpen);
       });
     });
-    // Newsletter form demo mode
+    // Newsletter form — Formspree when configured, mailto fallback otherwise
     const form = document.getElementById('newsletterForm');
     if (form) {
       form.addEventListener('submit', e => {
         if (form.action.includes('YOUR_FORM_ID')) {
           e.preventDefault();
+          const email = form.querySelector('[name="email"]').value;
+          const name = form.querySelector('[name="name"]') ? form.querySelector('[name="name"]').value : '';
+          const subject = encodeURIComponent('Subscribe to The Dispatch 🌿');
+          const body = encodeURIComponent((name ? 'Name: ' + name + '\n' : '') + 'Email: ' + email + '\n\nPlease subscribe me to The Dispatch — the weekly letter for AI-fatigued engineers.');
+          window.location.href = 'mailto:hello@clearing-ai.com?subject=' + subject + '&body=' + body;
           const btn = form.querySelector('button');
           const original = btn.textContent;
-          btn.textContent = 'Subscribed!';
+          btn.textContent = '✉️ Check your email app';
           btn.disabled = true;
-          setTimeout(() => { btn.textContent = original; btn.disabled = false; }, 3000);
+          setTimeout(() => { btn.textContent = original; btn.disabled = false; }, 4000);
+          document.getElementById('formspree-setup-banner').style.display = 'none';
         }
       });
     }

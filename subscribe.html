@@ -180,8 +180,21 @@
       <h1 id="hero-title" class="hero-title">A quiet letter for tired engineers</h1>
       <p class="hero-subtitle">Every Sunday, one honest piece about navigating AI, burnout, and the erosion of craft. No hype. No hustle. Just real talk for people who build.</p>
 
+      <!-- ⚠️ SETUP PROMPT — shown until Formspree is configured -->
+      <div id="formspree-setup-banner" style="background:rgba(180,100,20,.12);border:1px solid rgba(180,100,20,.35);border-radius:8px;padding:1rem 1.25rem;margin-bottom:1.5rem;max-width:440px;margin-left:auto;margin-right:auto;text-align:left" aria-live="polite">
+        <p style="font-size:.82rem;color:#7a4010;margin-bottom:.5rem"><strong>⚠️ One-time setup needed:</strong> The email signup needs a free Formspree account to work. <strong>~3 minutes.</strong></p>
+        <ol style="font-size:.78rem;color:#5a3008;margin:0;padding-left:1.1rem;line-height:1.7">
+          <li>Go to <a href="https://formspree.io" target="_blank" rel="noopener" style="color:#8b4513">formspree.io</a> → Sign up (free)</li>
+          <li>Click <strong>New Form</strong> → Name it "The Dispatch"</li>
+          <li>Copy your <strong>Form ID</strong> (e.g. <code style="background:rgba(0,0,0,.08);padding:.1rem .35rem;border-radius:3px">xyzabc123</code>)</li>
+          <li>Replace <code style="background:rgba(0,0,0,.08);padding:.1rem .35rem;border-radius:3px">YOUR_FORM_ID</code> in this file and <code>newsletter.html</code></li>
+        </ol>
+        <p style="font-size:.75rem;color:#8b5a1a;margin:.5rem 0 0">See <a href="_SETUP-FORMSPREE.md" style="color:#8b4513;text-decoration:underline">_SETUP-FORMSPREE.md</a> for full guide with screenshots.</p>
+      </div>
+
       <div class="subscribe-form" id="subscribe-form-wrap">
         <!-- Live form -->
+        <!-- To activate: replace YOUR_FORM_ID with your Formspree form ID, e.g. xyzabc123 -->
         <form id="dispatch-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
           <div class="form-row">
             <div class="form-field">
@@ -285,11 +298,29 @@
         if(!email || !name){errorEl.textContent='Please fill in both fields.';errorEl.classList.add('visible');return}
         if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){errorEl.textContent='Please enter a valid email address.';errorEl.classList.add('visible');return}
         btn.disabled=true;btn.textContent='Subscribing...';
-        var fd=new FormData(form);
-        fetch('https://formspree.io/f/YOUR_FORM_ID',{method:'POST',body:fd,headers:{'Accept':'application/json'}}).then(function(r){
-          if(r.ok){form.style.display='none';successEl.classList.add('visible')}
-          else {errorEl.textContent='Something went wrong. Try again or email hello@clearing-ai.com.';errorEl.classList.add('visible');btn.disabled=false;btn.textContent='Subscribe — It\'s Free →'}
-        }).catch(function(){errorEl.textContent='Network error. Check your connection and try again.';errorEl.classList.add('visible');btn.disabled=false;btn.textContent='Subscribe — It\'s Free →'})
+
+        // Detect if Formspree is properly configured (not using placeholder ID)
+        var formAction = form.getAttribute('action') || '';
+        var isFormspreeReady = formAction.indexOf('YOUR_FORM_ID') === -1 && formAction.indexOf('formspree.io/f/') !== -1;
+
+        if (isFormspreeReady) {
+          // Use Formspree when properly configured
+          var fd=new FormData(form);
+          fetch(formAction,{method:'POST',body:fd,headers:{'Accept':'application/json'}}).then(function(r){
+            if(r.ok){form.style.display='none';successEl.classList.add('visible')}
+            else {errorEl.textContent='Something went wrong. Try again or email hello@clearing-ai.com.';errorEl.classList.add('visible');btn.disabled=false;btn.textContent='Subscribe — It\'s Free →'}
+          }).catch(function(){errorEl.textContent='Network error. Check your connection and try again.';errorEl.classList.add('visible');btn.disabled=false;btn.textContent='Subscribe — It\'s Free →'})
+        } else {
+          // Mailto fallback — works immediately, no server setup needed
+          var subject = encodeURIComponent('Subscribe to The Dispatch');
+          var body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nPlease add me to The Dispatch newsletter. Thank you.');
+          window.location.href = 'mailto:hello@clearing-ai.com?subject=' + subject + '&body=' + body;
+          form.style.display='none';
+          successEl.classList.add('visible');
+          // Hide the setup banner now that a subscription was sent
+          var banner = document.getElementById('formspree-setup-banner');
+          if(banner) banner.style.display='none';
+        }
       });
 
       // Mobile nav

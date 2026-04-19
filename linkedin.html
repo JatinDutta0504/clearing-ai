@@ -493,7 +493,11 @@
     <div class="lh-newsletter">
       <h3>Get The Dispatch in Your Inbox</h3>
       <p>Every Tuesday morning. For engineering managers, CTOs, and senior engineers who want to lead through this honestly.</p>
-      <form class="lh-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <!-- ⚠️ SETUP PROMPT — remove after configuring Formspree -->
+      <div id="formspree-setup-banner" style="background:rgba(180,100,20,.1);border:1px solid rgba(180,100,20,.3);border-radius:8px;padding:.9rem 1.1rem;margin-bottom:1rem;text-align:left;font-size:.78rem;color:#7a4010" aria-live="polite">
+        <strong>⚠️ Setup needed:</strong> Replace <code>YOUR_FORM_ID</code> with your <a href="https://formspree.io" target="_blank" rel="noopener" style="color:#8b4513">Formspree</a> Form ID. See <a href="_SETUP-FORMSPREE.md" style="color:#8b4513;text-decoration:underline">_SETUP-FORMSPREE.md</a>. Mailto works now.
+      </div>
+      <form class="lh-form" id="lh-newsletter-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
         <input type="email" name="email" placeholder="your@email.com" required aria-label="Email address">
         <input type="text" name="name" placeholder="Your name (optional)">
         <input type="hidden" name="_subject" value="New LinkedIn newsletter signup">
@@ -503,6 +507,30 @@
       <p class="lh-form-note">No spam. No tracking. Unsubscribe anytime. 2,000+ engineers already subscribe.</p>
     </div>
   </section>
+
+<script>
+  // LinkedIn newsletter form — Formspree when configured, mailto fallback otherwise
+  (function() {
+    var form = document.getElementById('lh-newsletter-form');
+    if (!form) return;
+    form.addEventListener('submit', function(e) {
+      if (form.action.indexOf('YOUR_FORM_ID') !== -1) {
+        e.preventDefault();
+        var email = form.querySelector('[name="email"]').value;
+        var name = form.querySelector('[name="name"]') ? form.querySelector('[name="name"]').value : '';
+        var subject = encodeURIComponent('Subscribe to The Dispatch 🌿');
+        var body = encodeURIComponent((name ? 'Name: ' + name + '\n' : '') + 'Email: ' + email + '\n\nPlease subscribe me to The Dispatch — the weekly letter for AI-fatigued engineers.');
+        window.location.href = 'mailto:hello@clearing-ai.com?subject=' + subject + '&body=' + body;
+        var btn = form.querySelector('button');
+        btn.textContent = '✉️ Check your email app';
+        btn.disabled = true;
+        setTimeout(function() { btn.textContent = 'Subscribe — It\'s Free'; btn.disabled = false; }, 4000);
+        var banner = document.getElementById('formspree-setup-banner');
+        if (banner) banner.style.display = 'none';
+      }
+    });
+  })();
+</script>
 
 </main>
 

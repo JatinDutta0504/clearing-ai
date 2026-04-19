@@ -3065,3 +3065,13 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **Next:** Rotate to Phase 1/2/3/4 queue
 **Site stats:** 146 pages / ~447k words | P1=118
 **Live at:** https://clearing-ai.com/ai-weekly-audit.html
+
+---
+**Hour:** 425 | **Window:** FULL GROWTH ENGINE (HOURLY) | **Phase:** Phase 4 Community
+**Date:** 2026-04-19 11:43 UTC (4:43 AM PDT)
+**Task:** Dispatch #33 — The Debugger Who Forgot How to Debug (~5k words, 6 sections: debugging atrophy 4 stages, the 20-minute rule, how AI makes debugging worse, 5 rebuild practices). Promotes: The Middleman Problem + AI Fatigue Severity Index.
+**SEO:** Newsletter archive updated to 33 issues. sitemap dispatch-33.html added (priority 0.6, weekly). P4=80.
+**Commit:** 6ebaf96
+**Blocker:** Email sending — no himalaya SMTP configured. Newsletter outreach emails (bytes/tldr/swe-weekly/cody/devweekly) ready in newsletter-outreach/.
+**Site stats:** ~151 pages / ~447k words | Dispatch: 33 issues
+**Live at:** https://clearing-ai.com/newsletter-issues/dispatch-33.html

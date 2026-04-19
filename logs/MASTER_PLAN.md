@@ -2967,3 +2967,21 @@ These pages were built in previous hours but NEVER committed. All have proper st
 **Commit:** `e20ff5e` — pushed ✅
 **Next:** Hour 417 — Phase 1 content (ai-fatigue-statistics-2025 expansion) OR Phase 2 Twitter thread deployment OR Phase 4 newsletter (Formspree blocker)
 
+
+### Hour 418 — 2026-04-18 22:44 PDT (Phase 4 Community Window)
+**Built:** Newsletter outreach package + Formspree one-command setup script  
+**Phase rotation:** P1=116 | P2=125 | P3=89 | **P4=78** (Phase 4 under-indexed)  
+
+**Newsletter outreach package** (`newsletter-outreach/`):
+- 5 personalized cold outreach emails (Bytes/TLDR/SWE Weekly/Cody/Devweekly)
+- README with tracking table + success metrics
+- Each email: personalized angle, hook stats, co-promotion offer, follow-up template
+
+**_setup-formspree-one-command.sh** — removes newsletter signup blocker:
+- Opens formspree dashboard, prompts for Form ID, replaces YOUR_FORM_ID in all 10 files
+- Primary blocker for newsletter signup going live
+
+**SEO impact:** Newsletter partnerships = direct audience access via trusted recommendation; backlink potential from partner sites; subscriber conversion (email list is the primary retention channel for a content site)
+**~0 new words added** (infrastructure, no content pages)  
+**Commit:** `da28b19` — pushed ✅  
+**Next:** Hour 419 — Send first newsletter outreach email (Bytes) OR Phase 1 content pillar OR Phase 2 Twitter/Reddit deployment  

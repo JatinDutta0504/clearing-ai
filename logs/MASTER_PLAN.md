@@ -3178,6 +3178,25 @@ All 4 emails sent successfully. Reviewed email course sequence (5 emails, ~453 l
 
 **Commit:** c28dc9a
 
+
+### Hour 448 — 2026-04-20T11:44:00Z (Mon Apr 20, 4:43 AM PDT) — Phase 3 Technical SEO Window
+
+**Built:** Font display strategy fix — `display=optional` → `display=fallback` across 138 HTML pages.
+
+**Problem:** Lighthouse on live site showed Performance 62/100, LCP 3.19s, FCP 3.19s. TBT 0ms, CLS 0.02. Root cause: `display=optional` in Google Fonts URLs causes FOIT (flash of invisible text) — browser waits indefinitely for web font before rendering any text content.
+
+**Fix:** `display=fallback` shows system font after ~100ms, swaps to web font when loaded. Best LCP improvement + maintains CLS at 0.02. No render-blocking introduced (non-blocking `media="print" onload` trick preserved).
+
+**Expected Impact:** LCP 3.19s → ~1.2-1.5s. FCP 3.19s → ~1.2-1.5s. Performance 62 → ~80-85/100.
+
+**Files:** 138 HTML files updated, 139 files changed (318 insertions, 317 deletions). Git 683454f. Netlify auto-deploys.
+
+**P3=94.** Phase distribution: P1=123 | P2=132 | **P3=94** | P4=87
+
+**Site:** ~255 pages/~447k words | Git 683454f
+
+**Next:** Lighthouse re-run after deploy to confirm LCP improvement. If still >2.5s: content-visibility auto, font preloading, or CSS size investigation.
+
 ### Hour 444 — 2026-04-20T07:44:00Z (Mon Apr 20, 12:44 AM PDT) — Phase 4 Community Window
 
 **Built:** Dispatch #34 — The Velocity Trap (~2,500 words, 8 sections, stat grid, 4 practical tactics, cognitive science callout, senior engineer warning box, dark+light email layout). sitemap.xml fixed + dispatch-34 added. newsletter-issues.json updated to 34 issues. **P4=87.**

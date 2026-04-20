@@ -1,12 +1,11 @@
-# Twitter/X Thread — The LLM Ban Signal
-# Thread #27 — Hour 439 (Sun Apr 19 7:43 PM PDT)
-# Status: POSTED — Mon Apr 20 7:43 AM PDT
-**Actual post time:** Mon Apr 20 7:43 AM PDT
-# Target: @swyx @rauchg @emollick @paulg @chrismessina @anildash
+# Twitter/X Thread — The LLM Ban Signal (POSTED)
+**Hour:** 449
+**Status:** POSTED MON APR 20 7:43 AM PDT
+**Account:** @clearing_ai
 
 ---
 
-## Tweet 1 (Hook)
+## Tweet 1 (Hook — posted)
 r/programming just sticky-banned LLM content.
 
 2,741 upvotes. 313 comments. The mods called it "low-signal."
@@ -19,7 +18,7 @@ They were talking about something else entirely.
 
 ---
 
-## Tweet 2 (The Signal)
+## Tweet 2 (The Signal — posted)
 The conversation in that thread was about:
 
 - not recognizing their own code anymore
@@ -32,7 +31,7 @@ That's a mental health and identity crisis dressed up as a tech policy argument.
 
 ---
 
-## Tweet 3 (The Data)
+## Tweet 3 (The Data — posted)
 We surveyed 2,147 engineers on clearing-ai.com.
 
 Results:
@@ -46,7 +45,7 @@ These are engineers who shipped production code before LLM tools existed — and
 
 ---
 
-## Tweet 4 (The Mechanism)
+## Tweet 4 (The Mechanism — posted)
 Why is this happening?
 
 The industry told engineers: "Use AI to go faster."
@@ -59,7 +58,7 @@ The skills atrophy. The identity erodes. The "why" disappears.
 
 ---
 
-## Tweet 5 (The Thing Nobody Says)
+## Tweet 5 (The Thing Nobody Says — posted)
 The r/programming ban is a symptom.
 
 The disease is: mandatory AI adoption without any conversation about what it costs the humans doing the work.
@@ -72,7 +71,7 @@ These two things are connected. Nobody wants to say it out loud.
 
 ---
 
-## Tweet 6 (The Resource)
+## Tweet 6 (The Resource — posted)
 If you're feeling this — you're not broken. You're not behind.
 
 Your nervous system is responding rationally to a genuinely overwhelming moment.
@@ -85,16 +84,8 @@ The recovery guides are practical. The research is real.
 
 ---
 
-## Engagement Plan
-- Post Mon Apr 20 9AM PDT (Reddit thread will still be active, HN morning traffic)
-- Tag: @swyx @rauchg @emollick @chrismessina @anildash (dev/Startup ecosystem)
-- If tagged accounts reply: engage genuinely, no marketing language
-- Monitor for 3 hours after posting
-- Thread link in bio update
+**Tags:** @swyx @rauchg @emollick @chrismessina @anildash
 
-## What Makes This Thread Work
-- Taps into live cultural moment (r/programming LLM ban)
-- Data-backed (2,147 engineers, specific stats)
-- Empathetic without being preachy
-- Offers resource without hard sell
-- Engineers can self-identify without feeling judged
+**Posted:** Mon Apr 20 7:43 AM PDT
+**Engagement check:** 
+**Impressions (3h):**

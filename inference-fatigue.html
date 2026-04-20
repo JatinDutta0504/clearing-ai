@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Inference Fatigue: When AI Reasoning Costs More Than You Think — The Clearing</title>
+<meta name="description" content="Every AI tool you use has a hidden cost: the reasoning tax your brain pays when you evaluate, verify, and correct AI output. Here's the real toll and how to reduce it."/>
+<meta name="robots" content="index,follow"/>
+<link rel="canonical" href="https://clearing-ai.com/inference-fatigue.html"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://clearing-ai.com/inference-fatigue.html"/>
+<meta property="og:title" content="Inference Fatigue: The Hidden Cognitive Cost of AI-Assisted Development"/>
+<meta property="og:description" content="The mental load of evaluating AI output — checking for errors, catching hallucinations, maintaining context — adds up to more cognitive cost than writing code yourself."/>
+<meta property="og:image" content="https://clearing-ai.com/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Inference Fatigue: When AI Reasoning Costs More Than You Think",
+  "description": "Every AI tool you use has a hidden cost: the reasoning tax your brain pays when you evaluate, verify, and correct AI output. Here's the real toll and how to reduce it.",
+  "author": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+  "publisher": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+  "datePublished": "2026-04-20",
+  "dateModified": "2026-04-20",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://clearing-ai.com/inference-fatigue.html"},
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com"},
+      {"@type": "ListItem", "position": 2, "name": "Understand", "item": "https://clearing-ai.com/why.html"},
+      {"@type": "ListItem", "position": 3, "name": "Inference Fatigue", "item": "https://clearing-ai.com/inference-fatigue.html"}
+    ]
+  }
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--forest-deep:#1a2e1a;--forest-mid:#2d5016;--forest-light:#4a7c59;--mist:#e8e4dc;--cream:#f5f0e8;--cream-warm:#fafaf8;--text:#e8e4dc;--text-muted:rgba(232,228,220,.55);--bg:#111411;--card-bg:#1a1e1a;--border:rgba(90,140,90,.18);--accent:#7aab8a}
+[data-theme="light"]{--bg:#fafaf8;--card-bg:#f0ede8;--text:#2a2a22;--text-muted:rgba(42,42,34,.6);--border:rgba(45,80,22,.12);--accent:#2d5016}
+html{scroll-behavior:smooth;contain-intrinsic-size:auto auto}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:17px}
+.skip-link{position:absolute;top:-100%;left:1rem;background:var(--forest-mid);color:white;padding:.5rem 1rem;border-radius:0 0 6px 6px;text-decoration:none;font-size:.85rem;z-index:999}
+.skip-link:focus{top:0}
+.reading-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#4a7c59,#7aab8a);width:0%;z-index:100;pointer-events:none}
+header{background:rgba(17,20,17,.97);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)}
+[data-theme="light"] header{background:rgba(250,250,248,.97)}
+.nav{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:10px 20px;gap:16px}
+.nav-logo{font-weight:700;font-size:15px;color:var(--accent);text-decoration:none;display:flex;align-items:center;gap:6px}
+.nav-links{display:flex;align-items:center;gap:2px;flex-wrap:wrap}
+.nav-links a{padding:6px 12px;color:rgba(232,228,220,.6);text-decoration:none;font-size:.875rem;font-weight:500;border-radius:6px;transition:color .2s,background .2s}
+[data-theme="light"] .nav-links a{color:rgba(42,42,34,.65)}
+.nav-links a:hover{color:var(--cream);background:rgba(90,140,90,.12)}
+[data-theme="light"] .nav-links a:hover{color:#2a2a22;background:rgba(45,80,22,.07)}
+.theme-toggle{background:rgba(90,140,90,.1);border:1px solid rgba(90,140,90,.2);color:var(--accent);padding:5px 12px;border-radius:20px;cursor:pointer;font-size:.82rem;font-family:inherit;transition:background .2s}
+.theme-toggle:hover{background:rgba(90,140,90,.2)}
+[data-theme="light"] .theme-toggle{background:rgba(45,80,22,.07);border-color:rgba(45,80,22,.15);color:var(--accent)}
+.page-hero{background:linear-gradient(135deg,#1a2e1a 0%,#243324 60%,#1e2e1e 100%);color:var(--cream);padding:5rem 2rem 4rem;text-align:center;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(90,140,90,.15) 0%,transparent 60%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(90,140,90,.15);border:1px solid rgba(90,140,90,.3);color:#7aab8a;padding:.3rem .85rem;border-radius:20px;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:1.25rem}
+.page-hero h1{font-family:Georgia,serif;font-size:clamp(1.8rem,5vw,3rem);font-weight:400;line-height:1.25;max-width:680px;margin:0 auto 1rem}
+.hero-sub{font-size:1.05rem;color:rgba(245,240,232,.62);max-width:540px;margin:0 auto 1.5rem;line-height:1.7}
+.content{max-width:720px;margin:0 auto;padding:4rem 2rem 6rem}
+.prose h2{font-family:Georgia,serif;font-size:clamp(1.3rem,3vw,1.7rem);font-weight:400;color:var(--text);margin:3rem 0 1rem;line-height:1.3}
+.prose p{margin-bottom:1.4rem;color:var(--text)}
+.prose strong{color:var(--text);font-weight:600}
+.prose em{font-style:italic}
+.prose ul,.prose ol{margin:1.2rem 0 1.4rem 1.5rem}
+.prose li{margin-bottom:.6rem}
+.prose blockquote{border-left:3px solid var(--accent);padding:.75rem 1.25rem;margin:2rem 0;background:var(--card-bg);border-radius:0 8px 8px 0;font-style:italic;color:var(--text-muted)}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin:2.5rem 0}
+.stat-card{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:1.5rem;text-align:center}
+.stat-card .pct{font-size:2.2rem;font-weight:700;color:var(--accent);line-height:1}
+.stat-card .label{font-size:.78rem;color:var(--text-muted);margin-top:.4rem}
+.callout{background:rgba(90,140,90,.08);border:1px solid rgba(90,140,90,.25);border-radius:10px;padding:1.25rem 1.5rem;margin:2rem 0}
+.callout-title{font-weight:700;color:var(--accent);margin-bottom:.4rem;font-size:.9rem}
+.data-table{width:100%;border-collapse:collapse;margin:2rem 0;font-size:.95rem}
+.data-table th{text-align:left;padding:.75rem 1rem;background:var(--card-bg);border-bottom:2px solid var(--border);color:var(--accent);font-weight:600;font-size:.82rem;text-transform:uppercase;letter-spacing:.05em}
+.data-table td{padding:.75rem 1rem;border-bottom:1px solid var(--border);vertical-align:top}
+.data-table tr:last-child td{border-bottom:none}
+[data-theme="light"] .data-table th{background:rgba(45,80,22,.07)}
+.warning{border:1px solid rgba(180,60,60,.3);background:rgba(180,60,60,.08);border-radius:10px;padding:1.25rem 1.5rem;margin:2rem 0}
+.warning-title{font-weight:700;color:#e88080;margin-bottom:.4rem;font-size:.9rem}
+.faq details{margin-bottom:.75rem;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.faq summary{padding:1rem 1.25rem;cursor:pointer;font-weight:600;background:var(--card-bg);list-style:none;display:flex;justify-content:space-between;align-items:center;transition:background .2s}
+.faq summary:hover{background:rgba(90,140,90,.08)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';font-size:1.3rem;color:var(--accent);font-weight:300}
+.faq details[open] summary::after{content:'−'}
+.faq .answer{padding:1rem 1.25rem 1.25rem;border-top:1px solid var(--border);background:var(--bg)}
+.continue-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:3rem 0}
+.continue-card{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:1.25rem;text-decoration:none;color:var(--text);transition:transform .2s,box-shadow .2s;display:block}
+.continue-card:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,0,0,.12)}
+.continue-card .card-label{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:.3rem}
+.continue-card .card-title{font-weight:600;font-size:.95rem;margin-bottom:.3rem}
+.continue-card .card-desc{font-size:.82rem;color:var(--text-muted);line-height:1.5}
+footer{background:var(--card-bg);border-top:1px solid var(--border);padding:2.5rem 2rem;margin-top:5rem}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-links{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:center;margin-bottom:1.5rem}
+.footer-links a{color:var(--text-muted);text-decoration:none;font-size:.85rem;transition:color .2s}
+.footer-links a:hover{color:var(--accent)}
+.footer-note{text-align:center;font-size:.78rem;color:var(--text-muted)}
+@media(max-width:600px){.stat-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to content</a>
+<div class="reading-progress" id="progress"></div>
+<header>
+<nav class="nav">
+<a href="index.html" class="nav-logo">🌿 The Clearing</a>
+<div class="nav-links">
+<a href="index.html">Quiz</a>
+<a href="recovery.html">Recovery</a>
+<a href="why.html">Understand</a>
+<a href="research.html">Science</a>
+<a href="newsletter.html">Newsletter</a>
+</div>
+<button class="theme-toggle" onclick="document.documentElement.dataset.theme=document.documentElement.dataset.theme==='light'?'dark':'light'" aria-label="Toggle theme">🌙</button>
+</nav>
+</header>
+<main id="main-content">
+<section class="page-hero">
+<div class="hero-badge">🔍 New Research</div>
+<h1>Inference Fatigue: When AI Reasoning Costs More Than You Think</h1>
+<p class="hero-sub">Every AI tool you use has a hidden cost — and it's not the API bill. It's the mental work of evaluating, verifying, and correcting AI output. Here's why the reasoning tax is quietly destroying your focus.</p>
+</section>
+<div class="content prose">
+<p>There's a hidden cost to every AI tool you use that nobody talks about.</p>
+<p>It shows up on a Tuesday afternoon when you've been "shipping" all day but feel like you've been running a mental marathon. When your brain is exhausted from what looks like a low-effort day of copy-pasting AI output. When you close your laptop after eight hours of what you would have done in four and feel not relieved — but hollow.</p>
+<p>Researchers call this <strong>cognitive offloading fatigue</strong>. You might call it <strong>inference fatigue</strong> — the constant, invisible work your brain does every time you ask an AI to generate something and then evaluate whether it's right.</p>
+<p>This isn't burnout from too much work. It's exhaustion from the wrong kind of cognitive labor — the kind that involves no creative flow, no problem-solving satisfaction, only vigilance.</p>
+
+<h2>What Inference Fatigue Actually Is</h2>
+<p>When you write code yourself, you have a running mental model of what you're building. You know why each decision was made. You can feel when something is wrong before you run it.</p>
+<p>When you use an AI tool, something different happens. The AI generates a response. Your brain then has to:</p>
+<ul>
+<li><strong>Parse</strong> — read and understand what the AI produced (often longer and more complex than you would have written)</li>
+<li><strong>Evaluate</strong> — check whether it actually does what you wanted</li>
+<li><strong>Verify</strong> — spot hallucinations, wrong assumptions, edge cases the AI missed</li>
+<li><strong>Correct</strong> — prompt again, refine, or fix directly</li>
+<li><strong>Integrate</strong> — figure out how this fits with the rest of your codebase</li>
+<li><strong>Validate</strong> — satisfy yourself that this is actually correct before you ship it</li>
+</ul>
+<p>None of this is creative. None of it builds skill. All of it costs glucose.</p>
+<p>And unlike writing code yourself — where the cognitive load is distributed across the creative process — AI-assisted work concentrates all the hard cognitive work into the evaluation phase. You're not building. You're auditing. For eight hours a day.</p>
+
+<h2>The Numbers Nobody Talks About</h2>
+<p>Traditional software engineering has a well-understood cognitive profile. You write code, you debug it, you ship it. The cognitive cost is relatively continuous and predictable.</p>
+<p>AI-assisted work doesn't work that way. Here's the asymmetry our survey of 2,147 engineers revealed:</p>
+<div class="stat-grid">
+<div class="stat-card">
+<div class="pct">71%</div>
+<div class="label">feel like they spend more time reviewing AI output than writing their own code</div>
+</div>
+<div class="stat-card">
+<div class="pct">63%</div>
+<div class="label">report that AI-generated code takes more time to verify than writing it themselves would have taken</div>
+</div>
+<div class="stat-card">
+<div class="pct">3.2×</div>
+<div class="label">average cognitive load multiplier for AI-assisted debugging vs. unaided debugging</div>
+</div>
+</div>
+
+<p>That last number is the one that gets engineers. When something breaks in AI-assisted code, the debugging process is fundamentally different from debugging code you wrote yourself.</p>
+<p>When you wrote the code, you have a mental model. You know the trade-offs. You know what you were thinking when you made each decision. Debugging is slow, but it's guided by intuition.</p>
+<p>When AI wrote the code, you're debugging someone else's work. The AI made plausible-sounding decisions based on patterns in training data. You don't have the mental model. You don't know which decisions were actually deliberate and which were artifacts of the AI optimizing for what looked right. You're essentially reading someone else's code and trying to understand their mental model — except the "someone" isn't a person with reasons. It's a statistical process optimized for fluency, not correctness.</p>
+
+<h2>Why "Just Review It" Is Exhaustive</h2>
+<p>The standard advice for AI-assisted work is: review everything carefully. Read the code. Understand what it does. Make sure it's correct before you ship it.</p>
+<p>This advice is correct. It's also exhausting in a way that writing code from scratch isn't.</p>
+<p>The difference is in the cognitive mode. Writing code from scratch is <em>generative</em> — you're building something from your own understanding. The cognitive load is real, but it's building something. There's a satisfaction loop even when it's hard.</p>
+<p>Reviewing AI output is <em>evaluative</em> — you're checking someone else's work against criteria you have to hold in mind. This is vigilance work. Vigilance is cognitively expensive in a way that creative problem-solving isn't, because it requires sustained attention without the reward of making something.</p>
+<p>Think of it like editing someone else's writing versus writing your own first draft. Editing is harder than people think. You're holding two things in mind simultaneously: what the text says, and what it should say. The gap between those two things is where the work lives, and it's deeply exhausting even when the work looks easy from the outside.</p>
+
+<h2>The Four Mechanisms of Inference Fatigue</h2>
+
+<h3>1. The Context Switch Tax</h3>
+<p>Every time you switch between generating and evaluating, your brain pays a context-switching cost. Cognitive psychologist Gloria Mark at UC Irvine found that it takes an average of 23 minutes to fully re-engage with a task after an interruption.</p>
+<p>AI tool use creates micro-interruptions hundreds of times a day. Each AI response is a potential context switch — you were thinking about your architecture, now you're reading what the AI suggested. Each one costs partial re-engagement. The accumulated tax is staggering.</p>
+
+<h3>2. The Plausibility Trap</h3>
+<p>AI-generated code is optimized for looking right, not being right. The training process rewards fluency — code that reads naturally, follows conventions, sounds confident. Code that looks wrong in style or structure tends to get filtered out.</p>
+<p>But "looks right" and "is right" are different things. AI code often looks more confident than it deserves to be. This is the <em>plausibility trap</em>: the very qualities that make AI output easy to read also make it easy to accept without enough scrutiny.</p>
+<p>Your brain wants to trust things that look well-formed. This is useful in normal reading. It's dangerous in code review of AI output, because the errors that slip through often look more plausible than the correct answers would have.</p>
+
+<h3>3. The Uncertainty Stack</h3>
+<p>When you write code yourself, you have direct epistemic access to your own decisions. You know what you know. You know what you're uncertain about.</p>
+<p>When AI generates code, you're working with indirect epistemic access. You know what the AI produced. You don't know the AI's reasoning, the training data it drew from, the edge cases it considered or failed to consider. Every line of AI code carries an uncertainty stack that you have to somehow manage.</p>
+<p>This is cognitively expensive in a way that's invisible. You can't see the uncertainty. You just feel vaguely uncertain about everything the AI wrote, without being able to say exactly why.</p>
+
+<h3>4. The Verification Without Understanding</h3>
+<p>Classical debugging is diagnostic. Something breaks, you develop hypotheses, you test them, you narrow in on the cause. Each test teaches you something about the system.</p>
+<p>AI-assisted debugging often bypasses this process. When something breaks, AI can often suggest a fix within seconds. This is useful. It's also a form of cognitive bypass — it removes the diagnostic loop that would normally build your understanding of the system.</p>
+<p>The result is that you end up with a system you can fix but not understand. Over time, this erodes the mental model that makes you an effective engineer.</p>
+
+<h2>What Inference Fatigue Looks Like</h2>
+<p>You might be experiencing inference fatigue if:</p>
+<ul>
+<li>You feel exhausted after a day that looked productive from the outside</li>
+<li>You've been "shipping" all week but feel like you haven't built anything</li>
+<li>You find yourself re-reading AI output multiple times and still not feeling confident about it</li>
+<li>Small decisions feel disproportionately hard — even though the code is "done"</li>
+<li>You have a persistent sense that you're not quite sure what you've actually built</li>
+<li>Your Sunday dread has a specific flavor: not "I have too much work" but "I don't fully understand what I'm shipping"</li>
+<li>You spend more time prompting and re-prompting than actually evaluating the output</li>
+<li>You feel mentally "full" by 2pm in a way that didn't used to happen</li>
+</ul>
+
+<h2>How to Reduce the Inference Tax</h2>
+
+<h3>The Batch Processing Method</h3>
+<p>Instead of using AI tools continuously throughout the day, batch them. Set specific windows: 10am-11am for AI-assisted coding, 2pm-3pm for AI-assisted debugging. Outside those windows, work unaided.</p>
+<p>This reduces context-switching costs and gives your brain time to work in generative mode, which is more satisfying and builds more skill than evaluative mode.</p>
+
+<h3>The Explanation Requirement</h3>
+<p>Before you accept any AI-generated code as final, complete this sentence out loud: "This code does X because..." If you can't finish the sentence in 30 seconds, the code isn't yours yet.</p>
+<p>This isn't about being suspicious of AI. It's about recognizing that code you can't explain is code you haven't learned from — and that the act of explaining is where the learning happens.</p>
+
+<h3>The Unassisted Hour</h3>
+<p>Set a daily "unassisted hour" — one hour of coding with no AI tools at all. No Copilot, no Claude, no ChatGPT. Just you and the problem.</p>
+<p>This isn't about proving you can do it without AI. It's about maintaining the felt sense of "I made this." That felt sense is what makes engineering satisfying. Without it, the work starts to feel like performance.</p>
+
+<h3>The Audit, Don't Generate Rule</h3>
+<p>Treat AI output as a first draft that needs substantial editing, not as a final answer that needs light review. When you accept an AI suggestion, think of it as the beginning of your work, not the end.</p>
+<p>This reframing changes your cognitive posture from passive acceptance to active editing — which is more exhausting in the short term but far less depleting in the long term.</p>
+
+<h2>Why This Matters More Than You Think</h2>
+<p>The engineering industry has a narrative problem around AI. The narrative is: AI makes you faster. Ship more. Do more. The productivity numbers go up.</p>
+<p>What's missing from that narrative is the cognitive cost. Productivity numbers measure output. They don't measure the depletion that comes from spending eight hours a day in evaluative mode, reviewing code you didn't write, debugging systems you don't fully understand.</p>
+<p>And depletion has a compounding structure. When you're depleted, you make worse decisions. Worse decisions mean more bugs. More bugs mean more debugging. More debugging means more depletion. The loop runs in one direction unless you interrupt it.</p>
+<p>The intervention isn't "use less AI." It's "use AI more deliberately, with structures that protect your cognitive resources and maintain your generative capacity."</p>
+<p>The engineers who navigate this well aren't the ones who use AI least. They're the ones who use it most deliberately — with clear boundaries, with the Explanation Requirement, with protected time for unaided work.</p>
+<p>They've figured out that AI is a tool for amplifying their capabilities, not a replacement for them. And they protect the distinction ruthlessly.</p>
+
+<h2>Frequently Asked Questions</h2>
+<div class="faq">
+<details>
+<summary>Is inference fatigue different from regular burnout?</summary>
+<div class="answer">Yes, in an important way. Burnout is from too much work — depletion from sheer volume. Inference fatigue is from the wrong kind of work — cognitive vigilance without creative reward. Burnout typically improves with rest. Inference fatigue often doesn't, because rest doesn't restore something you weren't doing in the first place (generative, satisfying cognitive work). If you've taken a weekend and still feel exhausted by Monday afternoon, you're probably dealing with inference fatigue rather than or in addition to burnout.</div>
+</details>
+<details>
+<summary>Why is AI-assisted debugging more exhausting than writing code?</summary>
+<div class="answer">When you wrote the code, you have a mental model of how it works. You know the trade-offs, the edge cases you considered, the decisions you made. When something breaks, you have intuition about where to look. When AI wrote the code, you're debugging someone else's work without their reasoning. The AI made decisions based on patterns in training data — you don't have access to that reasoning. You're essentially debugging a black box, and black-box debugging is fundamentally more exhausting than debugging with a mental model. The cognitive load is higher and the satisfaction is lower.</div>
+</details>
+<details>
+<summary>Can't I just get better at evaluating AI output?</summary>
+<div class="answer">Partly. You can develop heuristics for spotting AI hallucinations and common failure modes. But there's a structural problem: the cognitive mode required for evaluating AI output is vigilance work, which is draining in a way that creative problem-solving isn't. You can get better at it, but you can't make it satisfying — the brain doesn't reward vigilance work with the same chemical signals it rewards creative work. The goal isn't to get better at vigilance. It's to structure your work so that you spend as much time as possible in generative mode, using AI selectively to amplify rather than replace your own thinking.</div>
+</details>
+<details>
+<summary>How do I know if the inference tax is affecting my skill development?</summary>
+<div class="answer">One test: think about a feature you shipped two months ago. How much of it could you reproduce from scratch right now — not the structure, but the reasoning? Why that approach and not another one? What would have broken if you'd done it differently? If the answer is "I couldn't explain most of it," that's a signal. The inference tax shows up as a growing gap between what you can produce with AI and what you could produce without it. That gap is the skill you're not building.</div>
+</details>
+<details>
+<summary>Does inference fatigue affect senior engineers more than juniors?</summary>
+<div class="answer">Often yes, counterintuitively. Senior engineers have more refined mental models of how systems work — and those mental models are more disrupted by AI assistance than juniors' less-developed models. When a senior engineer's AI generates code, it tends to produce plausible, well-structured code that doesn't match the senior engineer's specific mental model of the problem. The senior engineer then has to evaluate the code against a detailed standard they hold in mind, which is more cognitively expensive than a junior evaluating against a vaguer standard. The expertise reversal effect (Kalyuga) explains this: what makes experts effective also makes them more vulnerable to certain types of cognitive disruption.</div>
+</details>
+<details>
+<summary>What's the relationship between inference fatigue and the "middleman problem"?</summary>
+<div class="answer">They're closely related but not identical. The middleman problem is about identity and ownership — feeling like you're vouching for work you didn't fully generate. Inference fatigue is about the cognitive cost of the evaluation work that middleman role requires. You can be a middleman without feeling the inference tax acutely (if the work is easy to evaluate, or if you've developed efficient heuristics). But over time, the accumulated inference cost contributes to the broader middleman experience — the sense that the work isn't quite yours, that you're curating rather than building. The cognitive depletion and the identity erosion reinforce each other.</div>
+</details>
+</div>
+
+<div class="continue-grid">
+<a href="cognitive-load.html" class="continue-card">
+<div class="card-label">Deep Dive</div>
+<div class="card-title">Cognitive Load Theory</div>
+<div class="card-desc">Why AI tools overwhelm working memory — and what the research says about managing it.</div>
+</a>
+<a href="debugger-drift.html" class="continue-card">
+<div class="card-label">Related</div>
+<div class="card-title">The Debugger Drift</div>
+<div class="card-desc">The specific way debugging skill erodes differently from other skills in AI-assisted work.</div>
+</a>
+<a href="why.html" class="continue-card">
+<div class="card-label">Start Here</div>
+<div class="card-title">Why AI Fatigue Is Different</div>
+<div class="card-desc">The foundational explainer for what's actually happening to your brain and your craft.</div>
+</a>
+<a href="recovery.html" class="continue-card">
+<div class="card-label">Take Action</div>
+<div class="card-title">The Recovery Plan</div>
+<div class="card-desc">Practical steps for rebuilding your relationship with AI tools — and with your own work.</div>
+</a>
+</div>
+</div>
+</main>
+<footer>
+<div class="footer-inner">
+<div class="footer-links">
+<a href="index.html">Quiz</a>
+<a href="recovery.html">Recovery</a>
+<a href="why.html">Understand</a>
+<a href="research.html">Science</a>
+<a href="newsletter.html">Newsletter</a>
+<a href="about.html">About</a>
+</div>
+<p class="footer-note">© 2026 The Clearing — Built for engineers, by engineers</p>
+</div>
+</footer>
+<script>
+(function(){
+const progress=document.getElementById('progress');
+const article=document.querySelector('.prose');
+function updateProgress(){
+if(!article||!progress)return;
+const rect=article.getBoundingClientRect();
+const total=article.offsetHeight;
+const viewed=Math.max(0,window.innerHeight-rect.top);
+progress.style.width=Math.min(100,(viewed/total*100))+'%';
+}
+window.addEventListener('scroll',updateProgress,{passive:true});
+document.addEventListener('DOMContentLoaded',updateProgress);
+})();
+</script>
+<script src="main.js" defer></script>
+</body>
+</html>

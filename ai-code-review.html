@@ -303,7 +303,7 @@
           <p>Let's be precise about what AI code review tools actually handle well, and what they can't touch.</p>
 
           <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
-            <div class="card">
+            <div class="feature-card">
               <h3 style="color: var(--success);">✅ What AI catches reliably</h3>
               <ul style="padding-left: 1.5rem;">
                 <li>Syntax errors and type mismatches</li>
@@ -316,7 +316,7 @@
                 <li>Obvious performance regressions</li>
               </ul>
             </div>
-            <div class="card">
+            <div class="feature-card">
               <h3 style="color: var(--warning);">⚠️ What AI partially handles</h3>
               <ul style="padding-left: 1.5rem;">
                 <li>Algorithmic efficiency (can suggest, often wrong on complexity)</li>
@@ -326,7 +326,7 @@
                 <li>API contract violations within a known service</li>
               </ul>
             </div>
-            <div class="card">
+            <div class="feature-card">
               <h3 style="color: var(--danger);">❌ What AI cannot assess</h3>
               <ul style="padding-left: 1.5rem;">
                 <li>Whether the solution serves the actual user need</li>
@@ -376,12 +376,12 @@
           <p>AI code review cannot do this. It can tell you the variable is poorly named. It cannot explain why the naming convention exists, which other modules use a similar pattern, and what the original author was thinking. It can tell you the test is missing. It cannot explain what the test is actually checking for and why it matters in this specific domain.</p>
 
           <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
-            <div class="card">
+            <div class="feature-card">
               <h4>Traditional review → junior growth</h4>
               <p>Senior explains: "This approach will cause problems when we add multi-tenancy because you assumed a single-tenant context. Here's how we've handled this in other modules."</p>
               <p><strong>Result:</strong> Junior learns about the domain, the architecture, the reasoning. Grows.</p>
             </div>
-            <div class="card">
+            <div class="feature-card">
               <h4>AI review → junior growth gap</h4>
               <p>AI flags: "Consider adding null check on line 47."</p>
               <p><strong>Result:</strong> Junior adds null check. Does not learn why nulls were likely here, what the calling context expects, or how to reason about this class of problem in the future.</p>
@@ -443,27 +443,27 @@
           <h2>What actually helps</h2>
 
           <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
-            <div class="card">
+            <div class="feature-card">
               <h4>1. Reserve human review for meaning</h4>
               <p>Use AI for the mechanical checks (style, coverage, obvious bugs). Reserve human review for what AI cannot assess: intent, architecture, domain logic, team context. Be explicit about this division.</p>
             </div>
-            <div class="card">
+            <div class="feature-card">
               <h4>2. Calibrate AI review by seniority</h4>
               <p>Configure AI review to be more permissive for senior engineers and more educational for juniors. A junior getting flagged on naming conventions is learning. A senior being flagged on the same thing is noise that trains them to ignore the AI.</p>
             </div>
-            <div class="card">
+            <div class="feature-card">
               <h4>3. Protect the review comment as a learning artifact</h4>
               <p>When you leave a review comment, write it for the next engineer who encounters this pattern — not just for the author. Good review comments are institutional knowledge transfer. AI flags are not.</p>
             </div>
-            <div class="card">
+            <div class="feature-card">
               <h4>4. Track review quality, not just review quantity</h4>
               <p>If your team tracks PR cycle time and review count but not the quality of review conversations, you're optimizing for the wrong thing. A team that does 5 thorough reviews per week is healthier than one that does 20 rubber-stamp reviews.</p>
             </div>
-            <div class="card">
+            <div class="feature-card">
               <h4>5. Require human review for architectural decisions</h4>
               <p>Establish a norm: changes to shared modules, public APIs, data models, and architectural patterns require human review, regardless of AI approval. AI cannot assess architectural implications.</p>
             </div>
-            <div class="card">
+            <div class="feature-card">
               <h4>6. Rotate reviewers intentionally</h4>
               <p>When AI handles the routine, human reviewers should rotate more broadly across the codebase — not just reviewing their own area, but understanding what other parts of the system are doing. This is how institutional knowledge spreads.</p>
             </div>

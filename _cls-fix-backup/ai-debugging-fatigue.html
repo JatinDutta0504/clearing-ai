@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" style="contain-intrinsic-size: auto,auto; content-visibility: auto;">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+       href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2">
+
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300..700;1,7..72,300..700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media=\'all\'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300..700;1,7..72,300..700&family=DM+Sans:wght@400;500;600&display=swap" /></noscript>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Debugging Fatigue: Why AI Makes You Worse at Debugging</title>
+  <meta name="description" content="AI tools fix bugs fast. But they're quietly eroding the debugging skill that makes you valuable on hard problems. Here's what happens, and how to get it back.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="AI Debugging Fatigue: Why AI Makes You Worse at Debugging">
+  <meta property="og:description" content="AI tools fix bugs fast. But they're quietly eroding the debugging skill that makes you valuable on hard problems. Here's what happens, and how to get it back.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/ai-debugging-fatigue.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
+  <link rel="canonical" href="https://clearing-ai.com/ai-debugging-fatigue.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+       href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2">
+
+  <noscript></noscript>
+  <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="css/style.css"></noscript>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "AI Debugging Fatigue: Why AI Makes You Worse at Debugging",
+      "description": "AI tools fix bugs fast. But they're quietly eroding the debugging skill that makes you valuable on hard problems. Here's what happens, and how to get it back.",
+      "author": {
+        "@type": "Organization",
+        "name": "The Clearing",
+        "url": "https://clearing-ai.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "The Clearing",
+        "url": "https://clearing-ai.com"
+      },
+      "url": "https://clearing-ai.com/ai-debugging-fatigue.html",
+      "datePublished": "2026-04-15",
+      "dateModified": "2026-04-15",
+      "wordCount": 3800
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://clearing-ai.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tools",
+          "item": "https://clearing-ai.com/compare.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "AI Debugging Fatigue",
+          "item": "https://clearing-ai.com/ai-debugging-fatigue.html"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why does AI make debugging harder over time?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI collapses the four cognitive phases of debugging \u2014 recognize, isolate, hypothesize, verify \u2014 into a single prompt. Each phase was building your mental model. When AI handles all of them, you skip the model update. Gradually, your understanding of the system falls behind the system itself."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I know if my debugging skill has atrophied?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Signs include: you can't explain why a bug happened even after AI fixes it, you need AI to find bugs you'd have found manually before, you avoid complex debugging tasks, or you feel lost when AI gives you an answer you don't understand."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I stop using AI for debugging entirely?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The goal isn't AI abstinence. It's deliberate practice: try first without AI, then use AI to sharpen your understanding, not replace it. The explanation requirement \u2014 insisting you can explain why the fix works before accepting it \u2014 preserves learning even when using AI."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the explanation requirement?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The explanation requirement is a simple rule: before accepting any AI debugging suggestion, you must be able to explain why that fix is correct. If you can't explain it, the bug isn't really fixed in your head \u2014 only in the code. This forces retrieval practice and maintains your mental model."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take to rebuild debugging confidence?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most engineers report noticeable improvement within 2-3 weeks of deliberate no-AI debugging sessions. The key is consistency: small sessions (20-30 minutes of genuine debugging effort before AI) compound. Full rebuilding of deep system intuition may take 2-3 months."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does AI help junior engineers learn to debug better?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not typically. Debugging skill develops through productive struggle \u2014 the time spent being confused before the insight arrives. AI removes the productive struggle. Juniors who rely heavily on AI for debugging skip the practice that builds debugging intuition. They may pass tests but develop shallower system understanding."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <header class="site-header">
+    <nav class="nav-container" role="navigation" aria-label="Main navigation">
+      <a href="index.html" class="nav-home" aria-label="The Clearing home">
+        <span class="nav-logo">🌿</span>
+        <span class="nav-title">The Clearing</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li class="dropdown">
+          <button class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">Quiz</button>
+          <ul class="dropdown-menu">
+            <li><a href="index.html#quiz">Take the Quiz</a></li>
+            <li><a href="quiz-results.html">Your Results</a></li>
+            <li><a href="ai-fatigue-severity-index.html">Severity Index</a>
+          <a href="ai-fatigue-type-calculator.html">Fatigue Type Calculator</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <button class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">Recover</button>
+          <ul class="dropdown-menu">
+            <li><a href="recovery.html">Recovery Guide</a>
+          <a href="/the-explanation-requirement.html">Explanation Requirement</a></li>
+            <li><a href="ai-detox-plan.html">30-Day Detox Plan</a></li>
+            <li><a href="daily-practice.html">Daily Practice</a></li>
+            <li><a href="recovery-toolkit.html">Recovery Toolkit</a>
+            <a href="ai-fatigue-checklist.html">Recovery Checklist</a></li>
+            <li><a href="decompress.html">Deep Work Timer</a></li>
+            <li><a href="checkin.html">Daily Check-in</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <button class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">Understand</button>
+          <ul class="dropdown-menu">
+            <li><a href="why.html">Why This Happens</a></li>
+            <li><a href="skill-atrophy.html">Skill Atrophy</a></li>
+          <li><a href="vibe-coding-ai-fatigue.html">Vibe Coding Fatigue</a></li>
+
+            <li><a href="cognitive-load.html">Cognitive Load</a></li>
+            <li><a href="attention-residue.html">Attention Residue</a></li>
+            <li><a href="flow-state.html">Flow State</a></li>
+            <li><a href="startup-engineer-ai-fatigue.html">Startup Engineers</a></li>
+            <li><a href="ai-consultation-fatigue.html">Consultation Fatigue</a></li>
+            <li><a href="ai-debugging-fatigue.html">Debugging Fatigue</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <button class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">Stories</button>
+          <ul class="dropdown-menu">
+            <li><a href="stories.html">
+            <li><a href="ai-fatigue-quick-start.html">Quick-Start Guide</a></li>Engineer Stories</a></li>
+            <li><a href="senior-identity.html">Senior Identity Crisis</a></li>
+            <li><a href="junior-engineers.html">For Junior Engineers</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <button class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">Resources</button>
+          <ul class="dropdown-menu">
+            <li><a href="resources.html">Reading List</a></li>
+            <li><a href="compare.html">Tool Comparison</a></li>
+            <li><a href="stats.html">AI Fatigue Statistics</a></li>
+            <li><a href="research.html">Research</a></li>
+          </ul>
+        </li>
+        <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="newsletter-archive.html">Archive</a></li>
+      </ul>
+      <button class="theme-toggle" aria-label="Toggle color theme">☀️</button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <article class="page-content">
+      <div class="breadcrumb">
+        <nav aria-label="Breadcrumb">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="compare.html">Tools</a></li>
+            <li aria-current="page">AI Debugging Fatigue</li>
+          </ol>
+        </nav>
+      </div>
+
+      <header class="page-header">
+        <h1>AI Debugging Fatigue: Why AI Makes You Worse at Debugging</h1>
+        <p class="page-subtitle">The more bugs AI fixes for you, the less you understand your systems. Here's the quiet erosion nobody talks about — and how to reverse it.</p>
+        <div class="reading-meta">
+          <span class="reading-time">~19 min read</span>
+          <span class="separator">·</span>
+          <span class="updated">Updated April 15, 2026</span>
+        </div>
+      </header>
+
+      <div class="prose">
+        <p>There's a moment every senior engineer fears: you get paged at 2 AM. Production is down. The error is specific. You have every tool available, including AI. And you realize — you don't know where to start.</p>
+
+        <p>Not because the problem is too hard. Because you've been solving easy problems for so long that you've forgotten what it feels like to be genuinely stuck.</p>
+
+        <p>This is AI debugging fatigue. Not the obvious kind — not the fear of being replaced, not the guilt of using AI. The quiet kind: you've outsourced the productive struggle so many times that the struggle itself feels alien now. You can ship features with AI. You can write tests with AI. But on a hard problem — the real ones, the ones where there's no Stack Overflow answer and no obvious pattern — something is missing.</p>
+
+        <p>Your debugging instinct.</p>
+
+        <hr>
+
+        <h2>What Debugging Actually Is</h2>
+
+        <p>Most engineers think debugging is: something is broken, find the bug, fix it. This is the output view. But debugging as a cognitive process is something else entirely.</p>
+
+        <p>Real debugging has four distinct phases:</p>
+
+        <ol>
+          <li><strong>Recognition</strong> — noticing that something is wrong. This sounds trivial. It isn't. Knowing when something is off requires a baseline. You need to know how the system behaves when it's working to recognize when it isn't. This baseline is built through experience, through having seen things work and break.</li>
+          <li><strong>Isolation</strong> — narrowing down where the problem is. Is it in the code you wrote? The library you're calling? The infrastructure? The data? Each layer requires a different kind of attention, a different willingness to dig.</li>
+          <li><strong>Hypothesis formation</strong> — building a theory about why this particular combination of inputs and state produces this particular failure. Good hypotheses require understanding the system at a mechanistic level, not just knowing what it does but why it does it that way.</li>
+          <li><strong>Verification</strong> — testing your hypothesis. Often this means constructing a test case that isolates exactly the condition that triggers the bug. This requires creativity and precision simultaneously.</li>
+        </ol>
+
+        <p>Each phase builds your mental model. When you recognize a bug, you're updating your understanding of system behavior. When you isolate it, you're learning where the edges are. When you form a hypothesis and verify it, you're deepening your causal understanding of how the pieces fit together.</p>
+
+        <p>Debugging isn't just fixing problems. It's how experienced engineers build and maintain their understanding of complex systems. The bug is the lesson. The fix is the proof that you learned it.</p>
+
+        <hr>
+
+        <h2>How AI Collapses All Four Phases</h2>
+
+        <p>Modern AI debugging tools — whether they're integrated into your IDE, your runbooks, or your CI pipeline — handle all four phases simultaneously. You describe the symptoms. AI finds the likely causes. AI suggests the fix. You apply it.</p>
+
+        <p>This is genuinely useful. It's often faster. For common bugs, it's often more reliable than manual debugging. For teams under velocity pressure, it's often the only practical choice.</p>
+
+        <p>But here's what gets lost: when AI handles all four phases, you skip the cognitive work that each phase was doing for your understanding.</p>
+
+        <p>You describe the symptoms instead of recognizing them. The system behavior pattern that would have triggered your "something's off" sense — that pattern recognition never develops because AI is always the first to notice.</p>
+
+        <p>AI isolates the bug instead of you. You learn the location but not the path. The process of elimination, the systematic narrowing — that reasoning never happens in your head. You receive the answer.</p>
+
+        <p>AI forms the hypothesis. You get the theory of why it broke, but you didn't build it. The causal reasoning was done by the model. Your model doesn't update.</p>
+
+        <p>AI verifies the fix. You apply it and see it works. But "it works" is not the same as "I understand why it works."</p>
+
+        <p>This is the debugging skill erosion loop: AI handles the cognitive work → your mental model doesn't update → the gap between what the system does and what you understand grows → you rely more on AI to navigate the gap → AI handles more cognitive work.</p>
+
+        <div class="callout callout-warning">
+          <strong>The invisible moment of atrophy:</strong> You don't notice when your debugging skill starts to erode. The bugs still get fixed. The code still ships. The system still works. The erosion is invisible until you hit a problem AI can't solve cleanly — and suddenly you're staring at code you nominally own and you have no idea what's happening inside it.
+        </div>
+
+        <hr>
+
+        <h2>The Skill Erosion Timeline</h2>
+
+        <p>Debugging skill atrophy doesn't happen overnight. It's gradual, nearly invisible, and easily rationalized. Here's what it typically looks like:</p>
+
+        <h3>Month 1-2: The Efficiency Honeymoon</h3>
+        <p>Everything feels more productive. Bugs get found faster. PRs go through faster. You ship more than ever. If anyone suggested you were losing skills, you'd disagree — look at the output.</p>
+
+        <h3>Month 3-4: The Unexplained Confusion</h3>
+        <p>You start noticing: when AI finds a bug, you sometimes can't explain why that location, why that cause. The answer is correct but you don't have the reasoning path. You rationalize: "I would have found it eventually, AI just got there faster."</p>
+
+        <h3>Month 5-6: The Explanation Gap</h3>
+        <p>In code reviews, you find yourself accepting changes you don't fully understand. When a colleague asks "why did we fix it this way?" you have to ask AI to regenerate the explanation so you can relay it. The code has authors, but the understanding is distributed.</p>
+
+        <h3>Month 6+: The 2 AM Problem</h3>
+        <p>Production goes down. AI tools are degraded — maybe rate-limited, maybe the error is in an area that requires context AI doesn't have, maybe it's a novel failure mode. And you realize: you don't know where to start. Not because you can't think. Because you've been thinking less and less on hard problems, and now the muscle is harder to recruit.</p>
+
+        <hr>
+
+        <h2>7 Signs Your Debugging Skill Has Atrophied</h2>
+
+        <p>You don't need a formal assessment. Answer these honestly:</p>
+
+        <div class="interactive-checklist">
+          <div class="checklist-item" data-item="1">
+            <label>
+              <input type="checkbox">
+              <span>When AI fixes a bug, you can't explain why that location was the problem — even after the fix is applied.</span>
+            </label>
+          </div>
+          <div class="checklist-item" data-item="2">
+            <label>
+              <input type="checkbox">
+              <span>You've stopped reading stack traces manually. You paste them into AI and ask "what's the bug?"</span>
+            </label>
+          </div>
+          <div class="checklist-item" data-item="3">
+            <label>
+              <input type="checkbox">
+              <span>You avoid debugging sessions that take more than 10 minutes. You reach for AI as soon as the problem isn't immediately obvious.</span>
+            </label>
+          </div>
+          <div class="checklist-item" data-item="4">
+            <label>
+              <input type="checkbox">
+              <span>When AI gives you a fix you don't understand, you apply it anyway because "it worked in the test environment."</span>
+            </label>
+          </div>
+          <div class="checklist-item" data-item="5">
+            <label>
+              <input type="checkbox">
+              <span>You couldn't debug a complex issue without AI if you had to — not because AI is better, but because you'd feel lost without it.</span>
+            </label>
+          </div>
+          <div class="checklist-item" data-item="6">
+            <label>
+              <input type="checkbox">
+              <span>You can't remember the last time you felt genuinely stuck on a debugging problem and worked through it manually.</span>
+            </label>
+          </div>
+          <div class="checklist-item" data-item="7">
+            <label>
+              <input type="checkbox">
+              <span>Your system understanding has degraded. You know what the code does but not why it does it that way.</span>
+            </label>
+          </div>
+        </div>
+
+        <p>If you checked 4 or more: your debugging skill has likely atrophied. This isn't a character flaw. It's a natural consequence of AI-assisted workflows. The fix is deliberate practice, not AI abstinence.</p>
+
+        <hr>
+
+        <h2>The Explanation Requirement</h2>
+
+        <p>The most practical single rule for preserving debugging skill while using AI: the explanation requirement.</p>
+
+        <p>Before you accept any AI debugging suggestion, you must be able to explain, in your own words, why that fix is correct.</p>
+
+        <p>Not "AI said this is right." Not "it passed the tests." You. In your own words. Why this change fixes the bug, at a causal level.</p>
+
+        <p>If you can't explain it, the fix isn't complete. Apply the fix, but then close the laptop and try to reconstruct the reasoning yourself. Why was this the problem? How did you (or AI) figure that out? What would have happened if you hadn't caught it?</p>
+
+        <p>This sounds tedious. It's actually the opposite: it's the minimum viable debugging practice. A few minutes of genuine retrieval practice after each AI-assisted fix is enough to maintain your mental model. You're not doing full manual debugging — you're ensuring that the debugging that happened in your presence actually registers in your head.</p>
+
+        <p>The engineers who maintain strong debugging skills in AI-heavy environments all have some version of this habit. They don't let AI debugging sessions end without updating their own understanding. The answer arrived via AI. The learning still happens in their head.</p>
+
+        <hr>
+
+        <h2>Rebuilding Debugging Confidence: 5 No-AI Sessions</h2>
+
+        <p>If you've identified skill atrophy, the fix is not to stop using AI. The fix is deliberate practice: hard debugging problems tackled without AI, before AI enters the picture.</p>
+
+        <p>Try this for any medium-complexity bug you encounter this week:</p>
+
+        <ol>
+          <li><strong>Before touching AI:</strong> Spend 10-15 minutes genuinely trying to understand the problem. Read the stack trace. Trace the data flow. Check the git history of the affected files. Make a hypothesis — write it down. This is the productive struggle. It's uncomfortable. It's the whole point.</li>
+          <li><strong>Then use AI:</strong> Describe the symptoms and your hypothesis. Ask AI what it thinks. Compare its answer to yours. If it matches, you were calibrated. If it doesn't, figure out why. Where was your model wrong?</li>
+          <li><strong>Apply the fix:</strong> But before you merge, explain to someone (or to yourself, out loud) why this fix works. If you can't explain it, go back to step 2. The explanation requirement applies to every fix, AI-assisted or otherwise.</li>
+          <li><strong>Write it down:</strong> Keep a debugging journal — brief notes on what you learned. Not the bug itself, but the pattern or principle it revealed. This is retrieval practice externalized. The act of writing reinforces the memory trace.</li>
+          <li><strong>Once a week:</strong> Find a non-critical bug in your system and debug it entirely without AI. No prompting, no AI suggestions, no AI explanations. Just you, the code, and the problem. You don't have to succeed at finding the fix in the time limit. You have to try. The trying is the practice.</li>
+        </ol>
+
+        <div class="callout callout-info">
+          <strong>A note for junior engineers:</strong> This advice is especially important for you. Debugging is one of the primary ways you develop system intuition early in your career. Every bug you solve manually — even slowly, even frustratingly — is building the mental model you'll rely on for the rest of your career. AI can fix the bug. It can't give you the model. Protect the productive struggle while you still need it most.
+        </div>
+
+        <hr>
+
+        <h2>Why This Matters More Than You Think</h2>
+
+        <p>Here's the uncomfortable truth: debugging skill is what makes a senior engineer senior.</p>
+
+        <p>Anyone can write code that works in the happy path. The differentiating skill — the thing that separates the engineer who handles production incidents from the engineer who creates them — is the ability to reason about complex systems when they're failing.</p>
+
+        <p>This ability doesn't just appear. It develops over years of genuine debugging work: the slow accumulation of system understanding, the pattern recognition built from hundreds of failures, the intuition for where to look when something goes wrong. This is the expertise that is genuinely hard to build and genuinely valuable.</p>
+
+        <p>AI is not eroding this skill uniformly. It's eroding it selectively, gradually, and in ways that are hard to see until the skill is noticeably diminished. The engineers who maintain it — who stay calibrated, who can still sit with a hard problem and find their way through — will be the ones who invested in the practice deliberately.</p>
+
+        <p>The goal isn't to refuse AI debugging tools. The goal is to remain the primary author of your understanding. AI can fix the bug. But you need to understand why.</p>
+
+        <hr>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-section">
+          <div class="faq-item">
+            <button class="faq-question" type="button">Why does AI make debugging harder over time?</button>
+            <div class="faq-answer">
+              <p>AI collapses the four cognitive phases of debugging — recognize, isolate, hypothesize, verify — into a single prompt. Each phase was building your mental model. When AI handles all of them, you skip the model update. Gradually, your understanding of the system falls behind the system itself.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button">How do I know if my debugging skill has atrophied?</button>
+            <div class="faq-answer">
+              <p>Signs include: you can't explain why a bug happened even after AI fixes it, you need AI to find bugs you'd have found manually before, you avoid complex debugging tasks, or you feel lost when AI gives you an answer you don't understand.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button">Should I stop using AI for debugging entirely?</button>
+            <div class="faq-answer">
+              <p>No. The goal isn't AI abstinence. It's deliberate practice: try first without AI, then use AI to sharpen your understanding, not replace it. The explanation requirement — insisting you can explain why the fix works before accepting it — preserves learning even when using AI.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button">What is the explanation requirement?</button>
+            <div class="faq-answer">
+              <p>The explanation requirement is a simple rule: before accepting any AI debugging suggestion, you must be able to explain why that fix is correct. If you can't explain it, the bug isn't really fixed in your head — only in the code. This forces retrieval practice and maintains your mental model.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button">How long does it take to rebuild debugging confidence?</button>
+            <div class="faq-answer">
+              <p>Most engineers report noticeable improvement within 2-3 weeks of deliberate no-AI debugging sessions. The key is consistency: small sessions (20-30 minutes of genuine debugging effort before AI) compound. Full rebuilding of deep system intuition may take 2-3 months.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button">Does AI help junior engineers learn to debug better?</button>
+            <div class="faq-answer">
+              <p>Not typically. Debugging skill develops through productive struggle — the time spent being confused before the insight arrives. AI removes the productive struggle. Juniors who rely heavily on AI for debugging skip the practice that builds debugging intuition. They may pass tests but develop shallower system understanding.</p>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="continue-exploring">
+          <h3>Continue Exploring</h3>
+          <div class="explore-grid">
+            <a href="skill-atrophy.html" class="explore-card">
+              <span class="explore-icon">🧠</span>
+              <span class="explore-title">Skill Atrophy</span>
+              <span class="explore-desc">The research on how AI tools quietly erode the skills that took years to build</span>
+            </a>
+            <a href="cognitive-load.html" class="explore-card">
+              <span class="explore-icon">⚡</span>
+              <span class="explore-title">Cognitive Load Theory</span>
+              <span class="explore-desc">Why your brain has limits AI keeps pushing against</span>
+            </a>
+            <a href="recovery.html" class="explore-card">
+              <span class="explore-icon">🌿</span>
+              <span class="explore-title">Recovery Guide</span>
+              <span class="explore-desc">Practical steps to rebuild your baseline</span>
+            </a>
+            <a href="developer-identity.html" class="explore-card">
+              <span class="explore-icon">👤</span>
+              <span class="explore-title">Developer Identity</span>
+              <span class="explore-desc">Who you are without your code — and why it matters</span>
+            </a>
+            <a href="compare.html" class="explore-card">
+              <span class="explore-icon">⚖️</span>
+              <span class="explore-title">Tool Comparison</span>
+              <span class="explore-desc">Which AI coding tools cause the most fatigue</span>
+            </a>
+            <a href="ai-consultation-fatigue.html" class="explore-card">
+              <span class="explore-icon">💬</span>
+              <span class="explore-title">Consultation Fatigue</span>
+              <span class="explore-desc">Why endless prompting feels so exhausting</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">🌿 The Clearing</a>
+        <p>A sanctuary for engineers experiencing AI fatigue. No tracking. No accounts. Just a way back.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Recover</h4>
+          <ul>
+            <li><a href="recovery.html">Recovery Guide</a>
+          <a href="/the-explanation-requirement.html">Explanation Requirement</a></li>
+            <li><a href="ai-detox-plan.html">30-Day Detox</a></li>
+            <li><a href="daily-practice.html">Daily Practice</a></li>
+            <li><a href="ai-fatigue-checklist.html">Checklist</a></li>
+            <li><a href="decompress.html">Deep Work Timer</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Understand</h4>
+          <ul>
+            <li><a href="why.html">Why This Happens</a></li>
+            <li><a href="skill-atrophy.html">Skill Atrophy</a></li>
+            <li><a href="cognitive-load.html">Cognitive Load</a></li>
+            <li><a href="ai-debugging-fatigue.html">Debugging Fatigue</a></li>
+            <li><a href="ai-consultation-fatigue.html">Consultation Fatigue</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="quiz-results.html">Quiz Results</a></li>
+            <li><a href="resources.html">Reading List</a></li>
+            <li><a href="stats.html">Statistics</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="newsletter-archive.html">Archive</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="stories.html">Stories</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="share-your-story.html">Share Your Story</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 <a href="about.html">The Clearing</a> · <a href="privacy.html">Privacy</a> · <a href="sitemap.html">Sitemap</a></p>
+        <p>Your data is yours. Nothing is tracked. Nothing is sold.</p>
+      </div>
+        <a href="hn-launch.html" style="font-size:13px;color:var(--text2);">HN Launch</a>
+      </footer>
+
+  <script src="js/main.js" defer></script>
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(trigger => {
+      trigger.addEventListener('click', function() {
+        const answer = this.nextElementSibling;
+        const isOpen = answer.classList.contains('open');
+        document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+        if (!isOpen) answer.classList.add('open');
+      });
+    });
+
+    // Reading progress bar
+    const progress = document.createElement('div');
+    progress.className = 'reading-progress';
+    progress.innerHTML = '<div class="reading-progress-bar"></div>';
+    document.body.appendChild(progress);
+    window.addEventListener('scroll', () => {
+      const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+      document.querySelector('.reading-progress-bar').style.width = pct + '%';
+    });
+  </script>
+  <style>
+    .skip-link { position: absolute; top: -40px; left: 0; background: #0a0a0a; color: #22c55e; padding: 8px 16px; z-index: 100; }
+    .skip-link:focus { top: 0; }
+    .reading-progress { position: fixed; top: 0; left: 0; width: 100%; height: 3px; z-index: 1000; }
+    .reading-progress-bar { height: 100%; background: #22c55e; width: 0; transition: width 0.1s; }
+    .page-content { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem; }
+    .breadcrumb ol { display: flex; gap: 8px; list-style: none; padding: 0; margin: 0 0 2rem; font-size: 0.85rem; color: #6b7280; }
+    .breadcrumb li::after { content: '›'; margin-left: 8px; }
+    .breadcrumb li:last-child::after { content: ''; }
+    .breadcrumb a { color: #6b7280; text-decoration: none; }
+    .breadcrumb a:hover { color: #22c55e; }
+    .page-header { margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .page-header h1 { font-size: 2.25rem; font-weight: 700    .page-header h1 { font-size: 2.25rem; font-weight: 700; line-height: 1.2; margin-bottom: 1rem; color: #f9fafb; }
+    .page-subtitle { font-size: 1.2rem; color: #9ca3af; line-height: 1.6; margin-bottom: 1rem; }
+    .reading-meta { display: flex; gap: 12px; font-size: 0.85rem; color: #6b7280; align-items: center; }
+    .separator { color: #374151; }
+    .prose { font-size: 1.05rem; line-height: 1.8; color: #d1d5db; }
+    .prose p { margin: 0 0 1.5rem; }
+    .prose h2 { font-size: 1.6rem; font-weight: 600; color: #f3f4f6; margin: 3rem 0 1.25rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.06); }
+    .prose h3 { font-size: 1.2rem; font-weight: 600; color: #e5e7eb; margin: 2rem 0 0.75rem; }
+    .prose ol, .prose ul { margin: 0 0 1.5rem 1.5rem; }
+    .prose li { margin-bottom: 0.5rem; }
+    .prose hr { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 2.5rem 0; }
+    .prose strong { color: #f3f4f6; font-weight: 600; }
+    .callout { padding: 1.25rem; border-radius: 8px; margin: 2rem 0; }
+    .callout-warning { background: rgba(234, 179, 8, 0.1); border-left: 3px solid #eab308; }
+    .callout-warning strong { color: #fbbf24; }
+    .callout-info { background: rgba(34, 197, 94, 0.08); border-left: 3px solid #22c55e; }
+    .callout-info strong { color: #22c55e; }
+    .interactive-checklist { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 1.5rem; margin: 2rem 0; }
+    .checklist-item { padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .checklist-item:last-child { border-bottom: none; }
+    .checklist-item label { display: flex; gap: 12px; cursor: pointer; align-items: flex-start; font-size: 0.95rem; line-height: 1.5; color: #d1d5db; }
+    .checklist-item input[type="checkbox"] { margin-top: 3px; accent-color: #22c55e; flex-shrink: 0; width: 18px; height: 18px; }
+    .faq-section { margin: 2rem 0; }
+    .faq-item { border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-question { width: 100%; text-align: left; background: none; border: none; padding: 1.1rem 0; font-size: 1rem; font-weight: 500; color: #e5e7eb; cursor: pointer; font-family: inherit; display: flex; justify-content: space-between; align-items: center; }
+    .faq-question:hover { color: #22c55e; }
+    .faq-question::after { content: '+'; font-size: 1.3rem; color: #6b7280; transition: transform 0.2s; }
+    .faq-question:hover::after { color: #22c55e; }
+    .faq-answer { display: none; padding: 0 0 1.25rem; color: #9ca3af; font-size: 0.95rem; line-height: 1.7; }
+    .faq-answer.open { display: block; }
+    .continue-exploring { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+    .continue-exploring h3 { font-size: 1.1rem; font-weight: 600; color: #9ca3af; margin-bottom: 1.25rem; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem; }
+    .explore-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+    .explore-card { display: flex; flex-direction: column; gap: 6px; padding: 1.1rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; text-decoration: none; transition: all 0.2s cubic-bezier(0.22,1,0.36,1); }
+    .explore-card:hover { background: rgba(34,197,94,0.06); border-color: rgba(34,197,94,0.2); transform: translateY(-2px); }
+    .explore-icon { font-size: 1.4rem; }
+    .explore-title { font-weight: 600; font-size: 0.9rem; color: #e5e7eb; }
+    .explore-desc { font-size: 0.78rem; color: #6b7280; line-height: 1.4; }
+    @media (max-width: 640px) {
+      .page-header h1 { font-size: 1.75rem; }
+      .explore-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (prefers-color-scheme: light) {
+      [data-theme="dark"] { --bg: #f9fafb; --bg-secondary: #f3f4f6; --text: #111827; --text-secondary: #4b5563; }
+      .prose { color: #374151; }
+      .prose h2, .prose h3, .prose strong { color: #111827; }
+      .prose hr { border-color: rgba(0,0,0,0.1); }
+      .breadcrumb li { color: #6b7280; }
+      .breadcrumb a { color: #6b7280; }
+      .breadcrumb a:hover { color: #16a34a; }
+    }
+  </style>
+</body>
+</html>

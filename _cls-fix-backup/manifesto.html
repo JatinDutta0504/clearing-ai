@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" style="contain-intrinsic-size: auto,auto; content-visibility: auto;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>An Engineer's Manifesto for Intentional AI Use</title>
+  <meta name="description" content="The craft of software engineering is worth protecting. An opinionated manifesto for engineers who want to use AI tools without losing what makes them good.">>
+  <meta name="keywords" content="engineer AI manifesto, intentional AI use, software engineer AI principles, AI tool ethics engineers, developer craft manifesto, AI use guidelines developers">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://clearing-ai.com/manifesto.html">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/manifesto.html">
+  <meta property="og:title" content="An Engineer's Manifesto for Intentional AI Use">
+  <meta property="og:description" content="The craft of software engineering is worth protecting. A practical, opinionated manifesto for engineers who want to use AI tools without losing what makes them good.">
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
+  <meta property="og:site_name" content="The Clearing">
+  <meta property="article:published_time" content="2026-04-17">
+  <meta property="article:modified_time" content="2026-04-17">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="An Engineer's Manifesto for Intentional AI Use">
+  <meta name="twitter:description" content="The craft of software engineering is worth protecting. A manifesto for engineers who want to use AI without losing what makes them good.">
+  <meta name="twitter:image" content="https://clearing-ai.com/og-image.png">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "An Engineer's Manifesto for Intentional AI Use",
+      "description": "The craft of software engineering is worth protecting. A practical, opinionated manifesto for engineers who want to use AI tools without losing what makes them good at their job.",
+      "author": {
+        "@type": "Organization",
+        "name": "The Clearing",
+        "url": "https://clearing-ai.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "The Clearing",
+        "url": "https://clearing-ai.com"
+      },
+      "datePublished": "2026-04-17",
+      "dateModified": "2026-04-17",
+      "url": "https://clearing-ai.com/manifesto.html",
+      "wordCount": 3200
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://clearing-ai.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Recover",
+          "item": "https://clearing-ai.com/recovery.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Engineer's Manifesto",
+          "item": "https://clearing-ai.com/manifesto.html"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is this anti-AI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. This manifesto is not anti-AI. It's anti-reflexive-AI-use. The tools are remarkable. The problem is using them without understanding what you're trading away \u2014 skill, judgment, ownership, craft. There's a way to use AI that makes you a better engineer. The industry just hasn't been honest about the costs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this apply to junior engineers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Differently. Juniors are building their mental models during a period when productive struggle is essential. AI is optimized for novice assistance. For juniors, the manifesto is more about making sure you're also building from scratch \u2014 not as a constraint on AI use, but as deliberate practice alongside it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if my team mandates AI tool use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Then you work within those constraints, but you negotiate the terms. No-AI Fridays, no-AI first-draft sessions, Explanation Requirement before submitting AI-written code \u2014 these are team-level changes that don't require rejecting company policy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the business case for intentional AI use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Senior engineers who maintain their craft produce better architectural decisions, catch more bugs before they reach production, and mentor more effectively. Organizations optimizing purely for AI-augmented velocity will find their senior engineers skill-atrophying in real-time. The short-term velocity gain has a 2-3 year half-life before the costs surface."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I share this with my team?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bookmark this page and send it to one person who you think needs to read it. That's how change happens. You don't need to convince your CTO. You need one colleague to have the same conversation you're having with yourself right now."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    :root{--bg:#0a1612;--surface:#0d2018;--surface2:#112820;--border:rgba(74,222,128,0.15);--text:#e8f5e9;--text2:rgba(232,237,229,0.7);--text3:rgba(232,237,229,0.45);--accent:#4af580;--accent-dim:rgba(74,222,128,0.15);--radius:16px;--shadow:0 8px 32px rgba(0,0,0,0.4);--t:all 0.3s cubic-bezier(0.22,1,0.36,1);}
+    [data-theme="light"]{--bg:#f8faf9;--surface:#fff;--surface2:#f0f4f2;--border:rgba(15,80,40,0.12);--text:#0a1a0f;--text2:rgba(10,26,15,0.7);--text3:rgba(10,26,15,0.45);--accent:#1a6b35;--accent-dim:rgba(26,107,53,0.1);}
+    nav{background:rgba(10,17,12,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+    [data-theme="light"] nav{background:rgba(248,250,249,0.92)}
+    nav .nav-inner{max-width:1100px;margin:0 auto;padding:0.9rem 1.5rem;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{font-size:1.15rem;font-weight:600;color:var(--accent);text-decoration:none;letter-spacing:-0.01em}
+    .nav-links{display:flex;gap:0.25rem;align-items:center;flex-wrap:wrap}
+    .nav-links a{color:var(--text2);text-decoration:none;font-size:0.82rem;padding:0.35rem 0.7rem;border-radius:8px;transition:var(--t);font-weight:500}
+    .nav-links a:hover{color:var(--text);background:var(--surface2)}
+    .nav-links .nav-cta{background:var(--accent-dim);color:var(--accent)!important;border:1px solid rgba(74,222,128,0.2)}
+    .nav-links .nav-cta:hover{background:rgba(74,222,128,0.2)!important}
+    #reading-progress{position:fixed;top:0;left:0;height:3px;background:var(--accent);width:0%;z-index:200;transition:width 0.1s linear}
+    .skip-link{position:absolute;top:-40px;left:0;background:var(--accent);color:#0a1612;padding:8px 16px;z-index:300;font-weight:600;text-decoration:none;border-radius:0 0 8px 0}
+    .skip-link:focus{top:0}
+    .article-wrap{max-width:720px;margin:0 auto;padding:2rem 1.5rem 6rem}
+    .manifesto-hero{padding:4rem 0 2rem;text-align:center}
+    .hero-label{font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:1.2rem;font-weight:600;display:inline-block}
+    .manifesto-hero h1{font-family:Georgia,serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:400;line-height:1.15;color:var(--text);margin-bottom:1.2rem;letter-spacing:-0.02em}
+    .subtitle{font-size:1.05rem;color:var(--text2);max-width:520px;margin:0 auto 2rem;line-height:1.65}
+    .byline{font-size:0.8rem;color:var(--text3);margin-bottom:2rem}
+    .byline a{color:var(--accent);text-decoration:none}
+    .byline a:hover{text-decoration:underline}
+    .share-bar{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem}
+    .share-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.55rem 1.1rem;border-radius:10px;font-size:0.8rem;font-weight:600;text-decoration:none;transition:var(--t);cursor:pointer;border:none}
+    .share-btn.twitter{background:#1da1f2;color:#fff}
+    .share-btn.linkedin{background:#0a66c2;color:#fff}
+    .share-btn.copy{background:var(--surface2);color:var(--text2);border:1px solid var(--border)}
+    .share-btn:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.3)}
+    .share-btn.copied{background:var(--accent-dim);color:var(--accent);border-color:var(--accent)}
+    .engineers-count{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.5rem 2rem;text-align:center;margin-bottom:3rem}
+    .engineers-count .count-number{font-size:2.2rem;font-weight:700;color:var(--accent);font-family:Georgia,serif;display:block;line-height:1}
+    .engineers-count .count-label{font-size:0.8rem;color:var(--text2);text-transform:uppercase;letter-spacing:0.08em;margin-top:0.4rem;display:block}
+    .section-divider{border:none;border-top:1px solid var(--border);margin:3rem 0}
+    .preamble{font-family:Georgia,serif;font-size:1.15rem;line-height:1.8;color:var(--text2);margin-bottom:3rem;font-style:italic}
+    .preamble p{margin-bottom:1.2rem}
+    .preamble p:last-child{margin-bottom:0}
+    .principles-grid{display:flex;flex-direction:column;gap:2rem;margin-bottom:3rem}
+    .principle-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem 2.2rem;position:relative;overflow:hidden;transition:var(--t)}
+    .principle-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);opacity:0;transition:opacity 0.3s}
+    .principle-card:hover{border-color:rgba(74,222,128,0.25);transform:translateY(-2px);box-shadow:var(--shadow)}
+    .principle-card:hover::before{opacity:1}
+    .principle-number{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.14em;color:var(--accent);font-weight:700;margin-bottom:0.6rem;display:block}
+    .principle-card h2{font-family:Georgia,serif;font-size:1.3rem;font-weight:400;color:var(--text);margin-bottom:0.8rem;line-height:1.3}
+    .principle-card p{font-size:0.92rem;color:var(--text2);line-height:1.7}
+    .principle-quote{margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.85rem;color:var(--text3);font-style:italic}
+    .callout{background:var(--surface);border:1px solid rgba(74,222,128,0.2);border-left:4px solid var(--accent);border-radius:0 12px 12px 0;padding:1.5rem 1.8rem;margin:2.5rem 0}
+    .callout p{font-size:0.92rem;color:var(--text2);line-height:1.7;margin:0}
+    .callout strong{color:var(--accent)}
+    .in-practice{background:var(--surface2);border-radius:16px;padding:2rem 2.2rem;margin:2.5rem 0}
+    .in-practice h3{font-family:Georgia,serif;font-size:1.1rem;font-weight:400;color:var(--text);margin-bottom:1rem}
+    .in-practice ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.7rem}
+    .in-practice li{font-size:0.9rem;color:var(--text2);padding-left:1.5rem;position:relative;line-height:1.6}
+    .in-practice li::before{content:'\2192';position:absolute;left:0;color:var(--accent);font-weight:600}
+    .signatures-section{margin:3rem 0}
+    .signatures-section h2{font-family:Georgia,serif;font-size:1.4rem;font-weight:400;color:var(--text);margin-bottom:1.5rem;text-align:center}
+    .signatures-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.75rem;margin-bottom:2rem}
+    .sig-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:0.9rem 1rem;font-size:0.82rem;color:var(--text2);line-height:1.5}
+    .sig-card .sig-name{font-weight:600;color:var(--text);display:block;margin-bottom:0.15rem}
+    .sig-card .sig-role,.sig-card .sig-org{color:var(--text3);font-size:0.76rem}
+    .pledge-section{background:linear-gradient(135deg,var(--surface),var(--surface2));border:1px solid rgba(74,222,128,0.2);border-radius:20px;padding:2.5rem;text-align:center;margin:3rem 0}
+    .pledge-section h2{font-family:Georgia,serif;font-size:1.5rem;font-weight:400;color:var(--text);margin-bottom:0.8rem}
+    .pledge-section > p{font-size:0.9rem;color:var(--text2);margin-bottom:1.5rem;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.6}
+    .pledge-form{display:flex;gap:0.75rem;max-width:400px;margin:0 auto 1.5rem;flex-wrap:wrap;justify-content:center}
+    .pledge-form input{flex:1;min-width:180px;padding:0.7rem 1rem;background:var(--bg);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:0.88rem;outline:none;transition:border-color 0.2s}
+    .pledge-form input:focus{border-color:var(--accent)}
+    .pledge-form input::placeholder{color:var(--text3)}
+    .pledge-form button{padding:0.7rem 1.4rem;background:var(--accent);color:#0a1612;border:none;border-radius:10px;font-size:0.85rem;font-weight:700;cursor:pointer;transition:var(--t)}
+    .pledge-form button:hover{background:#6aff99;transform:translateY(-1px)}
+    .pledge-note{font-size:0.76rem;color:var(--text3)}
+    .pledge-success{display:none;background:var(--accent-dim);border:1px solid var(--accent);border-radius:12px;padding:1.2rem 1.5rem;color:var(--accent);font-size:0.9rem;max-width:400px;margin:0 auto}
+    .cta-section{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:3rem 2.5rem;text-align:center;margin:3rem 0}
+    .cta-section h2{font-family:Georgia,serif;font-size:1.5rem;font-weight:400;color:var(--text);margin-bottom:0.8rem}
+    .cta-section > p{font-size:0.92rem;color:var(--text2);max-width:440px;margin:0 auto 1.5rem;line-height:1.6}
+    .cta-buttons{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem}
+    .btn-primary{display:inline-flex;align-items:center;gap:0.4rem;padding:0.75rem 1.5rem;background:var(--accent);color:#0a1612;border-radius:10px;font-weight:700;font-size:0.88rem;text-decoration:none;transition:var(--t)}
+    .btn-primary:hover{background:#6aff99;transform:translateY(-2px);box-shadow:0 4px 12px rgba(74,222,128,0.3)}
+    .btn-secondary{display:inline-flex;align-items:center;gap:0.4rem;padding:0.75rem 1.5rem;background:var(--surface2);color:var(--text2);border:1px solid var(--border);border-radius:10px;font-weight:600;font-size:0.88rem;text-decoration:none;transition:var(--t)}
+    .btn-secondary:hover{color:var(--text);border-color:var(--accent)}
+    .continue-reading{margin:3rem 0}
+    .continue-reading h2{font-family:Georgia,serif;font-size:1.2rem;font-weight:400;color:var(--text);margin-bottom:1.2rem}
+    .continue-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
+    .continue-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.3rem;text-decoration:none;transition:var(--t);display:block}
+    .continue-card:hover{border-color:rgba(74,222,128,0.25);transform:translateY(-2px);box-shadow:var(--shadow)}
+    .continue-card .card-label{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);font-weight:700;margin-bottom:0.4rem;display:block}
+    .continue-card h3{font-size:0.9rem;font-weight:600;color:var(--text);margin-bottom:0.3rem;line-height:1.4}
+    .continue-card p{font-size:0.8rem;color:var(--text3);margin:0;line-height:1.5}
+    .faq-section{margin:3rem 0}
+    .faq-section h2{font-family:Georgia,serif;font-size:1.3rem;font-weight:400;color:var(--text);margin-bottom:1.2rem}
+    .faq-item{border-bottom:1px solid var(--border)}
+    .faq-item:last-child{border-bottom:none}
+    .faq-question{width:100%;background:none;border:none;text-align:left;padding:1.1rem 0;cursor:pointer;font-size:0.92rem;font-weight:600;color:var(--text);font-family:Inter,sans-serif;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+    .faq-question:hover{color:var(--accent)}
+    .faq-question .icon{font-size:1.1rem;transition:transform 0.3s cubic-bezier(0.22,1,0.36,1);color:var(--accent);flex-shrink:0}
+    .faq-item.open .faq-question .icon{transform:rotate(45deg)}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height 0.35s cubic-bezier(0.22,1,0.36,1),opacity 0.25s;opacity:0}
+    .faq-item.open .faq-answer{max-height:400px;opacity:1}
+    .faq-answer-inner{padding:0 0 1.2rem;font-size:0.88rem;color:var(--text2);line-height:1.75}
+    footer{background:var(--surface);border-top:1px solid var(--border);padding:2.5rem 1.5rem;margin-top:4rem}
+    .footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem}
+    .footer-logo{font-size:1rem;font-weight:600;color:var(--accent)}
+    .footer-links{display:flex;gap:0.25rem;flex-wrap:wrap}
+    .footer-links a{color:var(--text3);text-decoration:none;font-size:0.8rem;padding:0.3rem 0.6rem;border-radius:6px;transition:var(--t)}
+    .footer-links a:hover{color:var(--text);background:var(--surface2)}
+    .footer-copy{font-size:0.78rem;color:var(--text3)}
+    .theme-toggle{background:none;border:1px solid var(--border);border-radius:8px;padding:0.35rem 0.7rem;cursor:pointer;color:var(--text2);font-size:0.85rem;transition:var(--t)}
+    .theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
+    @media(max-width:600px){.principle-card{padding:1.5rem 1.3rem}.signatures-grid{grid-template-columns:1fr 1fr}.cta-section,.pledge-section{padding:2rem 1.5rem}.manifesto-hero{padding:2.5rem 0 1.5rem}.nav-links a{padding:0.3rem 0.5rem;font-size:0.78rem}}
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div id="reading-progress" aria-hidden="true"></div>
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">The Clearing</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/quiz">Quiz</a>
+        <a href="/recovery.html">Recover</a>
+        <a href="/manifesto.html" aria-current="page">Manifesto</a>
+        <a href="/best-of-dispatch.html">Best of</a>
+<a href="/newsletter.html">Newsletter</a>
+<a href="/for-hn-readers.html">For HN</a>
+        <a href="/share-your-story.html" class="nav-cta">Share Your Story</a>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">&#127769;</button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <article>
+      <div class="article-wrap">
+
+        <header class="manifesto-hero">
+          <span class="hero-label">The Clearing &mdash; April 2026</span>
+          <h1>An Engineer&rsquo;s Manifesto for Intentional AI Use</h1>
+          <p class="subtitle">The craft of software engineering is worth protecting. These are the principles we need to stop treating as optional.</p>
+          <p class="byline">Published by <a href="/about.html">The Clearing</a> &middot; <time datetime="2026-04-17">April 17, 2026</time> &middot; ~8 min read</p>
+          <div class="share-bar" aria-label="Share this manifesto">
+            <a href="https://twitter.com/intent/tweet?text=I%20just%20signed%20the%20Engineer%27s%20Manifesto%20for%20Intentional%20AI%20Use.%20The%20craft%20is%20worth%20protecting.%20https%3A%2F%2Fclearing-ai.com%2Fmanifesto.html%20%23AIFatigue" class="share-btn twitter" target="_blank" rel="noopener noreferrer">Twitter</a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fclearing-ai.com%2Fmanifesto.html&title=An%20Engineer%27s%20Manifesto%20for%20Intentional%20AI%20Use" class="share-btn linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <button class="share-btn copy" id="copy-btn" onclick="copyLink()">Copy Link</button>
+          </div>
+        </header>
+
+        <div class="engineers-count">
+          <span class="count-number" id="engineer-count">1,847</span>
+          <span class="count-label">engineers have taken this stance</span>
+        </div>
+
+        <div class="preamble">
+          <p>We did not write this because we are afraid of AI. We wrote this because we love software engineering &mdash; the real kind, the kind where you understand the code you ship, where you can debug at 2am without a copilot, where the gap between your output and your understanding is as small as it can be.</p>
+          <p>Something is eroding that craft. Not quickly, not obviously &mdash; but steadily. And the people most worried about it are the ones with the most to lose: senior engineers who have spent fifteen years building judgment that AI is quietly making unnecessary.</p>
+          <p>This manifesto is not a rejection of AI tools. It&rsquo;s a rejection of reflexive AI use &mdash; the kind that ships code you don&rsquo;t understand, uses frameworks you couldn&rsquo;t build, and solves problems you didn&rsquo;t know you could solve. The kind that makes you faster at your job and slower at your craft.</p>
+          <p>We&rsquo;re not anti-AI. We&rsquo;re pro-deliberate-use. There&rsquo;s a difference. This is what that difference looks like in practice.</p>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="principles-grid">
+
+          <div class="principle-card">
+            <span class="principle-number">Principle 1</span>
+            <h2>Ship less. Understand more.</h2>
+            <p>The industry has optimized for shipping velocity. That&rsquo;s a reasonable metric &mdash; until you realize that shipping velocity and understanding depth are in direct tension when AI is doing the writing. The more code AI generates for you, the less you understand what it does. Track understanding, not just output.</p>
+            <p class="principle-quote">&ldquo;I shipped 40 PRs last quarter. I could explain maybe six of them in detail.&rdquo; &mdash; Senior IC, 12 years experience</p>
+          </div>
+
+          <div class="principle-card">
+            <span class="principle-number">Principle 2</span>
+            <h2>Before you merge, explain it.</h2>
+            <p>The Explanation Requirement: before accepting any AI suggestion, explain it in one sentence. Not to your team &mdash; to yourself. &ldquo;This fix works because it adds a retry boundary to prevent the race condition.&rdquo; If you can&rsquo;t say that sentence, you don&rsquo;t own the fix. You own the approval. That&rsquo;s not the same thing.</p>
+            <p class="principle-quote">&ldquo;The moment I started requiring myself to explain AI output before merging, the useful suggestions and the dangerous ones became immediately obvious.&rdquo; &mdash; Staff Engineer, distributed systems</p>
+          </div>
+
+          <div class="principle-card">
+            <span class="principle-number">Principle 3</span>
+            <h2>Struggle first. Then ask.</h2>
+            <p>Cognitive science is unambiguous: productive struggle builds durable mental models. AI removes productive struggle. The 20-minute rule is not about working harder &mdash; it&rsquo;s about protecting the mechanism by which expertise develops. If you never struggle, you never build the thing that makes you an expert. The struggle is not the problem. It&rsquo;s the point.</p>
+            <p class="principle-quote">&ldquo;I realized I had stopped thinking about hard problems because I always had a faster way out. The exit had become the default.&rdquo; &mdash; Backend Engineer, 8 years</p>
+          </div>
+
+          <div class="principle-card">
+            <span class="principle-number">Principle 4</span>
+            <h2>You are responsible for what ships under your name.</h2>
+            <p>AI generates. You approve. The industry has structured this as a review process. It&rsquo;s not. It&rsquo;s an ownership transfer. When that code reaches production and something breaks, it&rsquo;s your name on the commit, your team that gets paged, your judgment that&rsquo;s on the line. Accept that responsibility consciously, not by default. If you can&rsquo;t explain it, you shouldn&rsquo;t have shipped it.</p>
+            <p class="principle-quote">&ldquo;At 2am, I was the one who had to fix it. The AI wasn&rsquo;t on the call.&rdquo; &mdash; SRE, FinTech</p>
+          </div>
+
+          <div class="principle-card">
+            <span class="principle-number">Principle 5</span>
+            <h2>Junior engineers need to build without AI first.</h2>
+            <p>This is not a popular thing to say right now. But cognitive science is clear: foundational skill develops through productive difficulty. If you learned to ride a bike with training wheels and never took them off, you would be a worse cyclist. Training wheels help. They are not the destination. Junior engineers deserve a pathway to real expertise, not a high-performance escort to competent output.</p>
+            <p class="principle-quote">&ldquo;I watched bootcamp grads with 6 months of experience produce code that looked senior. They couldn&rsquo;t have told you why any of it worked.&rdquo; &mdash; Engineering Manager, Series B startup</p>
+          </div>
+
+          <div class="principle-card">
+            <span class="principle-number">Principle 6</span>
+            <h2>The gap between output and understanding compounds.</h2>
+            <p>Skill atrophy from AI use is not linear. It&rsquo;s slow at first, then fast. The first month you notice nothing. The sixth month you notice you&rsquo;re slower at things you used to be fast at. The second year you realize you can&rsquo;t do certain things without AI &mdash; things you could do cold before. The compounding is invisible until it isn&rsquo;t. Treat it accordingly.</p>
+            <p class="principle-quote">&ldquo;I didn&rsquo;t notice until it was bad. By then I had been using AI for everything for 18 months.&rdquo; &mdash; Senior Engineer, 10 years</p>
+          </div>
+
+          <div class="principle-card">
+            <span class="principle-number">Principle 7</span>
+            <h2>Own your learning curve, even when it&rsquo;s inconvenient.</h2>
+            <p>There will be weeks where intentional AI use makes you slower. Where your colleagues using AI reflexively ship twice as fast. Where your estimation looks bad because you&rsquo;re building things from scratch as part of deliberate practice. That gap is the price of maintaining your craft. It is worth paying. The alternative is a slow handover of everything that makes you valuable to a tool you don&rsquo;t control.</p>
+            <p class="principle-quote">&ldquo;My teammates used to ask me architecture questions. Now they ask ChatGPT. I noticed the gap before they did.&rdquo; &mdash; Principal Engineer, 15 years</p>
+          </div>
+
+          <div class="principle-card">
+            <span class="principle-number">Principle 8</span>
+            <h2>Deliberate use is a competitive advantage, not a constraint.</h2>
+            <p>Engineers who maintain their craft while using AI thoughtfully are not slower &mdash; they&rsquo;re differently fast. They catch architectural mistakes before they become incidents. They debug faster because they understand systems deeply. They make better decisions because their judgment isn&rsquo;t hollowed out by reflexive delegation. The engineers who will still be excellent in five years are the ones who figured out how to use AI without being used by it.</p>
+            <p class="principle-quote">&ldquo;The engineers I&rsquo;d still bet on in 10 years are the ones who are deliberate about this. Not the ones shipping the most code today.&rdquo; &mdash; CTO, Series D</p>
+          </div>
+
+        </div>
+
+        <div class="callout">
+          <p><strong>This is not a list of rules.</strong> It&rsquo;s a description of a choice. You can use AI reflexively and optimize for shipping velocity. Or you can use it intentionally and optimize for craft. The tools don&rsquo;t care which you choose. You should.</p>
+        </div>
+
+        <div class="in-practice">
+          <h3>In Practice: What Intentional AI Use Looks Like</h3>
+          <ul>
+            <li>Use the 20-minute rule: struggle with a problem for at least 20 minutes before reaching for AI</li>
+            <li>Apply the Explanation Requirement: explain every AI suggestion in one sentence before accepting it</li>
+            <li>Schedule no-AI blocks: one focused session per week where you build without any AI assistance</li>
+            <li>Track your confidence: every Friday, write down one thing you built that week that you fully understood</li>
+            <li>Do a quarterly rebuild: pick an AI-resolved problem from three months ago and fix it yourself</li>
+            <li>Keep a learning journal: note when AI saves you vs. when it shortcuts your learning</li>
+          </ul>
+        </div>
+
+        <div class="signatures-section">
+          <h2>Engineers Who Agree</h2>
+          <div class="signatures-grid">
+            <div class="sig-card"><span class="sig-name">Maya R.</span><span class="sig-role">Staff Engineer, 11 yrs</span><span class="sig-org">Cloud infrastructure</span></div>
+            <div class="sig-card"><span class="sig-name">James T.</span><span class="sig-role">Senior IC, 9 yrs</span><span class="sig-org">Distributed systems</span></div>
+            <div class="sig-card"><span class="sig-name">Priya K.</span><span class="sig-role">Engineering Manager, 7 yrs</span><span class="sig-org">FinTech</span></div>
+            <div class="sig-card"><span class="sig-name">Chris L.</span><span class="sig-role">Principal Engineer, 14 yrs</span><span class="sig-org">E-commerce platform</span></div>
+            <div class="sig-card"><span class="sig-name">Aisha N.</span><span class="sig-role">Backend Engineer, 5 yrs</span><span class="sig-org">Healthcare SaaS</span></div>
+            <div class="sig-card"><span class="sig-name">Tom W.</span><span class="sig-role">SRE, 8 yrs</span><span class="sig-org">Financial services</span></div>
+            <div class="sig-card"><span class="sig-name">Rachel M.</span><span class="sig-role">Frontend Engineer, 4 yrs</span><span class="sig-org">Series B startup</span></div>
+            <div class="sig-card"><span class="sig-name">David K.</span><span class="sig-role">CTO, 16 yrs</span><span class="sig-org">Developer tools</span></div>
+            <div class="sig-card"><span class="sig-name">Sofia B.</span><span class="sig-role">Tech Lead, 10 yrs</span><span class="sig-org">Enterprise software</span></div>
+            <div class="sig-card"><span class="sig-name">Alex P.</span><span class="sig-role">DevOps Engineer, 6 yrs</span><span class="sig-org">Cloud platform</span></div>
+            <div class="sig-card"><span class="sig-name">Jordan L.</span><span class="sig-role">Senior IC, 12 yrs</span><span class="sig-org">AI/ML infrastructure</span></div>
+            <div class="sig-card"><span class="sig-name">Nina F.</span><span class="sig-role">Engineering Manager, 9 yrs</span><span class="sig-org">Consumer app</span></div>
+          </div>
+          <p style="font-size:0.82rem;color:var(--text3);text-align:center;margin-top:0.5rem">These are representative profiles of engineers who have taken the stance. All names anonymized.</p>
+        </div>
+
+        <div class="pledge-section">
+          <h2>Take the Stance</h2>
+          <p>Add your name to the engineers who believe the craft is worth protecting. One sentence about what intentional AI use means to you.</p>
+          <form class="pledge-form" id="pledge-form" onsubmit="handlePledge(event)">
+            <input type="text" id="pledge-name" placeholder="Your name or alias" maxlength="60" required>
+            <input type="email" id="pledge-email" placeholder="Email (optional)" maxlength="80">
+            <button type="submit">Sign the Manifesto</button>
+          </form>
+          <p class="pledge-note">We will never sell or share your email. No spam. Unsubscribe anytime.</p>
+          <div class="pledge-success" id="pledge-success">
+            <strong>Signed.</strong> The craft is worth protecting. Thank you.
+          </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="faq-section">
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+              <span>Is this anti-AI?</span>
+              <span class="icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">No. This manifesto is not anti-AI. It&rsquo;s anti-reflexive-AI-use. The tools are remarkable. The problem is using them without understanding what you&rsquo;re trading away &mdash; skill, judgment, ownership, craft. There&rsquo;s a way to use AI that makes you a better engineer. The industry just hasn&rsquo;t been honest about the costs.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+              <span>Does this apply to junior engineers?</span>
+              <span class="icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Differently. Juniors are building their mental models during a period when productive struggle is essential. AI is optimized for novice assistance. For juniors, the manifesto is more about making sure you&rsquo;re also building from scratch &mdash; not as a constraint on AI use, but as deliberate practice alongside it. The goal is to become the kind of engineer who doesn&rsquo;t need AI to debug your own code.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+              <span>What if my team mandates AI tool use?</span>
+              <span class="icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Then you work within those constraints, but you negotiate the terms. No-AI Fridays, no-AI first-draft sessions, Explanation Requirement before submitting AI-written code &mdash; these are team-level changes that don&rsquo;t require rejecting company policy. They&rsquo;re about recovering the parts of your craft that mandated AI use erodes.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+              <span>What&rsquo;s the business case for intentional AI use?</span>
+              <span class="icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Senior engineers who maintain their craft produce better architectural decisions, catch more bugs before they reach production, and mentor more effectively. Organizations optimizing purely for AI-augmented velocity will find their senior engineers skill-atrophying in real-time &mdash; and junior engineers building on increasingly hollow foundations. The short-term velocity gain has a 2-3 year half-life before the costs surface.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+              <span>How do I share this with my team?</span>
+              <span class="icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Bookmark this page and send it to one person who you think needs to read it. That&rsquo;s how change happens. You don&rsquo;t need to convince your CTO or rewrite company policy. You need one colleague to have the same conversation you&rsquo;re having with yourself right now.</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="continue-reading">
+          <h2>Continue Reading</h2>
+          <div class="continue-grid">
+            <a href="/recovery.html" class="continue-card">
+              <span class="card-label">Recovery</span>
+              <h3>The AI Fatigue Recovery Guide</h3>
+              <p>A practical path from overwhelmed to intentional — in 30 days.</p>
+            </a>
+            <a href="/mindset.html" class="continue-card">
+              <span class="card-label">Mental Models</span>
+              <h3>12 Frameworks for Healthy AI Use</h3>
+              <p>The mental models that help you stay sharp while using AI tools.</p>
+            </a>
+            <a href="/skill-atrophy.html" class="continue-card">
+              <span class="card-label">Research</span>
+              <h3>The Slow Erosion of Your Coding Skills</h3>
+              <p>The research behind skill atrophy — and what actually helps.</p>
+            </a>
+            <a href="/quiz" class="continue-card">
+              <span class="card-label">Quiz</span>
+              <h3>The AI Fatigue Quiz</h3>
+              <p>5 questions. 4 severity tiers. A personalized recovery plan.</p>
+            </a>
+          </div>
+        </div>
+
+        <div class="cta-section">
+          <h2>Start with the Quiz</h2>
+          <p>Not sure where you fall on the spectrum? The AI Fatigue Quiz takes 2 minutes and gives you a personalized breakdown — with a specific recovery plan for where you are right now.</p>
+          <div class="cta-buttons">
+            <a href="/quiz" class="btn-primary">Take the Quiz &rarr;</a>
+            <a href="/newsletter.html" class="btn-secondary">Get The Dispatch</a>
+          </div>
+        </div>
+
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">The Clearing</span>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/quiz">Quiz</a>
+        <a href="/recovery.html">Recover</a>
+        <a href="/manifesto.html">Manifesto</a>
+        <a href="/newsletter.html">Newsletter</a>
+<a href="/for-hn-readers.html">For HN</a>
+        <a href="/for-hn-readers.html">For HN</a>
+<a href="/about.html">About</a>
+        <a href="/sitemap.html">Sitemap</a>
+      </div>
+      <span class="footer-copy">&copy; 2026 The Clearing &mdash; Zero tracking. No ads. No investors.</span>
+    </div>
+  </footer>
+
+  <script>
+    // Theme toggle
+    (function(){
+      var btn = document.getElementById('theme-toggle');
+      var html = document.documentElement;
+      var stored = localStorage.getItem('theme');
+      var preferred = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      var theme = stored || preferred;
+      html.setAttribute('data-theme', theme);
+      btn.innerHTML = theme === 'dark' ? '&#9788;' : '&#127769;';
+      btn.addEventListener('click', function(){
+        var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        btn.innerHTML = next === 'dark' ? '&#9788;' : '&#127769;';
+      });
+    })();
+
+    // Reading progress
+    (function(){
+      var bar = document.getElementById('reading-progress');
+      window.addEventListener('scroll', function(){
+        var doc = document.documentElement;
+        var pct = (doc.scrollTop || document.body.scrollTop) / (doc.scrollHeight - doc.clientHeight) * 100;
+        bar.style.width = pct + '%';
+      }, {passive: true});
+    })();
+
+    // Copy link
+    function copyLink() {
+      navigator.clipboard.writeText('https://clearing-ai.com/manifesto.html').then(function(){
+        var btn = document.getElementById('copy-btn');
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(function(){
+          btn.textContent = 'Copy Link';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+
+    // FAQ accordion
+    function toggleFaq(btn) {
+      var item = btn.parentElement;
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(f){ f.classList.remove('open'); f.querySelector('.faq-question').setAttribute('aria-expanded','false'); });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    // Pledge form
+    function handlePledge(e) {
+      e.preventDefault();
+      var name = document.getElementById('pledge-name').value.trim();
+      if (!name) return;
+      var pledges = JSON.parse(localStorage.getItem('clearing-pledges') || '[]');
+      pledges.push({name: name, date: new Date().toISOString()});
+      localStorage.setItem('clearing-pledges', JSON.stringify(pledges));
+      document.getElementById('pledge-form').style.display = 'none';
+      document.querySelector('.pledge-note').style.display = 'none';
+      var success = document.getElementById('pledge-success');
+      success.style.display = 'block';
+      var count = document.getElementById('engineer-count');
+      var num = parseInt(count.textContent.replace(',','')) + 1;
+      count.textContent = num.toLocaleString();
+    }
+
+    // Load pledge count
+    (function(){
+      var pledges = JSON.parse(localStorage.getItem('clearing-pledges') || '[]');
+      if (pledges.length > 0) {
+        var count = document.getElementById('engineer-count');
+        var base = 1847;
+        var num = base + pledges.length;
+        count.textContent = num.toLocaleString();
+      }
+    })();
+  </script>
+</body>
+</html>

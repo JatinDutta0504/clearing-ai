@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" style="contain-intrinsic-size: auto,auto; content-visibility: auto;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Dispatch — Weekly Letters for AI-Fatigued Engineers</title>
+  <meta name="description" content="Browse all 33 issues of The Dispatch — a free weekly email newsletter for AI-fatigued engineers. Data, stories, and recovery tactics.">>
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-archive.html">
+  <meta property="og:title" content="The Dispatch Archive — 25+ Issues on AI Fatigue Recovery">
+  <meta property="og:description" content="Every issue of The Dispatch: skill atrophy, identity loss, the middleman problem, explanation requirements, and recovery tactics for engineers. 25+ issues and counting.">
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Dispatch Archive — 25+ Issues on AI Fatigue Recovery">
+  <meta name="twitter:description" content="Browse 25+ issues of The Dispatch: skill atrophy, identity loss, the middleman problem, and recovery tactics for engineers.">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap"></noscript>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "The Dispatch Archive \u2014 AI Fatigue Newsletter",
+      "description": "Browse all 25+ issues of The Dispatch \u2014 a free weekly email newsletter for AI-fatigued software engineers. Topics span skill atrophy, identity loss, ghost authorship, recovery tactics, and craft preservation.",
+      "url": "https://clearing-ai.com/newsletter-archive.html",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "The Clearing",
+        "url": "https://clearing-ai.com"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://clearing-ai.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Newsletter",
+            "item": "https://clearing-ai.com/newsletter.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Archive",
+            "item": "https://clearing-ai.com/newsletter-archive.html"
+          }
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "The Dispatch \u2014 All Issues",
+      "description": "25+ weekly issues of The Dispatch newsletter for AI-fatigued engineers",
+      "numberOfItems": 30,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "The Sunday Night Reckoning (#25)",
+          "url": "https://clearing-ai.com/newsletter-thank-you.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "The Middleman Problem Revisited (#24)",
+          "url": "https://clearing-ai.com/newsletter-thank-you.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "The Estimation Problem (#23)",
+          "url": "https://clearing-ai.com/newsletter-thank-you.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "The First Real Bug (#22)",
+          "url": "https://clearing-ai.com/newsletter-thank-you.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "The Sunday Reckoning (#21)",
+          "url": "https://clearing-ai.com/newsletter-thank-you.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+  <style>
+    :root {
+      --bg: #0a1612;
+      --surface: #0d2018;
+      --surface2: #112820;
+      --border: rgba(74,222,128,0.15);
+      --text: #e8f5e9;
+      --text2: rgba(232,237,229,0.7);
+      --text3: rgba(232,237,229,0.45);
+      --accent: #4af580;
+      --accent-dim: rgba(74,222,128,0.15);
+      --accent2: #2d9f63;
+      --warn: #f59e0b;
+      --radius: 16px;
+      --shadow: 0 8px 32px rgba(0,0,0,0.4);
+      --transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+    }
+    [data-theme="light"] {
+      --bg: #f8faf9;
+      --surface: #ffffff;
+      --surface2: #f0f4f2;
+      --border: rgba(15,80,40,0.12);
+      --text: #0a1a0f;
+      --text2: rgba(10,26,15,0.7);
+      --text3: rgba(10,26,15,0.45);
+      --accent: #1a7f3c;
+      --accent-dim: rgba(26,127,60,0.1);
+      --accent2: #2d9f63;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+    a:hover { opacity: 0.8; }
+
+    /* ── NAV ── */
+    nav {
+      background: rgba(10,22,18,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    [data-theme="light"] nav { background: rgba(248,250,249,0.92); }
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 4px;
+      max-width: 1100px;
+      margin: 0 auto;
+      height: 60px;
+    }
+    nav ul li { position: relative; }
+    nav a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      color: var(--text2);
+      font-size: 0.9rem;
+      font-weight: 400;
+      transition: var(--transition);
+    }
+    nav a:hover { color: var(--text); background: var(--surface2); opacity: 1; }
+    nav a.active { color: var(--accent); }
+    .dropdown-trigger::after { content: '▾'; font-size: 0.7rem; }
+    .dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 8px;
+      min-width: 200px;
+      display: none;
+      box-shadow: var(--shadow);
+      z-index: 200;
+    }
+    .dropdown-trigger:hover .dropdown,
+    .dropdown:hover { display: block; }
+    .dropdown a { padding: 10px 14px; border-radius: 8px; }
+    .nav-cta {
+      margin-left: auto !important;
+      background: var(--accent-dim) !important;
+      border: 1px solid var(--border) !important;
+      color: var(--accent) !important;
+      font-weight: 500 !important;
+      border-radius: 20px !important;
+      padding: 8px 18px !important;
+    }
+    .nav-cta:hover { background: var(--accent) !important; color: #0a1a0f !important; opacity: 1; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #0a1a0f 0%, #0d2818 50%, #091510 100%);
+      padding: 80px 20px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    [data-theme="light"] .hero { background: linear-gradient(135deg, #f0f7f2 0%, #e8f5e9 50%, #f0f7f2 100%); }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 30%, rgba(74,222,128,0.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-dim);
+      border: 1px solid rgba(74,222,128,0.25);
+      color: var(--accent);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+    .hero h1 em { color: var(--accent); font-style: italic; }
+    .hero .lead {
+      font-size: 1.15rem;
+      color: var(--text2);
+      max-width: 560px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat .num {
+      font-family: 'Lora', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--accent);
+      display: block;
+    }
+    .hero-stat .label { font-size: 0.82rem; color: var(--text3); letter-spacing: 0.04em; }
+    .subscribe-hero-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #4af580, #2d9f63);
+      color: #0a1a0f;
+      font-weight: 600;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-size: 1rem;
+      transition: var(--transition);
+      box-shadow: 0 4px 20px rgba(74,222,128,0.25);
+    }
+    .subscribe-hero-btn:hover { transform: scale(1.04); box-shadow: 0 8px 30px rgba(74,222,128,0.4); opacity: 1; }
+
+    /* ── FILTER BAR ── */
+    .filter-section {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 20px;
+      position: sticky;
+      top: 60px;
+      z-index: 50;
+    }
+    .filter-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+    .filter-label {
+      font-size: 0.82rem;
+      color: var(--text3);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .filter-pill {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text2);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      font-family: inherit;
+    }
+    .filter-pill:hover { background: var(--accent-dim); color: var(--accent); }
+    .filter-pill.active {
+      background: var(--accent-dim);
+      border: 1px solid rgba(74,222,128,0.35);
+      color: var(--accent);
+      font-weight: 500;
+    }
+    .filter-search {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: 8px 16px;
+    }
+    .filter-search input {
+      background: none;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-size: 0.85rem;
+      font-family: inherit;
+      width: 160px;
+    }
+    .filter-search input::placeholder { color: var(--text3); }
+    .filter-search svg { color: var(--text3); flex-shrink: 0; }
+
+    /* ── ISSUE GRID ── */
+    .archive-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 20px 80px;
+    }
+    .archive-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .archive-header h2 {
+      font-family: 'Lora', serif;
+      font-size: 1.6rem;
+      color: var(--text);
+    }
+    .issue-count { color: var(--text3); font-size: 0.9rem; }
+    .issues-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .issue-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    .issue-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .issue-card:hover { transform: translateY(-3px); border-color: rgba(74,222,128,0.3); box-shadow: 0 12px 40px rgba(0,0,0,0.25); }
+    .issue-card:hover::before { opacity: 1; }
+    .issue-card.hidden { display: none; }
+    .issue-card .issue-num {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .issue-card .issue-date {
+      font-size: 0.8rem;
+      color: var(--text3);
+      margin-top: -8px;
+    }
+    .issue-card h3 {
+      font-family: 'Lora', serif;
+      font-size: 1.1rem;
+      color: var(--text);
+      line-height: 1.3;
+    }
+    .issue-card .issue-excerpt {
+      font-size: 0.88rem;
+      color: var(--text2);
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+    .issue-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .issue-tag {
+      background: var(--accent-dim);
+      color: var(--accent);
+      padding: 3px 10px;
+      border-radius: 50px;
+      font-size: 0.72rem;
+      font-weight: 500;
+    }
+    .issue-tag.tag-recovery { background: rgba(74,222,128,0.12); color: #4af580; }
+    .issue-tag.tag-identity { background: rgba(168,85,247,0.12); color: #c084fc; }
+    .issue-tag.tag-skill { background: rgba(251,146,60,0.12); color: #fb923c; }
+    .issue-tag.tag-craft { background: rgba(96,165,250,0.12); color: #60a5fa; }
+    .issue-tag.tag-research { background: rgba(250,204,21,0.12); color: #facc15; }
+    .issue-tag.tag-productivity { background: rgba(244,114,182,0.12); color: #f472b6; }
+    .issue-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 8px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+    .read-time { font-size: 0.75rem; color: var(--text3); }
+    .issue-link {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .issue-link:hover { opacity: 0.75; }
+
+    /* ── TOPIC DEEP DIVES ── */
+    .topic-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+    .topic-section h2 {
+      font-family: 'Lora', serif;
+      font-size: 1.5rem;
+      color: var(--text);
+      margin-bottom: 24px;
+      padding-top: 20px;
+    }
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .topic-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      transition: var(--transition);
+    }
+    .topic-card:hover { transform: translateY(-2px); border-color: rgba(74,222,128,0.25); }
+    .topic-card .topic-icon { font-size: 1.8rem; margin-bottom: 10px; }
+    .topic-card h3 { font-size: 0.95rem; color: var(--text); margin-bottom: 6px; }
+    .topic-card p { font-size: 0.82rem; color: var(--text3); line-height: 1.5; }
+    .topic-card .topic-count {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-dim);
+      padding: 3px 10px;
+      border-radius: 50px;
+    }
+
+    /* ── SUBSCRIBE CTA ── */
+    .subscribe-cta {
+      background: linear-gradient(135deg, #0d2818 0%, #0a1a0f 100%);
+      border-top: 1px solid rgba(74,222,128,0.15);
+      border-bottom: 1px solid rgba(74,222,128,0.15);
+      padding: 64px 20px;
+      text-align: center;
+    }
+    [data-theme="light"] .subscribe-cta { background: linear-gradient(135deg, #f0f7f2 0%, #e8f5e9 100%); border-color: rgba(26,127,60,0.15); }
+    .subscribe-cta h2 {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .subscribe-cta p { color: var(--text2); max-width: 480px; margin: 0 auto 28px; font-size: 1rem; line-height: 1.7; }
+    .subscribe-cta .cta-buttons { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .cta-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #4af580, #2d9f63);
+      color: #0a1a0f;
+      font-weight: 600;
+      padding: 13px 28px;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      box-shadow: 0 4px 20px rgba(74,222,128,0.25);
+    }
+    .cta-primary:hover { transform: scale(1.04); box-shadow: 0 8px 30px rgba(74,222,128,0.4); opacity: 1; }
+    .cta-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text2);
+      padding: 13px 28px;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+    .cta-secondary:hover { border-color: var(--accent); color: var(--accent); opacity: 1; }
+
+    /* ── NO RESULTS ── */
+    .no-results {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text3);
+      display: none;
+    }
+    .no-results.visible { display: block; }
+    .no-results h3 { font-size: 1.2rem; color: var(--text2); margin-bottom: 8px; font-family: 'Lora', serif; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 32px 20px;
+      text-align: center;
+    }
+    footer p { color: var(--text3); font-size: 0.82rem; }
+    footer a { color: var(--text3); }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 640px) {
+      nav ul { height: auto; padding: 8px 0; }
+      .filter-search { width: 100%; }
+      .filter-search input { width: 100%; }
+      .hero-stats { gap: 24px; }
+      .issues-grid { grid-template-columns: 1fr; }
+      .subscribe-cta .cta-buttons { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav role="navigation" aria-label="Main">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li>
+      <a href="index.html#quiz" class="dropdown-trigger">Quiz ▾</a>
+      <div class="dropdown">
+        <a href="index.html#quiz">AI Fatigue Quiz</a>
+        <a href="quiz-results.html">Your Results</a>
+        <a href="signs-ai-fatigue.html">10 Signs</a>
+      </div>
+    </li>
+    <li>
+      <a href="recovery.html" class="dropdown-trigger">Recover ▾</a>
+      <div class="dropdown">
+        <a href="recovery.html">Recovery Guide</a>
+          <a href="/the-explanation-requirement.html">Explanation Requirement</a>
+        <a href="ai-detox-plan.html">30-Day Plan</a>
+        <a href="mental-health.html">Mental Health</a>
+        <a href="developer-wellbeing.html">Wellbeing</a>
+        <a href="recovery-toolkit.html">Recovery Toolkit</a>
+            <a href="ai-fatigue-checklist.html">Checklist</a>
+      </div>
+    </li>
+    <li>
+      <a href="why.html" class="dropdown-trigger">Understand ▾</a>
+      <div class="dropdown">
+        <a href="why.html">Why It Happens</a>
+        <a href="research.html">The Science</a>
+        <a href="skill-atrophy.html">Skill Atrophy</a>
+        <a href="cognitive-load.html">Cognitive Load</a>
+        <a href="developer-identity.html">Identity Crisis</a>
+        <a href="stats.html">Statistics</a>
+      </div>
+    </li>
+    <li>
+      <a href="community.html" class="dropdown-trigger">Community ▾</a>
+      <div class="dropdown">
+        <a href="community.html">Communities</a>
+        <a href="stories.html">Stories</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="share-your-story.html">Share Yours</a>
+      </div>
+    </li>
+    <li>
+      <a href="newsletter.html" class="dropdown-trigger active">Newsletter ▾</a>
+      <div class="dropdown">
+        <a href="newsletter.html">Subscribe</a>
+        <a href="newsletter-archive.html" class="active">Archive</a>
+        <a href="community-hub.html">Community Hub</a>
+      </div>
+    </li>
+    <li><a href="resources.html">Resources</a></li>
+    <li><a href="https://clearing-ai.com/newsletter-thank-you.html" class="nav-cta">Subscribe →</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><circle cx="6" cy="6" r="5"/></svg>
+      30 Issues Published
+    </div>
+    <h1>The <em>Dispatch</em> Archive</h1>
+    <p class="lead">Every Monday, 5 minutes. One data point from real engineers. One insight that changes how you see your relationship with AI tooling. One thing you can use that week.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="num">30+</span>
+        <span class="label">Issues Published</span>
+      </div>
+      <div class="hero-stat">
+        <span class="num">~150</span>
+        <span class="label">Minutes of Reading</span>
+      </div>
+      <div class="hero-stat">
+        <span class="num">Free</span>
+        <span class="label">Forever, No Tier</span>
+      </div>
+    </div>
+    <a href="https://clearing-ai.com/newsletter-thank-you.html" class="subscribe-hero-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Get The Dispatch Free
+    </a>
+  </div>
+</header>
+
+<section class="filter-section" aria-label="Filter newsletter archive">
+  <div class="filter-inner">
+    <span class="filter-label">Filter:</span>
+    <div class="filter-pills" role="group" aria-label="Topic filters">
+      <button class="filter-pill active" data-filter="all">All Topics</button>
+      <button class="filter-pill" data-filter="identity">Identity &amp; Ghost Authorship</button>
+      <button class="filter-pill" data-filter="skill">Skill Atrophy</button>
+      <button class="filter-pill" data-filter="recovery">Recovery Tactics</button>
+      <button class="filter-pill" data-filter="craft">Craft &amp; Deep Work</button>
+      <button class="filter-pill" data-filter="productivity">Productivity Traps</button>
+      <button class="filter-pill" data-filter="research">Research &amp; Data</button>
+    </div>
+    <div class="filter-search" role="search">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" id="archive-search" placeholder="Search issues..." aria-label="Search newsletter archive">
+    </div>
+  </div>
+</section>
+
+<section class="archive-section" aria-label="Newsletter issue archive">
+  <div class="archive-header">
+    <h2>All Issues</h2>
+    <span class="issue-count" id="issue-count">Showing 33 issues</span>
+  </div>
+  <div class="issues-grid" id="issues-grid">
+
+    <!-- Issue 32 -->
+    <article class="issue-card" data-topics="skill debugging identity" data-keywords="debugging skill atrophy debugging instincts the 20 minute rule">
+      <div>
+        <div class="issue-num">Issue #32</div>
+        <div class="issue-date">April 19, 2026 · Sent</div>
+      </div>
+      <h3>The Debugger Who Forgot How to Debug</h3>
+      <p class="issue-excerpt">You used to read a stack trace and know where to look. Now you paste it into AI before you've finished reading it. Here's what's happening to your debugging instincts — and how to get them back.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-skill">Skill Atrophy</span>
+        <span class="issue-tag tag-craft">Craft</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-issues/dispatch-33.html" class="issue-link">Read Issue →</a>
+      </div>
+    </article>
+
+    <!-- Issue 31 -->
+    <article class="issue-card" data-topics="identity productivity" data-keywords="middleman prompting decisions judgment autonomy">
+      <div>
+        <div class="issue-num">Issue #31</div>
+        <div class="issue-date">April 19, 2026 · Sent</div>
+      </div>
+      <h3>The Middleman Problem: Why You Can't Stop Prompting</h3>
+      <p class="issue-excerpt">You are no longer the author of your own decisions. You're the middleman between the question and the answer. Here's what that costs — and the single practice that rebuilds the middle step.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-identity">Identity</span>
+        <span class="issue-tag tag-productivity">Productivity Traps</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-issues/dispatch-32.html" class="issue-link">Read Issue →</a>
+      </div>
+    </article>
+
+    <!-- Issue 30 -->
+    <article class="issue-card" data-topics="skill research identity" data-keywords="compounding cost skill atrophy survey sunday night 71 percent">
+      <div>
+        <div class="issue-num">Issue #30</div>
+        <div class="issue-date">April 18, 2026 · Sent</div>
+      </div>
+      <h3>The Compounding Cost Nobody Talks About</h3>
+      <p class="issue-excerpt">71% of engineers who use AI daily reported measurable skill atrophy. The most damaging part: almost none realized it was happening until they tried to work without AI for a week. Here's what the 2,147-engineer survey found — and what it means for your career.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-skill">Skill Atrophy</span>
+        <span class="issue-tag tag-research">Research</span>
+        <span class="issue-tag tag-identity">Identity</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-issues/dispatch-30.html" class="issue-link">Read Issue →</a>
+      </div>
+    </article>
+
+    <!-- Issue 29 -->
+    <article class="issue-card" data-topics="skill research" data-keywords="imposter syndrome vs ai fatigue self assessment">
+      <div>
+        <div class="issue-num">Issue #29</div>
+        <div class="issue-date">April 14, 2026 · Sent</div>
+      </div>
+      <h3>The Sunday Night Reckoning (Part 2)</h3>
+      <p class="issue-excerpt">The specific dread you feel Sunday night before a week of AI-assisted work. It's not about laziness or poor boundaries — it's about what AI has quietly done to your relationship with the work itself. A deeper look at what's actually happening.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-identity">Identity</span>
+        <span class="issue-tag tag-skill">Skill Atrophy</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-thank-you.html" class="issue-link">Subscribe to read →</a>
+      </div>
+    </article>
+
+    <!-- Issue 28 -->
+    <article class="issue-card" data-topics="identity productivity" data-keywords="middleman authorship ghost review code ownership velocity">
+      <div>
+        <div class="issue-num">Issue #28</div>
+        <div class="issue-date">April 7, 2026 · Sent</div>
+      </div>
+      <h3>The Middleman Problem Revisited</h3>
+      <p class="issue-excerpt">You're approving suggestions, not writing solutions. 63% of quiz takers feel like middlemen in their own code. Here's why that gap keeps growing — and what to do about it.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-identity">Identity</span>
+        <span class="issue-tag tag-productivity">Productivity Traps</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-thank-you.html" class="issue-link">Subscribe to read →</a>
+      </div>
+    </article>
+
+    <!-- Issue 27 -->
+    <article class="issue-card" data-topics="identity productivity research" data-keywords="estimation calibration ai">
+      <div>
+        <div class="issue-num">Issue #27</div>
+        <div class="issue-date">March 31, 2026 · Sent</div>
+      </div>
+      <h3>The Estimation Problem</h3>
+      <p class="issue-excerpt">Why your estimates got way too optimistic — and it's not a character flaw. AI tooling quietly severed the calibration mechanism that made your estimates accurate in the first place.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-identity">Identity</span>
+        <span class="issue-tag tag-productivity">Productivity Traps</span>
+        <span class="issue-tag tag-research">Research</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-thank-you.html" class="issue-link">Subscribe to read →</a>
+      </div>
+    </article>
+
+    <!-- Issue 26 -->
+    <article class="issue-card" data-topics="craft recovery" data-keywords="debugging competence skill confidence">
+      <div>
+        <div class="issue-num">Issue #26</div>
+        <div class="issue-date">March 24, 2026 · Sent</div>
+      </div>
+      <h3>The First Real Bug</h3>
+      <p class="issue-excerpt">The moment you debug something yourself — without AI. The emotional reclamation of competence. The feeling that comes back when your own judgment starts working again.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-craft">Craft &amp; Deep Work</span>
+        <span class="issue-tag tag-recovery">Recovery</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-thank-you.html" class="issue-link">Subscribe to read →</a>
+      </div>
+    </article>
+
+    <!-- Issue 25 -->
+    <article class="issue-card" data-topics="identity recovery" data-keywords="sunday night dread dread monday middleman week">
+      <div>
+        <div class="issue-num">Issue #25</div>
+        <div class="issue-date">May 21, 2026 · Ready to Send</div>
+      </div>
+      <h3>The Sunday Night Reckoning</h3>
+      <p class="issue-excerpt">There's a specific kind of Sunday that engineers know but nobody names. It starts around 5pm — and it's not about resting less. It's about not building anything real.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-identity">Identity</span>
+        <span class="issue-tag tag-recovery">Recovery</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-thank-you.html" class="issue-link">Subscribe to read →</a>
+      </div>
+    </article>
+
+    <!-- Issue 24 -->
+    <article class="issue-card" data-topics="identity productivity" data-keywords="middleman authorship ghost review code ownership velocity">
+      <div>
+        <div class="issue-num">Issue #24</div>
+        <div class="issue-date">May 14, 2026 · Ready to Send</div>
+      </div>
+      <h3>The Middleman Problem Revisited</h3>
+      <p class="issue-excerpt">You're approving suggestions, not writing solutions. 63% of quiz takers feel like middlemen in their own code. Here's why that gap keeps growing — and what to do about it.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-identity">Identity</span>
+        <span class="issue-tag tag-productivity">Productivity Traps</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-thank-you.html" class="issue-link">Subscribe to read →</a>
+      </div>
+    </article>
+
+    <!-- Issue 23 -->
+    <article class="issue-card" data-topics="identity productivity research" data-keywords="estimation calibration ai">
+      <div>
+        <div class="issue-num">Issue #23</div>
+        <div class="issue-date">April 30, 2026 · Sent</div>
+      </div>
+      <h3>The Estimation Problem</h3>
+      <p class="issue-excerpt">Why your estimates got way too optimistic — and it's not a character flaw. AI tooling quietly severed the calibration mechanism that made your estimates accurate in the first place.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-identity">Identity</span>
+        <span class="issue-tag tag-productivity">Productivity Traps</span>
+        <span class="issue-tag tag-research">Research</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-thank-you.html" class="issue-link">Subscribe to read →</a>
+      </div>
+    </article>
+
+    <!-- Issue 22 -->
+    <article class="issue-card" data-topics="craft recovery" data-keywords="debugging competence skill confidence">
+      <div>
+        <div class="issue-num">Issue #22</div>
+        <div class="issue-date">April 23, 2026 · Sent</div>
+      </div>
+      <h3>The First Real Bug</h3>
+      <p class="issue-excerpt">The moment you debug something yourself — without AI. The emotional reclamation of competence. The feeling that comes back when your own judgment starts working again.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-craft">Craft &amp; Deep Work</span>
+        <span class="issue-tag tag-recovery">Recovery</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-thank-you.html" class="issue-link">Subscribe to read →</a>
+      </div>
+    </article>
+
+    <!-- Issue 21 -->
+    <article class="issue-card" data-topics="craft identity" data-keywords="sunday dread anxiety week start">
+      <div>
+        <div class="issue-num">Issue #21</div>
+        <div class="issue-date">April 19, 2026 · Sent</div>
+      </div>
+      <h3>The Sunday Reckoning</h3>
+      <p class="issue-excerpt">The specific dread you feel Sunday night before a week of AI-assisted work. It's not about laziness or poor boundaries — it's about what AI has quietly done to your relationship with the work itself.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-craft">Craft &amp; Deep Work</span>
+        <span class="issue-tag tag-identity">Identity</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-thank-you.html" class="issue-link">Subscribe to read →</a>
+      </div>
+    </article>
+
+    <!-- Issue 20 -->
+    <article class="issue-card" data-topics="craft identity" data-keywords="shipped code authorship ownership">
+      <div>
+        <div class="issue-num">Issue #20</div>
+        <div class="issue-date">April 14, 2026 · Sent</div>
+      </div>
+      <h3>What You Ship vs. What You Know</h3>
+      <p class="issue-excerpt">The gap between code shipped and code understood is growing. 71% of engineers report they could reproduce less than half of what they shipped with AI last month.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-identity">Identity</span>
+        <span class="issue-tag tag-craft">Craft &amp; Deep Work</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-thank-you.html" class="issue-link">Subscribe to read →</a>
+      </div>
+    </article>
+
+    <!-- Issue 19 -->
+    <article class="issue-card" data-topics="craft recovery skill" data-keywords="calibration drift estimation learning">
+      <div>
+        <div class="issue-num">Issue #19</div>
+        <div class="issue-date">April 10, 2026 · Sent</div>
+      </div>
+      <h3>The Calibration Drift</h3>
+      <p class="issue-excerpt">Your estimation accuracy was never about math — it was about calibration. A decade of learning what you know and don't know. AI tooling didn't make you faster; it made your calibration drift.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-craft">Craft &amp; Deep Work</span>
+        <span class="issue-tag tag-skill">Skill Atrophy</span>
+        <span class="issue-tag tag-recovery">Recovery</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-thank-you.html" class="issue-link">Subscribe to read →</a>
+      </div>
+    </article>
+
+    <!-- Issue 18 -->
+    <article class="issue-card" data-topics="skill craft" data-keywords="tutorial paradox learning ai learning burnout">
+      <div>
+        <div class="issue-num">Issue #18</div>
+        <div class="issue-date">April 7, 2026 · Sent</div>
+      </div>
+      <h3>The Tutorial Paradox</h3>
+      <p class="issue-excerpt">You watch tutorials to learn. AI tooling lets you skip tutorials. So you watch more tutorials — and learn less. The tutorial paradox: AI makes surface-level learning feel like progress.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-skill">Skill Atrophy</span>
+        <span class="issue-tag tag-craft">Craft &amp; Deep Work</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-thank-you.html" class="issue-link">Subscribe to read →</a>
+      </div>
+    </article>
+
+    <!-- Issue 17 -->
+    <article class="issue-card" data-topics="identity" data-keywords="middleman ghost authorship review">
+      <div>
+        <div class="issue-num">Issue #17</div>
+        <div class="issue-date">April 4, 2026 · Sent</div>
+      </div>
+      <h3>The Middleman Problem</h3>
+      <p class="issue-excerpt">71% of engineers feel like translators — reviewing code they didn't write, approving solutions they couldn't have generated. This isn't imposter syndrome. It's a structural change in what it means to ship software.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-identity">Identity</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-thank-you.html" class="issue-link">Subscribe to read →</a>
+      </div>
+    </article>
+
+    <!-- Issue 16 -->
+    <article class="issue-card" data-topics="skill" data-keywords="skill stopped practicing learning atrophy">
+      <div>
+        <div class="issue-num">Issue #16</div>
+        <div class="issue-date">March 31, 2026 · Sent</div>
+      </div>
+      <h3>The Skill You Stopped Practicing</h3>
+      <p class="issue-excerpt">AI has quietly replaced a skill you used to have. You didn't notice until you tried to do it without AI — and couldn't. The compounding invisible: you don't see the learning you're not getting.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-skill">Skill Atrophy</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-thank-you.html" class="issue-link">Subscribe to read →</a>
+      </div>
+    </article>
+
+    <!-- Issue 15 -->
+    <article class="issue-card" data-topics="skill recovery" data-keywords="explanation requirement teaching learning">
+      <div>
+        <div class="issue-num">Issue #15</div>
+        <div class="issue-date">March 28, 2026 · Sent</div>
+      </div>
+      <h3>The Explanation Requirement</h3>
+      <p class="issue-excerpt">Before accepting any AI suggestion — complete this sentence: "I added this because..." If you can't, the code isn't yours. You've received an answer, not learned the problem.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-skill">Skill Atrophy</span>
+        <span class="issue-tag tag-recovery">Recovery</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-thank-you.html" class="issue-link">Subscribe to read →</a>
+      </div>
+    </article>
+
+    <!-- Issue 14 -->
+    <article class="issue-card" data-topics="identity" data-keywords="middleman authorship identity review">
+      <div>
+        <div class="issue-num">Issue #14</div>
+        <div class="issue-date">March 24, 2026 · Sent</div>
+      </div>
+      <h3>The Middleman Problem</h3>
+      <p class="issue-excerpt">71% of engineers can reproduce less than half of what they shipped with AI. 44% said almost none. These aren't junior engineers. They're experienced developers paying close attention to what AI has quietly done to their work.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-identity">Identity</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-thank-you.html" class="issue-link">Subscribe to read →</a>
+      </div>
+    </article>
+
+    <!-- Issue 13 -->
+    <article class="issue-card" data-topics="recovery skill" data-keywords="testimonials story recovery recovery journey">
+      <div>
+        <div class="issue-num">Issue #13</div>
+        <div class="issue-date">March 21, 2026 · Sent</div>
+      </div>
+      <h3>What Recovery Actually Looks Like</h3>
+      <p class="issue-excerpt">Three engineers who took the AI Fatigue Quiz shared their recovery stories. What they had in common: none of them "fixed" it with a vacation. Recovery was gradual, specific, and built on awareness.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-recovery">Recovery</span>
+        <span class="issue-tag tag-skill">Skill Atrophy</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-thank-you.html" class="issue-link">Subscribe to read →</a>
+      </div>
+    </article>
+
+    <!-- Issue 12 -->
+    <article class="issue-card" data-topics="productivity research" data-keywords="compounding cost ai tools fatigue velocity">
+      <div>
+        <div class="issue-num">Issue #12</div>
+        <div class="issue-date">March 17, 2026 · Sent</div>
+      </div>
+      <h3>The Compounding Cost of AI Tool Fatigue</h3>
+      <p class="issue-excerpt">Every AI tool you add creates a small cognitive tax. The tax doesn't show up in standups. It accumulates in the background — degrading the very judgment you're relying on to evaluate the tools.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-productivity">Productivity Traps</span>
+        <span class="issue-tag tag-research">Research</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-thank-you.html" class="issue-link">Subscribe to read →</a>
+      </div>
+    </article>
+
+    <!-- Issue 11 -->
+    <article class="issue-card" data-topics="skill craft" data-keywords="23 minute Gloria Mark recovery window">
+      <div>
+        <div class="issue-num">Issue #11</div>
+        <div class="issue-date">March 14, 2026 · Sent</div>
+      </div>
+      <h3>The 23-Minute Window</h3>
+      <p class="issue-excerpt">After every interruption — even one resolved in seconds — it takes an average of 23 minutes to regain full focus. Gloria Mark's research applies to AI suggestions too. Here's what it means for your workflow.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-craft">Craft &amp; Deep Work</span>
+        <span class="issue-tag tag-skill">Skill Atrophy</span>
+        <span class="issue-tag tag-research">Research</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-thank-you.html" class="issue-link">Subscribe to read →</a>
+      </div>
+    </article>
+
+    <!-- Issue 10 -->
+    <article class="issue-card" data-topics="identity" data-keywords="seniority paradox expertise junior senior">
+      <div>
+        <div class="issue-num">Issue #10</div>
+        <div class="issue-date">March 10, 2026 · Sent</div>
+      </div>
+      <h3>The Seniority Paradox</h3>
+      <p class="issue-excerpt">The engineers most at risk from AI tooling are often the most experienced. Junior engineers have lower expectations and adapt more easily. Senior engineers feel the identity erosion most acutely — and have the most to lose.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-identity">Identity</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-thank-you.html" class="issue-link">Subscribe to read →</a>
+      </div>
+    </article>
+
+    <!-- Issue 9 -->
+    <article class="issue-card" data-topics="skill craft" data-keywords="skill atrophy deskilling debug debugging">
+      <div>
+        <div class="issue-num">Issue #9</div>
+        <div class="issue-date">March 7, 2026 · Sent</div>
+      </div>
+      <h3>Skill Atrophy Is Real</h3>
+      <p class="issue-excerpt">Robert Bjork's desirable difficulty framework tells us that learning requires productive struggle. AI removes the struggle — and with it, the learning. Skills you haven't used deliberately in 18 months don't just get rusty. They atrophy.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-skill">Skill Atrophy</span>
+        <span class="issue-tag tag-craft">Craft &amp; Deep Work</span>
+        <span class="issue-tag tag-research">Research</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-thank-you.html" class="issue-link">Subscribe to read →</a>
+      </div>
+    </article>
+
+    <!-- Issue 8 -->
+    <article class="issue-card" data-topics="recovery" data-keywords="no ai day sunday rest recovery">
+      <div>
+        <div class="issue-num">Issue #8</div>
+        <div class="issue-date">March 3, 2026 · Sent</div>
+      </div>
+      <h3>The Case for AI-Free Days</h3>
+      <p class="issue-excerpt">One day a week with zero AI tooling. Not as a detox cleanse — as calibration. You cannot know what you've lost until you go without for a full day and feel what's left.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-recovery">Recovery</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-thank-you.html" class="issue-link">Subscribe to read →</a>
+      </div>
+    </article>
+
+    <!-- Issue 7 -->
+    <article class="issue-card" data-topics="productivity identity" data-keywords="productivity theater busy not better performance">
+      <div>
+        <div class="issue-num">Issue #7</div>
+        <div class="issue-date">February 28, 2026 · Sent</div>
+      </div>
+      <h3>Productivity Theater</h3>
+      <p class="issue-excerpt">AI makes it easy to look productive without being productive. Velocity metrics go up. Code review pass counts go up. Ticket close rates go up. What doesn't go up: your actual competence, understanding, or career capital.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-productivity">Productivity Traps</span>
+        <span class="issue-tag tag-identity">Identity</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-thank-you.html" class="issue-link">Subscribe to read →</a>
+      </div>
+    </article>
+
+    <!-- Issue 6 -->
+    <article class="issue-card" data-topics="craft" data-keywords="flow state deep work interrupts csikszentmihalyi">
+      <div>
+        <div class="issue-num">Issue #6</div>
+        <div class="issue-date">February 24, 2026 · Sent</div>
+      </div>
+      <h3>Flow and AI Don't Mix</h3>
+      <p class="issue-excerpt">Csikszentmihalyi's flow state requires sustained challenge against skill — and uninterrupted concentration. AI interrupts both continuously. The ambient availability of AI suggestions is destroying the conditions flow requires.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-craft">Craft &amp; Deep Work</span>
+        <span class="issue-tag tag-research">Research</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-thank-you.html" class="issue-link">Subscribe to read →</a>
+      </div>
+    </article>
+
+    <!-- Issue 5 -->
+    <article class="issue-card" data-topics="identity" data-keywords="imposter syndrome vs ai fatigue difference">
+      <div>
+        <div class="issue-num">Issue #5</div>
+        <div class="issue-date">February 17, 2026 · Sent</div>
+      </div>
+      <h3>Imposter Syndrome vs. AI Fatigue</h3>
+      <p class="issue-excerpt">These get confused because they feel similar. But imposter syndrome is a cognitive distortion — you think you're less capable than you are. AI fatigue is functional — you are less capable than you were, for structural reasons.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-identity">Identity</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-thank-you.html" class="issue-link">Subscribe to read →</a>
+      </div>
+    </article>
+
+    <!-- Issue 4 -->
+    <article class="issue-card" data-topics="skill recovery" data-keywords="ownership authorship code review explanation">
+      <div>
+        <div class="issue-num">Issue #4</div>
+        <div class="issue-date">February 10, 2026 · Sent</div>
+      </div>
+      <h3>What It Means to Own Your Code</h3>
+      <p class="issue-excerpt">There's a difference between code you shipped and code you own. Ownership means you could have written it, you understand every line, and you'd recognize a bug in it a year from now. AI tooling creates code you shipped without either of those conditions.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-skill">Skill Atrophy</span>
+        <span class="issue-tag tag-recovery">Recovery</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-thank-you.html" class="issue-link">Subscribe to read →</a>
+      </div>
+    </article>
+
+    <!-- Issue 3 -->
+    <article class="issue-card" data-topics="identity productivity" data-keywords="velocity trap speed faster shipping">
+      <div>
+        <div class="issue-num">Issue #3</div>
+        <div class="issue-date">February 3, 2026 · Sent</div>
+      </div>
+      <h3>The Velocity Trap</h3>
+      <p class="issue-excerpt">Your ticket velocity went up. Your confidence in the codebase went down. These aren't contradictory — they're causally linked. Speed is replacing quality as the unit of developer performance, and nobody is measuring what that costs.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-identity">Identity</span>
+        <span class="issue-tag tag-productivity">Productivity Traps</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-thank-you.html" class="issue-link">Subscribe to read →</a>
+      </div>
+    </article>
+
+    <!-- Issue 2 -->
+    <article class="issue-card" data-topics="craft" data-keywords="decision fatigue daily decisions architecture">
+      <div>
+        <div class="issue-num">Issue #2</div>
+        <div class="issue-date">January 27, 2026 · Sent</div>
+      </div>
+      <h3>Decision Fatigue Is Cumulative</h3>
+      <p class="issue-excerpt">Every AI suggestion you evaluate uses a decision. Every code review judgment, every acceptance or rejection, every "this looks right" — they're all decisions. By Wednesday, your decision quality has degraded. By Friday, it's compromised. The weekend doesn't fully restore it.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-craft">Craft &amp; Deep Work</span>
+        <span class="issue-tag tag-research">Research</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-thank-you.html" class="issue-link">Subscribe to read →</a>
+      </div>
+    </article>
+
+    <!-- Issue 1 -->
+    <article class="issue-card" data-topics="identity recovery" data-keywords="first issue introduction welcome ai fatigue">
+      <div>
+        <div class="issue-num">Issue #1</div>
+        <div class="issue-date">January 20, 2026 · Sent</div>
+      </div>
+      <h3>Why This Exists</h3>
+      <p class="issue-excerpt">We built The Clearing because 2,000+ engineers took our quiz and said the same thing: "I thought it was just me." This newsletter exists because they were right — and because naming the problem is the first step to recovering from it.</p>
+      <div class="issue-tags">
+        <span class="issue-tag tag-identity">Identity</span>
+        <span class="issue-tag tag-recovery">Recovery</span>
+      </div>
+      <div class="issue-footer">
+        <span class="read-time">~5 min read</span>
+        <a href="newsletter-thank-you.html" class="issue-link">Subscribe to read →</a>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="no-results" id="no-results" aria-live="polite">
+    <h3>No matching issues</h3>
+    <p>Try a different search term or topic filter.</p>
+  </div>
+</section>
+
+<!-- ── TOPIC OVERVIEW ── -->
+<section class="topic-section">
+  <h2>Browse by Topic</h2>
+  <div class="topic-grid">
+    <div class="topic-card" onclick="filterByTopic('identity')" style="cursor:pointer">
+      <div class="topic-icon">👤</div>
+      <h3>Identity &amp; Ghost Authorship</h3>
+      <p>The middleman problem, ownership anxiety, and what it means when the code you ship isn't your code anymore.</p>
+      <span class="topic-count">9 issues</span>
+    </div>
+    <div class="topic-card" onclick="filterByTopic('skill')" style="cursor:pointer">
+      <div class="topic-icon">📉</div>
+      <h3>Skill Atrophy</h3>
+      <p>The skills you stopped practicing, the learning you're not getting, and the gap between shipped code and understood code.</p>
+      <span class="topic-count">8 issues</span>
+    </div>
+    <div class="topic-card" onclick="filterByTopic('recovery')" style="cursor:pointer">
+      <div class="topic-icon">🌿</div>
+      <h3>Recovery Tactics</h3>
+      <p>Specific, actionable things you can do this week. No-AI days, explanation requirements, calibration practices, and gradual trust-building.</p>
+      <span class="topic-count">6 issues</span>
+    </div>
+    <div class="topic-card" onclick="filterByTopic('craft')" style="cursor:pointer">
+      <div class="topic-icon">🔨</div>
+      <h3>Craft &amp; Deep Work</h3>
+      <p>Flow state, decision fatigue, debugging without AI, and what it means to practice your craft deliberately in the AI era.</p>
+      <span class="topic-count">7 issues</span>
+    </div>
+    <div class="topic-card" onclick="filterByTopic('productivity')" style="cursor:pointer">
+      <div class="topic-icon">⚡</div>
+      <h3>Productivity Traps</h3>
+      <p>Velocity theater, estimation drift, and why looking busy is often the most dangerous thing an engineer can do.</p>
+      <span class="topic-count">4 issues</span>
+    </div>
+    <div class="topic-card" onclick="filterByTopic('research')" style="cursor:pointer">
+      <div class="topic-icon">📊</div>
+      <h3>Research &amp; Data</h3>
+      <p>Gloria Mark's 23-minute window, cognitive load theory, Robert Bjork's desirable difficulty framework — the science behind AI fatigue.</p>
+      <span class="topic-count">5 issues</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── SUBSCRIBE CTA ── -->
+<section class="subscribe-cta" aria-label="Subscribe to the newsletter">
+  <h2>Get Every Issue in Your Inbox</h2>
+  <p>Every Monday morning. 5 minutes. One thing that changes how you work with AI tooling — or how you recover from it.</p>
+  <div class="cta-buttons">
+    <a href="https://clearing-ai.com/newsletter-thank-you.html" class="cta-primary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Subscribe Free — 23+ Issues Waiting
+    </a>
+    <a href="newsletter.html" class="cta-secondary">Learn More First</a>
+  </div>
+</section>
+
+<footer>
+  <p><a href="index.html">The Clearing</a> — A free resource for AI-fatigued software engineers</p>
+  <p style="margin-top:8px; font-size:0.78rem;">
+    <a href="newsletter.html">Subscribe</a> · <a href="newsletter-archive.html">Archive</a> · <a href="community-hub.html">Community</a> · <a href="index.html#quiz">Take the Quiz</a> · <a href="recovery.html">Recovery Guide</a>
+          <a href="/the-explanation-requirement.html">Explanation Requirement</a> · <a href="press-kit.html">Press Kit</a> &middot; <a href="media-kit.html">Media Kit</a>
+      <a href="press-mentions.html">Press Mentions</a>
+  </p>
+</footer>
+
+<script>
+// ── FILTER LOGIC ──
+const pills = document.querySelectorAll('.filter-pill');
+const cards = document.querySelectorAll('.issue-card');
+const searchInput = document.getElementById('archive-search');
+const noResults = document.getElementById('no-results');
+const issueCount = document.getElementById('issue-count');
+
+let activeFilter = 'all';
+let searchQuery = '';
+
+function updateGrid() {
+  let visible = 0;
+  cards.forEach(card => {
+    const topics = card.dataset.topics || '';
+    const keywords = card.dataset.keywords || '';
+    const title = card.querySelector('h3').textContent.toLowerCase();
+    const excerpt = card.querySelector('.issue-excerpt').textContent.toLowerCase();
+    const searchStr = (keywords + ' ' + title + ' ' + excerpt).toLowerCase();
+    const matchesFilter = activeFilter === 'all' || topics.split(' ').includes(activeFilter);
+    const matchesSearch = !searchQuery || searchStr.includes(searchQuery);
+    if (matchesFilter && matchesSearch) {
+      card.classList.remove('hidden');
+      visible++;
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+  issueCount.textContent = `Showing ${visible} of ${cards.length} issues`;
+  noResults.classList.toggle('visible', visible === 0);
+}
+
+pills.forEach(pill => {
+  pill.addEventListener('click', () => {
+    pills.forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    activeFilter = pill.dataset.filter;
+    updateGrid();
+  });
+});
+
+searchInput.addEventListener('input', () => {
+  searchQuery = searchInput.value.trim().toLowerCase();
+  updateGrid();
+});
+
+function filterByTopic(topic) {
+  pills.forEach(p => { p.classList.remove('active'); });
+  const match = document.querySelector(`.filter-pill[data-filter="${topic}"]`);
+  if (match) { match.classList.add('active'); }
+  else { document.querySelector('.filter-pill[data-filter="all"]').classList.add('active'); }
+  activeFilter = topic;
+  updateGrid();
+  document.querySelector('.archive-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// Theme toggle (if site supports it)
+const themeBtn = document.querySelector('[aria-label*="theme" i], .theme-toggle');
+if (themeBtn) themeBtn.addEventListener('click', () => {
+  const html = document.documentElement;
+  html.setAttribute('data-theme', html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  localStorage.setItem('theme', html.getAttribute('data-theme'));
+});
+</script>
+
+</body>
+</html>

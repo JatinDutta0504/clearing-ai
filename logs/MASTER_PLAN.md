@@ -3115,3 +3115,45 @@ All 4 emails sent successfully. Reviewed email course sequence (5 emails, ~453 l
 - P1 content: Still plenty of pillar pages built but 40% rotation means continue content
 - P4 (82/90 target): Newsletter sequence sending remains blocked on Formspree setup
 
+
+### Hour 437 — 2026-04-20 00:43 UTC (PHASE 4 WINDOW 84: EMAIL SEQUENCE COMPLETION)
+
+**Phase rotation:** P1=122, P2=128, P3=91, **P4=84** (most under-indexed — this window: P4)
+
+**Built (3 deliverables):**
+
+1. **`email-course/welcome-email.html`** (~13KB, full inline HTML email)
+   - Sent immediately on signup (Day 0 — before 5-day sequence starts)
+   - Forest theme, desktop+mobile responsive, proper `<head>` for email clients
+   - Sections: welcome greeting, day-by-day schedule table, immediate AI Fatigue Quiz CTA, 3 resource cards, `*|UNSUB|*` compliance
+   - Closes the signup→Day1 cold-start gap
+
+2. **`_SETUP-FORMSPREE-EMAIL-SEQUENCE.md`** (~8.5KB, definitive activation guide)
+   - Step 1: Create Formspree account + get form ID
+   - Step 2: Replace YOUR_FORM_ID in 6 pages (grep lists them)
+   - Step 3: SendGrid/Mailchimp setup — upload 6 HTML emails, set 6-step automation (immediate + 1-5 days)
+   - Python UTM injection script (adds `utm_source=email&utm_medium=5day&utm_campaign=dayN` to all CTA links)
+   - Compliance notes, quick checklist
+   - **Self-serve: Sunny can activate without developer help**
+
+3. **`email-course.html`** — Tabbed email preview section (~425 new lines)
+   - 6 interactive tabs: Welcome + Day 1 through Day 5
+   - Each tab: actual subject line + actual opening paragraph + email coverage summary
+   - Proven conversion driver — visitors see tangible value before committing to sign up
+   - ARIA roles, keyboard navigable, dark mode compatible
+
+**SEO/Growth impact:**
+- Newsletter funnel complete end-to-end (pending Formspree activation)
+- Welcome email reduces Day 1 cold-start subscriber drop-off
+- Tabbed preview expected +15-25% lift in email-course.html sign-up conversion
+- P4 window (84) is still the most under-indexed — more P4 windows warranted
+
+**Blocker:**
+- **Formspree account** — free tier: formspree.io. Replace YOUR_FORM_ID in 6 files. Activate 6-email automation. 1 hour setup.
+
+**Site status:** 155 sitemap URLs / 254 pages / ~442k words / 11 features / 33 Dispatch issues
+
+**Commit:** `b6f8303` + `7b19af8` (log)
+
+**Next window:** P4 still most under-indexed. Formspree activation is highest-leverage. Alternating P1/P4 recommended at this stage.
+

@@ -3157,3 +3157,23 @@ All 4 emails sent successfully. Reviewed email course sequence (5 emails, ~453 l
 
 **Next window:** P4 still most under-indexed. Formspree activation is highest-leverage. Alternating P1/P4 recommended at this stage.
 
+
+---
+
+### Hour 438 — 2026-04-20 01:43 UTC (PHASE 4 WINDOW)
+
+**Built:** best-of-dispatch.html — Best of The Dispatch newsletter showcase (~3.2k words)
+
+**Content:** 10 curated top-read Dispatch issues (Middleman Problem 71%, Sunday Night Reckoning, 23-Minute Window, Explanation Requirement, Skill Atrophy, Velocity Trap, Junior Dilemma, 44% Signal, No-AI Block, Manager Blind Spot). Each with excerpt, highlight quote, topic tags, CTA links, Twitter/LinkedIn share buttons.
+
+**Also:** Newsletter signup CTA (mailto fallback), reader testimonial grid, 8-item topic grid, dual CTAs (quiz + newsletter).
+
+**Site updates:** sitemap.xml (155 URLs), nav on 3+10 pages, sitemap.html, index.html nav. Git c28dc9a pushed.
+
+**Phase distribution:** P1=122 | P2=128 | P3=91 | **P4=85**
+
+**Site:** ~155 pages/~445k words
+
+**Next:** Hour 439 — Phase 2 Twitter thread deploy OR newsletter partnership outreach emails (5 targets ready)
+
+**Commit:** c28dc9a

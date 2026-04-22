@@ -70,31 +70,31 @@
 }
 </script>
 
-  <!-- Critical inline CSS — Lora loaded as primary (not fallback) via preloaded woff2 — no font swap, no CLS -->
+  <!-- Critical inline CSS — Lora loaded as primary via preloaded TTF + system-fallback eliminates CLS entirely -->
   <style>
-    /* Declare Lora font-face so browser uses preloaded woff2 immediately (no Google Fonts CSS needed) */
+    /* Declare Lora font-face — TTF URLs from Google Fonts API (woff2 URLs returning 404) */
     @font-face {
       font-family: 'Lora';
       font-style: normal;
       font-weight: 400;
-      font-display: swap;
-      src: url('https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuMwr7I_FMl_E.woff2') format('woff2');
+      font-display: optional;
+      src: url('https://fonts.gstatic.com/s/lora/v37/0QI6MX1D_JOuGQbT0gvTJPa787weuyJG.ttf') format('truetype');
       unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     }
     @font-face {
       font-family: 'Lora';
       font-style: italic;
       font-weight: 400;
-      font-display: swap;
-      src: url('https://fonts.gstatic.com/s/lora/v37/0QIvMW5D_JOuMwr7J_FMl_E.woff2') format('woff2');
+      font-display: optional;
+      src: url('https://fonts.gstatic.com/s/lora/v37/0QI8MX1D_JOuMw_hLdO6T2wV9KnW-MoFkqg.ttf') format('truetype');
       unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     }
     @font-face {
       font-family: 'Lora';
       font-style: normal;
       font-weight: 600;
-      font-display: swap;
-      src: url('https://fonts.gstatic.com/s/lora/v37/0QIvMS1D_JOuMwr7I_FMl_E.woff2') format('woff2');
+      font-display: optional;
+      src: url('https://fonts.gstatic.com/s/lora/v37/0QI6MX1D_JOuGQbT0gvTJPa787zAvCJG.ttf') format('truetype');
       unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     }
     .nav-logo{font-family:Lora,Georgia,serif;font-size:1rem;font-weight:600;color:#a8d5b5}
@@ -898,7 +898,7 @@
         </a>
         </li>
         <li>
-          <a href="vibe-coding-ai-fatigue.html" class="feature-card" aria-label="Vibe Coding and AI Fatigue">
+          <a href="vibe-coding-ai-fatigue.html" class="feature-card" aria-label="🌊 Vibe Coding & AI Fatigue">
           <span class="feature-icon">🌊</span>
           <h3 class="feature-title">Vibe Coding & AI Fatigue</h3>
           <p class="feature-desc">Ship fast, understand slow. Vibe coding feels like productivity — but the skill gap is real. How to vibe consciously and maintain your engineering edge.</p>
@@ -906,7 +906,7 @@
         </a>
         </li>
         <li>
-          <a href="vibe-coding-rules.html" class="feature-card" aria-label="Vibe Coding Rules">
+          <a href="vibe-coding-rules.html" class="feature-card" aria-label="📋 Vibe Coding Rules">
           <span class="feature-icon">📋</span>
           <h3 class="feature-title">Vibe Coding Rules</h3>
           <p class="feature-desc">The unspoken rules of vibe coding — team norms, debugging, and skill protection.</p>
@@ -945,7 +945,7 @@
           <p class="feature-desc">Not all AI fatigue is the same. 7 questions to identify your dominant type — skill erosion, decision fatigue, identity loss, attention fragmentation, or workflow displacement.</p>
           <span class="feature-link">Find your type →</span>
         </a>
-                  <a href="for-hn-readers.html" class="feature-card" aria-label="For Hacker News Readers">
+                  <a href="for-hn-readers.html" class="feature-card" aria-label="📌 For Hacker News Readers">
           <span class="feature-icon">📌</span>
           <h3 class="feature-title">For Hacker News Readers</h3>
           <p class="feature-desc">Welcome, HN. Start here — key findings, best resources, and the quiz, curated for Hacker News visitors.</p>

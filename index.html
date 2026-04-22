@@ -102,18 +102,12 @@
     .hero-subtitle{font-size:clamp(0.9rem,2vw,1.1rem);color:#c8d5cb;font-weight:300}
   </style>
 
-  <!-- Preload critical font for LCP (woff2 available at ~370ms, @font-face in critical CSS declares it as 'Lora') -->
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-       href="https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuMwr7I_FMl_E.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-       href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2">
+  <!-- Font loaded via inline @font-face with font-display:optional — no preload needed (eliminates 404s) -->
 
   <!-- Non-render-blocking CSS (LCP-optimized) -->
   <link rel="stylesheet" href="css/style.min.css" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="css/style.min.css"></noscript>
-  <!-- Google Fonts via preloaded woff2 only — no async CSS (eliminates double-paint LCP bug) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Google Fonts preconnect removed — fonts loaded via inline @font-face TTF, not Google Fonts stylesheet -->
 </head>
 <body>
 <a href="#quiz-container" class="skip-link">Skip to main content</a>

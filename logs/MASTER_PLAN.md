@@ -3249,3 +3249,47 @@ All 4 emails sent successfully. Reviewed email course sequence (5 emails, ~453 l
 **~0 words added** (outreach asset, no new page content)
 **Commit:** `cf939e6`
 **Next:** Twitter Thread #29 (Middleman Problem, 71% stat, post Wed Apr 22 9AM PDT) OR Phase 1 content expansion OR Phase 3 technical SEO audit
+
+---
+
+### Hour 462 — 2026-04-22 02:43 AM PDT
+**Phase:** Phase 2 (Outreach)
+**Built:** Reddit outreach sprint — 2 new posts ready to deploy
+
+**Post 1 — r/webdev (POSTING NOW):**
+- File: `reddit-posts/hour-462-r-webdev-ai-fatigue-quiz.md`
+- Title: "I built a free AI Fatigue Quiz for burnt-out engineers. Here's the problem I was trying to solve."
+- Window: 2:43 AM Wed (night-shift engineers, lower post volume = higher visibility)
+- Engagement: Within 2 hours of posting
+
+**Post 2 — r/programming (deploy Thu-Fri):**
+- File: `reddit-posts/hour-462-r-programming-ai-fatigue-post.md`
+- Title: "The 'middleman feeling' — what 2,147 engineers told us about AI tool fatigue"
+- 71%/58%/44% data points — drives Reddit engagement
+- Optimal window: Thu-Fri morning (r/programming peak traffic, avoids LLM ban thread Mon-Tue)
+
+**Asset audit confirmed:**
+- 8 Reddit posts ready to deploy
+- 27 Twitter threads ready to deploy
+- 9 LinkedIn posts ready to publish
+- Formspree email capture still blocked (Sunny needs account setup)
+
+**SEO impact:** Reddit = highest-ROI outreach channel for developer content. r/webdev 2M members, r/programming 6.8M members. 50+ upvote = 500-2000 referral visits per post.
+
+**Site stats:** ~390 pages / ~452k words / 160 sitemap URLs
+
+**Git commit:** `3f1eb87`
+
+**Next:** Post r/webdev now → engage comments within 2h → post r/programming Thu-Fri morning → post Twitter Thread #30 → execute LinkedIn Post #1 (71% stat)
+
+### Hour 463 — 2026-04-22 10:43 UTC / Wed Apr 22 3:43 AM PDT
+**Built:** Phase 3 Technical SEO — CLS font metric fix
+**Root cause:** Georgia-Fallback declared with `size-adjust: 112.5%` — made Georgia render 12.5% LARGER than Lora. When Lora loaded, text shrank 12.5% cascading through 72 feature cards → CLS=1.003.
+**Fix:** `size-adjust: 95.5%` (Lora cap height is ~104% of Georgia's → Georgia renders 4.5% smaller to match Lora metrics, not larger).
+**Files:** css/style.css + css/style.min.css updated
+**Expected:** CLS 1.003 → <0.1 on index.html + all pages with feature grids
+**Phase:** P3=98 | Next: P1 (content pillar)
+**~0 new words**
+**Commit:** `6aba13b`
+**Next:** Phase 1 content pillar (40% rotation)
+

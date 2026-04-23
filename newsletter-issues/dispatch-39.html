@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=fallback" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=fallback" media="print" onload="this.media='all'" /></noscript>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Dispatch #39 — The AI Spring Audit</title>
+  <meta name="description" content="A practical spring audit for your AI workflow — what's worth keeping, what to cut, and how to rebuild the relationship on your terms." />
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-issues/dispatch-39.html" />
+  <meta property="og:title" content="Dispatch #39: The AI Spring Audit" />
+  <meta property="og:description" content="A practical spring audit for your AI workflow — what's worth keeping, what to cut, and how to rebuild the relationship on your terms." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://clearing-ai.com/newsletter-issues/dispatch-39.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Dispatch #39: The AI Spring Audit" />
+  <meta name="twitter:description" content="A practical spring audit for your AI workflow — what's worth keeping, what to cut, and how to rebuild the relationship on your terms." />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0a0f0a;
+      color: #c8d9c5;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    .email-wrap {
+      max-width: 620px;
+      margin: 0 auto;
+      background: #0d150d;
+      border-left: 1px solid #1a2e1a;
+      border-right: 1px solid #1a2e1a;
+    }
+    .header {
+      background: #0d1a0d;
+      padding: 40px 40px 32px;
+      border-bottom: 1px solid #1a2e1a;
+      text-align: center;
+    }
+    .header-eyebrow {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #4a7a4e;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+    .header-title {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: #a8d5b5;
+      margin-bottom: 8px;
+    }
+    .header-issue {
+      font-size: 13px;
+      color: #4a7a4e;
+      font-weight: 500;
+    }
+    .masthead {
+      padding: 28px 40px;
+      border-bottom: 1px solid #1a2e1a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .masthead-logo { font-size: 15px; color: #4a7a4e; }
+    .masthead-date { font-size: 13px; color: #3a5a3e; }
+    .article { padding: 40px 40px 32px; }
+    .article p { margin-bottom: 24px; color: #b8c9b5; }
+    .article p:last-child { margin-bottom: 0; }
+    .article h2 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: #a8d5b5;
+      margin: 36px 0 20px;
+      line-height: 1.3;
+    }
+    .article h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #8abf8a;
+      margin: 28px 0 14px;
+    }
+    .article blockquote {
+      border-left: 3px solid #2a5a2e;
+      padding: 4px 0 4px 20px;
+      margin: 28px 0;
+      color: #8abf8a;
+      font-family: 'Lora', Georgia, serif;
+      font-style: italic;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+    .article ul, .article ol {
+      margin: 20px 0 24px 22px;
+      color: #b8c9b5;
+    }
+    .article li { margin-bottom: 10px; }
+    .article strong { color: #a8d5b5; font-weight: 600; }
+    .article em { color: #8abf8a; font-style: italic; }
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 32px 0;
+    }
+    .stat-card {
+      background: #111a11;
+      border: 1px solid #1a2e1a;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+    }
+    .stat-number {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 32px;
+      font-weight: 600;
+      color: #a8d5b5;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-desc { font-size: 13px; color: #4a7a4e; line-height: 1.4; }
+    .dispatch-cta {
+      background: #111a11;
+      border: 1px solid #2a5a2e;
+      border-radius: 10px;
+      padding: 28px 32px;
+      text-align: center;
+      margin: 36px 0 0;
+    }
+    .dispatch-cta p { margin-bottom: 16px; color: #b8c9b5; font-size: 15px; }
+    .cta-btn {
+      display: inline-block;
+      background: #2a5a2e;
+      color: #a8d5b5;
+      padding: 12px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .cta-btn:hover { background: #3a7a3e; }
+    .divider {
+      border: none;
+      border-top: 1px solid #1a2e1a;
+      margin: 36px 0;
+    }
+    .footer {
+      padding: 28px 40px;
+      border-top: 1px solid #1a2e1a;
+      text-align: center;
+    }
+    .footer p { font-size: 12px; color: #3a5a3e; margin-bottom: 6px; }
+    .footer a { color: #4a7a4e; text-decoration: none; }
+    .highlight-box {
+      background: #111a11;
+      border: 1px solid #2a5a2e;
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin: 28px 0;
+    }
+    .highlight-box p { margin-bottom: 0; font-size: 15px; }
+    .audit-list {
+      background: #111a11;
+      border: 1px solid #1a2e1a;
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin: 24px 0;
+    }
+    .audit-item {
+      display: flex;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid #1a2e1a;
+    }
+    .audit-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .audit-item:first-child { padding-top: 0; }
+    .audit-num {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #2a5a2e;
+      min-width: 32px;
+    }
+    .audit-content h4 { font-size: 15px; color: #a8d5b5; margin-bottom: 6px; font-weight: 600; }
+    .audit-content p { font-size: 14px; color: #6a8a6e; margin-bottom: 0; }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .col-box {
+      background: #111a11;
+      border: 1px solid #1a2e1a;
+      border-radius: 8px;
+      padding: 20px;
+    }
+    .col-box h4 { font-size: 14px; color: #8abf8a; font-weight: 600; margin-bottom: 8px; }
+    .col-box p { margin-bottom: 0; font-size: 14px; color: #6a8a6e; }
+    .col-box ul { margin: 10px 0 0 16px; }
+    .col-box li { font-size: 13px; color: #6a8a6e; margin-bottom: 6px; }
+    .reset-timeline {
+      background: #111a11;
+      border: 1px solid #1a2e1a;
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin: 28px 0;
+    }
+    .reset-week { margin-bottom: 20px; }
+    .reset-week:last-child { margin-bottom: 0; }
+    .reset-week-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #4a7a4e;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .reset-week p { font-size: 14px; color: #8abf8a; margin-bottom: 0; }
+    @media (max-width: 480px) {
+      .header, .masthead, .article { padding: 28px 24px; }
+      .stat-grid, .two-col { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="email-wrap">
+  <div class="header">
+    <div class="header-eyebrow">The Clearing — Weekly Letter</div>
+    <div class="header-title">The Dispatch</div>
+    <div class="header-issue">Issue #39 · April 23, 2026</div>
+  </div>
+
+  <div class="masthead">
+    <span class="masthead-logo">🌿 The Clearing</span>
+    <span class="masthead-date">April 23, 2026</span>
+  </div>
+
+  <div class="article">
+    <p>There is a tradition in many cultures this time of year: you open the windows, sort through what accumulated over winter, and decide what stays and what goes. Not because the things you kept were wrong. Because what you needed in January may not be what you need in April.</p>
+
+    <p>Your relationship with AI tools deserves the same seasonal audit.</p>
+
+    <p>Not a dramatic rejection. Not a complete reset. Just an honest look at what has become habit, what has become helpful, and what has quietly become something you would choose differently if you were choosing fresh.</p>
+
+    <p>This week, we are giving you the framework to do exactly that.</p>
+
+    <h2>The 5-Question AI Spring Audit</h2>
+
+    <p>Before you change anything, you need to see clearly. These five questions are not judgment calls — they are diagnostic. Answer them honestly, and you will know what needs attention.</p>
+
+    <div class="audit-list">
+      <div class="audit-item">
+        <div class="audit-num">1</div>
+        <div class="audit-content">
+          <h4>What do I reach for AI for that I used to enjoy doing myself?</h4>
+          <p>This is not about whether the AI does it better. It is about whether you notice something missing — the problem-solving satisfaction, the craft feeling, the "I figured this out" moment. If the answer comes fast and the satisfaction is absent, that is worth naming.</p>
+        </div>
+      </div>
+      <div class="audit-item">
+        <div class="audit-num">2</div>
+        <div class="audit-content">
+          <h4>When did I last feel genuinely proud of something I wrote?</h4>
+          <p>Not "proud that it shipped" or "proud that it passed review." Proud in the way that feels like yours. If the answer is more than a few weeks ago, something has shifted in the authorship experience — regardless of output quality.</p>
+        </div>
+      </div>
+      <div class="audit-item">
+        <div class="audit-num">3</div>
+        <div class="audit-content">
+          <h4>What would I do if AI went offline for a week?</h4>
+          <p>Most engineers who ask themselves this question find something uncomfortable: they are not sure. Not because they are incompetent. Because the muscle hasn't been used. The not-knowing is the signal, not the problem.</p>
+        </div>
+      </div>
+      <div class="audit-item">
+        <div class="audit-num">4</div>
+        <div class="audit-content">
+          <h4>How often do I start by prompting instead of thinking?</h4>
+          <p>This is not about speed. It is about where the thinking happens. If prompting has replaced the first 10 minutes of problem-solving — the whiteboard, the debug session, the "let me look at this more carefully" — that matters, even if the output is fine.</p>
+        </div>
+      </div>
+      <div class="audit-item">
+        <div class="audit-num">5</div>
+        <div class="audit-content">
+          <h4>What do I actually understand — not just what I can produce?</h4>
+          <p>You can ship a working system built mostly by AI and not fully understand two layers beneath it. This is not catastrophic. But if you could not explain one level deeper to a junior engineer without hedging, that is worth knowing.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2>What most engineers find</h2>
+
+    <p>We surveyed engineers on the gap between their output and their understanding. The results do not suggest a crisis — they suggest a quiet redistribution that most people have not named yet.</p>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-number">71%</div>
+        <div class="stat-desc">feel like "middlemen" in work they used to feel authorship over</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">44%</div>
+        <div class="stat-desc">have not explicitly chosen AI for most of the tasks where they use it — it became the default</div>
+      </div>
+    </div>
+
+    <p>That second number is the one that tends to land hardest. The default formed without a decision. And defaults, once set, are invisible until you go looking for them.</p>
+
+    <h2>The Spring Cleaning Framework: Keep, Modify, Remove</h2>
+
+    <p>After the audit, most engineers find their situation falls into three categories:</p>
+
+    <div class="two-col">
+      <div class="col-box">
+        <h4>Keep</h4>
+        <p>Tasks where AI genuinely amplifies your output without reducing your understanding. These are your productive AI workflows — protect them.</p>
+        <ul>
+          <li>Repetitive refactors you understand completely</li>
+          <li>Documentation of things you built</li>
+          <li>Explaining code you will maintain yourself</li>
+        </ul>
+      </div>
+      <div class="col-box">
+        <h4>Modify</h4>
+        <p>Tasks where AI helps but at a cost. Add a constraint — you write first, or you explain afterward, or you go without for one full day per week.</p>
+        <ul>
+          <li>Algorithm design (try before prompting)</li>
+          <li>Debugging (20-min solo rule first)</li>
+          <li>Code review of things you wrote without AI</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="two-col" style="margin-top:0">
+      <div class="col-box">
+        <h4>Remove</h4>
+        <p>Tasks where AI replaced something you valued and you did not notice the exchange. Try a week without. See what comes back.</p>
+        <ul>
+          <li>First-draft writing of anything personal</li>
+          <li>Simple bugs in familiar stacks</li>
+          <li>Reading code you should be maintaining</li>
+        </ul>
+      </div>
+      <div class="col-box">
+        <h4>Replace</h4>
+        <p>AI tasks that have become performance rather than work. Audit the habit. If it feels like going through motions, replace the habit entirely with deliberate practice or full delegation.</p>
+        <ul>
+          <li>End-of-day AI summary of your own work</li>
+          <li>Prompting to avoid starting from blank</li>
+          <li>AI review of work that needs fresh eyes, not efficient review</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>The 30-Day Reset</h2>
+
+    <p>A full reset does not require a dramatic lifestyle change. It requires three things: a starting point, a weekly check-in with yourself, and permission to adjust.</p>
+
+    <div class="reset-timeline">
+      <div class="reset-week">
+        <div class="reset-week-label">Week 1 — Audit & Name</div>
+        <p>Answer the five questions above. Name one thing you want to change. No overhaul — just one thing, named clearly.</p>
+      </div>
+      <div class="reset-week">
+        <div class="reset-week-label">Week 2 — Modify One Workflow</div>
+        <p>Take one AI-dependent task and change how you do it. Write first. Struggle longer. Add the 20-minute solo debug rule. Whatever feels like the right friction for you.</p>
+      </div>
+      <div class="reset-week">
+        <div class="reset-week-label">Week 3 — Remove One Default</div>
+        <p>Pick one task where AI became the default and do it without AI. Not to prove a point — to feel what comes back.</p>
+      </div>
+      <div class="reset-week">
+        <div class="reset-week-label">Week 4 — Check In & Calibrate</div>
+        <p>How do you feel? What improved? What was harder than expected? Adjust your AI workflow based on what you learned — not based on ideology.</p>
+      </div>
+    </div>
+
+    <blockquote>The goal is not to use less AI. The goal is to use it deliberately — as a tool you chose, not a current you surrendered to.</blockquote>
+
+    <h2>What we are doing here</h2>
+
+    <p>The Clearing exists for exactly this kind of honest, practical work. We are not anti-AI. We are pro-engineer-capability. We want you to have the full range of your skills available when you need them — and to know, clearly, which parts you are choosing to delegate and which parts you are choosing to keep.</p>
+
+    <p>If this issue resonated, take the <a href="https://clearing-ai.com/quiz.html" style="color:#4a7a4e;text-decoration:underline">AI Fatigue Quiz</a> — it takes 3 minutes and gives you a severity read on where you are. And if you want the full recovery framework, the <a href="https://clearing-ai.com/recovery.html" style="color:#4a7a4e;text-decoration:underline">recovery guide</a> goes deeper.</p>
+
+    <div class="dispatch-cta">
+      <p><strong>Start with the audit.</strong> Five questions. No account needed.</p>
+      <a href="https://clearing-ai.com/quiz.html" class="cta-btn">Take the AI Fatigue Quiz →</a>
+    </div>
+
+  </div>
+
+  <hr class="divider" />
+
+  <div class="footer">
+    <p>The Clearing · clearing-ai.com · For engineers navigating AI fatigue</p>
+    <p>You are receiving this because you subscribed. <a href="*|UNSUB|*">Unsubscribe</a> · <a href="https://clearing-ai.com/newsletter-archive.html">Archive</a></p>
+  </div>
+</div>
+</body>
+</html>

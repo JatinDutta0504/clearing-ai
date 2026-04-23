@@ -1523,5 +1523,21 @@ window.addEventListener("scroll", function() {
   el.style.width = (total > 0 ? (scrolled / total * 100) : 0) + "%";
 });
 </script>
+<script>
+(function(){
+  var form = document.querySelector('.newsletter-form');
+  if(form && form.action && form.action.includes('YOUR_FORM_ID')){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var email = form.querySelector('[name="email"]').value;
+      var subject = encodeURIComponent('Subscribe to The Dispatch');
+      var body = encodeURIComponent('Email: '+email+'\n\nPlease subscribe me to The Dispatch.');
+      window.location.href = 'mailto:hello@clearing-ai.com?subject='+subject+'&body='+body;
+      var btn = form.querySelector('button');
+      if(btn){btn.textContent = 'Check your email'; btn.disabled = true;}
+    });
+  }
+})();
+</script>
 </body>
 </html>

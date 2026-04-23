@@ -203,5 +203,24 @@ function toggleFaq(btn){
   }
 }
 </script>
+
+<script>
+(function(){
+  var form = document.querySelector('.newsletter-form, #newsletterForm, #dispatch-form, [action*="formspree"]');
+  if(form && form.action && form.action.includes('YOUR_FORM_ID')){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var email = form.querySelector('[name="email"]').value;
+      var name = form.querySelector('[name="name"]') ? form.querySelector('[name="name"]').value : '';
+      var subject = encodeURIComponent('Subscribe to The Dispatch');
+      var body = encodeURIComponent('Name: '+(name?name:'') + (name?'\n':'') + 'Email: '+email+'\n\nPlease subscribe me to The Dispatch.');
+      window.location.href = 'mailto:hello@clearing-ai.com?subject='+subject+'&body='+body;
+      var btn = form.querySelector('button,[type="submit"]');
+      if(btn){btn.textContent = '✉ Check your email'; btn.disabled = true;}
+    });
+  }
+})();
+</script>
+
 </body>
 </html>

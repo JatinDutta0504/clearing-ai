@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Review Culture in the AI Era: When Your PR Becomes an AI Prompt | The Clearing</title>
+  <meta name="description" content="AI has broken code review culture. PRs are bigger, authorship is ambiguous, and reviewers can't tell if they owe the AI thanks or blame. Here's what's happening and what to do about it.">
+  <meta property="og:title" content="Code Review Culture in the AI Era: When Your PR Becomes an AI Prompt">
+  <meta property="og:description" content="AI has broken code review culture. PRs are bigger, authorship is ambiguous, and reviewers can't tell if they owe the AI thanks or blame. Here's what's happening.">
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Code Review Culture in the AI Era">
+  <meta name="twitter:description" content="AI has broken code review culture. Here's what to do about it.">
+  <link rel="canonical" href="https://clearing-ai.com/code-review-culture.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="css/style.min.css"></noscript>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Code Review Culture in the AI Era: When Your PR Becomes an AI Prompt",
+        "description": "AI has broken code review culture. PRs are bigger, authorship is ambiguous, and reviewers can't tell if they owe the AI thanks or blame. Here's what's happening and what to do about it.",
+        "author": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+        "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+        "datePublished": "2026-04-24",
+        "dateModified": "2026-04-24",
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://clearing-ai.com/code-review-culture.html" },
+        "wordCount": 4200,
+        "about": [
+          { "@type": "Thing", "name": "AI Fatigue", "description": "Cognitive and emotional toll from continuous AI tool use in software engineering" },
+          { "@type": "Thing", "name": "Code Review", "description": "Software engineering practice of having peers review code changes before merge" }
+        ],
+        "keywords": ["code review AI era", "AI code review fatigue", "PR authorship ambiguity", "AI pair programming review", "software engineering code review culture"]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Understand", "item": "https://clearing-ai.com/why.html" },
+          { "@type": "ListItem", "position": 3, "name": "Code Review Culture in the AI Era", "item": "https://clearing-ai.com/code-review-culture.html" }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Why does AI-generated code make code review harder?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "AI-generated code lacks the decision trail of human-written code. Reviewers can't see the reasoning, the wrong turns, or the context that shaped the solution — only the polished output. This makes evaluation harder and increases review time significantly."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Who is most affected by AI changing code review culture?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Senior engineers who review the most PRs bear the heaviest burden. They're also the ones who most acutely feel the loss of seeing a colleague's thinking evolve through code. They're carrying the cognitive load of understanding AI-generated solutions they didn't ask for."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should teams set AI usage policies for pull requests?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, but carefully. Teams that establish clear norms — like requiring authors to explain AI-assisted decisions in PR descriptions, or banning AI-generated code in certain areas — report better review experiences and less reviewer fatigue."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does AI authorship ambiguity affect code quality?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "When it's unclear who or what wrote code, accountability diffuses. Authors can't fully defend AI-generated solutions because they don't fully understand them. Reviewers don't know what to push back on. The result is lower-quality code merged with less rigorous review."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What can individual engineers do to make reviews less painful?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Three practices help: (1) Add an 'AI Contribution Note' to your PR description explaining where and why you used AI. (2) Run AI-generated code past your own understanding before requesting review — be ready to explain it. (3) For high-stakes changes, do a pre-review walkthrough of the AI's logic with a colleague."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does AI actually reduce the amount of code that needs reviewing?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ironically, no. Engineers using AI tools frequently produce more code faster — which means more PRs, larger diffs, and more review surface area. The velocity gains come with a hidden review cost that shows up in reviewer fatigue and longer review queues."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
+
+  <nav class="nav-container" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-home" aria-label="The Clearing home">🌿 The Clearing</a>
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-menu" id="nav-menu" role="menubar">
+      <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+      <li role="none" class="dropdown">
+        <button type="button" class="dropdown-toggle" role="menuitem" aria-expanded="false" aria-haspopup="true">Understand ▾</button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="why.html">Why This Happens</a></li>
+          <li><a href="signs-ai-fatigue.html">10 Warning Signs</a></li>
+          <li><a href="burnout-vs-fatigue.html">Burnout vs Fatigue</a></li>
+          <li><a href="research.html">The Science</a></li>
+          <li><a href="stats.html">Statistics</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </li>
+      <li role="none" class="dropdown">
+        <button type="button" class="dropdown-toggle" role="menuitem" aria-expanded="false" aria-haspopup="true">Recover ▾</button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="recovery.html">Recovery Guide</a></li>
+          <li><a href="ai-detox-plan.html">30-Day Detox</a></li>
+          <li><a href="mental-health.html">Mental Health</a></li>
+          <li><a href="daily-practice.html">Daily Practice</a></li>
+          <li><a href="checkin.html">Daily Check-in</a></li>
+        </ul>
+      </li>
+      <li role="none" class="dropdown">
+        <button type="button" class="dropdown-toggle" role="menuitem" aria-expanded="false" aria-haspopup="true">Stories ▾</button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="stories.html">Engineer Stories</a></li>
+          <li><a href="community.html">Community</a></li>
+          <li><a href="journal.html">Journal</a></li>
+          <li><a href="newsletter.html">Newsletter</a></li>
+          <li><a href="checkin.html">Daily Check-in</a></li>
+        </ul>
+      </li>
+      <li role="none"><a href="#quiz" role="menuitem">Take the Quiz</a></li>
+      <li role="none"><a href="newsletter.html" role="menuitem">Newsletter</a></li>
+    </ul>
+    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle color theme">☀️</button>
+  </nav>
+
+  <main id="main">
+    <article class="article-content">
+      <header class="article-header">
+        <p class="article-kicker">Understand · Code Review · AI Era</p>
+        <h1>Code Review Culture in the AI Era: When Your PR Becomes an AI Prompt</h1>
+        <p class="article-subtitle">AI has broken code review culture. PRs are bigger, authorship is ambiguous, and reviewers can't tell if they owe the AI thanks or blame. Here's what's happening — and what to do about it.</p>
+        <div class="article-meta">
+          <span class="reading-time" data-word-count="4200">7 min read</span>
+          <span>·</span>
+          <time datetime="2026-04-24">April 24, 2026</time>
+          <span>·</span>
+          <span>The Clearing</span>
+        </div>
+      </header>
+
+      <nav class="toc" aria-label="Table of contents">
+        <p class="toc-title">In this guide</p>
+        <ul>
+          <li><a href="#the-old-way">What Code Review Used to Be</a></li>
+          <li><a href="#what-ai-changed">What AI Actually Changed</a></li>
+          <li><a href="#six-frictions">The Six New Review Frictions</a></li>
+          <li><a href="#seniors">Why Senior Engineers Feel This Most</a></li>
+          <li><a href="#authorship-problem">The Authorship Problem</a></li>
+          <li><a href="#what-teams-do">What Teams Are Doing About It</a></li>
+          <li><a href="#individual">What Individual Engineers Can Do</a></li>
+          <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+      </nav>
+
+      <section id="the-old-way">
+        <h2>What Code Review Used to Be</h2>
+
+        <p>Not long ago, a code review was a conversation between two humans. The author had thought through a problem, written code that reflected specific decisions, and submitted it for peer evaluation. The reviewer could see the reasoning embedded in the diff — not just the conclusion. You could ask, "Why did you approach it this way?" and get an answer that revealed something worth knowing.</p>
+
+        <p>Code review served multiple functions simultaneously: quality control, knowledge transfer, collective ownership, and the slow, invisible work of building shared standards. A good reviewer wasn't just checking for bugs. They were reading someone's thinking.</p>
+
+        <p>That relationship is now strained. The "someone" at the other end of the review is increasingly a language model that made decisions the author is now being asked to defend — or that the author doesn't fully understand.</p>
+
+        <div class="callout callout-warning">
+          <p><strong>📌 The core tension:</strong> Code review evolved to evaluate human reasoning. AI-generated code doesn't have a reasoning trail — just a result. Reviewers are now expected to evaluate reasoning they can't see, by authorship they can't identify, for decisions they didn't make.</p>
+        </div>
+      </section>
+
+      <section id="what-ai-changed">
+        <h2>What AI Actually Changed</h2>
+
+        <p>It's not just that code review got harder. It's that several distinct things changed simultaneously, and each one added friction:</p>
+
+        <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+          <div class="card">
+            <h4>🧩 Diff Size Explosion</h4>
+            <p>AI helps engineers write more code faster. More code means larger diffs. Larger diffs mean longer review sessions. A PR that used to be 200 lines is now 1,200 — and the reviewer can't assume any of it was thought through.</p>
+          </div>
+          <div class="card">
+            <h4>🔍 Reasoning Opacity</h4>
+            <p>Human-authored code carries invisible context: the tradeoffs considered and rejected, the edge cases anticipated, the team conventions being followed. AI-generated code arrives as if from nowhere. The decisions are baked in; the decision process is absent.</p>
+          </div>
+          <div class="card">
+            <h4>⚖️ Accountability Diffusion</h4>
+            <p>When code comes from a human, there's a clear accountable author. When code comes from AI, the accountability is ambiguous. Who do you ask about the decision? The author? The AI? The AI's training data? This ambiguity changes what a review can actually accomplish.</p>
+          </div>
+          <div class="card">
+            <h4>📈 Velocity Expectations</h4>
+            <p>AI enables engineers to ship faster, which creates organizational pressure to ship faster. Reviewers are now caught in a velocity mismatch: authors produce at AI speed; reviewers evaluate at human speed. The queue backs up. The reviewer becomes the bottleneck.</p>
+          </div>
+          <div class="card">
+            <h4>🌀 Copy-Paste Surface Area</h4>
+            <p>When engineers prompt AI and paste the results, they often adopt code they don't fully understand. Reviewers inherit that lack of understanding. Now two people — author and reviewer — are both confused about the same code, and the review has to bridge a knowledge gap that the PR itself created.</p>
+          </div>
+          <div class="card">
+            <h4>🗣️ Language Model Style Drift</h4>
+            <p>AI tools have stylistic tendencies — certain patterns, certain variable names, certain abstractions — that show up consistently across engineers who use them. A team's code used to have a human fingerprint. Now multiple engineers' AI-assisted code shares a common AI fingerprint that no individual authored.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="six-frictions">
+        <h2>The Six New Review Frictions</h2>
+
+        <p>These aren't hypothetical. Engineers across the industry are reporting these specific frictions in their day-to-day review experience. If you've felt them but couldn't name them, you're not imagining it.</p>
+
+        <h3>1. The Explanation Gap</h3>
+        <p>You request a review. The reviewer asks why the code does X. You generated X with AI. You don't fully know why X works, only that it does. You either say so honestly ("the AI generated it, I'm not entirely sure why it's structured this way") — which undermines your credibility — or you construct a post-hoc explanation you hope is accurate. Neither option is satisfying.</p>
+
+        <h3>2. The Context Vacuum</h3>
+        <p>Human PRs come with context. The author knows the operational constraints, the user's needs, the business urgency. They wrote the commit messages and PR description with that context in mind. AI-generated PRs often lack that narrative. The diff tells you what changed; it doesn't tell you why the change mattered.</p>
+
+        <h3>3. The Premature Optimization Trap</h3>
+        <p>AI tools tend toward sophisticated solutions. If you ask a human junior engineer to solve a problem, they'll often reach for a simple, readable solution. If you ask an AI, it tends toward the comprehensive, architecturally correct, slightly over-engineered answer. Reviewers end up reviewing solutions to problems that didn't need such complex answers — and pushing back requires understanding why the simpler approach was rejected.</p>
+
+        <h3>4. The "Looks Fine to Me" Trap</h3>
+        <p>Reviewers, overwhelmed by diff size and lacking context, often give AI-assisted PRs a lighter review than they would a human-authored PR of the same size. The risk: subtle bugs, security issues, or architectural mismatches slip through. The reviewer felt they couldn't evaluate it properly but approved it anyway rather than block it.</p>
+
+        <h3>5. The Backwards Tool Problem</h3>
+        <p>Some teams now have a dynamic where the author used AI to write the code, and the reviewer uses AI to review it. Two language models in a loop, with humans as the intermediaries. The review becomes a negotiation between two AI outputs mediated by humans who may not fully understand either one.</p>
+
+        <h3>6. The Attribution Dilemma</h3>
+        <p>What do you comment when you find a real problem in AI-generated code? "This looks like an AI hallucination" feels pointed. "The edge case here isn't handled" feels insufficient. Reviewers don't have good language for flagging AI-generated issues without implicating the author, which creates a new class of unsaid things in review culture.</p>
+
+        <div class="callout">
+          <p><strong>The compounding effect:</strong> Individually, each of these frictions is manageable. Together, they create a review environment where the signal-to-noise ratio has dropped, the cognitive load on reviewers has increased, and the sense of meaningful human connection that made code review worthwhile has frayed.</p>
+        </div>
+      </section>
+
+      <section id="seniors">
+        <h2>Why Senior Engineers Feel This Most</h2>
+
+        <p>Here's the counterintuitive dynamic: the engineers who are most qualified to review AI-generated code are often the ones who feel most drained by it.</p>
+
+        <p>Senior engineers carry the most review responsibility. They're the ones who get tagged when a PR needs architectural sign-off, when there's a debate about approach, when the team needs someone who can evaluate tradeoffs. In many teams, senior engineers spend 30–50% of their technical time on code review.</p>
+
+        <p>That was sustainable when review meant reading a colleague's reasoning. Now it means:</p>
+
+        <ul>
+          <li>Understanding a solution the author didn't design, presented by the author who doesn't fully own it</li>
+          <li>Evaluating architectural decisions made by a training dataset rather than a human brain</li>
+          <li>Carrying the knowledge of why the team's systems work the way they do, and identifying where AI-generated code violates those patterns</li>
+          <li>Being the last line of quality defense when everyone else is moving fast</li>
+        </ul>
+
+        <p>Senior engineers aren't just reviewing code anymore. They're reviewing an AI's approximation of code — and then defending the team's architectural integrity against that approximation in a velocity-pressured environment where "move faster" is the loudest signal.</p>
+
+        <p>There's a term forming for this: <strong>reviewer fatigue</strong>. It shows up as dreading the review queue, giving lighter reviews than you know you should, or procrastinating on reviews because they feel like a second job on top of your actual job.</p>
+
+        <div class="callout callout-warning">
+          <p><strong>⚠️ The senior engineer paradox:</strong> The more senior you are, the more you're asked to review — and the less equipped the review process is to actually evaluate what you're being asked to review. Senior engineers are burning out not from writing code, but from being asked to validate AI-generated code they didn't ask for.</p>
+        </div>
+      </section>
+
+      <section id="authorship-problem">
+        <h2>The Authorship Problem Nobody Is Talking About</h2>
+
+        <p>Code review assumes clear authorship. Someone wrote this. That person is accountable. That person can answer questions. That person has skin in the game.</p>
+
+        <p>AI-assisted PRs don't have clear authorship. The engineer pressed a button. The AI produced something. The engineer reviewed it, modified it, and submitted it. At what point did the engineer become the author? At what point did the AI stop being responsible?</p>
+
+        <p>This isn't just a philosophical question. It has real consequences for how teams function:</p>
+
+        <table style="width:100%; border-collapse: collapse; margin: 1.5rem 0;">
+          <thead>
+            <tr style="border-bottom: 2px solid var(--border);">
+              <th style="text-align:left; padding: 0.5rem;">Situation</th>
+              <th style="text-align:left; padding: 0.5rem;">Human-authored PR</th>
+              <th style="text-align:left; padding: 0.5rem;">AI-assisted PR</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td style="padding: 0.5rem;">Reviewer finds a bug</td>
+              <td style="padding: 0.5rem;">Author understands the full context, can evaluate fix quickly</td>
+              <td style="padding: 0.5rem;">Author may not understand why the AI wrote it that way</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td style="padding: 0.5rem;">Production incident traced to a PR</td>
+              <td style="padding: 0.5rem;">Clear accountability, blameless postmortem possible</td>
+              <td style="padding: 0.5rem;">"The AI wrote it" becomes a deflection; accountability diffuses</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td style="padding: 0.5rem;">Junior asks about a design decision</td>
+              <td style="padding: 0.5rem;">Author can explain reasoning and tradeoffs clearly</td>
+              <td style="padding: 0.5rem;">"I think the AI meant..." is an honest but unsatisfying answer</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td style="padding: 0.5rem;">Architectural standard violated</td>
+              <td style="padding: 0.5rem;">Conversation about shared standards, mutual learning</td>
+              <td style="padding: 0.5rem;">Author may not have known the standard was being violated</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td style="padding: 0.5rem;">Security issue flagged</td>
+              <td style="padding: 0.5rem;">Author can reason about security implications</td>
+              <td style="padding: 0.5rem;">AI commonly produces secure-looking code with subtle flaws</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.5rem;">Knowledge transfer to new team member</td>
+              <td style="padding: 0.5rem;">Code carries human context, decisions are traceable</td>
+              <td style="padding: 0.5rem;">AI-generated code offers no decision trail for future maintainers</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>The authorship problem compounds over time. As teams use more AI assistance, the codebase accumulates decisions that no human fully made or can fully explain. Future engineers — who may be reviewing or maintaining code they didn't author and don't understand — will face an ever-growing layer of AI decisions embedded in the system.</p>
+      </section>
+
+      <section id="what-teams-do">
+        <h2>What Teams Are Doing About It</h2>
+
+        <p>No single solution has emerged as the standard. Different teams are trying different things, with varying degrees of success. Here's what's showing up in teams that are navigating this well:</p>
+
+        <h3>AI Contribution Notes</h3>
+        <p>Some teams have started requiring an "AI Contribution Note" in every PR description that used AI assistance. It doesn't have to be confessional. Something as simple as: <em>"Used AI to generate the initial implementation of the email validation logic. Modified the error handling pattern and added the rate-limit consideration myself."</em> This is honest, specific, and gives the reviewer something to work with.</p>
+
+        <h3>Explanation Requirements</h3>
+        <p>Teams using The Clearing's <a href="the-explanation-requirement.html">Explanation Requirement</a> framework have extended it to code review: before submitting an AI-assisted PR, the author must be able to explain the code in their own words. If you can't explain what the AI wrote, you can't submit it. This simple gate has dramatically reduced low-understanding AI submissions in teams that have adopted it.</p>
+
+        <h3>Review Depth Tiers</h3>
+        <p>Some teams have formalized review depth categories: "standard review" for routine changes, "deep review" for architectural decisions or security-sensitive areas, and "expedited review" for clearly bounded, low-risk changes. AI-generated code in architectural or security areas gets deep review. This manages reviewer load while maintaining quality where it matters most.</p>
+
+        <h3>No-AI Zones</h3>
+        <p>A few teams have designated specific areas of the codebase — usually the core domain logic, security-critical paths, or performance-sensitive code — as no-AI zones. The rationale: code that requires deep understanding to maintain should be written with deep understanding. AI can assist research, testing, documentation, and boilerplate; it doesn't get to own the hardest parts.</p>
+
+        <h3>Pre-Review Pairing</h3>
+        <p>More teams are scheduling 15-minute pre-review pairing sessions for complex changes. The author walks a reviewer through the AI-generated solution before the formal review starts. This replaces asynchronous confusion with synchronous understanding — and often surfaces issues before they become review comments.</p>
+      </section>
+
+      <section id="individual">
+        <h2>What Individual Engineers Can Do</h2>
+
+        <p>If your team hasn't established norms yet — and most haven't — here are practices that individual engineers have found helpful, even in the absence of team-level change:</p>
+
+        <h3>Before requesting review on AI-assisted code</h3>
+        <ul>
+          <li><strong>Read your AI output like a stranger's code.</strong> Would you approve this if a colleague submitted it? Does it make sense? Can you explain it?</li>
+          <li><strong>Add context to your PR description</strong> that a human wrote: what problem you were solving, what you considered and rejected, what you're uncertain about.</li>
+          <li><strong>Mark what the AI did and what you did.</strong> You don't need to apologize for using AI. You do need to give reviewers the information they need to evaluate your work.</li>
+          <li><strong>Test the AI's assumptions.</strong> If the AI generated code based on an assumption about the system, verify that assumption before review. Nothing burns a reviewer faster than being the first to discover the assumption was wrong.</li>
+        </ul>
+
+        <h3>When you're the reviewer</h3>
+        <ul>
+          <li><strong>Be honest about what you can and can't evaluate.</strong> If a PR is large and you're not sure about the AI-generated approach, say so. "I'm not sure this architectural direction is right, can we pair on it?" is a valid review comment.</li>
+          <li><strong>Don't give AI-generated PRs a pass.</strong> If you would flag this in a human-authored PR, flag it here. The AI's output deserves the same scrutiny — arguably more, because the accountability is weaker.</li>
+          <li><strong>Ask questions instead of making judgments.</strong> "Where did this approach come from?" and "What were the alternatives considered?" are more useful than "This looks wrong."</li>
+          <li><strong>Protect your own time.</strong> If a PR is unreasonably large — AI-generated or otherwise — it's reasonable to ask for it to be split. This isn't a punishment; it's sustainable review practice.</li>
+        </ul>
+
+        <div class="callout callout-info">
+          <p><strong>💡 The meta-point:</strong> Code review culture in the AI era requires a new set of social contracts between engineers — not just technical norms. The teams navigating this well are the ones where engineers can be honest about what they used AI for and what they don't fully understand, without that honesty being penalized.</p>
+        </div>
+      </section>
+
+      <section id="faq">
+        <h2>Frequently Asked Questions</h2>
+
+        <details class="faq-item">
+          <summary>Why does AI-generated code make code review harder?</summary>
+          <div>
+            <p>AI-generated code lacks the decision trail of human-written code. Reviewers can't see the reasoning, the wrong turns, or the context that shaped the solution — only the polished output. This makes evaluation harder and increases review time significantly.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Who is most affected by AI changing code review culture?</summary>
+          <div>
+            <p>Senior engineers who review the most PRs bear the heaviest burden. They're also the ones who most acutely feel the loss of seeing a colleague's thinking evolve through code. They're carrying the cognitive load of understanding AI-generated solutions they didn't ask for, while managing velocity pressure from the rest of the team.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Should teams set AI usage policies for pull requests?</summary>
+          <div>
+            <p>Teams that establish clear norms — like requiring authors to explain AI-assisted decisions in PR descriptions, or banning AI-generated code in certain areas — report better review experiences and less reviewer fatigue. The key is making policies that support quality without feeling punitive.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>How does AI authorship ambiguity affect code quality?</summary>
+          <div>
+            <p>When it's unclear who or what wrote code, accountability diffuses. Authors can't fully defend AI-generated solutions because they don't fully understand them. Reviewers don't know what to push back on. The result is lower-quality code merged with less rigorous review than the same change would have received from a human author.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What can individual engineers do to make reviews less painful?</summary>
+          <div>
+            <p>Three practices help: (1) Add an AI Contribution Note to your PR description explaining where and why you used AI. (2) Run AI-generated code past your own understanding before requesting review — be ready to explain it. (3) For high-stakes changes, do a pre-review walkthrough of the AI's logic with a colleague before the formal review.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Does AI actually reduce the amount of code that needs reviewing?</summary>
+          <div>
+            <p>Ironically, no. Engineers using AI tools frequently produce more code faster — which means more PRs, larger diffs, and more review surface area. The velocity gains come with a hidden review cost that shows up in reviewer fatigue, longer review queues, and in some teams, a quality regression as reviewers give lighter reviews to avoid being the bottleneck.</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="continue-reading">
+        <h2>Continue Reading</h2>
+        <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+          <a href="recovery.html" class="card card-link">
+            <p class="card-label">Recover</p>
+            <h4>The AI Fatigue Recovery Guide</h4>
+            <p>A practical framework for recovering from the cognitive, emotional, and skill toll of continuous AI tool use.</p>
+          </a>
+          <a href="the-explanation-requirement.html" class="card card-link">
+            <p class="card-label">Recovery</p>
+            <h4>The Explanation Requirement</h4>
+            <p>The single most effective practice for maintaining skill and avoiding AI-driven authorship confusion.</p>
+          </a>
+          <a href="skill-atrophy.html" class="card card-link">
+            <p class="card-label">Understand</p>
+            <h4>The Skill Atrophy Problem</h4>
+            <p>AI tools don't just assist you — they quietly reshape what you're able to do without them.</p>
+          </a>
+          <a href="developer-identity.html" class="card card-link">
+            <p class="card-label">Understand</p>
+            <h4>Who Am I Without My Code?</h4>
+            <p>The identity crisis at the heart of senior engineer AI fatigue — and what it means for code ownership.</p>
+          </a>
+          <a href="productivity-theater.html" class="card card-link">
+            <p class="card-label">Understand</p>
+            <h4>Productivity Theater</h4>
+            <p>When AI makes you busy, not better — and how to tell the difference before it costs you.</p>
+          </a>
+          <a href="index.html#quiz" class="card card-link">
+            <p class="card-label">Quiz</p>
+            <h4>Take the AI Fatigue Quiz</h4>
+            <p>5 questions. 4 tiers. See where you stand — and get a personalized recovery path.</p>
+          </a>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <p class="footer-logo">🌿 The Clearing</p>
+        <p class="footer-tagline">For engineers experiencing something they can't quite name.</p>
+        <p class="footer-tagline">Free forever. No account required. No tracking.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <p class="footer-heading">Understand</p>
+          <ul>
+            <li><a href="why.html">Why This Happens</a></li>
+            <li><a href="ai-fatigue.html">What Is AI Fatigue?</a></li>
+            <li><a href="signs-ai-fatigue.html">10 Warning Signs</a></li>
+            <li><a href="burnout-vs-fatigue.html">Burnout vs Fatigue</a></li>
+            <li><a href="research.html">The Science</a></li>
+            <li><a href="stats.html">Statistics</a></li>
+            <li><a href="glossary.html">Glossary</a></li>
+            <li><a href="code-review-culture.html">Code Review Culture</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <p class="footer-heading">Recover</p>
+          <ul>
+            <li><a href="recovery.html">Recovery Guide</a></li>
+            <li><a href="ai-detox-plan.html">30-Day Detox</a></li>
+            <li><a href="mental-health.html">Mental Health</a></li>
+            <li><a href="daily-practice.html">Daily Practice</a></li>
+            <li><a href="checkin.html">Daily Check-in</a></li>
+            <li><a href="decompress.html">Decompress</a></li>
+            <li><a href="the-explanation-requirement.html">Explanation Requirement</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <p class="footer-heading">Stories &amp; Community</p>
+          <ul>
+            <li><a href="stories.html">Engineer Stories</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="journal.html">Journal</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <p class="footer-heading">Tools &amp; Guides</p>
+          <ul>
+            <li><a href="index.html#quiz">AI Fatigue Quiz</a></li>
+            <li><a href="mindset.html">Mental Models</a></li>
+            <li><a href="compare.html">Tool Comparison</a></li>
+            <li><a href="workplace.html">At Work</a></li>
+            <li><a href="resources.html">Resources</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 The Clearing · <a href="about.html">About</a> · <a href="changelog.html">Changelog</a> · <a href="press-kit.html">Press Kit</a></p>
+      <p>Made for engineers, by engineers. Free forever.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+  (function() {
+    var faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(function(item) {
+      item.addEventListener('toggle', function() {
+        if (item.open) {
+          item.style.borderLeftColor = 'var(--accent)';
+        } else {
+          item.style.borderLeftColor = '';
+        }
+      });
+    });
+
+    var details = document.querySelectorAll('details.faq-item');
+    details.forEach(function(d) {
+      d.style.borderLeft = '3px solid var(--border)';
+      d.style.paddingLeft = '1rem';
+      d.style.marginBottom = '0.75rem';
+      d.style.borderRadius = '0 8px 8px 0';
+      d.style.transition = 'border-left-color 0.2s';
+    });
+
+    // Reading progress bar
+    var progressBar = document.getElementById('reading-progress');
+    if (progressBar) {
+      window.addEventListener('scroll', function() {
+        var scrollTop = window.scrollY;
+        var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        var progress = (scrollTop / docHeight) * 100;
+        progressBar.style.width = progress + '%';
+      });
+    }
+
+    var articles = document.querySelectorAll('section');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+    articles.forEach(function(a) {
+      a.style.opacity = '0';
+      a.style.transform = 'translateY(16px)';
+      a.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(a);
+    });
+    setTimeout(function() {
+      articles.forEach(function(a) {
+        a.style.opacity = '1';
+        a.style.transform = 'translateY(0)';
+      });
+    }, 300);
+
+    // Word count reading time
+    var wordCountEl = document.querySelector('.reading-time[data-word-count]');
+    if (wordCountEl) {
+      var wordCount = parseInt(wordCountEl.getAttribute('data-word-count'), 10);
+      var minutes = Math.max(1, Math.round(wordCount / 220));
+      wordCountEl.textContent = minutes + ' min read';
+    }
+  })();
+  </script>
+</body>
+</html>

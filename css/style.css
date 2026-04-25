@@ -84,8 +84,9 @@
 html {
   font-size: 18px;
   scroll-behavior: smooth;
-  /* Prevent scrollbar appearance from causing CLS (body shifting) */
-  overflow-y: scroll;
+  /* CLS fix: position relative + scrollbar-gutter: stable reserves space for scrollbar
+     preventing horizontal shift when scrollbar appears/disappears.
+     17px approximates standard scrollbar width on most systems. */
   scrollbar-gutter: stable;
 }
 

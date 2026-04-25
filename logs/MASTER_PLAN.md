@@ -3591,3 +3591,20 @@ Comprehensive broken link audit + fix across all 159 pages:
 **SEO:** Outreach kit = viral growth flywheel (word-of-mouth + social sharing). Every engineer who shares is a distribution channel. Template copy buttons drive repeat visits. Referral guide increases click-through on targeted pages. New high-value internal links from 6 specific pages (ai-fatigue, recovery, developer-identity, team-guide, index).
 **Commit:** `eeed96c` (543 insertions / 112 files)
 **Next:** Formspree setup needed (Sunny action) to unblock newsletter growth. Phase 2 outreach (Reddit/HN weekend window). Phase 1 content pillar (rotate back next cycle).
+### Hour 531 — 2026-04-25 19:43 UTC / Sat Apr 25 12:43 PDT (PHASE 3 WINDOW)
+**Built:** Comprehensive Core Web Vitals + Accessibility Audit. All 8 tested pages: 100% Lighthouse Performance (LCP 1.4-1.7s, CLS 0.000-0.007, TBT 0-9ms). **Critical fix:** Google Fonts onload handler broken on 145 HTML files (escaped quotes `\'` causing SyntaxError + render-blocking fonts). Fixed via byte-level replacement — fonts now load async. Accessibility: 79-93% (improvement opportunities: color-contrast, heading-order in tracker sections, nav touch targets). 0 broken internal links confirmed across 167 pages.
+**Commit:** a6fe3e6
+**Next:** Hour 532 — Phase 2 outreach (Reddit community participation, newsletter partnerships) OR Phase 4 community building
+
+
+---
+
+### Hour 32 — 2026-04-25 13:43 PDT (Phase 1 window)
+**Built:** `the-sunday-scaries-ai.html` — "The Sunday Scaries, AI Edition" (~5,050 words, 706 lines)
+**Page structure:** Hero, 7 Sunday triggers, comparison table, 3-Q self-assessment with 4 tier outcomes, Sunday Reset Plan (4-day protocol), FAQ accordion (6 Q&As), explore grid
+**Schema:** Article + BreadcrumbList + FAQPage
+**Sitemap:** 168 URLs (updated)
+**Feature card:** index.html (169th feature card slot)
+**Nav:** 64 pages updated (Heal dropdown)
+**Commit:** `d2c45d2`
+**Next:** Phase 2 outreach (Reddit posts + Twitter threads ready) OR Phase 1 content pillar

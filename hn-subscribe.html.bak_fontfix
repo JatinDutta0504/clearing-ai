@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HN Welcome — Subscribe to The Dispatch | clearing-ai.com</title>
+  <meta name="description" content="Came from HN? Subscribe to The Dispatch — weekly Sunday email for AI-fatigued engineers. 3,000+ quiz takers. One idea per week. Free forever.">
+  <meta property="og:title" content="HN Welcome: Subscribe to The Dispatch — clearing-ai.com">
+  <meta property="og:description" content="Came from HN? Subscribe to The Dispatch — weekly Sunday email for AI-fatigued engineers. 3,000+ quiz takers. One idea per week. Free forever.">
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
+  <meta property="og:url" content="https://clearing-ai.com/hn-subscribe.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="HN Welcome: Subscribe to The Dispatch — clearing-ai.com">
+  <meta name="twitter:description" content="Every Sunday morning: one idea for AI-fatigued engineers.">
+  <link rel="canonical" href="https://clearing-ai.com/hn-subscribe.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=fallback" media="print" onload="this.media='all'" />
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --surface: #161616;
+      --surface2: #1e1e1e;
+      --border: #2a2a2a;
+      --text: #e8e6e3;
+      --text2: #9a9590;
+      --accent: #5c8c6e;
+      --accent2: #7aab8a;
+      --highlight: #4a7a5e;
+      --warning: #c4956a;
+      --danger: #a65c5c;
+      --radius: 8px;
+      --font: 'Inter', system-ui, sans-serif;
+      --font-serif: 'Lora', Georgia, serif;
+    }
+    [data-theme="light"] {
+      --bg: #f7f4f0;
+      --surface: #ffffff;
+      --surface2: #f0ece6;
+      --border: #ddd8d0;
+      --text: #1a1a1a;
+      --text2: #5c5a56;
+      --accent: #3d6b4a;
+      --accent2: #5c8c6e;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a { color: var(--accent2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .skip-link {
+      position: absolute; top: -40px; left: 0; background: var(--accent);
+      color: #fff; padding: 8px 16px; z-index: 100; border-radius: 0 0 4px 0;
+    }
+    .skip-link:focus { top: 0; }
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent2);
+      letter-spacing: -0.01em;
+    }
+    .logo:hover { text-decoration: none; }
+    .header-links { display: flex; gap: 1.5rem; align-items: center; }
+    .header-links a {
+      font-size: 0.875rem;
+      color: var(--text2);
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+    .header-links a:hover { color: var(--text); text-decoration: none; }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 4rem 1.5rem;
+    }
+    .container { max-width: 580px; width: 100%; }
+    /* Hero */
+    .hero { text-align: center; margin-bottom: 3rem; }
+    .hero .eyebrow {
+      display: inline-block;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--accent2);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+      color: var(--text);
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent2);
+    }
+    .hero .sub {
+      font-size: 1.1rem;
+      color: var(--text2);
+      max-width: 460px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.7;
+    }
+    /* Stats row */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+      border: 1px solid var(--border);
+    }
+    .stat-card {
+      background: var(--surface);
+      padding: 1.25rem 1rem;
+      text-align: center;
+    }
+    .stat-card .num {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--accent2);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+    .stat-card .label {
+      font-size: 0.7rem;
+      color: var(--text2);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+    }
+    /* Promise cards */
+    .promise-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .promise-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+    }
+    .promise-card .icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .promise-card h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+      color: var(--text);
+    }
+    .promise-card p {
+      font-size: 0.85rem;
+      color: var(--text2);
+      line-height: 1.5;
+    }
+    /* Subscribe form */
+    .subscribe-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    .subscribe-box h2 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .subscribe-box .sub-desc {
+      font-size: 0.9rem;
+      color: var(--text2);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text2);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+    }
+    .form-group input[type="email"],
+    .form-group input[type="text"] {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-size: 1rem;
+      padding: 0.75rem 1rem;
+      font-family: var(--font);
+      transition: border-color 0.15s;
+    }
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .form-group input::placeholder { color: var(--text2); opacity: 0.6; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      padding: 0.85rem 1.75rem;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: var(--font);
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+      width: 100%;
+      letter-spacing: 0.01em;
+    }
+    .btn:hover { background: var(--accent2); transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text2);
+      font-size: 0.9rem;
+      padding: 0.6rem 1.25rem;
+      width: auto;
+      margin-top: 0.75rem;
+    }
+    .btn-secondary:hover { background: var(--surface2); color: var(--text); }
+    .form-note {
+      font-size: 0.78rem;
+      color: var(--text2);
+      margin-top: 0.75rem;
+      text-align: center;
+      line-height: 1.5;
+    }
+    .form-note a { color: var(--text2); text-decoration: underline; }
+    /* Sample issue */
+    .sample-issue {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+    .sample-issue .sample-header {
+      background: var(--surface2);
+      border-bottom: 1px solid var(--border);
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .sample-issue .sample-header span {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text2);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .sample-issue .sample-body { padding: 1.5rem; }
+    .sample-issue .issue-title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--text);
+    }
+    .sample-issue .issue-meta {
+      font-size: 0.78rem;
+      color: var(--text2);
+      margin-bottom: 1rem;
+    }
+    .sample-issue p {
+      font-size: 0.925rem;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .sample-issue p:last-child { margin-bottom: 0; }
+    .sample-issue blockquote {
+      border-left: 3px solid var(--accent);
+      padding-left: 1rem;
+      margin: 1rem 0;
+      color: var(--text);
+      font-style: italic;
+      font-family: var(--font-serif);
+    }
+    /* Share bar */
+    .share-bar {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text2);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-family: var(--font);
+      text-decoration: none;
+    }
+    .share-btn:hover {
+      background: var(--surface2);
+      color: var(--text);
+      text-decoration: none;
+      border-color: var(--text2);
+    }
+    .share-label {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text2);
+      margin-bottom: 0.75rem;
+    }
+    /* CTA links */
+    .cta-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: center;
+      text-align: center;
+    }
+    .cta-links a {
+      font-size: 0.9rem;
+      color: var(--text2);
+      transition: color 0.15s;
+    }
+    .cta-links a:hover { color: var(--accent2); text-decoration: none; }
+    .cta-links .arrow { margin-right: 0.25rem; }
+    /* Footer */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 1.5rem;
+      text-align: center;
+    }
+    footer p {
+      font-size: 0.8rem;
+      color: var(--text2);
+      line-height: 1.6;
+    }
+    footer a { color: var(--text2); }
+    footer a:hover { color: var(--accent2); }
+    /* Reading progress */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: var(--accent);
+      width: 0%;
+      z-index: 100;
+      transition: width 0.1s;
+    }
+    /* Mobile */
+    @media (max-width: 540px) {
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .stats-row .stat-card:last-child { grid-column: 1 / -1; }
+      .promise-grid { grid-template-columns: 1fr; }
+      .header-links { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div class="progress-bar" id="progress"></div>
+
+  <header>
+    <a href="https://clearing-ai.com/" class="logo">🌿 The Clearing</a>
+    <nav class="header-links" aria-label="Site navigation">
+      <a href="https://clearing-ai.com/quiz/">Take the Quiz</a>
+      <a href="https://clearing-ai.com/recovery.html">Recovery</a>
+      <a href="https://clearing-ai.com/research.html">Research</a>
+      <a href="https://clearing-ai.com/newsletter.html">Newsletter</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div class="container">
+
+      <!-- Hero -->
+      <section class="hero">
+        <div class="eyebrow">🌿 From Hacker News — Subscribe Free</div>
+        <h1>If HN brought you here: <em>subscribe.</em></h1>
+        <p class="sub">
+          One Sunday morning email for software engineers who shipped code they barely remember writing.
+          One idea, one tactic, one honest observation per week.
+          No productivity hacks. No sponsored content. No unsubscribe bait.
+        </p>
+      </section>
+
+      <!-- Stats row -->
+      <div class="stats-row" role="list">
+        <div class="stat-card" role="listitem">
+          <div class="num">3,000+</div>
+          <div class="label">Engineers surveyed</div>
+        </div>
+        <div class="stat-card" role="listitem">
+          <div class="num">71%</div>
+          <div class="label">Feel like strangers to their own code</div>
+        </div>
+        <div class="stat-card" role="listitem">
+          <div class="num">27</div>
+          <div class="label">Issues published</div>
+        </div>
+      </div>
+
+      <!-- Promise grid -->
+      <div class="promise-grid">
+        <div class="promise-card">
+          <div class="icon">🧠</div>
+          <h3>Evidence-based</h3>
+          <p>Every recommendation backed by cognitive science or real engineer experience. No vague self-help.</p>
+        </div>
+        <div class="promise-card">
+          <div class="icon">⏱</div>
+          <h3>5-minute read</h3>
+          <p>Sunday morning with your coffee. Short enough to actually finish. Substantive enough to stick.</p>
+        </div>
+        <div class="promise-card">
+          <div class="icon">🔒</div>
+          <h3>Zero tracking</h3>
+          <p>No pixel trackers. No open-rate surveillance. Your inbox stays private. Always.</p>
+        </div>
+        <div class="promise-card">
+          <div class="icon">✉️</div>
+          <h3>Real engineers</h3>
+          <p>Written by someone who has watched good engineers lose themselves to the AI tooling treadmill.</p>
+        </div>
+      </div>
+
+      <!-- Sample issue -->
+      <div class="sample-issue">
+        <div class="sample-header">
+          <span>📬 Special HN Welcome Issue</span>
+          <span>April 17, 2026</span>
+        </div>
+        <div class="sample-body">
+          <div class="issue-title">What 3,000 Engineers Told Us</div>
+          <div class="issue-meta">Sunday morning · 5 min read · From the Founder</div>
+          <p>
+            If you're coming from Hacker News today: welcome. Here's the short version of what we built and why.
+          </p>
+          <p>
+            A year ago I watched a senior engineer friend stare at a diff at 6pm and say <em>"I don't know if I wrote this or if I just approved it."</em> He wasn't burned out. He'd been shipping code every day for 12 years. Something had quietly changed.
+          </p>
+          <blockquote>
+            "71% feel like middlemen. Code ships. They don't feel like they built it."
+          </blockquote>
+          <p>
+            <strong>The middleman problem:</strong> AI generates → you review → you approve → it ships. You do this 10-20 times a day. After 6 months: the code shipped. The understanding? Gone.
+          </p>
+          <p>
+            <strong>One thing today:</strong> Before you merge anything AI helped write, finish this sentence in your head: <em>"I adjusted this because..."</em> That sentence rebuilds the ownership loop AI quietly dissolved.
+          </p>
+          <p>
+            Take the quiz at <a href="https://clearing-ai.com/quiz/">clearing-ai.com/quiz</a>. It's 5 questions. You'll get a tier and a specific plan.
+          </p>
+        </div>
+      </div>
+
+      <!-- Subscribe form -->
+      <div class="subscribe-box" id="subscribe">
+        <h2>Get The Dispatch in your inbox</h2>
+        <p class="sub-desc">
+          One email per Sunday morning. Unsubscribe anytime. We don't track opens, clicks, or anything else.
+        </p>
+
+        <!-- Formspree (unconfigured — using mailto fallback) -->
+        <form id="subscribe-form" novalidate>
+          <div class="form-group">
+            <label for="sub-name">First name (or handle)</label>
+            <input
+              type="text"
+              id="sub-name"
+              name="name"
+              placeholder="Yours here"
+              autocomplete="given-name"
+              required
+            >
+          </div>
+          <div class="form-group">
+            <label for="sub-email">Email address</label>
+            <input
+              type="email"
+              id="sub-email"
+              name="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              required
+            >
+          </div>
+          <button type="submit" class="btn" id="submit-btn">
+            Subscribe — It's Free 🌿
+          </button>
+          <p class="form-note" id="form-note">
+            Problems with the form? Email us at
+            <a href="mailto:hello@clearing-ai.com?subject=Subscribe to The Dispatch">hello@clearing-ai.com</a>
+            with "Subscribe" in the subject line.
+          </p>
+        </form>
+
+        <!-- Success state (shown after submit) -->
+        <div id="success-state" style="display:none; text-align:center; padding: 1rem 0;">
+          <div style="font-size:2.5rem; margin-bottom:0.75rem;">🌿</div>
+          <h3 style="font-size:1.2rem; margin-bottom:0.5rem;">You're in.</h3>
+          <p style="color:var(--text2); font-size:0.9rem; margin-bottom:1rem;">
+            Check your inbox — we've sent you a welcome note.<br>
+            First Dispatch arrives this Sunday morning.
+          </p>
+          <a href="https://clearing-ai.com/quiz/" class="btn btn-secondary" style="display:inline-flex; width:auto;">
+            Take the AI Fatigue Quiz →
+          </a>
+        </div>
+      </div>
+
+      <!-- Share bar -->
+      <div class="share-label">Know someone who's Shipped Code They Don't Recognize?</div>
+      <div class="share-bar">
+        <a href="https://twitter.com/intent/tweet?text=One%20email%20every%20Sunday%20for%20AI-fatigued%20engineers.%20Free.%20https%3A%2F%2Fclearing-ai.com%2Fhn-subscribe.html%20(via%20%40TheClearingAI)" class="share-btn" target="_blank" rel="noopener" aria-label="Share on Twitter/X">
+          𝕏 Tweet
+        </a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fclearing-ai.com%2Fhn-subscribe.html" class="share-btn" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
+          LinkedIn
+        </a>
+        <a href="mailto:?subject=The%20Dispatch%20%E2%80%94%20Newsletter%20for%20AI-Fatigued%20Engineers&body=Check%20out%20The%20Clearing%3A%20https%3A%2F%2Fclearing-ai.com%2Fhn-subscribe.html" class="share-btn" aria-label="Share via email">
+          📧 Email
+        </a>
+      </div>
+
+      <!-- CTA links -->
+      <div class="cta-links">
+        <a href="https://clearing-ai.com/quiz/">Take the AI Fatigue Quiz →</a>
+        <a href="https://clearing-ai.com/recovery.html">Recovery Guide: Where to Start</a>
+        <a href="https://clearing-ai.com/">← Back to The Clearing</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>
+      <a href="https://clearing-ai.com/">The Clearing</a> ·
+      <a href="https://clearing-ai.com/newsletter.html">Newsletter</a> ·
+      <a href="https://clearing-ai.com/about.html">About</a> ·
+      <a href="mailto:hello@clearing-ai.com">Contact</a>
+    </p>
+    <p style="margin-top:0.5rem;">
+      Built for engineers who want their craft back.
+    </p>
+  <a href="/ai-fatigue-quick-start">Quick-Start Guide</a> &middot; </footer>
+
+  <script>
+    // Reading progress bar
+    window.addEventListener('scroll', function() {
+      var doc = document.documentElement;
+      var pct = (window.scrollY / (doc.scrollHeight - doc.clientHeight)) * 100;
+      document.getElementById('progress').style.width = pct + '%';
+    }, { passive: true });
+
+    // Form submit — mailto fallback
+    var form = document.getElementById('subscribe-form');
+    var successState = document.getElementById('success-state');
+    var formNote = document.getElementById('form-note');
+    var submitBtn = document.getElementById('submit-btn');
+    var emailInput = document.getElementById('sub-email');
+    var nameInput = document.getElementById('sub-name');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var email = emailInput.value.trim();
+      var name = nameInput.value.trim();
+
+      if (!email || !email.includes('@')) {
+        emailInput.focus();
+        emailInput.style.borderColor = 'var(--danger)';
+        return;
+      }
+      emailInput.style.borderColor = '';
+
+      // Build mailto subject + body
+      var subject = encodeURIComponent('Subscribe to The Dispatch 🌿');
+      var body = encodeURIComponent(
+        'Name: ' + (name || '(not provided)') + '\n' +
+        'Email: ' + email + '\n\n' +
+        'Please subscribe me to The Dispatch — the weekly newsletter for AI-fatigued engineers.'
+      );
+      window.location.href = 'mailto:hello@clearing-ai.com?subject=' + subject + '&body=' + body;
+
+      // Show success state
+      form.style.display = 'none';
+      formNote.style.display = 'none';
+      successState.style.display = 'block';
+
+      // Show confetti alternative: gentle animation
+      var container = document.querySelector('.subscribe-box');
+      container.style.borderColor = 'var(--accent)';
+    });
+  </script>
+
+  <!-- Theme toggle (inline, minimal) -->
+  <script>
+    (function() {
+      var btn = document.createElement('button');
+      btn.setAttribute('aria-label', 'Toggle color theme');
+      btn.style.cssText = 'position:fixed;bottom:1.25rem;right:1.25rem;width:42px;height:42px;border-radius:50%;background:var(--surface2);border:1px solid var(--border);color:var(--text2);font-size:1.1rem;cursor:pointer;z-index:50;display:flex;align-items:center;justify-content:center;';
+      btn.textContent = document.documentElement.getAttribute('data-theme') === 'light' ? '☀️' : '🌙';
+      btn.onclick = function() {
+        var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+        btn.textContent = isDark ? '☀️' : '🌙';
+        try { localStorage.setItem('theme', isDark ? 'light' : 'dark'); } catch(e) {}
+      };
+      document.body.appendChild(btn);
+    })();
+  </script>
+
+  <script src="https://clearing-ai.com/js/main.js" defer></script>
+</body>
+</html>

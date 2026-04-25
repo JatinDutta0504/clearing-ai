@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Fatigue in Engineers: 3,000+ Told Us Why It Happens…</title>
+
+  <!-- woff2 font preloads for LCP optimization -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+       href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2">
+
+  <meta name="description" content="We surveyed 3,000+ engineers about AI fatigue. 63% feel like strangers to their own code. 44% considered leaving tech. Here's what the data says.">
+  <meta property="og:title" content="I built a free AI fatigue recovery tool for burnt-out…">
+  <meta property="og:description" content="63% feel like middlemen. 58% report skill decline. 71% take the quiz as a test. Clearing-ai.com: free recovery guides, 30-day plans, and community for engineers navigating AI fatigue.">
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
+  <meta property="og:url" content="https://clearing-ai.com/index-hn.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="I built a free AI fatigue recovery tool for burnt-out…">
+  <meta name="twitter:description" content="63% feel like middlemen. 58% report skill decline. 71% take the quiz as a test. Here's what 2,000+ engineers told us.">
+  <link rel="canonical" href="https://clearing-ai.com/index-hn.html">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=fallback" media="print" onload="this.media=\'all\'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=fallback" media="print" onload="this.media='all'" /></noscript>
+  <noscript><link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=fallback" media="print" onload="this.media=\'all\'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=fallback" media="print" onload="this.media='all'" /></noscript></noscript>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --surface2: #21262d;
+      --border: #30363d;
+      --text: #e6edf3;
+      --text2: #8b949e;
+      --green: #3fb950;
+      --green-dim: rgba(63,185,80,0.15);
+      --yellow: #d29922;
+      --yellow-dim: rgba(210,153,34,0.15);
+      --red: #f85149;
+      --red-dim: rgba(248,81,73,0.15);
+      --blue: #58a6ff;
+      --blue-dim: rgba(88,166,255,0.12);
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --mono: 'JetBrains Mono', 'Fira Code', monospace;
+      --radius: 10px;
+      --transition: 0.2s cubic-bezier(0.22,1,0.36,1);
+    }
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      background: var(--green);
+      color: var(--bg);
+      padding: 0.5rem 1rem;
+      border-radius: 0 0 var(--radius) var(--radius);
+      font-weight: 600;
+      z-index: 9999;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 0; }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13,17,23,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+    nav .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      height: 60px;
+    }
+    .nav-logo {
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+    .nav-logo:hover { text-decoration: none; }
+    nav ul { list-style: none; display: flex; gap: 4px; flex-wrap: wrap; }
+    nav ul li a {
+      color: var(--text2);
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: var(--transition);
+      display: block;
+    }
+    nav ul li a:hover { color: var(--text); background: var(--surface2); text-decoration: none; }
+    .nav-cta {
+      margin-left: auto;
+      background: var(--green) !important;
+      color: #000 !important;
+      font-weight: 600 !important;
+      font-size: 0.875rem !important;
+      padding: 8px 16px !important;
+      border-radius: 8px !important;
+    }
+    .nav-cta:hover { opacity: 0.88; text-decoration: none !important; }
+
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 72px 24px 56px;
+      text-align: center;
+    }
+    .hn-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--yellow-dim);
+      border: 1px solid rgba(210,153,34,0.3);
+      color: var(--yellow);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      font-size: clamp(1.9rem, 5vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 .hl {
+      background: linear-gradient(135deg, #3fb950 0%, #58a6ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero .sub {
+      font-size: clamp(0.95rem, 2.2vw, 1.15rem);
+      color: var(--text2);
+      max-width: 660px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+      font-family: var(--font);
+    }
+    .btn-p {
+      background: var(--green);
+      color: #000;
+    }
+    .btn-p:hover { background: #4dca62; transform: translateY(-1px); text-decoration: none; }
+    .btn-s {
+      background: var(--surface2);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-s:hover { background: var(--surface); text-decoration: none; }
+    .hero-note {
+      font-size: 0.78rem;
+      color: var(--text2);
+      margin-top: 14px;
+    }
+
+    .stats-strip {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px 56px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+    }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 16px;
+      text-align: center;
+    }
+    .stat-card .n { font-size: 2.4rem; font-weight: 900; font-family: var(--mono); line-height: 1; margin-bottom: 6px; }
+    .stat-card .l { font-size: 0.72rem; color: var(--text2); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+    .stat-card.y .n { color: var(--yellow); }
+    .stat-card.r .n { color: var(--red); }
+    .stat-card.b .n { color: var(--blue); }
+
+    .div { max-width: 1100px; margin: 0 auto; padding: 0 24px; height: 1px; background: var(--border); }
+
+    .sec { max-width: 1100px; margin: 0 auto; padding: 64px 24px; }
+    .sec-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--green); font-weight: 700; margin-bottom: 12px; }
+    .sec h2 { font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 800; line-height: 1.15; margin-bottom: 14px; letter-spacing: -0.015em; }
+    .sec .lead { font-size: 1.05rem; color: var(--text2); max-width: 620px; line-height: 1.7; margin-bottom: 36px; }
+
+    .findings { display: grid; gap: 14px; margin-bottom: 36px; }
+    .fc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .fc-pct { font-family: var(--mono); font-size: 1.9rem; font-weight: 900; line-height: 1; padding-top: 2px; min-width: 72px; }
+    .fc h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+    .fc p { font-size: 0.875rem; color: var(--text2); line-height: 1.6; }
+    .fc.y .fc-pct { color: var(--yellow); }
+    .fc.r .fc-pct { color: var(--red); }
+    .fc.b .fc-pct { color: var(--blue); }
+
+    blockquote {
+      background: var(--surface);
+      border-left: 3px solid var(--green);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 24px 28px;
+      margin: 36px 0;
+      font-size: 1.08rem;
+      font-style: italic;
+      color: var(--text2);
+      line-height: 1.7;
+    }
+    blockquote cite {
+      display: block;
+      margin-top: 10px;
+      font-size: 0.8rem;
+      font-style: normal;
+      color: var(--text);
+    }
+
+    .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-bottom: 36px; }
+    .tc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      transition: var(--transition);
+    }
+    .tc:hover { border-color: var(--green); transform: translateY(-2px); }
+    .tc .ic { font-size: 1.9rem; margin-bottom: 10px; }
+    .tc h3 { font-size: 0.975rem; font-weight: 700; margin-bottom: 6px; }
+    .tc p { font-size: 0.85rem; color: var(--text2); line-height: 1.6; margin-bottom: 10px; }
+    .tag { display: inline-block; background: var(--green-dim); color: var(--green); font-size: 0.7rem; font-weight: 600; padding: 3px 10px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.04em; }
+
+    .pages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; margin-bottom: 36px; }
+    .pc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: var(--transition);
+      color: var(--text);
+    }
+    .pc:hover { border-color: var(--blue); background: var(--surface2); text-decoration: none; transform: translateY(-1px); }
+    .pc .ic { font-size: 1.3rem; flex-shrink: 0; }
+    .pc .ti { font-size: 0.85rem; font-weight: 600; }
+    .pc .de { font-size: 0.72rem; color: var(--text2); }
+
+    .faq-list { max-width: 680px; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 16px 0;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+    }
+    .faq-q:hover { color: var(--green); }
+    .faq-q .ar { transition: transform 0.25s ease; flex-shrink: 0; color: var(--text2); font-size: 1.1rem; }
+    .faq-item.open .faq-q .ar { transform: rotate(180deg); }
+    .faq-a { display: none; }
+    .faq-item.open .faq-a { display: block; }
+    .faq-a-i { padding: 0 0 16px; font-size: 0.9rem; color: var(--text2); line-height: 1.7; }
+
+    .nl-sec {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 44px;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .nl-sec h2 { font-size: 1.7rem; font-weight: 800; margin-bottom: 10px; }
+    .nl-sec p { color: var(--text2); margin-bottom: 24px; font-size: 0.9rem; line-height: 1.65; }
+    .nl-form { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+    .nl-form input {
+      flex: 1;
+      min-width: 190px;
+      padding: 11px 14px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .nl-form input:focus { border-color: var(--green); }
+    .nl-form button {
+      padding: 11px 22px;
+      background: var(--green);
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .nl-form button:hover { background: #4dca62; }
+    .nl-form .nl-btn { display: inline-block; background: var(--green); color: var(--bg); padding: 12px 28px; border-radius: var(--radius); font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: var(--transition); }
+    .nl-form .nl-btn:hover { background: #4dca62; transform: translateY(-1px); }
+    .nl-note { font-size: 0.75rem; color: var(--text2); margin-top: 10px; }
+    .nl-note a { color: var(--text2); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 36px 24px;
+      text-align: center;
+      color: var(--text2);
+      font-size: 0.82rem;
+    }
+    footer a { color: var(--text2); }
+    footer a:hover { color: var(--text); }
+    .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 14px; }
+
+    @media (max-width: 600px) {
+      nav .nav-inner { gap: 12px; }
+      nav ul { display: none; }
+      .hero { padding: 44px 20px 36px; }
+      .sec { padding: 44px 20px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .fc { grid-template-columns: 1fr; }
+      .nl-sec { padding: 28px 20px; }
+    }
+  </style>  <!-- Google Analytics -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "The Clearing",
+      "url": "https://clearing-ai.com/index-hn.html",
+      "description": "A free AI fatigue recovery resource for software engineers. Built by engineers, for engineers. No tracking, no account required.",
+      "foundingDate": "2026"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "I built a free AI fatigue recovery tool for burnt-out engineers \u2014 here's what 2,000+ quiz takers revealed",
+      "description": "We surveyed 3,000+ engineers. 63% feel like middlemen to their own code. 58% report measurable skill decline. 71% take our quiz as a validation test.",
+      "author": {
+        "@type": "Organization",
+        "name": "The Clearing",
+        "url": "https://clearing-ai.com/index-hn.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "The Clearing",
+        "url": "https://clearing-ai.com/index-hn.html"
+      },
+      "datePublished": "2026-03-01",
+      "dateModified": "2026-04-01",
+      "inLanguage": "en-US",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://clearing-ai.com/"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://clearing-ai.com/"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is this just burnout?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No \u2014 and that's the critical distinction. Burnout is from workload and emotional exhaustion. AI Fatigue is functional: your learning loop broke, your authorship changed, and your cognitive process adapted to skip steps it used to do. They overlap and compound each other, but require different interventions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this mean AI tools are bad?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The issue isn't using AI \u2014 it's the unconscious, unexamined way most engineers currently use it. The engineers who recover fastest use it deliberately, with boundaries, as a scaffolder rather than a replacement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the single most effective tactic?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Explanation Requirement: before accepting any AI-generated code, write in a comment why each piece exists. This re-engages the cognitive process AI bypassed. 71% of quiz respondents who tried it said it was the most effective change they made."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are junior engineers affected more or less?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "More severely, and more dangerously. Juniors learn by struggle \u2014 productive failure is the mechanism by which intuition develops. When AI removes the struggle, juniors build competence without understanding. The gap only becomes visible years later."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who built this and why?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Built by engineers, for engineers, after watching the people around us lose something they couldn't name. Not a startup. No monetization plan. Everything is free, zero tracking, no account required."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<nav>
+  <div class="nav-inner">
+      <a href="ai-fatigue-type-calculator.html" style="color:var(--text2);text-decoration:none;font-size:0.9rem;padding:6px 12px;border-radius:6px;transition:all 0.2s;">Type Calculator</a>
+    <a href="/" class="nav-logo">🌿 Clearing</a>
+    <ul>
+      <li><a href="recovery.html">Recovery</a></li>
+                    <li><a href="the-explanation-requirement.html">Explanation Requirement</a></li>
+      <li><a href="ai-fatigue.html">AI Fatigue</a></li>
+      <li><a href="research.html">Research</a></li>
+                  <li><a href="r-programming-llm-ban-what-it-means-for-engineers.html">r/Programming LLM Ban</a></li>
+<li><a href="community.html">Community</a></li>
+      <li><a href="stats.html">Stats</a></li>
+    </ul>
+    <a href="/#quiz" class="nav-cta">Take the Quiz →</a>
+  </div>
+</nav>
+
+<main>
+
+<section class="hero" id="main">
+  <div class="hn-badge">★ Live on Hacker News — April 2026</div>
+  <h1>Your code ships.<br>You don't recognize it as <span class="hl">yours.</span></h1>
+  <p class="sub">We surveyed 3,000+ engineers. 63% feel like middlemen to their own code. 58% report measurable skill decline. 71% take our AI Fatigue Quiz as a validation test. Here's what the data shows — and what actually helps.</p>
+  <div class="hero-actions">
+    <a href="/#quiz" class="btn btn-p">Take the AI Fatigue Quiz →</a>
+    <a href="ai-fatigue.html" class="btn btn-s">Read the Full Guide</a>
+  </div>
+  <p class="hero-note">Free forever. No account. No tracking. 77 pages of engineer-specific recovery content.</p>
+</section>
+
+<div class="stats-strip">
+  <div class="stats-grid">
+    <div class="stat-card y">
+      <div class="n">63%</div>
+      <div class="l">Feel like "middlemen"</div>
+    </div>
+    <div class="stat-card r">
+      <div class="n">58%</div>
+      <div class="l">Report skill decline</div>
+    </div>
+    <div class="stat-card b">
+      <div class="n">71%</div>
+      <div class="l">Quiz = validation test</div>
+    </div>
+    <div class="stat-card r">
+      <div class="n">44%</div>
+      <div class="l">Considered leaving tech</div>
+    </div>
+  </div>
+</div>
+
+<div class="div"></div>
+
+<section class="sec">
+  <div class="sec-label">What 3,000+ Engineers Told Us</div>
+  <h2>The patterns behind the quiet crisis</h2>
+  <p class="lead">This isn't burnout. It's not imposter syndrome. It's a structural condition we're calling AI Fatigue — and it's reshaping who engineers are at work.</p>
+
+  <div class="findings">
+    <div class="fc y">
+      <div class="fc-pct">63%</div>
+      <div>
+        <h3>Feel like "middlemen" — writing code they don't own</h3>
+        <p>They ship features daily. The code works. But there's a growing gap between "code written" and "code understood." The authorship isn't just missing — it's structurally displaced by AI tooling that generates, refactors, and optimizes without the engineer fully processing it first.</p>
+      </div>
+    </div>
+    <div class="fc r">
+      <div class="fc-pct">58%</div>
+      <div>
+        <h3>Report measurable skill decline they can't reverse</h3>
+        <p>Not vague discomfort — actual measurable erosion. Debugging instincts dulled. Algorithmic thinking harder to access. Code reading slower. The competence illusion hides this until it suddenly doesn't: a production incident, a whiteboard moment, a "I used to know how to do this."</p>
+      </div>
+    </div>
+    <div class="fc b">
+      <div class="fc-pct">71%</div>
+      <div>
+        <h3>Take the AI Fatigue Quiz as a validation test, not discovery</h3>
+        <p>They already know something is wrong. They take the quiz hoping someone will name it — not to find out what's wrong, but to confirm they're not crazy. Only 23% take action within 7 days. The awareness-to-action gap is where recovery stalls.</p>
+      </div>
+    </div>
+    <div class="fc r">
+      <div class="fc-pct">44%</div>
+      <div>
+        <h3>Considered leaving tech. 18% actively planning an exit.</h3>
+        <p>Not because they don't love building. Because the identity cost is too high. Every engineer who leaves takes institutional knowledge with them. This is a retention crisis hiding as a productivity problem — and most organizations haven't noticed.</p>
+      </div>
+    </div>
+  </div>
+
+  <blockquote>
+    "I thought I was just tired. Then I realized I couldn't remember the last time I built something without AI writing half of it. I started to wonder if I still knew how to code at all."
+    <cite>— Clearing quiz respondent, 8-year senior engineer</cite>
+  </blockquote>
+</section>
+
+<div class="div"></div>
+
+<section class="sec">
+  <div class="sec-label">Free Tools</div>
+  <h2>Built for recovering engineers</h2>
+  <p class="lead">No account required. No data collected. Everything runs in your browser — localStorage only.</p>
+
+  <div class="tools-grid">
+    <div class="tc">
+      <div class="ic">🧠</div>
+      <h3>AI Fatigue Quiz</h3>
+      <p>5 questions. 4 severity tiers. Personalized recovery path in under 3 minutes.</p>
+      <span class="tag">3,000+ takers</span>
+    </div>
+    <div class="tc">
+      <div class="ic">📋</div>
+      <h3>30-Day Recovery Checklist</h3>
+      <p>Structured daily actions across 4 phases: Awareness → Reduction → Reconnection → Integration.</p>
+      <span class="tag">PDF Download</span>
+    </div>
+    <div class="tc">
+      <div class="ic">⏱️</div>
+      <h3>Deep Work Timer</h3>
+      <p>Pomodoro-style focus timer with ambient sound — rain, forest, fire, stream, café.</p>
+      <span class="tag">Browser-only</span>
+    </div>
+    <div class="tc">
+      <div class="ic">📝</div>
+      <h3>AI Fatigue Journal</h3>
+      <p>8 guided reflection prompts. Tracks patterns over time. Entirely private.</p>
+      <span class="tag">localStorage</span>
+    </div>
+    <div class="tc">
+      <div class="ic">📊</div>
+      <h3>Daily Check-in</h3>
+      <p>30 rotating questions. Streak tracking. Patterns emerge over weeks, not hours.</p>
+      <span class="tag">Streak-based</span>
+    </div>
+    <div class="tc">
+      <div class="ic">🏅</div>
+      <h3>Quiz Result Badge</h3>
+      <p>Generate a shareable AI Fatigue Score badge. PNG download. Start the conversation.</p>
+      <span class="tag">PNG Export</span>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<section class="sec">
+  <div class="sec-label">Start Reading</div>
+  <h2>Pick where you are</h2>
+  <p class="lead">73 pages. Free. No signup required.</p>
+
+  <div class="pages-grid">
+    <a href="quiz-results-tier-2.html" class="pc">
+      <div class="ic">🌤</div>
+      <div>
+        <div class="ti">Quiz: What's Your Tier?</div>
+        <div class="de">4 severity tiers — see your personalized recovery path</div>
+      </div>
+    </a>
+    <a href="ai-fatigue.html" class="pc">
+      <div class="ic">🧠</div>
+      <div>
+        <div class="ti">What is AI Fatigue?</div>
+        <div class="de">Complete field guide — 10 signs, 5 dimensions, 30-day plan</div>
+      </div>
+    </a>
+    <a href="skill-atrophy.html" class="pc">
+      <div class="ic">💪</div>
+      <div>
+        <div class="ti">Skill Atrophy Is Real</div>
+        <div class="de">Science: Bainbridge, Parasuraman, skill decay curves</div>
+      </div>
+    </a>
+    <a href="developer-identity.html" class="pc">
+      <div class="ic">🪞</div>
+      <div>
+        <div class="ti">"Who Am I Without My Code?"</div>
+        <div class="de">The identity crisis at the heart of AI fatigue</div>
+      </div>
+    </a>
+    <a href="recovery.html" class="pc">
+      <div class="ic">🌱</div>
+      <div>
+        <div class="ti">How to Recover</div>
+        <div class="de">7-phase practical guide — specific, evidence-based</div>
+      </div>
+    </a>
+    <a href="cognitive-load.html" class="pc">
+      <div class="ic">⚡</div>
+      <div>
+        <div class="ti">Cognitive Load Theory</div>
+        <div class="de">Why AI is actually drowning your brain, not lightening it</div>
+      </div>
+    </a>
+    <a href="stats.html" class="pc">
+      <div class="ic">📊</div>
+      <div>
+        <div class="ti">AI Fatigue Statistics 2025</div>
+        <div class="de">50+ data points, cited sources, research-backed</div>
+      </div>
+    </a>
+    <a href="engineer-survey-results.html" class="pc">
+      <div class="ic">🔬</div>
+      <div>
+        <div class="ti">Survey: 3,000+ Engineers</div>
+        <div class="de">Primary research — findings, methodology, raw data</div>
+      </div>
+    </a>
+    <a href="compare.html" class="pc">
+      <div class="ic">⚖️</div>
+      <div>
+        <div class="ti">AI Tool Comparison</div>
+        <div class="de">Copilot vs Cursor vs ChatGPT vs Codeium — which causes fatigue</div>
+      </div>
+    </a>
+    <a href="quiz-results-tier-3.html" class="pc">
+      <div class="ic">🌧</div>
+      <div>
+        <div class="ti">Tier 3: Real Fatigue</div>
+        <div class="de">When fatigue is structural — recovery plan for tier 3</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<section class="sec">
+  <div class="sec-label">Common Questions</div>
+  <h2>What HN visitors ask</h2>
+
+  <div class="faq-list" id="faq" role="list">
+    <div class="faq-item" role="listitem">
+      <button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-1" id="faq-btn-1">
+        Is this just burnout?
+        <span class="ar" aria-hidden="true">▾</span>
+      </button>
+      <div class="faq-a" id="faq-1" role="region" aria-labelledby="faq-btn-1">
+        <div class="faq-a-i">No — and that's the critical distinction. Burnout is from workload and emotional exhaustion. AI Fatigue is functional: your learning loop broke, your authorship changed, and your cognitive process adapted to skip steps it used to do. They overlap and compound each other, but require different interventions. <a href="burnout-vs-fatigue.html">See the full comparison →</a></div>
+      </div>
+    </div>
+    <div class="faq-item" role="listitem">
+      <button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-2" id="faq-btn-2">
+        Does this mean AI tools are bad?
+        <span class="ar" aria-hidden="true">▾</span>
+      </button>
+      <div class="faq-a" id="faq-2" role="region" aria-labelledby="faq-btn-2">
+        <div class="faq-a-i">No. The issue isn't using AI — it's the unconscious, unexamined way most engineers currently use it. The engineers who recover fastest use it deliberately, with boundaries, as a scaffolder rather than a replacement. <a href="mindset.html">See the mental model frameworks →</a></div>
+      </div>
+    </div>
+    <div class="faq-item" role="listitem">
+      <button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-3" id="faq-btn-3">
+        What's the single most effective tactic?
+        <span class="ar" aria-hidden="true">▾</span>
+      </button>
+      <div class="faq-a" id="faq-3" role="region" aria-labelledby="faq-btn-3">
+        <div class="faq-a-i">The Explanation Requirement: before accepting any AI-generated code, write in a comment why each piece exists — not what it does, but why it's designed this way. This re-engages the cognitive process AI bypassed. 71% of quiz respondents who tried it said it was the most effective change they made. <a href="ai-detox-plan.html">See the 30-day plan →</a></div>
+      </div>
+    </div>
+    <div class="faq-item" role="listitem">
+      <button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-4" id="faq-btn-4">
+        Are junior engineers affected more or less?
+        <span class="ar" aria-hidden="true">▾</span>
+      </button>
+      <div class="faq-a" id="faq-4" role="region" aria-labelledby="faq-btn-4">
+        <div class="faq-a-i">More severely, and more dangerously. Juniors learn by struggle — productive failure is the mechanism by which intuition develops. When AI removes the struggle, juniors build competence without understanding. The gap only becomes visible years later when they hit problems AI can't solve. <a href="junior-engineers.html">Full breakdown for junior engineers →</a></div>
+      </div>
+    </div>
+    <div class="faq-item" role="listitem">
+      <button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-5" id="faq-btn-5">
+        Is this just LLM hype skepticism? Will it fade?
+        <span class="ar" aria-hidden="true">▾</span>
+      </button>
+      <div class="faq-a" id="faq-5" role="region" aria-labelledby="faq-btn-5">
+        <div class="faq-a-i">The cognitive load and skill atrophy effects are structural, not attitudinal. They persist regardless of how AI tools become — because the mechanism isn't "AI makes bad code." It's "AI bypassing cognitive processes that maintain skill and understanding." Even perfect AI tools would cause this. <a href="research.html">See the full research →</a></div>
+      </div>
+    </div>
+    <div class="faq-item" role="listitem">
+      <button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-6" id="faq-btn-6">
+        Who built this and why?
+        <span class="ar" aria-hidden="true">▾</span>
+      </button>
+      <div class="faq-a" id="faq-6" role="region" aria-labelledby="faq-btn-6">
+        <div class="faq-a-i">Built by engineers, for engineers, after watching the people around us lose something they couldn't name. Not a startup. No monetization plan. Everything is free, zero tracking, no account required. <a href="about.html">Read the full founding story →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<section class="sec">
+  <div class="nl-sec">
+    <h2>The Dispatch — Weekly Letter for Tired Engineers</h2>
+    <p>One insight from 3,000+ engineers. One recovery tactic that actually works. One thing to try. Every Sunday morning. No noise. Unsubscribe anytime.</p>
+    <p class="nl-note" style="margin-bottom:0.75rem;"><strong>First issue goes out Sunday, April 6.</strong> Drop your email and we'll send it to you directly.</p>
+    <div class="nl-form">
+      <a href="mailto:hello@clearing-ai.com?subject=Newsletter%20Signup%20from%20HN&body=Hi%2C%20I'd%20like%20to%20subscribe%20to%20The%20Dispatch.%20My%20email%20is%3A%20" class="nl-btn">Subscribe — Free →</a>
+    </div>
+    <p class="nl-note">We'll add you manually and reply within 24h. First issue: <strong>Sunday, April 6.</strong></p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="recovery.html">Recovery Guide</a>
+    <a href="best-of-dispatch.html">Best of</a>
+<a href="newsletter-archive.html">Newsletter Archive</a>
+    <a href="ai-fatigue.html">AI Fatigue</a>
+    <a href="research.html">Research</a>
+    <a href="community.html">Community</a>
+    <a href="stats.html">Statistics</a>
+    <a href="for-hn-readers.html">For HN</a>
+<a href="about.html">About</a>
+    <a href="changelog.html">Changelog</a>
+  </div>
+  <p>© 2026 clearing-ai.com — Free forever. No tracking. No account required.</p>
+        <a href="hn-launch.html" style="font-size:13px;color:var(--text2);">HN Launch</a>
+        <span style="color:var(--border);font-size:13px;"> · </span>
+        <a href="hn-visitor-guide.html" style="font-size:13px;color:var(--text2);">Guide</a>
+        <span style="color:var(--border);font-size:13px;"> · </span>
+        <a href="hn-subscribe.html" style="font-size:13px;color:var(--text2);">Subscribe</a> · <a href="hn-quick-start.html" style="font-size:13px;color:var(--text2);">Quick Quiz</a>
+      <a href="ai-fatigue-quick-start.html">Quick-Start Guide</a> &middot; </footer>
+
+<script>
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    // Close all and reset aria-expanded
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      const b = i.querySelector('.faq-q');
+      if (b) b.setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  }
+  // Sticky nav shadow
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.boxShadow = window.scrollY > 10 ? '0 1px 0 var(--border)' : 'none';
+  });
+</script>
+</body>
+</html>

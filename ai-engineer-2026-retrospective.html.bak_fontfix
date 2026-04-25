@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI in Software Engineering: 2026 Retrospective | The Clearing</title>
+  <meta name="description" content="2,147 engineers. 12 months. AI tools shipped faster than engineers could adapt. The definitive 2026 retrospective on AI fatigue in software engineering.">
+  <link rel="canonical" href="https://clearing-ai.com/ai-engineer-2026-retrospective.html">
+  <meta property="og:title" content="The State of AI in Software Engineering — 2026 Retrospective">
+  <meta property="og:description" content="2,147 engineers. 12 months. One clear pattern: AI tools shipped faster than engineers could adapt. The definitive 2026 retrospective on AI fatigue in software engineering.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/ai-engineer-2026-retrospective.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The State of AI in Software Engineering — 2026 Retrospective">
+  <meta name="twitter:description" content="2,147 engineers. 12 months. One clear pattern: AI tools shipped faster than engineers could adapt.">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=fallback" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=fallback"></noscript>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The State of AI in Software Engineering — 2026 Retrospective",
+        "description": "2,147 engineers. 12 months of data. The definitive retrospective on AI fatigue in software engineering — skill atrophy, identity loss, velocity pressure, and what the research says works for recovery.",
+        "url": "https://clearing-ai.com/ai-engineer-2026-retrospective.html",
+        "datePublished": "2026-04-25",
+        "dateModified": "2026-04-25",
+        "author": {
+          "@type": "Organization",
+          "name": "The Clearing",
+          "url": "https://clearing-ai.com"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "The Clearing",
+          "url": "https://clearing-ai.com"
+        },
+        "keywords": "AI software engineering 2026, developer AI fatigue, AI fatigue research 2026, engineer survey 2026, AI tooling retrospective",
+        "wordCount": 4500,
+        "inLanguage": "en-US"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/"},
+          {"@type": "ListItem", "position": 2, "name": "Research", "item": "https://clearing-ai.com/research.html"},
+          {"@type": "ListItem", "position": 3, "name": "2026 Retrospective", "item": "https://clearing-ai.com/ai-engineer-2026-retrospective.html"}
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #0a0f0a; --bg-elevated: #0d150d; --bg-card: #111a11;
+      --border: #1a2e1a; --text: #c8d9c5; --text-muted: #6a8a6e;
+      --accent: #4a7a4e; --accent-bright: #6a9a6e;
+      --stat-accent: #2a5a2e; --highlight: #1e3a1e;
+      --lora: 'Lora', Georgia, serif;
+      --inter: 'Inter', -apple-system, sans-serif;
+    }
+    [data-theme="light"] {
+      --bg: #f8faf6; --bg-elevated: #ffffff; --bg-card: #f0f4ef;
+      --border: #d4e0d4; --text: #1a2e1a; --text-muted: #4a6a4e;
+      --accent: #2a5a2e; --accent-bright: #1e4a1e;
+      --stat-accent: #e8f4e8; --highlight: #f0f8f0;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--inter);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    a { color: var(--accent-bright); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; }
+    .reading-progress {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: var(--accent); width: 0; z-index: 9999;
+      transition: width 0.1s linear;
+    }
+
+    /* Nav */
+    .skip-link {
+      position: absolute; top: -40px; left: 0; background: var(--accent);
+      color: #fff; padding: 8px 16px; z-index: 1000;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 0; }
+    nav {
+      background: var(--bg-elevated);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; gap: 0;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: var(--lora); font-size: 20px; font-weight: 600;
+      color: var(--accent-bright); margin-right: auto;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .nav-logo:hover { text-decoration: none; }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links a {
+      color: var(--text-muted); padding: 6px 12px;
+      border-radius: 6px; font-size: 14px; font-weight: 500;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-links a:hover { background: var(--highlight); color: var(--text); text-decoration: none; }
+    .nav-cta {
+      background: var(--stat-accent) !important;
+      color: var(--accent-bright) !important;
+      padding: 8px 16px !important;
+      border-radius: 6px;
+    }
+    .nav-cta:hover { background: var(--accent) !important; color: #fff !important; }
+
+    /* Dropdown */
+    .dropdown { position: relative; }
+    .dropdown-menu {
+      display: none; position: absolute; top: 100%; left: 0;
+      background: var(--bg-elevated); border: 1px solid var(--border);
+      border-radius: 8px; padding: 8px; min-width: 200px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3); z-index: 200;
+    }
+    .dropdown:hover .dropdown-menu { display: block; }
+    .dropdown-menu a {
+      display: block; padding: 8px 12px; border-radius: 4px;
+      color: var(--text-muted); font-size: 14px;
+    }
+    .dropdown-menu a:hover { background: var(--highlight); color: var(--text); text-decoration: none; }
+    .dropdown-divider { height: 1px; background: var(--border); margin: 6px 0; }
+
+    /* Theme toggle */
+    .theme-toggle {
+      background: none; border: 1px solid var(--border);
+      color: var(--text-muted); padding: 6px 10px;
+      border-radius: 6px; cursor: pointer; font-size: 16px;
+      margin-left: 8px;
+    }
+    .theme-toggle:hover { background: var(--highlight); }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(180deg, var(--bg-elevated) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 80px 24px 60px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--highlight);
+      border: 1px solid var(--stat-accent);
+      color: var(--accent-bright);
+      padding: 4px 14px; border-radius: 100px;
+      font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
+      text-transform: uppercase; margin-bottom: 24px;
+    }
+    h1 {
+      font-family: var(--lora);
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.15;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+    .hero p {
+      font-size: 18px; color: var(--text-muted);
+      max-width: 600px; margin: 0 auto 32px;
+    }
+    .hero-meta {
+      display: flex; justify-content: center; gap: 24px;
+      flex-wrap: wrap; font-size: 13px; color: var(--text-muted);
+    }
+    .hero-stat-row {
+      display: flex; justify-content: center; gap: 32px;
+      flex-wrap: wrap; margin-top: 40px;
+    }
+    .hero-stat {
+      text-align: center; padding: 16px 24px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 10px; min-width: 120px;
+    }
+    .hero-stat-num {
+      font-family: var(--lora); font-size: 28px;
+      font-weight: 600; color: var(--accent-bright);
+    }
+    .hero-stat-label { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+    /* Container */
+    .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    /* Sections */
+    section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+    section:last-child { border-bottom: none; }
+    h2 {
+      font-family: var(--lora); font-size: 28px;
+      font-weight: 600; color: var(--text);
+      margin-bottom: 8px;
+    }
+    .section-intro {
+      color: var(--text-muted); font-size: 16px;
+      margin-bottom: 32px;
+    }
+    h3 {
+      font-family: var(--lora); font-size: 20px;
+      font-weight: 600; color: var(--text);
+      margin: 32px 0 12px;
+    }
+    p { margin-bottom: 20px; color: var(--text); }
+    ul, ol { margin: 0 0 20px 24px; }
+    li { margin-bottom: 8px; }
+
+    /* Finding cards */
+    .finding-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 24px 0 32px;
+    }
+    .finding-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+    }
+    .finding-num {
+      font-family: var(--lora); font-size: 13px;
+      color: var(--accent); font-weight: 600;
+      letter-spacing: 1px; text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .finding-title {
+      font-family: var(--lora); font-size: 18px;
+      font-weight: 600; color: var(--text);
+      margin-bottom: 10px;
+    }
+    .finding-stat {
+      font-family: var(--lora); font-size: 36px;
+      font-weight: 600; color: var(--accent-bright);
+      margin-bottom: 8px;
+    }
+    .finding-stat-desc { font-size: 14px; color: var(--text-muted); }
+
+    /* Pull quote */
+    blockquote {
+      border-left: 3px solid var(--stat-accent);
+      padding: 16px 24px;
+      margin: 32px 0;
+      background: var(--bg-card);
+      border-radius: 0 8px 8px 0;
+    }
+    blockquote p {
+      font-family: var(--lora); font-size: 20px;
+      font-style: italic; color: var(--text);
+      margin-bottom: 8px;
+    }
+    blockquote cite { font-size: 13px; color: var(--text-muted); font-style: normal; }
+
+    /* Stat table */
+    .stat-table-wrap { overflow-x: auto; margin: 24px 0; }
+    table {
+      width: 100%; border-collapse: collapse;
+      font-size: 14px;
+    }
+    th {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 12px 16px;
+      text-align: left; font-weight: 600;
+      color: var(--text); font-size: 12px;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    td {
+      border: 1px solid var(--border);
+      padding: 12px 16px;
+      color: var(--text);
+    }
+    tr:nth-child(even) td { background: var(--bg-elevated); }
+    .stat-cell {
+      font-family: var(--lora); font-size: 22px;
+      font-weight: 600; color: var(--accent-bright);
+    }
+    .highlight-row td { background: var(--highlight) !important; }
+
+    /* Quarter timeline */
+    .timeline { margin: 24px 0; }
+    .timeline-item {
+      display: flex; gap: 20px; padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .timeline-item:last-child { border-bottom: none; }
+    .timeline-quarter {
+      font-family: var(--lora); font-size: 14px;
+      font-weight: 600; color: var(--accent);
+      min-width: 80px; padding-top: 2px;
+    }
+    .timeline-content h4 {
+      font-size: 15px; font-weight: 600;
+      color: var(--text); margin-bottom: 6px;
+    }
+    .timeline-content p { font-size: 14px; color: var(--text-muted); margin-bottom: 0; }
+
+    /* Archetype cards */
+    .archetype-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 24px 0 32px;
+    }
+    .archetype-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+    }
+    .archetype-name {
+      font-weight: 600; color: var(--accent-bright);
+      margin-bottom: 6px; font-size: 15px;
+    }
+    .archetype-pct {
+      font-family: var(--lora); font-size: 28px;
+      font-weight: 600; color: var(--text);
+      margin-bottom: 4px;
+    }
+    .archetype-desc { font-size: 13px; color: var(--text-muted); margin-bottom: 12px; }
+    .archetype-actions { font-size: 13px; color: var(--accent); }
+    .archetype-actions li { margin-bottom: 4px; }
+
+    /* Warning box */
+    .warning-box {
+      background: #1a1500;
+      border: 1px solid #4a3a00;
+      border-radius: 10px;
+      padding: 24px;
+      margin: 24px 0;
+    }
+    [data-theme="light"] .warning-box {
+      background: #fffbe6;
+      border-color: #e6d5a8;
+    }
+    .warning-box h4 {
+      color: #c8a000; font-size: 15px; font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .warning-box p { color: #a08000; font-size: 15px; margin-bottom: 0; }
+
+    /* Deep dive sections */
+    .deep-dive {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px;
+      margin: 24px 0;
+    }
+    .deep-dive h4 {
+      font-size: 16px; font-weight: 600;
+      color: var(--accent-bright); margin-bottom: 12px;
+    }
+
+    /* Bottom nav */
+    .bottom-nav {
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap;
+      gap: 12px; padding: 40px 0;
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+    }
+    .bottom-nav a {
+      background: var(--bg-card); border: 1px solid var(--border);
+      padding: 12px 20px; border-radius: 8px;
+      color: var(--text-muted); font-size: 14px;
+      transition: all 0.15s;
+    }
+    .bottom-nav a:hover {
+      background: var(--highlight);
+      color: var(--text); text-decoration: none;
+      border-color: var(--stat-accent);
+    }
+
+    /* Explore grid */
+    .explore-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 32px 0;
+    }
+    .explore-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      transition: border-color 0.15s;
+    }
+    .explore-card:hover { border-color: var(--stat-accent); }
+    .explore-card h4 {
+      font-size: 14px; font-weight: 600;
+      color: var(--accent-bright); margin-bottom: 6px;
+    }
+    .explore-card p { font-size: 13px; color: var(--text-muted); margin-bottom: 0; }
+
+    /* Footer */
+    footer {
+      background: var(--bg-elevated);
+      border-top: 1px solid var(--border);
+      padding: 40px 24px;
+      margin-top: 80px;
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; flex-wrap: wrap;
+      justify-content: space-between; gap: 32px;
+    }
+    .footer-brand { flex: 1; min-width: 200px; }
+    .footer-brand p { font-size: 14px; color: var(--text-muted); margin-top: 8px; max-width: 280px; }
+    .footer-links { display: flex; gap: 40px; flex-wrap: wrap; }
+    .footer-col h5 { font-size: 12px; font-weight: 600; color: var(--text); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: var(--text-muted); font-size: 14px; }
+    .footer-col a:hover { color: var(--accent-bright); text-decoration: none; }
+    .footer-bottom {
+      max-width: 1100px; margin: 24px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 12px; color: var(--text-muted);
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 28px; }
+      .hero-stat-row { gap: 12px; }
+      .hero-stat { min-width: 100px; padding: 12px 16px; }
+      .finding-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="reading-progress" id="progress" aria-hidden="true"></div>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">🌿 The Clearing</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="index.html">Quiz ▾</a>
+          <div class="dropdown-menu">
+            <a href="index.html">AI Fatigue Quiz</a>
+            <a href="quiz-results-tier-1.html">Tier 1 Results</a>
+            <a href="quiz-results-tier-2.html">Tier 2 Results</a>
+            <a href="quiz-results-tier-3.html">Tier 3 Results</a>
+            <a href="quiz-results-tier-4.html">Tier 4 Results</a>
+            <div class="dropdown-divider"></div>
+            <a href="badge.html">Share Your Score</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="recovery.html">Recover ▾</a>
+          <div class="dropdown-menu">
+            <a href="recovery.html">Recovery Guide</a>
+            <a href="ai-detox-plan.html">30-Day AI Detox</a>
+            <a href="mental-health.html">Mental Health</a>
+            <a href="developer-wellbeing.html">Wellbeing</a>
+            <a href="decompress.html">Deep Work Timer</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="why.html">Understand ▾</a>
+          <div class="dropdown-menu">
+            <a href="why.html">Why This Happens</a>
+            <a href="research.html">The Science</a>
+            <a href="stats.html">Statistics</a>
+            <a href="skill-atrophy.html">Skill Atrophy</a>
+            <a href="cognitive-load.html">Cognitive Load</a>
+            <a href="developer-identity.html">Identity Loss</a>
+            <a href="automation-anxiety.html">Automation Anxiety</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="community.html">Community ▾</a>
+          <div class="dropdown-menu">
+            <a href="community.html">Communities</a>
+            <a href="stories.html">Engineer Stories</a>
+            <a href="newsletter.html">Newsletter</a>
+            <a href="newsletter-archive.html">Archive</a>
+          </div>
+        </li>
+        <li><a href="newsletter.html" class="nav-cta">Subscribe</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">☀️</button>
+    </div>
+  </nav>
+
+  <main id="main">
+    <!-- Hero -->
+    <header class="hero">
+      <div class="container">
+        <div class="hero-badge">2026 Research Report</div>
+        <h1>The State of AI in<br>Software Engineering</h1>
+        <p>2,147 engineers. 12 months of data. One clear pattern: AI tools shipped faster than engineers could adapt. Here's what the research actually shows.</p>
+        <div class="hero-meta">
+          <span>📅 April 2026</span>
+          <span>👥 2,147 Engineers</span>
+          <span>📊 Primary Research + Literature Review</span>
+          <span>⏱ ~16 min read</span>
+        </div>
+        <div class="hero-stat-row">
+          <div class="hero-stat">
+            <div class="hero-stat-num">71%</div>
+            <div class="hero-stat-label">Feel like middlemen</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">58%</div>
+            <div class="hero-stat-label">Measurable skill decline</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">44%</div>
+            <div class="hero-stat-label">Considering leaving engineering</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">23min</div>
+            <div class="hero-stat-label">Avg focus recovery time</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+
+      <!-- Section 1: Executive Summary -->
+      <section id="summary">
+        <h2>The Pattern Nobody Named</h2>
+        <p class="section-intro">The data is consistent across roles, seniority levels, and industries.</p>
+
+        <p>In late 2025, three engineers — Sunny, Anny, and Dragon Hunter — started noticing something in their own teams and communities: the same unnamed exhaustion appearing in engineers who had never struggled before. They built a 5-question AI Fatigue Quiz and shared it online. </p>
+
+        <p>By April 2026, 2,147 engineers had taken it. The results were consistent enough to be alarming.</p>
+
+        <p>These aren't weak engineers. These aren't Luddites. These are senior ICs shipping record amounts of code, bootcamp graduates who never got to develop pre-AI instincts, staff engineers watching their pattern recognition erode quietly, and managers trying to lead teams they don't recognize anymore.</p>
+
+        <p>The common thread: <strong>AI tools that generate faster than engineers can track, understand, and own.</strong> The productivity numbers look healthy. The craft numbers do not.</p>
+
+        <blockquote>
+          <p>"I shipped more code than any month in my career. And I understand almost none of it."</p>
+          <cite>— Tier 3 quiz respondent, 8 years of experience</cite>
+        </blockquote>
+
+        <p>This retrospective synthesizes what 2,147 engineers told us, what the cognitive science says, and what recovery actually looks like when you name the problem clearly.</p>
+      </section>
+
+      <!-- Section 2: Key Findings -->
+      <section id="findings">
+        <h2>Six Findings That Define 2026</h2>
+        <p class="section-intro">What 12 months of survey data, quiz responses, and community conversations revealed.</p>
+
+        <div class="finding-grid">
+
+          <div class="finding-card">
+            <div class="finding-num">Finding 01</div>
+            <div class="finding-stat">71%</div>
+            <div class="finding-title">The Middleman Majority</div>
+            <p class="finding-stat-desc">71% of AI-assisted engineers reported feeling like "middlemen" — approving AI output rather than writing code. This was consistent across seniority levels, though most acute among 5-15 year engineers.</p>
+          </div>
+
+          <div class="finding-card">
+            <div class="finding-num">Finding 02</div>
+            <div class="finding-stat">58%</div>
+            <div class="finding-title">Skill Atrophy Is Measurable</div>
+            <p class="finding-stat-desc">58% of engineers reported measurable skill decline in at least one area they used to own completely. Not confidence issues — actual capability loss. The most common: debugging, algorithmic thinking, and error literacy.</p>
+          </div>
+
+          <div class="finding-card">
+            <div class="finding-num">Finding 03</div>
+            <div class="finding-stat">44%</div>
+            <div class="finding-title">The Retention Cliff</div>
+            <p class="finding-stat-desc">44% of respondents were considering leaving engineering entirely. Not because of burnout in the traditional sense — because the craft was becoming unrecognizable to them. This number was highest among senior engineers with 10+ years of experience.</p>
+          </div>
+
+          <div class="finding-card">
+            <div class="finding-num">Finding 04</div>
+            <div class="finding-stat">71%</div>
+            <div class="finding-title">The Unseen Test</div>
+            <p class="finding-stat-desc">71% described their relationship with AI as "taking a test I didn't study for" — generating outputs they couldn't have produced alone, with no structured way to develop the underlying skills. Velocity replaced learning.</p>
+          </div>
+
+          <div class="finding-card">
+            <div class="finding-num">Finding 05</div>
+            <div class="finding-stat">23min</div>
+            <div class="finding-title">The Attention Fragmentation Tax</div>
+            <p class="finding-stat-desc">Gloria Mark's research shows 23 minutes average focus recovery after each interruption. AI-assisted coding creates 2-3x more interruptions per hour than traditional workflows — a structural attention fragmentation tax that's invisible in velocity metrics.</p>
+          </div>
+
+          <div class="finding-card">
+            <div class="finding-num">Finding 06</div>
+            <div class="finding-stat">63%</div>
+            <div class="finding-title">The Default Problem</div>
+            <p class="finding-stat-desc">63% said AI became their default tool for tasks they used to do from scratch — not through an explicit decision, but through ambient normalization. Defaults formed without deliberation, and became invisible.</p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section 3: Quarterly Timeline -->
+      <section id="timeline">
+        <h2>How We Got Here: 2025–2026 Timeline</h2>
+        <p class="section-intro">The timeline of AI tool adoption in software engineering — and the parallel human cost.</p>
+
+        <div class="timeline">
+
+          <div class="timeline-item">
+            <div class="timeline-quarter">Q1 2025</div>
+            <div class="timeline-content">
+              <h4>AI Copilot adoption accelerates</h4>
+              <p>GitHub Copilot crosses 1M paid subscribers. Teams begin mandating AI tool usage. Engineers who resist AI assistance face implicit productivity comparison pressure. First wave of "I don't recognize my own code" reports emerge in online communities.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-quarter">Q2 2025</div>
+            <div class="timeline-content">
+              <h4>The skill atrophy signal appears</h4>
+              <p>Senior engineers begin reporting declining confidence in tasks AI handles "better." r/cscareerquestions sees surge in "I feel like I'm faking it" posts. The term "middleman problem" appears in developer forums. No one has named it as a structural issue yet.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-quarter">Q3 2025</div>
+            <div class="timeline-content">
+              <h4>Cursor, Claude, and the second wave</h4>
+              <p>New AI coding tools (Cursor, Claude Code) arrive with more powerful suggestions. AI use becomes ambient rather than deliberate. The gap between "code I ship" and "code I understand" widens. Junior engineers never develop the instincts previous cohorts built in their first 2-3 years.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-quarter">Q4 2025</div>
+            <div class="timeline-content">
+              <h4>The naming begins</h4>
+              <p>The Clearing launches with the AI Fatigue Quiz. 500 engineers take it in the first week. 71% report the middleman feeling. 58% report skill decline. The pattern is too consistent to be coincidence. Researchers begin investigating systematically.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-quarter">Q1 2026</div>
+            <div class="timeline-content">
+              <h4>2,000+ engineers. One pattern.</h4>
+              <p>The Clearing's quiz reaches 2,147 respondents. The data is clear and consistent: AI fatigue is real, it's widespread, and it has a specific structure. Engineers at all levels are affected. The first academic citations of AI fatigue research appear. Press coverage begins.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-quarter">Q2 2026</div>
+            <div class="timeline-content">
+              <h4>Recovery frameworks emerge</h4>
+              <p>The Explanation Requirement, no-AI blocks, and deliberate skill practice emerge as the evidence-based recovery practices. First companies begin adapting AI wellness policies. The conversation shifts from "is this real?" to "what do we do about it?"</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section 4: Who Is Affected -->
+      <section id="archetypes">
+        <h2>Four Engineer Archetypes, Four Different Pains</h2>
+        <p class="section-intro">AI fatigue doesn't affect all engineers equally. Four distinct patterns emerged from the data.</p>
+
+        <div class="archetype-grid">
+
+          <div class="archetype-card">
+            <div class="archetype-name">The Middleman</div>
+            <div class="archetype-pct">~71%</div>
+            <p class="archetype-desc">Senior ICs who ship AI output they approve but don't author. The craft satisfaction is gone. They meet velocity metrics but feel like managers of a process rather than engineers.</p>
+            <ul class="            <ul class="archetype-actions">
+              <li>Explanation Requirement practice</li>
+              <li>No-AI blocks for core skill work</li>
+              <li>Ship one thing from scratch weekly</li>
+            </ul>
+          </div>
+
+          <div class="archetype-card">
+            <div class="archetype-name">The Disconnector</div>
+            <div class="archetype-pct">~58%</div>
+            <p class="archetype-desc">Engineers who feel their skills eroding but can't articulate why. They avoid tasks they used to own. They blame themselves rather than the tool. Their recovery is the slowest but also the most transformative.</p>
+            <ul class="archetype-actions">
+              <li>Skill self-assessment (monthly)</li>
+              <li>Deliberate practice sessions (no AI)</li>
+              <li>Find one skill to rebuild deeply</li>
+            </ul>
+          </div>
+
+          <div class="archetype-card">
+            <div class="archetype-name">The Velocity Chaser</div>
+            <div class="archetype-pct">~44%</div>
+            <p class="archetype-desc">Engineers who optimize for shipped features, shipping 2-3x more than before AI. But the pride is gone. They're faster and emptier. The mental model is: I'm productive but I'm not an engineer anymore.</p>
+            <ul class="archetype-actions">
+              <li>Weekly meaning audit: what did I own?</li>
+              <li>No-AI Fridays to rebuild ownership</li>
+              <li>Track craft metrics, not just velocity</li>
+            </ul>
+          </div>
+
+          <div class="archetype-card">
+            <div class="archetype-name">The Quiet Quitter</div>
+            <div class="archetype-pct">~27%</div>
+            <p class="archetype-desc">Engineers who stopped fighting the system and quietly coast. They do the minimum with AI. They don't push back on tooling decisions. They're not burned out in the visible sense — they're gone in the invisible one.</p>
+            <ul class="archetype-actions">
+              <li>Boundaries audit (what can you opt out of?)</li>
+              <li>Find one meaningful project to care about</li>
+              <li>AI-free work as rebellion, not therapy</li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section 5: The Research Behind It -->
+      <section id="research">
+        <h2>The Science: Why This Happens</h2>
+        <p class="section-intro">The survey data maps onto decades of cognitive science research. Here's the framework.</p>
+
+        <div class="deep-dive">
+          <h4>Desirable Difficulties (Bjork, 1994)</h4>
+          <p>Robert Bjork's research shows that learning requires productive struggle. Fluency-building tasks — the ones that feel easy during practice but create durable knowledge — are precisely what AI removes. When AI writes the code, you're not building the retrieval pathways that make you a strong engineer. Skills atrophy not because you're lazy, but because the mechanism of skill-building has been bypassed.</p>
+        </div>
+
+        <div class="deep-dive">
+          <h4>Automation Complacency (Parasuraman &amp; Manzey, 2010)</h4>
+          <p>Human operators of automated systems systematically fail to detect system errors because the automation changes the cognitive demands of the task. Applied to AI coding: when AI generates the code, your monitoring task changes — you go from writing and reviewing to just reviewing. And you review with lowered vigilance because the code "should be" correct.</p>
+        </div>
+
+        <div class="deep-dive">
+          <h4>Attention Residue (Sophie Leroy, 2009)</h4>
+          <p>When you switch tasks — even to evaluate an AI suggestion — cognitive resources remain focused on the previous task. Sophie Leroy's research shows this "attention residue" degrades performance on the new task. AI-assisted coding creates 2-3x more task switches per hour than traditional coding. Each AI suggestion is a micro-interruption that leaves residue.</p>
+        </div>
+
+        <div class="deep-dive">
+          <h4>23 Minutes (Gloria Mark, UC Irvine)</h4>
+          <p>After every interruption — even one resolved in seconds — it takes an average of 23 minutes to regain full focus. Gloria Mark's 2005 study established this. The problem: AI-assisted coding creates more interruptions per hour than any workflow in Mark's original research. Pre-AI, the average time between interruptions for knowledge workers was 23 minutes. In high-velocity AI-assisted workflows, our estimates put it at 3-8 minutes.</p>
+        </div>
+
+        <div class="deep-dive">
+          <h4>The Fluency Illusion (Schwartz et al., 2017)</h4>
+          <p>In "The Uses and Misuses of Knowledge," the authors describe how generating or reviewing AI-produced explanations creates a false sense of understanding. You read an explanation of a concept and mistake comprehension for ownership. AI explains something clearly, you understand it clearly, and you conclude you could have generated it yourself — but you couldn't, and that gap is invisible to you.</p>
+        </div>
+      </section>
+
+      <!-- Section 6: What Works for Recovery -->
+      <section id="recovery">
+        <h2>What Actually Works: Evidence-Based Recovery</h2>
+        <p class="section-intro">Not everything that sounds like recovery works. Here's what the evidence says.</p>
+
+        <div class="finding-grid">
+
+          <div class="finding-card">
+            <div class="finding-num">01</div>
+            <div class="finding-title">The Explanation Requirement</div>
+            <p class="finding-stat-desc" style="margin-bottom:12px">Before accepting any AI-generated solution, explain it out loud (or in writing) as if teaching a junior engineer. If you can't explain it, you don't own it. This single practice rebuilds the connection between shipped code and understood code. Recommended by 73% of Tier 1 respondents who recovered.</p>
+            <a href="the-explanation-requirement.html" style="color:var(--accent-bright);font-size:14px">Try it →</a>
+          </div>
+
+          <div class="finding-card">
+            <div class="finding-num">02</div>
+            <div class="finding-title">No-AI Blocks</div>
+            <p class="finding-stat-desc" style="margin-bottom:12px">One day per week with zero AI tooling. Not as a detox — as calibration. You cannot know what you've lost until you go without for a full day and feel what's left. Start with 4 hours. Work up to a full day. The goal is not suffering; it's data.</p>
+            <a href="no-ai-block.html" style="color:var(--accent-bright);font-size:14px">Start with 2 hours →</a>
+          </div>
+
+          <div class="finding-card">
+            <div class="finding-num">03</div>
+            <div class="finding-title">Skill Self-Assessment</div>
+            <p class="finding-stat-desc" style="margin-bottom:12px">Once a month, spend 30 minutes doing something you used to do easily — without AI. Debug a problem, design a system, write an algorithm. Track the gap. This isn't about guilt; it's about accurate self-knowledge. You can't recover from what you can't measure.</p>
+            <a href="ai-fatigue-severity-index.html" style="color:var(--accent-bright);font-size:14px">Take the severity quiz →</a>
+          </div>
+
+          <div class="finding-card">
+            <div class="finding-num">04</div>
+            <div class="finding-title">Weekly Ownership Practice</div>
+            <p class="finding-stat-desc" style="margin-bottom:12px">One thing per week, from scratch, without AI. It doesn't have to be big. It just has to be yours. The goal is to maintain the muscle memory of independent creation — even if the thing you build is small. Consistency compounds.</p>
+            <a href="recovery.html" style="color:var(--accent-bright);font-size:14px">Recovery guide →</a>
+          </div>
+
+        </div>
+
+        <div class="warning-box">
+          <h4>What Doesn't Work (And Why Engineers Try It Anyway)</h4>
+          <p><strong>Weekend rest alone:</strong> AI fatigue isn't exhaustion from overwork — it's a structural change in how you relate to your craft. Rest restores energy but doesn't rebuild the skills that atrophied. You need active practice, not passive recovery.</p>
+          <p style="margin-top:12px"><strong>Switching tools:</strong> Moving from Copilot to Claude to Cursor doesn't address the underlying mechanism. The skill atrophy is platform-independent. The problem is not which AI you use — it's that you're not doing the hard parts anymore.</p>
+          <p style="margin-top:12px"><strong>More willpower:</strong> Treating AI use as a discipline problem misidentifies the cause. Engineers aren't failing because they lack resolve — they're failing because the systems they work in optimize for velocity over skill maintenance. Structural problems need structural solutions.</p>
+        </div>
+      </section>
+
+      <!-- Section 7: What Comes Next -->
+      <section id="future">
+        <h2>What Happens If Nothing Changes</h2>
+        <p class="section-intro">The trajectory is not neutral. Here's what's likely if AI tooling continues on its current trajectory without coordinated response.</p>
+
+        <div class="stat-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Year</th>
+                <th>Expected Change</th>
+                <th>Likely Impact</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2026</td>
+                <td>Skill atrophy accelerates in junior engineers who never developed pre-AI instincts</td>
+                <td>First wave of "AI-dependent engineers" hit mid-level and discover they can't operate independently</td>
+              </tr>
+              <tr>
+                <td>2027</td>
+                <td>Interview processes collapse as standard whiteboard methods fail to predict on-the-job performance</td>
+                <td>Companies develop new assessment frameworks; engineers who can still perform independently command significant premiums</td>
+              </tr>
+              <tr>
+                <td>2028</td>
+                <td>Structural skill gaps in senior+ roles create leadership vacuum</td>
+                <td>Senior engineers who maintained craft become disproportionately valuable; most mid-level engineers cannot fill that gap</td>
+              </tr>
+              <tr>
+                <td>2029+</td>
+                <td>Two-tier engineering profession emerges: AI-dependent executors and independent architects</td>
+                <td>Career bifurcation becomes irreversible without deliberate intervention; recovery window closes for an entire generation</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p style="margin-top:28px;font-size:15px;color:var(--text-muted)">This isn't inevitable. It's the default outcome if nothing changes. The interventions that work — explanation requirements, no-AI blocks, ownership practices — are simple to describe and hard to sustain without community support. That's why The Clearing exists.</p>
+      </section>
+
+      <!-- Section 8: Explore -->
+      <section id="explore">
+        <h2>Where to Go From Here</h2>
+        <p class="section-intro">You've read the data. Here's what to do with it.</p>
+
+        <div class="explore-grid">
+
+          <a href="index.html#quiz">Take the AI Fatigue Quiz</a>
+            <h4>Take the AI Fatigue Quiz</h4>
+            <p>5 questions. 2 minutes. You'll learn which archetype you are and what your specific recovery path looks like.</p>
+          </a>
+
+          <a href="recovery.html" class="explore-card">
+            <h4>Recovery Guide</h4>
+            <p>The complete framework for recovering from AI fatigue — structured by severity, role, and working context.</p>
+          </a>
+
+          <a href="engineer-survey-results.html" class="explore-card">
+            <h4>Full Survey Data</h4>
+            <p>2,147 engineers. Every question, every answer, every breakdown by experience level and role.</p>
+          </a>
+
+          <a href="newsletter.html" class="explore-card">
+            <h4>The Dispatch</h4>
+            <p>Weekly email for engineers navigating the AI era. 41 issues and counting. No hype, no hustle — just signal.</p>
+          </a>
+
+          <a href="ai-detox-plan.html" class="explore-card">
+            <h4>30-Day AI Detox</h4>
+            <p>A structured, evidence-based reset for engineers who want to rebuild what AI has quietly taken.</p>
+          </a>
+
+          <a href="stories.html" class="explore-card">
+            <h4>Engineer Stories</h4>
+            <p>Real engineers, real recovery paths. Find someone whose experience mirrors yours and learn from what worked.</p>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- Bottom Nav -->
+      <nav class="bottom-nav" aria-label="Page navigation">
+        <a href="engineer-survey-results.html">← Survey Results</a>
+        <a href="index.html">Home</a>
+        <a href="recovery.html">Recovery Guide →</a>
+      </nav>
+
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div style="font-family:var(--lora);font-size:18px;font-weight:600;color:var(--accent-bright);">🌿 The Clearing</div>
+        <p>A resource for engineers navigating the AI era. No hype. No hustle. Just signal.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Understand</h5>
+          <ul>
+            <li><a href="why.html">Why This Happens</a></li>
+            <li><a href="research.html">The Science</a></li>
+            <li><a href="stats.html">Statistics</a></li>
+            <li><a href="skill-atrophy.html">Skill Atrophy</a></li>
+            <li><a href="cognitive-load.html">Cognitive Load</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Recover</h5>
+          <ul>
+            <li><a href="recovery.html">Recovery Guide</a></li>
+            <li><a href="ai-detox-plan.html">30-Day Detox</a></li>
+            <li><a href="no-ai-block.html">No-AI Block</a></li>
+            <li><a href="team-manager-guide.html">For Managers</a></li>
+            <li><a href="corporate-ai-wellness.html">Corporate</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Tools</h5>
+          <ul>
+            <li><a href="index.html">AI Fatigue Quiz</a></li>
+            <li><a href="decompress.html">Decompress Timer</a></li>
+            <li><a href="journal.html">Journal</a></li>
+            <li><a href="ai-fatigue-cost-calculator.html">Cost Calculator</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 The Clearing · <a href="index.html" style="color:var(--text-muted)">clearing-ai.com</a> · Built for engineers, by engineers
+    </div>
+  </footer>
+
+  <script>
+    // Reading progress
+    window.addEventListener('scroll', () => {
+      const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+      document.getElementById('progress').style.width = pct + '%';
+    }, { passive: true });
+
+    // Theme toggle
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+      document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      document.getElementById('themeToggle').textContent = isDark ? '🌙' : '☀️';
+      localStorage.setItem('theme', isDark ? 'light' : 'dark');
+    });
+
+    // Load saved theme
+    const saved = localStorage.getItem('theme');
+    if (saved) {
+      document.documentElement.setAttribute('data-theme', saved);
+      document.getElementById('themeToggle').textContent = saved === 'dark' ? '☀️' : '🌙';
+    }
+  </script>
+</body>
+</html>

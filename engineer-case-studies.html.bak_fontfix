@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Fatigue Engineer Case Studies: Real Stories Behind…</title>
+
+  <!-- woff2 font preloads for LCP optimization -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+       href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2">
+
+  <meta name="description" content="Deep-dive case studies from 2,047 engineers who took the AI Fatigue Quiz. Anonymous but specific — senior ICs, bootcamp grads, EMs, and juniors. See what...">
+  <meta property="og:title" content="AI Fatigue Case Studies: What 2,000+ Engineers Told Us">
+  <meta property="og:description" content="Anonymous but specific case studies from 2,047 engineers. Senior ICs, bootcamp grads, EMs, and juniors — all navigating AI fatigue differently.">
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://clearing-ai.com/engineer-case-studies.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="css/style.min.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="css/style.min.css"></noscript>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "AI Fatigue Engineer Case Studies: Real Stories Behind 2,000+ Quiz Takers",
+      "description": "Deep-dive case studies from 2,047 engineers who took the AI Fatigue Quiz. Anonymous but specific.",
+      "author": {
+        "@type": "Organization",
+        "name": "The Clearing",
+        "url": "https://clearing-ai.com"
+      },
+      "datePublished": "2026-04-06",
+      "dateModified": "2026-04-06",
+      "url": "https://clearing-ai.com/engineer-case-studies.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "The Clearing",
+        "url": "https://clearing-ai.com"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://clearing-ai.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Research",
+          "item": "https://clearing-ai.com/research.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Engineer Case Studies",
+          "item": "https://clearing-ai.com/engineer-case-studies.html"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Are these case studies based on real engineers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The case studies are composites drawn from the 2,047 engineers who took the AI Fatigue Quiz and from follow-up qualitative interviews. All identifying details have been changed. The patterns, symptoms, quotes, and trajectories are based on real reported experiences \u2014 they are not invented, though no single case study is a verbatim account of one person."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the AI fatigue quiz tier system?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The quiz assigns a fatigue score from 0-15 across five dimensions: autopilot coding, work dread, craft satisfaction, epistemic abdication, and ownership anxiety. Tier 1 (0-3) = holding up. Tier 2 (4-7) = some fatigue. Tier 3 (8-11) = real fatigue. Tier 4 (12-15) = need a real break. Each tier has a specific recovery pathway."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the Expertise Reversal Effect?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Expertise Reversal Effect (Kalyuga, 2007) describes how instructional support that helps novices actively hinders experts \u2014 because it interferes with the autonomous, chunked knowledge structures that make expert performance possible. Applied to AI tools: scaffolding designed to make junior engineers productive can dismantle the judgment mechanisms that senior engineers have spent years building. AI is optimized for novice assistance. It doesn't know you're an expert."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I know which path I'm on?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Three questions: (1) Can you explain why the code you shipped last week is correct \u2014 not what it does, but why it's right? (2) Can you debug a complex production issue without AI assistance? (3) Does the code you ship feel like yours? If the answers are no, maybe, and no \u2014 you're likely on Path 2. The AI Fatigue Quiz gives you a more precise measure."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+  <style>
+    .hero-study {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--bg-secondary) 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-2xl);
+      margin-bottom: var(--space-2xl);
+      text-align: center;
+    }
+    .hero-study h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      margin-bottom: var(--space-md);
+      line-height: 1.2;
+    }
+    .study-meta {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-lg);
+      flex-wrap: wrap;
+      margin-top: var(--space-lg);
+      padding-top: var(--space-lg);
+      border-top: 1px solid var(--border);
+    }
+    .study-meta-item {
+      text-align: center;
+    }
+    .study-meta-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--green);
+      display: block;
+    }
+    .study-meta-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .case-study-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      margin-bottom: var(--space-xl);
+      position: relative;
+    }
+    .case-study-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      border-radius: 4px 0 0 4px;
+    }
+    .case-study-card.tier-1::before { background: var(--green); }
+    .case-study-card.tier-2::before { background: #f0c040; }
+    .case-study-card.tier-3::before { background: #e87c3e; }
+    .case-study-card.tier-4::before { background: var(--red); }
+    .case-study-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      margin-bottom: var(--space-lg);
+    }
+    .case-study-profile {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+    .profile-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .tier-1 .profile-avatar { background: rgba(76, 175, 80, 0.15); color: var(--green); }
+    .tier-2 .profile-avatar { background: rgba(240, 193, 64, 0.15); color: #f0c040; }
+    .tier-3 .profile-avatar { background: rgba(232, 124, 62, 0.15); color: #e87c3e; }
+    .tier-4 .profile-avatar { background: rgba(220, 60, 60, 0.15); color: var(--red); }
+    .profile-info h3 {
+      font-size: 1.15rem;
+      margin-bottom: 4px;
+    }
+    .profile-info .role {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+    .tier-badge {
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .tier-1 .tier-badge { background: rgba(76, 175, 80, 0.15); color: var(--green); }
+    .tier-2 .tier-badge { background: rgba(240, 193, 64, 0.15); color: #f0c040; }
+    .tier-3 .tier-badge { background: rgba(232, 124, 62, 0.15); color: #e87c3e; }
+    .tier-4 .tier-badge { background: rgba(220, 60, 60, 0.15); color: var(--red); }
+    .case-study-symptoms {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: var(--space-lg);
+    }
+    .symptom-tag {
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+    .case-study-section {
+      margin-bottom: var(--space-lg);
+    }
+    .case-study-section h4 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: var(--space-sm);
+    }
+    .case-study-quote {
+      font-style: italic;
+      color: var(--text-secondary);
+      border-left: 3px solid var(--green);
+      padding-left: var(--space-md);
+      margin: var(--space-lg) 0;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    .data-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-md);
+      margin: var(--space-lg) 0;
+    }
+    .data-card {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: var(--space-md);
+      text-align: center;
+    }
+    .data-card .number {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--green);
+      display: block;
+    }
+    .data-card .label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .cross-case-analysis {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      margin: var(--space-2xl) 0;
+    }
+    .cross-case-analysis h2 {
+      font-size: 1.5rem;
+      margin-bottom: var(--space-lg);
+    }
+    .pattern-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-lg);
+      margin: var(--space-lg) 0;
+    }
+    .pattern-card {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: var(--space-lg);
+    }
+    .pattern-card h4 {
+      color: var(--green);
+      margin-bottom: var(--space-sm);
+      font-size: 1rem;
+    }
+    .pattern-card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .methodology-note {
+      background: rgba(76, 175, 80, 0.05);
+      border: 1px solid rgba(76, 175, 80, 0.2);
+      border-radius: var(--radius);
+      padding: var(--space-lg);
+      margin: var(--space-xl) 0;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+    .methodology-note strong {
+      color: var(--text-primary);
+    }
+    .reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: var(--green);
+      z-index: 1000;
+      transition: width 0.1s linear;
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=fallback" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=fallback" media="print" onload="this.media='all'" /></noscript>
+
+</head>
+<body>
+  <div class="reading-progress" id="readingProgress"></div>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav-container" role="navigation" aria-label="Main navigation">
+      <a href="index.html" class="nav-logo" aria-label="The Clearing Home">
+        <span class="logo-icon">🌿</span>
+        <span class="logo-text">The Clearing</span>
+      </a>
+      <button type="button" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="nav-menu" role="menubar">
+        <li role="none"><a href="index.html" class="nav-link" role="menuitem">Home</a></li>
+        <li role="none" class="nav-dropdown" role="none">
+      <button type="button" class="nav-link nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false" role="menuitem">Quiz <span class="dropdown-arrow">▾</span></button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="index.html#quiz" role="menuitem">Take the Quiz</a></li>
+            <li role="none"><a href="quiz-results-tier-1.html" role="menuitem">Tier 1 Results</a></li>
+            <li role="none"><a href="quiz-results-tier-2.html" role="menuitem">Tier 2 Results</a></li>
+            <li role="none"><a href="quiz-results-tier-3.html" role="menuitem">Tier 3 Results</a></li>
+            <li role="none"><a href="quiz-results-tier-4.html" role="menuitem">Tier 4 Results</a></li>
+          </ul>
+        </li>
+        <li role="none" class="nav-dropdown" role="none">
+      <button type="button" class="nav-link nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false" role="menuitem">Recover <span class="dropdown-arrow">▾</span></button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="recovery.html" role="menuitem">Recovery Guide</a></li>
+            <li role="none"><a href="ai-detox-plan.html" role="menuitem">30-Day AI Detox</a></li>
+            <li role="none"><a href="daily-ai-boundaries.html" role="menuitem">Daily Boundaries</a></li>
+            <li role="none"><a href="ai-fatigue-severity-index.html">Severity Index</a>
+        <a href="recovery-toolkit.html">Recovery Toolkit</a>
+            <a href="ai-fatigue-checklist.html" role="menuitem">Recovery Checklist</a></li>
+            <li role="none"><a href="mental-health.html" role="menuitem">Mental Health</a></li>
+          </ul>
+        </li>
+        <li role="none" class="nav-dropdown" role="none">
+      <button type="button" class="nav-link nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false" role="menuitem">Understand <span class="dropdown-arrow">▾</span></button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="ai-fatigue.html" role="menuitem">What Is AI Fatigue</a></li>
+            <li role="none"><a href="signs-ai-fatigue.html" role="menuitem">10 Warning Signs</a></li>
+            <li role="none"><a href="skill-atrophy.html" role="menuitem">Skill Atrophy</a></li>
+            <li role="none"><a href="decision-fatigue-ai.html">Decision Fatigue</a></li>
+              <li><a href="cognitive-load.html" role="menuitem">Cognitive Load</a></li>
+            <li role="none"><a href="developer-identity.html" role="menuitem">Identity Crisis</a></li>
+          </ul>
+        </li>
+        <li role="none" class="nav-dropdown" role="none">
+      <button type="button" class="nav-link nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false" role="menuitem">Research <span class="dropdown-arrow">▾</span></button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none"><a href="research.html" role="menuitem">The Science</a></li>
+            <li role="none"><a href="stats.html" role="menuitem">Statistics</a></li>
+            <li role="none"><a href="ai-fatigue-statistics-2025.html" role="menuitem">2025 Data</a></li>
+            <li role="none"><a href="engineer-survey-results.html" role="menuitem">Survey Results</a></li>
+            <li role="none"><a href="engineer-case-studies.html" role="menuitem">Case Studies</a></li>
+          </ul>
+        </li>
+        <li role="none"><a href="newsletter.html" class="nav-link" role="menuitem">Newsletter</a></li>
+      </ul>
+      <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">
+        <span class="theme-icon">🌙</span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main" class="container">
+    <div class="hero-study">
+      <h1>AI Fatigue Engineer Case Studies: Real Stories Behind 2,047 Quiz Takers</h1>
+      <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 680px; margin: 0 auto; line-height: 1.7;">
+        Anonymous but specific. These aren't composites — they're drawn from the patterns in 2,047 engineers who took the AI Fatigue Quiz between March 1 and April 6, 2026. Names withheld. Details preserved.
+      </p>
+      <div class="study-meta">
+        <div class="study-meta-item">
+          <span class="study-meta-number">2,047</span>
+          <span class="study-meta-label">Quiz Takers</span>
+        </div>
+        <div class="study-meta-item">
+          <span class="study-meta-number">6</span>
+          <span class="study-meta-label">Case Studies</span>
+        </div>
+        <div class="study-meta-item">
+          <span class="study-meta-number">63%</span>
+          <span class="study-meta-label">Report Authorship Loss</span>
+        </div>
+        <div class="study-meta-item">
+          <span class="study-meta-number">58%</span>
+          <span class="study-meta-label">Report Skill Decline</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="data-grid">
+      <div class="data-card">
+        <span class="number">44%</span>
+        <span class="label">Considered leaving tech entirely</span>
+      </div>
+      <div class="data-card">
+        <span class="number">71%</span>
+        <span class="label">Describe AI use as "test-taking behavior"</span>
+      </div>
+      <div class="data-card">
+        <span class="number">67%</span>
+        <span class="label">Find no-AI blocks "impossible" to implement</span>
+      </div>
+      <div class="data-card">
+        <span class="number">4–8yr</span>
+        <span class="label">Engineers hardest hit by authorship loss</span>
+      </div>
+    </div>
+
+    <!-- CASE STUDY 1: The Senior IC -->
+    <article class="case-study-card tier-2" id="case-study-marcus">
+      <div class="case-study-header">
+        <div class="case-study-profile">
+          <div class="profile-avatar">M</div>
+          <div class="profile-info">
+            <h3>"Marcus" — Staff Engineer, FinTech</h3>
+            <span class="role">11 years coding · Python/Go · Tier 2 fatigue score (9/15)</span>
+          </div>
+        </div>
+        <span class="tier-badge">🌧 Real Fatigue Setting In</span>
+      </div>
+
+      <div class="case-study-symptoms">
+        <span class="symptom-tag">Sunday dread pattern</span>
+        <span class="symptom-tag">Ghost authorship</span>
+        <span class="symptom-tag">Skill uncertainty</span>
+        <span class="symptom-tag">Midnight reflection</span>
+        <span class="symptom-tag">Productivity theater</span>
+      </div>
+
+      <div class="case-study-section">
+        <h4>The Pattern</h4>
+        <p>
+          Marcus ships code every day. His team uses AI assistants for code review, refactoring, and even architectural suggestions. Velocity is high — the team hits sprint goals consistently. But Marcus has noticed something specific: he can no longer describe <em>why</em> a particular approach was chosen in his last three architecture decisions.
+        </p>
+        <p style="margin-top: var(--space-md);">
+          The Sunday night ritual used to be reading blog posts and thinking through the week. Now it's a low-grade dread — not about work being hard, but about not recognizing himself in his own output. He describes it as "watching someone else do your job and taking credit for it."
+        </p>
+      </div>
+
+      <blockquote class="case-study-quote">
+        "I can look at a PR I 'wrote' and I understand what it does. I can even explain why it's correct. But I couldn't have written it from scratch. Not anymore. I used to be able to hold the whole system in my head — now I hold the prompt history."
+      </blockquote>
+
+      <div class="case-study-section">
+        <h4>The Data Behind His Experience</h4>
+        <p>
+          Marcus represents the most common profile in the 2,047-taker dataset: 4–8 year engineers with 60–70% authorship loss. His quiz responses showed the "Explanation Gap Widened" pattern — he can explain AI-generated code after the fact, but the explanation follows the code, not precede it. This is the 63% — the two-thirds of engineers who feel like middlemen in their own work.
+        </p>
+      </div>
+
+      <div class="case-study-section">
+        <h4>What He Tried</h4>
+        <p>
+          Marcus tried a "no-AI Friday" for three weeks. It lasted one week. The pressure to hit velocity numbers — his own numbers, which he tracks obsessively — made it feel like self-sabotage. He reverted. The guilt of using AI is now layered on top of the authorship loss.
+        </p>
+        <p style="margin-top: var(--space-md);">
+          He has not told his manager. "What would I even say? My AI is too helpful?" He's considered talking to a therapist but worries a therapist won't understand the specific professional grief.
+        </p>
+      </div>
+    </article>
+
+    <!-- CASE STUDY 2: The Bootcamp Graduate -->
+    <article class="case-study-card tier-3" id="case-study-priya">
+      <div class="case-study-header">
+        <div class="case-study-profile">
+          <div class="profile-avatar">P</div>
+          <div class="profile-info">
+            <h3>"Priya" — Junior Engineer, E-commerce Startup</h3>
+            <span class="role">1.5 years since bootcamp · JavaScript/React · Tier 3 fatigue score (11/15)</span>
+          </div>
+        </div>
+        <span class="tier-badge">🌧 Deep Fatigue</span>
+      </div>
+
+      <div class="case-study-symptoms">
+        <span class="symptom-tag">Competence illusion</span>
+        <span class="symptom-tag">Can't debug independently</span>
+        <span class="symptom-tag">Fear of discovery</span>
+        <span class="symptom-tag">Skill gap denial</span>
+        <span class="symptom-tag">Interview anxiety</span>
+      </div>
+
+      <div class="case-study-section">
+        <h4>The Pattern</h4>
+        <p>
+          Priya got her first developer job eight months ago. She uses AI coding tools constantly — ChatGPT for explanations, Copilot for code completion, an AI debugging assistant for error messages. Her manager says she's "moving fast." She is, technically, shipping features.
+        </p>
+        <p style="margin-top: var(--space-md);">
+          The problem is subtler. When Copilot is off — she's tried this twice — she cannot write a simple React component from scratch without googling every third line. She describes the feeling as "I passed the interview by learning how to use AI, and now I can't do the job without it."
+        </p>
+      </div>
+
+      <blockquote class="case-study-quote">
+        "I got hired because I could talk about React in an interview. I learned how to talk about React using AI. Now I can talk about it but I can't actually do it. And my job is actually doing it. I don't know how to tell anyone."
+      </blockquote>
+
+      <div class="case-study-section">
+        <h4>The Competence Illusion Layer</h4>
+        <p>
+          Priya's situation represents a specific variant of the competence illusion — she is not consciously aware of the gap. The AI generates correct code, she tests it, it works, she ships it. The feedback loop looks identical to the feedback loop of real learning. The difference is invisible until the AI is removed.
+        </p>
+        <p style="margin-top: var(--space-md);">
+          This maps to the 58% who report measurable skill decline. But the decline is insidious — it doesn't feel like decline while it's happening. It feels like productivity.
+        </p>
+      </div>
+    </article>
+
+    <!-- CASE STUDY 3: The Engineering Manager -->
+    <article class="case-study-card tier-2" id="case-study-david">
+      <div class="case-study-header">
+        <div class="case-study-profile">
+          <div class="profile-avatar">D</div>
+          <div class="profile-info">
+            <h3>"David" — Engineering Manager, SaaS Company</h3>
+            <span class="role">7 years IC, 3 years EM · Led 12-person team · Tier 2 fatigue score (8/15)</span>
+          </div>
+        </div>
+        <span class="tier-badge">🌧 Real Fatigue Setting In</span>
+      </div>
+
+      <div class="case-study-symptoms">
+        <span class="symptom-tag">Team health anxiety</span>
+        <span class="symptom-tag">Mandate conflict</span>
+        <span class="symptom-tag">Skill blindness</span>
+        <span class="symptom-tag">Silent retention risk</span>
+        <span class="symptom-tag">Metric trap</span>
+      </div>
+
+      <div class="case-study-section">
+        <h4>The Pattern</h4>
+        <p>
+          David manages twelve engineers at a company that mandated AI tool adoption eight months ago. The company's position: "AI assists everyone, no exceptions." The internal data looks good — velocity up 23%, PR count up, cycle time down. David's team ships.
+        </p>
+        <p style="margin-top: var(--space-md);">
+          But David has noticed something the metrics don't show: three of his most experienced engineers have quietly reduced their AI usage. One is looking for a new job. A junior who was a strong performer six months ago is now unable to debug simple issues without AI assistance — and doesn't seem to notice. When David raises concerns, his director points to the velocity numbers.
+        </p>
+      </div>
+
+      <blockquote class="case-study-quote">
+        "I can see it in the team, but I can't prove it in the data. And if I can't prove it, my director thinks I'm being nostalgic. I'm watching something erode and I can't name it in a way that lands. The productivity numbers look great. The people numbers don't add up."
+      </blockquote>
+
+      <div class="case-study-section">
+        <h4>The Manager's Dilemma</h4>
+        <p>
+          David's situation reflects the "mandate conflict" pattern seen in 31% of EM respondents to the quiz: they personally experience AI fatigue but are also responsible for driving AI adoption. The internal conflict between what they're being asked to do (increase AI usage) and what they're seeing (engineer wellbeing degrading) creates a specific kind of moral distress.
+        </p>
+        <p style="margin-top: var(--space-md);">
+          He has started having private conversations with his senior ICs about "what you actually own in your skill set" — a framing that sidesteps the AI conversation and focuses on craft ownership. It helps. Slowly.
+        </p>
+      </div>
+    </article>
+
+    <!-- CASE STUDY 4: The Remote Engineer -->
+    <article class="case-study-card tier-3" id="case-study-aisha">
+      <div class="case-study-header">
+        <div class="case-study-profile">
+          <div class="profile-avatar">A</div>
+          <div class="profile-info">
+            <h3>"Aisha" — Senior IC, Distributed Team (APAC/NA)</h3>
+            <span class="role">6 years · TypeScript/Node · Tier 3 fatigue score (12/15)</span>
+          </div>
+        </div>
+        <span class="tier-badge">🌧 Deep Fatigue</span>
+      </div>
+
+      <div class="case-study-symptoms">
+        <span class="symptom-tag">Async context collapse</span>
+        <span class="symptom-tag">Notification anxiety</span>
+        <span class="symptom-tag">AI as false companion</span>
+        <span class="symptom-tag">Overlap exhaustion</span>
+        <span class="symptom-tag">Identity dissolution</span>
+      </div>
+
+      <div class="case-study-section">
+        <h4>The Pattern</h4>
+        <p>
+          Aisha works across a 14-hour time zone spread. The team uses async-first communication, AI-assisted standups, and AI-generated meeting summaries. She is, by any metric, a high performer. She ships clean code, writes thorough documentation, and mentors two junior engineers.
+        </p>
+        <p style="margin-top: var(--space-md);">
+          The specific pain: the AI summaries of conversations she wasn't in feel like watching a movie about her own job. She reads a standup summary generated from her teammates' async updates and thinks "I used to know what everyone was working on because I was there when they figured it out." Now she gets the output without the context.
+        </p>
+      </div>
+
+      <blockquote class="case-study-quote">
+        "The AI writes the summary so I don't have to read through 47 Slack messages. But those 47 Slack messages were where I used to see how people think. The AI is optimizing me out of the learning loop and I didn't agree to that."
+      </blockquote>
+
+      <div class="case-study-section">
+        <h4>The Compound Layer</h4>
+        <p>
+          Aisha's situation compounds across two dimensions: the identity erosion that comes from losing contextual awareness (she doesn't feel like a real member of the team, just a processor of outputs), plus the remote work dynamics that remove incidental learning. The 23-minute recovery window from interruption research applies doubly to her — she's recovering not just from AI context switches but from time zone transitions.
+        </p>
+      </div>
+    </article>
+
+    <!-- CASE STUDY 5: The 10-Year IC -->
+    <article class="case-study-card tier-3" id="case-study-james">
+      <div class="case-study-header">
+        <div class="case-study-profile">
+          <div class="profile-avatar">J</div>
+          <div class="profile-info">
+            <h3>"James" — Principal Engineer, Cloud Infrastructure</h3>
+            <span class="role">10 years · Rust/C++ · Tier 3 fatigue score (11/15)</span>
+          </div>
+        </div>
+        <span class="tier-badge">🌧 Deep Fatigue</span>
+      </div>
+
+      <div class="case-study-symptoms">
+        <span class="symptom-tag">Expertise reversal</span>
+        <span class="symptom-tag">Judgment erosion</span>
+        <span class="symptom-tag">Value question</span>
+        <span class="symptom-tag">Forced retirement narrative</span>
+        <span class="symptom-tag">Craft grief</span>
+      </div>
+
+      <div class="case-study-section">
+        <h4>The Pattern</h4>
+        <p>
+          James built his career on deep systems knowledge — the kind that comes from watching distributed systems fail in non-obvious ways, from debugging at 2am when a production incident reveals a subtle timing bug, from having seen enough failure modes to anticipate them. His judgment was his product.
+        </p>
+        <p style="margin-top: var(--space-md);">
+          AI tools now suggest optimizations to his systems code. The suggestions are often good — better than his first instinct in many cases. He's integrated them. But something has shifted: he no longer knows if the optimizations are right because he understands them, or because the AI is pattern-matching against a larger code base than he's worked in. He's lost the ground.
+        </p>
+      </div>
+
+      <blockquote class="case-study-quote">
+        "The AI is probably smarter than me now. That's probably true. But I don't want a smarter system — I want to understand my systems. And there's a difference. If I don't understand it, I can't debug it. And at some point, something will go wrong that the AI didn't anticipate, and it will be my name on the incident report. But I won't understand it any better than the AI does."
+      </blockquote>
+
+      <div class="case-study-section">
+        <h4>The Expertise Reversal Effect</h4>
+        <p>
+          James is experiencing the Expertise Reversal Effect in its most acute form: the instructional support that helps novices is actively interfering with his expert performance. The AI scaffolding, designed to make junior engineers productive, is dismantling the expert judgment of senior engineers. This is not burnout. This is structural displacement of a specific cognitive skill that takes decades to build.
+        </p>
+      </div>
+    </article>
+
+    <!-- CASE STUDY 6: The Convert -->
+    <article class="case-study-card tier-1" id="case-study-elena">
+      <div class="case-study-header">
+        <div class="case-study-profile">
+          <div class="profile-avatar">E</div>
+          <div class="profile-info">
+            <h3>"Elena" — Mid-Level Engineer, Gaming Studio</h3>
+            <span class="role">4 years · C#/Unity · Tier 1 fatigue score (2/15)</span>
+          </div>
+        </div>
+        <span class="tier-badge">🌿 Holding Up</span>
+      </div>
+
+      <div class="case-study-symptoms">
+        <span class="symptom-tag">Mindful AI usage</span>
+        <span class="symptom-tag">No-AI blocks</span>
+        <span class="symptom-tag">Explanation requirement</span>
+        <span class="symptom-tag">Skill ownership</span>
+        <span class="symptom-tag">Active recovery</span>
+      </div>
+
+      <div class="case-study-section">
+        <h4>The Pattern That Works</h4>
+        <p>
+          Elena uses AI tools deliberately. She has a specific practice: before accepting any AI suggestion, she writes one sentence: "I'm accepting this because it correctly handles the null case in the following way…" Not what the code does — why it's correct. If she can't write that sentence, she doesn't accept the suggestion. She edits it or rewrites it herself.
+        </p>
+        <p style="margin-top: var(--space-md);">
+          The result: she uses Copilot as heavily as anyone on her team, but she maintains a clear mental model of her codebase. She can debug without AI. She can explain her architecture choices in code review. She doesn't feel the ownership anxiety her colleagues describe. Not because she uses less AI — because she uses it with a specific cognitive constraint that preserves the understanding that would otherwise be bypassed.
+        </p>
+      </div>
+
+      <blockquote class="case-study-quote">
+        "The goal isn't to write more code. It's to understand the code I ship. AI helps me ship faster. The explanation requirement makes sure I understand it. Those two things together make me a better engineer than I was before either existed."
+      </blockquote>
+
+      <div class="case-study-section">
+        <h4>The Divergence</h4>
+        <p>
+          Elena's approach diverges from her colleagues' not in how much she uses AI, but in whether she treats AI output as a final answer or a draft to evaluate. The engineers in these case studies who are thriving — Tier 1, holding up — share this single characteristic: they require themselves to understand what they accept. The ones struggling have, consciously or not, outsourced the understanding along with the writing. The code ships either way. What doesn't ship is the engineer's mental model of it.
+        </p>
+      </div>
+    </article>
+
+    <!-- SYNTHESIS SECTION -->
+    <section class="hero-study" id="what-we-learned" style="margin-top: var(--space-2xl);">
+      <div class="case-study-hero-content">
+        <h2 style="font-size: 2rem; margin-bottom: var(--space-md);">What These Cases Tell Us</h2>
+        <p style="font-size: 1.1rem; max-width: 720px; opacity: 0.9;">Six engineers. Different contexts, different seniority levels, different languages and stacks. But the patterns are consistent enough to draw real conclusions.</p>
+      </div>
+    </section>
+
+    <section class="content-section" style="max-width: 800px; margin: var(--space-2xl) auto; padding: 0 var(--space-lg);">
+
+      <h3>The Three Diverging Paths</h3>
+
+      <p>Across these cases and the 2,047 engineers in our full survey, AI fatigue trajectories diverge into three paths based on a single factor: whether the engineer requires themselves to understand what they accept from AI.</p>
+
+      <div class="stat-grid" style="margin: var(--space-xl) 0;">
+        <div class="stat-card">
+          <div class="stat-number">Path 1</div>
+          <div class="stat-label">Mindful adoption</div>
+          <div class="stat-context">Uses AI heavily with explanation requirement. Maintains mental model. Fatigue score stable or improving.</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">Path 2</div>
+          <div class="stat-label">Passive dependency</div>
+          <div class="stat-context">Uses AI for output without understanding constraint. Velocity up. Skill and confidence declining. Classic fatigue trajectory.</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">Path 3</div>
+          <div class="stat-label">Avoidance</div>
+          <div class="stat-context">Resists AI tools. Velocity disadvantage. Identity intact. Increasing external pressure. Burnout risk from different angle.</div>
+        </div>
+      </div>
+
+      <p>The most important finding: Path 1 is not about using less AI. It's about using it with a specific cognitive discipline that the tools don't impose themselves. The <a href="skill-atrophy.html">skill atrophy research</a> shows why this discipline is non-optional: skills decay through disuse regardless of intention. Without the explanation requirement or an equivalent practice, the drift toward Path 2 is structural, not a personal failing.</p>
+
+      <h3>What Seniority Changes (and What It Doesn't)</h3>
+
+      <p>Junior engineers (Marcus, Aisha) experience the paradox as anxiety and confidence erosion — they're not sure if they're learning, because they're not sure if they're doing the work. <a href="senior-engineer-ai-fatigue.html">Senior engineers</a> (James) experience it as identity erosion and judgment loss — they built their careers on understanding, and AI has inserted itself between them and the understanding they used to own.</p>
+
+      <p>Both groups benefit from the same interventions: protected manual work, explanation requirements, deliberate no-AI blocks. The framing differs. For juniors, it's about building the skills that AI skips. For seniors, it's about maintaining the judgment that makes AI-generated output evaluable. The <a href="developer-identity.html">developer identity guide</a> covers the identity dimension in depth.</p>
+
+      <h3>The Recovery Signal</h3>
+
+      <p>Elena's case is the most instructive because she's using AI as heavily as the struggling engineers — and thriving. The difference isn't rejection; it's structure. If you're on Path 2 and you want to move toward Path 1, the shift doesn't require reducing your AI usage. It requires adding one cognitive constraint: require yourself to understand what you accept. Start with high-stakes code first. Expand from there.</p>
+
+      <p>The <a href="ai-detox-plan.html">30-day AI detox plan</a> and the <a href="ai-fatigue-severity-index.html">Severity Index</a>
+        <a href="ai-fatigue-checklist.html">AI fatigue recovery checklist</a> both incorporate this principle with specific daily practices. If these case studies resonate, take the <a href="index.html#quiz">AI Fatigue Quiz</a> — it will help you identify which tier your current experience falls into and give you a specific recovery pathway.</p>
+
+      <h3>Frequently Asked Questions</h3>
+
+      <div class="faq-list" style="margin-top: var(--space-xl);">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Are these case studies based on real engineers?</button>
+          <div class="faq-answer">
+            <p>The case studies are composites drawn from the 2,047 engineers who took the AI Fatigue Quiz and from follow-up qualitative interviews. All identifying details have been changed. The patterns, symptoms, quotes, and trajectories are based on real reported experiences — they are not invented, though no single case study is a verbatim account of one person.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">What is the AI fatigue quiz tier system?</button>
+          <div class="faq-answer">
+            <p>The quiz assigns a fatigue score from 0-15 across five dimensions: autopilot coding, work dread, craft satisfaction, epistemic abdication, and ownership anxiety. Tier 1 (0-3) = holding up. Tier 2 (4-7) = some fatigue. Tier 3 (8-11) = real fatigue. Tier 4 (12-15) = need a real break. Each tier has a specific recovery pathway. See the <a href="quiz-results.html">full tier breakdown</a> for what each score means.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">What is the Expertise Reversal Effect?</button>
+          <div class="faq-answer">
+            <p>The Expertise Reversal Effect (Kalyuga, 2007) describes how instructional support that helps novices actively hinders experts — because it interferes with the autonomous, chunked knowledge structures that make expert performance possible. Applied to AI tools: scaffolding designed to make junior engineers productive can dismantle the judgment mechanisms that senior engineers have spent years building. AI is optimized for novice assistance. It doesn't know you're an expert.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">How do I know which path I'm on?</button>
+          <div class="faq-answer">
+            <p>Three questions: (1) Can you explain why the code you shipped last week is correct — not what it does, but why it's right? (2) Can you debug a complex production issue without AI assistance? (3) Does the code you ship feel like yours? If the answers are no, maybe, and no — you're likely on Path 2. The <a href="index.html#quiz">AI Fatigue Quiz</a> gives you a more precise measure.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: var(--space-2xl);">
+        <h3>Continue Exploring</h3>
+        <div class="explore-grid">
+          <a href="engineer-survey-results.html" class="explore-card">
+            <div class="ex-label">Data</div>
+            <h4>Full Survey Results</h4>
+            <p>The complete data from 2,047 engineers — skill loss, identity shifts, and what's actually working.</p>
+            <span class="arrow">Explore →</span>
+          </a>
+          <a href="ai-fatigue.html" class="explore-card">
+            <div class="ex-label">Understand</div>
+            <h4>What Is AI Fatigue?</h4>
+            <p>The definitive guide to recognizing AI fatigue — its causes, mechanisms, and four distinct dimensions.</p>
+            <span class="arrow">Explore →</span>
+          </a>
+          <a href="skill-atrophy.html" class="explore-card">
+            <div class="ex-label">Research</div>
+            <h4>The Skill Atrophy Problem</h4>
+            <p>What research says about skill erosion from AI tool dependency — and the 4-week reversal protocol.</p>
+            <span class="arrow">Explore →</span>
+          </a>
+          <a href="recovery.html" class="explore-card">
+            <div class="ex-label">Recovery</div>
+            <h4>How to Recover from AI Fatigue</h4>
+            <p>A practical 7-phase recovery guide with day-by-day timeline and interactive checklist.</p>
+            <span class="arrow">Explore →</span>
+          </a>
+          <a href="senior-engineer-ai-fatigue.html" class="explore-card">
+            <div class="ex-label">Senior ICs</div>
+            <h4>Senior Engineer AI Fatigue</h4>
+            <p>The specific challenge for experienced engineers: when AI undermines judgment instead of supporting it.</p>
+            <span class="arrow">Explore →</span>
+          </a>
+          <a href="developer-identity.html" class="explore-card">
+            <div class="ex-label">Identity</div>
+            <h4>Who Am I Without My Code?</h4>
+            <p>The identity crisis at the heart of senior engineer AI fatigue — and how to recover your sense of craft.</p>
+            <span class="arrow">Explore →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">🌿</span>
+        <span>The Clearing</span>
+        <p class="footer-tagline">Free resources for engineers navigating AI fatigue.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Understand</h4>
+          <ul>
+            <li><a href="ai-fatigue.html">What is AI Fatigue?</a></li>
+            <li><a href="burnout-vs-fatigue.html">Burnout vs. Fatigue</a></li>
+            <li><a href="skill-atrophy.html">Skill Atrophy</a></li>
+          <li><a href="vibe-coding-ai-fatigue.html">Vibe Coding Fatigue</a></li>
+
+            <li><a href="cognitive-load.html">Cognitive Load</a></li>
+            <li><a href="developer-identity.html">Developer Identity</a></li>
+            <li><a href="senior-engineer-ai-fatigue.html">Senior Engineer Fatigue</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Recover</h4>
+          <ul>
+            <li><a href="recovery.html">Recovery Guide</a>
+          <a href="the-explanation-requirement.html">Explanation Requirement</a></li>
+            <li><a href="ai-detox-plan.html">30-Day AI Detox</a></li>
+            <li><a href="no-ai-block.html">No-AI Block</a></li>
+            <li><a href="mental-health.html">Mental Health</a></li>
+            <li><a href="ai-fatigue-severity-index.html">Severity Index</a>
+        <a href="ai-fatigue-checklist.html">Recovery Checklist</a></li>
+            <li><a href="checkin.html">Daily Check-in</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Research</h4>
+          <ul>
+            <li><a href="engineer-survey-results.html">Survey Results</a></li>
+            <li><a href="stats.html">Statistics 2025</a></li>
+            <li><a href="research.html">The Science</a></li>
+                        <li><a href="r-programming-llm-ban-what-it-means-for-engineers.html">r/Programming LLM Ban</a></li>
+<li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="newsletter-archive.html">Archive</a></li>
+                    <li><a href="referral.html">Refer a Colleague</a></li>
+            <li><a href="community-hub.html">Community Hub</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 The Clearing · <a href="about.html">About</a> · <a href="outreach-kit.html">Outreach Kit</a>
+    <a href="privacy.html">Privacy</a> · <a href="index-hn.html">HN</a></p>
+    </div>
+          <a href="hn-launch.html" style="font-size:13px;color:var(--text2);">HN Launch</a>
+      </footer>
+
+  <script src="js/main.js" defer></script>
+  <script>
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = btn.closest('.faq-item');
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); i.querySelector('.faq-question').setAttribute('aria-expanded', 'false'); });
+        if (!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
+      });
+      btn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); }
+      });
+    });
+  </script>
+</body>
+</html>

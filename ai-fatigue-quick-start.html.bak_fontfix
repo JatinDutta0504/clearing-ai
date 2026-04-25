@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Fatigue Quick Start: 3 Tactics to Recover | The Clearing</title>
+  <meta name="description" content="Start here. 3 evidence-based tactics for AI-fatigued engineers — based on your severity tier. No account needed. Jump straight to the tactics.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://clearing-ai.com/ai-fatigue-quick-start.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clearing-ai.com/ai-fatigue-quick-start.html">
+  <meta property="og:title" content="AI Fatigue Quick-Start Guide — 3 Tactics to Start Today">
+  <meta property="og:description" content="3 immediate tactics for AI-fatigued engineers. Take the quiz, find your tier, start today.">
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Fatigue Quick-Start — 3 Tactics for HN Engineers">
+  <meta name="twitter:description" content="Came from HN? Start here. 3 immediate tactics for AI-fatigued engineers.">
+  <meta name="twitter:image" content="https://clearing-ai.com/og-image.png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=fallback" media="print" onload="this.media='all'" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "AI Fatigue Quick-Start Guide",
+    "url": "https://clearing-ai.com/ai-fatigue-quick-start.html",
+    "description": "3 immediate tactics for AI-fatigued engineers. Quick-start guide with triage, newsletter signup, and quiz CTA.",
+    "isPartOf": { "@type": "WebSite", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com" },
+        { "@type": "ListItem", "position": 2, "name": "Quick-Start Guide", "item": "https://clearing-ai.com/ai-fatigue-quick-start.html" }
+      ]
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do I need to take the quiz before using these tactics?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The quiz gives you a severity tier and a personalized next-steps plan, but the tactics on this page work at any tier. If you want to know where you stand, take the 5-question quiz — it takes 90 seconds. If you want to start with the tactics directly, jump in above."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "I'm already in Tier 4 — is this page enough?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This page is a starting point, not a treatment plan. If you're in Tier 4, please read the 30-Day AI Detox Plan and the Recovery Guide. If work is affecting your mental health, sleep, or relationships, consider talking to a manager or a mental health professional. US crisis line: 988."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "I don't have time for a 30-day plan. Is this all I need?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "That's exactly who these tactics are for. Tactic 1 (Explanation Requirement) takes 2 minutes. Tactic 2 (20-Minute Struggle) takes 20 minutes once. Tactic 3 (One Component From Scratch) takes 2 hours this week. The full recovery plan is there when you're ready — or use these 3 as a permanent operating rhythm."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will my manager care if I bring this up?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Some will, some won't — and you know your manager better than I do. If you're in Tier 3 or 4, it's worth having a conversation framed around performance and sustainability rather than fatigue. The Workplace Guide has scripts for talking to managers about AI limits. If your company has an EAP, this is exactly what it's for."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "I'm a manager — can I share this with my team?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The Team Manager Guide is specifically for managers — how to spot AI fatigue in your team, set team-level AI norms, and have conversations that don't compromise authority on either side."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long until I notice a difference?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most engineers report noticing the Explanation Requirement effect within 1–2 weeks. The 20-Minute Struggle Rule takes 3–4 weeks to show measurable results in skill confidence."
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0d0d0d; --surface: #161616; --surface2: #1e1e1e;
+      --border: #2a2a2a; --text: #e8e6e3; --text2: #9a9590;
+      --accent: #5c8c6e; --accent2: #7aab8a; --highlight: #4a7a5e;
+      --warning: #c4956a; --danger: #a65c5c;
+      --radius: 8px; --font: 'Inter', system-ui, sans-serif;
+      --font-serif: 'Lora', Georgia, serif;
+    }
+    [data-theme="light"] {
+      --bg: #f7f4f0; --surface: #ffffff; --surface2: #f0ece6;
+      --border: #ddd8d0; --text: #1a1a1a; --text2: #5c5a56;
+      --accent: #3d6b4a; --accent2: #5c8c6e;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      font-family: var(--font); background: var(--bg); color: var(--text);
+      line-height: 1.6; min-height: 100vh;
+    }
+    a { color: var(--accent2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .skip-link { position: absolute; top: -40px; left: 0; background: var(--accent); color: #fff; padding: 8px 16px; z-index: 100; border-radius: 0 0 4px 0; }
+    .skip-link:focus { top: 0; }
+    header {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 1rem 1.5rem; display: flex; align-items: center;
+      justify-content: space-between; position: sticky; top: 0; z-index: 50;
+    }
+    .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent2); letter-spacing: -0.01em; }
+    .logo:hover { text-decoration: none; }
+    .header-links { display: flex; gap: 1.5rem; align-items: center; }
+    .header-links a { font-size: 0.875rem; color: var(--text2); font-weight: 500; transition: color 0.15s; }
+    .header-links a:hover { color: var(--text); text-decoration: none; }
+    .hero {
+      background: linear-gradient(135deg, #1a2a1a 0%, #0d1a0d 100%);
+      padding: 4rem 1.5rem 3.5rem; text-align: center;
+    }
+    .hero .eyebrow {
+      display: inline-block; font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent2);
+      background: rgba(92, 140, 110, 0.15); border: 1px solid rgba(92, 140, 110, 0.3);
+      padding: 4px 12px; border-radius: 100px; margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-family: var(--font-serif); font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 600; line-height: 1.2; color: var(--text);
+      margin-bottom: 1rem; max-width: 600px; margin-left: auto; margin-right: auto;
+    }
+    .hero .subtitle {
+      font-size: 1.05rem; color: var(--text2); max-width: 480px;
+      margin: 0 auto 1.5rem; line-height: 1.65;
+    }
+    .hero-stats {
+      display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;
+      margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(92, 140, 110, 0.25);
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat .num { font-size: 1.5rem; font-weight: 800; color: var(--accent2); }
+    .hero-stat .label { font-size: 0.75rem; color: var(--text2); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
+    .page-content { padding: 3rem 1.5rem 4rem; }
+    .container { max-width: 680px; margin: 0 auto; }
+    .intro {
+      font-size: 1.05rem; color: var(--text2); line-height: 1.7;
+      margin-bottom: 2.5rem; text-align: center;
+    }
+    .section-label {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent2); margin-bottom: 0.75rem;
+    }
+    h2 {
+      font-family: var(--font-serif); font-size: 1.4rem; font-weight: 600;
+      margin-bottom: 1.25rem; color: var(--text);
+    }
+    /* Triage grid */
+    .triage-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem; margin-bottom: 3rem;
+    }
+    .triage-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.25rem;
+      cursor: pointer; transition: border-color 0.2s, transform 0.2s;
+    }
+    .triage-card:hover, .triage-card.selected {
+      border-color: var(--accent); transform: translateY(-2px);
+    }
+    .triage-card .tier-tag {
+      display: inline-block; font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 8px;
+      border-radius: 100px; margin-bottom: 0.75rem;
+    }
+    .tier-t1 .tier-tag { background: rgba(92, 140, 110, 0.2); color: var(--accent2); }
+    .tier-t2 .tier-tag { background: rgba(196, 149, 106, 0.2); color: var(--warning); }
+    .tier-t3 .tier-tag { background: rgba(166, 92, 92, 0.2); color: var(--danger); }
+    .tier-t4 .tier-tag { background: rgba(166, 92, 92, 0.35); color: #e07070; }
+    .triage-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text); }
+    .triage-card p { font-size: 0.85rem; color: var(--text2); line-height: 1.55; }
+    .triage-card .tactic {
+      margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border);
+      font-size: 0.82rem; color: var(--accent2); font-weight: 500;
+    }
+    /* Tactics */
+    .tactics { margin-bottom: 3rem; }
+    .tactic-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1rem;
+    }
+    .tactic-card .tactic-header {
+      display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 0.75rem;
+    }
+    .tactic-num {
+      width: 32px; height: 32px; background: var(--accent); color: #fff;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 700; flex-shrink: 0;
+    }
+    .tactic-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 0.25rem; }
+    .tactic-card .meta { font-size: 0.8rem; color: var(--text2); margin-bottom: 0.75rem; }
+    .tactic-card p { font-size: 0.9rem; color: var(--text2); line-height: 1.65; }
+    .tactic-card .why-box {
+      margin-top: 0.75rem; background: rgba(92, 140, 110, 0.1);
+      border-left: 3px solid var(--accent); padding: 0.6rem 0.75rem;
+      border-radius: 0 4px 4px 0; font-size: 0.85rem; color: var(--text2);
+    }
+    /* Newsletter */
+    .newsletter-section {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem; margin-bottom: 2rem; text-align: center;
+    }
+    .newsletter-section h2 { font-family: var(--font-serif); font-size: 1.35rem; margin-bottom: 0.5rem; }
+    .newsletter-section .sub { font-size: 0.9rem; color: var(--text2); margin-bottom: 1.25rem; }
+    .newsletter-form { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
+    .newsletter-form input[type="email"] {
+      flex: 1; min-width: 200px; padding: 0.6rem 0.875rem; border-radius: var(--radius);
+      border: 1px solid var(--border); background: var(--surface2); color: var(--text);
+      font-family: var(--font); font-size: 0.9rem; outline: none; transition: border-color 0.2s;
+    }
+    .newsletter-form input[type="email"]:focus { border-color: var(--accent); }
+    .newsletter-form button {
+      padding: 0.6rem 1.25rem; border-radius: var(--radius); border: none;
+      background: var(--accent); color: #fff; font-family: var(--font); font-size: 0.9rem;
+      font-weight: 600; cursor: pointer; transition: background 0.2s, transform 0.1s;
+    }
+    .newsletter-form button:hover { background: var(--accent2); transform: translateY(-1px); }
+    .newsletter-form button:active { transform: translateY(0); }
+    .newsletter-note { font-size: 0.78rem; color: var(--text2); margin-top: 0.75rem; }
+    .newsletter-error { color: var(--danger); font-size: 0.85rem; margin-top: 0.5rem; display: none; }
+    .newsletter-success {
+      background: rgba(92, 140, 110, 0.15); border: 1px solid rgba(92, 140, 110, 0.4);
+      color: var(--accent2); padding: 0.75rem 1rem; border-radius: var(--radius);
+      font-size: 0.9rem; font-weight: 500; margin-top: 0.75rem; display: none;
+    }
+    /* Quiz CTA */
+    .quiz-cta {
+      background: linear-gradient(135deg, #1a2a1a 0%, #162016 100%);
+      border: 1px solid rgba(92, 140, 110, 0.3); border-radius: var(--radius);
+      padding: 2rem; text-align: center; margin-bottom: 2rem;
+    }
+    .quiz-cta h2 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 0.5rem; }
+    .quiz-cta .sub { font-size: 0.9rem; color: var(--text2); margin-bottom: 1.25rem; }
+    .quiz-cta .btn {
+      display: inline-block; padding: 0.7rem 1.75rem; border-radius: var(--radius);
+      background: var(--accent); color: #fff; font-weight: 600; font-size: 0.95rem;
+      transition: background 0.2s, transform 0.1s; cursor: pointer; border: none;
+      text-decoration: none;
+    }
+    .quiz-cta .btn:hover { background: var(--accent2); transform: translateY(-1px); text-decoration: none; }
+    .quiz-stats { display: flex; gap: 1.5rem; justify-content: center; margin-top: 1.25rem; flex-wrap: wrap; }
+    .quiz-stat { text-align: center; }
+    .quiz-stat .n { font-size: 1.2rem; font-weight: 800; color: var(--accent2); }
+    .quiz-stat .l { font-size: 0.72rem; color: var(--text2); }
+    /* Divider */
+    .divider { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+    /* Footer */
+    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 2rem 1.5rem; }
+    .footer-inner { max-width: 680px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: center; }
+    .footer-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.82rem; color: var(--text2); }
+    .footer-links a:hover { color: var(--text); text-decoration: none; }
+    .footer-copy { font-size: 0.78rem; color: var(--text2); }
+    /* Theme toggle */
+    .theme-toggle {
+      background: none; border: 1px solid var(--border); border-radius: 20px;
+      padding: 5px 12px; font-size: 0.8rem; cursor: pointer; color: var(--text2);
+      transition: border-color 0.2s, color 0.2s; margin-left: auto;
+    }
+    .theme-toggle:hover { border-color: var(--accent2); color: var(--text); }
+    /* Responsive */
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.6rem; }
+      .triage-grid { grid-template-columns: 1fr; }
+      .newsletter-form { flex-direction: column; }
+      .newsletter-form input[type="email"], .newsletter-form button { width: 100%; }
+      .hero-stats { gap: 1rem; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, .triage-card { transition: none; } }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header style="background:var(--bg-card);border-bottom:1px solid var(--border);padding:0 24px;">
+    <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px;gap:24px;">
+      <a href="/" style="font-family:var(--font-ui);font-weight:700;font-size:1.1rem;color:var(--text);text-decoration:none;">🌿 The Clearing</a>
+      <nav style="display:flex;gap:8px;">
+        <a href="/quiz" style="font-family:var(--font-ui);font-size:0.875rem;color:var(--text-muted);text-decoration:none;padding:6px 12px;border-radius:6px;">Quiz</a>
+        <a href="/recovery" style="font-family:var(--font-ui);font-size:0.875rem;color:var(--text-muted);text-decoration:none;padding:6px 12px;border-radius:6px;">Recover</a>
+        <a href="/resources" style="font-family:var(--font-ui);font-size:0.875rem;color:var(--text-muted);text-decoration:none;padding:6px 12px;border-radius:6px;">Learn</a>
+        <a href="/about" style="font-family:var(--font-ui);font-size:0.875rem;color:var(--text-muted);text-decoration:none;padding:6px 12px;border-radius:6px;">About</a>
+      </nav>
+    </div>
+  </header>
+
+  
+  <!-- Navigation -->
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="ai-fatigue-severity-index.html">Severity Index</a>
+          <a href="ai-fatigue-type-calculator.html" style="color:var(--text2);text-decoration:none;font-size:0.9rem;padding:6px 12px;border-radius:6px;transition:all 0.2s;">Type Calculator</a>
+      <a href="index.html" class="nav-logo">🌿 The Clearing</a>
+      <button type="button" class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-dropdown">
+      <button type="button" class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">Why <span class="dropdown-arrow">▾</span></button>
+          <ul class="dropdown-menu">
+            <li><a href="why.html">Why AI Fatigue?</a></li>
+            <li><a href="burnout-vs-fatigue.html">Burnout vs Fatigue</a></li>
+            <li><a href="developer-burnout-2025.html">Developer Burnout 2025</a></li>
+            <li><a href="tech-layoffs-ai-era.html">Tech Layoffs & AI</a></li>
+            <li><a href="compare.html">Compare Tools</a></li>
+            <li><a href="coding-ai-tools-comparison.html">Coding Tools Compared</a></li>
+            <li><a href="ai-tool-overload.html">Tool Overload</a></li>
+            <li><a href="ai-documentation-fatigue.html">Documentation Fatigue</a></li>
+            <li><a href="ai-learning-burnout.html">AI Learning Burnout</a></li>
+                        <li><a href="inference-fatigue.html">Inference Fatigue</a></li>
+<li><a href="ai-code-review.html">AI Code Review</a></li>
+            <li><a href="ai-code-review-fatigue.html">AI Code Review Fatigue</a></li>
+            <li><a href="the-science-of-ai-fatigue.html">The Science of AI Fatigue</a></li>
+            <li><a href="the-middleman-problem.html">The Middleman Problem</a></li>
+            <li><a href="ai-meeting-fatigue.html">AI Meeting Fatigue</a></li>
+            <li><a href="ai-productivity-guilt.html">AI Productivity Guilt</a></li>
+            <li><a href="ai-productivity-paradox.html">AI Productivity Paradox</a></li>
+            <li><a href="ai-weekly-audit.html">Weekly AI Audit</a></li>
+            <li><a href="ai-middleman-problem.html">The Middleman Problem</a></li>
+            <li><a href="ai-consultation-fatigue.html">AI Consultation Fatigue</a></li>
+            <li><a href="ai-debugging-fatigue.html">AI Debugging Fatigue</a></li>
+            <li><a href="ai-skeptic-guide.html">AI Skeptic's Guide</a></li>
+                        <li><a href="ai-skeptic-engineer.html">AI Skeptic Engineer</a></li>
+<li><a href="sre-oncall-ai-fatigue.html">SRE & On-Call Fatigue</a></li>
+            <li><a href="engineer-survey-results.html">Engineer Survey Results</a></li>
+            <li><a href="research.html">Research</a></li>
+                        <li><a href="r-programming-llm-ban-what-it-means-for-engineers.html">r/Programming LLM Ban</a></li>
+<li><a href="the-estimation-problem.html">The Estimation Problem</a></li>
+            <li><a href="stats.html">Statistics 2025</a></li>
+            <li><a href="productivity-theater.html">Productivity Theater</a></li>
+            <li><a href="debugger-drift.html">Debugger's Drift</a></li>
+            <li><a href="coders-block.html">Coder's Block</a></li>
+            <li><a href="flow-state.html">Flow State & AI</a></li>
+            <li><a href="startup-engineer-ai-fatigue.html">Startup Engineers</a></li>
+            <li><a href="tutorial-paradox.html">Tutorial Paradox</a></li>
+            <li><a href="attention-residue.html">Attention Residue</a></li>
+            <li><a href="ai-architecture-fatigue.html">Architecture Fatigue</a></li>
+            <li><a href="skill-atrophy.html">Skill Atrophy</a></li>
+            <li><a href="decision-fatigue-ai.html">Decision Fatigue</a></li>
+            <li><a href="cognitive-load.html">Cognitive Load</a></li>
+                        <li><a href="knowledge-debt.html">Knowledge Debt</a></li>
+<li><a href="developer-identity.html">Developer Identity</a></li>
+            <li><a href="automation-anxiety.html">Automation Anxiety</a></li>
+            <li><a href="vibe-coding-ai-fatigue.html" aria-current="page">Vibe Coding Fatigue</a></li>
+
+            <li><a href="imposter-syndrome-vs-ai-fatigue.html">Imposter Syndrome</a></li>
+            <li><a href="imposter-syndrome-ai.html">Imposter Syndrome & AI</a></li>
+            <li><a href="ai-fatigue-by-role.html">AI Fatigue by Role</a></li>
+            <li><a href="vibe-coding-vs-traditional.html">Vibe Coding vs Traditional</a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+      <button type="button" class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">Heal <span class="dropdown-arrow">▾</span></button>
+          <ul class="dropdown-menu">
+            <li><a href="recovery.html">Recovery Guide</a></li>
+            <li><a href="the-explanation-requirement.html">Explanation Requirement</a></li>
+            <li><a href="sleep-and-ai-fatigue.html">Sleep & AI Fatigue</a></li>
+            <li><a href="what-to-do-if-you-think-you-have-ai-fatigue.html">What to Do Next</a></li>
+            <li><a href="freelance-engineer-ai-fatigue.html">Freelance Engineers</a></li>
+            <li><a href="mental-health.html">Mental Health</a></li>
+            
+            <li><a href="ai-brownout.html">AI Brownout</a></li>
+            <li><a href="ai-fatigue-emergency-kit.html">Emergency Kit</a></li>
+            <li><a href="engineer-energy-management.html">Energy Management</a></li>
+            <li><a href="coping-strategies-2025.html">Coping Strategies</a></li>
+            <li><a href="developer-wellbeing.html">Wellbeing</a></li>
+            <li><a href="tips.html">Tips</a></li>
+            <li><a href="mindset.html">Mindset</a></li>
+            <li><a href="daily-practice.html">Daily Practice</a></li>
+            <li><a href="recovery-toolkit.html">Recovery Toolkit</a></li>
+            <li><a href="ai-fatigue-checklist.html">30-Day Checklist</a></li>
+            <li><a href="ai-fatigue-recovery-journal.html">Recovery Journal (Print)</a></li>
+            <li><a href="ai-detox-plan.html">30-Day Detox Plan</a></li>
+            <li><a href="no-ai-block.html">No-AI Block</a></li>
+            <li><a href="workplace.html">Workplace</a></li>
+            <li><a href="executive-burnout.html">Executive Burnout</a></li>
+            <li><a href="working-parent-burnout.html">Working Parent Burnout</a></li>
+            <li><a href="developer-burnout-recovery.html">Burnout Recovery Guide</a></li>
+            <li><a href="team-guide.html">For Managers</a></li>
+            <li><a href="hiring.html">Hiring & Retention</a></li>
+            <li><a href="corporate-ai-wellness.html">Corporate Wellness</a>
+            <a href="return-to-office-ai-fatigue.html">Return to Office</a></li>
+            <li><a href="daily-ai-boundaries.html">Daily AI Boundaries</a></li>
+            <li><a href="why-resting-doesnt-fix-ai-fatigue.html">Why Resting Doesn't Fix It</a></li>
+            <li><a href="engineering-managers-ai-fatigue.html">Engineering Managers</a></li>
+            <li><a href="team-manager-guide.html">Team Manager Guide</a></li>
+            <li><a href="career-pivot-guide.html">Career Pivot Guide</a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+      <button type="button" class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">Stories <span class="dropdown-arrow">▾</span></button>
+          <ul class="dropdown-menu">
+            <li><a href="stories.html">Engineer Stories</a></li>
+            <li><a href="engineer-types.html">Your Type</a></li>
+            <li><a href="junior-engineers.html">For Juniors</a></li>
+            <li><a href="neurodivergent-engineer-ai-fatigue.html">Neurodivergent Engineers</a></li>
+            <li><a href="ai-healthcare-developer-fatigue.html">Healthcare Engineers</a></li>
+            <li><a href="the-craft-problem.html">The Craft Problem</a></li>
+            <li><a href="senior-identity.html">Senior Identity</a></li>
+            <li><a href="senior-engineer-ai-fatigue.html">Senior Engineer</a></li>
+            <li><a href="community.html">Community</a>
+      <a href="outreach-kit.html">Outreach</a></li>
+            <li><a href="glossary.html">Glossary</a></li>
+          <li><a href="code-review-culture.html">Code Review Culture</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="share-your-story.html">Share Your Story</a></li>
+            <li><a href="community-hub.html">Community Hub</a></li>
+            <li><a href="linkedin.html">Clearing on LinkedIn</a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+      <button type="button" class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">Tools <span class="dropdown-arrow">▾</span></button>
+          <ul class="dropdown-menu">
+            <li><a href="index.html#quiz">Fatigue Quiz</a></li>
+            <li><a href="checkin.html">Daily Check-in</a></li>
+            <li><a href="decompress.html">Decompress</a></li>
+            <li><a href="journal.html">Journal</a></li>
+            <li><a href="ai-free-fridays.html">AI-Free Fridays</a></li>
+            <li><a href="badge.html">Fatigue Badge</a></li>
+            <li><a href="quiz-badge.html">Share Your Badge</a></li>
+            <li><a href="ai-fatigue-cost-calculator.html">Cost Calculator</a></li>
+          </ul>
+        </li>
+        <li class="nav-dropdown">
+      <button type="button" class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">Read <span class="dropdown-arrow">▾</span></button>
+          <ul class="dropdown-menu">
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="newsletter-thank-you.html">Thank You</a></li>
+            <li><a href="newsletter-archive.html">Archive</a></li>
+                    <li><a href="referral.html">Refer a Colleague</a></li>
+            <li><a href="quiz-results.html">Quiz Results</a></li>
+            <li><a href="quiz-results-tier-4.html">Tier 4 Results</a></li>
+            <li><a href="quiz-results-tier-3.html">Tier 3 Results</a></li>
+            <li><a href="press-kit.html">Press Kit</a></li>
+            <li><a href="media-kit.html">Media Kit</a></li>
+            <li><a href="press-mentions.html">Press Mentions</a></li>
+            <li><a href="changelog.html">Changelog</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+      </ul>
+      <a href="index.html#quiz" class="nav-cta">Take Quiz →</a>
+    </div>
+  </nav>
+
+<main id="main">
+    <section class="hero">
+      <div class="eyebrow">For Hacker News Readers</div>
+      <h1>Your AI Fatigue Quick-Start Guide</h1>
+      <p class="subtitle">3 immediate tactics you can start today — based on where you are right now. No account required. No email required to start.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="num">3,000+</div>
+          <div class="label">Engineers surveyed</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">71%</div>
+          <div class="label">Feel like middlemen</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">4 Tiers</div>
+          <div class="label">Severity framework</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="page-content">
+      <div class="container">
+
+        <p class="intro">If you came from HN today and something in the thread resonated — this page gives you 3 things to start with right now, based on where you are. No fluff. No "take more breaks." Specific, evidence-based tactics.</p>
+
+        <hr class="divider">
+
+        <div class="section-label">Step 1: Find your tier</div>
+        <h2>Which sounds most like you?</h2>
+
+        <div class="triage-grid">
+          <div class="triage-card tier-t1" onclick="selectTier(1, this)">
+            <span class="tier-tag">🌿 Tier 1 — Holding Up</span>
+            <h3>You use AI freely</h3>
+            <p>It's useful. You still feel like an engineer. You're here out of curiosity, not necessity.</p>
+            <div class="tactic">→ Tactic: No-AI debugging (keep skills sharp)</div>
+          </div>
+          <div class="triage-card tier-t2" onclick="selectTier(2, this)">
+            <span class="tier-tag">🌤 Tier 2 — Some Fatigue</span>
+            <h3>Something feels off</h3>
+            <p>The productivity gains are real but something is shallower. You can't quite explain why you made a decision.</p>
+            <div class="tactic">→ Tactic: The Explanation Requirement</div>
+          </div>
+          <div class="triage-card tier-t3" onclick="selectTier(3, this)">
+            <span class="tier-tag">🌧 Tier 3 — Real Fatigue</span>
+            <h3>Skills feel eroded</h3>
+            <p>You notice gaps. Debugging feels harder. You lean on AI for things you used to know cold. The guilt is familiar.</p>
+            <div class="tactic">→ Tactic: Weekly skill rebuilding sessions</div>
+          </div>
+          <div class="triage-card tier-t4" onclick="selectTier(4, this)">
+            <span class="tier-tag">🌑 Tier 4 — Need a Real Break</span>
+            <h3>You're considering leaving</h3>
+            <p>The work doesn't feel like yours anymore. You're wondering if you should even be doing this. It's affecting sleep and identity.</p>
+            <div class="tactic">→ Tactic: Structured reset — see full guide</div>
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <div class="section-label">Step 2: Start with one of these today</div>
+        <h2>The 3 highest-impact tactics for AI-fatigued engineers</h2>
+
+        <div class="tactics">
+          <div class="tactic-card">
+            <div class="tactic-header">
+              <div class="tactic-num">1</div>
+              <div>
+                <h3>The Explanation Requirement</h3>
+                <div class="meta">2 min · No tool needed · Start now</div>
+              </div>
+            </div>
+            <p>Before accepting <em>any</em> AI suggestion — a code block, an architectural recommendation, a refactor — write one sentence explaining why it's correct. If you can't, don't accept it.</p>
+            <div class="why-box">
+              <strong>Why this works:</strong> AI suggestions accepted without understanding bypass the learning loop entirely. The explanation requirement forces processing, not pasting. This is the minimum viable intervention — it costs 2 minutes and stops the erosion at its source.
+            </div>
+          </div>
+
+          <div class="tactic-card">
+            <div class="tactic-header">
+              <div class="tactic-num">2</div>
+              <div>
+                <h3>20-Minute Struggle Rule</h3>
+                <div class="meta">20 min · Before any AI tool · Start now</div>
+              </div>
+            </div>
+            <p>Before opening Copilot, Claude, or ChatGPT for any coding task — spend 20 minutes attempting the problem yourself. Read the error. Trace the execution. Form a hypothesis. <em>Then</em> open AI.</p>
+            <div class="why-box">
+              <strong>Why this works:</strong> Cognitive science research (Kalyuga's Expertise Reversal Effect) shows that the more expert you are, the more you depend on active struggle to maintain your mental models. AI skips that struggle — which feels productive but erodes the pattern recognition that makes you effective when AI isn't available.
+            </div>
+          </div>
+
+          <div class="tactic-card">
+            <div class="tactic-header">
+              <div class="tactic-num">3</div>
+              <div>
+                <h3>One Component, From Scratch</h3>
+                <div class="meta">2 hrs/week · No AI allowed · This week</div>
+              </div>
+            </div>
+            <p>Pick one small component you built with heavy AI assistance in the last month. Rebuild one part of it — no AI, no autocomplete. Write down what you notice: the gaps, the habits, the instincts that are quieter now.</p>
+            <div class="why-box">
+              <strong>Why this works:</strong> Skills衰退 from disuse rebuild faster than they initially formed (Arthur & Bennet, 1995). The quarterly rebuild gives you an honest assessment of where you are — and the act of rebuilding is itself the first step toward recovery. The gap is data.
+            </div>
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <div class="section-label">Step 3: Go deeper</div>
+
+        <div class="quiz-cta">
+          <h2>Take the AI Fatigue Quiz</h2>
+          <p class="sub">5 questions. 4 severity tiers. See where you land — and what actually helps at your level.</p>
+          <a href="/quiz" class="btn">Take the Quiz →</a>
+          <div class="quiz-stats">
+            <div class="quiz-stat"><div class="n">3,000+</div><div class="l">taken</div></div>
+            <div class="quiz-stat"><div class="n">71%</div><div class="l">feel like middlemen</div></div>
+            <div class="quiz-stat"><div class="n">4</div><div class="l">severity tiers</div></div>
+          </div>
+        </div>
+
+        <div class="newsletter-section">
+          <h2>The Dispatch — Sunday Morning</h2>
+          <p class="sub">One email per week. One idea for AI-fatigued engineers. Written for engineers, by engineers. No affiliate links. No ads. Free forever.</p>
+          <form class="newsletter-form" id="newsletter-form" onsubmit="handleNewsletter(event)">
+            <input type="email" id="email-input" placeholder="your@email.com" required aria-label="Email address">
+            <button type="submit">Subscribe — It's Free</button>
+          </form>
+          <p id="newsletter-error" class="newsletter-error" aria-live="polite"></p>
+          <div id="newsletter-success" class="newsletter-success" role="status">
+            ✓ You're in. See you Sunday morning.
+          </div>
+          <p class="newsletter-note">Every Sunday. Unsubscribe anytime. No spam, ever.</p>
+        </div>
+
+        <div class="newsletter-section" style="background: var(--surface2);">
+          <h2 style="font-size: 1.15rem;">Read the full recovery guide</h2>
+          <p class="sub" style="margin-bottom: 1.25rem;">A structured 30-day plan — one phase per week, specific practices per day, with progress tracking. Free. No signup required.</p>
+          <a href="/ai-detox-plan" class="btn" style="background: var(--surface); border: 1px solid var(--border); color: var(--text);">30-Day Recovery Plan →</a>
+        </div>
+
+        <hr class="divider">
+
+        <h2>What the data says</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+          <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; text-align: center;">
+            <div style="font-size: 2rem; font-weight: 800; color: var(--accent2);">71%</div>
+            <div style="font-size: 0.85rem; color: var(--text2); margin-top: 0.25rem;">Feel like code ships but they didn't build it</div>
+          </div>
+          <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; text-align: center;">
+            <div style="font-size: 2rem; font-weight: 800; color: var(--accent2);">63%</div>
+            <div style="font-size: 0.85rem; color: var(--text2); margin-top: 0.25rem;">Feel like strangers to their own work</div>
+          </div>
+          <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; text-align: center;">
+            <div style="font-size: 2rem; font-weight: 800; color: var(--accent2);">58%</div>
+            <div style="font-size: 0.85rem; color: var(--text2); margin-top: 0.25rem;">Notice skills declining in specific areas</div>
+          </div>
+          <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; text-align: center;">
+            <div style="font-size: 2rem; font-weight: 800; color: var(--warning);">44%</div>
+            <div style="font-size: 0.85rem; color: var(--text2); margin-top: 0.25rem;">Have considered leaving the profession</div>
+          </div>
+        </div>
+
+        <p style="font-size: 0.82rem; color: var(--text2); text-align: center; margin-bottom: 2rem;">
+          Source: AI Fatigue Quiz, self-reported data from 3,000+ engineers, March–April 2026. Not a controlled study — patterns reported by working engineers.
+        </p>
+
+      </div>
+    </div>
+
+        <hr class="divider">
+
+        <div class="section-label">Appendix</div>
+        <h2>The 4 Tiers, Explained</h2>
+        <div style="display:grid;gap:1rem;margin-bottom:2.5rem;">
+
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;border-left:3px solid var(--accent2);">
+            <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent2);margin-bottom:0.4rem;">🌿 TIER 1 — HOLDING UP</div>
+            <p style="font-size:0.9rem;color:var(--text2);line-height:1.65;">You still feel like an engineer. AI is a useful tool, not a crutch. You come here out of curiosity, not necessity. You're managing fine — the goal is to stay there.</p>
+            <p style="font-size:0.85rem;color:var(--accent2);margin-top:0.6rem;font-weight:500;">→ Best tactics: Explanation Requirement, 20-Minute Struggle Rule</p>
+          </div>
+
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;border-left:3px solid var(--warning);">
+            <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--warning);margin-bottom:0.4rem;">🌤 TIER 2 — SOME FATIGUE</div>
+            <p style="font-size:0.9rem;color:var(--text2);line-height:1.65;">The productivity gains are real but something is shallower. You can't quite explain why you made a decision. The Sunday scaries started. You're still performing, but the satisfaction is gone.</p>
+            <p style="font-size:0.85rem;color:var(--warning);margin-top:0.6rem;font-weight:500;">→ Best tactics: Explanation Requirement (daily), No-AI Debugging Sessions, Weekly Skill Rebuild</p>
+          </div>
+
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;border-left:3px solid var(--danger);">
+            <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--danger);margin-bottom:0.4rem;">🌧 TIER 3 — REAL FATIGUE</div>
+            <p style="font-size:0.9rem;color:var(--text2);line-height:1.65;">You notice specific gaps — debugging is harder, a language feature you used to know cold feels unfamiliar, you can't read code the way you used to. The guilt about using AI is constant. You've started lying to yourself about what you actually built.</p>
+            <p style="font-size:0.85rem;color:var(--danger);margin-top:0.6rem;font-weight:500;">→ Best tactics: Full 20-Minute Struggle Rule, Weekly Rebuild Sessions, No-AI Block, 30-Day Detox</p>
+          </div>
+
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;border-left:3px solid #e07070;">
+            <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#e07070;margin-bottom:0.4rem;">🌑 TIER 4 — NEED A REAL BREAK</div>
+            <p style="font-size:0.9rem;color:var(--text2);line-height:1.65;">The work doesn't feel like yours. You're wondering if you should even be in this profession. It's affecting sleep, relationships, identity. You've considered walking away entirely. The Sunday night dread has become a constant background hum.</p>
+            <p style="font-size:0.85rem;color:#e07070;margin-top:0.6rem;font-weight:500;">→ Best tactics: Structured reset (see recovery guide), consider talking to a manager or therapist, 30-day AI detox plan</p>
+          </div>
+
+        </div>
+
+        <div style="background:rgba(92,140,110,0.08);border:1px solid rgba(92,140,110,0.2);border-radius:var(--radius);padding:1.25rem;margin-bottom:2.5rem;">
+          <p style="font-size:0.88rem;color:var(--text2);line-height:1.65;"><strong style="color:var(--text);">The 4-tier framework</strong> comes from surveying 3,000+ engineers. It's not a clinical diagnosis — it's a mirror. Most engineers land in Tier 2 or 3 and don't have the vocabulary for it yet. That's what The Clearing is for.</p>
+        </div>
+
+        <hr class="divider">
+
+
+        <div class="section-label">FAQ</div>
+        <h2>Common questions</h2>
+
+        <div style="border-bottom:1px solid var(--border);padding:1rem 0;">
+          <button onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block';this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true')" aria-expanded="false" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:0.75rem;padding:0;color:var(--text);font-family:var(--font);font-size:0.95rem;font-weight:600;">
+            Do I need to take the quiz before using these tactics?<span style="font-size:0.8rem;color:var(--text2);">▾</span>
+          </button>
+          <div style="display:none;padding-top:0.75rem;font-size:0.88rem;color:var(--text2);line-height:1.7;">No. The quiz gives you a severity tier and a personalized next-steps plan, but the tactics on this page work at any tier. If you want to know where you stand, take the 5-question quiz — it takes 90 seconds. If you want to start with the tactics directly, jump in above.</div>
+        </div>
+
+        <div style="border-bottom:1px solid var(--border);padding:1rem 0;">
+          <button onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block';this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true')" aria-expanded="false" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:0.75rem;padding:0;color:var(--text);font-family:var(--font);font-size:0.95rem;font-weight:600;">
+            I'm already in Tier 4 — is this page enough?<span style="font-size:0.8rem;color:var(--text2);">▾</span>
+          </button>
+          <div style="display:none;padding-top:0.75rem;font-size:0.88rem;color:var(--text2);line-height:1.7;">This page is a starting point, not a treatment plan. If you're in Tier 4, please read the <a href="/ai-detox-plan" style="color:var(--accent2);">30-Day AI Detox Plan</a> and the <a href="recovery.html" style="color:var(--accent2);">Recovery Guide</a>. If work is affecting your mental health, sleep, or relationships, consider talking to a manager or a mental health professional. US crisis line: <strong>988</strong>.</div>
+        </div>
+
+        <div style="border-bottom:1px solid var(--border);padding:1rem 0;">
+          <button onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block';this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true')" aria-expanded="false" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:0.75rem;padding:0;color:var(--text);font-family:var(--font);font-size:0.95rem;font-weight:600;">
+            I don't have time for a 30-day plan. Is this all I need?<span style="font-size:0.8rem;color:var(--text2);">▾</span>
+          </button>
+          <div style="display:none;padding-top:0.75rem;font-size:0.88rem;color:var(--text2);line-height:1.7;">That's exactly who these tactics are for. Tactic 1 (Explanation Requirement) takes 2 minutes. Tactic 2 (20-Minute Struggle) takes 20 minutes once. Tactic 3 (One Component From Scratch) takes 2 hours this week. The full recovery plan is there when you're ready — or use these 3 as a permanent operating rhythm.</div>
+        </div>
+
+        <div style="border-bottom:1px solid var(--border);padding:1rem 0;">
+          <button onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block';this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true')" aria-expanded="false" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:0.75rem;padding:0;color:var(--text);font-family:var(--font);font-size:0.95rem;font-weight:600;">
+            Will my manager care if I bring this up?<span style="font-size:0.8rem;color:var(--text2);">▾</span>
+          </button>
+          <div style="display:none;padding-top:0.75rem;font-size:0.88rem;color:var(--text2);line-height:1.7;">Some will, some won't — and you know your manager better than I do. If you're in Tier 3 or 4, it's worth having a conversation framed around performance and sustainability rather than fatigue. The <a href="workplace.html" style="color:var(--accent2);">Workplace Guide</a> has scripts for talking to managers about AI limits. If your company has an EAP, this is exactly what it's for.</div>
+        </div>
+
+        <div style="border-bottom:1px solid var(--border);padding:1rem 0;">
+          <button onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block';this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true')" aria-expanded="false" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:0.75rem;padding:0;color:var(--text);font-family:var(--font);font-size:0.95rem;font-weight:600;">
+            I'm a manager — can I share this with my team?<span style="font-size:0.8rem;color:var(--text2);">▾</span>
+          </button>
+          <div style="display:none;padding-top:0.75rem;font-size:0.88rem;color:var(--text2);line-height:1.7;">Yes. The <a href="team-manager-guide.html" style="color:var(--accent2);">Team Manager Guide</a> is specifically for managers — how to spot AI fatigue in your team, set team-level AI norms, and have conversations that don't compromise authority on either side.</div>
+        </div>
+
+        <div style="border-bottom:1px solid var(--border);padding:1rem 0;">
+          <button onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block';this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true')" aria-expanded="false" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:0.75rem;padding:0;color:var(--text);font-family:var(--font);font-size:0.95rem;font-weight:600;">
+            How long until I notice a difference?<span style="font-size:0.8rem;color:var(--text2);">▾</span>
+          </button>
+          <div style="display:none;padding-top:0.75rem;font-size:0.88rem;color:var(--text2);line-height:1.7;">Most engineers report noticing the Explanation Requirement effect within 1–2 weeks — specifically, they start remembering why decisions were made rather than just knowing that AI suggested them. The 20-Minute Struggle Rule takes 3–4 weeks to show measurable results in skill confidence.</div>
+        </div>
+
+        <hr class="divider">
+
+        <div class="section-label">Keep going</div>
+        <h2>Where to go from here</h2>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:2.5rem;">
+          <a href="recovery.html" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;display:block;text-decoration:none;">
+            <div style="font-size:1.5rem;margin-bottom:0.5rem;">🌿</div>
+            <div style="font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:0.35rem;">The Recovery Guide</div>
+            <div style="font-size:0.82rem;color:var(--text2);">The full 7-phase recovery plan — start here if you want a structured path.</div>
+          </a>
+          <a href="/quiz" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;display:block;text-decoration:none;">
+            <div style="font-size:1.5rem;margin-bottom:0.5rem;">📋</div>
+            <div style="font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:0.35rem;">AI Fatigue Quiz</div>
+            <div style="font-size:0.82rem;color:var(--text2);">5 questions. 4 severity tiers. Your personalized next-steps plan.</div>
+          </a>
+          <a href="/ai-detox-plan" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;display:block;text-decoration:none;">
+            <div style="font-size:1.5rem;margin-bottom:0.5rem;">🗓</div>
+            <div style="font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:0.35rem;">30-Day Detox Plan</div>
+            <div style="font-size:0.82rem;color:var(--text2);">One phase per week. Specific practices per day. Progress tracking.</div>
+          </a>
+          <a href="decompress.html" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;display:block;text-decoration:none;">
+            <div style="font-size:1.5rem;margin-bottom:0.5rem;">🌊</div>
+            <div style="font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:0.35rem;">Decompress</div>
+            <div style="font-size:0.82rem;color:var(--text2);">Ambient sounds, breathing exercises, and a deep work timer. Just breathe.</div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/quiz">Quiz</a>
+        <a href="/recovery">Recovery</a>
+        <a href="/research">Research</a>
+        <a href="/about">About</a>
+        <a href="/sitemap">Sitemap</a>
+      </div>
+      <div class="footer-copy">© 2026 The Clearing — built for engineers, by engineers</div>
+    </div>
+  </footer>
+
+  <script>
+    // Tier selector
+    function selectTier(tier, card) {
+      document.querySelectorAll('.triage-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      const messages = {
+        1: 'Great — start with Tactic 1 (Explanation Requirement) and Tactic 2 (20-Minute Struggle). These keep Tier 1 engineers sharp.',
+        2: 'Start with Tactic 1 (Explanation Requirement) today. Then Tactic 2 (20-Minute Struggle) this week. These address the "shallow" feeling directly.',
+        3: 'All 3 tactics matter, but prioritize Tactic 2 (20-Minute Struggle) and Tactic 3 (Weekly Rebuild). These reverse the erosion. Take the quiz to get a tier-specific plan.',
+        4: 'Please talk to someone — a manager, a mentor, or a mental health professional. The recovery guide at /ai-detox-plan has a structured plan. You don\'t have to figure this out alone. Crisis: 988 (US)'
+      };
+      const msg = document.createElement('div');
+      msg.style.cssText = 'margin-top:1rem;padding:0.75rem;background:rgba(92,140,110,0.1);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;font-size:0.88rem;color:var(--text2)';
+      msg.textContent = messages[tier];
+      card.appendChild(msg);
+    }
+
+    // Newsletter handler
+    function handleNewsletter(e) {
+      e.preventDefault();
+      const email = document.getElementById('email-input').value;
+      const errorEl = document.getElementById('newsletter-error');
+      const successEl = document.getElementById('newsletter-success');
+      errorEl.style.display = 'none';
+
+      if (!email || !email.includes('@')) {
+        errorEl.textContent = 'Please enter a valid email address.';
+        errorEl.style.display = 'block';
+        return;
+      }
+
+      // Try Formspree if configured, fall back to mailto
+      const formspreeId = 'YOUR_FORM_ID';
+      if (formspreeId !== 'YOUR_FORM_ID') {
+        fetch(`https://formspree.io/f/${formspreeId}`, {
+          method: 'POST', body: JSON.stringify({ email }), headers: { 'Content-Type': 'application/json' }
+        }).then(r => r.ok ? r.json() : Promise.reject()).then(() => {
+          successEl.style.display = 'block';
+          document.getElementById('newsletter-form').style.display = 'none';
+        }).catch(() => {
+          window.location.href = `mailto:hello@clearing-ai.com?subject=Subscribe to The Dispatch&body=Please subscribe this email to The Dispatch newsletter:%0D%0A%0D%0A${encodeURIComponent(email)}`;
+          successEl.textContent = '✉️ Your email app opened — send the message to complete your subscription.';
+          successEl.style.display = 'block';
+          document.getElementById('newsletter-form').style.display = 'none';
+        });
+      } else {
+        window.location.href = `mailto:hello@clearing-ai.com?subject=Subscribe to The Dispatch&body=Please subscribe this email to The Dispatch newsletter:%0D%0A%0D%0A${encodeURIComponent(email)}`;
+        successEl.textContent = '✉️ Your email app opened — send the message to complete your subscription.';
+        successEl.style.display = 'block';
+        document.getElementById('newsletter-form').style.display = 'none';
+      }
+    }
+
+    // Theme toggle
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('theme');
+      if (saved) document.body.dataset.theme = saved;
+      document.querySelector('.theme-toggle').addEventListener('click', () => {
+        const next = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+        document.body.dataset.theme = next;
+        localStorage.setItem('theme', next);
+        document.querySelector('.theme-toggle').textContent = next === 'dark' ? '☀️        document.querySelector('.theme-toggle').textContent = next === 'dark' ? '☀️' : '🌙';
+      });
+    });
+  </script>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="site-logo" style="font-family:var(--font-ui);font-weight:700;font-size:1.1rem;color:var(--text);display:flex;align-items:center;gap:8px;text-decoration:none;">
+          <span style="color:var(--accent)">🌿</span> The Clearing
+        </a>
+        <p>A resource for engineers experiencing AI fatigue. Real research, practical recovery, no productivity theater.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Understand</h4>
+        <ul>
+          <li><a href="research.html">Research</a></li>
+                      <li><a href="r-programming-llm-ban-what-it-means-for-engineers.html">r/Programming LLM Ban</a></li>
+<li><a href="cognitive-load.html">Cognitive Load</a></li>
+          <li><a href="skill-atrophy.html">Skill Atrophy</a></li>
+          <li><a href="flow-state.html">Flow State</a></li>
+          <li><a href="the-estimation-problem.html">The Estimation Problem</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Recover</h4>
+        <ul>
+          <li><a href="recovery.html">Recovery Guide</a></li>
+          <li><a href="ai-detox-plan.html">30-Day Detox</a></li>
+          <li><a href="daily-practice.html">Daily Practice</a></li>
+          <li><a href="mental-health.html">Mental Health</a></li>
+          <li><a href="developer-wellbeing.html">Wellbeing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="quiz-results.html">AI Fatigue Quiz</a></li>
+          <li><a href="checkin.html">Daily Check-in</a></li>
+          <li><a href="decompress.html">Deep Work Timer</a></li>
+          <li><a href="journal.html">Recovery Journal</a></li>
+          <li><a href="manifesto.html">Manifesto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 The Clearing · <a href="privacy.html">Privacy</a> · <a href="press-kit.html">Press Kit</a> · <a href="media-kit.html">Media Kit</a> · <a href="sitemap.html">Sitemap</a></p>
+      <p>No tracking. No ads. Just care.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

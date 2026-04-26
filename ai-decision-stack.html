@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The AI Decision Stack: A Framework for Engineering Teams | The Clearing</title>
+  <meta name="description" content="How engineering teams should evaluate AI coding tools. A decision framework covering cognitive cost, skill preservation, team dynamics, and long-term sustainability.">
+  <meta name="keywords" content="AI coding tools evaluation, engineering team AI framework, choosing AI tools team, AI tool decision framework, developer productivity tools 2025, team AI adoption strategy, AI coding assistant evaluation, engineering manager AI tools, AI tool governance engineering team, Copilot vs Cursor vs ChatGPT team evaluation">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://clearing-ai.com/ai-decision-stack.html">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/ai-decision-stack.html">
+  <meta property="og:title" content="The AI Decision Stack: A Framework for Engineering Teams">
+  <meta property="og:description" content="How engineering teams should evaluate AI coding tools. A decision framework covering cognitive cost, skill preservation, team dynamics, and long-term sustainability.">
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
+  <meta property="og:site_name" content="The Clearing">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The AI Decision Stack: A Framework for Engineering Teams">
+  <meta name="twitter:description" content="How engineering teams should evaluate AI coding tools — without burning out your team.">
+  <meta name="twitter:image" content="https://clearing-ai.com/og-image.png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=fallback" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=fallback" media="print"></noscript>
+  <link rel="stylesheet" href="css/style.min.css">
+  <style>
+.worksheet-block {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin: 1.5rem 0;
+  overflow: hidden;
+}
+.worksheet-header {
+  background: var(--surface2);
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.worksheet-header h3 { margin: 0; font-size: 1rem; color: var(--text); }
+.worksheet-header p { margin: 0.25rem 0 0; font-size: 0.85rem; color: var(--text2); }
+.worksheet-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+.worksheet-row:last-child { border-bottom: none; }
+.worksheet-footer {
+  padding: 0.75rem 1.5rem;
+  background: var(--surface2);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.callout-synthesis {
+  border-left: 4px solid var(--forest);
+  background: var(--surface2);
+  padding: 1.5rem;
+  border-radius: 0 8px 8px 0;
+  margin: 2rem 0;
+}
+.callout-synthesis h3 { margin-top: 0; }
+.card-number {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--forest);
+  margin-bottom: 0.25rem;
+}
+.stat-number { display: block; font-weight: 700; font-size: 1.1rem; margin-bottom: 0.25rem; }
+.stat-desc { font-size: 0.85rem; color: var(--text2); }
+  </style>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "The AI Decision Stack: A Framework for Engineering Teams",
+      "description": "How engineering teams should evaluate AI coding tools — covering cognitive cost, skill preservation, team dynamics, and long-term sustainability.",
+      "url": "https://clearing-ai.com/ai-decision-stack.html",
+      "datePublished": "2026-04-26",
+      "dateModified": "2026-04-26",
+      "author": {
+        "@type": "Organization",
+        "name": "The Clearing"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "The Clearing",
+        "url": "https://clearing-ai.com"
+      },
+      "wordCount": 4200,
+      "inLanguage": "en-US",
+      "about": {
+        "@type": "Thing",
+        "name": "AI coding tools evaluation"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How should engineering teams evaluate AI coding tools?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Teams should evaluate AI tools across four layers: individual cognitive cost, skill preservation, team dynamics, and long-term sustainability. No single tool wins on all four — the right choice depends on your team's composition, maturity, and goals. Use The AI Decision Stack framework to score each tool across these dimensions before committing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should we standardize on one AI tool for the whole team?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not necessarily. Teams with mixed seniority benefit from tool diversity — senior engineers can use more capable tools with less supervision, while juniors need tools that scaffold learning rather than bypass it. The key is establishing clear norms: when AI is appropriate, when it's not, and how to verify AI-generated suggestions. A one-size-fits-all policy often fails because it either restricts senior engineers or leaves juniors without guidance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do we measure whether AI tools are actually helping our team?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Measure velocity, defect rate, skill retention, and team satisfaction quarterly. If velocity increases but defect rate also increases, or if velocity is up but team satisfaction is down and senior engineers are leaving, your tool is creating hidden costs. The AI Decision Stack's sustainability score — factoring in skill atrophy rate, onboarding quality, and senior retention — is the truest signal of whether AI is actually working for your team."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the biggest mistake teams make when adopting AI coding tools?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Treating AI tool adoption as a procurement decision rather than a team design decision. The biggest mistake is rolling out a tool team-wide without norms, without understanding individual differences in how engineers experience AI fatigue, and without tracking anything beyond velocity. This produces short-term velocity gains and long-term skill erosion, engagement decline, and dependency that becomes impossible to reverse."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do AI tools affect junior engineer development?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI tools are most dangerous for junior engineers because they bypass the productive struggle that builds expertise. A junior engineer who uses AI to solve every problem learns to prompt, not to code — and when AI is unavailable, wrong, or insufficiently capable for a novel problem, they have no fallback. The solution isn't restricting AI access; it's structuring AI use so that juniors still encounter productive difficulty, verify AI output actively, and build transferable mental models rather than prompt patterns."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often should teams revisit their AI tool choices?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "At minimum quarterly. The AI tool landscape changes fast — new capabilities, new research on cognitive effects, new team members with different needs. Set a recurring agenda item: review velocity trends, skill assessment results, team satisfaction scores, and the four-stack scores for each tool in use. If any stack score is declining, that's a signal to act — either by adjusting norms, changing tooling, or investing in deliberate no-AI practice time."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://clearing-ai.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Why",
+          "item": "https://clearing-ai.com/why.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "AI Decision Stack",
+          "item": "https://clearing-ai.com/ai-decision-stack.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- Navigation -->
+<nav class="main-nav" role="navigation" aria-label="Main navigation" id="main-nav"></nav>
+
+<div class="progress-bar" aria-hidden="true"></div>
+
+<main id="main-content">
+<div class="container">
+
+<header class="article-header">
+<nav class="breadcrumb" aria-label="Breadcrumb">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="why.html">Why</a></li>
+<li><span aria-current="page">AI Decision Stack</span></li>
+</ul>
+</nav>
+
+<div class="reading-time" aria-label="Reading time"></div>
+
+<h1>The AI Decision Stack</h1>
+<p class="subtitle">How Engineering Teams Should Evaluate AI Coding Tools — Without Burning Out Their People</p>
+
+<div class="meta-row">
+<span class="tag">Team Strategy</span>
+<span class="tag">Engineering Leadership</span>
+<span class="tag">Tool Evaluation</span>
+<span class="date">April 26, 2026</span>
+</div>
+</header>
+
+<div class="article-body">
+
+<p class="lead">Your team just finished a sprint planning session. The roadmap is aggressive. Someone suggests rolling out a new AI coding assistant to the whole team. Everyone nods. Three months later, velocity is up — and so is something else. Senior engineers are disengaging. Junior engineers can't debug without AI. The team's collective sense of craft is quietly eroding. Nobody planned for that.</p>
+
+<p>This is the AI Decision Stack failure mode: teams adopt AI tools the way they adopt project management software — procure, roll out, measure velocity. But AI coding tools are categorically different. They don't just change how fast your team works. They change how your team thinks, learns, and relates to their craft. And those changes compound over time in ways that are easy to miss until the damage is done.</p>
+
+<p>The AI Decision Stack is a framework for evaluating AI coding tools across four layers that most teams never consider until it's too late.</p>
+
+<!-- ============================================ -->
+<!-- STACK OVERVIEW -->
+<!-- ============================================ -->
+<h2>The Four-Layer Stack</h2>
+
+<p>Before you evaluate specific tools, you need a decision framework. The AI Decision Stack evaluates each tool across four layers, from most immediate to most insidious:</p>
+
+<div class="feature-grid" style="margin: 2rem 0;">
+<div class="feature-card">
+<span class="card-number">01</span>
+<h3>Cognitive Cost</h3>
+<p>How much mental overhead does this tool add to each engineer's workday? Does it help them focus or constantly interrupt their flow?</p>
+</div>
+<div class="feature-card">
+<span class="card-number">02</span>
+<h3>Skill Preservation</h3>
+<p>Does this tool build your team's capabilities or erode them over time? Does it scaffold learning or bypass it?</p>
+</div>
+<div class="feature-card">
+<span class="card-number">03</span>
+<h3>Team Dynamics</h3>
+<p>How does this tool change how engineers interact with each other? Does it enhance code review or replace it? Does it create knowledge silos or bridge them?</p>
+</div>
+<div class="feature-card">
+<span class="card-number">04</span>
+<h3>Long-Term Sustainability</h3>
+<p>If you use this tool for 12 months straight, is your team stronger or weaker? More capable or more dependent? More engaged or more burned out?</p>
+</div>
+</div>
+
+<p>No AI coding tool wins on all four layers. The best you can do is make the tradeoffs explicit and conscious — and align them with your team's specific composition, goals, and risk tolerance.</p>
+
+<!-- ============================================ -->
+<!-- LAYER 1: COGNITIVE COST -->
+<!-- ============================================ -->
+<h2>Layer 1: Cognitive Cost</h2>
+
+<p>Cognitive cost is the most immediate and measurable layer. When an engineer uses an AI coding tool, how much mental overhead does it add?</p>
+
+<p>The answer isn't obvious. AI tools feel like they <em>reduce</em> cognitive load — they handle the tedious parts, suggest the boilerplate, catch the obvious bugs. But the research on cognitive load tells a different story. AI tools add cognitive cost in ways that are easy to miss:</p>
+
+<ul>
+<li><strong>Context-switching cost:</strong> Every time an engineer sends a prompt to AI and receives a response, they're switching mental contexts. Gloria Mark's research at UC Irvine found that after a single interruption, it takes an average of 23 minutes and 15 seconds to fully return to deep focus. AI tools that suggest code mid-session create micro-interruptions that compound throughout the day.</li>
+<li><strong>Verification overhead:</strong> AI output must be read, understood, evaluated, and often corrected before it's usable. This "last mile" cognitive work — understanding what the AI generated well enough to verify it — is real mental effort that doesn't show up in velocity metrics.</li>
+<li><strong>Decision fatigue:</strong> Choosing which AI suggestion to accept, which to modify, and which to reject requires continuous micro-decisions. Kahneman's research on decision fatigue shows that each micro-decision depletes the same limited cognitive resource as major decisions. Teams don't account for this because it's invisible.</li>
+<li><strong>Monitoring load:</strong> When an AI is running in the background (Copilot-style suggestions appearing in real time), the brain's attentional system has to partially monitor it even when you're not actively engaging. This is cognitive load you can't turn off.</li>
+</ul>
+
+<p>Different tools have radically different cognitive costs:</p>
+
+<div class="comparison-table-wrap">
+<table class="comparison-table">
+<thead>
+<tr><th>Tool Pattern</th><th>Cognitive Cost</th><th>Why</th></tr>
+</thead>
+<tbody>
+<tr><td>Real-time inline suggestions (Copilot)</td><td class="signal-high">High</td><td>Persistent monitoring load, constant micro-interruptions to flow state</td></tr>
+<tr><td>Chat-based code generation (Claude/ChatGPT)</td><td class="signal-medium">Medium</td><td>Batching possible, but verification overhead is high for unfamiliar code</td></tr>
+<tr><td>Agentic tools (Cursor Agent, Copilot Chat)</td><td class="signal-high">High</td><td>Loss of agency over what changes are made; verification burden is significant</td></tr>
+<tr><td>On-demand generation (Codeium/Cursor chat)</td><td class="signal-medium">Medium</td><td>More control, but context transfer and prompt formulation cost effort</td></tr>
+<tr><td>Review-only tools (AI PR review)</td><td class="signal-low">Low</td><td>Engineer retains full agency; AI as consultant, not author</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>What to measure:</strong> Track engineers' self-reported focus quality weekly. Use a simple 1-5 scale: "I was able to sustain deep focus for most of today." If the team average is declining after tool rollout, cognitive cost is too high.</p>
+
+<!-- ============================================ -->
+<!-- LAYER 2: SKILL PRESERVATION -->
+<!-- ============================================ -->
+<h2>Layer 2: Skill Preservation</h2>
+
+<p>Skill preservation is the most consequential long-term layer — and the one most teams completely ignore at adoption time.</p>
+
+<p>Here's the uncomfortable truth: most AI coding tools are optimized to make engineers <em>feel</em> productive in the short term while eroding their capabilities in the long term. This isn't a bug in AI tools — it's a fundamental property of any system that removes the friction necessary for skill development.</p>
+
+<p>Erik Harrell and K. Anders Ericsson's research on deliberate practice is unambiguous: expertise develops through effortful engagement with problems at the edge of current ability. When you encounter a novel problem, struggle with it, fail, recalibrate, and eventually solve it — that's when neural pathways strengthen and mental models deepen. AI tools systematically bypass this process for the problems they're best at solving.</p>
+
+<p>The consequence is a specific pattern researchers call <strong>competence illusion</strong>: engineers who use AI tools heavily can produce sophisticated, working code while having lost the ability to produce the same code without AI assistance. They can evaluate whether AI output is correct, but they can't generate it independently. Their apparent competence is actually AI competence wearing a human mask.</p>
+
+<p>Not all AI tools erode skills equally:</p>
+
+<div class="callout callout-warning">
+<h3>⚠ The scaffolding inversion problem</h3>
+<p>Tools that provide complete solutions to complex problems (architectural patterns, full feature implementations, multi-file refactors) invert the scaffolding that engineers need for healthy skill development. The productive struggle that builds expertise is replaced by the productive efficiency of AI output. For senior engineers with established skills, this may be acceptable. For mid-level and junior engineers still building their foundation, it's actively harmful.</p>
+</div>
+
+<p>Evaluate any AI tool's skill preservation impact with this question: <em>If my team used only this tool for 12 months and then the tool was removed, would they be more capable or less capable than they are today?</em></p>
+
+<p>Tools that score well on skill preservation typically:</p>
+<ul>
+<li>Show reasoning and context, not just code (so engineers learn the <em>why</em>, not just the <em>what</em>)</li>
+<li>Leave parts of the problem for engineers to solve (partial suggestions rather than complete implementations)</li>
+<li>Offer to explain rather than always generating</li>
+<li>Have a "no-AI" mode for deliberate practice sessions</li>
+</ul>
+
+<!-- ============================================ -->
+<!-- LAYER 3: TEAM DYNAMICS -->
+<!-- ============================================ -->
+<h2>Layer 3: Team Dynamics</h2>
+
+<p>AI coding tools don't just affect individual engineers — they reshape how teams interact, share knowledge, and develop collectively. These dynamics are harder to measure but just as consequential.</p>
+
+<h3>Code review as a learning vector</h3>
+
+<p>Well-functioning engineering teams use code review as a primary knowledge transfer mechanism. Senior engineers review junior code and share patterns, reasoning, and institutional knowledge. Junior engineers learn by seeing how senior engineers think. This bidirectional knowledge flow is a critical — and often underappreciated — team asset.</p>
+
+<p>When AI generates code that engineers review and approve, the knowledge transfer vector inverts. The AI may have senior-level output but zero ability to explain <em>why</em>. Junior engineers reviewing AI-generated code learn less because the code they're reviewing doesn't encode the reasoning they'd get from a senior peer's explanation. And senior engineers reviewing AI-generated junior code can't calibrate whether the code came from genuine understanding or prompt-following.</p>
+
+<p>Signs your AI tool is disrupting team learning dynamics:</p>
+<ul>
+<li>PR descriptions increasingly read like AI output and lack decision rationale</li>
+<li>Code review comments shift from "here's why this approach is better" to "this looks fine"</li>
+<li>Junior engineers can't explain the code in their own PRs without AI assistance</li>
+<li>Architecture discussions are increasingly rare as AI "solves" architectural questions</li>
+<li>Seniors report feeling like their institutional knowledge isn't being valued</li>
+</ul>
+
+<h3>Skill heterogeneity amplification</h3>
+
+<p>AI tools amplify the gap between experienced and inexperienced engineers in ways that are hard to see early. Senior engineers use AI tools to move faster while maintaining their expertise. Junior engineers use AI tools to produce senior-level output while building senior-level dependency. Over time, the junior engineer's independent capability grows more slowly than it would without AI — while appearing, on surface metrics, to keep pace.</p>
+
+<p>This creates a dangerous team dynamic: the team becomes dependent on AI to sustain its apparent capability level, but that dependency is unevenly distributed. When AI is wrong, insufficient, or unavailable, the team fractures between those who can navigate without it and those who can't.</p>
+
+<h3>Norm collapse</h3>
+
+<p>Teams without explicit AI usage norms develop informal, uneven norms organically — and the organic norm is almost always "use AI as much as possible." Engineers who try to use AI thoughtfully feel pressure to match the output volume of colleagues using AI without restraint. This norm collapse is invisible until it shows up as burnout, disengagement, or exodus of experienced engineers who feel their craft is devalued.</p>
+
+<!-- ============================================ -->
+<!-- LAYER 4: LONG-TERM SUSTAINABILITY -->
+<!-- ============================================ -->
+<h2>Layer 4: Long-Term Sustainability</h2>
+
+<p>The sustainability layer asks: if your team uses this tool at current intensity for 12 months, what is the trajectory of your team's collective capability, engagement, and health?</p>
+
+<p>Sustainability is the hardest layer to evaluate because its effects are slow, diffuse, and easy to attribute to other causes. By the time AI-related sustainability problems become visible, the root cause is often months in the past and difficult to diagnose.</p>
+
+<p>Track these signals quarterly:</p>
+
+<div class="stats-grid" style="margin: 2rem 0;">
+<div class="stat-card">
+<span class="stat-number">Senior retention rate</span>
+<span class="stat-desc">Are experienced engineers staying? Departing at higher rates? Leaving without a clear reason?</span>
+</div>
+<div class="stat-card">
+<span class="stat-number">Onboarding quality</span>
+<span class="stat-desc">Are new engineers reaching independent productivity at the same pace? Or taking longer because they learned prompt patterns instead of engineering fundamentals?</span>
+</div>
+<div class="stat-card">
+<span class="stat-number">Skill assessment scores</span>
+<span class="stat-desc">If you did blind technical assessments before and after AI rollout, are scores stable, improving, or declining?</span>
+</div>
+<div class="stat-card">
+<span class="stat-number">Team satisfaction</span>
+<span class="stat-desc">Quarterly survey: "I feel more capable as an engineer than I did 6 months ago." Is this score holding?</span>
+</div>
+</div>
+
+<p>If any of these four signals is declining while velocity is stable or improving, you have a sustainability problem that velocity gains are masking. This is the most dangerous state: short-term wins obscuring long-term decay.</p>
+
+<!-- ============================================ -->
+<!-- EVALUATION WORKSHEET -->
+<!-- ============================================ -->
+<h2>The AI Decision Stack Worksheet</h2>
+
+<p>Before adopting any AI coding tool team-wide, score it across the four layers. Be honest — the goal is not to find a tool that scores well everywhere, but to make tradeoffs explicit and align them with your team's actual situation.</p>
+
+<div class="worksheet-block">
+<div class="worksheet-header">
+<h3>Layer 1: Cognitive Cost Score (1–5)</h3>
+<p>5 = minimal cognitive overhead, 1 = constantly fragments focus</p>
+</div>
+<div class="worksheet-row"><span>Monitoring/attention load</span><span>____ / 5</span></div>
+<div class="worksheet-row"><span>Context-switching frequency</span><span>____ / 5</span></div>
+<div class="worksheet-row"><span>Verification effort required</span><span>____ / 5</span></div>
+<div class="worksheet-row"><span>Decision fatigue from accepting/rejecting suggestions</span><span>____ / 5</span></div>
+<div class="worksheet-footer"><strong>Layer 1 Average:</strong> ____ / 5</div>
+</div>
+
+<div class="worksheet-block">
+<div class="worksheet-header">
+<h3>Layer 2: Skill Preservation Score (1–5)</h3>
+<p>5 = actively builds skills, 1 = significant skill erosion risk</p>
+</div>
+<div class="worksheet-row"><span>Reasoning/context transparency (vs. just code)</span><span>____ / 5</span></div>
+<div class="worksheet-row"><span>Leaves productive difficulty for engineer</span><span>____ / 5</span></div>
+<div class="worksheet-row"><span>Learning mode available (explain, don't just generate)</span><span>____ / 5</span></div>
+<div class="worksheet-row"><span>Skill atrophy risk for your team's seniority mix</span><span>____ / 5</span></div>
+<div class="worksheet-footer"><strong>Layer 2 Average:</strong> ____ / 5</div>
+</div>
+
+<div class="worksheet-block">
+<div class="worksheet-header">
+<h3>Layer 3: Team Dynamics Score (1–5)</h3>
+<p>5 = strengthens team learning, 1 = disrupts knowledge transfer</p>
+</div>
+<div class="worksheet-row"><span>Preserves code review as learning vector</span><span>____ / 5</span></div>
+<div class="worksheet-row"><span>Maintains senior/junior knowledge transfer</span><span>____ / 5</span></div>
+<div class="worksheet-row"><span>Supports rather than replaces architectural discussion</span><span>____ / 5</span></div>
+<div class="worksheet-row"><span>Enables explicit team AI usage norms</span><span>____ / 5</span></div>
+<div class="worksheet-footer"><strong>Layer 3 Average:</strong> ____ / 5</div>
+</div>
+
+<div class="worksheet-block">
+<div class="worksheet-header">
+<h3>Layer 4: Sustainability Score (1–5)</h3>
+<p>5 = team trajectory is improving, 1 = serious capability/engagement risk</p>
+</div>
+<div class="worksheet-row"><span>Senior retention trajectory</span><span>____ / 5</span></div>
+<div class="worksheet-row"><span>Onboarding quality trajectory</span><span>____ / 5</span></div>
+<div class="worksheet-row"><span>Skill/capability trajectory</span><span>____ / 5</span></div>
+<div class="worksheet-row"><span>Team engagement trajectory</span><span>____ / 5</span></div>
+<div class="worksheet-footer"><strong>Layer 4 Average:</strong> ____ / 5</div>
+</div>
+
+<div class="callout callout-synthesis">
+<h3>📊 Your AI Decision Stack Score</h3>
+<p><strong>Overall Score:</strong> (Layer 1 + Layer 2 + Layer 3 + Layer 4) / 4 = ____ / 5</p>
+<p><strong>Decision guidance:</strong></p>
+<ul>
+<li><strong>4.0–5.0:</strong> Strong tool. Roll out with standard norms and quarterly review.</li>
+<li><strong>3.0–3.9:</strong> Acceptable tradeoffs. Mitigate weak layers with specific norms (e.g., no-AI days for skill preservation, mandatory explanation in PRs for team dynamics). Review quarterly.</li>
+<li><strong>2.0–2.9:</strong> Significant concerns. Restrict to senior engineers or specific use cases. Invest heavily in mitigation practices. Re-evaluate in 60 days.</li>
+<li><strong>Below 2.0:</strong> Not recommended for your team in current form. Revisit when your team's skill base is stronger or when the tool's design changes.</li>
+</ul>
+</div>
+
+<!-- ============================================ -->
+<!-- PRACTICAL ADOPTION GUIDE -->
+<!-- ============================================ -->
+<h2>Practical Adoption: How to Roll Out AI Tools Without Breaking Your Team</h2>
+
+<p>Scoring tools is the easy part. The hard part is the rollout. Here's what teams that successfully integrate AI tools differently from those that don't:</p>
+
+<h3>1. Start with norms, not tools</h3>
+
+<p>Before you adopt any tool, establish explicit team norms for AI use. These should answer:</p>
+<ul>
+<li>When is AI appropriate? (green field, exploration, boilerplate, learning)</li>
+<li>When is AI not appropriate? (novel problems without backup, safety-critical code, architectural decisions without team input)</li>
+<li>What must always be verified by a human before merging?</li>
+<li>How do we document AI's role in decisions that matter?</li>
+<li>How do we create protected time for no-AI practice to maintain skills?</li>
+</ul>
+
+<p>Teams that skip this step develop informal norms by default — and the informal norm is always "more AI, more often."</p>
+
+<h3>2. Senior engineers first, with intention</h3>
+
+<p>Don't roll out AI tools uniformly. Senior engineers are in the best position to use AI tools effectively while managing the skill preservation risk. They have the context to verify AI output, the pattern recognition to spot AI errors, and the career stability to not feel threatened by AI-assisted junior engineers.</p>
+
+<p>Let seniors develop usage patterns first, then use their experience to shape the norms junior engineers follow.</p>
+
+<h3>3. Monitor the four signals from day one</h3>
+
+<p>Set up quarterly retrospectives specifically for AI tool impact. Track senior retention, onboarding speed, skill assessment scores, and team satisfaction. Don't wait for problems to become obvious — by then, they're entrenched.</p>
+
+<h3>4. Invest in explanation over generation</h3>
+
+<p>Train your team to use AI's explanation capabilities as much as its generation capabilities. When an AI generates code that engineers don't fully understand, the correct response is not to ship it — it's to ask the AI to explain the reasoning, then learn from that explanation. Tools that support this pattern preserve more skills than tools that optimize purely for generation speed.</p>
+
+<h3>5. Protect no-AI time deliberately</h3>
+
+<p>Schedule regular (weekly or bi-weekly) no-AI coding sessions for the whole team. Not because AI is bad, but because the friction of working without AI is itself the training signal that builds and maintains expertise. Athletes deliberate practice this way. So should engineers.</p>
+
+<!-- ============================================ -->
+<!-- WHAT TO DO IF YOU'RE ALREADY IN THE HOLE -->
+<!-- ============================================ -->
+<h2>If You're Already in the Sustainability Problem</h2>
+
+<p>Many teams reading this will recognize their situation: they've been using AI tools for months, velocity looks good, but the four signals are declining. What do you do?</p>
+
+<p>The answer is uncomfortable but clear: <strong>the intervention is a deliberate reduction in AI dependency, not an expansion.</strong></p>
+
+<p>This runs counter to the organizational pressure to keep velocity high. That's why it's hard. But teams that have done this — reduced AI usage deliberately to recover skill, engagement, and sustainable velocity — report that the short-term velocity dip is smaller than expected, and the recovery in team quality and engagement is faster than expected.</p>
+
+<p>Practical steps:</p>
+<ul>
+<li><strong>Audit current AI usage:</strong> Where is AI being used most heavily? Where is it least necessary? Start by reducing in the low-value areas.</li>
+<li><strong>Introduce no-AI days or blocks:</strong> Even one no-AI day per week begins rebuilding the deliberate practice signal.</li>
+<li><strong>Redesign code review to require explanation:</strong> AI-generated code should be accompanied by the engineer's own explanation of how it works. If they can't explain it, they shouldn't be merging it.</li>
+<li><strong>Run skill assessments:</strong> Before and after intervention. Make the invisible visible so you can track whether you're recovering.</li>
+<li><strong>Check in with senior engineers specifically:</strong> They are the most likely to have already noticed the problem. Ask them directly what's broken.</li>
+</ul>
+
+<!-- ============================================ -->
+<!-- CONTINUE READING -->
+<!-- ============================================ -->
+</div><!-- end article-body -->
+
+<div class="continue-grid">
+<h3>Continue exploring</h3>
+<div class="continue-cards">
+<a href="cognitive-load.html" class="continue-card">
+<span class="card-tag">Understand</span>
+<strong>Cognitive Load & AI</strong>
+<p>Why AI coding tools tax your working memory and how to manage it.</p>
+</a>
+<a href="skill-atrophy.html" class="continue-card">
+<span class="card-tag">Understand</span>
+<strong>Skill Atrophy</strong>
+<p>The research on how automation and AI tools erode developer expertise — and what to do about it.</p>
+</a>
+<a href="team-guide.html" class="continue-card">
+<span class="card-tag">Heal</span>
+<strong>For Engineering Managers</strong>
+<p>Practical frameworks for managing teams through AI adoption without losing your best people.</p>
+</a>
+<a href="flow-state.html" class="continue-card">
+<span class="card-tag">Understand</span>
+<strong>Flow State & AI</strong>
+<p>Why AI tools disrupt deep work and how the best teams protect focus.</p>
+</a>
+<a href="recovery.html" class="continue-card">
+<span class="card-tag">Recover</span>
+<strong>Recovery Guide</strong>
+<p>How to recover from AI fatigue and build sustainable engineering practices.</p>
+</a>
+<a href="community.html" class="continue-card">
+<span class="card-tag">Connect</span>
+<strong>Community</strong>
+<p>Engineers navigating the same questions you're facing. You're not alone.</p>
+</a>
+</div>
+</div>
+
+</div><!-- end container -->
+</main>
+
+<footer id="footer"></footer>
+
+<script src="js/main.js"></script>
+<script>
+(function() {
+  // Inject nav and footer
+  fetch('nav.html')
+    .then(r => r.text())
+    .then(html => { document.getElementById('main-nav').outerHTML = html; })
+    .catch(() => {});
+  fetch('footer.html')
+    .then(r => r.text())
+    .then(html => { document.getElementById('footer').outerHTML = html; })
+    .catch(() => {});
+})();
+</script>
+<script>
+  // Reading time
+  (function() {
+    var words = document.body.innerText.split(/\s+/).length;
+    var mins = Math.ceil(words / 220);
+    var el = document.querySelector('.reading-time');
+    if (el) el.textContent = mins + ' min read';
+  })();
+</script>
+</body>
+</html>

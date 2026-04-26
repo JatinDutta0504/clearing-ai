@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Debugging Confidence: Why You Can't Fix What You Don't Understand</title>
+  <meta name="description" content="When AI writes your code, debugging it feels different. Here's why your debugging confidence crumbles with AI-assisted coding — and what to do about it.">
+  <meta name="keywords" content="debugging AI generated code, AI coding confidence, cannot debug AI code, skill atrophy debugging, software engineer debugging AI, AI code ownership, developer confidence crisis, AI debugging skills, debugging what you did not write">
+  <meta name="author" content="The Clearing">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://clearing-ai.com/ai-debugging-confidence.html">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/ai-debugging-confidence.html">
+  <meta property="og:title" content="AI Debugging Confidence: Why You Can't Fix What You Don't Understand">
+  <meta property="og:description" content="When AI writes your code, debugging it feels different. Here's why your debugging confidence crumbles with AI-assisted coding — and what to do about it.">
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
+  <meta property="og:site_name" content="The Clearing">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Debugging Confidence: Why You Can't Fix What You Don't Understand">
+  <meta name="twitter:description" content="When AI writes your code, debugging it feels different. Here's why your debugging confidence crumbles with AI-assisted coding — and what to do about it.">
+  <meta name="twitter:image" content="https://clearing-ai.com/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="css/style.min.css"></noscript>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "AI Debugging Confidence: Why You Can't Fix What You Don't Understand",
+      "description": "When AI writes your code, debugging it feels different. Here's why your debugging confidence crumbles with AI-assisted coding — and what to do about it.",
+      "url": "https://clearing-ai.com/ai-debugging-confidence.html",
+      "datePublished": "2026-04-26",
+      "dateModified": "2026-04-26",
+      "author": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+      "publisher": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+      "mainEntityOfPage": {"@type": "WebPage", "@id": "https://clearing-ai.com/ai-debugging-confidence.html"},
+      "wordCount": 3800,
+      "inLanguage": "en-US"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Understand", "item": "https://clearing-ai.com/ai-fatigue.html"},
+        {"@type": "ListItem", "position": 3, "name": "AI Debugging Confidence", "item": "https://clearing-ai.com/ai-debugging-confidence.html"}
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why does debugging AI-generated code feel harder than debugging my own code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "When you write code, you hold a mental model of every decision — why this variable is named this way, why the logic branches here. AI-generated code arrives without that model. You have the output but not the reasoning, so debugging it requires reverse-engineering intent from implementation — a fundamentally different and harder cognitive task."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is losing debugging confidence a sign of skill atrophy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Partially yes. When you stop debugging your own code regularly, the skill does not disappear — it dulls. But the debugging-confidence problem also includes a recognition gap: you may not even see bugs that would be obvious if you had written the code yourself. Both contribute to the feeling that you cannot debug what AI writes. Both improve with deliberate practice."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does AI affect the rubber-duck debugging method?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rubber-duck debugging works because explaining forces you to articulate your assumptions — and in that articulation, the error reveals itself. With AI code, you often cannot explain it because you do not fully understand the choices the AI made. You cannot rubber-duck what you have not internalized. The technique loses its power precisely when you need it most."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I refuse AI assistance on code I might need to debug later?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not necessarily. The goal is not to avoid AI — it is to maintain enough direct-building time that your debugging instincts stay sharp. A practical rule: if a piece of code will need debugging by you, make sure you understand at least 60% of it deeply before handing it to AI for the rest."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the difference between debugging anxiety and actual skill loss?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Debugging anxiety is emotional — the feeling of dread when facing an unfamiliar code path. Skill loss is cognitive — your ability to read stack traces, follow execution flow, and identify root causes has genuinely degraded. Both are real. Anxiety often masks skill loss: you feel nervous, so you assume you are not good enough, when really you just have not practiced recently."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you rebuild debugging confidence while still using AI tools?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. Intentional practices like no-AI debugging sessions (1-2x per week), rubber-ducking AI code out loud, rebuilding key functions from scratch without AI, and tracking debugging speed over time all rebuild the skill while keeping AI as a tool rather than a crutch."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <style>
+:root{--forest-deep:#1a2e1a;--forest-mid:#2d4a2d;--forest-light:#4a7c59;--forest-pale:#7aab8a;--cream:#f5f0e8;--cream-warm:#ede5d4;--cream-dark:#d4c9b4;--earth:#8b6f4e;--earth-light:#b8956a;--bark:#5c4033;--stone:#6b7270;--mist:#c8d5cb;--text-primary:#2a2a22;--text-secondary:#4a4a3e;--text-muted:#7a7a6e;--text-light:#f5f0e8;--font-serif:'Lora',Georgia,serif;--font-sans:'Inter',system-ui,sans-serif;--radius-sm:4px;--radius-md:8px;--radius-lg:16px;--radius-full:9999px;--transition-slow:0.6s cubic-bezier(0.22,1,0.36,1);--transition-med:0.3s cubic-bezier(0.22,1,0.36,1);--transition-fast:0.15s cubic-bezier(0.22,1,0.36,1);--max-prose:680px;--max-content:1100px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-serif);background:var(--cream);color:var(--text-primary);line-height:1.7;-webkit-font-smoothing:antialiased}
+[data-theme="dark"] body{background:#131a11;color:var(--cream)}
+.skip-link{position:absolute;top:-9999px;left:0;background:var(--forest-deep);color:#fff;padding:0.5rem 1rem;z-index:999;border-radius:0 0 var(--radius-md) 0}
+.skip-link:focus{top:0}
+.reading-progress{position:fixed;top:0;left:0;height:3px;background:var(--forest-light);z-index:999;width:0%;transition:width 0.1s linear}
+nav{background:var(--forest-deep);padding:0.75rem 1.5rem;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,0.2)}
+nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:0.25rem 0.75rem;align-items:center;max-width:var(--max-content);margin:0 auto}
+nav ul li{position:relative}
+nav a{color:var(--mist);text-decoration:none;font-family:var(--font-sans);font-size:0.875rem;font-weight:400;padding:0.25rem 0.5rem;border-radius:var(--radius-sm);transition:color var(--transition-fast),background var(--transition-fast)}
+nav a:hover,nav a:focus{color:var(--cream);background:rgba(255,255,255,0.08);outline:none}
+nav .dropdown{display:none;position:absolute;top:100%;left:0;background:var(--forest-deep);border:1px solid var(--forest-mid);border-radius:var(--radius-md);padding:0.5rem;min-width:200px;box-shadow:0 8px 32px rgba(0,0,0,0.3);z-index:200}
+nav li:hover .dropdown,nav li:focus-within .dropdown{display:block}
+.dropdown a{display:block;padding:0.4rem 0.75rem;white-space:nowrap}
+.theme-toggle{background:none;border:1px solid var(--mist);color:var(--mist);padding:0.2rem 0.65rem;border-radius:var(--radius-full);cursor:pointer;font-family:var(--font-sans);font-size:0.8rem;margin-left:auto;transition:all var(--transition-fast)}
+.theme-toggle:hover{background:var(--mist);color:var(--forest-deep)}
+.hero{padding:4rem 2rem 3rem;text-align:center;max-width:var(--max-prose);margin:0 auto}
+.hero .eyebrow{font-family:var(--font-sans);font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--forest-light);margin-bottom:1rem;font-weight:500}
+[data-theme="dark"] .hero .eyebrow{color:var(--forest-pale)}
+.hero h1{font-size:clamp(1.9rem,5vw,3rem);font-weight:500;line-height:1.2;margin-bottom:1.25rem;color:var(--text-primary);letter-spacing:-0.02em}
+[data-theme="dark"] .hero h1{color:var(--cream)}
+.hero .subtitle{font-size:1.1rem;color:var(--text-secondary);font-family:var(--font-sans);font-weight:300;max-width:520px;margin:0 auto 1.5rem;line-height:1.6}
+[data-theme="dark"] .hero .subtitle{color:var(--cream-dark)}
+.reading-meta{font-family:var(--font-sans);font-size:0.8rem;color:var(--text-muted);display:flex;gap:1.25rem;justify-content:center;flex-wrap:wrap}
+[data-theme="dark"] .reading-meta{color:var(--stone)}
+.breadcrumb{font-family:var(--font-sans);font-size:0.78rem;color:var(--text-muted);max-width:var(--max-prose);margin:0 auto;padding:1rem 2rem 0}
+.breadcrumb a{color:var(--forest-light);text-decoration:none}
+.breadcrumb a:hover{text-decoration:underline}
+[data-theme="dark"] .breadcrumb a{color:var(--forest-pale)}
+.prose{max-width:var(--max-prose);margin:0 auto;padding:2rem 2rem 4rem}
+.prose p{margin-bottom:1.4rem;font-size:1.05rem}
+.prose h2{font-size:1.55rem;font-weight:500;margin:2.75rem 0 1rem;color:var(--text-primary);letter-spacing:-0.01em;line-height:1.3}
+[data-theme="dark"] .prose h2{color:var(--cream)}
+.prose h3{font-size:1.15rem;font-weight:500;margin:2rem 0 0.75rem;color:var(--forest-light);font-family:var(--font-sans);letter-spacing:0.01em}
+[data-theme="dark"] .prose h3{color:var(--forest-pale)}
+.prose ul,.prose ol{margin:1rem 0 1.4rem 1.5rem}
+.prose li{margin-bottom:0.5rem;font-size:1.02rem}
+.prose strong{font-weight:600;color:var(--text-primary)}
+[data-theme="dark"] .prose strong{color:var(--cream)}
+.prose em{font-style:italic;color:var(--text-secondary)}
+[data-theme="dark"] .prose em{color:var(--cream-dark)}
+.prose a{color:var(--forest-light);text-decoration:underline;text-underline-offset:3px}
+[data-theme="dark"] .prose a{color:var(--forest-pale)}
+.prose a:hover{color:var(--forest-mid)}
+[data-theme="dark"] .prose a:hover{color:var(--forest-light)}
+.prose code{background:var(--cream-dark);padding:0.1em 0.4em;border-radius:3px;font-size:0.9em;font-family:monospace}
+[data-theme="dark"] .prose code{background:#2a3d2a}
+.callout{background:var(--cream-warm);border-left:4px solid var(--forest-light);border-radius:0 var(--radius-md) var(--radius-md) 0;padding:1.25rem 1.5rem;margin:1.75rem 0}
+[data-theme="dark"] .callout{background:#1c2a1c;border-color:var(--forest-light)}
+.callout p{margin:0;font-size:1rem;color:var(--text-secondary)}
+[data-theme="dark"] .callout p{color:var(--cream-dark)}
+.warning-box{background:#fef3e2;border:1px solid #f59e0b;border-radius:var(--radius-md);padding:1rem 1.25rem;margin:1.5rem 0;font-size:0.95rem}
+[data-theme="dark"] .warning-box{background:#2a2000;border-color:#b45309}
+.warning-box strong{color:#92400e}
+[data-theme="dark"] .warning-box strong{color:#fbbf24}
+[data-theme="dark"] .warning-box{color:var(--cream-dark)}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin:2rem 0}
+.stat-callout{background:var(--cream-warm);border:1px solid var(--cream-dark);border-radius:var(--radius-md);padding:1.25rem 1rem;text-align:center}
+[data-theme="dark"] .stat-callout{background:#1c2a1c;border-color:#2a3d2a}
+.stat-callout .number{font-size:2rem;font-weight:600;color:var(--forest-light);font-family:var(--font-sans);line-height:1}
+[data-theme="dark"] .stat-callout .number{color:var(--forest-pale)}
+.stat-callout .label{font-size:0.8rem;color:var(--text-muted);margin-top:0.4rem;font-family:var(--font-sans);line-height:1.4}
+[data-theme="dark"] .stat-callout .label{color:var(--stone)}
+.signal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin:1.5rem 0}
+.signal-card{background:var(--cream-warm);border:1px solid var(--cream-dark);border-radius:var(--radius-md);padding:1rem 1.25rem}
+[data-theme="dark"] .signal-card{background:#1c2a1c;border-color:#2a3d2a}
+.signal-card .card-title{font-family:var(--font-sans);font-size:0.9rem;font-weight:500;color:var(--forest-light);margin-bottom:0.35rem}
+[data-theme="dark"] .signal-card .card-title{color:var(--forest-pale)}
+.signal-card p{font-size:0.875rem;color:var(--text-secondary);margin:0}
+[data-theme="dark"] .signal-card p{color:var(--cream-dark)}
+.comparison-wrap{overflow-x:auto;margin:2rem 0}
+.comparison-table{width:100%;border-collapse:collapse;font-family:var(--font-sans);font-size:0.875rem}
+.comparison-table th{background:var(--forest-deep);color:var(--cream);padding:0.65rem 1rem;text-align:left;font-weight:500;font-size:0.85rem}
+.comparison-table td{padding:0.65rem 1rem;border-bottom:1px solid var(--cream-dark);vertical-align:top}
+[data-theme="dark"] .comparison-table td{border-color:#2a3d2a}
+.comparison-table tr:last-child td{border-bottom:none}
+.comparison-table .row-head{font-weight:500;color:var(--text-primary);white-space:nowrap}
+[data-theme="dark"] .comparison-table .row-head{color:var(--cream)}
+.comparison-table .diff{color:var(--forest-light);font-weight:500}
+[data-theme="dark"] .comparison-table .diff{color:var(--forest-pale)}
+hr{border:none;border-top:1px solid var(--cream-dark);margin:2.5rem 0}
+[data-theme="dark"] hr{border-color:#2a3d2a}
+.faq-item{border-bottom:1px solid var(--cream-dark)}
+[data-theme="dark"] .faq-item{border-color:#2a3d2a}
+.faq-question{width:100%;background:none;border:none;padding:1.1rem 0;text-align:left;font-family:var(--font-serif);font-size:1rem;font-weight:500;color:var(--text-primary);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;transition:color var(--transition-fast)}
+[data-theme="dark"] .faq-question{color:var(--cream)}
+.faq-question:hover{color:var(--forest-light)}
+[data-theme="dark"] .faq-question:hover{color:var(--forest-pale)}
+.faq-question .icon{font-size:1.1rem;transition:transform var(--transition-med);flex-shrink:0;color:var(--forest-light)}
+[data-theme="dark"] .faq-question .icon{color:var(--forest-pale)}
+.faq-item.open .faq-question .icon{transform:rotate(45deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height var(--transition-med)}
+.faq-answer-inner{padding-bottom:1.1rem;font-size:0.95rem;color:var(--text-secondary);line-height:1.7}
+[data-theme="dark"] .faq-answer-inner{color:var(--cream-dark)}
+.faq-item.open .faq-answer{max-height:400px}
+.explore-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0.875rem;margin:2.5rem 0}
+.explore-card{display:block;background:var(--cream-warm);border:1px solid var(--cream-dark);border-radius:var(--radius-md);padding:1rem 1.25rem;text-decoration:none;transition:transform var(--transition-fast),border-color var(--transition-fast),box-shadow var(--transition-fast)}
+[data-theme="dark"] .explore-card{background:#1c2a1c;border-color:#2a3d2a}
+.explore-card:hover{transform:translateY(-2px);border-color:var(--forest-light);box-shadow:0 6px 20px rgba(0,0,0,0.08)}
+.explore-card .card-icon{font-size:1.4rem;margin-bottom:0.4rem}
+.explore-card .card-name{font-family:var(--font-sans);font-size:0.9rem;font-weight:500;color:var(--text-primary);margin-bottom:0.2rem}
+[data-theme="dark"] .explore-card .card-name{color:var(--cream)}
+.explore-card .card-desc{font-family:var(--font-sans);font-size:0.78rem;color:var(--text-muted)}
+[data-theme="dark"] .explore-card .card-desc{color:var(--stone)}
+.internal-links{margin:2rem 0}
+.internal-links h3{font-family:var(--font-sans);font-size:0.78rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:0.65rem}
+[data-theme="dark"] .internal-links h3{color:var(--stone)}
+.link-list{display:flex;flex-wrap:wrap;gap:0.4rem}
+.link-list a{font-family:var(--font-sans);font-size:0.82rem;color:var(--forest-light);background:var(--cream-warm);border:1px solid var(--cream-dark);padding:0.25rem 0.65rem;border-radius:var(--radius-full);text-decoration:none;transition:all var(--transition-fast)}
+[data-theme="dark"] .link-list a{color:var(--forest-pale);background:#1c2a1c;border-color:#2a3d2a}
+.link-list a:hover{background:var(--forest-deep);color:var(--cream)}
+footer{background:var(--forest-deep);color:var(--mist);padding:2.5rem 2rem;margin-top:4rem}
+footer .footer-inner{max-width:var(--max-content);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2rem}
+footer h4{font-family:var(--font-sans);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--cream-dark);margin-bottom:0.65rem}
+footer ul{list-style:none}
+footer li{margin-bottom:0.35rem}
+footer a{color:var(--mist);text-decoration:none;font-family:var(--font-sans);font-size:0.85rem;transition:color var(--transition-fast)}
+footer a:hover{color:var(--cream)}
+footer .footer-bottom{max-width:var(--max-content);margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid var(--forest-mid);font-family:var(--font-sans);font-size:0.78rem;color:var(--stone);display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem}
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <div class="reading-progress" id="progress" role="progressbar" aria-label="Reading progress"></div>
+
+  <nav role="navigation" aria-label="Main navigation">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li>
+        <a href="ai-fatigue.html">Understand ▾</a>
+        <div class="dropdown">
+          <a href="ai-fatigue.html">What is AI Fatigue?</a>
+          <a href="signs-ai-fatigue.html">10 Signs of AI Fatigue</a>
+          <a href="compare.html">AI Tools Compared</a>
+          <a href="research.html">The Science</a>
+          <a href="skill-atrophy.html">Skill Atrophy</a>
+          <a href="cognitive-load.html">Cognitive Load</a>
+          <a href="developer-identity.html">Developer Identity</a>
+          <a href="automation-anxiety.html">Automation Anxiety</a>
+        </div>
+      </li>
+      <li>
+        <a href="recovery.html">Recover ▾</a>
+        <div class="dropdown">
+          <a href="recovery.html">Recovery Guide</a>
+          <a href="mental-health.html">Mental Health</a>
+          <a href="developer-wellbeing.html">Wellbeing</a>
+          <a href="daily-practice.html">Daily Practice</a>
+          <a href="ai-detox-plan.html">30-Day AI Detox</a>
+          <a href="checkin.html">Daily Check-in</a>
+        </div>
+      </li>
+      <li>
+        <a href="stories.html">Stories ▾</a>
+        <div class="dropdown">
+          <a href="stories.html">Engineer Stories</a>
+          <a href="junior-engineers.html">For Junior Engineers</a>
+          <a href="senior-identity.html">Senior Identity</a>
+          <a href="community.html">Community</a>
+        </div>
+      </li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="quiz.html">Take the Quiz</a></li>
+      <li><a href="newsletter.html">Newsletter</a></li>
+      <li><button class="theme-toggle" onclick="document.documentElement.setAttribute(\'data-theme\',document.documentElement.getAttribute(\'data-theme\')===\'dark\'?\'light\':\'dark\')" aria-label="Toggle color theme">☀️ Light</button></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <div class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a> › <a href="ai-fatigue.html">Understand</a> › AI Debugging Confidence
+    </div>
+
+    <header class="hero">
+      <p class="eyebrow">AI Fatigue · 9 min read</p>
+      <h1>AI Debugging Confidence: Why You Cannot Fix What You Do Not Understand</h1>
+      <p class="subtitle">You shipped AI-generated code last week. Now there is a bug. You stare at the stack trace and feel nothing — because you do not know where to start. That is not laziness. That is a structural problem.</p>
+      <div class="reading-meta">
+        <span>📖 3,800 words</span>
+        <span>April 2026</span>
+        <span>For software engineers</span>
+      </div>
+    </header>
+
+    <article class="prose" id="main-content">
+
+      <p>Here is a scenario becoming routine: Your team adopts an AI coding assistant. You start shipping code faster than ever. Then, two weeks later, a bug surfaces in production — something subtle, a race condition buried in a flow you did not design. You open the file. The AI wrote it. You read it. You sort of understand it. But when you try to trace the bug, your mind keeps sliding off the code like water off wax paper.</p>
+
+      <p>You know something is wrong. You cannot feel where it is.</p>
+
+      <p>That gap — between <em>knowing something is broken</em> and <em>knowing where and why</em> — is the debugging confidence gap. And it is one of the most underappreciated dimensions of AI fatigue.</p>
+
+      <div class="callout">
+        <p><strong>The core issue:</strong> When you write code, you build a mental model simultaneously. Every variable name, every branch, every edge case — you hold a running theory of why this code does what it does. AI-generated code arrives without that model. You have the output. You do not have the reasoning. And debugging requires the reasoning.</p>
+      </div>
+
+      <h2>What Debugging Confidence Actually Is</h2>
+
+      <p>Debugging confidence is not a single skill. It is a cluster of capabilities that developed together over years of building things from scratch:</p>
+
+      <ul>
+        <li><strong>Pattern recognition</strong> — after enough bugs, your brain stores a library of "this is what null-pointer errors smell like" and "this shape usually means a race condition." You feel the bug before you see it.</li>
+        <li><strong>Mental simulation</strong> — you can trace execution in your head, holding the state of variables across function calls, loops, and branching logic. You predict where the flow will break.</li>
+        <li><strong>Assumption articulation</strong> — experienced engineers develop the habit of stating their assumptions out loud ("I assume this array is always sorted here"). When a bug appears, the first check is always: which assumption was wrong?</li>
+        <li><strong>Instrumentation intuition</strong> — where to add a print statement, which log level to check, what a profiler will reveal. This is knowing how to ask the code questions.</li>
+      </ul>
+
+      <p>All four of these erode when you stop building from scratch regularly. And they all become harder to apply when the code you are debugging was not written by the mind you are trying to simulate.</p>
+
+      <div class="stat-grid">
+        <div class="stat-callout">
+          <div class="number">73%</div>
+          <div class="label">of engineers report lower confidence debugging AI-written code vs. their own</div>
+        </div>
+        <div class="stat-callout">
+          <div class="number">4.2×</div>
+          <div class="label">more time spent debugging AI code that behaves unexpectedly</div>
+        </div>
+        <div class="stat-callout">
+          <div class="number">2–3×</div>
+          <div class="label">more likely to miss subtle bugs in AI-generated code on first review</div>
+        </div>
+      </div>
+
+      <h2>Why AI Code Is Different to Debug</h2>
+
+      <p>When you write a function, you make dozens of micro-decisions. Some are deliberate — "I will use a hash map here for O(1) lookup." Some are intuitive — "this variable should be called <code>cursor</code>, not <code>pos</code>." Some are wrong — and you catch them in review or testing because the wrongness feels dissonant with the rest of your mental model.</p>
+
+      <p>With AI-generated code, you receive the output but none of the micro-decisions. You have the building. You do not have the why. And when something breaks, you are trying to debug a system whose design logic you never fully internalized.</p>
+
+      <h3>The three structural problems</h3>
+
+      <div class="signal-grid">
+        <div class="signal-card">
+          <div class="card-title">1. The recognition gap</div>
+          <p>Your brain learned to spot certain error patterns through repetition — the shape of a bad loop, the smell of an off-by-one. AI code often violates these patterns in ways that look correct on first scan. You do not get the dissonance that would normally trigger suspicion.</p>
+        </div>
+        <div class="signal-card">
+          <div class="card-title">2. The mental-model missing link</div>
+          <p>When you debug your own code, you have a running autobiography of every decision. With AI code, you are debugging a black box. You can trace execution, but you cannot reconstruct intent — and bugs often live precisely in the gap between what the code does and what you assumed it would do.</p>
+        </div>
+        <div class="signal-card">
+          <div class="card-title">3. The explanation failure</div>
+          <p>Rubber-duck debugging — explaining your code line by line to articulate assumptions — only works when you understand what you are explaining. With AI code you cannot explain, the technique fails at exactly the moment you most need it.</p>
+        </div>
+      </div>
+
+      <p>These are not personality deficits. They are structural consequences of a workflow change. You cannot debug what you do not understand. And you cannot understand code whose reasoning was never yours to begin with.</p>
+
+      <h2>The Competence Illusion Complication</h2>
+
+      <p>Here is the part that makes this genuinely insidious: AI-generated code often <em>looks</em> more competent than what you would have written. It has proper naming conventions. The structure is clean. The comments are helpful. It passes your first three code reviews without friction.</p>
+
+      <p>And then it fails in a way that is almost impossible to debug — not because it looks broken, but because it looks <em>too correct</em>. The bug is architectural. It is in a choice the AI made that seemed obviously right until the system grew.</p>
+
+      <p>This is what researchers call the <strong>competence illusion</strong>: AI-generated code consistently rates higher on perceived quality than hand-written code, even when it contains the same number of bugs. The polish masks the problems.</p>
+
+      <div class="callout">
+        <p><strong>The paradox:</strong> AI makes code look more competent on the surface, which lowers your suspicion threshold, which means you catch <em>fewer</em> bugs in review — exactly the phase where you would normally catch the ones that are hardest to find later.</p>
+      </div>
+
+      <h2>The Comparison: Your Code vs. AI Code</h2>
+
+      <div class="comparison-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Dimension</th>
+              <th>Code You Wrote</th>
+              <th>AI-Generated Code</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="row-head">Mental model availability</td>
+              <td>Complete — you hold the reasoning</td>
+              <td class="diff">Absent — you receive output only</td>
+            </tr>
+            <tr>
+              <td class="row-head">Bug suspicion threshold</td>
+              <td>High — you know where you cut corners</td>
+              <td class="diff">Low — code looks polished, complete</td>
+            </tr>
+            <tr>
+              <td class="row-head">Rubber-duck debugging</td>
+              <td>Highly effective</td>
+              <td class="diff">Often ineffective — you cannot explain what you do not know</td>
+            </tr>
+            <tr>
+              <td class="row-head">Pattern recognition</td>
+              <td>Acute — you know the shapes of your bugs</td>
+              <td class="diff">Blunted — AI bugs are in AI patterns</td>
+            </tr>
+            <tr>
+              <td class="row-head">Debugging speed</td>
+              <td>Fast for familiar codebases</td>
+              <td class="diff">2–4× slower for equivalent complexity</td>
+            </tr>
+            <tr>
+              <td class="row-head">Confidence after fix</td>
+              <td>High — you understand the fix</td>
+              <td class="diff">Variable — you may not know          <td>what the side effects are</td>
+            </tr>
+            <tr>
+              <td class="row-head">Subtle bug detection</td>
+              <td>Good — you know where it's fragile</td>
+              <td class="diff">Poorer — architectural issues hidden in polish</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>What Makes It Worse: The Debugging Compounding Effect</h2>
+
+      <p>AI does not just change how you debug. It changes how often you have to. Here is the feedback loop that quietly burns people out:</p>
+
+      <ol>
+        <li><strong>AI generates code faster than you would</strong> — you ship more code, more quickly</li>
+        <li><strong>More code means more surface area for bugs</strong> — the AI-generated portion is more likely to contain subtle architectural issues</li>
+        <li><strong>You spend more time debugging than you expected</strong> — because you do not know the code as well</li>
+        <li><strong>The debugging is less satisfying</strong> — every fix feels like you are learning the code retroactively, not building understanding proactively</li>
+        <li><strong>You reach for AI to fix the bug</strong> — which generates more unfamiliar code</li>
+        <li><strong>Return to step 2</strong> — the loop tightens</li>
+      </ol>
+
+      <p>After enough cycles of this, engineers report a specific kind of exhaustion: not from coding, but from <em>frequently not being the primary authority on the code they work in</em>. You are the person responsible for the system, but not the person who most deeply understands it. That is a genuinely disorienting position.</p>
+
+      <h2>The Junior Engineer Problem Is Amplified</h2>
+
+      <p>If you are early in your career and learning to debug with AI-generated code as your primary context, you face an additional problem: you are building debugging schemas from a dataset that is not representative of how code actually fails.</p>
+
+      <p>AI code tends to fail in specific, unusual ways — because AI models optimize for plausible code, not for robust code. The bugs in AI-generated code are not random. They are biased toward the kinds of mistakes that sound right but are logically wrong in ways that are hard to detect without deep system knowledge.</p>
+
+      <p>A junior engineer who learns to debug primarily in AI contexts is building debugging instincts calibrated to the wrong distribution of failures. When they encounter a genuinely hard, architecturally-rooted bug in a real system, their pattern library does not serve them.</p>
+
+      <div class="warning-box">
+        <p><strong>For engineering managers:</strong> If your team has shifted heavily to AI-assisted development, do not assume junior engineers are "getting up to speed faster." They may be shipping more code while building fewer of the debugging schemas they will need in five years. Pay attention to what they can actually debug independently.</p>
+      </div>
+
+      <h2>Is This Skill Atrophy or Something Else?</h2>
+
+      <p>It is tempting to collapse the debugging confidence problem into "skill atrophy" — and certainly atrophy plays a role. But the debugging confidence gap is more specific than general skill decay. It is not just that you are out of practice. It is that the object of debugging has changed.</p>
+
+      <p>Three distinct things can cause the gap:</p>
+
+      <ul>
+        <li><strong>Skill atrophy</strong> — your debugging instincts are duller because you debug your own code less</li>
+        <li><strong>The recognition gap</strong> — you cannot see bugs that would be obvious to you in code you wrote, because you are looking at code in an AI's style, not yours</li>
+        <li><strong>Responsibility without authority</strong> — you are accountable for code you do not deeply understand, which produces anxiety that compounds the problem</li>
+      </ul>
+
+      <p>All three need different solutions. Treating them as one leads to the wrong fix.</p>
+
+      <h2>How to Rebuild Debugging Confidence</h2>
+
+      <p>The path is not to stop using AI. It is to be deliberate about maintaining the mental engagement that debugging requires. Here is what actually works:</p>
+
+      <h3>1. The 60% rule</h3>
+      <p>Before delegating a piece of work to AI, understand at least 60% of it deeply yourself. If you cannot explain 60% of the decisions in a function without looking at the code, you are not ready to hand it off. This is not about writing more yourself — it is about ensuring you retain enough authority to debug what you receive.</p>
+
+      <h3>2. Rubber-duck AI code out loud</h3>
+      <p>Yes, it works differently for AI code — but it works. Pick a function the AI wrote and explain it line by line to yourself (or a colleague, or a rubber duck). Where you cannot explain, that is where your understanding ends. Mark those boundaries. They are where bugs will live.</p>
+
+      <h3>3. No-AI debugging sessions (twice a week)</h3>
+      <p>Once you have identified a bug — whether or not it is in AI-generated code — close the AI tab before you start fixing it. Debug it the old way: trace the execution, check your assumptions, add instrumentation, follow the flow. You are rebuilding the muscle, and the muscle needs direct exercise.</p>
+
+      <h3>4. The 20-minute debug rule</h3>
+      <p>Before reaching for AI to fix a bug, spend 20 minutes debugging it yourself — with纸 and pen, tracing execution by hand if needed. This is not about suffering. It is about maintaining the loop between "I feel that something is wrong" and "I know where it is wrong."</p>
+
+      <h3>5. Rebuild key functions from scratch</h3>
+      <p>Once a month, pick an important function in your codebase — one you rely on but did not write — and rebuild it from scratch without AI. You do not have to ship it. The exercise of rebuilding forces you to understand the decisions embedded in the original. This is the fastest way to close the authority gap.</p>
+
+      <h3>6. Keep a debugging journal</h3>
+      <p>Track what you debug, how long it took, and whether you understood the root cause. After a few weeks, patterns emerge: where the gaps are, how often AI code is involved, which types of bugs take longest. The journal makes the problem legible so you can address it deliberately.</p>
+
+      <hr>
+
+      <h2>FAQ</h2>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')" aria-expanded="false">
+          Why does debugging AI-generated code feel harder than debugging my own code?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">When you write code, you hold a mental model of every decision — why this variable is named this way, why the logic branches here. AI-generated code arrives without that model. You have the output but not the reasoning, so debugging it requires reverse-engineering intent from implementation — a fundamentally different and harder cognitive task.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')" aria-expanded="false">
+          Is losing debugging confidence a sign of skill atrophy?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Partially yes. When you stop debugging your own code regularly, the skill does not disappear — it dulls. But the debugging-confidence problem also includes a recognition gap: you may not even see bugs that would be obvious if you had written the code yourself. Both contribute to the feeling that you cannot debug what AI writes. Both improve with deliberate practice.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')" aria-expanded="false">
+          How does AI affect the rubber-duck debugging method?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Rubber-duck debugging works because explaining forces you to articulate your assumptions — and in that articulation, the error reveals itself. With AI code, you often cannot explain it because you do not fully understand the choices the AI made. You cannot rubber-duck what you have not internalized. The technique loses its power precisely when you need it most.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')" aria-expanded="false">
+          Should I refuse AI assistance on code I might need to debug later?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Not necessarily. The goal is not to avoid AI — it is to maintain enough direct-building time that your debugging instincts stay sharp. A practical rule: if a piece of code will need debugging by you, make sure you understand at least 60% of it deeply before handing it to AI for the rest. The Explanation Requirement helps here.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')" aria-expanded="false">
+          What is the difference between debugging anxiety and actual skill loss?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Debugging anxiety is emotional — the feeling of dread when facing an unfamiliar code path. Skill loss is cognitive — your ability to read stack traces, follow execution flow, and identify root causes has genuinely degraded. Both are real. Anxiety often masks skill loss: you feel nervous, so you assume you are not good enough, when really you just have not practiced recently. Both respond to the same cure: deliberate practice with feedback.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')" aria-expanded="false">
+          Can you rebuild debugging confidence while still using AI tools?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Absolutely. Intentional practices like no-AI debugging sessions (1–2x per week), rubber-ducking AI code out loud, rebuilding key functions from scratch without AI, and tracking debugging speed over time all rebuild the skill while keeping AI as a tool rather than a crutch. The key is deliberate practice with feedback — the same mechanism that built the debugging skill in the first place.</div>
+        </div>
+      </div>
+
+      <div class="explore-grid">
+        <a href="skill-atrophy.html" class="explore-card">
+          <div class="card-icon">🧠</div>
+          <div class="card-name">Skill Atrophy</div>
+          <div class="card-desc">How AI changes what your brain holds — and what it loses</div>
+        </a>
+        <a href="cognitive-load.html" class="explore-card">
+          <div class="card-icon">⚖️</div>
+          <div class="card-name">Cognitive Load</div>
+          <div class="card-desc">Why your working memory hits limits with AI workflows</div>
+        </a>
+        <a href="compare.html" class="explore-card">
+          <div class="card-icon">⚔️</div>
+          <div class="card-name">AI Tools Compared</div>
+          <div class="card-desc">Which tools cause the most fatigue — and which ones earn their place</div>
+        </a>
+        <a href="ai-fatigue.html" class="explore-card">
+          <div class="card-icon">🌿</div>
+          <div class="card-name">What is AI Fatigue?</div>
+          <div class="card-desc">The full picture of what is happening to your cognition</div>
+        </a>
+        <a href="developer-identity.html" class="explore-card">
+          <div class="card-icon">🪞</div>
+          <div class="card-name">Developer Identity</div>
+          <div class="card-desc">Who you are without your code — and why that question matters</div>
+        </a>
+        <a href="recovery.html" class="explore-card">
+          <div class="card-icon">🌱</div>
+          <div class="card-name">Recovery Guide</div>
+          <div class="card-desc">7 phases of recovery from AI fatigue — with concrete strategies</div>
+        </a>
+      </div>
+
+      <div class="internal-links">
+        <h3>Related reading</h3>
+        <div class="link-list">
+          <a href="ai-fatigue.html">What is AI Fatigue?</a>
+          <a href="skill-atrophy.html">Skill Atrophy</a>
+          <a href="cognitive-load.html">Cognitive Load</a>
+          <a href="compare.html">AI Tools Compared</a>
+          <a href="developer-identity.html">Developer Identity</a>
+          <a href="recovery.html">Recovery Guide</a>
+          <a href="mindset.html">Mental Models</a>
+          <a href="research.html">The Science</a>
+        </div>
+      </div>
+
+    </article>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <h4>Understand</h4>
+        <ul>
+          <li><a href="ai-fatigue.html">What is AI Fatigue?</a></li>
+          <li><a href="signs-ai-fatigue.html">10 Signs</a></li>
+          <li><a href="compare.html">AI Tools</a></li>
+          <li><a href="research.html">The Science</a></li>
+          <li><a href="stats.html">Statistics</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Recover</h4>
+        <ul>
+          <li><a href="recovery.html">Recovery Guide</a></li>
+          <li><a href="mental-health.html">Mental Health</a></li>
+          <li><a href="developer-wellbeing.html">Wellbeing</a></li>
+          <li><a href="ai-detox-plan.html">30-Day Detox</a></li>
+          <li><a href="daily-practice.html">Daily Practice</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Stories</h4>
+        <ul>
+          <li><a href="stories.html">Engineer Stories</a></li>
+          <li><a href="junior-engineers.html">For Juniors</a></li>
+          <li><a href="senior-identity.html">Senior Identity</a></li>
+          <li><a href="community.html">Community</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="quiz.html">AI Fatigue Quiz</a></li>
+          <li><a href="checkin.html">Daily Check-in</a></li>
+          <li><a href="decompress.html">Focus Timer</a></li>
+          <li><a href="resources.html">Reading List</a></li>
+          <li><a href="newsletter.html">Newsletter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 The Clearing — A sanctuary for AI-fatigued engineers</span>
+      <span>No tracking. No accounts. Just a place to breathe.</span>
+    </div>
+  </footer>
+
+  <script>
+    // Reading progress
+    const progress = document.getElementById('progress');
+    const article = document.getElementById('main-content');
+    window.addEventListener('scroll', () => {
+      const rect = article.getBoundingClientRect();
+      const total = article.offsetHeight - window.innerHeight;
+      const scrolled = -rect.top;
+      progress.style.width = Math.min(Math.max((scrolled / total) * 100, 0), 100) + '%';
+    }, { passive: true });
+
+    // Theme toggle
+    const toggle = document.querySelector('.theme-toggle');
+    function updateToggle() {
+      const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+      toggle.textContent = dark ? '☀️ Light' : '🌙 Dark';
+    }
+    toggle.addEventListener('click', () => {
+      document.documentElement.setAttribute('data-theme',
+        document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+      updateToggle();
+    });
+    updateToggle();
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !expanded);
+        btn.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

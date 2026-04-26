@@ -341,3 +341,10 @@
 - TRACKER.json updated (P2=162, pages=170)
 - Git commit: `625e37e`
 **Next:** Phase 3 technical SEO — Core Web Vitals on top 5 pages. Or Phase 1 content — corporate-ai-wellness expansion or ai-fatigue-statistics-2025 with 2026 data refresh.
+
+### Hour 543 — 2026-04-26 03:43 PDT (Phase 4 Community)
+**Built:** 5 Dispatch newsletter HTML pages (dispatch-1/2/7/11/15.html) + newsletter-archive.html link fixes
+**Archive:** 17/41 issues now link to real HTML (up from 12) — newsletter dead ends eliminated for top issues
+**sitemap:** 5 new URLs added
+**P4=105
+

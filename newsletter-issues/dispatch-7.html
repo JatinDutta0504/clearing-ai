@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Debugger Drift — The Dispatch #7</title>
+  <meta name="description" content="You used to read a stack trace and know where to look. Now you paste it into AI before you've finished reading it. Here's what's happening to your debugging instincts.">
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-archive.html">
+  <meta property="og:title" content="The Debugger Drift — The Dispatch #7">
+  <meta property="og:description" content="You used to read a stack trace and know where to look. Now you paste it into AI first.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/newsletter-archive.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Debugger Drift — The Dispatch #7">
+  <meta name="twitter:description" content="What's happening to your debugging instincts — and how to get them back.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .dispatch-issue { max-width: 680px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+    .dispatch-header { display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--text-muted); }
+    .dispatch-label { background: var(--accent); color: var(--bg); padding: 0.25rem 0.75rem; border-radius: 20px; font-weight: 600; font-size: 0.75rem; }
+    .dispatch-date { color: var(--text-muted); }
+    .dispatch-issue h1 { font-size: 2rem; line-height: 1.2; margin-bottom: 0.5rem; }
+    .dispatch-subtitle { color: var(--text-muted); font-size: 1.1rem; font-style: italic; margin-bottom: 1.5rem; }
+    .dispatch-divider { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+    .dispatch-body h2 { font-size: 1.3rem; margin: 2rem 0 0.75rem; color: var(--heading); }
+    .dispatch-body p { margin: 0 0 1.25rem; line-height: 1.75; }
+    .dispatch-body ul { margin: 0 0 1.25rem 1.5rem; }
+    .dispatch-body li { margin-bottom: 0.5rem; line-height: 1.7; }
+    .dispatch-body blockquote { border-left: 3px solid var(--accent); padding: 0.75rem 1.25rem; margin: 1.5rem 0; background: var(--surface-2); border-radius: 0 8px 8px 0; }
+    .dispatch-body blockquote p { margin: 0; }
+    .dispatch-body a { color: var(--accent); }
+    .rule-box { background: var(--surface-2); padding: 1.5rem; border-radius: 12px; margin: 2rem 0; text-align: center; border-left: 4px solid var(--accent); }
+    .rule-box .rule-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--heading); }
+    .rule-box p { margin: 0; font-size: 1rem; }
+    .dispatch-footer { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .dispatch-cta { background: var(--surface-2); padding: 1.5rem; border-radius: 12px; text-align: center; margin-bottom: 1.5rem; }
+    .dispatch-cta h3 { margin: 0 0 0.5rem; font-size: 1.1rem; }
+    .dispatch-cta p { margin: 0 0 1rem; color: var(--text-muted); font-size: 0.95rem; }
+    .dispatch-links { display: flex; justify-content: space-between; font-size: 0.9rem; }
+    .dispatch-links a { color: var(--accent); }
+    .cta-button { display: inline-block; background: var(--accent); color: var(--bg); padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="site-header">
+    <nav class="main-nav" role="navigation" aria-label="Main">
+      <a href="/" class="logo">🌿 The Clearing</a>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode" title="Toggle theme">🌙</button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <article class="dispatch-issue">
+      <header class="dispatch-header">
+        <span class="dispatch-label">The Dispatch — Issue #7</span>
+        <span class="dispatch-date">April 5, 2026</span>
+      </header>
+
+      <h1>The Debugger Who Forgot How to Debug</h1>
+      <p class="dispatch-subtitle">You used to read a stack trace and know where to look. Now you paste it into AI before you have finished reading it.</p>
+
+      <hr class="dispatch-divider">
+
+      <div class="dispatch-body">
+<p>A senior engineer told us recently:</p>
+
+<blockquote>
+  <p>"I used to be able to read a stack trace and know approximately where the problem was within 30 seconds. Now I paste it into Claude before I have finished reading the first line. And here is the thing: I know I am doing it. I watch myself do it. I cannot stop."</p>
+</blockquote>
+
+<p>This is what we are calling <strong>debugger drift</strong> — the slow, invisible migration of your debugging instincts to AI.</p>
+
+<h2>What debugging actually requires</h2>
+
+<p>Good debugging is not about finding the error. The error message tells you where the error is. Good debugging is about understanding <em>why</em> the error happened — what sequence of decisions led to this moment, what assumption was wrong, what interaction between systems created this particular failure.</p>
+
+<p>That understanding requires exactly the kind of deep model-building that AI assistance bypasses. When you debug with AI, you get the answer. When you debug without AI, you get the model.</p>
+
+<h2>The 20-minute rule</h2>
+
+<p>Here is the practice that recovers debugging instinct:</p>
+
+<div class="rule-box">
+  <p class="rule-title">The 20-Minute Debug Rule</p>
+  <p>Before you paste any error into AI: spend 20 minutes with it alone. Read it. Think about it. Write down where you think the problem is and why. Then — and only then — use AI.</p>
+</div>
+
+<p>The 20 minutes is not about whether you solve it yourself. It is about building the habit of engaging deeply with the problem before accepting a shortcut.</p>
+
+<p>What you write down before using AI is the real data: what did you notice? What did you try? Where were you uncertain? That record — not whether you solved it — is the measurement of whether your debugging instincts are still active.</p>
+
+<h2>Why this is different from other skill erosion</h2>
+
+<p>Debugging instinct is particularly fragile because it compounds in the background. Unlike writing a function from scratch — where the absence is obvious — debugger drift happens gradually. You stop noticing you are using AI for errors you used to solve instantly.</p>
+
+<p>Until one day you get an error in an environment without AI access, and you realize how much you have lost.</p>
+
+<h2>What helps</h2>
+
+<ul>
+  <li>The 20-minute rule above</li>
+  <li>No-AI debugging sessions: one problem per week, no AI, no Stack Overflow — just you and the error</li>
+  <li>Write down your debugging process: when you solve something, note what clue led you to the root cause</li>
+</ul>
+
+<p>Debugging instinct is rebuildable. But like all recovery, it requires choosing to feel the discomfort of not knowing — before the shortcut.</p>
+      </div>
+
+      <footer class="dispatch-footer">
+        <div class="dispatch-cta">
+          <h3>Where is your debugging instinct right now?</h3>
+          <p>Take the quiz — 3 minutes, no email required.</p>
+          <a href="/index.html#quiz" class="cta-button">Take the AI Fatigue Quiz →</a>
+        </div>
+        <div class="dispatch-links">
+          <a href="/newsletter-archive.html">← Read all Dispatch issues</a>
+          <a href="/">Back to The Clearing →</a>
+        </div>
+      </footer>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>🌿 The Clearing — A resource for engineers experiencing AI fatigue.</p>
+    <p><a href="/newsletter.html">Subscribe to The Dispatch</a> · <a href="/quiz.html">Take the Quiz</a> · <a href="/recovery.html">Recovery Guide</a></p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    const theme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+  </script>
+</body>
+</html>

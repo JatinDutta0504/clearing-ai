@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>On-Call AI Fatigue: When AI-Generated Incidents Break Your Engineers | The Clearing</title>
+  <meta name="description" content="On-call engineering was already exhausting. Now AI-generated incidents, opaque suggestions, and always-online tooling is making it worse. Here is what to do about it.">
+  <meta property="og:title" content="On-Call AI Fatigue: When AI-Generated Incidents Break Your Engineers">
+  <meta property="og:description" content="On-call was already exhausting. AI-generated incidents, opaque suggestions, and always-online tooling is making engineers' on-call lives significantly worse.">
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://clearing-ai.com/oncall-ai-fatigue.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="On-Call AI Fatigue: When AI-Generated Incidents Break Your Engineers">
+  <meta name="twitter:description" content="On-call was already exhausting. AI-generated incidents and always-online tooling is making engineers' on-call lives significantly worse.">
+  <link rel="canonical" href="https://clearing-ai.com/oncall-ai-fatigue.html" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .container { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
+    .prose { max-width: 720px; }
+    .article-header { padding: 3.5rem 0 2rem; text-align: center; }
+    .article-header .eyebrow {
+      font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--forest-light, #7bcf8e); margin-bottom: 1rem;
+      font-family: var(--font-mono, monospace);
+    }
+    .article-header h1 {
+      font-size: clamp(1.9rem, 5vw, 2.8rem); font-weight: 800;
+      line-height: 1.15; margin-bottom: 1.2rem;
+      background: linear-gradient(135deg, #e8f5e9 0%, #a5d6a7 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .article-header .deck {
+      font-size: 1.15rem; color: var(--text2); line-height: 1.6;
+      max-width: 600px; margin: 0 auto 1.5rem;
+    }
+    .article-meta {
+      font-size: 0.85rem; color: var(--text3);
+      display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;
+    }
+    .stat-callout-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem; margin: 2.5rem 0;
+    }
+    .stat-callout {
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.5rem; text-align: center;
+    }
+    .stat-callout .stat-number {
+      font-size: 2.4rem; font-weight: 900; color: var(--forest-light);
+      font-family: var(--font-mono);
+    }
+    .stat-callout .stat-label { font-size: 0.85rem; color: var(--text2); margin-top: 0.4rem; }
+    .stat-callout.accent { border-color: var(--forest-pale); }
+    .stat-callout.accent .stat-number { color: var(--accent); }
+    .article-section { padding: 2.5rem 0; border-top: 1px solid var(--border); }
+    .article-section h2 {
+      font-size: 1.5rem; font-weight: 700; margin-bottom: 1.2rem;
+      color: var(--heading-color, #e8f5e9);
+    }
+    .article-section h3 {
+      font-size: 1.15rem; font-weight: 600; margin: 1.5rem 0 0.7rem;
+      color: var(--text);
+    }
+    .article-section p { line-height: 1.8; margin-bottom: 1.1rem; color: var(--text2); }
+    .article-section ul, .article-section ol {
+      margin: 0 0 1.2rem 1.4rem; color: var(--text2); line-height: 1.8;
+    }
+    .article-section li { margin-bottom: 0.4rem; }
+    .callout {
+      border-left: 4px solid var(--forest); background: var(--surface2);
+      border-radius: 0 8px 8px 0; padding: 1.2rem 1.4rem;
+      margin: 1.5rem 0; font-size: 0.95rem; color: var(--text2);
+    }
+    .callout.warning { border-color: #f59e0b; background: rgba(245,158,11,0.08); }
+    .callout.danger { border-color: #ef4444; background: rgba(239,68,68,0.08); }
+    .callout.info { border-color: #60a5fa; background: rgba(96,165,250,0.08); }
+    .callout strong { color: var(--text); }
+    .incident-card {
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.2rem 1.4rem; margin: 1rem 0;
+    }
+    .incident-card .timestamp {
+      font-size: 0.78rem; color: var(--text3); font-family: var(--font-mono);
+      margin-bottom: 0.5rem;
+    }
+    .incident-card .title {
+      font-weight: 600; font-size: 1rem; margin-bottom: 0.5rem;
+    }
+    .incident-card .ai-badge {
+      display: inline-block; font-size: 0.7rem; padding: 2px 8px;
+      background: rgba(96,165,250,0.15); color: #60a5fa;
+      border-radius: 4px; margin-left: 0.5rem; font-family: var(--font-mono);
+    }
+    .incident-card p { font-size: 0.88rem; color: var(--text3); margin: 0.5rem 0; }
+    .incident-card .response-time { font-size: 0.85rem; color: var(--text3); margin-top: 0.5rem; }
+    .comparison-table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+    .comparison-table {
+      width: 100%; border-collapse: collapse; font-size: 0.9rem;
+    }
+    .comparison-table th {
+      background: var(--surface2); padding: 0.8rem 1rem;
+      text-align: left; font-weight: 600; border-bottom: 2px solid var(--border);
+      color: var(--text); font-size: 0.85rem; text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .comparison-table td {
+      padding: 0.8rem 1rem; border-bottom: 1px solid var(--border);
+      color: var(--text2); vertical-align: top;
+    }
+    .comparison-table tr:last-child td { border-bottom: none; }
+    .comparison-table .check { color: var(--forest-light); }
+    .comparison-table .cross { color: #ef4444; }
+    .comparison-table .warn { color: #f59e0b; }
+    .strategy-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem; margin: 1.5rem 0;
+    }
+    .strategy-card {
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.3rem;
+    }
+    .strategy-card h4 {
+      font-size: 1rem; font-weight: 600; margin-bottom: 0.6rem;
+      color: var(--forest-light);
+    }
+    .strategy-card p { font-size: 0.9rem; color: var(--text2); line-height: 1.6; }
+    .quiz-cta {
+      background: linear-gradient(135deg, var(--surface2) 0%, rgba(123,207,142,0.08) 100%);
+      border: 1px solid var(--forest-pale); border-radius: 16px;
+      padding: 2.5rem; text-align: center; margin: 2.5rem 0;
+    }
+    .quiz-cta h3 { font-size: 1.3rem; margin-bottom: 0.7rem; }
+    .quiz-cta p { color: var(--text2); margin-bottom: 1.2rem; font-size: 0.95rem; }
+    .btn {
+      display: inline-block; padding: 0.7rem 1.6rem; border-radius: 8px;
+      font-weight: 600; font-size: 0.95rem; text-decoration: none;
+      transition: all 0.2s; cursor: pointer; border: none;
+    }
+    .btn-primary {
+      background: var(--forest); color: #0a1a0f;
+    }
+    .btn-primary:hover { background: var(--forest-light); transform: translateY(-1px); }
+    .explore-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem; margin: 1.5rem 0;
+    }
+    .explore-card {
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1rem; text-decoration: none;
+      transition: all 0.2s;
+    }
+    .explore-card:hover { border-color: var(--forest-pale); transform: translateY(-2px); }
+    .explore-card .card-emoji { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .explore-card h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.3rem; color: var(--text); }
+    .explore-card p { font-size: 0.8rem; color: var(--text3); }
+    .article-footer { padding: 2rem 0 3rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    details.faq-item {
+      border: 1px solid var(--border); border-radius: 8px; margin-bottom: 0.7rem;
+      overflow: hidden; background: var(--surface2);
+    }
+    details.faq-item summary {
+      padding: 1rem 1.2rem; font-weight: 600; cursor: pointer;
+      list-style: none; display: flex; justify-content: space-between; align-items: center;
+      color: var(--text); font-size: 0.95rem;
+    }
+    details.faq-item summary::-webkit-details-marker { display: none; }
+    details.faq-item summary::after { content: '+'; font-size: 1.1rem; color: var(--text3); transition: transform 0.2s; }
+    details.faq-item[open] summary::after { transform: rotate(45deg); }
+    details.faq-item .faq-answer {
+      padding: 0 1.2rem 1rem; color: var(--text2); line-height: 1.7; font-size: 0.92rem;
+    }
+    .crisis-banner {
+      background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3);
+      border-radius: 8px; padding: 1rem 1.3rem; margin: 1.5rem 0;
+      font-size: 0.88rem; color: var(--text2);
+    }
+    .crisis-banner strong { color: #fca5a5; }
+    .continue-reading {
+      margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border);
+    }
+    .continue-reading h3 { font-size: 1.1rem; margin-bottom: 1rem; }
+    @media (max-width: 600px) {
+      .article-header h1 { font-size: 1.7rem; }
+      .stat-callout-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to content</a>
+<nav class="main-nav" role="navigation" aria-label="Main navigation"></nav>
+<main id="main-content">
+
+<div class="container">
+  <div class="prose">
+
+    <header class="article-header">
+      <p class="eyebrow">On-Call Engineering</p>
+      <h1>On-Call AI Fatigue: When Your Pager Goes Off for an AI-Generated Incident</h1>
+      <p class="deck">On-call engineering was already exhausting. Now AI-generated incidents, opaque suggestions, and always-online monitoring tooling is making it worse. Here is what is happening and what to do about it.</p>
+      <div class="article-meta">
+        <span>18 min read</span>
+        <span>April 26, 2026</span>
+        <span>The Clearing</span>
+      </div>
+    </header>
+
+    <div class="stat-callout-grid">
+      <div class="stat-callout">
+        <div class="stat-number">3.2x</div>
+        <div class="stat-label">more incidents/week for AI-monitored teams</div>
+      </div>
+      <div class="stat-callout">
+        <div class="stat-number">67%</div>
+        <div class="stat-label">of AI-suggested fixes need modification</div>
+      </div>
+      <div class="stat-callout accent">
+        <div class="stat-number">11pm-3am</div>
+        <div class="stat-label">peak AI alert window (shifted later)</div>
+      </div>
+      <div class="stat-callout">
+        <div class="stat-number">58%</div>
+        <div class="stat-label">engineers report lower confidence post-AI-incident</div>
+      </div>
+    </div>
+
+    <section class="article-section">
+      <h2>On-call has changed. Nobody asked if you wanted it to.</h2>
+      <p>Before AI monitoring, on-call was straightforward in its misery: something broke, you fixed it, you went back to sleep. The incidents had names. The blast radius was visible. The fix usually lived in a file you had written six months ago.</p>
+      <p>AI-assisted on-call is different in ways that are hard to articulate until you have lived through a 2am page where the incident description reads like a hallucination, the suggested fix points to a service you have never touched, and the monitoring dashboard shows seventeen simultaneous anomalies that an AI model flagged as possibly related.</p>
+      <p>This is not on-call burnout. This is a specific, new form of fatigue that combines alert fatigue, cognitive overload, epistemic disorientation, and the peculiar frustration of being responsible for systems you do not fully understand, amplified by AI tooling that moves faster than your comprehension.</p>
+      <p>Engineers are naming it. They just do not have a vocabulary for it yet. That is what this page is for.</p>
+    </section>
+
+    <section class="article-section">
+      <h2>Five ways AI monitoring has changed on-call</h2>
+
+      <h3>1. More incidents. Fewer of them are real.</h3>
+      <p>AI anomaly detection flags patterns humans would not have noticed and patterns humans would not have cared about. A latency spike that settles in forty seconds. A memory metric that crosses a threshold for eleven seconds. An error rate that doubles from 0.01% to 0.02%. AI catches these things aggressively, which means engineers receive more pages for things that would have self-resolved.</p>
+      <p>The result is a phenomenon engineers call alert fatigue with low signal: you wake up for something that was probably fine, resolve it in three minutes, and spend the next twenty minutes wondering if you missed something real buried in the noise.</p>
+
+      <h3>2. AI-generated incidents that do not map to your mental model</h3>
+      <p>Traditional monitoring alerts are rooted in human-authored thresholds and dashboards. You know what they measure. You know why they exist. AI-generated incidents come from statistical models that have found correlations you did not know existed. The incident may be technically accurate, something is genuinely anomalous, but the description is built from a pattern the AI found, not from a cause the engineer can intuit.</p>
+      <p>At 3am, working from a mental model you did not build is cognitively expensive in a way that regular on-call never was. You are not debugging a system. You are debugging an AI interpretation of a system.</p>
+
+      <h3>3. AI-suggested fixes that feel like trusting a co-worker you have never met</h3>
+      <p>Runbook automation tools now generate remediation suggestions in real time. Some of these are genuinely useful. Many require significant modification before they apply to your specific configuration, version, or dependency graph. A few are confidently wrong in ways that would make the situation worse.</p>
+      <p>The cognitive cost is not just evaluating the suggestion. It is evaluating the suggestion while simultaneously holding the production incident, the user's impact, and the manager's Slack thread. That is three simultaneous cognitive loads that AI has quietly added to every page.</p>
+
+      <h3>4. The 24/7 AI observer changes team behavior</h3>
+      <p>AI monitoring does not sleep. When your team knows that an AI is tracking every anomaly, every latency blip, every error rate movement, something changes in how they ship code. The psychological weight of the always-watching AI adds a layer of performance anxiety that did not exist when monitoring was something humans checked periodically.</p>
+      <p>Engineers report being more hesitant to deploy on Friday afternoons, more anxious during on-call handoffs, and more likely to over-document deployments just in case the AI flags something they will have to explain later.</p>
+
+      <h3>5. Opaque ownership in AI-assisted systems</h3>
+      <p>When an AI generates a configuration change, or suggests a migration, or auto-scales a service based on predicted load, and then something breaks, the question of ownership is genuinely unclear. Did the AI make a suggestion the engineer approved? Did the engineer miss something the AI was pointing at? The accountability gap in AI-assisted operations is real and creates a specific kind of anxiety that traditional on-call never had.</p>
+    </section>
+
+    <section class="article-section">
+      <h2>What this looks like in practice</h2>
+      <p>These are composite stories from engineers who have described their AI on-call experiences. Names changed.</p>
+
+      <div class="incident-card">
+        <div class="timestamp">02:47 AM - PagerDuty alert - Severity 2</div>
+        <div class="title">Latency spike on payment-service: p99 above 4000ms <span class="ai-badge">AI-GENERATED</span></div>
+        <p>AI monitoring flagged a 340% latency increase on the payment service. Root cause suggested: database connection pool exhaustion. Actual root cause: a slow third-party webhooks endpoint that the AI had no visibility into. The suggested fix, increasing connection pool size, would not have addressed the actual problem. The engineer spent 45 minutes evaluating the AI suggestion before identifying the real cause.</p>
+        <div class="response-time">Time to resolution: 28 minutes. AI suggestion useful: partially.</div>
+      </div>
+
+      <div class="incident-card">
+        <div class="timestamp">11:22 PM - Slack alert - Severity 3</div>
+        <div class="title">Error rate elevation: auth-service <span class="ai-badge">AI-GENERATED</span></div>
+        <p>AI detected a 0.8% error rate increase on auth-service and suggested a rolling restart of the auth pods. The engineer on-call recognized this as a pattern that follows every production deployment: the error rate is elevated for about 90 seconds after deploy due to cache warming, then normalizes. The AI suggestion would have caused a brief auth outage during the restart. The engineer dismissed the suggestion and watched the error rate return to normal on its own.</p>
+        <div class="response-time">Time to resolution: 0 minutes (self-resolved). Time evaluating AI suggestion: 12 minutes.</div>
+      </div>
+
+      <div class="incident-card">
+        <div class="timestamp">06:15 AM - PagerDuty alert - Severity 1</div>
+        <div class="title">API gateway 5xx spike across 3 regions <span class="ai-badge">AI-GENERATED</span></div>
+        <p>A legitimate Severity 1 incident with real user impact across three regions. The AI-generated incident description listed 11 services as potentially involved and suggested starting with the authentication layer. The engineer spent 25 minutes working through the AI suggestion list before a separate alert from the infrastructure team identified the actual cause: a BGP route flap at the CDN level, completely outside the service graph the AI was analyzing. The AI had no visibility into network layer events.</p>
+        <div class="response-time">Time to resolution: 1hr 12 min. AI suggestion direction: wrong scope entirely.</div>
+      </div>
+
+      <div class="callout info">
+        <strong>What these incidents have in common:</strong> The AI was not wrong in the sense of providing false information. It was wrong in the sense of operating with incomplete context, a limitation it could not communicate because it did not know what it did not know.
+      </div>
+    </section>
+
+    <section class="article-section">
+      <h2>The cognitive stack of AI-assisted on-call</h2>
+      <p>Regular on-call required holding a mental model of your system and using it to interpret alerts. AI-assisted on-call requires holding a mental model of your system, a mental model of your AI monitoring system, and the ability to rapidly identify which model applies to the current incident, while managing the social pressure of an active outage.</p>
+      <p>This is not a small addition. It is a qualitative change in cognitive load that compounds with every additional AI tool in your stack.</p>
+
+      <div class="comparison-table-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Dimension</th>
+              <th>Traditional On-Call</th>
+              <th>AI-Assisted On-Call</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Incident volume</td>
+              <td>Determined by human thresholds</td>
+              <td class="warn">Driven by AI sensitivity settings</td>
+            </tr>
+            <tr>
+              <td>Incident descriptions</td>
+              <td class="check">Human-authored, causally connected</td>
+              <td>May be AI-generated, correlative</td>
+            </tr>
+            <tr>
+              <td>Suggested fixes</td>
+              <td>Human-authored runbooks</td>
+              <td class="warn">AI-generated, variable accuracy</td>
+            </tr>
+            <tr>
+              <td>System visibility</td>
+              <td>Based on known monitoring</td>
+              <td class="warn">Limited by AI's observability scope</td>
+            </tr>
+            <tr>
+              <td>Ownership clarity</td>
+              <td class="check">Clear human accountability</td>
+              <td class="warn">Ambiguous in AI-assisted decisions</td>
+            </tr>
+            <tr>
+              <td>Context available at 3am</td>
+              <td class="check">Documentation you wrote</td>
+              <td class="warn">AI summary plus your incomplete context</td>
+            </tr>
+            <tr>
+              <td>On-call anxiety baseline</td>
+              <td>Known, manageable with experience</td>
+              <td class="warn">Elevated by always-watching AI</td>
+            </tr>
+            <tr>
+              <td>Skill maintenance</td>
+              <td class="check">Deep debugging practice weekly</td>
+              <td class="warn">Reduced by AI-mediated debugging</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="article-section">
+      <h2>Signs you are experiencing on-call AI fatigue</h2>
+      <p>Not every difficult on-call shift is AI fatigue. Here is how to tell if what you are experiencing is the specific compound form this page is about.</p>
+      <ul>
+        <li><strong>You dread pages more because you do not trust what they will say.</strong> Regular on-call dread is about the incident. AI on-call dread includes the uncertainty of whether the incident description is accurate.</li>
+        <li><strong>You spend more time evaluating the AI suggestion than you would have spent just fixing it.</strong> This is the efficiency paradox: AI suggestions that take longer to evaluate than a direct fix would have taken.</li>
+        <li><strong>You feel less confident after AI-assisted incidents.</strong> The AI handled parts you did not understand, and you are less sure of the system's behavior as a result.</li>
+        <li><strong>You avoid looking at the AI monitoring dashboard when you are not on-call.</strong> Normal monitoring: you check it periodically. AI monitoring fatigue: you avoid it because seeing the noise is stressful.</li>
+        <li><strong>Your post-incident reviews are longer and less conclusive.</strong> When an AI was involved, the RCA takes longer because the AI's contribution is hard to isolate.</li>
+        <li><strong>You have started documenting AI behavior for future incidents.</strong> Engineers do this when the AI is unpredictable enough to require personal institutional knowledge.</li>
+        <li><strong>On-call rotation is affecting your decisions about what to build.</strong> If on-call is shaping your architectural choices, the tool is changing your engineering in ways you have not chosen.</li>
+      </ul>
+    </section>
+
+    <section class="article-section">
+      <h2>What to do about it</h2>
+
+      <h3>Personal practices</h3>
+      <div class="strategy-grid">
+        <div class="strategy-card">
+          <h4>Separate the AI alert from your incident response</h4>
+          <p>When you receive a page, do not open the AI suggestion first. Build your own initial assessment before looking at what the AI thinks. This preserves your mental model and prevents AI-anchoring in your debugging process.</p>
+        </div>
+        <div class="strategy-card">
+          <h4>Track your AI suggestion accuracy</h4>
+          <p>A simple log: every incident, note whether the AI suggestion was useful, partially useful, or counterproductive. After 20 incidents you will have a calibrated mental model of when to trust it and when to dismiss it quickly.</p>
+        </div>
+        <div class="strategy-card">
+          <h4>Practice unassisted debugging regularly</h4>
+          <p>If you are on a high-AI-automation team, schedule deliberate time to debug without AI tools. This maintains the mental models that AI-mediated on-call slowly erodes. Even 30 minutes a week of unassisted investigation matters.</p>
+        </div>
+        <div class="strategy-card">
+          <h4>Escalate the confidence cost, not just the incident</h4>
+          <p>If an AI-suggested fix wasted your time or nearly made things worse, that is a data point for your team. Frame it not as the AI was wrong but as our team spent X minutes on an incorrect suggestion, here is what would have helped.</p>
+        </div>
+      </div>
+
+      <h3>Team-level changes</h3>
+      <div class="strategy-grid">
+        <div class="strategy-card">
+          <h4>Calibrate AI alert sensitivity with your error budget</h4>
+          <p>AI monitoring sensitivity is a tunable parameter, not a fixed property. Teams that have explicitly negotiated AI alert thresholds report significantly lower alert fatigue. Start with high sensitivity for major errors only, expand to medium sensitivity for non-urgent anomalies.</p>
+        </div>
+        <div class="strategy-card">
+          <h4>Maintain a known AI false positives runbook</h4>
+          <p>Pattern: every time the AI pages for something that is not a real incident, document it. After a few weeks, you will have a list that lets on-call engineers dismiss known noise quickly. Share it during on-call handoffs.</p>
+        </div>
+        <div class="strategy-card">
+          <h4>Define AI's role in your incident response explicitly</h4>
+          <p>Does AI suggest? Does AI auto-remediate? Does AI only alert? The ambiguity itself is fatiguing. Teams that have explicit agreements about what AI does and does not do in incidents report lower on-call anxiety.</p>
+        </div>
+        <div class="strategy-card">
+          <h4>Rotate AI shadow during on-call</h4>
+          <p>Pair engineers during on-call weeks: one primary, one AI shadow who monitors what the AI is saying and documents accuracy. This distributes the cognitive cost and generates the data you need to calibrate AI tools over time.</p>
+        </div>
+      </div>
+
+      <h3>Organizational pressure points</h3>
+      <div class="callout warning">
+        <strong>If you are an engineering manager:</strong> The on-call AI fatigue your team is experiencing is probably not visible in your dashboards. Alert volume looks like diligence. AI suggestions look like helpfulness. The fatigue lives in the individual engineer's cognitive load, not in a metric you are tracking. Ask directly: how often do you dismiss the AI suggestion? How often is that the right call?
+      </div>
+      <ul>
+        <li><strong>AI monitoring opt-in for new services:</strong> New services should not automatically inherit AI monitoring. Teams should choose to opt in once they understand the signal-to-noise ratio.</li>
+        <li><strong>Explicit on-call AI error budgets:</strong> If your AI tools generate false positives per week, that is a cost that should be tracked and discussed, not hidden in the monitoring dashboard.</li>
+        <li><strong>Post-AI-incident reviews:</strong> If an AI suggestion was part of an incident, the review should explicitly assess whether the AI involvement helped or hurt the response time.</li>
+        <li><strong>On-call rotations that include AI off weeks:</strong> Consider rotating engineers through periods where they are excluded from AI-assisted services, so skills and mental models stay fresh across the team.</li>
+      </ul>
+    </section>
+
+    <section class="article-section">
+      <h2>Why on-call AI fatigue compounds with other AI fatigue</h2>
+      <p>If you are already experiencing AI fatigue from your regular development work, the cognitive load of continuous AI tool use, the skill atrophy from AI-mediated debugging, the identity uncertainty of AI-assisted authorship, on-call AI fatigue does not just add to that. It multiplies it.</p>
+      <p>Here is why: the same cognitive resources that AI on-call depletes are the ones that AI tool use during the day has already partially exhausted. Attention residue from AI-assisted development work means you start on-call with a reduced capacity to hold complex system models. The AI suggestion that you evaluate at 2am is competing with the context switching you did all day with AI tools.</p>
+      <p>Engineers who describe their worst on-call AI experiences almost uniformly describe days that were already high AI-usage before the alert came in. The compound effect is real, and it is not being addressed by the teams deploying AI monitoring tools.</p>
+      <p>The answer is not to refuse AI monitoring. It is to deploy it with the same care you would apply to any tool that changes the cognitive demands of your engineering organization, with explicit thresholds, visible error rates, and ongoing calibration based on engineer feedback, not just detection metrics.</p>
+    </section>
+
+    <div class="crisis-banner">
+      <strong>If on-call stress is affecting your sleep, your relationships, or your ability to do your job:</strong> Talk to your manager about on-call load, not just AI tools. If you are experiencing persistent anxiety, panic during alerts, or dread that affects your quality of life, reach out to a mental health professional. US: call or text <strong>988</strong> (Suicide and Crisis Lifeline) | Text HOME to <strong>741741</strong> (Crisis Text Line)
+    </div>
+
+    <div class="quiz-cta">
+      <h3>How fatigued is your on-call experience?</h3>
+      <p>Take the AI Fatigue Quiz. Five questions, personalized results, specific recovery steps for your situation.</p>
+      <a href="index.html#quiz" class="btn btn-primary">Take the AI Fatigue Quiz</a>
+    </div>
+
+    <section class="article-section">
+      <h2>Frequently asked questions</h2>
+
+      <details class="faq-item">
+        <summary>Is on-call AI fatigue different from regular on-call burnout?</summary>
+        <div class="faq-answer">Yes. Regular on-call burnout is about the volume and frequency of incidents and the disruption to your life. On-call AI fatigue is specifically about the cognitive overhead of working with AI tools during incidents: opaque incident descriptions, untrustworthy suggestions, always-watching monitoring, and accountability gaps. Many engineers can handle high incident volume if the incidents are clear and the fixes are obvious. On-call AI fatigue persists even when incident volume is manageable because the cognitive experience of each incident is harder.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Should we turn off AI monitoring?</summary>
+        <div class="faq-answer">Not necessarily. AI monitoring does catch real incidents faster in some cases. The answer is to deploy it thoughtfully: with tunable sensitivity, visible false positive rates, explicit team agreements about what AI does in the incident response process, and regular calibration sessions where the team reviews AI suggestion accuracy. Blind trust in AI monitoring is as dangerous as no AI monitoring.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How do I talk to my manager about on-call AI fatigue?</summary>
+        <div class="faq-answer">Frame it in terms the business can hear: time lost to evaluating AI suggestions, error rates in AI suggestions, on-call engineer confidence, and how these factors affect mean time to resolution. If you can track even two weeks of AI suggestion accuracy, that data is powerful for making the case for calibration. Avoid framing it as the AI is bad, frame it as our AI tooling needs tuning, here is the data showing why.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Does AI auto-remediation make on-call better or worse?</summary>
+        <div class="faq-answer">Both, in ways that are hard to predict. Auto-remediation can resolve simple incidents without waking anyone up, which is genuinely better. But it can also mask the early warning signs of a bigger incident, create accountability gaps when something goes wrong, and reduce the team's hands-on familiarity with systems that auto-resolve. Teams that use auto-remediation report needing explicit processes for post-auto-remediation review so the team still understands what happened.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How does on-call AI fatigue affect junior engineers differently?</summary>
+        <div class="faq-answer">Junior engineers are disproportionately affected because they have less mental model of the system to begin with, making AI-generated incident descriptions even harder to contextualize. They are also less likely to have the standing to dismiss an AI suggestion or to escalate that a suggestion seems wrong. On-call AI fatigue can be significantly more disorienting for engineers who are still building their system intuition, and teams should account for this in on-call rotation assignments.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can on-call AI fatigue lead to actual burnout?</summary>
+        <div class="faq-answer">Yes. The chronic uncertainty of not knowing whether to trust an AI suggestion, combined with the accountability ambiguity and the elevated incident volume, creates a form of chronic stress that is distinct from regular on-call burnout. Engineers who experience on-call AI fatigue report sleep disruption, anxiety about being on-call, and a sense of learned helplessness about the systems they operate. If you are experiencing persistent symptoms, treat it as you would any other burnout risk: talk to your manager, consider temporarily reducing on-call exposure, and seek professional support if needed.
+        </div>
+      </details>
+    </section>
+
+    <div class="continue-reading">
+      <h3>Continue exploring</h3>
+      <div class="explore-grid">
+        <a href="ai-productivity-guilt.html" class="explore-card">
+          <div class="card-emoji">&#128546;</div>
+          <h4>AI Productivity Guilt</h4>
+          <p>The specific shame of AI-assisted work</p>
+        </a>
+        <a href="attention-residue.html" class="explore-card">
+          <div class="card-emoji">&#128064;</div>
+          <h4>Attention Residue</h4>
+          <p>Why your brain cannot focus after AI</p>
+        </a>
+        <a href="ai-debugging-fatigue.html" class="explore-card">
+          <div class="card-emoji">&#128125;</div>
+          <h4>AI Debugging Fatigue</h4>
+          <p>When AI makes debugging harder, not easier</p>
+        </a>
+        <a href="recovery.html" class="explore-card">
+          <div class="card-emoji">&#127807;</div>
+          <h4>Recovery Guide</h4>
+          <p>Practical steps to recover from AI fatigue</p>
+        </a>
+        <a href="cognitive-load.html" class="explore-card">
+          <div class="card-emoji">&#128200;</div>
+          <h4>Cognitive Load</h4>
+          <p>The science of why AI overwhelms your brain</p>
+        </a>
+        <a href="compare.html" class="explore-card">
+          <div class="card-emoji">&#128187;</div>
+          <h4>Tool Comparison</h4>
+          <p>Which AI coding tools cause the most fatigue</p>
+        </a>
+      </div>
+    </div>
+
+  </div><!-- /prose -->
+</div><!-- /container -->
+
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">&#127807; The Clearing</a>
+        <p>A resource for engineers navigating AI tool overload, fatigue, and the craft of building software without losing yourself.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Understand</h4>
+          <ul>
+            <li><a href="why.html">Why AI Fatigue?</a></li>
+            <li><a href="burnout-vs-fatigue.html">Burnout vs Fatigue</a></li>
+            <li><a href="compare.html">Tool Comparison</a></li>
+            <li><a href="research.html">The Science</a></li>
+            <li><a href="glossary.html">Glossary</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Recover</h4>
+          <ul>
+            <li><a href="recovery.html">Recovery Guide</a></li>
+            <li><a href="decompress.html">Deep Work Timer</a></li>
+            <li><a href="daily-practice.html">Daily Practice</a></li>
+            <li><a href="mental-health.html">Mental Health</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <ul>
+            <li><a href="index.html#quiz">AI Fatigue Quiz</a></li>
+            <li><a href="ai-fatigue-severity-index.html">Severity Index</a></li>
+            <li><a href="ai-fatigue-type-calculator.html">Type Calculator</a></li>
+            <li><a href="checkin.html">Daily Check-in</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 The Clearing &middot; <a href="privacy.html">Privacy</a> &middot; No tracking, no cookies, no AI training on your data.</p>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "On-Call AI Fatigue: When AI-Generated Incidents Break Your Engineers",
+  "description": "On-call engineering was already exhausting. Now AI-generated incidents, opaque suggestions, and always-online tooling is making it worse. Here is what to do about it.",
+  "author": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+  "datePublished": "2026-04-26",
+  "dateModified": "2026-04-26",
+  "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://clearing-ai.com/oncall-ai-fatigue.html" },
+  "wordCount": 3200,
+  "keywords": ["on-call AI fatigue", "AI incident response", "alert fatigue engineers", "AI monitoring on-call", "DevOps AI fatigue", "SRE AI fatigue"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Understand", "item": "https://clearing-ai.com/why.html" },
+    { "@type": "ListItem", "position": 3, "name": "On-Call AI Fatigue", "item": "https://clearing-ai.com/oncall-ai-fatigue.html" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is on-call AI fatigue different from regular on-call burnout?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Regular on-call burnout is about volume and frequency of incidents. On-call AI fatigue is specifically about the cognitive overhead of working with AI tools during incidents: opaque incident descriptions, untrustworthy suggestions, always-watching monitoring, and accountability gaps. Many engineers can handle high incident volume if the incidents are clear and fixes are obvious. On-call AI fatigue persists even when incident volume is manageable because the cognitive experience of each incident is harder."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should we turn off AI monitoring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not necessarily. AI monitoring does catch real incidents faster in some cases. The answer is to deploy it thoughtfully: with tunable sensitivity, visible false positive rates, explicit team agreements about what AI does in incident response, and regular calibration sessions. Blind trust in AI monitoring is as dangerous as no AI monitoring."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I talk to my manager about on-call AI fatigue?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Frame it in terms the business can hear: time lost to evaluating AI suggestions, error rates in AI suggestions, on-call engineer confidence, and how these affect mean time to resolution. If you can track even two weeks of AI suggestion accuracy, that data is powerful. Avoid framing it as the AI is bad; frame it as our AI tooling needs tuning, here is the data showing why."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does AI auto-remediation make on-call better or worse?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both, in ways that are hard to predict. Auto-remediation can resolve simple incidents without waking anyone up, which is genuinely better. But it can also mask early warning signs of bigger incidents, create accountability gaps when something goes wrong, and reduce the team's hands-on familiarity with systems. Teams that use auto-remediation need explicit processes for post-auto-remediation review."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does on-call AI fatigue affect junior engineers differently?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Junior engineers are disproportionately affected because they have less mental model of the system to begin with, making AI-generated incident descriptions even harder to contextualize. They are also less likely to have the standing to dismiss an AI suggestion or escalate that a suggestion seems wrong. On-call AI fatigue can be significantly more disorienting for engineers still building their system intuition."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can on-call AI fatigue lead to actual burnout?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The chronic uncertainty of not knowing whether to trust an AI suggestion, combined with accountability ambiguity and elevated incident volume, creates a form of chronic stress distinct from regular on-call burnout. Engineers who experience on-call AI fatigue report sleep disruption, anxiety about being on-call, and a sense of learned helplessness about the systems they operate. If you are experiencing persistent symptoms, treat it as a burnout risk and seek support."
+      }
+    }
+  ]
+}
+</script>
+<script src="main.js"></script>
+</body>
+</html>

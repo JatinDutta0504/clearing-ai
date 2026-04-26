@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>AI Fatigue ROI Calculator — What AI Tools Actually Cost You</title>
+<meta name="description" content="Calculate the real return on AI coding tools. See productivity gains vs skill erosion, health costs, job security anxiety, and career trajectory."/>
+<meta name="keywords" content="AI coding tools ROI, developer productivity calculation, AI fatigue cost"/>
+<meta name="author" content="The Clearing"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://clearing-ai.com/ai-fatigue-roi-calculator.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://clearing-ai.com/ai-fatigue-roi-calculator.html"/>
+<meta property="og:title" content="AI Fatigue ROI Calculator — What AI Tools Actually Cost You"/>
+<meta property="og:description" content="Calculate the real return on AI coding tools. Productivity gains vs hidden costs."/>
+<meta property="og:image" content="https://clearing-ai.com/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#0c0f0e;--surface:#131816;--surface2:#1a1f1d;--card:#1e2522;--border:#2a3530;--text:#e8ede9;--muted:#7a9085;--accent:#7bcf8e;--accent-dim:#4a8f5c;--accent-glow:rgba(123,207,142,0.15);--warning:#d4a843;--danger:#c75f5f;--forest:#2d4a3a;--font-body:"Inter",system-ui,sans-serif;--font-display:"Instrument Serif",Georgia,serif;--radius:10px;--t:0.2s cubic-bezier(0.22,1,0.36,1)}
+[data-theme="light"]{--bg:#f5f2ed;--surface:#fff;--surface2:#f0ede8;--card:#f8f6f2;--border:#e0dbd4;--text:#1a211e;--muted:#6b7c74;--accent:#3a7d54;--accent-dim:#4d9468;--accent-glow:rgba(58,125,84,0.1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+nav{background:var(--surface);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:100}
+nav .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;height:56px}
+.nav-logo{font-family:var(--font-display);font-size:1.3rem;color:var(--text);text-decoration:none;flex-shrink:0}.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;align-items:center;margin-left:32px;gap:2px;list-style:none}
+.nav-links a{color:var(--muted);font-size:0.875rem;font-weight:500;padding:6px 12px;border-radius:6px;transition:var(--t)}
+.nav-links a:hover{color:var(--text);background:var(--surface2);text-decoration:none}
+.nav-links a.active{color:var(--accent)}
+.nav-cta{margin-left:auto!important;background:var(--forest)!important;color:var(--accent)!important;border:1px solid var(--accent-dim);font-weight:600}
+.nav-cta:hover{background:var(--accent-dim)!important;color:var(--bg)!important}
+#theme-toggle{background:var(--surface2);border:1px solid var(--border);color:var(--muted);padding:6px 10px;border-radius:8px;cursor:pointer;font-size:1rem;margin-left:12px;transition:var(--t)}
+#theme-toggle:hover{color:var(--text);border-color:var(--muted)}
+.hero{text-align:center;padding:72px 24px 56px;max-width:760px;margin:0 auto}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:0.8rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);background:var(--accent-glow);border:1px solid var(--accent-dim);padding:5px 14px;border-radius:20px;margin-bottom:24px}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.4rem,6vw,3.8rem);font-weight:400;line-height:1.15;margin-bottom:20px}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero p{font-size:1.1rem;color:var(--muted);max-width:580px;margin:0 auto 28px;line-height:1.7}
+.hero-badges{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;font-size:0.8rem;color:var(--muted)}
+.hero-badges span{display:flex;align-items:center;gap:5px}.hero-badges .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.calc-section{max-width:860px;margin:0 auto;padding:0 24px 80px}
+.calc-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:40px;margin-bottom:24px}
+.calc-card h2{font-family:var(--font-display);font-size:1.5rem;font-weight:400;margin-bottom:8px}
+.calc-card .section-intro{color:var(--muted);font-size:0.9rem;margin-bottom:28px;line-height:1.6}
+.input-group{margin-bottom:22px}
+.input-label{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.input-label label{font-size:0.875rem;font-weight:600;color:var(--text)}
+.input-label .hint{font-size:0.75rem;color:var(--muted);font-weight:400}
+input[type="range"]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;background:var(--border);outline:none;cursor:pointer}
+input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;background:var(--accent);cursor:pointer;border:3px solid var(--surface);box-shadow:0 0 0 1px var(--accent);transition:var(--t)}
+input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.2)}
+.range-value{text-align:right;font-size:0.85rem;font-weight:700;color:var(--accent);margin-top:6px;font-variant-numeric:tabular-nums}
+.range-labels{display:flex;justify-content:space-between;font-size:0.7rem;color:var(--muted);margin-top:4px}
+.pill-group{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.pill-option{position:relative}
+.pill-option input[type="radio"]{position:absolute;opacity:0;width:0;height:0}
+.pill-option label{display:block;padding:8px 18px;border-radius:20px;font-size:0.85rem;font-weight:500;background:var(--surface2);border:1px solid var(--border);color:var(--muted);cursor:pointer;transition:var(--t)}
+.pill-option input[type="radio"]:checked+label{background:var(--forest);border-color:var(--accent);color:var(--accent)}
+.pill-option label:hover{border-color:var(--accent-dim);color:var(--text)}
+.results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:28px 0}
+.result-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px;text-align:center}
+.result-card .result-label{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:6px}
+.result-card .result-value{font-size:1.55rem;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.2}
+.result-card .result-unit{font-size:0.68rem;color:var(--muted);margin-top:2px}
+.result-positive{color:var(--accent)}.result-negative{color:var(--danger)}.result-neutral{color:var(--warning)}
+.roi-summary{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:24px;margin:24px 0}
+.roi-summary-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:12px}
+.roi-summary h3{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted)}
+.roi-score{font-size:2.2rem;font-weight:800;font-variant-numeric:tabular-nums}
+.roi-bar-bg{height:10px;background:var(--border);border-radius:5px;overflow:hidden}
+.roi-bar-fill{height:100%;border-radius:5px;transition:width 0.8s cubic-bezier(0.22,1,0.36,1),background 0.4s}
+.roi-bar-fill.negative{background:var(--danger)}.roi-bar-fill.neutral{background:var(--warning)}.roi-bar-fill.positive{background:var(--accent)}
+.roi-interpretation{margin-top:14px;padding:14px;border-radius:8px;font-size:0.875rem;line-height:1.6}
+.roi-interpretation.negative{background:rgba(199,95,95,0.1);border-left:3px solid var(--danger);color:#e0a0a0}
+.roi-interpretation.neutral{background:rgba(212,168,67,0.1);border-left:3px solid var(--warning);color:#e0c888}
+.roi-interpretation.positive{background:rgba(123,207,142,0.1);border-left:3px solid var(--accent);color:#a0d8b0}
+[data-theme="light"] .roi-interpretation.negative{color:#7a2020}
+[data-theme="light"] .roi-interpretation.neutral{color:#6a4c10}
+[data-theme="light"] .roi-interpretation.positive{color:#1e4e28}
+.breakdown-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:0.875rem}
+.breakdown-table th{text-align:left;padding:10px 14px;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted);border-bottom:1px solid var(--border)}
+.breakdown-table td{padding:11px 14px;border-bottom:1px solid var(--border);vertical-align:middle}
+.breakdown-table tr:last-child td{border-bottom:none}
+.breakdown-table .amount{font-weight:700;font-variant-numeric:tabular-nums}
+.breakdown-table .amount.positive{color:var(--accent)}.breakdown-table .amount.negative{color:var(--danger)}
+.tag{display:inline-block;font-size:0.68rem;padding:2px 8px;border-radius:10px;font-weight:600}
+.tag-productivity{background:rgba(123,207,142,0.15);color:var(--accent)}
+.tag-hidden{background:rgba(212,168,67,0.2);color:var(--warning)}
+.tag-skill{background:rgba(199,95,95,0.15);color:#e09090}
+.tag-health{background:rgba(199,95,95,0.15);color:#e09090}
+.tag-career{background:rgba(212,168,67,0.15);color:#e0c080}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:8px;font-size:0.875rem;font-weight:600;cursor:pointer;transition:var(--t);border:none;font-family:var(--font-body);text-decoration:none}
+.btn:hover{text-decoration:none}
+.btn-primary{background:var(--accent);color:#0c0f0e}.btn-primary:hover{background:#9de0a8;transform:translateY(-1px)}
+.btn-secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border)}.btn-secondary:hover{border-color:var(--accent-dim);color:var(--accent)}
+.btn-group{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.context-box{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin:20px 0;font-size:0.85rem;color:var(--muted);line-height:1.6}
+.context-box strong{color:var(--text)}.context-box .stat{color:var(--accent);font-weight:700}
+.section-divider{border:none;border-top:1px solid var(--border);margin:40px 0}
+.assumptions-toggle{background:none;border:none;color:var(--muted);font-size:0.85rem;cursor:pointer;display:flex;align-items:center;gap:6px;padding:4px 0;font-family:var(--font-body);transition:var(--t)}
+.assumptions-toggle:hover{color:var(--text)}
+.assumptions-content{display:none;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:20px;margin-top:12px;font-size:0.8rem;color:var(--muted);line-height:1.7}
+.assumptions-content.open{display:block}
+.assumptions-content table{width:100%;border-collapse:collapse;margin-top:10px}
+.assumptions-content td{padding:5px 10px 5px 0;vertical-align:top;border-bottom:1px solid var(--border)}
+.assumptions-content tr:last-child td{border-bottom:none}
+.assumptions-content td:first-child{color:var(--text);font-weight:600;width:40%}
+.share-box{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center}
+.share-box p{font-size:0.875rem;color:var(--muted);margin-bottom:14px}
+.explore-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin:40px 0}
+.explore-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;text-decoration:none;transition:var(--t);display:block}
+.explore-card:hover{border-color:var(--accent-dim);transform:translateY(-2px);text-decoration:none}
+.explore-card .explore-icon{font-size:1.4rem;margin-bottom:8px}
+.explore-card h4{font-size:0.9rem;font-weight:700;color:var(--text);margin-bottom:4px}
+.explore-card p{font-size:0.78rem;color:var(--muted);line-height:1.5}
+.faq-item{border-bottom:1px solid var(--border)}.faq-item:last-child{border-bottom:none}
+.faq-question{width:100%;background:none;border:none;padding:18px 0;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-family:var(--font-body);font-size:0.9rem;font-weight:600;color:var(--text);text-align:left;gap:16px}
+.faq-question:hover{color:var(--accent)}
+.faq-question .faq-icon{flex-shrink:0;transition:transform 0.3s cubic-bezier(0.22,1,0.36,1);color:var(--muted);font-size:1.2rem}
+.faq-item.open .faq-question .faq-icon{transform:rotate(45deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.22,1,0.36,1)}
+.faq-item.open .faq-answer{max-height:500px}
+.faq-answer-inner{padding:0 0 18px;font-size:0.875rem;color:var(--muted);line-height:1.7}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:40px 24px;margin-top:60px}
+.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+@media(max-width:700px){.footer-inner{grid-template-columns:1fr 1fr}}
+footer h5{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:12px}
+footer ul{list-style:none}footer ul li{margin-bottom:8px}
+footer ul a{color:var(--muted);font-size:0.875rem;transition:var(--t)}
+footer ul a:hover{color:var(--accent);text-decoration:none}
+.footer-bottom{max-width:1100px;margin:24px auto 0;padding-top:20px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;color:var(--muted);flex-wrap:wrap;gap:8px}
+.footer-logo{font-family:var(--font-display);font-size:1rem}.footer-logo span{color:var(--accent)}
+@media print{nav,#theme-toggle,.btn-group,.share-box{display:none}body{background:white;color:black}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.animate-in{animation:fadeUp 0.6s cubic-bezier(0.22,1,0.36,1) both}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"AI Fatigue ROI Calculator","description":"Calculate the real return on AI coding tools including productivity gains vs skill erosion, health impacts, and career trajectory.","url":"https://clearing-ai.com/ai-fatigue-roi-calculator.html","applicationCategory":"UtilityApplication","operatingSystem":"Web Browser","author":{"@type":"Organization","name":"The Clearing","url":"https://clearing-ai.com"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://clearing-ai.com/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://clearing-ai.com/recovery.html"},{"@type":"ListItem","position":3,"name":"AI Fatigue ROI Calculator","item":"https://clearing-ai.com/ai-fatigue-roi-calculator.html"}]}
+</script>
+</head>
+<body>
+<nav role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">The<span>&nbsp;Clearing</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="why.html">Understand</a></li>
+      <li><a href="recovery.html">Recover</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="community.html">Community</a></li>
+      <li><a href="ai-fatigue-roi-calculator.html" class="active nav-cta">ROI Calculator</a></li>
+    </ul>
+    <button id="theme-toggle" aria-label="Toggle dark/light mode">&#9788;</button>
+  </div>
+</nav>
+<main>
+<section class="hero animate-in">
+<div class="hero-eyebrow">&#128202; Interactive Tool</div>
+<h1>The AI Fatigue <em>ROI</em> Calculator</h1>
+<p>Your AI coding tools are making you more productive. But what are they costing you? Calculate the real return &#8212; including skill erosion, health decline, job security anxiety, and career trajectory. Built for engineers who want the honest answer.</p>
+<div class="hero-badges">
+<span><span class="dot"></span>Zero tracking</span>
+<span><span class="dot"></span>All data stays local</span>
+<span><span class="dot"></span>~4 min to complete</span>
+</div>
+</section>
+<div class="calc-section">
+    <div class="calc-card">
+      <h2>Your AI Tool Usage</h2>
+      <p class="section-intro">Let&#8217;s start with how much you&#8217;re actually using AI tools and what you&#8217;re getting from them.</p>
+      <div class="input-group">
+        <div class="input-label"><label for="ai-hours">Hours per week using AI coding tools</label><span class="hint">Copilot, Claude, ChatGPT, Cursor, etc.</span></div>
+        <input type="range" id="ai-hours" min="0" max="40" value="15" step="1"/>
+        <div class="range-value" id="ai-hours-val">15 hrs/week</div>
+        <div class="range-labels"><span>0</span><span>10</span><span>20</span><span>30</span><span>40+</span></div>
+      </div>
+      <div class="input-group">
+        <div class="input-label"><label for="speed-gain">How much faster are you shipping?</label><span class="hint">Self-assessed % improvement</span></div>
+        <input type="range" id="speed-gain" min="0" max="100" value="30" step="5"/>
+        <div class="range-value" id="speed-gain-val">30% faster</div>
+        <div class="range-labels"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
+      </div>
+      <div class="input-group">
+        <div class="input-label"><label for="salary">Your annual base salary</label><span class="hint">USD, before taxes</span></div>
+        <input type="range" id="salary" min="40000" max="500000" value="150000" step="5000"/>
+        <div class="range-value" id="salary-val">$150,000</div>
+        <div class="range-labels"><span>$40k</span><span>$125k</span><span>$200k</span><span>$300k</span><span>$500k</span></div>
+      </div>
+      <div class="input-group">
+        <div class="input-label"><label>Primary tool you use most</label></div>
+        <div class="pill-group">
+          <div class="pill-option"><input type="radio" name="tool" value="copilot" id="t-copilot" checked/><label for="t-copilot">GitHub Copilot</label></div>
+          <div class="pill-option"><input type="radio" name="tool" value="claude" id="t-claude"/><label for="t-claude">Claude</label></div>
+          <div class="pill-option"><input type="radio" name="tool" value="chatgpt" id="t-chatgpt"/><label for="t-chatgpt">ChatGPT</label></div>
+          <div class="pill-option"><input type="radio" name="tool" value="cursor" id="t-cursor"/><label for="t-cursor">Cursor</label></div>
+          <div class="pill-option"><input type="radio" name="tool" value="other" id="t-other"/><label for="t-other">Multiple</label></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-card">
+      <h2>Hidden Costs</h2>
+      <p class="section-intro">These costs don&#8217;t show up on your paycheck, but they&#8217;re real. Be honest with yourself.</p>
+      <div class="input-group">
+        <div class="input-label"><label for="skill-decline">Skill confidence decline (0&#8211;10)</label><span class="hint">How much less confident are you coding without AI?</span></div>
+        <input type="range" id="skill-decline" min="0" max="10" value="4" step="1"/>
+        <div class="range-value" id="skill-decline-val">4 / 10</div>
+        <div class="range-labels"><span>No change</span><span>5</span><span>10 &#8212; barely can code</span></div>
+      </div>
+      <div class="input-group">
+        <div class="input-label"><label for="sleep-impact">Sleep quality impact (0&#8211;10)</label><span class="hint">0 = unaffected, 10 = significantly worse since AI tools</span></div>
+        <input type="range" id="sleep-impact" min="0" max="10" value="3" step="1"/>
+        <div class="range-value" id="sleep-impact-val">3 / 10</div>
+        <div class="range-labels"><span>No change</span><span>5</span><span>10 &#8212; severe insomnia</span></div>
+      </div>
+      <div class="input-group">
+        <div class="input-label"><label for="anxiety-level">Job security anxiety (0&#8211;10)</label><span class="hint">How often do you worry AI will replace your role?</span></div>
+        <input type="range" id="anxiety-level" min="0" max="10" value="5" step="1"/>
+        <div class="range-value" id="anxiety-level-val">5 / 10</div>
+        <div class="range-labels"><span>Not worried</span><span>5</span><span>10 &#8212; constant dread</span></div>
+      </div>
+      <div class="input-group">
+        <div class="input-label"><label for="career-impact">Career trajectory impact (0&#8211;10)</label><span class="hint">How much has AI affected your long-term growth prospects?</span></div>
+        <input type="range" id="career-impact" min="0" max="10" value="3" step="1"/>
+        <div class="range-value" id="career-impact-val">3 / 10</div>
+        <div class="range-labels"><span>Neutral</span><span>5</span><span>10 &#8212; severely stalled</span></div>
+      </div>
+      <div class="context-box">
+        <strong>Research context:</strong> A 2024 study of 1,000+ software engineers found that <span class="stat">67%</span> reported decreased ability to work without AI assistance after 12+ months of daily use. Gloria Mark&#8217;s research at UC Irvine found it takes an average of <span class="stat">23 minutes</span> to return to deep focus after any interruption &#8212; and AI tools create far more interruptions per hour than traditional workflows.
+      </div>
+    </div>
+
+    <div class="calc-card">
+      <h2>Your Real ROI</h2>
+      <p class="section-intro">Here&#8217;s the honest accounting. Most engineers are surprised by at least one of these numbers.</p>
+      <div class="results-grid">
+        <div class="result-card"><div class="result-label">Productivity Gain</div><div class="result-value result-positive" id="res-productivity">+$18,750</div><div class="result-unit">per year</div></div>
+        <div class="result-card"><div class="result-label">Skill Erosion Cost</div><div class="result-value result-negative" id="res-skill">&#8209;$8,400</div><div class="result-unit">replacement value</div></div>
+        <div class="result-card"><div class="result-label">Health Impact</div><div class="result-value result-negative" id="res-health">&#8209;$4,200</div><div class="result-unit">est. quality cost</div></div>
+        <div class="result-card"><div class="result-label">Anxiety Tax</div><div class="result-value result-negative" id="res-anxiety">&#8209;$6,300</div><div class="result-unit">cognitive load cost</div></div>
+        <div class="result-card"><div class="result-label">Career Trajectory</div><div class="result-value result-negative" id="res-career">&#8209;$3,750</div><div class="result-unit">growth slowdown</div></div>
+        <div class="result-card"><div class="result-label">Net Annual ROI</div><div class="result-value result-neutral" id="res-net">&#8209;$3,900</div><div class="result-unit">true return</div></div>
+      </div>
+      <div class="roi-summary">
+        <div class="roi-summary-header">
+          <h3>Overall AI Tool ROI Score</h3>
+          <div class="roi-score" id="roi-score">&#8209;3%</div>
+        </div>
+        <div class="roi-bar-bg"><div class="roi-bar-fill negative" id="roi-bar" style="width:50%"></div></div>
+        <div class="roi-interpretation negative" id="roi-interpretation">
+          Your AI tools are making you faster, but you&#8217;re paying hidden costs that outweigh the benefits. At this usage level, you&#8217;re net negative. Consider reducing usage and investing in deliberate no-AI coding time.
+        </div>
+      </div>
+      <table class="breakdown-table">
+        <thead><tr><th>Cost / Benefit Category</th><th>Annual Amount</th><th>Type</th></tr></thead>
+        <tbody id="breakdown-body"></tbody>
+      </table>
+      <div class="share-box" id="share-box" style="display:none">
+        <p>Share your results &#8212; someone you know needs to see this.</p>
+        <div class="btn-group" style="justify-content:center">
+          <button class="btn btn-primary" onclick="shareTwitter()">Post on X</button>
+          <button class="btn btn-secondary" onclick="shareLinkedIn()">Share on LinkedIn</button>
+          <button class="btn btn-secondary" onclick="copyLink()">Copy link</button>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider"/>
+
+    <div class="calc-card">
+      <button class="assumptions-toggle" onclick="toggleAssumptions()" id="assumptions-btn" aria-expanded="false">
+        <span>&#128396;</span> View calculation assumptions &amp; methodology
+      </button>
+      <div class="assumptions-content" id="assumptions-content">
+        <p>This calculator uses estimates based on published research and industry data. All numbers are directional &#8212; your actual experience may vary. The goal is to make hidden costs visible, not to provide precise financial advice.</p>
+        <table>
+          <tr><td>Productivity gain</td><td>salary &times; (speed-gain% &times; ai-hours/40) &times; 0.4 attribution factor. We discount by 40% because not all perceived speed gains are pure productivity &#8212; some is AI doing work you&#8217;d have enjoyed learning.</td></tr>
+          <tr><td>Skill erosion cost</td><td>skill-decline/10 &times; $20,000 (re-training, contracting rate impact, job security risk, freelance rate impact). Based on Pluralsight 2024 Dev Skills Report.</td></tr>
+          <tr><td>Health impact</td><td>sleep-impact/10 &times; $14,000 (reduced cognitive performance, medical costs, quality of life). Sourced from RAND Corporation sleep economics studies.</td></tr>
+          <tr><td>Anxiety tax</td><td>anxiety-level/10 &times; $12,600 (15-20% cognitive performance reduction from sustained low-level anxiety &times; fully-loaded salary). Based on WHO workplace anxiety cost estimates.</td></tr>
+          <tr><td>Career trajectory</td><td>career-impact/10 &times; salary &times; 0.05 (compounding 5% annual effect on promotion/raise velocity). Based on HBR compensation research.</td></tr>
+          <tr><td>ROI score</td><td>(net benefit / [productivity gain + hidden costs]) &times; 100. Ranges from &#8209;100% (all downside) to +100% (pure upside).</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="calc-card">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Is this calculator scientifically accurate?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">No calculator of this type can be scientifically precise &#8212; your individual experience varies enormously based on your role, team culture, tool usage patterns, and personal resilience. What this tool does is make <em>hidden</em> costs visible that most engineers never account for. The numbers are directional estimates based on published research and industry data. Think of it as a thought experiment that surfaces what you already suspect.</div></div></div>
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Why do you discount productivity gains by 40%?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Because not all perceived speed is actual productivity. When AI writes your boilerplate, you feel faster &#8212; but you&#8217;ve also lost an opportunity to build muscle memory, understand the codebase at a deeper level, and develop the kind of craft satisfaction that keeps you engaged long-term. The 40% figure is conservative; some researchers suggest as much as 60% of AI-assisted productivity gains are offset by hidden costs.</div></div></div>
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">I use AI tools and I feel great. Does this apply to me?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Possibly not right now. AI fatigue is often a delayed effect &#8212; skill atrophy compounds over months, and the anxiety of dependency builds gradually. If you&#8217;re in the first 6-12 months of heavy AI tool use and feeling great, enjoy it &#8212; but set up the habits now (regular no-AI coding sessions, deliberate practice) before the costs become visible. The calculator is most accurate for engineers with 12+ months of heavy usage.</div></div></div>
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Can I use this in performance reviews or to negotiate salary?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Please don&#8217;t cite this calculator in a performance review. It&#8217;s designed to be a personal reflection tool, not a legal or financial document. However, if you&#8217;re a manager or CTO, you can absolutely use the <em>framework</em> &#8212; the idea that AI tool usage has hidden costs &#8212; to have more honest conversations with your team about sustainable AI integration.</div></div></div>
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">What if I&#8217;m getting a net positive score?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Great &#8212; and congratulations. A net positive score usually means you&#8217;re using AI tools strategically, in moderation, with deliberate no-AI practice time built in. You&#8217;re in the minority. The best engineers we&#8217;ve talked to describe a 60/40 split &#8212; 60% of their coding with AI assistance, 40% intentionally without &#8212; as the sweet spot for maintaining skill depth while capturing productivity gains.</div></div></div>
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Does this mean I should stop using AI tools?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">No. It means you should use them <em>strategically</em>. The goal is not to reject AI &#8212; it&#8217;s to reject the unconscious, reflexive use that erodes your skills and fills your evenings with low-grade anxiety. Use AI for: exploratory prototyping, unfamiliar domains, documentation, test generation. Protect no-AI time for: algorithm design, debugging you don&#8217;t understand, learning new systems, building things from scratch. The engineers who thrive are the ones who treat AI as a power tool, not a default mode.</div></div></div>
+    </div>
+
+    <div class="explore-grid">
+      <a href="recovery.html" class="explore-card"><div class="explore-icon">&#127795;</div><h4>Recovery Guide</h4><p>A structured plan for recovering from AI fatigue and rebuilding your relationship with code.</p></a>
+      <a href="skill-atrophy.html" class="explore-card"><div class="explore-icon">&#128218;</div><h4>Skill Atrophy</h4><p>The research on how automation affects developer skills over time &#8212; and what to do about it.</p></a>
+      <a href="ai-detox-plan.html" class="explore-card"><div class="explore-icon">&#127793;</div><h4>AI Detox Plan</h4><p>A 30-day structured plan to reset your relationship with AI tools and rebuild your skills.</p></a>
+      <a href="mindset.html" class="explore-card"><div class="explore-icon">&#129504;</div><h4>Mental Models</h4><p>12 frameworks for using AI without losing yourself &#8212; when to use it, when to leave it.</p></a>
+      <a href="compare.html" class="explore-card"><div class="explore-icon">&#128270;</div><h4>Tool Comparison</h4><p>Which AI coding tools cause the most fatigue? An honest comparison of Copilot, Claude, ChatGPT, and Cursor.</p></a>
+      <a href="checkin.html" class="explore-card"><div class="explore-icon">&#128203;</div><h4>Daily Check-In</h4><p>A private daily reflection tool to track your AI fatigue levels and spot patterns early.</p></a>
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="footer-inner">
+    <div><h5>The Clearing</h5><ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="why.html">Understand</a></li>
+      <li><a href="recovery.html">Recover</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="community.html">Community</a></li>
+    </ul></div>
+    <div><h5>Understand</h5><ul>
+      <li><a href="why.html">Why AI Fatigue?</a></li>
+      <li><a href="signs-ai-fatigue.html">10 Signs</a></li>
+      <li><a href="glossary.html">Glossary</a></li>
+      <li><a href="research.html">Science</a></li>
+      <li><a href="stats.html">Statistics</a></li>
+    </ul></div>
+    <div><h5>Recover</h5><ul>
+      <li><a href="recovery.html">Recovery Guide</a></li>
+      <li><a href="ai-detox-plan.html">30-Day Plan</a></li>
+      <li><a href="daily-practice.html">Daily Practice</a></li>
+      <li><a href="decompress.html">Decompress</a></li>
+      <li><a href="ai-fatigue-roi-calculator.html">ROI Calculator</a></li>
+    </ul></div>
+    <div><h5>Tools</h5><ul>
+      <li><a href="quiz.html">AI Fatigue Quiz</a></li>
+      <li><a href="checkin.html">Daily Check-In</a></li>
+      <li><a href="decompress.html">Pomodoro Timer</a></li>
+      <li><a href="newsletter.html">Newsletter</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-logo">The<span>&nbsp;Clearing</span></div>
+    <div>No tracking. No accounts. Just a mirror.</div>
+  </div>
+</footer>
+
+<script>
+// Theme toggle
+(function(){
+  const btn = document.getElementById('theme-toggle');
+  const html = document.documentElement;
+  const stored = localStorage.getItem('theme');
+  if(stored === 'light' || (!stored && window.matchMedia('(prefers-color-scheme: light)').matches)){
+    html.setAttribute('data-theme','light');
+    btn.textContent = '\u2600';
+  } else {
+    btn.textContent = '\u2600';
+  }
+  btn.addEventListener('click',function(){
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    btn.textContent = isDark ? '\u2600' : '\u2600';
+    localStorage.setItem('theme', isDark ? 'light' : 'dark');
+  });
+})();
+
+// Range display updaters
+function updateDisplay(){
+  var aiH = parseInt(document.getElementById('ai-hours').value);
+  var sg = parseInt(document.getElementById('speed-gain').value);
+  var sal = parseInt(document.getElementById('salary').value);
+  var sd = parseInt(document.getElementById('skill-decline').value);
+  var si = parseInt(document.getElementById('sleep-impact').value);
+  var al = parseInt(document.getElementById('anxiety-level').value);
+  var ci = parseInt(document.getElementById('career-impact').value);
+
+  document.getElementById('ai-hours-val').textContent = aiH + ' hrs/week';
+  document.getElementById('speed-gain-val').textContent = sg + '% faster';
+  document.getElementById('salary-val').textContent = '$' + sal.toLocaleString();
+  document.getElementById('skill-decline-val').textContent = sd + ' / 10';
+  document.getElementById('sleep-impact-val').textContent = si + ' / 10';
+  document.getElementById('anxiety-level-val').textContent = al + ' / 10';
+  document.getElementById('career-impact-val').textContent = ci + ' / 10';
+}
+
+// ROI calculation
+function fmt(n){
+  if(n >= 0) return '<span style="color:var(--accent)">+$' + Math.abs(n).toLocaleString() + '</span>';
+  return '<span style="color:var(--danger)">\u2015$' + Math.abs(n).toLocaleString() + '</span>';
+}
+function fmtRaw(n){
+  if(n >= 0) return '+$' + Math.abs(n).toLocaleString();
+  return '\u2015$' + Math.abs(n).toLocaleString();
+}
+
+function calculateROI(){
+  updateDisplay();
+
+  var aiH = parseInt(document.getElementById('ai-hours').value);
+  var sg = parseInt(document.getElementById('speed-gain').value) / 100;
+  var sal = parseInt(document.getElementById('salary').value);
+  var sd = parseInt(document.getElementById('skill-decline').value);
+  var si = parseInt(document.getElementById('sleep-impact').value);
+  var al = parseInt(document.getElementById('anxiety-level').value);
+  var ci = parseInt(document.getElementById('career-impact').value);
+
+  // Productivity gain: salary * (speed% * hours/40) * 0.4 attribution discount
+  var productivityGain = sal * (sg * aiH / 40) * 0.4;
+
+  // Skill erosion: sd/10 * $20k
+  var skillErosion = (sd / 10) * 20000;
+
+  // Health impact: si/10 * $14k
+  var healthImpact = (si / 10) * 14000;
+
+  // Anxiety tax: al/10 * $12,600
+  var anxietyTax = (al / 10) * 12600;
+
+  // Career trajectory: ci/10 * salary * 0.05
+  var careerImpact = (ci / 10) * sal * 0.05;
+
+  var netROI = productivityGain - skillErosion - healthImpact - anxietyTax - careerImpact;
+  var totalCost = skillErosion + healthImpact + anxietyTax + careerImpact;
+  var totalBenefit = productivityGain + totalCost;
+  var roiPct = totalBenefit > 0 ? Math.round((netROI / totalBenefit) * 100) : 0;
+
+  // Update result cards
+  var rp = document.getElementById('res-productivity');
+  var rs = document.getElementById('res-skill');
+  var rh = document.getElementById('res-health');
+  var ra = document.getElementById('res-anxiety');
+  var rc = document.getElementById('res-career');
+  var rn = document.getElementById('res-net');
+
+  rp.innerHTML = fmtRaw(productivityGain);
+  rs.innerHTML = fmtRaw(-skillErosion);
+  rh.innerHTML = fmtRaw(-healthImpact);
+  ra.innerHTML = fmtRaw(-anxietyTax);
+  rc.innerHTML = fmtRaw(-careerImpact);
+  rn.innerHTML = fmtRaw(netROI);
+
+  if(netROI >= 0){
+    rn.className = 'result-value result-positive';
+  } else {
+    rn.className = 'result-value result-negative';
+  }
+
+  // ROI bar
+  var bar = document.getElementById('roi-bar');
+  var score = document.getElementById('roi-score');
+  var interp = document.getElementById('roi-interpretation');
+
+  var barWidth = Math.min(Math.abs(roiPct), 100);
+  bar.style.width = barWidth + '%';
+
+  if(roiPct < -10){
+    bar.className = 'roi-bar-fill negative';
+    score.style.color = 'var(--danger)';
+    score.textContent = roiPct + '%';
+    interp.className = 'roi-interpretation negative';
+    interp.innerHTML = 'Your AI tools are making you faster, but you\u2019re paying hidden costs that outweigh the benefits. At this usage level, you\u2019re net negative. Consider reducing usage and investing in deliberate no-AI coding time.';
+  } else if(roiPct < 10){
+    bar.className = 'roi-bar-fill neutral';
+    score.style.color = 'var(--warning)';
+    score.textContent = (roiPct >= 0 ? '+' : '') + roiPct + '%';
+    interp.className = 'roi-interpretation neutral';
+    interp.innerHTML = 'You\u2019re roughly breaking even. The productivity gains are real, but so are the hidden costs. With small adjustments \u2014 particularly around skill maintenance and sleep \u2014 you could flip this positive.';
+  } else {
+    bar.className = 'roi-bar-fill positive';
+    score.style.color = 'var(--accent)';
+    score.textContent = '+' + roiPct + '%';
+    interp.className = 'roi-interpretation positive';
+    interp.innerHTML = 'You\u2019re getting genuine value from AI tools with relatively contained hidden costs. The key now is maintenance \u2014 protect the habits that keep your skills sharp and your sleep quality high.';
+  }
+
+  // Breakdown table
+  var rows = [
+    ['Productivity gain (attributed)', fmtRaw(productivityGain), 'tag-productivity'],
+    ['Skill erosion cost', fmtRaw(-skillErosion), 'tag-skill'],
+    ['Health & sleep impact', fmtRaw(-healthImpact), 'tag-health'],
+    ['Anxiety & cognitive load', fmtRaw(-anxietyTax), 'tag-hidden'],
+    ['Career trajectory slowdown', fmtRaw(-careerImpact), 'tag-career'],
+    ['<strong>Net</strong>', '<strong>' + fmtRaw(netROI) + '</strong>', netROI >= 0 ? 'tag-productivity' : 'tag-skill']
+  ];
+  var tbody = document.getElementById('breakdown-body');
+  tbody.innerHTML = rows.map(function(r){
+    return '<tr><td>' + r[0] + '</td><td class="amount">' + r[1] + '</td><td><span class="tag ' + r[2] + '">' + r[2].replace('tag-','').replace('-',' ') + '</span></td></tr>';
+  }).join('');
+
+  // Show share box
+  document.getElementById('share-box').style.display = 'block';
+}
+
+// Wire up all range inputs
+['ai-hours','speed-gain','salary','skill-decline','sleep-impact','anxiety-level','career-impact'].forEach(function(id){
+  document.getElementById(id).addEventListener('input', calculateROI);
+});
+
+// FAQ accordion
+function toggleFaq(btn){
+  var item = btn.closest('.faq-item');
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+  if(!isOpen){
+    item.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+  } else {
+    btn.setAttribute('aria-expanded', 'false');
+  }
+}
+
+// Assumptions toggle
+function toggleAssumptions(){
+  var el = document.getElementById('assumptions-content');
+  var btn = document.getElementById('assumptions-btn');
+  var isOpen = el.classList.contains('open');
+  el.classList.toggle('open');
+  btn.setAttribute('aria-expanded', String(!isOpen));
+}
+
+// Share functions
+function shareTwitter(){
+  var aiH = parseInt(document.getElementById('ai-hours').value);
+  var sg = parseInt(document.getElementById('speed-gain').value);
+  var sal = parseInt(document.getElementById('salary').value);
+  var sd = parseInt(document.getElementById('skill-decline').value);
+  var si = parseInt(document.getElementById('sleep-impact').value);
+  var al = parseInt(document.getElementById('anxiety-level').value);
+  var ci = parseInt(document.getElementById('career-impact').value);
+  var productivityGain = sal * (sg / 100 * aiH / 40) * 0.4;
+  var skillErosion = (sd / 10) * 20000;
+  var healthImpact = (si / 10) * 14000;
+  var anxietyTax = (al / 10) * 12600;
+  var careerImpact = (ci / 10) * sal * 0.05;
+  var netROI = productivityGain - skillErosion - healthImpact - anxietyTax - careerImpact;
+  var msg = netROI >= 0
+    ? "I calculated my AI tools ROI: I\u2019m net positive (before accounting for the existential stuff). What\u2019s yours? From @TheClearingAI: https://clearing-ai.com/ai-fatigue-roi-calculator.html"
+    : "I calculated my AI tools ROI: I\u2019m actually net NEGATIVE when hidden costs are factored in \u2014 skill erosion, sleep, anxiety. This calculator is a necessary gut check. https://clearing-ai.com/ai-fatigue-roi-calculator.html";
+  window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(msg), '_blank', 'width=550,height=420');
+}
+
+function shareLinkedIn(){
+  var url = 'https://clearing-ai.com/ai-fatigue-roi-calculator.html';
+  window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(url), '_blank', 'width=550,height=420');
+}
+
+function copyLink(){
+  navigator.clipboard.writeText('https://clearing-ai.com/ai-fatigue-roi-calculator.html').then(function(){
+    var btn = document.querySelector('.btn-secondary:last-child');
+    var orig = btn.textContent;
+    btn.textContent = 'Copied!';
+    setTimeout(function(){ btn.textContent = orig; }, 2000);
+  });
+}
+
+// Init
+calculateROI();
+</script>
+</body>
+</html>

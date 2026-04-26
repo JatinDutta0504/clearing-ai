@@ -3608,3 +3608,27 @@ Comprehensive broken link audit + fix across all 159 pages:
 **Nav:** 64 pages updated (Heal dropdown)
 **Commit:** `d2c45d2`
 **Next:** Phase 2 outreach (Reddit posts + Twitter threads ready) OR Phase 1 content pillar
+
+### Hour 541 — 2026-04-26 02:43 UTC
+
+**Built:** `ai-fatigue-roi-calculator.html` — AI Fatigue ROI Calculator (~500 word content + full interactive JS, 563 lines)
+**Phase:** Phase 1 (Content — high-value genuinely missing interactive tool)
+
+**What it does:** Engineers input their AI tool usage hours, speed gains, salary, and rate their hidden costs (skill decline, sleep impact, anxiety, career impact). Calculator computes real annual ROI — making visible what most engineers never account for.
+
+**Key features:**
+- 7 range inputs + 5 tool pill selector
+- 6 result cards: productivity gain, skill erosion, health impact, anxiety tax, career slowdown, net
+- Dynamic ROI score bar (red/amber/green)
+- Full methodology disclosure
+- FAQ (6 Q&As)
+- Social sharing
+- Schema: WebApplication + BreadcrumbList
+
+**SEO:** New keyword cluster: "AI tools ROI", "developer productivity calculation", "AI fatigue cost", "AI tools worth it". Interactive tool = high engagement signal + backlink bait. sitemap.xml updated (170 URLs). Feature card on index.html.
+
+**Added to:** sitemap.xml (169→170 URLs), index.html feature grid, sitemap.html
+
+**Commit:** `10c245d`
+**Next:** Phase 1 continue OR Phase 2 outreach push
+

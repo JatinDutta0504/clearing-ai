@@ -30,7 +30,57 @@
   }
 }
   </script>
-  <style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are the 4 types of AI fatigue?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cognitive Load (mental overload from constant AI suggestions), Skill Erosion (loss of coding capability), Identity Crisis (loss of professional authorship), and Decision Fatigue (exhaustion from evaluating AI output)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate is the AI Fatigue Type Calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The calculator identifies your dominant fatigue pattern based on 8 behavioral questions. It maps your responses to one of 4 patterns using research on cognitive load, skill acquisition, and decision fatigue."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I have more than one type of AI fatigue?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Most engineers experience a primary type with secondary contributors. The calculator shows your top type but also notes which other dimensions are active."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the calculator available offline?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Once the page loads, all questions and scoring logic run entirely in your browser with no server communication. Your answers are stored in localStorage and never sent anywhere."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/index.html"},
+    {"@type": "ListItem", "position": 2, "name": "AI Fatigue Type Calculator"}
+  ]
+}
+</script>
+<style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
       --bg:#0f1a12;--surface:#162119;--surface2:#1e2d1f;--border:#2a3f2a;
@@ -105,9 +155,70 @@
   </style>
 </head>
 <body>
-<div class="container">
-  <h1>AI Fatigue Type Calculator</h1>
-  <p class="subtitle">8 questions · 3 minutes · Which pattern is running your life?</p>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <div class="reading-progress" id="progress"></div>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">🌿 The Clearing</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <button class="dropdown-toggle" aria-expanded="false">Understand ▾</button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="why.html">Why This Happens</a></li>
+            <li><a href="ai-fatigue.html">What Is AI Fatigue?</a></li>
+            <li><a href="signs-ai-fatigue.html">10 Signs</a></li>
+            <li><a href="burnout-vs-fatigue.html">Burnout vs Fatigue</a></li>
+            <li><a href="cognitive-load.html">Cognitive Load</a></li>
+            <li><a href="skill-atrophy.html">Skill Atrophy</a></li>
+            <li><a href="flow-state.html">Flow State</a></li>
+            <li><a href="attention-residue.html">Attention Residue</a></li>
+            <li><a href="productivity-theater.html">Productivity Theater</a></li>
+            <li><a href="developer-identity.html">Developer Identity</a></li>
+            <li><a href="automation-anxiety.html">Automation Anxiety</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <button class="dropdown-toggle" aria-expanded="false">Recover ▾</button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="recovery.html">Recovery Guide</a></li>
+            <li><a href="daily-practice.html">Daily Practice</a></li>
+            <li><a href="decompress.html">Deep Work Timer</a></li>
+            <li><a href="ai-detox-plan.html">30-Day Detox Plan</a></li>
+            <li><a href="mental-health.html">Mental Health</a></li>
+            <li><a href="developer-wellbeing.html">Wellbeing</a></li>
+            <li><a href="checkin.html">Daily Check-in</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <button class="dropdown-toggle" aria-expanded="false">Compare ▾</button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="compare.html">Compare AI Tools</a></li>
+            <li><a href="ai-tool-overload.html">Tool Overload</a></li>
+            <li><a href="ai-learning-burnout.html">AI Learning Burnout</a></li>
+            <li><a href="inference-fatigue.html">Inference Fatigue</a></li>
+            <li><a href="ai-consultation-fatigue.html">Consultation Fatigue</a></li>
+            <li><a href="ai-debugging-fatigue.html">Debugging Fatigue</a></li>
+          </ul>
+        </li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <button class="theme-toggle" onclick="document.documentElement.dataset.theme=document.documentElement.dataset.theme==='dark'?'light':'dark'" aria-label="Toggle theme">☽</button>
+    </div>
+  </nav>
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Home</a><span>›</span><span>AI Fatigue Type Calculator</span>
+  </nav>
+
+  <main id="main">
+  <div class="container">
+    <header class="article-header">
+      <h1>AI Fatigue Type Calculator</h1>
+      <p class="subtitle">8 questions · 3 minutes · Which pattern is running your life?</p>
+    </header>
 
   <div class="progress-bar">
     <div class="progress-fill" id="progress"></div>
@@ -122,8 +233,58 @@
   </div>
 
   <p class="info-note">All answers stored locally in your browser — zero server, zero tracking, zero account required.</p>
-</div>
+  </div>
+  </main>
 
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>🌿 The Clearing</h3>
+        <p>A resource for engineers navigating AI fatigue. No tracking. No agenda. Just honest help.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Understand</h4>
+          <ul>
+            <li><a href="why.html">Why This Happens</a></li>
+            <li><a href="ai-fatigue.html">What Is AI Fatigue?</a></li>
+            <li><a href="signs-ai-fatigue.html">10 Signs</a></li>
+            <li><a href="burnout-vs-fatigue.html">Burnout vs Fatigue</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Recover</h4>
+          <ul>
+            <li><a href="recovery.html">Recovery Guide</a></li>
+            <li><a href="daily-practice.html">Daily Practice</a></li>
+            <li><a href="decompress.html">Deep Work Timer</a></li>
+            <li><a href="mental-health.html">Mental Health</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Compare</h4>
+          <ul>
+            <li><a href="compare.html">Compare AI Tools</a></li>
+            <li><a href="ai-tool-overload.html">Tool Overload</a></li>
+            <li><a href="inference-fatigue.html">Inference Fatigue</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>About</h4>
+          <ul>
+            <li><a href="about.html">About The Clearing</a></li>
+            <li><a href="press-kit.html">Press Kit</a></li>
+            <li><a href="resources.html">Resources</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 The Clearing — Built for engineers, by engineers. No tracking, no cookies, no agenda.</p>
+    </div>
+  </footer>
+
+<script src="main.js"></script>
 <script>
 const QUESTIONS = [
   {

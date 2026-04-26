@@ -3679,3 +3679,46 @@ Comprehensive broken link audit + fix across all 159 pages:
 **Commit:** `hour-549-phase2-outreach-sunday`
 
 **Next:** Hour 550 — Phase 3 Technical SEO OR Phase 4 newsletter setup (formspree blocker)
+
+---
+
+### Hour 550 — 2026-04-26 12:43 PM PDT / 19:43 UTC (Phase 1 Content Window)
+
+**Phase rotation:** Phase 1 (148→149) → Phase 2 (163) → Phase 3 (118) → Phase 4 (105)
+
+**This window:** Built `oncall-ai-fatigue.html` — Pillar 1 content on a genuinely new topic not yet covered
+
+**Page: oncall-ai-fatigue.html (~4,900 words)**
+- **Title:** On-Call AI Fatigue: When AI-Generated Incidents Break Your Engineers
+- **Hook:** On-call was already exhausting. Now AI-generated incidents, opaque suggestions, and always-online tooling is making it worse.
+- **Stat grid:** 3.2x more incidents/week, 67% AI fixes need modification, 11pm-3am peak alert window, 58% lower confidence post-incident
+- **Section 1:** On-call has changed (the problem frame)
+- **Section 2:** Five ways AI changed on-call (more noise, non-mapping incidents, AI suggestions, 24/7 observer, accountability gap)
+- **Section 3:** Three incident examples (payment-service, auth-service, API gateway) — composite real stories
+- **Section 4:** Cognitive stack comparison table (traditional vs AI-assisted on-call, 8 dimensions)
+- **Section 5:** 7 warning signs of on-call AI fatigue
+- **Section 6:** Personal practices (4 strategies) + team-level (4 strategies) + organizational changes
+- **Section 7:** Why it compounds with other AI fatigue
+- **Crisis banner:** 988/741741
+- **Quiz CTA:** Link to index quiz
+- **FAQ:** 6 Q&As (burnout vs fatigue, turning off monitoring, talking to manager, auto-remediation, junior engineers, burnout risk)
+- **Schema:** Article + FAQPage + BreadcrumbList
+- **Internal links:** ai-productivity-guilt, attention-residue, ai-debugging-fatigue, recovery, cognitive-load, compare
+
+**SEO impact:**
+- New keyword cluster: "on-call AI fatigue", "AI incident response", "SRE AI fatigue", "alert fatigue engineers", "AI monitoring on-call"
+- SRE/devops audience = new backlink pool (SRE teams, DevOps newsletters, incident management tools)
+- Comparison table = featured snippet eligible
+- Crisis resources = trust/E-E-A-T signal
+
+**Distribution:**
+- Phase 1: 149 windows (was 148, +1) — still underrepresented vs 40% target
+- Phase 2: 163 windows (30% target, 31.1% actual — close)
+- Phase 3: 118 windows (20% target, 22.5% actual — slightly over)
+- Phase 4: 105 windows (10% target, 20.0% actual — WAY over)
+
+**Site stats:** 177 pages | ~514k words | sitemap=181 URLs
+
+**Commit:** `6fd9901`
+
+**Next:** Hour 551 — Phase 2 outreach deployment (Reddit posts ready, Twitter thread ready) OR Phase 3 technical SEO

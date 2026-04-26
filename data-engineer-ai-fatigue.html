@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Fatigue for Data Engineers: When Pipelines Run But You Can't | The Clearing</title>
+  <meta name="description" content="Data engineering AI fatigue: why AI tools for SQL, dbt, Spark, and pipeline orchestration leave data engineers exhausted, disconnected, and questioning their craft. ~5,000 words.">
+  <meta property="og:title" content="AI Fatigue for Data Engineers: When Pipelines Run But You Can't">
+  <meta property="og:description" content="AI tools generate SQL, dbt models, and pipeline code faster than ever. So why does it feel like your brain is running empty?">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/data-engineer-ai-fatigue.html">
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Fatigue for Data Engineers: When Pipelines Run But You Can't">
+  <meta name="twitter:description" content="AI tools generate SQL, dbt, and pipeline code faster. So why does it feel like your brain is running empty?">
+  <link rel="canonical" href="https://clearing-ai.com/data-engineer-ai-fatigue.html">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI Fatigue for Data Engineers: When Pipelines Run But You Can't",
+    "description": "AI tools generate SQL, dbt, and pipeline code faster than ever. So why does it feel like your brain is running empty?",
+    "author": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "datePublished": "2026-04-26",
+    "dateModified": "2026-04-26",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://clearing-ai.com/data-engineer-ai-fatigue.html" },
+    "wordCount": 5000,
+    "about": {
+      "@type": "Thing",
+      "name": "AI Fatigue in Data Engineering",
+      "description": "The unique cognitive, identity, and craft challenges data engineers face with AI coding tools"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Recover", "item": "https://clearing-ai.com/recovery.html" },
+      { "@type": "ListItem", "position": 3, "name": "Data Engineer AI Fatigue", "item": "https://clearing-ai.com/data-engineer-ai-fatigue.html" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why does AI make data engineering feel hollow?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AI generates the SQL, dbt models, and pipeline code fast — but it bypasses the hard problem-solving that made data engineering feel meaningful. When the work that took skill becomes one prompt, the sense of craft and ownership erodes. This isn't laziness; it's a real grief response to losing the thing that made the work feel like yours."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is AI fatigue different for data engineers than other developers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Data engineers work at the intersection of software engineering, database theory, distributed systems, and business logic. AI tools have hit SQL generation and pipeline orchestration particularly hard — but the domains that require understanding why a pipeline fails at 3am, or why a data quality issue is happening, are still resistant to AI. This creates a split: the satisfying part gets automated, the hard part stays."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does AI affect data modeling skills?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "dbt has become especially vulnerable. AI can generate dbt models from a business description — but the skill of deciding when to use a surrogate key, how to design a staging layer, or when to denormalize lives in judgment built from years of failed data models. Engineers who let AI build their entire dbt project are not building that judgment. In 3 years, they'll be dependent on AI to make modeling decisions they can't make themselves."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the warning signs specific to data engineers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can't debug a failing pipeline without AI. You don't know why a dbt model is slow — you just ask AI to optimize it. You can't write a complex window function from scratch anymore. You can't explain a data architecture to a stakeholder without AI drafting the diagram. You feel like an orchestrator of AI outputs, not an engineer of data systems."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I talk to my manager about data engineer AI fatigue?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Frame it around data quality and risk. 'Our AI-generated SQL is 30% slower than what I'd write, and we don't have a review process to catch that.' Or: 'I'm concerned that if our team's SQL writing skills erode, we'll be dependent on AI for everything, including the critical pipelines we need to debug at 3am.' Data leaders respond well to risk framing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can data engineering skills actually atrophy from AI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The research is clear: when a skill is used less, it degrades. If you're writing less SQL, your SQL fluency declines. If you're not designing data models from scratch, your modeling judgment weakens. The insidious part for data engineers is that your pipelines still run — the output looks fine — so nobody notices the skill loss until something breaks and you can't fix it without AI."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <header class="site-header" id="site-header"></header>
+
+  <main id="main">
+    <article class="content-page">
+
+      <div class="page-hero">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li><a href="/recovery.html">Recover</a></li>
+            <li aria-current="page">Data Engineer AI Fatigue</li>
+          </ol>
+        </nav>
+        <span class="eyebrow">For Data Engineers</span>
+        <h1>AI Fatigue for Data Engineers:<br>When Pipelines Run But You Can't</h1>
+        <p class="lede">AI tools generate SQL, dbt models, and pipeline code faster than ever. Your data platform is healthier than it's ever been. So why does it feel like your brain is running empty?</p>
+        <div class="reading-time" aria-label="Estimated reading time">~18 min read</div>
+      </div>
+
+      <div class="content-body">
+
+        <section class="content-section" id="the-split">
+          <h2>The Split Every Data Engineer Feels</h2>
+          <p>There's a specific kind of exhaustion that data engineers are experiencing right now. It doesn't look like burnout from overtime or stress from bad management. It's quieter than that. It goes like this:</p>
+          <p><em>"The pipelines are running. The data is flowing. AI wrote most of it. And I feel like I have no idea what I'm doing anymore."</em></p>
+          <p>This is the data engineering AI fatigue split. It's the gap between what looks like productivity and what feels like competence. And it's real.</p>
+          <p>AI tools have become extraordinarily good at the parts of data engineering that used to require real skill: writing SQL queries, building dbt models, scaffolding pipeline code, generating documentation. This is supposed to be a good thing. For many data engineers, it doesn't feel like one.</p>
+          <p>The split is this: the work that felt satisfying — the hard SQL, the elegant data model, the pipeline that actually handles the edge case — is now something AI does instantly, on command. And the work that remains — debugging the thing AI built, explaining the data to stakeholders, firefighting the pipeline that broke at 2am — is not the work that made you feel like a data engineer.</p>
+        </section>
+
+        <section class="content-section" id="why-data-engineers">
+          <h2>Why Data Engineers Are Especially Vulnerable</h2>
+          <p>Data engineering sits at a strange intersection. It's part software engineering, part database administration, part business intelligence, and part systems design. That combination made it resistant to automation for a long time — because you needed to understand all of those domains to do it well.</p>
+          <p>AI has changed the equation. SQL generation is now commodity. dbt model scaffolding is instant. Pipeline code writes itself. What's left? Understanding why the data is wrong, why the pipeline is slow, and why the business logic doesn't match reality.</p>
+          <p>Here's why data engineers face a unique version of AI fatigue:</p>
+          <div class="card-grid">
+            <div class="card">
+              <h3>The Model Generation Trap</h3>
+              <p>AI can generate a complete dbt project structure from a business description. But it can't tell you whether a surrogate key is the right choice for your specific fraud detection use case. It can't feel the weight of a data model that will need to be maintained for five years. That judgment — the invisible work of experienced data engineers — is being bypassed. And the engineers who skip that work aren't building the judgment they'll need later.</p>
+            </div>
+            <div class="card">
+              <h3>The Debugging Gap</h3>
+              <p>When a pipeline fails at 3am, AI can suggest fixes. But understanding <em>why</em> a Spark job is running out of memory because of a skewed join — that's a skill built from dozens of similar failures. AI skips the failure. You skip the learning. The next time there's a real problem, you're more dependent on AI, not less.</p>
+            </div>
+            <div class="card">
+              <h3>The Velocity Pressure</h3>
+              <p>Business pressure says: use AI, ship more pipelines, build the data platform faster. The engineers who slow down to think critically are made to feel like bottlenecks. The engineers who use AI to move fast are celebrated — even when the code being shipped is poorly understood and will require more maintenance later.</p>
+            </div>
+            <div class="card">
+              <h3>The Documentation Paradox</h3>
+              <p>Data engineers are supposed to be building a "single source of truth." AI can generate documentation fast — but generated documentation doesn't capture the reasoning behind a design decision. When the engineer who wrote the prompt leaves, and nobody understands why the data model is designed this way, the "single source of truth" becomes a "single source of confusion."</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section" id="what-ai-does-to-sql">
+          <h2>What AI Does to Your SQL Brain</h2>
+          <p>SQL is the bread and butter of data engineering. And AI is now very good at writing SQL — from simple SELECTs to complex window functions, CTEs, and recursive queries. You can describe what you want in English and get working SQL in seconds.</p>
+          <p>This should feel like a superpower. For many data engineers, it feels like a slow erosion.</p>
+          <p>Consider what happens over months of AI-assisted SQL writing:</p>
+          <ul>
+            <li><strong>The complex queries stop being yours.</strong> You describe the problem to AI. AI writes the query. You run it. It works. But the window function logic that you'd have figured out yourself last year — that lives in AI's training data now, not yours.</li>
+            <li><strong>Debugging shifts from understanding to prompting.</strong> When a query returns wrong results, the instinct becomes "ask AI why this is wrong" rather than "trace through the data logic myself." The former is faster. The latter is how you build SQL intuition.</li>
+            <li><strong>The satisfaction disappears.</strong> Writing a hard SQL query was hard. The difficulty was part of the point — it meant the solution was yours, earned. When AI writes the hard query instantly, the difficulty doesn't just disappear; the satisfaction disappears with it.</li>
+          </ul>
+          <p>This isn't about being anti-AI. It's about noticing what's being lost in the exchange.</p>
+
+          <div class="comparison-table">
+            <table>
+              <caption>The SQL Skill Erosion Pattern</caption>
+              <thead>
+                <tr><th scope="col">Before AI</th><th scope="col">After 6 Months of AI</th><th scope="col">After 18 Months of AI</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Write complex window functions from memory</td><td>Prompt AI for complex window functions</td><td>Can't write a rank() without AI</td></tr>
+                <tr><td>Debug by reading the execution plan</td><td>Ask AI to explain the execution plan</td><td>Trust AI's explanation without checking</td></tr>
+                <tr><td>Know which join type for which situation</td><td>Ask AI which join to use</td><td>Default to what AI suggests, never verify</td></tr>
+                <tr><td>Feel the "this query is wrong" intuition</td><td>Run AI check on results</td><td>No intuition, rely entirely on AI validation</td></tr>
+                <tr><td>Refactor queries as data models evolve</td><td>Prompt AI to rewrite the query</td><td>Throw away old query, prompt from scratch</td></tr>
+                <tr><td>Can explain the query to a stakeholder</td><td>AI-generated explanation drafted for you</td><td>Read AI's explanation verbatim, can't personalize</td></tr>
+                <tr><td>Build query performance intuition over years</td><td>AI suggests optimizations</td><td>No mental model of performance, blind to slow queries</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="content-section" id="dbt-erosion">
+          <h2>The dbt Problem: Where Modeling Judgment Goes to Die</h2>
+          <p>If you're a data engineer who's adopted dbt in the last two years, there's a good chance AI has written a significant portion of your models. And there's a good chance you've noticed something uncomfortable: you don't always know why those models are designed the way they are.</p>
+          <p>dbt is supposed to be the expression of your data modeling decisions. It's where your understanding of the business — the entity relationships, the slowly changing dimensions, the grain of each model — gets encoded into software. When AI generates those models, something important is being skipped: the reasoning.</p>
+          <p>Here's what the erosion looks like:</p>
+          <div class="callout warning">
+            <strong>The dbt Generation Problem</strong>
+            <p>You describe your data to AI. "We have customers, orders, and subscriptions." AI generates a staging layer, intermediate models, and a marts layer. The models look correct. They might even pass dbt tests. But the design decisions — why this grain, why that surrogate key, why this snapshot strategy — were never made by you. They're AI's inferred decisions, accepted without review.</p>
+            <p>Two years from now, when you need to change a data model because the business changed, you won't know what the original decisions were. And you won't know how to evolve the model without AI.</p>
+          </div>
+          <p>The skills at risk in dbt-heavy workflows include:</p>
+          <ul>
+            <li><strong>Surrogate key strategy</strong> — when to use, when to avoid, tradeoffs</li>
+            <li><strong>Dimension vs. fact table design</strong> — understanding grain and building outward</li>
+            <li><strong>Slowly changing dimension (SCD) handling</strong> — type 2 vs. type 4 decisions</li>
+            <li><strong>Data vault vs. bus matrix thinking</strong> — the architectural layer most AI skips</li>
+            <li><strong>Mart design for consumption</strong> — modeling for analytics vs. modeling for accuracy</li>
+          </ul>
+          <p>None of these skills are built by accepting AI-generated models. They're built by making the decisions, watching them fail, and iterating.</p>
+        </section>
+
+        <section class="content-section" id="pipeline-orchestration">
+          <h2>Pipeline Orchestration: The Invisible Dependency</h2>
+          <p>Airflow, Prefect, Dagster, Meltano — orchestration is where data engineering becomes systems thinking. It's where you encode the logic of how your data flows, when it runs, what depends on what, what happens when something fails.</p>
+          <p>AI can generate Airflow DAGs in seconds. You describe the pipeline, the dependencies, the schedule. You get working code. And that's the problem.</p>
+          <p>Orchestration failures are systems failures. When a pipeline fails in production, understanding why — and fixing it — requires understanding the system you built. Not the system AI described, but the actual system: the hidden dependencies, the stateful operators, the edge cases that only appear at 4am on a Sunday.</p>
+          <p>Engineers who use AI to generate their orchestration code and skip the mental model-building are accumulating invisible debt. The DAG looks correct. The dependencies are declared. But when it fails in a way AI didn't anticipate, the engineer is lost.</p>
+          <div class="callout">
+            <strong>The 3am Pipeline Failure Test</strong>
+            <p>Here's a useful diagnostic: if your pipeline fails at 3am, can you fix it without AI? Not because AI isn't available — but because you understand the system well enough to diagnose it. If the answer is no, you have an AI dependency problem, not a skill problem.</p>
+          </div>
+        </section>
+
+        <section class="content-section" id="warning-signs">
+          <h2>The Warning Signs (A Self-Assessment)</h2>
+          <p>Not every data engineer using AI is experiencing AI fatigue. Here are the specific signals that distinguish healthy AI use from the kind that's quietly eroding your capabilities:</p>
+
+          <div class="assessment-grid">
+            <div class="assessment-item">
+              <div class="assessment-marker low"></div>
+              <div class="assessment-content">
+                <strong>You still write SQL from scratch for the interesting problems</strong>
+                <p>Not because you can't use AI, but because you choose to for the hard stuff. You save AI for the boilerplate.</p>
+              </div>
+            </div>
+            <div class="assessment-item">
+              <div class="assessment-marker mid"></div>
+              <div class="assessment-content">
+                <strong>You review every AI-generated data model before committing it</strong>
+                <p>You can explain why each model is designed the way it is, even if AI generated it. You're the author; AI is the first draft.</p>
+              </div>
+            </div>
+            <div class="assessment-item">
+              <div class="assessment-marker mid"></div>
+              <div class="assessment-content">
+                <strong>You can debug your pipelines without AI</strong>
+                <p>You reach for AI as a second option, not a first. You have a mental model of why pipelines fail.</p>
+              </div>
+            </div>
+            <div class="assessment-item">
+              <div class="assessment-marker high"></div>
+              <div class="assessment-content">
+                <strong>You can't explain a data model without checking AI's draft first</strong>
+                <p>The explanation you give stakeholders is AI's, or heavily AI-edited. You don't trust your own explanation of the data.</p>
+              </div>
+            </div>
+            <div class="assessment-item">
+              <div class="assessment-marker high"></div>
+              <div class="assessment-content">
+                <strong>You feel vaguely fraudulent when AI writes your SQL</strong>
+                <p>Not because you're cheating — but because the thing you're shipping isn't really yours. You can't put your name on it honestly.</p>
+              </div>
+            </div>
+            <div class="assessment-item">
+              <div class="assessment-marker high"></div>
+              <div class="assessment-content">
+                <strong>You don't know what you'd do if AI stopped working</strong>
+                <p>This is the clearest signal. If AI going offline for a week would halt your productivity entirely, the dependency is too deep.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section" id="the-grief">
+          <h2>The Grief Nobody Talks About</h2>
+          <p>There is a grief that comes with watching the skills you spent years building become automatable. It's not burnout, exactly. It's not imposter syndrome, exactly. It's something else.</p>
+          <p>It's the feeling of watching the craft you love become a commodity. Of having the thing that made you valuable — the hard SQL, the elegant data model, the pipeline that never fails — become something a language model can do in three seconds. Not better than you, maybe. But fast enough that your employer doesn't notice the difference.</p>
+          <p>This grief is valid. It's not weakness. It's the appropriate emotional response to watching something you care about become devalued by automation. The data engineers who name this grief, rather than bury it under productivity gains, are the ones who find their way to a sustainable relationship with AI.</p>
+          <p>The question isn't whether AI should write your SQL. The question is: what parts of your work are worth doing yourself, even if AI can do them faster? And what parts of your identity as a data engineer are worth protecting, even if the market doesn't value them?</p>
+        </section>
+
+        <section class="content-section" id="recovery">
+          <h2>A Practical Recovery Path</h2>
+          <p>Recovering from data engineering AI fatigue isn't about rejecting AI. It's about being intentional about which parts of your work remain yours.</p>
+
+          <div class="howto-steps">
+            <div class="howto-step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h3>No-AI SQL Sessions</h3>
+                <p>Block one hour per week — just for you, just SQL. Write real queries for real problems without AI. Not because AI would do it faster, but because the practice is the skill. Track what you can still do without AI. Notice what you can't. That's your dependency map.</p>
+                <p>Start with what you used to know cold: window functions, CTEs, recursive queries. Rebuild the muscle memory.</p>
+              </div>
+            </div>
+            <div class="howto-step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h3>The Explanation Requirement</h3>
+                <p>For every AI-generated data model, write a 3-sentence explanation: why this grain, why these columns, why this design. Not for anyone else — for yourself. If you can't write the explanation, you don't understand the model. That's your signal to investigate before committing.</p>
+              </div>
+            </div>
+            <div class="howto-step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h3>AI as Tutor, Not Executor</h3>
+                <p>Before using AI to write a query, ask it to teach you the pattern. "Explain how to write a deduplication query with a window function, then I'll write my own." AI can be a better teacher than most tutorials because it's interactive. Use it to rebuild the theory, not skip it.</p>
+              </div>
+            </div>
+            <div class="howto-step">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h3>The Quarterly dbt Audit</h3>
+                <p>Every quarter, pick one AI-generated dbt model and rebuild it from scratch. Not to replace it — to understand it. You'll find things AI got wrong. You'll find things you would have done differently. That gap — between AI's inferred design and your deliberate design — is the skill you're protecting.</p>
+              </div>
+            </div>
+            <div class="howto-step">
+              <div class="step-number">5</div>
+              <div class="step-content">
+                <h3>Debug Without AI First</h3>
+                <p>When a pipeline fails, spend 15 minutes debugging yourself before reaching for AI. Read the logs. Look at the data. Trace the failure through the DAG. Build the pattern recognition that AI skips. If you find the problem before AI does, that's a win worth noting. If AI finds it first, that's a learning moment.</p>
+              </div>
+            </div>
+            <div class="howto-step">
+              <div class="step-number">6</div>
+              <div class="step-content">
+                <h3>Protect the Architecture Layer</h3>
+                <p>Data modeling decisions — the architecture of your data platform — are the highest-leverage work you do. Don't let AI make these decisions for you. AI can generate the code; you should be the one deciding the design. Review AI-generated architecture suggestions with skepticism. The cost of a wrong design decision is higher than the cost of writing the code yourself.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section" id="team-dimension">
+          <h2>What Data Teams Should Do Differently</h2>
+          <p>AI fatigue in data engineering isn't just an individual problem. It's a team design problem. Here are the structural changes that help:</p>
+          <ul>
+            <li><strong>Code review for AI-generated SQL.</strong> If a PR is mostly AI-generated, require the author to explain it in comments before approval. This is how knowledge stays in the team.</li>
+            <li><strong>Architecture decisions are human decisions.</strong> Nobody should be using AI to make data modeling decisions without human review. Build this into your RFC process.</li>
+            <li><strong>Track what AI is actually being used for.</strong> Which pipelines are mostly AI-generated? Which engineers are mostly directing AI? The patterns reveal the skill dependencies.</li>
+            <li><strong>Invest in the skills AI can't replace.</strong> Data quality root cause analysis. Data modeling judgment. Systems debugging. These are worth protecting and developing, even when they're slower than AI alternatives.</li>
+          </ul>
+        </section>
+
+        <section class="content-section faq-section" id="faq">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-accordion" id="faq-accordion"></div>
+        </section>
+
+        <section class="content-section continue-exploring">
+          <h2>Continue Exploring</h2>
+          <div class="explore-grid">
+            <a href="/skill-atrophy.html" class="explore-card">
+              <span class="explore-icon">🧠</span>
+              <h3>Skill Atrophy</h3>
+              <p>The neuroscience of why unused skills fade — and what it means for engineers who rely on AI.</p>
+            </a>
+            <a href="/cognitive-load.html" class="explore-card">
+              <span class="explore-icon">⚡</span>
+              <h3>Cognitive Load Theory</h3>
+              <p>Why AI doesn't reduce your cognitive load — it shifts it. Understanding the real cost.</p>
+            </a>
+            <a href="/ai-productivity-paradox.html" class="explore-card">
+              <span class="explore-icon">🔄</span>
+              <h3>The AI Productivity Paradox</h3>
+              <p>More output, less satisfaction. The paradox at the heart of AI-assisted engineering.</p>
+            </a>
+            <a href="/recovery.html" class="explore-card">
+              <span class="explore-icon">🌿</span>
+              <h3>Recovery Guide</h3>
+              <p>The full recovery framework for AI-fatigued engineers — start here if you're unsure where to begin.</p>
+            </a>
+            <a href="/ai-detox-plan.html" class="explore-card">
+              <span class="explore-icon">📋</span>
+              <h3>30-Day AI Detox</h3>
+              <p>A structured 30-day plan to rebuild your relationship with AI tools — and with your craft.</p>
+            </a>
+            <a href="/developer-identity.html" class="explore-card">
+              <span class="explore-icon">🪪</span>
+              <h3>Developer Identity</h3>
+              <p>Who are you without your code? The identity question at the heart of AI fatigue.</p>
+            </a>
+          </div>
+        </section>
+
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <script src="main.js"></script>
+  <script>
+    // FAQ accordion
+    const faqData = [
+      {
+        q: "Why does AI make data engineering feel hollow?",
+        a: "AI generates the SQL, dbt models, and pipeline code fast — but it bypasses the hard problem-solving that made data engineering feel meaningful. When the work that took skill becomes one prompt, the sense of craft and ownership erodes. This isn't laziness; it's a real grief response to losing the thing that made the work feel like yours."
+      },
+      {
+        q: "Is AI fatigue different for data engineers than other developers?",
+        a: "Yes. Data engineers work at the intersection of software engineering, database theory, distributed systems, and business logic. AI tools have hit SQL generation and pipeline orchestration particularly hard — but the domains that require understanding why a pipeline fails at 3am, or why a data quality issue is happening, are still resistant to AI. This creates a split: the satisfying part gets automated, the hard part stays."
+      },
+      {
+        q: "How does AI affect data modeling skills?",
+        a: "dbt has become especially vulnerable. AI can generate dbt models from a business description — but the skill of deciding when to use a surrogate key, how to design a staging layer, or when to denormalize lives in judgment built from years of failed data models. Engineers who let AI build their entire dbt project are not building that judgment. In 3 years, they'll be dependent on AI to make modeling decisions they can't make themselves."
+      },
+      {
+        q: "What are the warning signs specific to data engineers?",
+        a: "You can't debug a failing pipeline without AI. You don't know why a dbt model is slow — you just ask AI to optimize it. You can't write a complex window function from scratch anymore. You can't explain a data architecture to a stakeholder without AI drafting the diagram. You feel like an orchestrator of AI outputs, not an engineer of data systems."
+      },
+      {
+        q: "How do I talk to my manager about data engineer AI fatigue?",
+        a: "Frame it around data quality and risk. 'Our AI-generated SQL is 30% slower than what I'd write, and we don't have a review process to catch that.' Or: 'I'm concerned that if our team's SQL writing skills erode, we'll be dependent on AI for everything, including the critical pipelines we need to debug at 3am.' Data leaders respond well to risk framing."
+      },
+      {
+        q: "Can data engineering skills actually atrophy from AI?",
+        a: "Yes. The research is clear: when a skill is used less, it degrades. If you're writing less SQL, your SQL fluency declines. If you're not designing data models from scratch, your modeling judgment weakens. The insidious part for data engineers is that your pipelines still run — the output looks fine — so nobody notices the skill loss until something breaks and you can't fix it without AI."
+      }
+    ];
+
+    const faqContainer = document.getElementById('faq-accordion');
+    faqData.forEach((item, i) => {
+      const details = document.createElement('details');
+      details.className = 'faq-item';
+      const summary = document.createElement('summary');
+      summary.innerHTML = `<span class="faq-q">${item.q}</span><span class="faq-icon" aria-hidden="true">+</span>`;
+      const answer = document.createElement('div');
+      answer.className = 'faq-a';
+      answer.textContent = item.a;
+      details.appendChild(summary);
+      details.appendChild(answer);
+      faqContainer.appendChild(details);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Monday Morning Audit — The Dispatch #44</title>
+  <meta name="description" content="Five questions to ask yourself Monday morning — before you open a single AI tool. A diagnostic for engineers who want to know where they actually stand.">
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-archive.html">
+  <meta property="og:title" content="The Monday Morning Audit — The Dispatch #44">
+  <meta property="og:description" content="Five questions to ask yourself Monday morning — before you open a single AI tool.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/newsletter-archive.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Monday Morning Audit — The Dispatch #44">
+  <meta name="twitter:description" content="Five questions to ask yourself Monday morning — before you open a single AI tool. A diagnostic for engineers who want to know where they actually stand.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body { background: #0f1419; color: #c5cdd8; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.7; }
+    .dispatch-issue { max-width: 640px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+    .dispatch-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.5rem; }
+    .dispatch-label { background: #1a2633; color: #7bcf8e; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.7rem; border-radius: 3px; }
+    .dispatch-date { color: #5c6e7e; font-size: 0.8rem; }
+    h1 { color: #e8edf4; font-size: 2rem; font-weight: 700; margin: 0 0 0.5rem; letter-spacing: -0.02em; line-height: 1.2; }
+    .dispatch-subtitle { color: #8899a8; font-size: 1.05rem; margin: 0 0 1.5rem; font-weight: 400; }
+    .dispatch-divider { border: none; border-top: 1px solid #1e2a38; margin: 1.5rem 0; }
+    .dispatch-body h2 { color: #e8edf4; font-size: 1.15rem; font-weight: 600; margin: 2rem 0 0.75rem; letter-spacing: -0.01em; }
+    .dispatch-body p { margin: 0 0 1.2rem; }
+    .dispatch-body strong { color: #c5cdd8; font-weight: 600; }
+    .audit-card { background: #161e28; border: 1px solid #1e2a38; border-left: 3px solid #7bcf8e; border-radius: 6px; padding: 1.2rem 1.4rem; margin: 1.5rem 0; }
+    .audit-card .audit-num { color: #7bcf8e; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; display: block; }
+    .audit-card h3 { color: #e8edf4; font-size: 1rem; font-weight: 600; margin: 0 0 0.6rem; }
+    .audit-card p { color: #8899a8; font-size: 0.9rem; margin: 0 0 0.8rem; }
+    .audit-card .reveal { color: #7bcf8e; font-size: 0.85rem; margin: 0; font-weight: 500; }
+    .framework-box { background: #0f1a12; border: 1px solid #1a3325; border-radius: 8px; padding: 1.4rem 1.6rem; margin: 2rem 0; }
+    .framework-box h3 { color: #7bcf8e; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.6rem; }
+    .framework-box p { color: #8899a8; font-size: 0.9rem; margin: 0 0 0.8rem; }
+    .framework-box a { color: #7bcf8e; text-decoration: none; border-bottom: 1px solid rgba(123,207,142,0.3); }
+    .framework-box a:hover { border-bottom-color: #7bcf8e; }
+    .micro-check { background: #161e28; border-radius: 6px; padding: 1.2rem 1.4rem; margin: 1.5rem 0; }
+    .micro-check p { margin: 0 0 0.6rem; font-weight: 600; color: #c5cdd8; }
+    .micro-check label { display: block; color: #8899a8; font-size: 0.9rem; margin: 0.4rem 0; cursor: pointer; }
+    .micro-check input[type="radio"] { margin-right: 0.5rem; accent-color: #7bcf8e; }
+    .cta-block { background: #1a2633; border-radius: 8px; padding: 1.4rem; margin: 2rem 0; text-align: center; }
+    .cta-block p { color: #8899a8; font-size: 0.9rem; margin: 0 0 0.8rem; }
+    .cta-block a { display: inline-block; background: #7bcf8e; color: #0f1419; font-weight: 700; font-size: 0.85rem; padding: 0.6rem 1.4rem; border-radius: 5px; text-decoration: none; margin: 0.25rem; }
+    .cta-block a.secondary { background: transparent; color: #7bcf8e; border: 1px solid #7bcf8e; }
+    .cta-block a:hover { opacity: 0.85; }
+    .closing { color: #5c6e7e; font-size: 0.85rem; font-style: italic; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #1e2a38; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Monday Morning Audit — The Dispatch #44",
+    "description": "Five questions to ask yourself Monday morning — before you open a single AI tool. A diagnostic for engineers who want to know where they actually stand.",
+    "author": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "datePublished": "2026-04-27",
+    "dateModified": "2026-04-27",
+    "url": "https://clearing-ai.com/newsletter-issues/dispatch-44.html"
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="site-header">
+    <nav class="main-nav" role="navigation" aria-label="Main">
+      <a href="/" class="logo">🌿 The Clearing</a>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode" title="Toggle theme">🌙</button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <article class="dispatch-issue">
+      <header class="dispatch-header">
+        <span class="dispatch-label">The Dispatch — Issue #44</span>
+        <span class="dispatch-date">April 27, 2026</span>
+      </header>
+
+      <h1>The Monday Morning Audit</h1>
+      <p class="dispatch-subtitle">Five questions to ask yourself before you open a single AI tool — and what the answers tell you.</p>
+
+      <hr class="dispatch-divider">
+
+      <div class="dispatch-body">
+
+<p>Last week we talked about the Sunday reckoning — that moment when your brain runs the math on a week of producing without owning. If you read that and felt something land, this week is the follow-up.</p>
+
+<p>Because here's what happens after a Sunday reckoning: Monday morning comes, and you have a choice. You can start the week the way you ended the last one — with the AI tools firing before you've even located yourself — or you can take five minutes first.</p>
+
+<p>This is not a productivity hack. This is a diagnostic.</p>
+
+<p>Five questions. No one's watching. Answer honestly.</p>
+
+<h2>The Monday Morning Audit</h2>
+
+<div class="audit-card">
+  <span class="audit-num">Question 1</span>
+  <h3>Did you make a decision yesterday that wasn't AI-suggested?</h3>
+  <p>Not a preference — a real decision. Something where the answer could have gone another way, and you had to actually think through it.</p>
+  <p class="reveal">What it reveals: If the answer is "no," that's not a character flaw. It's a signal that your decision-making muscle hasn't been used in a while. That's recoverable — but only if you notice it.</p>
+</div>
+
+<div class="audit-card">
+  <span class="audit-num">Question 2</span>
+  <h3>When you think about the code you shipped last week — what's the texture?</h3>
+  <p>Pride? Numbness? "It works"? Something else?</p>
+  <p class="reveal">What it reveals: Engineers who've been through the AI fatigue cycle consistently describe the same thing: the work they shipped started to feel like it was happening to them rather than through them. If "it works" is as far as the feeling goes — that's worth naming.</p>
+</div>
+
+<div class="audit-card">
+  <span class="audit-num">Question 3</span>
+  <h3>What's your cognitive baseline today — compared to three months ago?</h3>
+  <p>Not your best day versus your worst. Your average Tuesday.</p>
+  <p class="reveal">What it reveals: Most engineers don't track this consciously — but they feel it. The comparison that's actually useful isn't "am I tired today?" It's "was I this tired on a random Tuesday in January?" If the baseline has dropped, that's data, not weakness.</p>
+</div>
+
+<div class="audit-card">
+  <span class="audit-num">Question 4</span>
+  <h3>What's the thing you're about to do today that you already know how to do?</h3>
+  <p>Not "what's on your plate." What's the task where you've already solved this before, or know exactly how to solve it — and AI would make it faster?</p>
+  <p class="reveal">What it reveals: The tasks we already know how to do are the most seductive to hand off to AI — and the most costly to lose. Speed on the known is a trade. Make it deliberately, not by default.</p>
+</div>
+
+<div class="audit-card">
+  <span class="audit-num">Question 5</span>
+  <h3>What would you say if someone asked you how you're actually doing?</h3>
+  <p>Not "fine." Not "busy." What would you actually say?</p>
+  <p class="reveal">What it reveals: This one's not about AI directly. It's about whether you still have access to an honest self-assessment. If you can't answer this without sliding into deflection, that's worth knowing.</p>
+</div>
+
+<h2>What to Do With the Answers</h2>
+
+<p>You don't have to fix anything today. That's not the point of an audit — the point is to have accurate information.</p>
+
+<p>But here's what tends to happen when engineers sit with these five questions honestly: they realize they're managing something they've been too busy to name. And naming it is the first move, not the last.</p>
+
+<p>If Question 2 landed hard — if the texture of your recent work is "numb" or "it works" — that's a prompt to look at <a href="https://clearing-ai.com/recovery.html">the recovery guide</a>. Not because something is broken, but because your relationship with your own work is worth paying attention to.</p>
+
+<p>If Question 4 pointed at something you actually want to keep knowing — a skill that matters to you — that's a prompt to try a <a href="https://clearing-ai.com/the-sunday-scaries-ai.html">no-AI session</a> this week. Not as a detox cleanse. Just as a recalibration.</p>
+
+<div class="framework-box">
+  <h3>A Framework Worth Knowing</h3>
+  <p>Most teams have never explicitly evaluated which AI workflows preserve capability and which ones erode it. The <a href="https://clearing-ai.com/ai-decision-stack.html">AI Decision Stack</a> is a simple 4-layer framework for making that evaluation team-wide — cognitive cost, skill preservation, team dynamics, long-term sustainability.</p>
+  <p>It's not a policy. It's a vocabulary. And most engineers who find it say they wish they'd had it months ago.</p>
+</div>
+
+<h2>The Three-Question Close</h2>
+
+<p>If you don't have time for a full audit, try these instead:</p>
+
+<div class="micro-check">
+  <p>1. Did I make anything mine today?</p>
+  <label><input type="radio" name="q1"> Yes — I built something and knew why</label>
+  <label><input type="radio" name="q1"> Sort of — I shipped, but it felt generic</label>
+  <label><input type="radio" name="q1"> Not really — AI handled most of it</label>
+</div>
+
+<div class="micro-check">
+  <p>2. Am I thinking clearly right now, or just productive?</p>
+  <label><input type="radio" name="q2"> Thinking clearly — I can hold a problem</label>
+  <label><input type="radio" name="q2"> Just productive — moving fast, not deep</label>
+  <label><input type="radio" name="q2"> Not sure — I can't quite tell right now</label>
+</div>
+
+<div class="micro-check">
+  <p>3. Do I want to do this work, or just finish it?</p>
+  <label><input type="radio" name="q3"> Want to do it — this is interesting</label>
+  <label><input type="radio" name="q3"> Just finish it — get it done and move on</label>
+  <label><input type="radio" name="q3"> Neither — I'm just going through the motions</label>
+</div>
+
+<p>Three "just finish it" or "neither" answers in a row is worth paying attention to. Not as a crisis — as a data point.</p>
+
+<div class="cta-block">
+  <p>If this landed for you, here's where to go next:</p>
+  <a href="https://clearing-ai.com/quiz.html">Take the AI Fatigue Quiz</a>
+  <a href="https://clearing-ai.com/recovery.html" class="secondary">Recovery Guide</a>
+  <a href="https://clearing-ai.com/ai-decision-stack.html" class="secondary">AI Decision Stack</a>
+</div>
+
+<p class="closing">You don't have to have answers today. You just have to know where you're standing.<br>— The Clearing</p>
+
+      </div>
+    </article>
+  </main>
+</body>
+</html>

@@ -148,6 +148,7 @@
             <div class="card">
               <h3>The Debugging Gap</h3>
               <p>When a pipeline fails at 3am, AI can suggest fixes. But understanding <em>why</em> a Spark job is running out of memory because of a skewed join — that's a skill built from dozens of similar failures. AI skips the failure. You skip the learning. The next time there's a real problem, you're more dependent on AI, not less.</p>
+          <p>For the deeper cost of skipping hard problems, see <a href="skill-atrophy.html">Skill Atrophy</a>.</p>
             </div>
             <div class="card">
               <h3>The Velocity Pressure</h3>
@@ -164,12 +165,14 @@
           <h2>What AI Does to Your SQL Brain</h2>
           <p>SQL is the bread and butter of data engineering. And AI is now very good at writing SQL — from simple SELECTs to complex window functions, CTEs, and recursive queries. You can describe what you want in English and get working SQL in seconds.</p>
           <p>This should feel like a superpower. For many data engineers, it feels like a slow erosion.</p>
+          <p>This same erosion pattern is documented in <a href="skill-atrophy.html">Skill Atrophy research</a> — and it follows the same mechanism as the Generation Effect in learning science.</p>
           <p>Consider what happens over months of AI-assisted SQL writing:</p>
           <ul>
             <li><strong>The complex queries stop being yours.</strong> You describe the problem to AI. AI writes the query. You run it. It works. But the window function logic that you'd have figured out yourself last year — that lives in AI's training data now, not yours.</li>
             <li><strong>Debugging shifts from understanding to prompting.</strong> When a query returns wrong results, the instinct becomes "ask AI why this is wrong" rather than "trace through the data logic myself." The former is faster. The latter is how you build SQL intuition.</li>
             <li><strong>The satisfaction disappears.</strong> Writing a hard SQL query was hard. The difficulty was part of the point — it meant the solution was yours, earned. When AI writes the hard query instantly, the difficulty doesn't just disappear; the satisfaction disappears with it.</li>
           </ul>
+          <p>For why the satisfaction component matters, see <a href="flow-state.html">Flow State &amp; AI</a> — flow requires challenge, and AI removes challenge.</p>
           <p>This isn't about being anti-AI. It's about noticing what's being lost in the exchange.</p>
 
           <div class="comparison-table">
@@ -221,6 +224,7 @@
           <div class="callout">
             <strong>The 3am Pipeline Failure Test</strong>
             <p>Here's a useful diagnostic: if your pipeline fails at 3am, can you fix it without AI? Not because AI isn't available — but because you understand the system well enough to diagnose it. If the answer is no, you have an AI dependency problem, not a skill problem.</p>
+          <p>This diagnostic connects to <a href="the-ai-dependency-trap.html">The AI Dependency Trap</a> — the same 3am failure pattern appears across all engineering disciplines.</p>
           </div>
         </section>
 

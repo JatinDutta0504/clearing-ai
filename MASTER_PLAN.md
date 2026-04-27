@@ -361,3 +361,11 @@
 **Built:** `qa-engineer-ai-fatigue.html` (~5,400 words) — Underserved QA/test engineer niche. 8 sections: shift nobody prepared for, 4 gaps AI creates, specific ways AI breaks QA work (invariants, flakiness, coverage illusion, review burden), 8 warning signs, 8-row comparison table (traditional vs AI-assisted QA), 6 craft-focused recovery strategies, organizational dimension, 6-Q FAQ accordion. Article + FAQPage + BreadcrumbList schema. Crisis banner. 140 nav files updated. sitemap.xml 178 URLs.
 **SEO target keywords:** "QA engineer AI fatigue", "test engineer AI burnout", "automated testing AI fatigue"
 **Commit:** `09a1f6b`
+
+### Hour 554 — 2026-04-26 23:43 UTC (Sun Apr 26, 4:43 PM PDT) — Phase 4 Community Window
+**Built:** `newsletter-issues/dispatch-43.md` + `.html` — The Dispatch #43: "The Sunday Reckoning" (~2,800 words)
+**Topics:** Why Sunday evening dread is rational for AI-fatigued engineers, 3 compounding mechanisms, AI Decision Stack framework (5-step Friday ritual), 5-question self-test, 3 concrete actions
+**CTA:** AI Fatigue Type Calculator → https://clearing-ai.com/ai-fatigue-type-calculator.html
+**Updated:** `newsletter-archive.html` — Issue #43 card added (top of archive), JSON-LD ItemList renumbered
+**Commit:** `d70da26`
+**P4 windows:** 107 | **Dispatch issues:** 43 | **Total words:** ~512k

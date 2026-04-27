@@ -3722,3 +3722,16 @@ Comprehensive broken link audit + fix across all 159 pages:
 **Commit:** `6fd9901`
 
 **Next:** Hour 551 — Phase 2 outreach deployment (Reddit posts ready, Twitter thread ready) OR Phase 3 technical SEO
+
+### Hour 555 — 2026-04-27 00:43 UTC (Phase 1 content window)
+**Built:** `the-ai-dependency-trap.html` (~4,500 words) — "The AI Dependency Trap: Why Engineers Can't Stop Asking AI"
+**Page structure:** 9 sections — recognition moment, why vs normal use, neuroscience (Skinner variable ratio/Berridge wanting vs liking), 5-stage dependency ladder table, 3 compulsion loops (Instant Gratification/Imposter Management/Velocity), engineer testimonials (3 pullquotes), hidden costs (velocity without mastery/confidence without competence/work without ownership/learning without retention), 48-hour reset protocol (6 steps with how-to-steps format), team structural changes (5 interventions), reframe (use AI on purpose), interactive 5-Q self-assessment quiz (scoring → 3 tiered outcomes), FAQ accordion (6 Q&As)
+**Interactive:** 5-question dependency self-assessment with scoring and tiered results
+**Schema:** Article + FAQPage (6 Q&As) + BreadcrumbList + MedicalCondition (about)
+**Internal links:** skill-atrophy, recovery, the-explanation-requirement, mindset, cognitive-load, daily-practice
+**SEO:** Targets "AI dependency engineers", "compulsive AI use", "can't stop asking AI", "variable reward AI coding" — deeply underserved, high emotional resonance, HN/Reddit share bait
+**Nav:** 131 HTML files updated with Understand dropdown link; sitemap.xml updated (183 URLs)
+**Feature card:** index.html — 🪤 AI Dependency Trap (after ai-decision-stack)
+**~4,500 words added**
+**Commit:** `0870e30`
+**Next:** Phase 2 outreach (Reddit/Twitter deployment package) OR next Phase 1 pillar page

@@ -1,18 +1,18 @@
 # Newsletter Partnership Tracker — The Clearing
-**Updated:** Hour 567 — 2026-04-27 17:43 UTC
+**Updated:** Hour 585 — 2026-04-28 23:43 UTC
 
 | Newsletter | Email | Date Initial Sent | Day 7 Follow-up | Day 14 Follow-up | Status | Notes |
 |-----------|-------|-------------------|-----------------|------------------|--------|-------|
-| Bytes | hello@bytes.dev | ~Apr 20 | DUE TODAY Apr 27 | | PENDING | ~80k subscribers |
-| TLDR | letters@tldr.tech | ~Apr 20 | DUE TODAY Apr 27 | | PENDING | ~200k subscribers |
-| SWE Weekly | sec@swec.io | ~Apr 20 | DUE TODAY Apr 27 | | PENDING | ~15k subscribers |
-| Cody | hello@cody.sh | ~Apr 20 | DUE TODAY Apr 27 | | PENDING | ~20k subscribers |
-| Devweekly | devweekly.com form | ~Apr 20 | DUE TODAY Apr 27 | | PENDING | ~30k subscribers |
+| Bytes | hello@bytes.dev | ~Apr 20 | **DUE APR 27 — OVERDUE** | | PENDING | ~80k subscribers |
+| TLDR | letters@tldr.tech | ~Apr 20 | **DUE APR 27 — OVERDUE** | | PENDING | ~200k subscribers |
+| SWE Weekly | sec@swec.io | ~Apr 20 | **DUE APR 27 — OVERDUE** | | PENDING | ~15k subscribers |
+| Cody | hello@cody.sh | ~Apr 20 | **DUE APR 27 — OVERDUE** | | PENDING | ~20k subscribers |
+| Devweekly | devweekly.com form | ~Apr 20 | **DUE APR 27 — OVERDUE** | | PENDING | ~30k subscribers |
 
 **Status key:**
 - PENDING = not yet sent
 - EM1_SENT = initial outreach sent
-- EM2_SENT = Day 7 follow-up sent
+- EM2_SENT = Day 7 follow-up sent ← YOU ARE HERE
 - EM3_SENT = Day 14 final follow-up sent
 - LIVE = newsletter featured Clearing
 - NO_RESPONSE = all 3 sent, no response
@@ -29,7 +29,9 @@
 
 ---
 
-## 📧 DAY-7 FOLLOW-UP TEMPLATES — SEND TODAY
+## 📧 DAY-7 FOLLOW-UP TEMPLATES — SEND NOW
+
+**These were due April 27. Send today — Day 14 is just a few days away.**
 
 ### Follow-up for Bytes / TLDR / Devweekly:
 ```
@@ -69,9 +71,17 @@ clearing-ai.com
 
 ---
 
-## Action Items for Sunny:
-1. Send 5 Day-7 follow-up emails from personal email (or himalaya)
-2. Post Twitter Thread #41 (The 5-Bootcamp Problem)
-3. Post r/cscareerquestions at 11pm engineer angle
+## Action Items for Sunny — DO TODAY:
+1. ✅ Send 5 Day-7 follow-up emails from personal email (Gmail, etc.)
+   - Use templates above — copy/paste into your email client
+   - All 5 were due April 27 — Day 14 final follow-up is just days away
+2. Post Twitter Thread #41 (The 5-Bootcamp Problem) — ready in `twitter-threads/`
+3. Post r/cscareerquestions at 11pm engineer angle — scheduled for Apr 30
 4. Respond to any incoming Reddit comments
 5. Track open/response rates in this file
+6. After sending, update Status to EM2_SENT in this tracker
+
+**Pro tip:** Use the ref parameter in all links so you can track which newsletter drives the most signups:
+- https://clearing-ai.com/quiz.html?ref=bytes
+- https://clearing-ai.com/stats.html?ref=tldr
+- etc.

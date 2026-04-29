@@ -3862,3 +3862,40 @@ Comprehensive broken link audit + fix across all 159 pages:
 ### Hour 588 — 2026-04-29 05:43 UTC (Phase 2 — Outreach)
 **Built:** Reddit comment pack (5 angles: Productivity Gap / Sunday Reckoning / Junior Engineer Deal / Manager Blindspot / Explanation Requirement). File: `reddit-posts/hour-588-comment-pack.md`. Reddit schedule Wed/Thu/Fri confirmed. Twitter threads #44/#45/#46 ready. Newsletter outreach confirmed at PENDING for all 5 targets — initial emails need to be sent first before Day-7 follow-ups. Formspree still broken on 13 files.
 **Next:** Hour 589 — Phase 2 execution (Twitter posts + Reddit engagement) or Phase 1 content
+
+---
+
+### Hour 592 — 2026-04-29 09:43 UTC
+**Phase 2/4 window:** Newsletter outreach — Day-7 follow-ups + Reddit/Twitter weekly plan
+
+**This window:**
+Built the full newsletter Day-7 follow-up package (5 personalized emails to: Bytes, TLDR, SWE Weekly, Cody, Devweekly). All follow-ups were 2 days overdue — these needed to go out Apr 27. Also wrote the Day-14 final follow-up templates ready for May 4. Mapped the full Reddit this-week posting schedule and Twitter thread timing.
+
+**SEO impact:**
+Newsletter follow-up emails are highest-converting outreach channel. 5 newsletters × 80k-200k subscribers each = potential 500k+ reach if even 1-2 respond. Reddit posts drive direct referral traffic + backlinks from communities. Twitter threads build thought leadership + backlinks from devs/CTOs who see them.
+
+**Site stats:**
+📄 186 pages | 📝 ~527k words | 🔍 Tracking: 186 sitemap URLs | Technical SEO: 98/100
+
+**Newsletter Day-7 Follow-ups — READY TO SEND (manual by Sunny):**
+- Bytes (hello@bytes.dev) — Day-7 follow-up ready
+- TLDR (letters@tldr.tech) — Day-7 follow-up ready
+- SWE Weekly (sec@swec.io) — Day-7 follow-up ready
+- Cody (hello@cody.sh) — Day-7 follow-up ready
+- Devweekly (via form) — Day-7 follow-up ready
+
+**Reddit plan this week:**
+- r/programming — Competence Illusion (Wed Apr 29 — TODAY)
+- r/cscareerquestions — 11pm Engineer (Thu Apr 30, 11pm)
+- r/ExperiencedDevs — Senior Judgment Erosion (Fri May 1)
+- r/webdev — Velocity Trap (active now — monitor comments)
+
+**Twitter plan:**
+- Thread #48 — AI Authorship Problem → Sat May 2 morning
+- Thread #45 — Code Review Trap → Fri afternoon May 2
+- Thread #46 — 23-Minute Recovery Lie → Sat May 3 morning
+- Thread #47 — Senior Engineer Paradox → Mon May 4 morning
+
+**Commit:** `04ee8fd`
+**Next:** Build next pillar page OR engage Reddit/HN if active threads need responses
+

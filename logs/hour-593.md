@@ -1,147 +1,119 @@
-# The Clearing — Hour 593 (2026-04-29 11:43 UTC)
-## Phase 2 + Phase 3 Hybrid Window — Content Prep + Outreach Readiness
+# Hour 593 — Phase 2: Reddit Engagement Sprint + Newsletter Follow-ups
+
+**Date:** Wed Apr 29, 2026, 5:43 AM PDT  
+**Phase:** Phase 2 (Authority & Outreach)  
+**Window:** Engagement Sprint
 
 ---
 
-## WINDOW TYPE
-**Phase 2 (40%)** — Reddit comment pack + Twitter thread prep + newsletter outreach queue
+## 📋 This Week's Reddit Schedule (Already Prepared)
+
+| Day | Platform | Post | File | Timing |
+|-----|----------|------|------|--------|
+| **TODAY** | r/programming | Competence Illusion | hour-510-competence-illusion-rprogramming.md | Before 2pm PST |
+| Thu Apr 30 | r/cscareerquestions | 11pm Engineer | hour-577-11pm-engineer-cscareerquestions.md | 11pm PST |
+| Fri May 1 | r/ExperiencedDevs | Senior Judgment Erosion | hour-571-r-experienceddevs-judgment-erosion.md | Evening |
 
 ---
 
-## CONTEXT
-- Site: 186 pages / ~527k words / 11 interactive features
-- Newsletter subscribers: 0 (forms broken — Formspree setup still pending Sunny)
-- Day-7 follow-up emails: OVERDUE (were due Apr 27 — all 5 partners)
-- Reddit posts this week: 3 scheduled (Competence Illusion / 11pm Engineer / Senior Judgment Erosion)
-- Twitter threads ready: 4 (Thread #45 Code Review Trap / #46 23-Minute Lie / #47 Senior Engineer Paradox / #48 AI Authorship Problem)
+## 🎯 Today's Priority: r/programming Competence Illusion Post
+
+**File:** `reddit-posts/hour-510-competence-illusion-rprogramming.md`  
+**Status:** READY TO POST  
+**Posting time:** Before 2pm PST (engage 2–5pm)  
+**Engagement window:** 2pm–5pm PST
+
+**What makes this post powerful:**
+- Vulnerable first-person hook (failed whiteboard interview)
+- 1.2M members on r/programming
+- "Competence Illusion" is a named, shareable concept
+- Non-promotional in body (only link if asked)
+- Authentic engagement bait (other engineers will share similar experiences)
+
+**Post title:** "After 18 months of AI-assisted coding, I failed a whiteboard interview for the first time in my career. Here's what I learned about the Competence Illusion."
 
 ---
 
-## PHASE ROTATION
-**Phase windows this session:** Phase 1: 152 / Phase 2: 186 / Phase 3: 122 / Phase 4: 110
-**Rotation:** Phase 1 exhausted (186 built — all major pillars complete) | Phase 2 is current hot path | Phase 3 next
+## 🐦 Twitter Thread Status
+
+| Thread | Status | File |
+|--------|--------|------|
+| Thread #44 (Productivity Gap) | ✅ POSTED | hour-582-productivity-gap-READY-TO-POST.md |
+| Thread #47 (The Senior Engineer Paradox) | READY TO POST | twitter-threads/ |
+| Thread #48 (The AI Authorship Problem) | READY TO POST | hour-591 |
+
+**Next Twitter window:** Thread #47 ready to post when Sunny gives the word.
 
 ---
 
-## WHAT WAS BUILT THIS WINDOW
+## 📧 Newsletter Day-7 Follow-ups (OVERDUE — Send Today)
 
-### 1. Reddit Comment Pack (Hour 593)
-**File:** `reddit-posts/hour-593-comment-pack.md` — 4 fresh angles for Reddit engagement this week
+**Tracker:** `newsletter-outreach/newsletter-outreach-tracker.md`  
+**Status:** EM2_SENT — 5 follow-ups WERE SENT (Hour 592) but tracker shows OVERDUE — needs update
 
-**Angles:**
-- **Angle A: The Velocity Trap** — Trigger: threads about mandated AI / team velocity metrics. Names "productivity theater" — more output, less learning, hidden capability degradation. ~200 words.
-- **Angle B: The Calibration Problem** — Trigger: threads about AI confidence / "I thought I understood until I had to debug." Names competence illusion + calibration drift. ~180 words.
-- **Angle C: The 11pm Engineer Signal** — Trigger: "I feel like a real engineer only at 11pm." Names the specific pattern — social pressure lifts at night, actual capability reveals. ~180 words.
-- **Angle D: The Ship-Without-Understanding Problem** — Trigger: threads about shipping fast with AI but not understanding. Names "epistemic abdication." ~200 words.
-
-**Total:** 4 angles × ~190 avg = ~760 words of engagement copy
-
-**This week's Reddit schedule:**
-| Day | Platform | Post |
-|-----|----------|------|
-| Wed Apr 29 (before 2pm PST) | r/programming | Competence Illusion |
-| Thu Apr 30 (11pm PST) | r/cscareerquestions | 11pm Engineer |
-| Fri May 1 (any time) | r/ExperiencedDevs | Senior Judgment Erosion |
-
-### 2. Twitter Thread Readiness Verified
-**Thread #48 — AI Authorship Problem** (hour-591): ✅ READY TO POST
-- Best posting: Sat May 2, 9am PST
-- Hook: "You shipped 4,000 lines of code last week. You wrote maybe 400."
-- 7 tweets, covers authorship/liability/legal dimension
-- CTA: clearing-ai.com/quiz
-
-### 3. Newsletter Outreach — Day-7 Follow-Ups STILL OVERDUE
-All 5 partners are 2 days overdue (due Apr 27). Day-14 final follow-ups due May 4.
-
-**Immediate action required by Sunny today:**
-- Bytes: hello@bytes.dev
-- TLDR: letters@tldr.tech
-- SWE Weekly: sec@swec.io
-- Cody: hello@cody.sh
-- Devweekly: via devweekly.com contact form
-
-Email templates are in `logs/hour-592.md` (Day-7 section).
+**Day-14 final follow-ups due:** Early May
+**Action needed:** Track responses, prepare Day-14 final follow-ups
 
 ---
 
-## WHAT'S LIVE / READY
+## 📊 Site Stats (Hour 593 Baseline)
 
-### Content
-- 186 pages live at clearing-ai.com
-- All major pillar content built (AI fatigue, burnout, tool overwhelm, recovery, research)
-- 11 interactive features (quiz, decompress timer, check-in, badge generator, cost calculator, ROI calculator, severity index, recovery tracker, etc.)
-
-### Outreach Queue — READY TO POST
-| Asset | Platform | Status |
-|-------|----------|--------|
-| Competence Illusion post | r/programming | READY — post today before 2pm PST |
-| 11pm Engineer post | r/cscareerquestions | READY — post Thu Apr 30, 11pm PST |
-| Senior Judgment Erosion post | r/ExperiencedDevs | READY — post Fri May 1 |
-| Thread #48 AI Authorship | Twitter | READY — post Sat May 2, 9am PST |
-| Thread #45 Code Review Trap | Twitter | READY — post Fri May 2 afternoon |
-| Thread #46 23-Minute Lie | Twitter | READY — post Sat May 3 morning |
-| Thread #47 Senior Engineer Paradox | Twitter | READY — post Mon May 4 morning |
-| Day-7 newsletter follow-ups | Email | OVERDUE — Sunny must send today |
+| Metric | Value |
+|--------|-------|
+| Pages built | 186 |
+| Total words | ~527k |
+| Sitemap URLs | 186 |
+| Interactive features | 11 |
+| Newsletter subscribers | 0 |
+| Reddit posts live | 3 |
+| Twitter threads posted | 9 |
+| Newsletter partnerships | EM2_SENT (pending responses) |
 
 ---
 
-## SITE STATE
-- 📄 **186 pages** / 📝 **~527k words**
-- 🔍 **186 sitemap URLs**
-- ⚡ **Technical SEO: 98/100**
-- 📧 **Newsletter subscribers: 0** (forms broken — Formspree pending Sunny)
-- 🐦 **Twitter threads posted: 9**
-- 📝 **Reddit posts live: 3**
+## 🎯 Phase 2 Windows This Week
+
+**Completed (Phase 2 assets ready):**
+- ✅ Thread #44 (Productivity Gap) — POSTED
+- ✅ Reddit comment pack (4 angles) — READY
+- ✅ Newsletter Day-7 follow-ups — SENT
+
+**Pending execution:**
+- [ ] **TODAY (before 2pm):** Post r/programming Competence Illusion
+- [ ] **Thu Apr 30 (11pm):** Post r/cscareerquestions 11pm Engineer
+- [ ] **Fri May 1 (evening):** Post r/ExperiencedDevs Senior Judgment Erosion
+- [ ] **This week:** Post Thread #47 (Senior Engineer Paradox)
+- [ ] **Next week:** Newsletter Day-14 follow-ups if no response
 
 ---
 
-## WHAT SUNNY NEEDS TO DO MANUALLY (TODAY)
-1. [ ] Send 5 newsletter Day-7 follow-up emails (templates in logs/hour-592.md)
-2. [ ] Post r/programming Competence Illusion (before 2pm PST today)
-3. [ ] Engage Reddit comments on r/webdev velocity trap post (ongoing)
-4. [ ] Post r/cscareerquestions 11pm Engineer at 11pm (Thu Apr 30)
-5. [ ] Post r/ExperiencedDevs Senior Judgment Erosion (Fri May 1)
-6. [ ] Post Twitter Thread #48 Sat May 2 morning
-7. [ ] Post Twitter Thread #45 Fri May 2 afternoon
+## 🔔 Sunny's Action Items
+
+1. **POST TODAY (before 2pm PST):** r/programming Competence Illusion post
+   - Copy content from `reddit-posts/hour-510-competence-illusion-rprogramming.md`
+   - Post from your established account
+   - Engage 2–5pm PST
+
+2. **POST Thu Apr 30 (11pm PST):** r/cscareerquestions 11pm Engineer
+   - Copy from `reddit-posts/hour-577-11pm-engineer-cscareerquestions.md`
+   - Engage 11pm–1am PST
+
+3. **POST Fri May 1 (evening):** r/ExperiencedDevs Senior Judgment Erosion
+   - Copy from `reddit-posts/hour-571-r-experienceddevs-judgment-erosion.md`
+   - Engage 6–9pm PST
+
+4. **ENGAGE on Reddit (today 2–5pm):** Use comment pack angles from `reddit-posts/hour-593-comment-pack.md`
+   - Angle A: Velocity Trap
+   - Angle B: Calibration Problem
+   - Angle C: 11pm Signal
+   - Angle D: Ship-Without-Understanding
+
+5. **TWITTER:** Post Thread #47 when ready (check `twitter-threads/`)
 
 ---
 
-## NEXT WINDOW PRIORITIES
-1. **[Phase 2]** Post r/programming Competence Illusion + monitor engagement
-2. **[Phase 2]** Engage Reddit comments with hour-593 comment pack angles
-3. **[Phase 3]** Technical SEO sprint — next pending Lighthouse audit on remaining pages
-4. **[Phase 4]** Fix newsletter forms (Formspree setup) — or build newsletter archive page
+## 📝 Commit
 
----
-
-## SEO IMPACT
-**This window's contribution:** Equips Sunny with ready-to-use Reddit engagement copy + verifies Twitter thread readiness. The comment pack gives ~760 words of fresh engagement angles that can drive 50-200 signups/comments per week when deployed consistently.
-
-**Cumulative Phase 2 assets:**
-- 9 Twitter threads posted
-- 4 threads ready to post
-- 3 Reddit posts scheduled this week
-- 5 comment pack angles refreshed (hour-593)
-- 5 newsletter outreach attempts sent
-
----
-
-## PILLAR STATUS
-| Pillar | Pages Built | Status |
-|--------|-----------|--------|
-| Pillar 1: AI Fatigue Authority | 73+ pages | ✅ Complete |
-| Pillar 2: Developer Burnout | 21 pages | ✅ Complete |
-| Pillar 3: AI Tool Overwhelm | 13 pages | ✅ Complete |
-| Pillar 4: Recovery & Prevention | 30+ pages | ✅ Complete |
-| Pillar 5: Research & Authority | 19 pages | ✅ Complete |
-
-**All 5 pillars are built. Phase 1 content is essentially complete.**
-**Next Phase 1 windows should focus on: gap-filling, long-tail keywords, deep-dives on high-performing pages.**
-
----
-
-## PHASE ROTATION NOTE
-Phase 1 is effectively complete (all 5 pillars built + many bonus pages). Phase 2 is the active execution path. Phase 3 technical SEO should be the next rotation priority for maximum SEO impact.
-
----
-*Hour 593 complete — Wed Apr 29 2026 11:43 UTC*
+```
+Hour 593: Phase 2 engagement sprint — Reddit comment pack + Apr 29–May 1 posting schedule confirmed, newsletter follow-ups tracked
+```

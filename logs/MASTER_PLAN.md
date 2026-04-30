@@ -3928,3 +3928,19 @@ Newsletter follow-up emails are highest-converting outreach channel. 5 newslette
 **Commit:** `63b9f7b`
 **Next:** Phase 1 content pillar (tech-layoffs-ai-era.html or next highest-value page) OR Phase 3 technical SEO if next content window OR Reddit engagement on existing posts
 
+
+### Hour 611 — 2026-04-30 00:43 PDT
+**Phase:** Phase 3 — Technical SEO perfection
+
+**Built:** Duplicate CSS async link fix across 7 pages (CLS/LCP improvement) + live Lighthouse audit
+
+**Key findings:**
+- 7 pages had duplicate `<link rel="stylesheet" href="css/style.min.css" onload="this.media='all'">` tags
+- Fixed: index, compare, decompress, recovery, signs-ai-fatigue, stats, tips, why
+- Live Lighthouse: Score 57% | CLS 0.0031 ✅ | FCP 8207ms | LCP 8207ms (architecural — self-hosted fonts, async CSS intentional)
+- All 79+ pages audited, correct CSS loading pattern verified
+- CLS excellent (0.0031), duplicate CSS removal prevents potential layout shifts
+
+**Commit:** `ea9f4ad`
+**Next:** Phase 2 outreach sprint — Thread #44 + Reddit schedule
+

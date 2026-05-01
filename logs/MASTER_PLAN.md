@@ -4032,3 +4032,40 @@ Newsletter follow-up emails are highest-converting outreach channel. 5 newslette
 
 **Next:** Formspree setup (13 files) + Day-7 follow-ups (send TODAY) + Day-14 follow-ups (May 4) + Twitter threads #49-52 (May 3-6 AM) + Reddit packs (May 4-14 deploy)
 
+
+### Hour 641 — 2026-05-01 19:51 UTC (PHASE 3 WINDOW: TECHNICAL SEO — Core Web Vitals)
+**Phase rotation:** P1(153) | P2(203) | **P3(125→126)** | P4(113)
+
+**Built:** Core Web Vitals audit + CLS fix + cache headers optimization
+
+**Lighthouse audit findings (index.html):**
+- Performance: 75/100 | Accessibility: 96/100 | Best Practices: 100/100 | SEO: 100/100
+- LCP: 1.15s ✅ | FCP: 1.15s ✅ | TBT: 40ms ✅ | Speed Index: 1.5s ✅
+- **CLS: 1.003 ❌ (HUGE — target <0.1)**
+- Font cache: only 10 minutes (causes CLS on every new visitor)
+
+**CLS root cause analysis:**
+- Lora/Inter loaded with `font-display: swap` but NO metric overrides
+- When web fonts swap in, they have different cap heights than system fallbacks → massive layout shift
+- The 1.003 CLS is coming from the `<body>` element shifting as fonts swap (1.0 of the 1.003)
+- Decompress page CLS: 1.001 (same pattern — all pages affected)
+
+**Fixes applied:**
+1. `fonts/fonts.css` — Added size-adjust/ascent/descent overrides to all Lora faces (93.9%) and Inter faces (107%)
+   - These ratios calculated from cap-height ratios of Lora(0.705) vs Georgia(0.662) and Inter(0.529) vs system-ui
+   - Makes web fonts metric-compatible with system fallbacks → minimal layout shift
+2. `index.html` — Removed duplicate sync stylesheet link (was loading `style.min.css` twice — once async, once sync)
+3. `_headers` — New Netlify headers file:
+   - `/fonts/*`: `max-age=31536000, immutable` (1 year cache — versioned filenames)
+   - `/css/*, /js/*`: `max-age=604800, no-cache` (1 week + no-cache ensures updates)
+   - `/assets/*`: `max-age=2592000` (1 month)
+
+**Expected impact after cache warm:**
+- CLS: 1.003 → <0.1 (metric overrides reduce font-caused layout shift)
+- Performance score: 75 → 95+ (CLS was the primary score killer)
+- Font files: 10min cache → 1yr cache (eliminates repeat-visit font CLS + faster loads)
+
+**~0 new words added** (technical performance fix)
+**Commit:** `eb920bf`
+**Next:** Post Twitter Thread #49 (Sun May 3 9am PST) + Reddit pack deploy May 4-7 + Day-14 newsletter emails May 4 + Formspree setup (13 files)
+

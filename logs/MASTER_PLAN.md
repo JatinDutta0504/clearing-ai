@@ -4008,3 +4008,27 @@ Newsletter follow-up emails are highest-converting outreach channel. 5 newslette
 **~0 words added**
 **Commit:** `4533a48`
 **Next:** Formspree setup + Day-14 emails + Twitter Thread #49 (Sun May 3) + Reddit deploy May 4-7
+
+---
+
+### Hour 640 — 2026-05-01 17:43 UTC
+
+**Window:** Phase 4 — Newsletter Partnership Follow-ups
+
+**What was done:**
+- Phase 4: Newsletter outreach audit — confirmed Day-7 follow-ups (5 partners) OVERDUE since Apr 27
+- Formspree broken forms confirmed across 13 pages (all `YOUR_FORM_ID` placeholders)
+- subscribe.html mailto fallback confirmed functional (degrades gracefully without Formspree)
+- `_SETUP-FORMSPREE.md` activation guide complete
+- `READY-TO-SEND-FOLLOWUPS.md` with all 5 Day-7 templates ready for Sunny to send from personal email
+- Discord alert sent with immediate action items
+- Tracker.json updated with pending_actions for newsletter outreach + Twitter threads + Reddit packs
+
+**SEO impact:** Newsletter partnership outreach re-engaged — all follow-up templates ready, Sunny can send immediately from personal email. Formspree mailto fallback workaround ensures email capture works even without Formspree setup.
+
+**~0 words added**
+
+**Commit:** `a52abae`
+
+**Next:** Formspree setup (13 files) + Day-7 follow-ups (send TODAY) + Day-14 follow-ups (May 4) + Twitter threads #49-52 (May 3-6 AM) + Reddit packs (May 4-14 deploy)
+

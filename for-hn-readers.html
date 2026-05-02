@@ -129,11 +129,11 @@
 <section class="section" aria-labelledby="newsletter-heading">
 <h2 id="newsletter-heading">The Dispatch: Weekly on AI Fatigue</h2>
 <div class="newsletter-cta"><h3>The Dispatch</h3><p>33 issues and counting. Every week: one insight, one data point, one practical thing you can do. For engineers who want to stay sharp without burning out.</p>
-<form class="email-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+<div class="email-note">
 <input type="email" name="email" placeholder="your@email.com" required aria-label="Email address"/>
-<button type="submit" class="btn btn-primary">Subscribe Free</button>
-</form>
-<p class="email-note">No spam. No tracking. Unsubscribe anytime. ~4,000 engineers already subscribe.</p></div>
+<a href="mailto:hello@clearing-ai.com?subject=Newsletter%20Signup%20from%20HN" class="btn btn-primary">Subscribe Free</a>
+</div>
+<p style="font-size:0.82rem;color:var(--text2);margin-top:0.75rem;">Or email us directly: <a href="mailto:hello@clearing-ai.com?subject=Newsletter%20Signup" style="color:var(--accent)">hello@clearing-ai.com</a> — we'll add you manually.</p></div>
 </section>
 <section class="section" aria-labelledby="faq-heading">
 <h2 id="faq-heading">Common Questions</h2>
@@ -222,7 +222,8 @@ function toggleFaq(btn){
       var body = encodeURIComponent('Name: '+(name?name:'') + (name?'\n':'') + 'Email: '+email+'\n\nPlease subscribe me to The Dispatch.');
       window.location.href = 'mailto:hello@clearing-ai.com?subject='+subject+'&body='+body;
       var btn = form.querySelector('button,[type="submit"]');
-      if(btn){btn.textContent = '✉ Check your email'; btn.disabled = true;}
+      if(btn){btn.textContent = '✉ Email opened — send it to subscribe'; btn.disabled = true;}
+      alert('Your email app opened with the subscription pre-filled. Send it and we\'ll add you to The Dispatch — next issue goes out Sunday.');
     });
   }
 })();

@@ -511,6 +511,14 @@
         <input type="hidden" name="source" value="linkedin.html">
         <button type="submit">Subscribe — It's Free</button>
       </form>
+
+        <div class="mailto-fallback" id="mailto-fallback" style="display:none; margin-top: 1.5rem; padding: 1.5rem; background: rgba(74,124,89,0.1); border: 1px solid rgba(74,124,89,0.3); border-radius: 10px; text-align:center;">
+          <p style="font-size:0.82rem; color: rgba(232,237,229,0.6); margin-bottom: 0.75rem;">📧 Form waiting on setup — subscribe via email for now:</p>
+          <a id="mailto-link" href="mailto:hello@clearing-ai.com?subject=Subscribe%20to%20The%20Dispatch&body=Hi%2C%20please%20subscribe%20me%20to%20The%20Dispatch.%0A%0AEmail%3A%0A%0A" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; background:rgba(74,124,89,0.2); color:#b8d8b8; padding:0.65rem 1.2rem; border-radius:6px; text-decoration:none; font-size:0.88rem; font-weight:600; border:1px solid rgba(74,124,89,0.4); transition:background 0.2s;">
+            📧 Subscribe via Email →
+          </a>
+        </div>
+
       <p class="lh-form-note">No spam. No tracking. Unsubscribe anytime. 2,000+ engineers already subscribe.</p>
     </div>
   </section>
@@ -620,5 +628,50 @@
 </footer>
 
 <script src="js/main.js" defer></script>
-</body>
+
+    // Show mailto fallback if Formspree not configured
+    (function() {
+      var form = document.getElementById('lh-newsletter-form');
+      var mailtoEl = document.getElementById('mailto-fallback');
+      if (!form || !mailtoEl) return;
+      var action = form.getAttribute('action') || '';
+      if (action.indexOf('YOUR_FORM_ID') === -1) return;
+      var mailtoAnchor = document.getElementById('mailto-link');
+      if (mailtoAnchor) {
+        var emailInput = form.querySelector('[name="email"], [type="email"]');
+        var email = emailInput ? (emailInput.value || '') : '';
+        var subject = encodeURIComponent('Subscribe to The Dispatch 🌿');
+        var body = encodeURIComponent(
+          'Hi, please subscribe me to The Dispatch.\n\nEmail: ' + email + '\n\n— from clearing-ai.com'
+        );
+        mailtoAnchor.href = 'mailto:hello@clearing-ai.com?subject=' + subject + '&body=' + body;
+      }
+      mailtoEl.style.display = 'block';
+    })();
+    // Intercept form submit when Formspree not configured — use mailto fallback
+    (function() {
+      var form = document.getElementById('lh-newsletter-form');
+      if (!form) return;
+      var action = form.getAttribute('action') || '';
+      if (action.indexOf('YOUR_FORM_ID') === -1) return;
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var emailInput = form.querySelector('[name="email"], [type="email"]');
+        var email = emailInput ? (emailInput.value || '') : '';
+        var subject = encodeURIComponent('Subscribe to The Dispatch 🌿');
+        var body = encodeURIComponent(
+          'Hi, please subscribe me to The Dispatch.\n\nEmail: ' + email + '\n\n— from clearing-ai.com'
+        );
+        var mailtoLink = 'mailto:hello@clearing-ai.com?subject=' + subject + '&body=' + body;
+        window.open(mailtoLink, '_blank');
+        var mailtoEl = document.getElementById('mailto-fallback');
+        if (mailtoEl) mailtoEl.style.display = 'none';
+        var successEl = document.getElementById('form-success') || document.querySelector('.form-success, .success-msg');
+        if (successEl) {
+          successEl.style.display = 'block';
+          successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+    })();
+  </body>
 </html>

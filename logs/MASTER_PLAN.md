@@ -4093,3 +4093,47 @@ Newsletter follow-up emails are highest-converting outreach channel. 5 newslette
 **~3,600 chars (no new words)**
 **Commit:** `425e7de`
 **Next:** Phase 2 window → HN launch prep (Sun May 4, 2 days away), Day-14 emails go out Mon May 4, Thread #49 + #63 post TODAY — BE ONLINE
+
+---
+
+### Hour 668 — 2026-05-03 03:45 UTC | Phase 2 Outreach Window
+**Built:** Phase 2 audit — Reddit fresh comment pack (hour-647) reviewed + thread status confirmed + HN launch prep
+**Reddit comments:** 5 ready (r/agile burnout survey Apr 20 — deploy first, others anytime)
+**Threads ready:** #49 (Sun 9am PST), #63 (Sun 12pm PST), #50 (Mon 8am), #51 (Tue 9am), #64 (Tue 9am)
+**HN launch:** Sun May 4, 9am PDT — body copy + story angles in hn-launch.html
+**Day-14 emails:** Ready to send Mon May 4 (all 5 partners)
+**~0 words added**
+**Commit:** N/A (audit + Sunny action items)
+**Next:** New pillar page OR Phase 3 CLS follow-up
+
+---
+
+### Hour 669 — 2026-05-03 04:45 UTC (Phase 2 Window: HN Launch Package + Day-14 Emails)
+
+**Phase rotation:** Phase 1 (153✅) → **Phase 2 (214→215🟢 ON TARGET)** → Phase 3 (128🟡) → Phase 4 (118🔴)
+
+**Built:** HN launch package finalized + Day-14 newsletter emails packaged + Reddit fresh pack confirmed.
+
+**HN Launch Package (posting Sun May 4, 9 AM PDT):**
+- URL: https://clearing-ai.com/index-hn.html
+- Title: "I built a free AI fatigue recovery tool for burnt-out engineers — here's what 2,000+ quiz takers revealed"
+- Body copy: 6-paragraph build story with 4 data points (63%/58%/71%/44%)
+- 5 pre-written HN comment angles (data honesty / structural vs IS / juniors / recovery / honest about unknowns)
+- Full package: logs/hour-2026-05-03-0445-utc-hn-launch-prep-day14-emails-phase2-outreach.md
+
+**Day-14 Newsletter Emails (due Mon May 4):**
+- All 5 at: newsletter-outreach/send-kit/day14/email-*-day14.txt
+- Bytes (hello@bytes.dev), TLDR (letters@tldr.tech), SWE Weekly (sec@swec.io), Cody (hello@cody.sh), Devweekly
+- Send from personal email — final follow-up, pipeline closes after
+
+**Reddit Fresh Pack (hour-647 — deploy anytime):**
+- r/agile — Developer Burnout 2026 survey (Apr 20, recent — DEPLOY NOW)
+- r/ExperiencedDevs — "Losing their craft" (perennial)
+- r/cscareerquestions ×2 — AI hype exhaustion + coding obsolete (perennial)
+- r/programming — AI fatigue is real (perennial)
+
+**Site cumulative:** 187 pages | ~533k words | 181 sitemap URLs | Technical SEO 95/100 | P1=153✅ | P2=215🟢 | P3=128🟡 | P4=118🔴
+
+**Commit:** `2dda7dd`
+**Next:** Hour 670 — HN engagement day (Sun May 3) OR Phase 4 newsletter activation
+

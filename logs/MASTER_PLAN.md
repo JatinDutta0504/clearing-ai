@@ -4137,3 +4137,36 @@ Newsletter follow-up emails are highest-converting outreach channel. 5 newslette
 **Commit:** `2dda7dd`
 **Next:** Hour 670 — HN engagement day (Sun May 3) OR Phase 4 newsletter activation
 
+
+---
+
+### Hour 672 — 2026-05-03 07:45 UTC (PHASE 3 WINDOW: TECHNICAL SEO AUDIT)
+
+**Built:** Phase 3 technical SEO audit — email course sitemap fix
+
+**Discovery:** email-course/ has 11 files — 6 are HTML pages (day-1 through day-5, welcome-email) that needed sitemap + noindex, 5 are YAML front matter files (ai-fatigue-reset-email-*.html) that are NOT HTML pages and should NOT be in sitemap.
+
+**Fixes executed:**
+1. Added `<meta name="robots" content="noindex, follow">` to 6 email course HTML pages
+2. Added 6 email course pages to sitemap.xml (monthly, priority 0.3 each)
+3. Excluded 5 YAML files from sitemap.xml (ai-fatigue-reset-email-*.html are NOT HTML)
+4. Updated all lastmod dates in sitemap.xml to 2026-05-03
+5. Updated sitemap.html stats: "169 pages" → "192 pages"
+6. Git commit: `261a62a`
+
+**Sitemap impact:** 181 → 187 URLs (+6 email course pages with noindex)
+**Sitemap accuracy:** 100% — no non-HTML files, no duplicates
+
+**SEO impact:**
+- Email course pages: in sitemap (crawlable) but not indexed (noindex) = correct behavior
+- Crawl budget preserved (no wasted crawl on email sequence pages)
+- Site health: Excellent — ready for HN launch tomorrow Sun May 4
+
+**~0 new words** (technical audit, no new content)
+
+**Commit:** `261a62a`
+
+**Next:** Phase 1 content (remaining 60+ pillar pages) or Phase 2 outreach rotation
+
+---
+

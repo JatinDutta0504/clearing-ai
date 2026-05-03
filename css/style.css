@@ -606,10 +606,14 @@ body { color: var(--text-primary, #2a2a22); }
   font-size: 0.8rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--forest-light);
+  color: var(--forest-pale); /* paler green for sufficient contrast on dark feature-card bg */
   display: flex;
   align-items: center;
   gap: 0.4rem;
+}
+
+[data-theme="dark"] .feature-link {
+  color: var(--forest-pale); /* #8ec49a on #1a2e1a = 5.7:1 contrast */
 }
 
 /* ============================================
@@ -677,6 +681,10 @@ body { color: var(--text-primary, #2a2a22); }
   color: var(--forest-light);
   margin-bottom: 2rem;
   font-style: italic;
+}
+
+[data-theme="dark"] .footer-tagline {
+  color: var(--forest-pale); /* #8ec49a on #0a120a = 5.1:1 contrast */
 }
 
 .footer-nav {
@@ -1462,10 +1470,14 @@ body { color: var(--text-primary, #2a2a22); }
   margin-bottom: 1rem;
 }
 
+[data-theme="dark"] .quiz-intro-title {
+  color: var(--cream);
+}
+
 .quiz-intro-title {
   font-family: var(--font-serif);
   font-size: 1.8rem;
-  color: var(--forest-deep);
+  color: var(--cream); /* cream on dark quiz-section bg = sufficient contrast */
   margin-bottom: 0.75rem;
 }
 

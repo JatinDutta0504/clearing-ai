@@ -131,9 +131,10 @@
   // Render: intro screen
   // ============================================
   function renderIntro() {
+    // Quiz intro is pre-rendered in HTML for CLS=0 on first paint.
+    // This function re-shows the intro content after a results reset.
     const container = getEl('quiz-container');
     if (!container) return;
-
     container.innerHTML = `
       <div class="quiz-intro fade-in visible">
         <div class="quiz-intro-icon">🔍</div>

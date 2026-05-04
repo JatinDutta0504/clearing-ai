@@ -602,11 +602,15 @@ body { color: var(--text-primary, #2a2a22); }
   line-height: 1.6;
 }
 
+/* Light mode: forest-pale #7aab8a on cream #f5f0e8 = 2.3:1 ❌ (needs 4.5:1)
+ * forest-mid #2d4a2d on cream = 8.69:1 ✅ — use for all light-mode feature links
+ */
+.quiz-start-btn,
 .feature-link {
   font-size: 0.8rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--forest-pale); /* paler green for sufficient contrast on dark feature-card bg */
+  color: var(--forest-mid) !important; /* #2d4a2d on #f5f0e8 = 8.69:1 ✅ */
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -2137,8 +2141,9 @@ main#main-content h1 {
   color: var(--forest-deep);
 }
 
-/* Dark mode h1 in article hero - forest-deep is nearly invisible on dark backgrounds */
-[data-theme="dark"] main#main-content.article-hero h1,
+/* Light mode: h1 on cream uses --text-primary = 12.7:1 ✅ — general rule OK
+ * Dark mode override in article-hero (forest-deep h1 would be invisible on cream bg) */
+main#main-content.article-hero h1,
 [data-theme="dark"] main#main-content.article-hero p,
 [data-theme="dark"] main#main-content.article-hero li,
 [data-theme="dark"] main#main-content.article-hero span,

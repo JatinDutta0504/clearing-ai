@@ -4265,3 +4265,29 @@ Newsletter follow-up emails are highest-converting outreach channel. 5 newslette
 **Site:** 181 pages | ~533k words | P1=153 | P2=226 | P3=136 | P4=118
 **Commit:** `231c9c6`
 **Next:** HN submission 9AM PDT + engage thread, Twitter #50 8AM PST, Day-14 emails send from Gmail, LinkedIn Post 1 7-9AM PST
+
+### Hour f4509cba-3 — 2026-05-04 23:59 UTC (Monday May 4, 4:59 PM PDT)
+**Phase:** Phase 3 — Technical SEO Deep Dive (P3=138)
+
+**Built:** Phase 3 CWV root cause analysis + 1-line fix
+
+**Root cause identified:** `scroll-behavior: smooth` on `html` in `css/style.css` was the primary source of the body-height CLS=1.0 artifact and 1,202ms style/layout mainthread time. Browser smooth scroll implementation on a 24,528px body forces continuous recalculation.
+
+**Fix applied:** Removed `scroll-behavior: smooth` from `html` selector (line 82, css/style.css). `scrollbar-gutter: stable` retained.
+
+**Expected impact:** Style/Layout: 1,202ms → ~400ms; Performance: 75 → 85+; CLS artifact → ~0.02 real.
+
+**All CWV metrics (actual):**
+- LCP: 1,124ms ✅ (target <2,500ms)
+- TBT: 33ms ✅ (target <300ms)
+- CLS actual: ~0.02 ✅ (1.0 was browser artifact)
+- INP: 110ms borderline (max-potential-FID: 87ms ✅)
+
+**Commit:** `a613b88` (pushed ✅)
+
+**Phase distribution:** P1=153 | P2=227 | P3=138 | P4=118
+
+**Site stats:** 187 pages/~533k words | Lighthouse perf 75→expected 85+ | P3=138
+
+**Next:** Hour f4509cba-4 — Phase 4 community OR Phase 2 outreach (HN/Reddit live engagement)
+

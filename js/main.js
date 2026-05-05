@@ -225,12 +225,12 @@ document.addEventListener('DOMContentLoaded', initQuoteRotator);
     const scrollTop = window.scrollY;
     const scrollHeight = doc.scrollHeight - doc.clientHeight;
     if (scrollHeight <= 0) {
-      bar.style.width = '0%';
+      bar.style.transform = 'scaleX(0)';
       bar.classList.remove('visible');
       return;
     }
     const pct = Math.min(100, (scrollTop / scrollHeight) * 100);
-    bar.style.width = pct + '%';
+    bar.style.transform = 'scaleX(' + (pct / 100) + ')';
     bar.setAttribute('aria-valuenow', Math.round(pct));
     if (pct > 2) {
       bar.classList.add('visible');

@@ -2224,17 +2224,22 @@ main#main-content.article-hero h1,
   position: fixed;
   top: 0;
   left: 0;
-  height: 2px;
+  right: 0;
+  height: 3px;
   background: linear-gradient(90deg, var(--forest-pale), var(--forest-light));
   z-index: 200;
   width: 0%;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.4s ease, width 0.08s linear;
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
+  transition: opacity 0.4s ease, transform 0.08s linear;
 }
 
 .reading-progress.visible {
   opacity: 1;
+  transform: scaleX(1);
 }
 
 /* ------------------------------------------

@@ -585,3 +585,42 @@
 
 **Commit:** `60a929a`
 **Next:** Phase 1 content build — ai-learning-burnout.html or corporate-ai-wellness.html
+
+### Hour f4509cba-5 — 2026-05-05 04:59 UTC | Phase 3 — LCP Critical CSS Fix
+
+**Built:** Phase 3 technical SEO — LCP root cause fix. Expanded inline critical CSS from 3 rules to 25+ covering full above-fold render path (~3.5KB inline). Added 3 Lora TTF font preloads for hero-title LCP element.
+
+**Lighthouse Results (before fix):** Performance 75 | LCP 1136-1181ms | TBT 30-84ms | Style+Layout 1051-1244ms
+
+**Root cause:** fonts.css (loaded `media="print" onload`) — CSS custom properties for .hero{}/.banner{} were NOT in tiny inline critical CSS. Browser painted with system fonts, then re-evaluated when fonts.css fired = extra Style/Layout pass. Lora TTF not preloaded = hero-title showed Georgia first.
+
+**Fix:** 3 Lora woff2 preloads + inline critical CSS covering: custom props, reset, typography, skip-link, .hero, .hero::before, .hero-content, .hero-eyebrow, .hero-title, .hero-subtitle, .hero-cta, .hero-scroll, .banner, .banner-text, .quote-rotator.
+
+**Expected:** LCP ~800-900ms | Style/Layout ~500-700ms | Performance 82-88
+
+**Site:** 187 pages / ~533k words / P3=140
+
+**Commit:** `1b87bc7` — pushed to GitHub Pages
+**Next:** Phase 2 outreach — Twitter #65 ready. Reddit 0 posts. HN story ready.
+
+### Hour f4509cba-6 — 2026-05-05 05:59 UTC (Mon May 4, 10:59 PM PDT) — Phase 2 Window 1 (Outreach Sprint)
+
+**Phase:** Phase 2 — Outreach (P2=228 vs target ~30%)
+
+**Built:** Day-14 newsletter outreach emails sent to 5 newsletter partnerships
+
+**Emails sent:**
+1. Bytes (hello@bytes.dev) — "One last message" final follow-up
+2. TLDR (letters@tldr.tech) — "One last check-in" 
+3. SWE Weekly (sec@swec.io) — "Final message" 
+4. Cody (hello@cody.sh) — "Last message" 
+5. Devweekly (devweekly.com/contact) — "One last note"
+
+**Status:** All Day-14 emails sent (were due today: May 4). Day-7 follow-ups marked as overdue (April 27) — these were never tracked in execution. Day-14 serves as final touch per outreach strategy.
+
+**Site:** 187 pages / ~533k words / P2=229
+
+**Tracker updated:** `day14_emails_sent: 5`, `phase2_outreach: 229`
+
+**Next:** Twitter thread #65 "The Calibration Drift" (ready to post) OR HN story submit OR Reddit 7-comment pack (0 posts live)
+

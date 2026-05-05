@@ -4291,3 +4291,11 @@ Newsletter follow-up emails are highest-converting outreach channel. 5 newslette
 
 **Next:** Hour f4509cba-4 — Phase 4 community OR Phase 2 outreach (HN/Reddit live engagement)
 
+
+### Hour f4509cba-3 — 2026-05-05T19:07 UTC — Phase 4: Community (Checklist PDF Lead Magnet)
+**Built:** `ai-fatigue-recovery-checklist-pdf.html` — 2-page printable PDF landing page with preview of both pages (self-assessment + recovery practices), newsletter signup with Formspree gate (download link sent on subscribe), social proof bar, 4-card related resources grid, accessible nav with "📄 Checklists" CTA. Nav updated on 57 pages (added "📄 Checklists" before the quiz nav-cta). sitemap.xml updated (190 URLs).
+**SEO:** WebPage schema, 190 sitemap URLs, newsletter capture page (lead magnet pattern), CTA to interactive checklist, CTA to recovery guide, internal links to 4 related pages
+**~0 new words** (content preview, conversion page, not standalone resource)
+**Commit:** `570c779`
+**Next:** Test newsletter form, OR fix 4 pages with broken nav (ai-fatigue-checklist-print, newsletter-outreach-dashboard, software-engineer-mental-health, the-explanation-requirement), OR Phase 3 technical audit pass
+

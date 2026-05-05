@@ -72,7 +72,7 @@
 
   <!-- Critical inline CSS — Lora loaded as primary via preloaded TTF + system-fallback eliminates CLS entirely -->
   <!-- Font preloads — Lora TTF preloaded for hero-title LCP element -->
-  <link rel="preload" as="font" type="font/woff2" href="fonts/0QI6MX1D_JOuGQbT0gvTJPa787weuyJG.ttf.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="fonts/0QI6MX1D_JOuGQbT0gvTJPa787weuyJG.ttf.woff2" crossorigin fetchpriority="high">
   <link rel="preload" as="font" type="font/woff2" href="fonts/0QI8MX1D_JOuMw_hLdO6T2wV9KnW-MoFkqg.ttf.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="fonts/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf.woff2" crossorigin>
 
@@ -85,7 +85,21 @@
 
   <!-- Non-render-blocking CSS (LCP-optimized) -->
   <link rel="stylesheet" href="css/style.min.css" media="print" onload="this.media='all'" />
-  <link rel="stylesheet" href="fonts/fonts.css" media="print" onload="this.media='all'" />
+  <style>
+    /* Inlined font-faces — eliminates fonts.css media-switch CLS trigger
+     * font-display:block = font available for LCP (not optional)
+     * Metric overrides preserve Georgia fallback dimensions → zero CLS
+     */
+    @font-face{font-family:'Inter';font-style:normal;font-weight:300;font-display:block;size-adjust:107%;ascent-override:107%;descent-override:27%;src:url('fonts/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuOKfMZg.ttf.woff2') format('woff2')}
+    @font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:block;size-adjust:107%;ascent-override:107%;descent-override:27%;src:url('fonts/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf.woff2') format('woff2')}
+    @font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:block;size-adjust:107%;ascent-override:107%;descent-override:27%;src:url('fonts/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuI6fMZg.ttf.woff2') format('woff2')}
+    @font-face{font-family:'Lora';font-style:normal;font-weight:400;font-display:block;size-adjust:93.9%;ascent-override:93.9%;descent-override:23%;src:url('fonts/0QI6MX1D_JOuGQbT0gvTJPa787weuyJG.ttf.woff2') format('woff2')}
+    @font-face{font-family:'Lora';font-style:italic;font-weight:400;font-display:block;size-adjust:93.9%;ascent-override:93.9%;descent-override:23%;src:url('fonts/0QI8MX1D_JOuMw_hLdO6T2wV9KnW-MoFkqg.ttf.woff2') format('woff2')}
+    @font-face{font-family:'Lora';font-style:normal;font-weight:600;font-display:block;size-adjust:93.9%;ascent-override:93.9%;descent-override:23%;src:url('fonts/0QI6MX1D_JOuGQbT0gvTJPa787zAvCJG.ttf.woff2') format('woff2')}
+  </style>
+
+  <!-- REMOVED: fonts.css via media-switch trick (caused CLS body shift of 1.0) -->
+
   <noscript></noscript>
   <!-- Google Fonts preconnect removed — fonts loaded via inline @font-face TTF, not Google Fonts stylesheet -->
 </head>
@@ -268,7 +282,8 @@
         </li>
         <li><a href="about.html" class="nav-link">About</a></li>
       </ul>
-      <a href="index.html#quiz" class="nav-cta">Take Quiz →</a>
+      <a href="ai-fatigue-recovery-checklist-pdf.html" class="nav-cta">📄 Checklists</a>
+    <a href="index.html#quiz" class="nav-cta">Take Quiz →</a>
     </div>
   </nav>
 
@@ -286,7 +301,7 @@
         <a href="#quiz" class="btn" style="background:transparent; color:var(--forest-pale); border:1px solid rgba(122,171,138,0.4);">Take the Quiz →</a>
         <a href="manifesto.html" class="btn" style="background:transparent; color:var(--forest-pale); border:1px solid rgba(122,171,138,0.4); font-size:0.82rem;">Read the Manifesto</a>
       </div>
-      <div class="quote-rotator" style="margin-top: 3rem;"></div>
+      <div class="quote-rotator" style="margin-top: 3rem;">"Some of the best debugging happens away from the screen."</div>
     </div>
 
     <div class="hero-scroll" aria-hidden="true">

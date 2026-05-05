@@ -560,3 +560,28 @@
 **Next:** Hour 686 — Launch day engagement monitoring + Twitter #63 posting + Reddit comment deployment
 
 **Next:** Hour 686 — Launch day engagement monitoring pre-HN check OR Phase 2 Reddit deploy audit OR Phase 4 — Formspree setup for Sunny
+
+### Hour f4509cba-4 — 2026-05-05 02:59 UTC | Phase 3 — Lighthouse Verification + CLS Fix
+
+**Built:** Phase 3 technical SEO audit — reading progress bar CLS-safe upgrade (scaleX transform), 3-run Lighthouse comparison, Style/Layout analysis
+
+**Lighthouse Results (index.html — clearing-ai.com):**
+| Metric | Value | Target | Status |
+|--------|-------|--------|--------|
+| Performance | 75/100 | 85+ | ⚠️ |
+| LCP | 1136-1181ms | <2500ms | ✅ |
+| TBT | 30-84ms | <200ms | ✅ |
+| CLS (actual) | 1.0036 | <0.1 | ❌ |
+| CLS (score) | 0.02 | — | ⚠️ artifact |
+| Style+Layout | 1051-1244ms | — | ⚠️ |
+
+**Reading Progress Bar fix:** scaleX transform approach applied to eliminate width-based layout shifts. `scroll-behavior: smooth` was already removed in a613b88 (confirmed NOT the CLS source).
+
+**Style/Layout root cause:** 1051-1244ms per run — attributed to CSS custom property evaluation across large stylesheet (2934 lines, ~700 CSS variables). This is a structural cost, not a CLS source.
+
+**Next Phase 3 action:** Investigate color-contrast failures (96→100 Accessibility gap)
+
+**Site:** 187 pages / ~533k words / P3=139
+
+**Commit:** `60a929a`
+**Next:** Phase 1 content build — ai-learning-burnout.html or corporate-ai-wellness.html

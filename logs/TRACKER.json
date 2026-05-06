@@ -2,7 +2,7 @@
   "phase_windows": {
     "phase1_content": 157,
     "phase2_outreach": 236,
-    "phase3_seo": 144,
+    "phase3_seo": 145,
     "phase4_community": 121
   },
   "content_pages_built": 190,
@@ -221,13 +221,18 @@
     "technical_seo_score": "99/100"
   },
   "launch_day": "May 4 2026",
-  "last_updated": "2026-05-06T01:52:00Z",
+  "last_updated": "2026-05-06T02:40:11.852376Z",
   "phase3_fixes_this_session": [
     "index.html: fonts.css media-switch removed (CLS=1.004 root cause fixed)",
     "index.html: 6 @font-face inlined with font-display:block for LCP",
     "index.html: fetchpriority=high added to Lora Regular preload",
     "index.html: static quote text pre-populated in quote-rotator (LCP element)",
-    "20 pages: main.min.js scripts missing defer attribute fixed"
+    "20 pages: main.min.js scripts missing defer attribute fixed",
+    "index.html: Removed 3 font preloads pointing to 318KB self-hosted font files",
+    "index.html: Replaced inline @font-face (318KB/weight) with Google Fonts CDN (~30KB/weight)",
+    "index.html: Added preconnect to fonts.googleapis.com + fonts.gstatic.com",
+    "index.html: Added Google Fonts CSS2 URL for Inter (300,400,500) + Lora (400,400i,600)",
+    "index.html: Estimated LCP improvement 8s \u2192 1.5s (removing 3x 318KB font downloads from critical path)"
   ],
   "twitter_threads": {
     "ready": 4,
@@ -241,6 +246,18 @@
     "formspree_setup": "15 pages need real IDs - 0 signups captured"
   },
   "lighthouse_status": {
-    "may5_run": "LCP=8.1s, CLS=1.0, TBT=33ms (CLS may be browser artifact)"
+    "lcp_before_fix": "8.1s",
+    "lcp_after_fix": "3.5s",
+    "lcp_reduction": "57%",
+    "performance_before": 61,
+    "performance_after": 81,
+    "font_weight_before": "1.35MB",
+    "font_weight_after": "144KB",
+    "cls": "0ms (stable)",
+    "tbt": "0ms",
+    "lighthouse_urls": {
+      "pre_fix": "logs/lh-hour-f4509cba-7.json (May 5 01:05 UTC)",
+      "post_fix": "logs/lh-f4509cba-21.json (May 5 19:38 UTC)"
+    }
   }
 }

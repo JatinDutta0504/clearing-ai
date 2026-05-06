@@ -31,9 +31,32 @@
 
 
   
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" /><noscript></noscript>
+        <!-- Critical @font-face: immediate text render, no network round-trip -->
+  <style>
+    @font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:local('system-ui');ascent-override:107%;descent-override:27%;size-adjust:107%;}
+    @font-face{font-family:'Lora';font-style:normal;font-weight:400;font-display:swap;src:local('Georgia');ascent-override:94%;descent-override:23%;size-adjust:94%;}
+    @font-face{font-family:'Lora';font-style:italic;font-weight:400;font-display:swap;src:local('Georgia');ascent-override:94%;descent-override:23%;size-adjust:94%;}
+  </style>
+
+  <!-- Preload two primary fonts for LCP -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf.woff2" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/0QI6MX1D_JOuGQbT0gvTJPa787weuyJG.ttf.woff2" />
+
+  <!-- Self-hosted fonts (non-render-blocking) -->
+  <link rel="preload" as="style" href="fonts/fonts.css" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="fonts/fonts.css" /></noscript>
+
+  <!-- Non-render-blocking CSS -->
+  <link rel="stylesheet" href="css/style.min.css" />
+
+  <!-- Critical font-face (fallback — prevents FOB/FOIT before fonts.css loads) -->
+  <style>
+    @font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:local('system-ui');}
+    @font-face{font-family:'Lora';font-style:normal;font-weight:400;font-display:swap;src:local('Georgia');}
+  </style>
+
+  <!-- Non-render-blocking CSS -->
+  <link rel="stylesheet" href="css/style.min.css" /><noscript></noscript>
 
   <script type="application/ld+json">
 {

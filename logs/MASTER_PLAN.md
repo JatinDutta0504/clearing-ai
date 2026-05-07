@@ -4344,3 +4344,11 @@ Newsletter follow-up emails are highest-converting outreach channel. 5 newslette
 **SEO:** LCP: 8.2s Slow-4G throttle / ~2.5s real | CLS: 0.0043 | Render-blocking: 0 | Perf Score: 85/100
 **Commit:** c403567 (187 files, -736 bytes net)
 **Live at:** https://clearing-ai.com
+
+### Hour 37 — 2026-05-07 09:07 UTC
+**Phase:** PHASE 1 (Content Pillars)
+**Built:** `manifesto.html` expanded — 3,291 → 4,682 words (+1,391 words)
+**Additions:** State of the Craft: 2026, What the Industry Gets Wrong (5 myths), expanded preamble, Principles 6-8 (Competence Illusion, Preservation Principle, Cognitive Offloading Trap), A Brief History of Craft Disruption
+**SEO:** Manifesto = brand-defining backlink + share magnet; 5 new long-tail keywords
+**Commit:** `c10190c`
+**Next:** Reddit deploy Thu May 8 + Twitter Thread #48 Thu May 8 + Day-14 outreach (Sunny)

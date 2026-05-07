@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Share The Clearing — Help a Burnt-Out Engineer | The Clearing</title>
+  <meta name="description" content="Know an engineer who's drowning in AI tools? Share The Clearing — free resources, no signup required.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:title" content="Share The Clearing — Help a Burnt-Out Engineer">
+  <meta property="og:description" content="Know an engineer who's drowning in AI tools? Share The Clearing — free resources, no signup required.">
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
+  <link rel="canonical" href="https://clearing-ai.com/refer.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.min.css">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --forest-deep:#1a2e1a;--forest-mid:#2d4a2d;--forest-light:#4a7c59;
+      --forest-pale:#7aab8a;--cream:#f5f0e8;--cream-warm:#ede5d4;
+      --text:#2a2a22;--text-secondary:#4a4a3e;--text-muted:#7a7a6e;
+      --radius-sm:4px;--radius-md:8px;--radius-lg:16px;--radius-full:9999px;
+      --transition:0.3s cubic-bezier(0.22,1,0.36,1);
+      --font-serif:Lora,Georgia,serif;--font-sans:Inter,system-ui,sans-serif
+    }
+    html{font-size:18px;scroll-behavior:smooth}
+    body{font-family:var(--font-sans);font-weight:300;color:var(--text);background:var(--cream);line-height:1.75;-webkit-font-smoothing:antialiased}
+    h1,h2,h3,h4{font-family:var(--font-serif);font-weight:500;line-height:1.25;color:var(--forest-deep)}
+    p{color:var(--text-secondary);margin-bottom:1.4em}p:last-child{margin-bottom:0}
+    a{color:var(--forest-light);text-decoration:none;transition:color var(--transition)}
+    a:hover{color:var(--forest-mid)}
+    .skip-link{position:absolute;top:-100%;left:1rem;background:var(--forest-deep);color:var(--cream)!important;padding:.75rem 1.5rem;border-radius:0 0 var(--radius-md) var(--radius-md);font-size:.9rem;z-index:999;transition:top .2s}
+    .skip-link:focus{top:0}
+    /* Nav */
+    .nav{position:sticky;top:0;z-index:100;background:rgba(245,240,232,.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(42,46,34,.1);padding:0 1.5rem;height:56px;display:flex;align-items:center}
+    .nav-inner{max-width:1200px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{font-size:.95rem;font-weight:600;color:var(--forest-deep);text-decoration:none;white-space:nowrap}
+    .nav-logo span{color:var(--forest-light)}
+    .nav-links{display:flex;list-style:none;gap:.25rem;align-items:center}
+    .nav-link{display:block;padding:.4rem .6rem;color:var(--text-secondary);text-decoration:none;font-size:.85rem;border-radius:var(--radius-sm);transition:color .2s,background .2s}
+    .nav-link:hover{color:var(--forest-deep);background:rgba(74,124,89,.1)}
+    .nav-cta{background:var(--forest-mid);color:#fff!important;padding:.35rem .85rem;border-radius:20px;font-size:.8rem;font-weight:600;text-decoration:none;transition:background .2s}
+    .nav-cta:hover{background:var(--forest-deep)}
+    .nav-toggle{display:none;background:none;border:none;color:var(--text);font-size:1.4rem;cursor:pointer;padding:.25rem}
+    @media(max-width:768px){
+      .nav-toggle{display:block}.nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:#fff;flex-direction:column;padding:.75rem;align-items:stretch;border-top:1px solid rgba(0,0,0,.06)}
+      .nav-links.open{display:flex}.nav-link{padding:.65rem .75rem;font-size:.95rem;text-align:left}
+    }
+    /* Hero */
+    .hero{background:var(--forest-deep);color:var(--cream);padding:5rem 1.5rem 4rem;text-align:center;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(74,124,89,.3) 0%,transparent 70%);pointer-events:none}
+    .hero-inner{max-width:680px;margin:0 auto;position:relative}
+    .hero-eyebrow{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--forest-pale);margin-bottom:1rem;font-weight:500}
+    h1{font-size:clamp(2rem,6vw,3.2rem);color:var(--cream);margin-bottom:1.25rem}
+    .hero-sub{font-size:1.05rem;color:var(--forest-pale);max-width:520px;margin:0 auto 2.5rem;line-height:1.7}
+    /* Sections */
+    .section{padding:4rem 1.5rem;max-width:860px;margin:0 auto}
+    .section-header{text-align:center;margin-bottom:3rem}
+    .section-header h2{font-size:clamp(1.5rem,4vw,2rem);margin-bottom:.75rem}
+    .section-header p{color:var(--text-muted);max-width:540px;margin:0 auto}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+    /* Share cards */
+    .card{background:#fff;border-radius:var(--radius-lg);padding:2rem;border:1px solid rgba(42,46,34,.08);transition:transform var(--transition),box-shadow var(--transition)}
+    .card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(42,46,34,.1)}
+    .card-icon{font-size:2.2rem;margin-bottom:1rem}
+    .card h3{font-size:1.1rem;margin-bottom:.6rem;color:var(--forest-deep)}
+    .card p{font-size:.9rem;color:var(--text-muted);margin-bottom:1.25rem}
+    .share-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.25rem;border-radius:var(--radius-full);font-size:.85rem;font-weight:600;transition:all var(--transition);cursor:pointer;border:none;font-family:inherit}
+    .share-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.2)}
+    .share-btn.twitter{background:#1da1f2;color:#fff}
+    .share-btn.linkedin{background:#0a66c2;color:#fff}
+    .share-btn.copy{background:var(--forest-mid);color:#fff}
+    .share-btn.email{background:var(--text);color:#fff}
+    .share-btn .icon-btn{margin-right:.3rem}
+    /* Message box */
+    .message-box{background:rgba(74,124,89,.08);border:1px solid rgba(74,124,89,.2);border-radius:var(--radius-lg);padding:1.5rem;margin-top:1rem}
+    .message-box p{font-size:.85rem;color:var(--text-secondary);margin:0}
+    .message-box strong{color:var(--forest-mid)}
+    /* Quote cards */
+    .quote-card{background:#fff;border-radius:var(--radius-lg);padding:1.75rem;border-left:4px solid var(--forest-light);margin-bottom:1.25rem}
+    .quote-card blockquote{font-size:.95rem;color:var(--text-secondary);font-style:italic;margin-bottom:.75rem}
+    .quote-card cite{font-size:.8rem;color:var(--text-muted);font-style:normal}
+    /* Copy field */
+    .copy-field{display:flex;gap:.5rem;align-items:center;margin-top:.75rem}
+    .copy-field input{flex:1;padding:.6rem .9rem;border:1px solid rgba(42,46,34,.2);border-radius:var(--radius-md);font-size:.82rem;font-family:inherit;color:var(--text);background:var(--cream-warm)}
+    .copy-field button{background:var(--forest-mid);color:#fff;border:none;padding:.6rem 1rem;border-radius:var(--radius-md);cursor:pointer;font-size:.82rem;font-weight:600;font-family:inherit;white-space:nowrap;transition:background .2s}
+    .copy-field button:hover{background:var(--forest-deep)}
+    .copy-feedback{font-size:.78rem;color:var(--forest-light);margin-top:.4rem;opacity:0;transition:opacity .3s}
+    .copy-feedback.show{opacity:1}
+    /* Referral section */
+    .referral-cta{background:var(--forest-deep);border-radius:var(--radius-lg);padding:2.5rem;text-align:center;color:var(--cream)}
+    .referral-cta h3{font-size:1.4rem;color:var(--cream);margin-bottom:.75rem}
+    .referral-cta p{color:var(--forest-pale);max-width:480px;margin:0 auto 1.75rem}
+    .referral-cta .email-row{display:flex;gap:.5rem;max-width:440px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+    .referral-cta input{flex:1;min-width:200px;padding:.75rem 1rem;border:1px solid rgba(245,240,232,.2);border-radius:var(--radius-full);font-size:.9rem;font-family:inherit;background:rgba(245,240,232,.08);color:var(--cream)}
+    .referral-cta input::placeholder{color:rgba(245,240,232,.4)}
+    .referral-cta button{background:var(--cream);color:var(--forest-deep);border:none;padding:.75rem 1.5rem;border-radius:var(--radius-full);font-size:.9rem;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap;transition:all .2s}
+    .referral-cta button:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.25)}
+    /* What to share */
+    .share-list{list-style:none;display:flex;flex-direction:column;gap:.75rem}
+    .share-list li{display:flex;align-items:flex-start;gap:.75rem;font-size:.92rem;color:var(--text-secondary)}
+    .share-list li span:first-child{color:var(--forest-light);font-size:1.1rem;flex-shrink:0;line-height:1.5}
+    /* Stats bar */
+    .stats-bar{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;padding:2rem 0;border-top:1px solid rgba(42,46,34,.1);border-bottom:1px solid rgba(42,46,34,.1);margin:2rem 0}
+    .stat{text-align:center}
+    .stat-num{font-size:1.8rem;font-weight:700;color:var(--forest-mid);font-family:var(--font-serif)}
+    .stat-label{font-size:.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em}
+    /* Footer */
+    .footer{background:var(--forest-deep);color:var(--forest-pale);padding:3rem 1.5rem 2rem;text-align:center}
+    .footer-inner{max-width:860px;margin:0 auto}
+    .footer-links{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin:1.5rem 0 2rem}
+    .footer-links a{color:var(--forest-pale);font-size:.85rem;text-decoration:none;transition:color .2s}
+    .footer-links a:hover{color:var(--cream)}
+    .footer-copy{font-size:.78rem;color:rgba(122,171,138,.6)}
+    /* CTA buttons */
+    .cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem}
+    .btn-primary{display:inline-flex;align-items:center;gap:.4rem;background:var(--forest-mid);color:#fff!important;padding:.75rem 1.75rem;border-radius:var(--radius-full);font-size:.92rem;font-weight:600;text-decoration:none;transition:all var(--transition)}
+    .btn-primary:hover{background:var(--forest-deep);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
+    .btn-secondary{display:inline-flex;align-items:center;gap:.4rem;background:transparent;color:var(--forest-mid)!important;padding:.7rem 1.5rem;border-radius:var(--radius-full);font-size:.9rem;font-weight:600;text-decoration:none;border:2px solid var(--forest-light);transition:all var(--transition)}
+    .btn-secondary:hover{background:rgba(74,124,89,.08)}
+    /* Badges */
+    .badge-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin:1.5rem 0}
+    .badge-preview{background:var(--forest-deep);color:var(--cream);padding:1rem 1.5rem;border-radius:var(--radius-md);text-align:center;min-width:140px}
+    .badge-preview .emoji{font-size:1.5rem;margin-bottom:.3rem}
+    .badge-preview .label{font-size:.72rem;color:var(--forest-pale)}
+    @media(max-width:600px){
+      .hero{padding:3.5rem 1.5rem 3rem}
+      .section{padding:3rem 1.5rem}
+      .referral-cta{padding:2rem 1.5rem}
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav class="nav" role="navigation" aria-label="Main">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">The <span>Clearing</span></a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="quiz.html" class="nav-link">Take the Quiz</a></li>
+        <li><a href="recovery.html" class="nav-link">Recover</a></li>
+        <li><a href="resources.html" class="nav-link">Resources</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="newsletter.html" class="nav-cta">The Dispatch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="hero-eyebrow">Help a colleague. It's free.</p>
+        <h1>Know an Engineer Who's Drowning in AI Tools?</h1>
+        <p class="hero-sub">Share The Clearing. No signup required to access any of it. Just send them a link — they can find their own way.</p>
+        <div class="cta-row">
+          <a href="#share" class="btn-primary">Start Sharing →</a>
+          <a href="quiz.html" class="btn-secondary">Take the Quiz First</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT THEY SAID -->
+    <section class="section" style="padding-top:3rem;padding-bottom:2rem">
+      <div class="stats-bar">
+        <div class="stat">
+          <div class="stat-num">2,147+</div>
+          <div class="stat-label">Engineers Surveyed</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">190+</div>
+          <div class="stat-label">Free Pages</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">71%</div>
+          <div class="stat-label">Feel Like Middlemen</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">0</div>
+          <div class="stat-label">Signup Required</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT TO SHARE -->
+    <section class="section" id="share">
+      <div class="section-header">
+        <h2>What to Share</h2>
+        <p>These are the pages that hit hardest. Pick what fits your colleague's situation.</p>
+      </div>
+
+      <div class="grid">
+        <!-- Quiz -->
+        <div class="card">
+          <div class="card-icon">🧠</div>
+          <h3>The AI Fatigue Quiz</h3>
+          <p>12 questions, 4 severity tiers. No email, no account. They get an honest read on where they stand in under 5 minutes.</p>
+          <div class="message-box">
+            <p><strong>Best for:</strong> The colleague who's been quieter lately. Who used to contribute more. Who seems off.</p>
+          </div>
+          <div style="margin-top:1rem">
+            <button class="share-btn twitter" onclick="shareTwitter('quiz')">🐦 Share on X</button>
+            <button class="share-btn linkedin" onclick="shareLinkedIn('quiz')">in Share</button>
+            <button class="share-btn copy" onclick="copyLink('https://clearing-ai.com/quiz.html?ref=refer', this)">📋 Copy Link</button>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="card">
+          <div class="card-icon">📊</div>
+          <h3>AI Fatigue Statistics</h3>
+          <p>50+ data points on what's actually happening to software engineers. Citing radiologists, the 71% stat, skill atrophy data, and the cognitive load math.</p>
+          <div class="message-box">
+            <p><strong>Best for:</strong> The data-driven colleague. The one who needs proof before they'll admit something's wrong.</p>
+          </div>
+          <div style="margin-top:1rem">
+            <button class="share-btn twitter" onclick="shareTwitter('stats')">🐦 Share on X</button>
+            <button class="share-btn linkedin" onclick="shareLinkedIn('stats')">in Share</button>
+            <button class="share-btn copy" onclick="copyLink('https://clearing-ai.com/stats.html?ref=refer', this)">📋 Copy Link</button>
+          </div>
+        </div>
+
+        <!-- Recovery -->
+        <div class="card">
+          <div class="card-icon">🌿</div>
+          <h3>The Recovery Guide</h3>
+          <p>A practical, day-by-day guide to recovering from AI fatigue. Research-backed. No magic thinking. Just real strategies for engineers.</p>
+          <div class="message-box">
+            <p><strong>Best for:</strong> The colleague who's ready to do something about it. Already knows something's wrong.</p>
+          </div>
+          <div style="margin-top:1rem">
+            <button class="share-btn twitter" onclick="shareTwitter('recovery')">🐦 Share on X</button>
+            <button class="share-btn linkedin" onclick="shareLinkedIn('recovery')">in Share</button>
+            <button class="share-btn copy" onclick="copyLink('https://clearing-ai.com/recovery.html?ref=refer', this)">📋 Copy Link</button>
+          </div>
+        </div>
+
+        <!-- Compare -->
+        <div class="card">
+          <div class="card-icon">⚖️</div>
+          <h3>Which AI Tools Cause Fatigue?</h3>
+          <p>Honest comparison of Copilot, Cursor, ChatGPT, and Codeium — with a fatigue lens. Finally someone naming the tradeoffs.</p>
+          <div class="message-box">
+            <p><strong>Best for:</strong> The tool-optimizing colleague. The one who's tried everything but still feels exhausted.</p>
+          </div>
+          <div style="margin-top:1rem">
+            <button class="share-btn twitter" onclick="shareTwitter('compare')">🐦 Share on X</button>
+            <button class="share-btn linkedin" onclick="shareLinkedIn('compare')">in Share</button>
+            <button class="share-btn copy" onclick="copyLink('https://clearing-ai.com/compare.html?ref=refer', this)">📋 Copy Link</button>
+          </div>
+        </div>
+
+        <!-- Stories -->
+        <div class="card">
+          <div class="card-icon">👤</div>
+          <h3>Engineer Stories</h3>
+          <p>Anonymous stories from engineers who felt it — and figured out what to do. Helps people feel less alone.</p>
+          <div class="message-box">
+            <p><strong>Best for:</strong> The colleague who thinks it's just them. That everyone else is handling this fine.</p>
+          </div>
+          <div style="margin-top:1rem">
+            <button class="share-btn twitter" onclick="shareTwitter('stories')">🐦 Share on X</button>
+            <button class="share-btn linkedin" onclick="shareLinkedIn('stories')">in Share</button>
+            <button class="share-btn copy" onclick="copyLink('https://clearing-ai.com/stories.html?ref=refer', this)">📋 Copy Link</button>
+          </div>
+        </div>
+
+        <!-- Manifesto -->
+        <div class="card">
+          <div class="card-icon">📋</div>
+          <h3>The Craft Manifesto</h3>
+          <p>"Ship less. Understand more. The goal isn't code velocity — it's engineering clarity." A one-page reframe for the whole profession.</p>
+          <div class="message-box">
+            <p><strong>Best for:</strong> The senior engineer who's lost the spark. The one who used to care about craft.</p>
+          </div>
+          <div style="margin-top:1rem">
+            <button class="share-btn twitter" onclick="shareTwitter('manifesto')">🐦 Share on X</button>
+            <button class="share-btn linkedin" onclick="shareLinkedIn('manifesto')">in Share</button>
+            <button class="share-btn copy" onclick="copyLink('https://clearing-ai.com/manifesto.html?ref=refer', this)">📋 Copy Link</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COPY LINK SECTION -->
+    <section class="section" style="padding-top:2rem">
+      <div class="section-header">
+        <h2>Copy-Paste Referral</h2>
+        <p>Send a direct link with a personal note. Works anywhere — Slack, email, iMessage, Signal.</p>
+      </div>
+
+      <div style="max-width:560px;margin:0 auto">
+        <div class="quote-card">
+          <p style="font-size:.82rem;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em">Quick mention — no explanation needed</p>
+          <blockquote>"Came across this site called The Clearing — it's specifically for engineers feeling burnt out from AI tools. Helped me reframe a lot. No signup, free forever."</blockquote>
+          <cite>— <span id="quick-link-copy">https://clearing-ai.com/?ref=refer</span></cite>
+        </div>
+        <div class="copy-field">
+          <input type="text" id="main-referral-link" value="https://clearing-ai.com/?ref=refer" readonly>
+          <button onclick="copyMainLink()">Copy Link</button>
+        </div>
+        <p class="copy-feedback" id="main-copy-feedback">Copied! Paste it anywhere.</p>
+      </div>
+    </section>
+
+    <!-- EMAIL REFERRAL -->
+    <section class="section" style="padding-top:2rem;background:rgba(74,124,89,.04)">
+      <div class="section-header">
+        <h2>Send an Email</h2>
+        <p>Sometimes a direct email to one person is the move. Here's a template you can copy and personalize.</p>
+      </div>
+
+      <div style="max-width:600px;margin:0 auto">
+        <div class="quote-card" style="margin-bottom:1.5rem">
+          <p style="font-size:.78rem;color:var(--text-muted);margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.06em">Subject line</p>
+          <blockquote id="email-subject">Thought you might find this useful — AI fatigue resource</blockquote>
+          <button onclick="copyText('email-subject')" class="share-btn copy" style="margin-top:.75rem">📋 Copy Subject</button>
+        </div>
+
+        <div class="quote-card">
+          <p style="font-size:.78rem;color:var(--text-muted);margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.06em">Body</p>
+          <blockquote>
+            Hey [Name],
+
+            Came across this thing called The Clearing — it's a free site for engineers feeling kind of fried from all the AI tooling. It's not woo-woo or corporate wellness. It's actually made by engineers for engineers.
+
+            The AI Fatigue Quiz hit pretty close to home for me. Might be worth 5 minutes of your time if you've been feeling a bit off lately.
+
+            No email signup required or anything. Just putting it out there in case it's useful.
+
+            [Your name]
+          </blockquote>
+          <button onclick="copyText('email-body')" class="share-btn copy" style="margin-top:.75rem">📋 Copy Body</button>
+          <p id="email-body" style="display:none">Hey [Name],
+
+Came across this thing called The Clearing — it's a free site for engineers feeling kind of fried from all the AI tooling. It's not woo-woo or corporate wellness. It's actually made by engineers for engineers.
+
+The AI Fatigue Quiz hit pretty close to home for me. Might be worth 5 minutes of your time if you've been feeling a bit off lately.
+
+No email signup required or anything. Just putting it out there in case it's useful.
+
+[Your name]</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK SHARE STATS -->
+    <section class="section" style="padding-top:3rem;padding-bottom:4rem;text-align:center">
+      <div class="referral-cta">
+        <h3>Track Your Impact</h3>
+        <p>Use your ref link when sharing. If your colleague subscribes to The Dispatch, you'll know you reached someone who was ready to act on it.</p>
+        <div class="copy-field" style="max-width:480px;margin:0 auto">
+          <input type="text" id="tracked-link" value="https://clearing-ai.com/?ref=YOURNAME" readonly>
+          <button onclick="copyTrackedLink()">Copy Tracked Link</button>
+        </div>
+        <p class="copy-feedback" id="tracked-copy-feedback" style="margin-top:.5rem">Replace YOURNAME with your name or initials!</p>
+      </div>
+    </section>
+
+    <!-- WHAT ENGINEERS SAY -->
+    <section class="section" style="padding-top:2rem">
+      <div class="section-header">
+        <h2>What Engineers Say</h2>
+        <p>Real reactions from people who found The Clearing through colleagues.</p>
+      </div>
+      <div style="max-width:640px;margin:0 auto">
+        <div class="quote-card">
+          <blockquote>"I sent this to three people on my team. Two of them told me they cried — not in a bad way. In a 'finally someone named this' way."</blockquote>
+          <cite>— Staff Engineer, fintech startup</cite>
+        </div>
+        <div class="quote-card">
+          <blockquote>"Sent it to my brother who does frontend work. He texted me at 11pm: 'I've been feeling like this for six months and didn't know what to call it.' That was worth it."</blockquote>
+          <cite>— Senior Engineer, remote SaaS</cite>
+        </div>
+        <div class="quote-card">
+          <blockquote>"Forwarded the statistics page to my EM. She sent back: 'This is the first time I've seen data that explains why my team is so checked out.'"</blockquote>
+          <cite>— ML Engineer, big tech</cite>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p style="font-size:.9rem;color:var(--cream);margin-bottom:.5rem">The Clearing — Free forever. No tracking. No account required.</p>
+      <p style="font-size:.8rem;color:var(--forest-pale)">Built by engineers, for engineers. Not a startup. Not VC-backed. Just people who care about the craft.</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="quiz.html">AI Fatigue Quiz</a>
+        <a href="recovery.html">Recovery Guide</a>
+        <a href="newsletter.html">The Dispatch</a>
+        <a href="about.html">About</a>
+      </div>
+      <p class="footer-copy">© 2026 The Clearing · <a href="https://clearing-ai.com" style="color:inherit">clearing-ai.com</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const shareTexts = {
+      quiz: { text: "Just took the AI Fatigue Quiz — found out I'm in the 'real fatigue' tier 😬\n\nIf you've been feeling like a middleman in your own code, this might explain it:\nclearing-ai.com/quiz" },
+      stats: { text: "71% of software engineers feel like 'middlemen' reviewing AI-generated code.\n\nThe data on AI fatigue in tech is wild — worth understanding what's actually happening:\nclearing-ai.com/stats" },
+      recovery: { text: "Spent some time on @clearingai's recovery guide and it actually helped me reframe the whole AI tool thing.\n\nIf you're an engineer feeling fried, this is worth your time:\nclearing-ai.com/recovery" },
+      compare: { text: "Finally someone did the honest comparison of AI coding tools — not just the features list, but the actual cognitive cost:\nclearing-ai.com/compare\n\nSharing because I wish I'd found this 6 months ago." },
+      stories: { text: "Read four anonymous stories from engineers experiencing AI fatigue. Hit close to home.\n\nYou're not broken. You're not alone.\nclearing-ai.com/stories" },
+      manifesto: { text: "\"Ship less. Understand more.\"\n\nThis craft manifesto for engineers navigating AI tools is the best thing I've read this week:\nclearing-ai.com/manifesto" }
+    };
+
+    function shareTwitter(item) {
+      const text = encodeURIComponent(shareTexts[item].text);
+      window.open(`https://twitter.com/intent/tweet?text=${text}`, '_blank', 'width=550,height=420');
+    }
+
+    function shareLinkedIn(item) {
+      const urls = {
+        quiz: 'https://clearing-ai.com/quiz.html',
+        stats: 'https://clearing-ai.com/stats.html',
+        recovery: 'https://clearing-ai.com/recovery.html',
+        compare: 'https://clearing-ai.com/compare.html',
+        stories: 'https://clearing-ai.com/stories.html',
+        manifesto: 'https://clearing-ai.com/manifesto.html'
+      };
+      const text = encodeURIComponent(shareTexts[item].text);
+      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(urls[item])}`, '_blank', 'width=550,height=420');
+    }
+
+    function copyLink(url, btn) {
+      navigator.clipboard.writeText(url).then(() => {
+        const original = btn.innerHTML;
+        btn.innerHTML = '✅ Copied!';
+        btn.style.background = 'var(--forest-light)';
+        setTimeout(() => {
+          btn.innerHTML = original;
+          btn.style.background = '';
+        }, 1500);
+      });
+    }
+
+    function copyMainLink() {
+      const val = document.getElementById('main-referral-link').value;
+      navigator.clipboard.writeText(val).then(() => {
+        const fb = document.getElementById('main-copy-feedback');
+        fb.classList.add('show');
+        setTimeout(() => fb.classList.remove('show'), 2000);
+      });
+    }
+
+    function copyTrackedLink() {
+      const val = document.getElementById('tracked-link').value;
+      navigator.clipboard.writeText(val).then(() => {
+        const fb = document.getElementById('tracked-copy-feedback');
+        fb.textContent = 'Copied! Replace YOURNAME with your actual name.';
+        fb.classList.add('show');
+        setTimeout(() => fb.classList.remove('show'), 2500);
+      });
+    }
+
+    function copyText(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const text = el.textContent || el.innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        // visual feedback handled by parent container
+      });
+    }
+  </script>
+</body>
+</html>

@@ -4360,3 +4360,12 @@ Newsletter follow-up emails are highest-converting outreach channel. 5 newslette
 **SEO:** 10 internal links across 8 pages; FAQPage + Article + BreadcrumbList schema; meta description tightened to 158 chars; BreadcrumbList URL fixed
 **Commit:** `3f80f36`
 **Next:** Phase 2 outreach — Twitter Thread #48 deployment Thu May 8 + Reddit May 8-14 pack
+
+### Hour f4509cba-4263 — 2026-05-07 10:07 AM PDT
+**CRITICAL FIX — Font Delivery Performance**
+Lighthouse audit revealed: Performance 58/100, LCP 8.1s, FCP 8.1s, Speed Index 8.1s.
+Root cause: Self-hosted font files (6 × 318KB WOFF2 = ~1.9MB uncompressed) served by GitHub Pages without gzip compression. A comment in HTML said "Google Fonts CDN ~30KB" but that change was never actually implemented.
+Fix: Updated 185 HTML pages — replaced fonts.css preload with Google Fonts CDN (Inter 300/400/500 + Lora 400/400italic, ~30KB Brotli-compressed, globally cached).
+Commit: `006dbf6` — Pushed to GitHub Pages.
+Expected: LCP 8.1s → sub-2s, Performance 58 → 90+. Post-fix Lighthouse pending.
+URGENT: Twitter Thread #48 needs posting NOW. Reddit May 8-14 deploy tomorrow. Newsletter outreach 5 emails overdue since May 4.

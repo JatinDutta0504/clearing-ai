@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vibe Coding: The Debugging Blind Spot — The Clearing</title>
+  <meta name="description" content="Vibe coding generates working code fast. But something strange happens when you can't debug what AI wrote. The hidden cost of shipping without understanding.">
+  <meta name="keywords" content="vibe coding, AI coding tools, debugging skills, programmer learning, developer skills, AI code generation, skill atrophy, Copilot, Cursor">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://clearing-ai.com/vibe-coding-deep-dive.html">
+  <meta property="og:title" content="Vibe Coding: The Debugging Blind Spot">
+  <meta property="og:description" content="Vibe coding generates working code fast. But something strange happens when you can't debug what AI wrote.">
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vibe Coding: The Debugging Blind Spot">
+  <meta name="twitter:description" content="Vibe coding generates working code fast. But something strange happens when you can't debug what AI wrote.">
+  <link rel="stylesheet" href="style.css?v=1.1">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Vibe Coding: The Debugging Blind Spot",
+    "description": "Vibe coding generates working code fast. But something strange happens when you can't debug what AI wrote. The hidden cost of shipping without understanding.",
+    "author": {"@type": "Organization", "name": "The Clearing"},
+    "publisher": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+    "datePublished": "2026-05-07",
+    "dateModified": "2026-05-07",
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://clearing-ai.com/vibe-coding-deep-dive.html"},
+    "wordCount": 3200,
+    "about": {
+      "@type": "Thing",
+      "name": "AI-assisted software development",
+      "description": "The debugging skills gap created by AI code generation tools"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com"},
+      {"@type": "ListItem", "position": 2, "name": "Understand", "item": "https://clearing-ai.com/vibe-coding-deep-dive.html"},
+      {"@type": "ListItem", "position": 3, "name": "Vibe Coding: The Debugging Blind Spot"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is vibe coding?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Vibe coding is the practice of writing software by describing what you want to an AI coding assistant, then iterating on the output until something works — without necessarily understanding how the code works underneath. The term gained popularity in 2025–2026 as AI tools like Cursor and Copilot became sophisticated enough to generate entire features from prompts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does vibe coding actually make you a worse programmer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not always, and not for everyone. But a specific and measurable pattern emerges: engineers who rely heavily on AI code generation often develop a debugging blind spot — they can generate code but can't trace, diagnose, or fix bugs in code they didn't write from scratch. This is different from traditional learning, where debugging is a core skill-building mechanism."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the difference between vibe coding and normal AI-assisted development?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Normal AI-assisted development uses AI as a tool within a known skill set — to generate boilerplate, suggest refactors, or explain unfamiliar APIs. Vibe coding inverts this: the AI generates the core logic, and the engineer's job becomes prompt refinement and output validation. The engineer becomes a curator of AI outputs rather than a writer of code."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you learn to debug code you didn't write?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, with deliberate effort. Reading code you didn't write is a learnable skill — it requires different cognitive strategies than writing code from scratch. But most vibe coders aren't doing this. They're iterating on AI output until it works, then moving on. They never develop the mental model needed to debug it later."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you know if you have a vibe coding debugging blind spot?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A simple test: pick a bug in your AI-generated code. Can you trace the execution line by line and explain exactly why the bug occurs, without running the code? If you need to add logging statements and re-run multiple times to narrow it down, you likely don't have a mental model of that code — you're doing empirical debugging rather than analytical debugging."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is vibe coding always bad?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Vibe coding is appropriate for prototyping, scaffolding, exploring unfamiliar territory, and one-off scripts. The problem emerges when vibe coding becomes the primary development mode for production code — especially for engineers still building their foundational models. The key distinction is whether you're using AI to amplify your understanding or to replace it."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header class="site-header">
+    <nav class="nav-container" role="navigation" aria-label="Main navigation">
+      <a href="/" class="nav-home">🌿 The Clearing</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-list" id="nav-list">
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link">Understand ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="why.html">Why It Happens</a></li>
+            <li><a href="signs-ai-fatigue.html">Signs of Fatigue</a></li>
+            <li><a href="research.html">The Research</a></li>
+            <li><a href="compare.html">Compare Tools</a></li>
+            <li><a href="ai-tool-overload.html">Tool Overload</a></li>
+            <li><a href="cognitive-load.html">Cognitive Load</a></li>
+            <li><a href="skill-atrophy.html">Skill Atrophy</a></li>
+            <li><a href="manifesto.html">Manifesto</a></li>
+            <li><a href="vibe-coding-deep-dive.html">Vibe Coding</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link">Recover ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="recovery.html">Recovery Guide</a></li>
+            <li><a href="ai-detox-plan.html">30-Day Detox</a></li>
+            <li><a href="daily-practice.html">Daily Practice</a></li>
+            <li><a href="checkin.html">Daily Check-In</a></li>
+            <li><a href="mental-health.html">Mental Health</a></li>
+            <li><a href="developer-wellbeing.html">Wellbeing</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link">Stories ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="stories.html">Engineer Stories</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link">Tools ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="/#quiz">AI Fatigue Quiz</a></li>
+            <li><a href="decompress.html">Focus Timer</a></li>
+            <li><a href="journal.html">Reflection Journal</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="newsletter.html" class="nav-link">Newsletter</a></li>
+      </ul>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">☀️</button>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <article class="content-page fade-in">
+      <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
+
+      <header class="page-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li><a href="vibe-coding-deep-dive.html">Understand</a></li>
+            <li aria-current="page">Vibe Coding: The Debugging Blind Spot</li>
+          </ol>
+        </nav>
+        <span class="reading-time" aria-label="Estimated reading time"></span>
+      </header>
+
+      <h1>Vibe Coding: The Debugging Blind Spot</h1>
+
+      <p class="lead">There's a specific kind of paralysis that sets in when you're three hours into a debugging session and you realize: <em>you have no idea how this code actually works.</em></p>
+
+      <p>It started with a prompt. You described what you wanted. The AI wrote it. You ran it. It didn't work. You pasted the error. The AI wrote a fix. You ran it. Different error. Paste again. Different error. Forty-five minutes pass. The code is longer now — more layers, more AI additions — and you are further from understanding it than when you started.</p>
+
+      <p>You are not alone. This is the vibe coding trap, and it's creating a new kind of engineer: someone who can ship features fast and can't debug anything.</p>
+
+      <hr>
+
+      <h2>What Vibe Coding Actually Means</h2>
+
+      <p>Let's be precise about what vibe coding is and isn't.</p>
+
+      <p><strong>Vibe coding</strong> is writing software by describing what you want to an AI coding assistant, then iterating on the output until something works — without necessarily building a mental model of how the code functions underneath. You know what you want. The AI knows how to write it. Your job is prompting and validating.</p>
+
+      <p>This is different from <strong>AI-assisted development</strong>, where AI is a tool within a known skill set. When an experienced engineer uses Copilot to generate a SQL query for an unfamiliar database, or asks Claude to explain a Stack Overflow answer in the context of their codebase, they're using AI to amplify existing understanding. The engineer is still the author; the AI is an accelerator.</p>
+
+      <p>The distinction matters because it determines what you learn — and what you lose.</p>
+
+      <div class="callout callout-warning">
+        <h3>The Inversion</h3>
+        <p>In traditional learning, you write code first, then debug it. The debugging is where a lot of learning happens — you're forced to understand execution flow, variable state, and control flow. In vibe coding, the AI writes the code. The debugging is someone else's problem until it becomes yours.</p>
+      </div>
+
+      <h2>The Debugging Blind Spot: What It Looks Like</h2>
+
+      <p>Here's the pattern we see repeatedly in engineers who take the AI Fatigue Quiz and describe this experience:</p>
+
+      <ul>
+        <li><strong>They can generate code but can't trace it.</strong> Ask them to walk through execution of their AI-generated function line by line and they can't — not because they're junior, but because they never built that mental model. They validated the output works, then moved on.</li>
+        <li><strong>They debug empirically, not analytically.</strong> When something breaks, their strategy is "add logging, run again, paste error to AI, repeat." This eventually works but takes longer each time and doesn't transfer to similar problems. They're doing brute-force debugging on their own code.</li>
+        <li><strong>They can't explain code they shipped.</strong> In code reviews, they can describe what the code does at a high level but not why it works that way. When a reviewer asks about edge cases, they realize they didn't think about them — because the AI didn't flag them and neither did their tests.</li>
+        <li><strong>They're afraid to remove AI code.</strong> When refactoring or removing a feature, they don't know which parts are load-bearing. Removing AI code feels like defusing a bomb — you can't fully see the wires.</li>
+        <li><strong>The gap compounds silently.</strong> The problem doesn't announce itself. Code ships, features work, reviews pass. Until a production incident at 2am requires understanding code fast under pressure — and that's when they realize they can't.</li>
+      </ul>
+
+      <h2>Why This Happens: The Learning Loop Is Broken</h2>
+
+      <p>Traditional coding learning works because of a tight feedback loop:</p>
+
+      <ol>
+        <li>You write code with a hypothesis (this input should produce this output)</li>
+        <li>You run it and observe the result</li>
+        <li>The mismatch between hypothesis and reality teaches you something about the system</li>
+        <li>You update your mental model</li>
+      </ol>
+
+      <p>This loop is how every programmer — from bootcamp to staff engineer — builds intuition. Debugging is not a separate skill from programming. <em>Debugging is how you learn to program.</em></p>
+
+      <p>Vibe coding breaks this loop at step one. The code wasn't written with a hypothesis — it was generated to satisfy a prompt. When it doesn't work, the learning opportunity is lost because the next step is "ask AI for a fix" rather than "trace through and understand why."</p>
+
+      <p>Robert Bjork's research on <strong>desirable difficulties</strong> is relevant here: the effort of retrieving information from memory (debugging from first principles) strengthens long-term learning, while ease of retrieval (just ask AI) produces faster short-term results but weaker retention and transfer. Vibe coding optimizes for the wrong difficulty.</p>
+
+      <div class="callout callout-info">
+        <h3>The Competence Illusion</h3>
+        <p>Here's the subtle part: vibe coding often <em>feels</em> like learning. You're reading code. You're iterating. You're shipping. But reading code someone else wrote (even if "someone" is an AI) is fundamentally different from writing it yourself. The mental model you build is a description of what the code does, not an understanding of why it works. These are not the same thing.</p>
+      </div>
+
+      <h2>The Comparison Table: Traditional Debugging vs Vibe Debugging</h2>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Dimension</th>
+              <th>Traditional Debugging</th>
+              <th>Vibe Coding Debugging</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Starting point</strong></td>
+              <td>Code you wrote — you have context, intent, and hypothesis</td>
+              <td>Code an AI wrote — you have a prompt and output</td>
+            </tr>
+            <tr>
+              <td><strong>Mental model</strong></td>
+              <td>Built during writing; debugging extends it</td>
+              <td>Must be built from scratch while debugging</td>
+            </tr>
+            <tr>
+              <td><strong>Primary strategy</strong></td>
+              <td>Analytical: trace execution, isolate failure point</td>
+              <td>Empirical: add logs, re-run, ask AI, repeat</td>
+            </tr>
+            <tr>
+              <td><strong>Skill built</strong></td>
+              <td>Systems thinking, execution tracing, pattern recognition</td>
+              <td>Prompt refinement, AI output validation</td>
+            </tr>
+            <tr>
+              <td><strong>Time to fix simple bugs</strong></td>
+              <td>Fast (intuition built during writing)</td>
+              <td>Variable — depends on whether AI can fix it in one shot</td>
+            </tr>
+            <tr>
+              <td><strong>Time to fix complex bugs</strong></td>
+              <td>Moderate — can trace execution mentally</td>
+              <td>Often longer — requires building mental model from scratch</td>
+            </tr>
+            <tr>
+              <td><strong>Learning per incident</strong></td>
+              <td>High — failure reveals gap in mental model</td>
+              <td>Low — AI fix bypasses the learning opportunity</td>
+            </tr>
+            <tr>
+              <td><strong>Retention over time</strong></td>
+              <td>Strong — you debugged it, you remember it</td>
+              <td>Weak — next similar bug requires same empirical approach</td>
+            </tr>
+            <tr>
+              <td><strong>Transfer to new codebases</strong></td>
+              <td>High — debugging skill is portable</td>
+              <td>Low — prompt skills don't transfer to non-AI environments</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>The Stacked Problem: What Happens at Scale</h2>
+
+      <p>Individual vibe coding sessions are manageable. The problem compounds when vibe coding becomes a team's default mode.</p>
+
+      <h3>1. Bus factor becomes infinite — in a bad way</h3>
+      <p>Traditional code has a geographic advantage: the person who wrote it has context that's hard to transfer. Vibe code has the opposite problem: nobody has context, not even the person who prompted it. The "why this approach" is lost. Codebases become unmaintainable not because they're complex but because nobody can reconstruct the reasoning.</p>
+
+      <h3>2. On-call becomes archaeology</h3>
+      <p>Production incidents in vibe-coded systems are harder to diagnose because the incident responder is debugging code they didn't write, for a system they don't fully understand, at 2am under pressure. The AI that generated the code isn't available to debug it. The engineer is.</p>
+
+      <h3>3. Junior engineers skip the hard part</h3>
+      <p>Traditional learning progression: write code → hit bugs → learn to debug → build intuition. Junior vibe coders skip directly to "ship features" without building the foundational debugging skill that everything else depends on. They can generate a REST endpoint. They can't figure out why it's returning 500 in production.</p>
+
+      <h3>4. The explanation problem</h3>
+      <p>In knowledge work, being able to explain your work is part of the work. Code reviews, design discussions, architectural decisions — these require being able to articulate why code works the way it does. Vibe coders often can't. Not because they're incompetent, but because the AI is the author and the AI can't attend the design review.</p>
+
+      <h2>Who Gets Hit Hardest</h2>
+
+      <p><strong>Bootcamp and self-taught engineers</strong> are the most vulnerable. They're building foundational models from scratch, and vibe coding bypasses exactly the struggle that builds those models. They ship portfolios fast and can't debug their own projects.</p>
+
+      <p><strong>Engineers in AI-forward companies</strong> feel pressure to move fast. When the team norm is vibe coding, not vibe coding feels like falling behind. The slow, deliberate debugging process seems like a skill gap when everyone else ships in half the time.</p>
+
+      <p><strong>Senior engineers entering new codebases</strong> are an interesting exception: vibe coding can be genuinely useful when you're exploring unfamiliar territory. The trap is when it becomes a default rather than a tool — even experienced engineers can find themselves unable to debug codebases they mapped out using AI.</p>
+
+      <h2>The Path Back: Deliberate Debugging Practice</h2>
+
+      <p>The fix isn't "stop using AI." The fix is intentional separation between <strong>generation mode</strong> and <strong>understanding mode</strong>.</p>
+
+      <h3>Practice 1: The 20-Minute Rule</h3>
+      <p>Before you ask AI to fix a bug, spend 20 minutes tracing the code yourself. Read the function. Walk through the execution in your head or on paper. Write down what you think happens at each step. Then compare to what actually happens. You'll often find the bug before you ask AI — and even when you don't, you'll understand the code better for next time.</p>
+
+      <h3>Practice 2: Explain It Without AI</h3>
+      <p>After AI generates a function, close the AI tab and write a comment explaining what it does and why. Not "this function calculates the sum" — that's the what. Write the why: "it iterates backward because we're comparing against a pre-computed cache that was built in forward order, so reverse iteration lets us break early when we find a mismatch." If you can't write that, you don't understand it yet.</p>
+
+      <h3>Practice 3: No-AI Debug Sessions</h3>
+      <p>Once a week, spend a debugging session with AI disabled. Not because AI debugging is always worse, but because the resistance of debugging without AI builds the mental muscle. It's like practice with a heavier bat — you won't always use it, but you'll swing faster with the regular one.</p>
+
+      <h3>Practice 4: The Rebuild Test</h3>
+      <p>Pick a module your AI generated two weeks ago. Delete it. Rewrite it from scratch — without AI. Compare. If you can't get within 80% of the AI version in the same amount of time, the AI was doing more work than you realized. This is diagnostic, not shameful — it's data about where your mental model has gaps.</p>
+
+      <h3>Practice 5: The Next Engineer Test</h3>
+      <p>Before shipping AI-generated code, ask: "If the next engineer to debug this is me in six months, what do I need to know?" Write those answers into the code as comments, variable names, or a short docstring. This forces the kind of understanding that vibe coding skips.</p>
+
+      <h2>The Real Question</h2>
+
+      <p>The debate about vibe coding often gets framed as "AI good vs AI bad" or "productivity vs skill." That's the wrong frame.</p>
+
+      <p>The right question is: <strong>Where is the learning happening?</strong></p>
+
+      <p>AI can be in your learning loop — as a tutor, a explainer, a "why does this approach work" answerer — or it can be outside your learning loop, generating code that ships while you learn nothing. The first is a multiplier. The second is a replacement.</p>
+
+      <p>Vibe coding isn't inherently a problem. Being a vibe coder by default, without intention, without the deliberate practice of understanding what you ship — that's where the debugging blind spot comes from.</p>
+
+      <p>The engineers who navigate this well aren't the ones who use AI least. They're the ones who are most deliberate about where AI does the work and where they do the work. The debugging blind spot doesn't come from AI. It comes from the moment you stop asking "why does this work?" and start treating "it works" as sufficient.</p>
+
+      <p>It is not sufficient. Not for your code quality. Not for your career. Not for the on-call rotation that will eventually test exactly what you understand and what you don't.</p>
+
+      <hr>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-section" id="faq">
+        <details>
+          <summary>What is vibe coding?</summary>
+          <div class="faq-answer">
+            <p>Vibe coding is the practice of writing software by describing what you want to an AI coding assistant, then iterating on the output until something works — without necessarily understanding how the code works underneath. The term gained popularity in 2025–2026 as AI tools like Cursor and Copilot became sophisticated enough to generate entire features from prompts.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Does vibe coding actually make you a worse programmer?</summary>
+          <div class="faq-answer">
+            <p>Not always, and not for everyone. But a specific and measurable pattern emerges: engineers who rely heavily on AI code generation often develop a debugging blind spot — they can generate code but can't trace, diagnose, or fix bugs in code they didn't write from scratch. This is different from traditional learning, where debugging is a core skill-building mechanism.</p>
+          </div>
+        </details>
+        <details>
+          <summary>What's the difference between vibe coding and normal AI-assisted development?</summary>
+          <div class="faq-answer">
+            <p>Normal AI-assisted development uses AI as a tool within a known skill set — to generate boilerplate, suggest refactors, or explain unfamiliar APIs. Vibe coding inverts this: the AI generates the core logic, and the engineer's job becomes prompt refinement and output validation. The engineer becomes a curator of AI outputs rather than a writer of code.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Can you learn to debug code you didn't write?</summary>
+          <div class="faq-answer">
+            <p>Yes, with deliberate effort. Reading code you didn't write is a learnable skill — it requires different cognitive strategies than writing code from scratch. But most vibe coders aren't doing this. They're iterating on AI output until it works, then moving on. They never develop the mental model needed to debug it later.</p>
+          </div>
+        </details>
+        <details>
+          <summary>How do you know if you have a vibe coding debugging blind spot?</summary>
+          <div class="faq-answer">
+            <p>A simple test: pick a bug in your AI-generated code. Can you trace the execution line by line and explain exactly why the bug occurs, without running the code? If you need to add logging statements and re-run multiple times to narrow it out, you likely don't have a mental model of that code — you're doing empirical debugging rather than analytical debugging.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Is vibe coding always bad?</summary>
+          <div class="faq-answer">
+            <p>No. Vibe coding is appropriate for prototyping, scaffolding, exploring unfamiliar territory, and one-off scripts. The problem emerges when vibe coding becomes the primary development mode for production code — especially for engineers still building their foundational models. The key distinction is whether you're using AI to amplify your understanding or to replace it.</p>
+          </div>
+        </details>
+      </div>
+
+      <hr>
+
+      <section class="continue-exploring">
+        <h3>Continue Exploring</h3>
+        <div class="explore-grid">
+          <a href="skill-atrophy.html" class="explore-card">
+            <span class="explore-icon">🧠</span>
+            <h4>Skill Atrophy</h4>
+            <p>The neuroscience of what you lose when AI does your thinking</p>
+          </a>
+          <a href="compare.html" class="explore-card">
+            <span class="explore-icon">⚖️</span>
+            <h4>Tool Comparison</h4>
+            <p>Which AI coding tools cause the most fatigue — and why</p>
+          </a>
+          <a href="ai-tool-overload.html" class="explore-card">
+            <span class="explore-icon">🔧</span>
+            <h4>AI Tool Overload</h4>
+            <p>The cost of keeping up with an accelerating tool ecosystem</p>
+          </a>
+          <a href="cognitive-load.html" class="explore-card">
+            <span class="explore-icon">⚡</span>
+            <h4>Cognitive Load</h4>
+            <p>Why your brain isn't a GPU — and what to do about it
+          </p>
+          </a>
+        </div>
+      </section>
+
+      <div class="share-bar">
+        <span>Share:</span>
+        <a href="https://twitter.com/intent/tweet?text=Vibe+Coding%3A+The+Debugging+Blind+Spot+%E2%80%94+clearing-ai.com%2Fvibe-coding-deep-dive.html" target="_blank" rel="noopener">Twitter</a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fclearing-ai.com%2Fvibe-coding-deep-dive.html" target="_blank" rel="noopener">LinkedIn</a>
+        <button class="copy-link" data-url="https://clearing-ai.com/vibe-coding-deep-dive.html">Copy Link</button>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <p><strong>🌿 The Clearing</strong></p>
+        <p>A resource for engineers navigating AI fatigue.</p>
+        <p class="footer-tagline">You're not behind. You're exhausted.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Understand</h4>
+          <ul>
+            <li><a href="why.html">Why It Happens</a></li>
+            <li><a href="signs-ai-fatigue.html">Signs of Fatigue</a></li>
+            <li><a href="research.html">The Research</a></li>
+            <li><a href="cognitive-load.html">Cognitive Load</a></li>
+            <li><a href="skill-atrophy.html">Skill Atrophy</a></li>
+            <li><a href="manifesto.html">Manifesto</a></li>
+            <li><a href="vibe-coding-deep-dive.html">Vibe Coding</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Recover</h4>
+          <ul>
+            <li><a href="recovery.html">Recovery Guide</a></li>
+            <li><a href="ai-detox-plan.html">30-Day Detox</a></li>
+            <li><a href="daily-practice.html">Daily Practice</a></li>
+            <li><a href="checkin.html">Daily Check-In</a></li>
+            <li><a href="mental-health.html">Mental Health</a></li>
+            <li><a href="developer-wellbeing.html">Wellbeing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Stories</h4>
+          <ul>
+            <li><a href="stories.html">Engineer Stories</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <ul>
+            <li><a href="/#quiz">AI Fatigue Quiz</a></li>
+            <li><a href="decompress.html">Focus Timer</a></li>
+            <li><a href="journal.html">Reflection Journal</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 The Clearing · <a href="about.html">About</a> · <a href="manifesto.html">Manifesto</a> · <a href="press-kit.html">Press Kit</a> · <a href="https://github.com/clearing-ai" target="_blank" rel="noopener">GitHub</a></p>
+        <p class="footer-note">Zero tracking. Zero ads. Just engineering honesty.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js?v=1.1" defer></script>
+  <script>
+    // Copy link button
+    document.querySelectorAll('.copy-link').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var url = this.getAttribute('data-url');
+        navigator.clipboard.writeText(url).then(function() {
+          var original = btn.textContent;
+          btn.textContent = 'Copied!';
+          setTimeout(function() { btn.textContent = original; }, 2000);
+        });
+      });
+    });
+    // Reading time
+    (function() {
+      var text = document.querySelector('article') ? document.querySelector('article').innerText : '';
+      var words = text.trim().split(/\s+/).length;
+      var minutes = Math.ceil(words / 220);
+      var el = document.querySelector('.reading-time');
+      if (el) el.textContent = minutes + ' min read';
+    })();
+    // Reading progress bar
+    (function() {
+      var bar = document.getElementById('reading-progress');
+      if (!bar) return;
+      function update() {
+        var scrollTop = window.scrollY;
+        var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        var pct = docHeight > 0 ? (scrollTop / docHeight * 100) : 0;
+        bar.style.width = pct + '%';
+      }
+      window.addEventListener('scroll', update, { passive: true });
+    })();
+  </script>
+</body>
+</html>

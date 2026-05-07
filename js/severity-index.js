@@ -425,6 +425,89 @@
     }
   }
 
+  // ─── History ──────────────────────────────────────────────────────────────────
+  function loadHistory() {
+    try {
+      var raw = localStorage.getItem('clearing_severity_history') || '[]';
+      return JSON.parse(raw);
+    } catch(e) { return []; }
+  }
+
+  function saveToHistory(entry) {
+    try {
+      var history = loadHistory();
+      history.unshift(entry);
+      if (history.length > 12) history = history.slice(0, 12);
+      localStorage.setItem('clearing_severity_history', JSON.stringify(history));
+    } catch(e) {}
+  }
+
+  function renderHistory(currentEntry) {
+    var history = loadHistory();
+    var section = el('historySection');
+    var listEl = el('historyList');
+    var actionsEl = el('historyActions');
+    if (!section) return;
+    if (history.length === 0) {
+      listEl.innerHTML = '<p class="history-empty">No prior assessments yet. Retaking this index will build your history over time.</p>';
+      actionsEl.innerHTML = '';
+      return;
+    }
+    var html = '<div class="history-list">';
+    history.forEach(function(entry, idx) {
+      var isCurrent = idx === 0 && entry.pct === currentEntry.pct;
+      var tier = getTier(entry.pct);
+      var prevEntry = idx < history.length - 1 ? history[idx + 1] : null;
+      var trendHtml = '';
+      if (prevEntry) {
+        var diff = entry.pct - prevEntry.pct;
+        if (diff < -2) {
+          trendHtml = '<span class="history-trend trend-up">\u2191 improving</span>';
+        } else if (diff > 2) {
+          trendHtml = '<span class="history-trend trend-down">\u2193 worsening</span>';
+        } else {
+          trendHtml = '<span class="history-trend trend-flat">\u2192 stable</span>';
+        }
+      }
+      html += '<div class="history-entry' + (isCurrent ? ' current' : '') + '">' +
+        '<div class="history-date">' +
+          '<div class="history-date-label">' + formatHistoryDate(entry.savedAt) + (isCurrent ? ' <em>(just now)</em>' : '') + '</div>' +
+          '<div class="history-date-meta">' + entry.tier + '</div>' +
+        '</div>' +
+        '<div class="history-score-wrap">' +
+          '<span class="history-score">' + entry.pct + ' / 100</span>' +
+          trendHtml +
+        '</div></div>';
+    });
+    html += '</div>';
+    listEl.innerHTML = html;
+    if (history.length > 1) {
+      actionsEl.innerHTML = '<button class="btn btn-ghost" id="clearHistoryBtn" style="font-size:0.78rem;">Clear history</button>';
+      var clearBtn = document.getElementById('clearHistoryBtn');
+      if (clearBtn) {
+        clearBtn.addEventListener('click', function() {
+          if (confirm('Clear all assessment history?')) {
+            localStorage.removeItem('clearing_severity_history');
+            renderHistory(currentEntry);
+          }
+        });
+      }
+    } else {
+      actionsEl.innerHTML = '';
+    }
+  }
+
+  function formatHistoryDate(iso) {
+    if (!iso) return 'Unknown';
+    var d = new Date(iso);
+    var now = new Date();
+    var diff = Math.floor((now - d) / 86400000);
+    if (diff === 0) return 'Today';
+    if (diff === 1) return 'Yesterday';
+    if (diff < 7) return diff + ' days ago';
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: d.getFullYear() !== now.getFullYear() ? 'numeric' : undefined });
+  }
+
   // ─── Results ───────────────────────────────────────────────────────────────
   function showResults() {
     hide(el('quizScreen'));
@@ -502,17 +585,22 @@
     setHTML(el('findingCards'), findingsHTML);
 
     // Save to localStorage
+    var entry = {
+      answers: answers,
+      axisScores: axisScores,
+      totalScore: totalScore,
+      totalMax: totalMax,
+      pct: pct,
+      tier: tier.label,
+      savedAt: new Date().toISOString()
+    };
     try {
-      localStorage.setItem('clearing_severity_index', JSON.stringify({
-        answers: answers,
-        axisScores: axisScores,
-        totalScore: totalScore,
-        totalMax: totalMax,
-        pct: pct,
-        tier: tier.label,
-        savedAt: new Date().toISOString()
-      }));
+      localStorage.setItem('clearing_severity_index', JSON.stringify(entry));
+      saveToHistory(entry);
     } catch(e) {}
+
+    // Render assessment history
+    renderHistory(entry);
 
     // Scroll to results
     el('resultsScreen').scrollIntoView({ behavior: 'smooth', block: 'start' });

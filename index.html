@@ -86,10 +86,14 @@
     @font-face{font-family:'Lora';font-style:italic;font-weight:400;font-display:swap;src:local('Georgia');ascent-override:94%;descent-override:23%;size-adjust:94%;}
   </style>
 
-  <!-- Font loading via fonts.css (async, font-display:optional — no render blocking) -->
-  <!-- Self-hosted fonts loaded via fonts.css -->
-  <link rel="preload" as="style" href="fonts/fonts.css" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link rel="stylesheet" href="fonts/fonts.css" /></noscript>
+  <!-- Google Fonts CDN — replaces self-hosted 318KB fonts (faster globally, Brotli-compressed ~30KB) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" />
+
+  <!-- Font loading via fonts.css — DISABLED (self-hosted fonts replaced by Google Fonts CDN) -->
+  <!-- <link rel="preload" as="style" href="fonts/fonts.css" onload="this.onload=null;this.rel='stylesheet'" /> -->
+  <!-- <noscript><link rel="stylesheet" href="fonts/fonts.css" /></noscript> -->
 
   <!-- Non-render-blocking CSS -->
   <link rel="stylesheet" href="css/style.min.css" />

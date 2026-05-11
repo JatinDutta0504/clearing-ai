@@ -4593,3 +4593,21 @@ URGENT: Twitter Thread #48 needs posting NOW. Reddit May 8-14 deploy tomorrow. N
 **Commit:** 5bc4b42
 **Site stats:** 193 pages | ~896k words | Day 8 post-launch | Lighthouse 97
 **Next window:** Phase 2 or continue Phase 1 pillar.
+
+### Hour f4509cba-786 — 2026-05-11 13:43 UTC / Mon May 11 6:43 AM PDT (PHASE 1)
+**Built:** `the-attention-merchants.html` (~4,100 words) — "The Attention Merchants: How AI Tool Marketing Creates Engineer Anxiety". Named concept dissecting how AI tool companies use fear-based marketing to keep engineers perpetually evaluating. 5-stage playbook (Gap Creation → Specific Fear → Social Proof Flood → Perpetual Update Cycle → Competitor's Threat), 5 marketing tropes with psychology explained, 7 escape tactics, team implications. Article + FAQPage (6 Q&As) + BreadcrumbList schema. Internal links → ai-tool-overload/skill-atrophy/productivity-theater/recovery. sitemap.xml updated (199 URLs). Commit 4aba8d5.
+**SEO:** "attention merchants AI" + "AI tool marketing anxiety" + "AI tool hype cycle" + "engineer tool anxiety" — deeply underserved, strong emotional resonance, high HN/Reddit shareability. Completes mini-cluster with ai-tool-overload + productivity-theater.
+**Next:** the-reward-prediction-error.html (neuroscience: why AI feedback loops feel good but hollow)
+
+
+### Hour f4509cba-789 — 2026-05-11 17:43 UTC (Phase 1 Window)
+**Built:** `first-year-engineer-ai-fatigue.html` (~4,000 words) — "AI Fatigue for First-Year Engineers: The Problem No One Warned You About"
+**Content:** 7 sections — gap between getting hired vs getting better, 4 reasons juniors hit hardest (no baseline/feedback loop/validation/industry story), 4 losses (confusion/start-from-scratch/confidence/vocabulary), 5 survival tactics, when to tell manager, protecting beginner's mind
+**Schema:** Article + FAQPage (5 Q&As) + BreadcrumbList
+**Nav:** Added to Understand dropdown on 60 pages
+**Feature card:** index.html after For Junior Engineers
+**SEO:** "first year engineer AI fatigue", "new grad software engineer AI", "junior developer skill gaps" — underserved high-intent cluster
+**~4,000 words added**
+**Commit:** `d49d54b`
+**Next:** LinkedIn Post 1 deploy Mon May 12 | HN May 15-16 | Reddit comments 5-8 May 10-14 | Day-14 emails OVERDUE
+

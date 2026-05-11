@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Attribution Problem — The Dispatch #47</title>
+  <meta name="description" content="When code you shipped that you didn't write becomes the thing you're most known for — the quiet identity crisis behind AI-assisted engineering.">
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-archive.html">
+  <meta property="og:title" content="The Attribution Problem — The Dispatch #47">
+  <meta property="og:description" content="When code you shipped that you didn't write becomes the thing you're most known for — the quiet identity crisis behind AI-assisted engineering.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/newsletter-archive.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Attribution Problem — The Dispatch #47">
+  <meta name="twitter:description" content="When code you shipped that you didn't write becomes the thing you're most known for — the quiet identity crisis behind AI-assisted engineering.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body { background: #0f1419; color: #c5cdd8; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.7; }
+    .dispatch-issue { max-width: 640px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+    .dispatch-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.5rem; }
+    .dispatch-label { background: #1a2633; color: #7bcf8e; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.7rem; border-radius: 3px; }
+    .dispatch-date { color: #5c6e7e; font-size: 0.8rem; }
+    h1 { color: #e8edf4; font-size: 2rem; font-weight: 700; margin: 0 0 0.5rem; letter-spacing: -0.02em; line-height: 1.2; }
+    .dispatch-subtitle { color: #8899a8; font-size: 1.05rem; margin: 0 0 1.5rem; font-weight: 400; }
+    .dispatch-divider { border: none; border-top: 1px solid #1e2a38; margin: 1.5rem 0; }
+    .dispatch-body h2 { color: #e8edf4; font-size: 1.15rem; font-weight: 600; margin: 2rem 0 0.75rem; letter-spacing: -0.01em; }
+    .dispatch-body p { margin: 0 0 1.2rem; }
+    .dispatch-body strong { color: #c5cdd8; font-weight: 600; }
+    .stat-callout { background: #161e28; border: 1px solid #1e2a38; border-radius: 6px; padding: 1.2rem 1.4rem; margin: 1.5rem 0; text-align: center; }
+    .stat-callout .stat { color: #e8a53c; font-size: 1.8rem; font-weight: 700; display: block; margin-bottom: 0.3rem; }
+    .stat-callout .stat-label { color: #8899a8; font-size: 0.85rem; }
+    .practice-card { background: #0f1a12; border: 1px solid #1a3325; border-radius: 8px; padding: 1.4rem 1.6rem; margin: 1.5rem 0; }
+    .practice-card h3 { color: #7bcf8e; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.6rem; }
+    .practice-card p { color: #8899a8; font-size: 0.9rem; margin: 0 0 0.8rem; }
+    .practice-card ol { color: #8899a8; font-size: 0.9rem; margin: 0.5rem 0 0 1.2rem; padding: 0; }
+    .practice-card li { margin: 0.4rem 0; }
+    .quote-block { background: #161e28; border-radius: 6px; padding: 1.4rem; margin: 1.5rem 0; border-left: 3px solid #7bcf8e; }
+    .quote-block p { color: #8899a8; font-size: 0.9rem; margin: 0 0 0.8rem; font-style: italic; }
+    .quote-block cite { color: #5c6e7e; font-size: 0.8rem; display: block; }
+    .cta-block { background: #1a2633; border-radius: 8px; padding: 1.4rem; margin: 2rem 0; text-align: center; }
+    .cta-block p { color: #8899a8; font-size: 0.9rem; margin: 0 0 0.8rem; }
+    .cta-block a { display: inline-block; background: #7bcf8e; color: #0f1419; font-weight: 700; font-size: 0.85rem; padding: 0.6rem 1.4rem; border-radius: 5px; text-decoration: none; margin: 0.25rem; }
+    .cta-block a.secondary { background: transparent; color: #7bcf8e; border: 1px solid #7bcf8e; }
+    .cta-block a:hover { opacity: 0.85; }
+    .closing { color: #5c6e7e; font-size: 0.85rem; font-style: italic; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #1e2a38; }
+    .numbered-list { counter-reset: item; list-style: none; padding: 0; margin: 1rem 0; }
+    .numbered-list li { counter-increment: item; padding-left: 2rem; position: relative; margin-bottom: 0.6rem; color: #8899a8; font-size: 0.9rem; }
+    .numbered-list li::before { content: counter(item); position: absolute; left: 0; color: #7bcf8e; font-weight: 700; font-size: 0.85rem; }
+    .insight-box { background: #0f1a12; border: 1px solid #1a3325; border-radius: 8px; padding: 1.4rem 1.6rem; margin: 2rem 0; }
+    .insight-box h3 { color: #7bcf8e; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.6rem; }
+    .insight-box p { color: #8899a8; font-size: 0.9rem; margin: 0 0 0.8rem; }
+    .insight-box a { color: #7bcf8e; text-decoration: none; border-bottom: 1px solid rgba(123,207,142,0.3); }
+    .insight-box a:hover { border-bottom-color: #7bcf8e; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Attribution Problem",
+    "description": "When code you shipped that you didn't write becomes the thing you're most known for — the quiet identity crisis behind AI-assisted engineering.",
+    "author": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+    "datePublished": "2026-05-11",
+    "dateModified": "2026-05-11",
+    "publisher": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+    "url": "https://clearing-ai.com/newsletter-issues/dispatch-47.html"
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="site-header">
+    <nav class="main-nav" role="navigation" aria-label="Main">
+      <a href="/" class="logo">🌿 The Clearing</a>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode" title="Toggle theme">🌙</button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <article class="dispatch-issue">
+      <header class="dispatch-header">
+        <span class="dispatch-label">The Dispatch — Issue #47</span>
+        <span class="dispatch-date">May 11, 2026</span>
+      </header>
+
+      <h1>The Attribution Problem</h1>
+      <p class="dispatch-subtitle">When code you shipped that you didn't write becomes the thing you're most known for — the quiet identity crisis behind AI-assisted engineering.</p>
+
+      <hr class="dispatch-divider">
+
+      <div class="dispatch-body">
+
+<p>There's a moment every engineer working with AI eventually hits.</p>
+
+<p>You're in a meeting. Someone asks how a feature got built. You have the answer — you know it was you, the architecture, the decision to build it this way versus that way — but the person asking isn't asking about that. They're asking about the code. And the code, the actual implementation, you didn't write.</p>
+
+<p>You approved. You guided. You reviewed. You made the calls when the AI got stuck. But the artifact they want to see? That came from a tab.</p>
+
+<p>This is the attribution problem. And it's more corrosive than it sounds.</p>
+
+<h2>The Version of You That Shows Up</h2>
+
+<p>When you ship a feature the traditional way, the story of who you are as an engineer is legible. The commits tell it. The PRs tell it. The code review comments, the tests you wrote, the edge cases you caught — these are all artifacts of a specific mind at work.</p>
+
+<p>When you ship with heavy AI assistance, those artifacts become ambiguous. The commits show your name. But they also show code you didn't conceive, decisions you didn't evaluate from scratch, implementations you accepted on first read.</p>
+
+<p>Your sense of "I built this" has a gap in it. Not a gap in the work — a gap in the felt experience of the work.</p>
+
+<p>And over time, that gap gets lonely.</p>
+
+<h2>Why It's Harder for Senior Engineers</h2>
+
+<p>Junior engineers navigating this are dealing with skill development. Senior engineers are dealing with something older: identity.</p>
+
+<p>You've spent years building a professional self around the ability to understand systems deeply. When that understanding gets outsourced — not because you're lazy, but because the tool is right there and the pressure to ship is real — something erodes that isn't about competence.</p>
+
+<p>It's about whether you feel like you.</p>
+
+<div class="quote-block">
+  <p>"I used to be able to look at a pull request I wrote two years ago and immediately feel where the pain points were. I could remember what I was thinking. Now when I look back at AI-assisted PRs, there's just... nothing. I don't recognize myself in the work."</p>
+  <cite>— Senior backend engineer, 7 years, healthcare tech</cite>
+</div>
+
+<p>That's the sentence worth sitting with.</p>
+
+<h2>The Quiet Compounding</h2>
+
+<p>The attribution problem compounds silently.</p>
+
+<p>You start to feel a slight distance from your own work. You stop talking about features in the first person — "we shipped X" becomes safer than "I built X." You become less confident in your own code judgment, not because your judgment has actually declined, but because you've stopped practicing it out loud.</p>
+
+<p>Eventually, you notice that when someone asks a deep question about the system, you feel a flicker of anxiety. Not because you don't know the answer, but because you're not sure the answer you know is actually yours.</p>
+
+<p>The erosion isn't dramatic. It's gradual. And you don't notice it until you realize you've stopped saying "I built this" altogether.</p>
+
+<h2>What Most Advice Gets Wrong</h2>
+
+<p>The standard responses to this are all slightly off-target:</p>
+
+<p><strong>"Use AI as a pair programmer, not an author."</strong> — This assumes the problem is how much you use AI. But the attribution problem exists at low usage levels too.</p>
+
+<p><strong>"Make sure you understand every line AI generates."</strong> — Correct in principle, exhausting in practice. You can understand every line and still not feel authorship.</p>
+
+<p><strong>"Attribution doesn't matter as long as the work gets done."</strong> — This is true economically and false psychologically. Engineers are not pure economic actors. The felt experience of making things is part of why most of us chose this work.</p>
+
+<h2>What Actually Helps</h2>
+
+<div class="practice-card">
+  <h3>Name it first.</h3>
+  <p>The attribution problem is not imaginary. It's real. Calling it by name — to yourself and to your team — removes the shame layer. You didn't stop being an engineer. You're navigating a genuinely new situation.</p>
+</div>
+
+<div class="practice-card">
+  <h3>Keep a decision log.</h3>
+  <p>Not a journal, not a diary. Just a plain text file where you capture the calls you made each week: "Chose to use a B-tree here instead of a hash map because X." "Rejected AI's suggestion because it would have introduced a circular dependency." These are the traces of your judgment that AI didn't make. They add up.</p>
+</div>
+
+<div class="practice-card">
+  <h3>Build one small thing without AI once a month.</h3>
+  <p>Not for any reason except to remember what it's like to solve something that was hard for you. The felt experience of difficulty, when it ends in solution, is where ownership lives.</p>
+</div>
+
+<div class="practice-card">
+  <h3>Separate "shipping" from "understanding."</h3>
+  <p>You can ship more and understand less. That can be fine economically. It doesn't have to be fine psychologically. Acknowledge both realities without forcing them into the same conversation.</p>
+</div>
+
+<h2>One Question to Sit With</h2>
+
+<p>Before your next AI-assisted review, ask yourself: do I know <strong>why</strong> this decision was made?</p>
+
+<p>Not "do I agree with it" — you can agree with AI output without understanding why it's right. Ask: do I know the reasoning? If the answer is no, that's not a failure. It's a gap. And gaps can be closed.</p>
+
+<p>The engineers who stay sharp aren't the ones who refuse AI. They're the ones who notice when they've outsourced their understanding — and who have a way back.</p>
+
+<div class="insight-box">
+  <h3>From the Community</h3>
+  <p>"My biggest fear isn't that AI will replace my job. It's that I'll forget what I actually know how to do. And one day someone will ask me a question and I'll have to answer from memory instead of understanding."</p>
+  <p>— Staff engineer, 9 years, fintech</p>
+  <p>If this landed, <a href="https://clearing-ai.com/quiz.html">take the 5-minute fatigue quiz</a>. You'll get a real read on where you stand — not a performance assessment, a calibration.</p>
+</div>
+
+<div class="insight-box">
+  <h3>This Week's Recommended Read</h3>
+  <p><a href="https://clearing-ai.com/developer-identity.html">developer-identity.html</a> — Who Am I Without My Code? The Identity Crisis at the Heart of Senior Engineer AI Fatigue. For anyone who's been in the game long enough to notice when something shifts.</p>
+</div>
+
+<div class="cta-block">
+  <p>One Thing You Can Do Today</p>
+  <p>Open a text file. Write down three decisions you made this week that weren't obvious — why you chose one approach over another, what tradeoffs you weighed. You don't have to share it. You just have to have the trace of your own thinking.</p>
+  <a href="https://clearing-ai.com/quiz.html">Take the AI Fatigue Quiz →</a>
+  <a href="https://clearing-ai.com/developer-identity.html" class="secondary">Read the Developer Identity Guide →</a>
+</div>
+
+<p class="closing">See you next week.<br>— Sunny<br><em>clearing-ai.com</em></p>
+
+      </div>
+    </article>
+  </main>
+</body>
+</html>

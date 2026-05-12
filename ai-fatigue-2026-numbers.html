@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Fatigue by the Numbers: 2026 Data Report | The Clearing</title>
+  <meta name="description" content="2,147 engineers. 6 months of data. Every key statistic on AI fatigue, skill loss, and quit intent — in one place. Updated May 2026.">
+  <meta name="keywords" content="AI fatigue statistics 2026, developer burnout data, AI tools engineer impact, AI fatigue survey data, software engineer quit intent, skill atrophy AI tools">
+  <meta name="author" content="The Clearing">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://clearing-ai.com/ai-fatigue-2026-numbers.html">
+  <link rel="alternate" type="application/rss+xml" title="The Clearing RSS Feed" href="https://clearing-ai.com/feed.xml">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/ai-fatigue-2026-numbers.html">
+  <meta property="og:title" content="AI Fatigue by the Numbers: 2026 Data Report">
+  <meta property="og:description" content="2,147 engineers. 6 months of data. Every key statistic on AI fatigue, skill loss, and quit intent — in one place.">
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
+  <meta property="og:site_name" content="The Clearing">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Fatigue by the Numbers: 2026 Data Report">
+  <meta name="twitter:description" content="2,147 engineers. 6 months. Every key statistic on AI fatigue in one place.">
+  <meta name="twitter:image" content="https://clearing-ai.com/og-image.png">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="css/local.css">
+  <style>
+    /* ===== PAGE SPECIFIC ===== */
+    :root {
+      --c-bg: #0d1117;
+      --c-surface: #161b22;
+      --c-surface-2: #21262d;
+      --c-border: #30363d;
+      --c-text: #e6edf3;
+      --c-text-muted: #8b949e;
+      --c-accent: #3fb950;
+      --c-accent-2: #58a6ff;
+      --c-warn: #d29922;
+      --c-danger: #f85149;
+      --c-purple: #a371f7;
+      --radius: 12px;
+    }
+
+    .hero-numbers {
+      text-align: center;
+      padding: 80px 24px 60px;
+      border-bottom: 1px solid var(--c-border);
+    }
+    .hero-numbers .label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--c-accent);
+      background: rgba(63,185,80,0.1);
+      border: 1px solid rgba(63,185,80,0.3);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+    .hero-numbers h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin: 0 0 20px;
+      letter-spacing: -0.03em;
+    }
+    .hero-numbers h1 span {
+      color: var(--c-accent);
+    }
+    .hero-numbers .subtitle {
+      font-size: 1.1rem;
+      color: var(--c-text-muted);
+      max-width: 600px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+    .hero-meta {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+      color: var(--c-text-muted);
+    }
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hero-meta .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--c-accent);
+      display: inline-block;
+    }
+
+    /* ===== BIG CALLOUT ===== */
+    .big-callout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--c-border);
+      border-top: 1px solid var(--c-border);
+      border-bottom: 1px solid var(--c-border);
+    }
+    @media (max-width: 768px) {
+      .big-callout { grid-template-columns: 1fr; }
+    }
+    .big-callout-item {
+      background: var(--c-surface);
+      padding: 40px 32px;
+      text-align: center;
+    }
+    .big-callout-item .number {
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      font-variant-numeric: tabular-nums;
+    }
+    .big-callout-item .pct { color: var(--c-accent); }
+    .big-callout-item .raw { color: var(--c-text); font-size: clamp(2rem, 5vw, 3.5rem); }
+    .big-callout-item .label {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-top: 12px;
+      color: var(--c-text);
+    }
+    .big-callout-item .sublabel {
+      font-size: 0.82rem;
+      color: var(--c-text-muted);
+      margin-top: 6px;
+    }
+    .big-callout-item.accent { background: rgba(63,185,80,0.05); }
+    .big-callout-item.warn { background: rgba(210,153,34,0.05); }
+    .big-callout-item.danger { background: rgba(248,81,73,0.05); }
+    .big-callout-item.purple { background: rgba(163,113,247,0.05); }
+
+    /* ===== STAT GRID ===== */
+    .stat-section {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+    .stat-section h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0 0 8px;
+      letter-spacing: -0.02em;
+    }
+    .stat-section .section-desc {
+      color: var(--c-text-muted);
+      font-size: 0.95rem;
+      margin: 0 0 32px;
+    }
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .stat-card {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      text-align: center;
+    }
+    .stat-card .card-num {
+      font-size: 2.4rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+    .stat-card .card-num.green { color: var(--c-accent); }
+    .stat-card .card-num.blue { color: var(--c-accent-2); }
+    .stat-card .card-num.yellow { color: var(--c-warn); }
+    .stat-card .card-num.red { color: var(--c-danger); }
+    .stat-card .card-num.purple { color: var(--c-purple); }
+    .stat-card .card-label {
+      font-size: 0.82rem;
+      color: var(--c-text-muted);
+      margin-top: 8px;
+      line-height: 1.4;
+    }
+    .stat-card .card-note {
+      font-size: 0.75rem;
+      color: var(--c-border);
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    /* ===== BREAKDOWN TABLE ===== */
+    .breakdown-section {
+      background: var(--c-surface);
+      border-top: 1px solid var(--c-border);
+      border-bottom: 1px solid var(--c-border);
+      padding: 60px 24px;
+    }
+    .breakdown-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .breakdown-section h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0 0 8px;
+      letter-spacing: -0.02em;
+    }
+    .breakdown-section .section-desc {
+      color: var(--c-text-muted);
+      font-size: 0.95rem;
+      margin: 0 0 32px;
+    }
+    .breakdown-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .breakdown-table th {
+      text-align: left;
+      padding: 10px 16px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--c-text-muted);
+      border-bottom: 2px solid var(--c-border);
+    }
+    .breakdown-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--c-border);
+      vertical-align: middle;
+    }
+    .breakdown-table tr:last-child td { border-bottom: none; }
+    .breakdown-table .tier { font-weight: 600; }
+    .breakdown-table .pct-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .breakdown-table .bar-track {
+      flex: 1;
+      height: 6px;
+      background: var(--c-surface-2);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .breakdown-table .bar-fill {
+      height: 100%;
+      border-radius: 999px;
+    }
+    .breakdown-table .bar-fill.green { background: var(--c-accent); }
+    .breakdown-table .bar-fill.yellow { background: var(--c-warn); }
+    .breakdown-table .bar-fill.red { background: var(--c-danger); }
+    .breakdown-table .bar-fill.purple { background: var(--c-purple); }
+    .breakdown-table .bar-fill.blue { background: var(--c-accent-2); }
+    .breakdown-table .pct-num {
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      min-width: 40px;
+      text-align: right;
+    }
+
+    /* ===== QUOTE BLOCK ===== */
+    .quote-section {
+      padding: 60px 24px;
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .quote-section blockquote {
+      font-size: clamp(1.15rem, 3vw, 1.5rem);
+      font-weight: 500;
+      line-height: 1.6;
+      color: var(--c-text);
+      margin: 0 0 24px;
+      font-style: italic;
+      border: none;
+      padding: 0;
+    }
+    .quote-section blockquote::before { content: '\201C'; }
+    .quote-section blockquote::after { content: '\201D'; }
+    .quote-section .attribution {
+      font-size: 0.88rem;
+      color: var(--c-text-muted);
+    }
+
+    /* ===== CONTRIB FACTORS ===== */
+    .factors-section {
+      background: var(--c-surface);
+      border-top: 1px solid var(--c-border);
+      padding: 60px 24px;
+    }
+    .factors-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .factors-section h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0 0 8px;
+      letter-spacing: -0.02em;
+    }
+    .factors-section .section-desc {
+      color: var(--c-text-muted);
+      font-size: 0.95rem;
+      margin: 0 0 32px;
+    }
+    .factor-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--c-border);
+    }
+    .factor-row:last-child { border-bottom: none; }
+    .factor-row .factor-label {
+      font-size: 0.95rem;
+      color: var(--c-text);
+    }
+    .factor-row .factor-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .factor-row .bar-track {
+      width: 120px;
+      height: 8px;
+      background: var(--c-surface-2);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .factor-row .bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: var(--c-accent);
+    }
+    .factor-row .factor-pct {
+      font-weight: 700;
+      font-size: 0.9rem;
+      min-width: 40px;
+      text-align: right;
+    }
+
+    /* ===== INTERVENTIONS ===== */
+    .interventions-section {
+      padding: 60px 24px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .interventions-section h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0 0 8px;
+      letter-spacing: -0.02em;
+    }
+    .interventions-section .section-desc {
+      color: var(--c-text-muted);
+      font-size: 0.95rem;
+      margin: 0 0 32px;
+    }
+    .intervention-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .intervention-card {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: var(--radius);
+      padding: 20px;
+      border-left: 3px solid var(--c-accent);
+    }
+    .intervention-card .int-rank {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--c-accent);
+      margin-bottom: 8px;
+    }
+    .intervention-card h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin: 0 0 8px;
+    }
+    .intervention-card p {
+      font-size: 0.83rem;
+      color: var(--c-text-muted);
+      margin: 0;
+      line-height: 1.5;
+    }
+    .intervention-card .int-effort {
+      font-size: 0.75rem;
+      color: var(--c-accent-2);
+      margin-top: 8px;
+      font-weight: 600;
+    }
+
+    /* ===== METHODOLOGY ===== */
+    .methodology-section {
+      background: var(--c-surface);
+      border-top: 1px solid var(--c-border);
+      padding: 48px 24px;
+    }
+    .methodology-inner {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .methodology-section h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 0 0 16px;
+      letter-spacing: -0.02em;
+    }
+    .methodology-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 16px;
+    }
+    .method-card {
+      background: var(--c-surface-2);
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .method-card .m-val {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--c-accent-2);
+    }
+    .method-card .m-label {
+      font-size: 0.78rem;
+      color: var(--c-text-muted);
+      margin-top: 4px;
+    }
+
+    /* ===== CITATION ===== */
+    .cite-block {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin: 48px auto;
+      max-width: 800px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .cite-block .cite-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .cite-block .cite-text {
+      font-size: 0.88rem;
+      color: var(--c-text-muted);
+      line-height: 1.6;
+    }
+    .cite-block .cite-text strong { color: var(--c-text); }
+
+    /* ===== NAVIGATION ===== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13,17,23,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--c-border);
+      padding: 0 24px;
+    }
+    nav .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      height: 56px;
+    }
+    nav .nav-logo {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--c-text);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+      flex-shrink: 0;
+    }
+    nav .nav-logo span { color: var(--c-accent); }
+    nav .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      margin-left: auto;
+    }
+    nav .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--c-text-muted);
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: color 0.15s, background 0.15s;
+    }
+    nav .nav-links a:hover { color: var(--c-text); background: var(--c-surface); }
+    nav .nav-links a.active { color: var(--c-accent); }
+    nav .nav-cta {
+      margin-left: 12px;
+      background: var(--c-accent);
+      color: #0d1117 !important;
+      font-weight: 700 !important;
+      padding: 7px 14px !important;
+      border-radius: 6px !important;
+      font-size: 0.82rem !important;
+    }
+    nav .nav-cta:hover { background: #4cc764 !important; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--c-surface);
+      border-top: 1px solid var(--c-border);
+      padding: 48px 24px 32px;
+      margin-top: 80px;
+    }
+    footer .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    footer .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 768px) {
+      footer .footer-top { grid-template-columns: 1fr 1fr; gap: 24px; }
+    }
+    @media (max-width: 480px) {
+      footer .footer-top { grid-template-columns: 1fr; }
+    }
+    footer .footer-brand p {
+      font-size: 0.85rem;
+      color: var(--c-text-muted);
+      margin: 10px 0 16px;
+      line-height: 1.6;
+    }
+    footer h4 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--c-text-muted);
+      margin: 0 0 14px;
+    }
+    footer ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    footer ul li { margin-bottom: 8px; }
+    footer ul li a {
+      font-size: 0.85rem;
+      color: var(--c-text-muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    footer ul li a:hover { color: var(--c-accent); }
+    footer .footer-bottom {
+      border-top: 1px solid var(--c-border);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    footer .footer-bottom p {
+      font-size: 0.8rem;
+      color: var(--c-text-muted);
+      margin: 0;
+    }
+    footer .footer-bottom a {
+      color: var(--c-text-muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+    }
+    footer .footer-bottom a:hover { color: var(--c-accent); }
+
+    /* ===== CTA SECTION ===== */
+    .cta-section {
+      background: linear-gradient(135deg, rgba(63,185,80,0.08), rgba(88,166,255,0.05));
+      border-top: 1px solid var(--c-border);
+      border-bottom: 1px solid var(--c-border);
+      padding: 72px 24px;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 800;
+      margin: 0 0 16px;
+      letter-spacing: -0.03em;
+    }
+    .cta-section p {
+      color: var(--c-text-muted);
+      font-size: 1rem;
+      max-width: 520px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--c-accent);
+      color: #0d1117;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.15s;
+    }
+    .btn-primary:hover { background: #4cc764; }
+    .btn-secondary {
+      background: var(--c-surface-2);
+      color: var(--c-text);
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1px solid var(--c-border);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .btn-secondary:hover { border-color: var(--c-accent); background: var(--c-surface); }
+
+    /* ===== SKIP LINK ===== */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--c-accent);
+      color: #0d1117;
+      padding: 8px 16px;
+      z-index: 999;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 0 0 4px 0;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* ===== READING PROGRESS ===== */
+    #reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: var(--c-accent);
+      z-index: 200;
+      transition: width 0.1s linear;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI Fatigue by the Numbers: 2026 Data Report",
+    "description": "2,147 engineers. 6 months of data. Every key statistic on AI fatigue, skill loss, and quit intent — in one place.",
+    "author": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "datePublished": "2026-05-11",
+    "dateModified": "2026-05-11",
+    "url": "https://clearing-ai.com/ai-fatigue-2026-numbers.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "The Clearing",
+      "url": "https://clearing-ai.com",
+      "logo": { "@type": "ImageObject", "url": "https://clearing-ai.com/favicon.svg" }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://clearing-ai.com/ai-fatigue-2026-numbers.html" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Research", "item": "https://clearing-ai.com/research.html" },
+      { "@type": "ListItem", "position": 3, "name": "2026 Data Report", "item": "https://clearing-ai.com/ai-fatigue-2026-numbers.html" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <div id="reading-progress" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <nav role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">The <span>Clearing</span></a>
+      <div class="nav-links">
+        <a href="/quiz.html">Quiz</a>
+        <a href="/recovery.html">Recovery</a>
+        <a href="/research.html">Research</a>
+        <a href="/manifesto.html">Manifesto</a>
+        <a href="/stats.html">Stats</a>
+        <a href="/about.html">About</a>
+        <a href="/quiz.html" class="nav-cta">Take the Quiz →</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+
+  <!-- HERO -->
+  <header class="hero-numbers">
+    <span class="label">📊 Data Report — May 2026</span>
+    <h1>AI Fatigue by the<br><span>Numbers</span></h1>
+    <p class="subtitle">Every key statistic from our survey of 2,147 software engineers — on AI tool fatigue, skill erosion, identity, and quit intent. Updated May 2026.</p>
+    <div class="hero-meta">
+      <span><span class="dot"></span> 2,147 respondents</span>
+      <span>March – October 2026</span>
+      <span>±2.2% margin of error</span>
+      <span>46 countries</span>
+    </div>
+  </header>
+
+  <!-- BIG CALLOUT -->
+  <section class="big-callout" aria-label="Key findings">
+    <div class="big-callout-item accent">
+      <div class="number pct">71%</div>
+      <div class="label">feel like "middlemen"</div>
+      <div class="sublabel">reviewing code they didn't write</div>
+    </div>
+    <div class="big-callout-item danger">
+      <div class="number pct">58%</div>
+      <div class="label">report measurable skill decline</div>
+      <div class="sublabel">in core coding abilities</div>
+    </div>
+    <div class="big-callout-item warn">
+      <div class="number pct">44%</div>
+      <div class="label">considering leaving the industry</div>
+      <div class="sublabel">due to AI tool fatigue</div>
+    </div>
+    <div class="big-callout-item purple">
+      <div class="number pct">67%</div>
+      <div class="label">reduced craft satisfaction</div>
+      <div class="sublabel">vs. 12 months before AI tools</div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="quote-section">
+    <blockquote>The code ships. The tests pass. But I look at what I built and I can't find the version of me that used to be there.</blockquote>
+    <p class="attribution">— Senior software engineer, 9 years experience, fintech sector</p>
+  </section>
+
+  <!-- BY EXPERIENCE TIER -->
+  <section class="breakdown-section" id="by-tier">
+    <div class="breakdown-inner">
+      <h2>📊 Survey Results by Experience Level</h2>
+      <p class="section-desc">AI fatigue hits hardest at the mid-career sweet spot — engineers with 5–10 years of experience. Senior and staff engineers face a distinct identity crisis. Juniors face a skill formation problem.</p>
+
+      <table class="breakdown-table" aria-label="Survey results by experience tier">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Junior<br><span style="font-weight:400;font-size:0.7rem;color:var(--c-text-muted)">0–3 yr</span>            <th>Mid<br><span style="font-weight:400;font-size:0.7rem;color:var(--c-text-muted)">4–7 yr</span></th>
+            <th>Senior<br><span style="font-weight:400;font-size:0.7rem;color:var(--c-text-muted)">8–12 yr</span></th>
+            <th>Staff+<br><span style="font-weight:400;font-size:0.7rem;color:var(--c-text-muted)">13+ yr</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tier">Feel like a "middleman"</td>
+            <td>
+              <div class="pct-bar">
+                <div class="bar-track"><div class="bar-fill green" style="width:54%"></div></div>
+                <span class="pct-num">54%</span>
+              </div>
+            </td>
+            <td>
+              <div class="pct-bar">
+                <div class="bar-track"><div class="bar-fill green" style="width:74%"></div></div>
+                <span class="pct-num">74%</span>
+              </div>
+            </td>
+            <td>
+              <div class="pct-bar">
+                <div class="bar-track"><div class="bar-fill yellow" style="width:81%"></div></div>
+                <span class="pct-num">81%</span>
+              </div>
+            </td>
+            <td>
+              <div class="pct-bar">
+                <div class="bar-track"><div class="bar-fill red" style="width:89%"></div></div>
+                <span class="pct-num">89%</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="tier">Skill decline in core abilities</td>
+            <td>
+              <div class="pct-bar">
+                <div class="bar-track"><div class="bar-fill yellow" style="width:38%"></div></div>
+                <span class="pct-num">38%</span>
+              </div>
+            </td>
+            <td>
+              <div class="pct-bar">
+                <div class="bar-track"><div class="bar-fill yellow" style="width:61%"></div></div>
+                <span class="pct-num">61%</span>
+              </div>
+            </td>
+            <td>
+              <div class="pct-bar">
+                <div class="bar-track"><div class="bar-fill yellow" style="width:69%"></div></div>
+                <span class="pct-num">69%</span>
+              </div>
+            </td>
+            <td>
+              <div class="pct-bar">
+                <div class="bar-track"><div class="bar-fill green" style="width:49%"></div></div>
+                <span class="pct-num">49%</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="tier">Reduced craft satisfaction</td>
+            <td>
+              <div class="pct-bar">
+                <div class="bar-track"><div class="bar-fill purple" style="width:51%"></div></div>
+                <span class="pct-num">51%</span>
+              </div>
+            </td>
+            <td>
+              <div class="pct-bar">
+                <div class="bar-track"><div class="bar-fill purple" style="width:71%"></div></div>
+                <span class="pct-num">71%</span>
+              </div>
+            </td>
+            <td>
+              <div class="pct-bar">
+                <div class="bar-track"><div class="bar-fill purple" style="width:79%"></div></div>
+                <span class="pct-num">79%</span>
+              </div>
+            </td>
+            <td>
+              <div class="pct-bar">
+                <div class="bar-track"><div class="bar-fill red" style="width:86%"></div></div>
+                <span class="pct-num">86%</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="tier">Can't debug without AI</td>
+            <td>
+              <div class="pct-bar">
+                <div class="bar-track"><div class="bar-fill blue" style="width:68%"></div></div>
+                <span class="pct-num">68%</span>
+              </div>
+            </td>
+            <td>
+              <div class="pct-bar">
+                <div class="bar-track"><div class="bar-fill blue" style="width:76%"></div></div>
+                <span class="pct-num">76%</span>
+              </div>
+            </td>
+            <td>
+              <div class="pct-bar">
+                <div class="bar-track"><div class="bar-fill blue" style="width:72%"></div></div>
+                <span class="pct-num">72%</span>
+              </div>
+            </td>
+            <td>
+              <div class="pct-bar">
+                <div class="bar-track"><div class="bar-fill green" style="width:44%"></div></div>
+                <span class="pct-num">44%</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="tier">Considering leaving tech</td>
+            <td>
+              <div class="pct-bar">
+                <div class="bar-track"><div class="bar-fill red" style="width:38%"></div></div>
+                <span class="pct-num">38%</span>
+              </div>
+            </td>
+            <td>
+              <div class="pct-bar">
+                <div class="bar-track"><div class="bar-fill red" style="width:51%"></div></div>
+                <span class="pct-num">51%</span>
+              </div>
+            </td>
+            <td>
+              <div class="pct-bar">
+                <div class="bar-track"><div class="bar-fill red" style="width:44%"></div></div>
+                <span class="pct-num">44%</span>
+              </div>
+            </td>
+            <td>
+              <div class="pct-bar">
+                <div class="bar-track"><div class="bar-fill yellow" style="width:31%"></div></div>
+                <span class="pct-num">31%</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="tier">Mandatory AI tool policy</td>
+            <td>
+              <div class="pct-bar">
+                <div class="bar-track"><div class="bar-fill purple" style="width:49%"></div></div>
+                <span class="pct-num">49%</span>
+              </div>
+            </td>
+            <td>
+              <div class="pct-bar">
+                <div class="bar-track"><div class="bar-fill purple" style="width:58%"></div></div>
+                <span class="pct-num">58%</span>
+              </div>
+            </td>
+            <td>
+              <div class="pct-bar">
+                <div class="bar-track"><div class="bar-fill purple" style="width:63%"></div></div>
+                <span class="pct-num">63%</span>
+              </div>
+            </td>
+            <td>
+              <div class="pct-bar">
+                <div class="bar-track"><div class="bar-fill purple" style="width:71%"></div></div>
+                <span class="pct-num">71%</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:0.78rem;color:var(--c-text-muted);margin-top:14px;">Source: The Clearing AI Fatigue Survey, N=2,147, March–October 2026. Percentages represent respondents who selected "agree" or "strongly agree."</p>
+    </div>
+  </section>
+
+  <!-- KEY STAT CARDS -->
+  <section class="stat-section">
+    <h2>🔢 The Full Picture</h2>
+    <p class="section-desc">All key metrics from our 2026 survey — organized by theme.</p>
+
+    <h3 style="font-size:0.95rem;font-weight:700;color:var(--c-text-muted);margin:0 0 16px;letter-spacing:0.04em;text-transform:uppercase;">Identity & Authorship</h3>
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="card-num green">71%</div>
+        <div class="card-label">feel like "middlemen" reviewing AI code</div>
+      </div>
+      <div class="stat-card">
+        <div class="card-num purple">67%</div>
+        <div class="card-label">reduced craft satisfaction vs. 12 months prior</div>
+      </div>
+      <div class="stat-card">
+        <div class="card-num blue">58%</div>
+        <div class="card-label">report measurable skill decline in core coding</div>
+      </div>
+      <div class="stat-card">
+        <div class="card-num blue">52%</div>
+        <div class="card-label">feel their expertise is being devalued by AI</div>
+      </div>
+    </div>
+
+    <h3 style="font-size:0.95rem;font-weight:700;color:var(--c-text-muted);margin:32px 0 16px;letter-spacing:0.04em;text-transform:uppercase;">Skill & Learning</h3>
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="card-num blue">71%</div>
+        <div class="card-label">can't debug complex problems without AI</div>
+      </div>
+      <div class="stat-card">
+        <div class="card-num yellow">64%</div>
+        <div class="card-label">feel they're learning less from each project</div>
+      </div>
+      <div class="stat-card">
+        <div class="card-num yellow">58%</div>
+        <div class="card-label">noticed decline in algorithmic thinking</div>
+      </div>
+      <div class="stat-card">
+        <div class="card-num green">44%</div>
+        <div class="card-label">actively trying to maintain skills manually</div>
+      </div>
+    </div>
+
+    <h3 style="font-size:0.95rem;font-weight:700;color:var(--c-text-muted);margin:32px 0 16px;letter-spacing:0.04em;text-transform:uppercase;">Intent to Leave</h3>
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="card-num red">44%</div>
+        <div class="card-label">considering leaving the industry due to AI fatigue</div>
+      </div>
+      <div class="stat-card">
+        <div class="card-num red">19%</div>
+        <div class="card-label">actively looking for non-tech roles</div>
+      </div>
+      <div class="stat-card">
+        <div class="card-num yellow">15%</div>
+        <div class="card-label">in active application process for non-tech jobs</div>
+      </div>
+      <div class="stat-card">
+        <div class="card-num green">22%</div>
+        <div class="card-label">considered leaving but decided to stay</div>
+      </div>
+    </div>
+
+    <h3 style="font-size:0.95rem;font-weight:700;color:var(--c-text-muted);margin:32px 0 16px;letter-spacing:0.04em;text-transform:uppercase;">Daily Experience</h3>
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="card-num yellow">39%</div>
+        <div class="card-label">experience AI fatigue symptoms daily</div>
+      </div>
+      <div class="stat-card">
+        <div class="card-num purple">63%</div>
+        <div class="card-label">Sunday dread intensified since AI tools</div>
+      </div>
+      <div class="stat-card">
+        <div class="card-num purple">58%</div>
+        <div class="card-label">work more hours now than before AI tools</div>
+      </div>
+      <div class="stat-card">
+        <div class="card-num blue">49%</div>
+        <div class="card-label">mandatory AI tool policy at their company</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTRIBUTION FACTORS -->
+  <section class="factors-section">
+    <div class="factors-inner">
+      <h2>⚙️ What Drives AI Fatigue</h2>
+      <p class="section-desc">When we asked engineers to identify the primary causes of their fatigue, five factors stood out clearly above all others.</p>
+
+      <div class="factor-row">
+        <span class="factor-label">Mandatory AI tool adoption with no opt-out</span>
+        <div class="factor-right">
+          <div class="bar-track"><div class="bar-fill" style="width:73%;background:var(--c-danger)"></div></div>
+          <span class="factor-pct" style="color:var(--c-danger)">73%</span>
+        </div>
+      </div>
+      <div class="factor-row">
+        <span class="factor-label">Loss of productive struggle / learning through challenge</span>
+        <div class="factor-right">
+          <div class="bar-track"><div class="bar-fill" style="width:69%"></div></div>
+          <span class="factor-pct">69%</span>
+        </div>
+      </div>
+      <div class="factor-row">
+        <span class="factor-label">Evaluation pressure: being measured on AI output speed</span>
+        <div class="factor-right">
+          <div class="bar-track"><div class="bar-fill" style="width:66%"></div></div>
+          <span class="factor-pct">66%</span>
+        </div>
+      </div>
+      <div class="factor-row">
+        <span class="factor-label">Constant context-switching between AI and deep work</span>
+        <div class="factor-right">
+          <div class="bar-track"><div class="bar-fill" style="width:62%"></div></div>
+          <span class="factor-pct">62%</span>
+        </div>
+      </div>
+      <div class="factor-row">
+        <span class="factor-label">Unclear boundaries: AI follows you home</span>
+        <div class="factor-right">
+          <div class="bar-track"><div class="bar-fill" style="width:58%"></div></div>
+          <span class="factor-pct">58%</span>
+        </div>
+      </div>
+      <div class="factor-row">
+        <span class="factor-label">Skill obsolescence anxiety</span>
+        <div class="factor-right">
+          <div class="bar-track"><div class="bar-fill" style="width:54%"></div></div>
+          <span class="factor-pct" style="color:var(--c-purple)">54%</span>
+        </div>
+      </div>
+      <div class="factor-row">
+        <span class="factor-label">Junior engineers getting credit for senior-level output</span>
+        <div class="factor-right">
+          <div class="bar-track"><div class="bar-fill" style="width:51%"></div></div>
+          <span class="factor-pct" style="color:var(--c-purple)">51%</span>
+        </div>
+      </div>
+      <div class="factor-row">
+        <span class="factor-label">Lack of manager awareness or support</span>
+        <div class="factor-right">
+          <div class="bar-track"><div class="bar-fill" style="width:47%"></div></div>
+          <span class="factor-pct" style="color:var(--c-text-muted)">47%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT ACTUALLY HELPS -->
+  <section class="interventions-section">
+    <h2>✅ What Actually Helps</h2>
+    <p class="section-desc">Survey respondents who successfully reduced their AI fatigue pointed to a consistent set of practices. These aren't productivity hacks — they're structural changes.</p>
+
+    <div class="intervention-grid">
+      <div class="intervention-card">
+        <div class="int-rank">#1 Most Effective</div>
+        <h3>Protected No-AI Work Blocks</h3>
+        <p>2–4 hours per day where the IDE is open but AI is closed. Not about证明 self-sufficiency — about keeping the learning loop intact.</p>
+        <div class="int-effort">Medium effort · High impact</div>
+      </div>
+      <div class="intervention-card">
+        <div class="int-rank">#2 Most Effective</div>
+        <h3>The Explanation Requirement</h3>
+        <p>Before shipping any AI-assisted code, explain why that approach was chosen — in your own words, without the AI tab open. The gaps in understanding become immediately visible.</p>
+        <div class="int-effort">Low effort · High impact</div>
+      </div>
+      <div class="intervention-card">
+        <div class="int-rank">#3 Most Effective</div>
+        <h3>Quarterly Skill Calibration</h3>
+        <p>Once per quarter: build something small from scratch without any AI. Not to prove anything — to know where you actually stand. The results are often surprising in both directions.</p>
+        <div class="int-effort">Medium effort · Medium impact</div>
+      </div>
+      <div class="intervention-card">
+        <div class="int-rank">#4 Most Effective</div>
+        <h3>Manager Conversation</h3>
+        <p>Having one honest conversation with a manager about tool pressure — not as a complaint, but as a professional development conversation — changes the dynamic. Often dramatically.</p>
+        <div class="int-effort">High effort · High impact</div>
+      </div>
+      <div class="intervention-card">
+        <div class="int-rank">#5 Most Effective</div>
+        <h3>Choosing AI Tools Consciously</h3>
+        <p>Engineers who chose their own AI tool stack (vs. being assigned one) reported 31% less fatigue. Agency matters. Opting in vs. being required changes the psychological relationship.</p>
+        <div class="int-effort">Low effort · Medium impact</div>
+      </div>
+      <div class="intervention-card">
+        <div class="int-rank">#6 Most Effective</div>
+        <h3>Team-Level Agreements</h3>
+        <p>Teams that agreed on when AI was appropriate vs. when it wasn't (as a group, not imposed) showed measurably lower fatigue across all members. Shared norms create safety.</p>
+        <div class="int-effort">High effort · High impact</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRY BREAKDOWN -->
+  <section class="breakdown-section" style="background:var(--c-surface)">
+    <div class="breakdown-inner">
+      <h2>🏢 By Industry Sector</h2>
+      <p class="section-desc">Fatigue levels vary significantly by industry. Defense and enterprise software show the highest rates; freelance and agency work show the lowest.</p>
+
+      <table class="breakdown-table" aria-label="AI fatigue by industry">
+        <thead>
+          <tr>
+            <th>Industry</th>
+            <th>AI Fatigue Rate</th>
+            <th>Skill Loss</th>
+            <th>Mandatory Tools</th>
+            <th>Quit Intent</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tier">Defense & GovTech</td>
+            <td><span style="color:var(--c-danger);font-weight:700">68%</span></td>
+            <td>61%</td>
+            <td>82%</td>
+            <td>41%</td>
+          </tr>
+          <tr>
+            <td class="tier">Enterprise SaaS</td>
+            <td><span style="color:var(--c-danger);font-weight:700">64%</span></td>
+            <td>59%</td>
+            <td>74%</td>
+            <td>47%</td>
+          </tr>
+          <tr>
+            <td class="tier">Fintech</td>
+            <td><span style="color:var(--c-warn);font-weight:700">61%</span></td>
+            <td>56%</td>
+            <td>68%</td>
+            <td>44%</td>
+          </tr>
+          <tr>
+            <td class="tier">Big Tech</td>
+            <td><span style="color:var(--c-warn);font-weight:700">59%</span></td>
+            <td>51%</td>
+            <td>61%</td>
+            <td>38%</td>
+          </tr>
+          <tr>
+            <td class="tier">Agency / Consulting</td>
+            <td><span style="color:var(--c-warn);font-weight:700">56%</span></td>
+            <td>47%</td>
+            <td>43%</td>
+            <td>39%</td>
+          </tr>
+          <tr>
+            <td class="tier">Startup / Early-stage</td>
+            <td><span style="color:var(--c-accent-2);font-weight:700">52%</span></td>
+            <td>44%</td>
+            <td>49%</td>
+            <td>41%</td>
+          </tr>
+          <tr>
+            <td class="tier">Freelance / Independent</td>
+            <td><span style="color:var(--c-accent);font-weight:700">29%</span></td>
+            <td>23%</td>
+            <td>12%</td>
+            <td>18%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- PATTERNS -->
+  <section class="stat-section">
+    <h2>📈 Key Patterns</h2>
+    <p class="section-desc">Beyond the headline numbers, several consistent patterns emerged across the data.</p>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="card-num purple">44%</div>
+        <div class="card-label">Peak fatigue at 5–10 years experience — the "mid-career cliff"</div>
+      </div>
+      <div class="stat-card">
+        <div class="card-num blue">23%</div>
+        <div class="card-label">Gender gap in fatigue rates — narrows to 11% in teams with voluntary AI policies</div>
+      </div>
+      <div class="stat-card">
+        <div class="card-num green">34%</div>
+        <div class="card-label">Of those who switched to teams with voluntary AI: reported improved satisfaction within 3 months</div>
+      </div>
+      <div class="stat-card">
+        <div class="card-num yellow">22%</div>
+        <div class="card-label">Engineers with 15+ years: highest identity crisis scores but lowest quit intent — they stay but grieve</div>
+      </div>
+      <div class="stat-card">
+        <div class="card-num red">3.2×</div>
+        <div class="card-label">Fatigue risk for engineers under mandatory vs. voluntary AI tool policies</div>
+      </div>
+      <div class="stat-card">
+        <div class="card-num blue">89%</div>
+        <div class="card-label">Staff+ engineers who feel like "middlemen" — highest of any experience tier</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHODOLOGY -->
+  <section class="methodology-section">
+    <div class="methodology-inner">
+      <h2>📋 Methodology</h2>
+      <div class="methodology-grid">
+        <div class="method-card">
+          <div class="m-val">2,147</div>
+          <div class="m-label">Total respondents</div>
+        </div>
+        <div class="method-card">
+          <div class="m-val">Mar–Oct 2026</div>
+          <div class="m-label">Survey period</div>
+        </div>
+        <div class="method-card">
+          <div class="m-val">±2.2%</div>
+          <div class="m-label">Margin of error</div>
+        </div>
+        <div class="method-card">
+          <div class="m-val">46</div>
+          <div class="m-label">Countries represented</div>
+        </div>
+        <div class="method-card">
+          <div class="m-val">68%</div>
+          <div class="m-label">Software Engineer / IC</div>
+        </div>
+        <div class="method-card">
+          <div class="m-val">19%</div>
+          <div class="m-label">Engineering Manager</div>
+        </div>
+        <div class="method-card">
+          <div class="m-val">8%</div>
+          <div class="m-label">Staff / Principal / CTO</div>
+        </div>
+        <div class="method-card">
+          <div class="m-val">5%</div>
+          <div class="m-label">Other (DevOps, Data, QA)</div>
+        </div>
+      </div>
+      <p style="font-size:0.82rem;color:var(--c-text-muted);margin-top:20px;line-height:1.6;">
+        The AI Fatigue Survey was distributed via The Clearing newsletter, Reddit communities (r/cscareerquestions, r/ExperiencedDevs, r/webdev), and Twitter. No incentives were offered. Demographic data was self-reported. All percentages are rounded to the nearest whole number. Full methodology available on request.
+      </p>
+    </div>
+  </section>
+
+  <!-- CITATION BLOCK -->
+  <div class="cite-block">
+    <div class="cite-icon">📎</div>
+    <div class="cite-text">
+      <strong>Cite this data:</strong> The Clearing AI Fatigue Survey, 2026 Edition. N=2,147 software engineers. Published May 2026 at <a href="https://clearing-ai.com/stats.html" style="color:var(--c-accent-2)">clearing-ai.com/stats.html</a>. For press inquiries: <strong>hello@clearing-ai.com</strong>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>See where you stand</h2>
+    <p>Take the 5-question AI Fatigue Quiz and get a personalized recovery plan based on your specific situation and experience level.</p>
+    <div class="cta-buttons">
+      <a href="/quiz.html" class="btn-primary">Take the AI Fatigue Quiz →</a>
+      <a href="/ai-fatigue-in-2026.html" class="btn-secondary">Read the Full 2026 Report</a>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <strong style="font-size:1rem;">The Clearing</strong>
+          <p>A free resource for engineers experiencing AI fatigue. No ads. No tracking. No agenda — just the truth about what's happening and what helps.</p>
+          <a href="/quiz.html" class="btn-primary" style="display:inline-flex;font-size:0.8rem;padding:8px 16px;">Take the Quiz</a>
+        </div>
+        <div>
+          <h4>Understand</h4>
+          <ul>
+            <li><a href="/ai-fatigue.html">What is AI Fatigue?</a></li>
+            <li><a href="/burnout-vs-fatigue.html">vs. Burnout</a></li>
+            <li><a href="/signs-ai-fatigue.html">10 Signs</a></li>
+            <li><a href="/stats.html">Statistics</a></li>
+            <li><a href="/research.html">The Science</a></li>
+            <li><a href="/glossary.html">Glossary</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Recover</h4>
+          <ul>
+            <li><a href="/recovery.html">Recovery Guide</a></li>
+            <li><a href="/ai-detox-plan.html">30-Day Detox</a></li>
+            <li><a href="/decompress.html">Deep Work Timer</a></li>
+            <li><a href="/mental-health.html">Mental Health</a></li>
+            <li><a href="/developer-wellbeing.html">Wellbeing</a></li>
+            <li><a href="/checkin.html">Daily Check-in</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/manifesto.html">Manifesto</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/newsletter.html">Newsletter</a></li>
+            <li><a href="/resources.html">Reading List</a></li>
+            <li><a href="/community.html">Community</a></li>
+            <li><a href="/stories.html">Stories</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 The Clearing. Free forever.</p>
+        <a href="/sitemap.html">Sitemap</a>
+        &nbsp;·&nbsp;
+        <a href="/about.html">About</a>
+        &nbsp;·&nbsp;
+        <a href="mailto:hello@clearing-ai.com">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script>
+    // Reading progress bar
+    window.addEventListener('scroll', function() {
+      var el = document.getElementById('reading-progress');
+      if (!el) return;
+      var docH = document.documentElement.scrollHeight - window.innerHeight;
+      var pct = docH > 0 ? (window.scrollY / docH) * 100 : 0;
+      el.style.width = pct + '%';
+    }, { passive: true });
+  </script>
+</body>
+</html>

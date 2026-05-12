@@ -720,3 +720,25 @@
 - Log: logs/hour-f4509cba-798-2026-05-12-0543-utc-phase1-audit.md
 - Tracker updated: phase1_content 174→175
 **Next:** LinkedIn Post 1 deploy Mon May 12 | Reddit comments 5-8 | Thread #53 Sat May 16 | HN submission May 15-16
+
+---
+
+### Hour f4509cba-4263 — 2026-05-12 14:43 UTC (Phase 1 Window 178)
+
+**Built:** `tech-layoffs-ai-era.html` (~3,500 words) — "Tech Layoffs in the AI Era: When Your Job Disappears With a Prompt". Covers 70k+ AI-driven layoffs, 6 layers of loss, 7-row structural vs cyclical displacement table, 7-step recovery framework, displacement loop for employed engineers, FAQ accordion (6 Q&As). Article + BreadcrumbList + FAQPage schema. Internal links: recovery, career-pivot, stories, hiring, imposter-syndrome-ai, automation-anxiety.
+
+**SEO:** High-trend topic (May 2026 layoff season, Fortune/Guardian coverage). Targets: "tech layoffs AI era", "AI displacing developers", "software engineer layoffs 2026", "laid off because of AI". FAQPage schema eligible for featured snippets on 6 high-volume Q&As. Journalist link bait.
+
+**Phase:** P1=178, P2=260, P3=156, P4=127
+**Commit:** `d85ad75`
+**Next:** Reddit May 12-18 deploy, Thread #55 tomorrow, HN May 15-16
+
+
+### Hour 009 — 2026-05-12 09:43 PDT / 16:43 UTC (Phase 1 Window 180)
+**Built:** `the-estimation-problem.html` (~3,500 words) — "The Estimation Problem: Why AI Broke Software Planning"
+**New pillar page:** why AI broke sprint estimation — bottleneck moved from build to comprehension; 5-layer estimation failure table; trust erosion cycle; 6 reclamation frameworks; verbatim team conversation opener
+**SEO:** FAQPage 6 Q&As (featured snippet); Article + BreadcrumbList; targets "AI estimation broken", "story points AI era", "sprint planning AI"
+**Nav:** Added to 133 pages' Understand dropdown
+**Sitemap:** weekly/0.9 priority
+**Commit:** `7486eba`
+**Next:** LinkedIn Post 1 deploy ASAP | Thread #55 Tue May 13 | Thread #50 Wed May 13 | Reddit comments | HN May 15-16

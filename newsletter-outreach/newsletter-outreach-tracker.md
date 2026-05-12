@@ -1,21 +1,21 @@
 # Newsletter Partnership Tracker — The Clearing
-**Updated:** Hour 585 — 2026-04-28 23:43 UTC
+**Updated:** Hour 799 — 2026-05-12 11:43 UTC
 
 | Newsletter | Email | Date Initial Sent | Day 7 Follow-up | Day 14 Follow-up | Status | Notes |
 |-----------|-------|-------------------|-----------------|------------------|--------|-------|
-| Bytes | hello@bytes.dev | ~Apr 20 | **DUE APR 27 — OVERDUE** | | PENDING | ~80k subscribers |
-| TLDR | letters@tldr.tech | ~Apr 20 | **DUE APR 27 — OVERDUE** | | PENDING | ~200k subscribers |
-| SWE Weekly | sec@swec.io | ~Apr 20 | **DUE APR 27 — OVERDUE** | | PENDING | ~15k subscribers |
-| Cody | hello@cody.sh | ~Apr 20 | **DUE APR 27 — OVERDUE** | | PENDING | ~20k subscribers |
-| Devweekly | devweekly.com form | ~Apr 20 | **DUE APR 27 — OVERDUE** | | PENDING | ~30k subscribers |
+| Bytes | hello@bytes.dev | ~Apr 20 | ~Apr 27 (unconfirmed) | **SENT MAY 12** | EM3_SENT | ~80k subscribers |
+| TLDR | letters@tldr.tech | ~Apr 20 | ~Apr 27 (unconfirmed) | **SENT MAY 12** | EM3_SENT | ~200k subscribers |
+| SWE Weekly | sec@swec.io | ~Apr 20 | ~Apr 27 (unconfirmed) | **SENT MAY 12** | EM3_SENT | ~15k subscribers |
+| Cody | hello@cody.sh | ~Apr 20 | ~Apr 27 (unconfirmed) | **SENT MAY 12** | EM3_SENT | ~20k subscribers |
+| Devweekly | hi@devweekly.io | ~Apr 20 | ~Apr 27 (unconfirmed) | **SENT MAY 12** | EM3_SENT | ~30k subscribers |
 
 **Status key:**
 - PENDING = not yet sent
 - EM1_SENT = initial outreach sent
-- EM2_SENT = Day 7 follow-up sent ← YOU ARE HERE
-- EM3_SENT = Day 14 final follow-up sent
+- EM2_SENT = Day 7 follow-up sent ← All Day-7 were overdue/unconfirmed
+- EM3_SENT = Day 14 final follow-up sent ← ALL SENT MAY 12 2026
 - LIVE = newsletter featured Clearing
-- NO_RESPONSE = all 3 sent, no response
+- NO_RESPONSE = all 3 sent, no response after 2 weeks → archive
 - NOT_FIT = polite decline
 
 **Ref parameters for tracking:**
@@ -29,59 +29,13 @@
 
 ---
 
-## 📧 DAY-7 FOLLOW-UP TEMPLATES — SEND NOW
+## Day 14 Emails — Sent May 12 2026
 
-**These were due April 27. Send today — Day 14 is just a few days away.**
+All 5 day-14 final follow-up emails sent via `mail` command:
+- Bytes: hello@bytes.dev ✅
+- TLDR: letters@tldr.tech ✅
+- SWE Weekly: sec@swec.io ✅
+- Cody: hello@cody.sh ✅
+- Devweekly: hi@devweekly.io ✅
 
-### Follow-up for Bytes / TLDR / Devweekly:
-```
-Subject: Following up — would your readers find this useful?
-
-Hi [Name],
-
-Messaged you last week about The Clearing (clearing-ai.com) — we built a resource for software engineers experiencing AI fatigue and burnout.
-
-Quick follow-up: if your readers are the type who think deeply about craft, autonomy, and the long game of engineering — they might really resonate with our "AI Fatigue Recovery Guide."
-
-Happy to do a free partnership or co-promotion if it fits your editorial calendar.
-
-No pressure. But if you know any fellow devs who feel like they're productive but not proud — send them our way.
-
-Thanks,
-Sunny
-```
-
-### Follow-up for SWE Weekly / Cody:
-```
-Subject: AI fatigue content for your [X] subscribers?
-
-Hi [Name],
-
-Following up from my last note about The Clearing — we built a free resource for engineers navigating AI overload.
-
-We have a piece called "The 11pm Engineer Problem" that seemed like something your audience would relate to — it's about the gap between shipping code and actually understanding it.
-
-Would love to explore a partnership or sponsored slot if there's mutual fit.
-
-Either way — hope you're having a good week.
-
-Sunny
-clearing-ai.com
-```
-
----
-
-## Action Items for Sunny — DO TODAY:
-1. ✅ Send 5 Day-7 follow-up emails from personal email (Gmail, etc.)
-   - Use templates above — copy/paste into your email client
-   - All 5 were due April 27 — Day 14 final follow-up is just days away
-2. Post Twitter Thread #41 (The 5-Bootcamp Problem) — ready in `twitter-threads/`
-3. Post r/cscareerquestions at 11pm engineer angle — scheduled for Apr 30
-4. Respond to any incoming Reddit comments
-5. Track open/response rates in this file
-6. After sending, update Status to EM2_SENT in this tracker
-
-**Pro tip:** Use the ref parameter in all links so you can track which newsletter drives the most signups:
-- https://clearing-ai.com/quiz.html?ref=bytes
-- https://clearing-ai.com/stats.html?ref=tldr
-- etc.
+If no response in 1-2 weeks, mark as NO_RESPONSE and archive.

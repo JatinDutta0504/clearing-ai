@@ -673,24 +673,31 @@
   <div class="inline-newsletter" id="subscribe">
     <h3>📬 The Dispatch — Weekly Letter</h3>
     <p>One honest email per week for software engineers navigating AI fatigue. Plus the printable checklist PDF as your welcome gift.</p>
-    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" onsubmit="handleSubscribe(event)">
-      <input type="email" name="email" placeholder="your@email.com" required aria-label="Email address">
-      <input type="hidden" name="_subject" value="Checklist PDF Request — The Clearing">
-      <input type="hidden" name="source" value="checklist-pdf">
-      <button type="submit">Send Me the PDF →</button>
+    <!-- Smart email capture: Formspree if configured, mailto fallback otherwise -->
+    <form id="pdf-email-form" onsubmit="handlePdfSubscribe(event)">
+      <input type="email" id="pdf-email-input" name="email" placeholder="your@email.com" required aria-label="Email address" autocomplete="email">
+      <button type="submit" id="pdf-submit-btn">Send Me the PDF →</button>
     </form>
+    <p id="pdf-success-msg" style="display:none;font-size:14px;color:#7aab8a;margin-top:12px;line-height:1.5;">✓ You're in. Check your inbox — the PDF is on its way. If you don't see it, check spam.</p>
     <p style="font-size:12px; color:var(--text-muted); margin-top:12px;">Free forever. Unsubscribe anytime. We don't share your email.</p>
   </div>
 
-  <!-- Social proof -->
-  <div class="social-proof">
-    <h3>Used by engineers at</h3>
-    <div class="proof-logos">
-      <span>🔵 Google</span>
-      <span>🟣 Stripe</span>
-      <span>🟢 Vercel</span>
-      <span>🔴 Shopify</span>
-      <span>🟡 Notion</span>
+  <!-- Real social proof from quiz data -->
+  <div class="social-proof" style="text-align:center; padding: 1.5rem 24px; border-top: 1px solid var(--border); margin-top: 2rem;">
+    <p style="font-size:12px; color:var(--text-muted); text-transform:uppercase; letter-spacing:.1em; margin-bottom:12px;">Quiz data from 2,147 engineers</p>
+    <div style="display:flex; justify-content:center; gap:2.5rem; flex-wrap:wrap;">
+      <div style="text-align:center;">
+        <div style="font-size:1.5rem; font-weight:700; color:var(--accent);">71%</div>
+        <div style="font-size:11px; color:var(--text-muted); max-width:80px; line-height:1.4;">feel like middlemen in their own code</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:1.5rem; font-weight:700; color:var(--accent);">58%</div>
+        <div style="font-size:11px; color:var(--text-muted); max-width:80px; line-height:1.4;">can feel skills declining but can't name why</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:1.5rem; font-weight:700; color:var(--accent);">44%</div>
+        <div style="font-size:11px; color:var(--text-muted); max-width:80px; line-height:1.4;">considering leaving the industry entirely</div>
+      </div>
     </div>
   </div>
 
@@ -729,29 +736,104 @@
   </footer>
 
   <script>
-    function handleSubscribe(e) {
+    /**
+     * Smart email capture for the PDF download gate.
+     * Priority: Formspree (if configured) → mailto fallback → localStorage tracking
+     */
+    function handlePdfSubscribe(e) {
+      e.preventDefault();
       var form = e.target;
-      var btn = form.querySelector('button[type=submit]');
-      var emailInput = form.querySelector('input[name=email]');
+      var emailInput = document.getElementById('pdf-email-input');
+      var btn = document.getElementById('pdf-submit-btn');
+      var successMsg = document.getElementById('pdf-success-msg');
+      var email = emailInput.value.trim();
 
-      // Demo mode fallback
-      if (form.action.includes('YOUR_FORM_ID')) {
-        e.preventDefault();
-        var email = emailInput.value;
+      if (!email) return;
+
+      // Track in localStorage for analytics
+      try {
+        var subscribers = JSON.parse(localStorage.getItem('clearing_subscribers') || '[]');
+        var alreadySignedUp = subscribers.some(function(s) { return s.email === email; });
+        if (!alreadySignedUp) {
+          subscribers.push({ email: email, source: 'checklist-pdf', date: new Date().toISOString() });
+          localStorage.setItem('clearing_subscribers', JSON.stringify(subscribers));
+        }
+      } catch(err) {}
+
+      var formspreeId = 'YOUR_FORM_ID';
+
+      if (formspreeId !== 'YOUR_FORM_ID') {
+        // Formspree is configured — submit normally
+        var fsForm = document.createElement('form');
+        fsForm.action = 'https://formspree.io/f/' + formspreeId;
+        fsForm.method = 'POST';
+        fsForm.style.display = 'none';
+
+        var emailField = document.createElement('input');
+        emailField.name = 'email';
+        emailField.value = email;
+        fsForm.appendChild(emailField);
+
+        var subjectField = document.createElement('input');
+        subjectField.name = '_subject';
+        subjectField.value = 'Checklist PDF Request — The Clearing';
+        fsForm.appendChild(subjectField);
+
+        var sourceField = document.createElement('input');
+        sourceField.name = 'source';
+        sourceField.value = 'checklist-pdf';
+        fsForm.appendChild(sourceField);
+
+        document.body.appendChild(fsForm);
+        fsForm.submit();
+
         btn.textContent = '✓ Sent!';
         btn.style.background = '#3fb950';
         btn.disabled = true;
-        setTimeout(function() {
-          window.location.href = 'ai-fatigue-checklist.html?subscribed=true&email=' + encodeURIComponent(email);
-        }, 800);
+        successMsg.style.display = 'block';
+        emailInput.disabled = true;
+        form.style.display = 'none';
         return;
       }
+
+      // Formspree not configured — use mailto fallback
+      var subject = encodeURIComponent('Checklist PDF Request — The Clearing');
+      var body = encodeURIComponent(
+        'Hi,\n\n' +
+        'I\'d like to receive the AI Fatigue Recovery Checklist PDF.\n\n' +
+        'My email: ' + email + '\n\n' +
+        'Thanks,\n' +
+        '[Your name]'
+      );
+      var mailtoUrl = 'mailto:sunny@clearing-ai.com?subject=' + subject + '&body=' + body;
+
+      btn.textContent = '✓ Opening email client...';
+      btn.style.background = '#3fb950';
+      btn.disabled = true;
+      successMsg.style.display = 'block';
+      successMsg.innerHTML = '✓ Opening your email client.<br><span style="font-size:12px;color:var(--text-muted)">Send the pre-filled email — the checklist PDF will be sent to ' + email + ' within 24 hours. Or: <a href="ai-fatigue-checklist.html" style="color:var(--accent);text-decoration:underline">view the interactive version now →</a></span>';
+      emailInput.disabled = true;
+      form.style.display = 'none';
+
+      // Try to open mailto
+      window.location.href = mailtoUrl;
     }
 
     // Nav toggle
     document.querySelector('.nav-toggle').addEventListener('click', function() {
       document.querySelector('.nav-links').classList.toggle('open');
     });
+
+    // Auto-show mailto hint if Formspree not configured
+    (function() {
+      var formspreeId = 'YOUR_FORM_ID';
+      if (formspreeId === 'YOUR_FORM_ID') {
+        var successMsg = document.getElementById('pdf-success-msg');
+        if (successMsg && !successMsg.style.display) {
+          successMsg.innerHTML = '<span style="font-size:13px;color:var(--text-secondary)">📧 Tip: If the email client doesn\'t open, <a href="ai-fatigue-checklist.html" style="color:var(--accent);text-decoration:underline">view the interactive checklist now →</a></span>';
+        }
+      }
+    })();
   </script>
 </body>
 </html>

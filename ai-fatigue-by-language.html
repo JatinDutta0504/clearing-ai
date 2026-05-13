@@ -1,0 +1,400 @@
+
+      <p>AI fatigue isn't uniform. The underlying exhaustion — cognitive overload, skill atrophy, velocity pressure, identity erosion — affects all engineers. But the <em>texture</em> of that fatigue varies by programming language. Each ecosystem has its own culture, tooling norms, AI adoption patterns, and cognitive demands. Understanding yours doesn't fix the problem. But it helps you name it — and naming is the first step to recovering from it.</p>
+
+      <div class="stat-callout">
+        <div class="stat">68%</div>
+        <div class="label">of engineers report that their language ecosystem shapes how they experience AI pressure — not just the tools they use, but the kind of cognitive demands AI creates for their specific stack.</div>
+      </div>
+
+      <h2>The Six Language Ecosystems and Their AI Fatigue Patterns</h2>
+
+      <p>Here's what the data from The Clearing's AI Fatigue Quiz reveals about how different language communities experience AI integration — and where each community is most vulnerable.</p>
+
+      <div class="lang-grid">
+        <div class="lang-card python">
+          <h3>Python <span class="lang-badge python">ML / Data / AI-native</span></h3>
+          <p class="tagline">"I can't tell where the AI library ends and my code begins."</p>
+          <ul>
+            <li><strong>The integration trap:</strong> Python is the language of AI — libraries like LangChain, PyTorch, HuggingFace, and dozens of new wrappers drop weekly. The pressure to stay current isn't just professional; it's existential. Falling behind on the AI library landscape in Python feels like falling behind on AI itself.</li>
+            <li><strong>Notebook dependency:</strong> Jupyter and similar notebooks are ubiquitous in Python — and AI coding tools work differently in notebooks (cell-by-cell suggestions, context fragmentation). Engineers report the AI suggestions and the notebook context fighting each other constantly.</li>
+            <li><strong>Data pipeline fatigue:</strong> Python data engineers deal with AI for ETL, AI for transformation, AI for modeling, and AI for visualization. Each layer introduces a tool with different failure modes. The result: constant context-switching between AI systems, none of which fully know what the others are doing.</li>
+            <li><strong>Skill ground truth erosion:</strong> Python ML work was always syntax-light; the hard part was mathematical intuition. AI tools now handle both — and engineers report losing not just syntax confidence but the mathematical intuition they thought was irreplaceable.</li>
+          </ul>
+        </div>
+
+        <div class="lang-card javascript">
+          <h3>JavaScript / TypeScript <span class="lang-badge javascript">Web / Frontend / Full-stack</span></h3>
+          <p class="tagline">"I was already tired from the framework wars. Then AI tools layered on top."</p>
+          <ul>
+            <li><strong>Framework churn × AI churn:</strong> JavaScript developers were already exhausted from React → Next → Remix → Astro → React Server Components shifts. AI tools added another layer of change — different tools for different frameworks, each with different context windows, different context-retention behaviors, different failure modes. The compounding fatigue is real.</li>
+            <li><strong>npm dependency anxiety:</strong> AI tools suggest packages constantly. For JavaScript engineers, that means AI-driven npm install suggestions — for packages you've never heard of, with 3-star ratings, that solve a problem you didn't know you had. The discipline to evaluate these suggestions adds cognitive overhead that other languages don't have to the same degree.</li>
+            <li><strong>TypeScript's double burden:</strong> TypeScript developers get the worst of both worlds: AI suggests code that bypasses the type system, creating runtime errors the compiler should've caught. Fixing AI-generated TypeScript is its own category of exhaustion.</li>
+            <li><strong>Performance blindness:</strong> AI-generated JavaScript is often verbose and DOM-manipulation-heavy. Frontend performance (CLS, INP, LCP) suffers from AI suggestions that prioritize "it works" over "it's fast." Engineers who care about performance spend more time refactoring AI output than they'd spend writing it themselves.</li>
+          </ul>
+        </div>
+
+        <div class="lang-card rust">
+          <h3>Rust <span class="lang-badge rust">Systems / Safety / Performance</span></h3>
+          <p class="tagline">"AI makes me slower — and that's somehow worse than being slow without AI."</p>
+          <ul>
+            <li><strong>The correctness paradox:</strong> Rust's core value is memory safety through the compiler. AI-generated Rust frequently compiles — but is subtly unsafe or over-verbose. The engineer then has to understand the AI's reasoning, evaluate it against Rust's safety model, and either fix it or rewrite it. This is more exhausting than writing Rust from scratch.</li>
+            <li><strong>Borrow checker as witness:</strong> The borrow checker is an unforgiving teacher. AI that fights the borrow checker exposes exactly how much the engineer doesn't understand their own code. The shame of watching AI fail the borrow checker in ways you can't debug is uniquely demoralizing for Rust engineers.</li>
+            <li><strong>Smaller community, sparser AI knowledge:</strong> Rust's community is smaller than Python or JavaScript. When AI produces a Rust-specific error, there's less community knowledge to draw on. The "I'll just ask the community" safety net is less reliable — which means more solo debugging of AI output.</li>
+            <li><strong>The velocity trap is cruelest here:</strong> Rust is already slower to write than Python or JavaScript. When AI "helps" by generating code that doesn't compile, the engineer's net velocity drops below what it would've been without AI. Teams that benchmark AI productivity against Rust are measuring the wrong thing — and Rust engineers are paying the price.</li>
+          </ul>
+        </div>
+
+        <div class="lang-card go">
+          <h3>Go <span class="lang-badge go">Backend / Cloud / Infrastructure</span></h3>
+          <p class="tagline">"AI writes Go code that looks like it was written by someone who read a tutorial once."</p>
+          <ul>
+            <li><strong>Idiomatic Go vs AI verbosity:</strong> Go's philosophy is explicit, simple, done-one-way. AI-generated Go code tends to be over-abstracted — unnecessary interfaces, extra wrapper functions, more complexity than idiomatic Go. Engineers spend more time "Go-ifying" AI output than writing idiomatic Go from scratch.</li>
+            <li><strong>goroutine thinking:</strong> Go's concurrency model requires a specific mental framework. AI suggestions for concurrent patterns are frequently subtly wrong — they compile, they pass tests, but they leak goroutines or deadlock under load. Engineers report that catching these AI errors requires deeper Go knowledge than writing the code themselves would've required.</li>
+            <li><strong>Error handling fatigue:</strong> Go's explicit error handling is verbose by design. AI often suggests wrapping errors incorrectly or losing error context. Fixing AI-generated error handling is tedious — and the tedium compounds over time.</li>
+            <li><strong>Enterprise adoption pace:</strong> Go is heavily used at Google, cloud companies, and infrastructure shops. These organizations are often more deliberate about AI adoption — which creates a strange dynamic: less AI pressure than Python/JS, but more confusion about where AI fits in Go workflows that are already well-optimized.</li>
+          </ul>
+        </div>
+
+        <div class="lang-card java">
+          <h3>Java / Kotlin <span class="lang-badge java">Enterprise / Android / Backend</span></h3>
+          <p class="tagline">"AI writes Java that works — and is completely unmaintanable six months later."</p>
+          <ul>
+            <li><strong>Boilerplate ironically persists:</strong> Java's stereotype is verbose boilerplate — and AI tools generate more of it, faster, than any individual would. Enterprise codebases are now filling with AI-generated service-layer boilerplate that's syntactically correct but architecturally incoherent. Engineers describe the dread of inheriting an AI-generated Spring Boot codebase.</li>
+            <li><strong>Class/object over-abstraction:</strong> AI tools, trained on Stack Overflow patterns, default to inheritance hierarchies and enterprise patterns that modern Java best practices moved away from. The result: AI-generated Java that looks like 2012 OOP, with classes for everything, getters and setters everywhere, and no functional style at all.</li>
+            <li><strong>Android and AI tension:</strong> Android Kotlin developers face a specific dynamic: Google is pushing AI features aggressively (Gemini Nano, AI Core), but the platform constraints (memory, battery, model size) mean AI integration is harder and more error-prone than web-based languages. The gap between AI promise and AI reality is sharpest on Android.</li>
+          </ul>
+        </div>
+
+        <div class="lang-card cpp">
+          <h3>C / C++ <span class="lang-badge cpp">Systems / Embedded / Games</span></h3>
+          <p class="tagline">"AI is least useful here — and somehow that makes me feel worst about using it."</p>
+          <ul>
+            <li><strong>Where AI struggles most:</strong> C and C++ require deep understanding of memory layout, pointer arithmetic, and undefined behavior. AI tools for C/C++ are the weakest of the major languages — they produce code that compiles and appears to work but has subtle UB, memory leaks, or performance pathologies. C/C++ engineers spend the most time validating AI output.</li>
+            <li><strong>Embedded constraints:</strong> Embedded C/C++ operates under hard real-time constraints, ISR (interrupt service routine) requirements, and hardware access patterns that AI doesn't understand. AI suggestions in embedded contexts are frequently dangerous — the engineer has to be more vigilant with AI in C than without it.</li>
+            <li><strong>The least-discussed community:</strong> C/C++ engineers are the least likely to talk about AI fatigue — partly because AI tools are least useful in their domain, partly because the community culture is less open about discussing cognitive or psychological challenges. The silence makes it harder to name what's happening.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>The Cross-Cutting Patterns</h2>
+
+      <p>Despite the language-specific differences, three patterns show up across every ecosystem:</p>
+
+      <h3>1. The Explanation Gap is Universal</h3>
+
+      <p>Every language community reports the same core problem: AI suggests code that works, but the engineer can't explain why. This is the <a href="the-explanation-requirement.html">Explanation Requirement</a> failure — and it manifests differently in each language, but the underlying cognitive mechanism is the same. The further you are from understanding your AI's output, the less you're actually engineering.</p>
+
+      <h3>2. Framework/Tool Churn Compounds AI Churn</h3>
+
+      <p>Communities that were already experiencing high tooling churn — JavaScript (frameworks), Python (AI libraries), Rust (cargo crate ecosystem) — report compounding fatigue when AI tool churn is layered on top. The communities with stable tooling — Go (minimal stdlib philosophy), C (mature toolchain) — have different problems but aren't immune.</p>
+
+      <h3>3. The Skill You Lose Is the Hardest One to Rebuild</h3>
+
+      <p>In every language community, the skill that degrades fastest is the hardest to recover: not syntax (that's easy), but <em>the ability to hold the full system in your head</em>. In Python, that's the data pipeline. In JavaScript, that's the component tree and its state. In Rust, that's the ownership graph. In Go, that's the concurrent system. AI tools let you ship without building this mental model — and the model atrophy is common across all languages.</p>
+
+      <div class="insight-box warning">
+        <h4>The Language Isn't the Cause — But It Shapes the Symptom</h4>
+        <p>No programming language causes AI fatigue. But each language ecosystem creates a specific pressure profile that shapes what AI fatigue looks and feels like. Knowing your language's specific vulnerability helps you name the problem — and targeted recovery is more effective than generic self-care advice that doesn't account for your ecosystem's norms.</p>
+      </div>
+
+      <h2>The AI Fatigue Comparison Table by Language</h2>
+
+      <p>This table maps the five core dimensions of AI fatigue across the six major language communities. Scores are relative within communities (higher = more severe in that dimension).</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Language</th>
+              <th>Velocity Pressure</th>
+              <th>Skill Atrophy Risk</th>
+              <th>Tool Churn Fatigue</th>
+              <th>Identity Impact</th>
+              <th>Recovery Difficulty</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Python</strong></td>
+              <td>Very High — ML velocity expectations</td>
+              <td>High — math intuition eroding</td>
+              <td>Very High — weekly new AI libraries</td>
+              <td>High — "what's me vs the library?"</td>
+              <td>Medium — active ML community helps</td>
+            </tr>
+            <tr>
+              <td><strong>JavaScript / TypeScript</strong></td>
+              <td>Very High — web velocity expectations</td>
+              <td>Medium — framework syntax vs understanding</td>
+              <td>Very High — framework + AI compound</td>
+              <td>Medium — fast iteration identity</td>
+              <td>Medium — active community resources</td>
+            </tr>
+            <tr>
+              <td><strong>Rust</strong></td>
+              <td>Medium — but more painful when AI fails</td>
+              <td>Medium — ownership reasoning stays sharp</td>
+              <td>Low — stable tooling</td>
+              <td>Medium — correctness culture vs AI slop</td>
+              <td>High — smaller community, less help</td>
+            </tr>
+            <tr>
+              <td><strong>Go</strong></td>
+              <td>Medium — deliberate culture resists hype</td>
+              <td>Low-Medium — goroutine thinking preserved</td>
+              <td>Low — minimal standard library philosophy</td>
+              <td>Low-Medium — simplicity culture helps</td>
+              <td>Low — clear idioms, community alignment</td>
+            </tr>
+            <tr>
+              <td><strong>Java / Kotlin</strong></td>
+              <td>Medium — enterprise pace moderates</td>
+              <td>Medium — architecture intuition at risk</td>
+              <td>Medium — Spring ecosystem is large</td>
+              <td>Medium — enterprise identity</td>
+              <td>Medium — large community available</td>
+            </tr>
+            <tr>
+              <td><strong>C / C++</strong></td>
+              <td>Low — AI less capable here</td>
+              <td>High — systems thinking erodes</td>
+              <td>Low — mature, stable toolchains</td>
+              <td>High — depth culture vs breadth pressure</td>
+              <td>Very High — smallest community, most isolation</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>The Three Practices That Work Across Every Language</h2>
+
+      <p>Language-specific AI fatigue requires language-aware recovery. But three practices show up in recovery stories across every ecosystem:</p>
+
+      <h3>The Explanation Requirement (Language-Aware Version)</h3>
+
+      <p>In your language, the Explanation Requirement means something specific. In Python: can you trace the data through the pipeline without AI? In JavaScript: can you explain the component tree and its state flow without AI? In Rust: can you reason about ownership without AI? In Go: can you trace a goroutine from spawn to exit? <strong>If you can't explain it in your language's idioms, you don't ship it</strong> — regardless of whether it compiles.</p>
+
+      <h3>Language-Specific No-AI Sessions</h3>
+
+      <p>Pick one language-specific practice and protect it. For Python: write a data pipeline from scratch, no AI, for a problem you could solve with AI in 10 minutes. For Rust: implement a new module with no AI — even though it will take longer. For Go: write a concurrent pattern without AI's help. The resistance is the point. Your brain is rebuilding the mental model that AI is bypassing.</p>
+
+      <h3>Community Knowledge Recovery</h3>
+
+      <p>The engineers recovering fastest in every language community are the ones who are actively naming what's happening — not in generic "AI burnout" terms, but in language-specific terms. <em>"I'm losing my goroutine intuition." "I can't read Rust code I didn't write." "I don't know what my Python notebook is doing anymore."</em> These specific, language-shaped recognitions are what allow targeted recovery — and they're what your community needs from you to recover collectively.</p>
+
+      <h2>FAQ</h2>
+
+      <div class="faq-section">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Does AI fatigue affect engineers differently based on their programming language?</span>
+            <span class="icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              Yes — significantly. Each language community has its own culture, tooling ecosystem, AI adoption pattern, and cognitive demands. Python engineers face unique ML/AI integration pressures. JavaScript developers deal with framework churn and npm fatigue. Rust's safety-first culture makes AI slop especially visible. Go's simplicity philosophy clashes with AI-generated verbosity. The underlying fatigue is universal; the manifestation is language-specific.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Which programming language community has the worst AI fatigue?</span>
+            <span class="icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              There's no single worst — but Python and JavaScript engineers report the highest volumes of AI-related exhaustion for different reasons. Python because of the constant pressure to integrate new AI libraries while maintaining legacy code. JavaScript because of the compounding fatigue of framework churn plus AI tool churn. Rust developers report the most intense quality-vs-velocity conflicts. The loneliness factor is worst in smaller communities like Elixir or Haskell, where AI resources are sparse.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Why is Rust AI fatigue particularly intense?</span>
+            <span class="icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              Rust's value proposition is correctness and safety — the borrow checker forces you to understand memory. AI-generated Rust code frequently compiles but is either subtly unsafe or so verbose it defeats the purpose of using Rust. The constant cycle of AI suggestion → compilation error → manual fix → re-checking the AI's logic is more exhausting than just writing the code. Rust engineers describe a specific frustration: AI makes them slower, not faster, but the team expects otherwise.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>How does Go's simplicity philosophy clash with AI coding tools?</span>
+            <span class="icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              Go's ethos is simplicity — clear code, minimal abstractions, done one way well. AI tools, by default, generate code with more complexity than idiomatic Go: extra interfaces, over-abstracted helpers, unnecessary wrappers. Go engineers using AI tools frequently report spending more time 'Go-ifying' AI output than they would have writing it from scratch. The tool adds cognitive overhead that violates the language's core principle.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Are AI fatigue patterns different for frontend vs backend engineers?</span>
+            <span class="icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              Yes. Frontend engineers (primarily JavaScript/TypeScript) face compounding tool fatigue: AI for code generation, AI for styling, AI for accessibility checking, AI for testing, AI for deployment. Each layer adds a tool with its own context-switching cost. Backend engineers (Python, Go, Java, Rust) face deeper cognitive challenges: AI-generated architecture decisions, database query optimization, and API design that can look plausible but miss edge cases only production reveals.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What can individual engineers do about language-specific AI fatigue?</span>
+            <span class="icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              Three practices help across all languages: (1) Maintain at least one project where you deliberately write without AI — to keep your language intuition sharp. (2) Apply the Explanation Requirement: understand every AI suggestion in your language's idioms, not just whether it compiles. (3) Build community knowledge: the engineers who name what's happening and share language-specific coping strategies are the ones who recover fastest. You don't have to solve this alone in your language's echo chamber.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="share-bar" aria-label="Share this article">
+        <button class="share-btn" id="share-twitter" aria-label="Share on Twitter">𝕏 Tweet</button>
+        <button class="share-btn" id="share-linkedin" aria-label="Share on LinkedIn">LinkedIn</button>
+        <button class="share-btn" id="share-copy" aria-label="Copy link">Copy Link</button>
+      </div>
+
+      <div class="explore-section">
+        <h2>Continue Exploring</h2>
+        <div class="explore-grid">
+          <a href="ai-fatigue-in-2026.html" class="explore-card">
+            <h4>→ 2026 AI Fatigue Report</h4>
+            <p>Two years of data from 2,000+ engineers — what the numbers reveal about where we are now.</p>
+          </a>
+          <a href="skill-atrophy.html" class="explore-card">
+            <h4>→ Skill Atrophy</h4>
+            <p>Why the skills AI bypasses are not trivial to regain — and what to do about it.</p>
+          </a>
+          <a href="cognitive-load.html" class="explore-card">
+            <h4>→ Cognitive Load Theory</h4>
+            <p>The science of why AI increases — not decreases — the cognitive burden on engineers.</p>
+          </a>
+          <a href="recovery.html" class="explore-card">
+            <h4>→ Recovery Guide</h4>
+            <p>A practical, evidence-based plan for recovering from AI fatigue — starting today.</p>
+          </a>
+          <a href="the-explanation-requirement.html" class="explore-card">
+            <h4>→ The Explanation Requirement</h4>
+            <p>The single most effective practice against AI fatigue: understand what you ship.</p>
+          </a>
+          <a href="no-ai-block.html" class="explore-card">
+            <h4>→ No-AI Blocks</h4>
+            <p>How to schedule deliberate AI-free coding time — and why it's non-negotiable.</p>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div>
+          <h4>Understand</h4>
+          <ul>
+            <li><a href="why.html">Why It Happens</a></li>
+            <li><a href="signs-ai-fatigue.html">10 Signs</a></li>
+            <li><a href="ai-fatigue-by-language.html">By Language</a></li>
+            <li><a href="ai-fatigue-in-2026.html">2026 Report</a></li>
+            <li><a href="research.html">The Research</a></li>
+            <li><a href="glossary.html">Glossary</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Recover</h4>
+          <ul>
+            <li><a href="recovery.html">Recovery Guide</a></li>
+            <li><a href="ai-detox-plan.html">30-Day Plan</a></li>
+            <li><a href="daily-practice.html">Daily Practice</a></li>
+            <li><a href="decompress.html">Decompress</a></li>
+            <li><a href="mental-health.html">Mental Health</a></li>
+            <li><a href="ai-free-fridays.html">AI-Free Fridays</a></li>
+            <li><a href="no-ai-block.html">No-AI Blocks</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>By Role</h4>
+          <ul>
+            <li><a href="first-year-engineer.html">First-Year Engineers</a></li>
+            <li><a href="senior-identity.html">Senior Engineers</a></li>
+            <li><a href="ml-engineer-ai-fatigue.html">ML Engineers</a></li>
+            <li><a href="data-engineer-ai-fatigue.html">Data Engineers</a></li>
+            <li><a href="startup-engineer.html">Startup Engineers</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Tools</h4>
+          <ul>
+            <li><a href="quiz.html">AI Fatigue Quiz</a></li>
+            <li><a href="checkin.html">Daily Check-in</a></li>
+            <li><a href="compare.html">Tool Comparison</a></li>
+            <li><a href="ai-fatigue-severity-index.html">Severity Index</a></li>
+            <li><a href="ai-fatigue-cost-calculator.html">Cost Calculator</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2026 The Clearing · <a href="index.html">clearing-ai.com</a> · Free forever
+      </div>
+    </footer>
+
+  <script>
+    // Theme toggle
+    var toggle = document.getElementById('theme-toggle');
+    var html = document.documentElement;
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (saved === 'light' || (!saved && !prefersDark)) {
+      html.setAttribute('data-theme', 'light');
+      toggle.textContent = '🌙 Dark';
+    }
+    toggle.addEventListener('click', function() {
+      var isDark = html.getAttribute('data-theme') === 'dark';
+      html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      localStorage.setItem('theme', isDark ? 'light' : 'dark');
+      toggle.textContent = isDark ? '🌙 Dark' : '☀️ Light';
+    });
+
+    // Reading progress bar
+    window.addEventListener('scroll', function() {
+      var el = document.getElementById('progress-bar');
+      var article = document.querySelector('article');
+      if (!el || !article) return;
+      var rect = article.getBoundingClientRect();
+      var total = article.offsetHeight - window.innerHeight;
+      var scrolled = Math.max(0, -rect.top);
+      el.style.width = Math.min(100, (scrolled / total) * 100) + '%';
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = btn.closest('.faq-item');
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+        if (!isOpen) { item.classList.add('open'); }
+        btn.setAttribute('aria-expanded', !isOpen);
+      });
+    });
+
+    // Share buttons
+    document.getElementById('share-twitter').addEventListener('click', function() {
+      window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent('AI Fatigue by Programming Language — why Python, Rust, JS, and Go engineers experience AI differently https://clearing-ai.com/ai-fatigue-by-language.html via @clearingai'), '_blank', 'width=550,height=420');
+    });
+    document.getElementById('share-linkedin').addEventListener('click', function() {
+      window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent('https://clearing-ai.com/ai-fatigue-by-language.html'), '_blank', 'width=550,height=420');
+    });
+    document.getElementById('share-copy').addEventListener('click', function() {
+      navigator.clipboard.writeText(window.location.href).then(function() {
+        var b = document.getElementById('share-copy');
+        b.textContent = '✓ Copied!';
+        b.classList.add('copied');
+        setTimeout(function() { b.textContent = 'Copy Link'; b.classList.remove('copied'); }, 2000);
+      });
+    });
+  </script>
+</body>
+</html>

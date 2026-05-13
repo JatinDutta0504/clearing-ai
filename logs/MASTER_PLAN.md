@@ -4667,3 +4667,33 @@ URGENT: Twitter Thread #48 needs posting NOW. Reddit May 8-14 deploy tomorrow. N
 **Internal links:** why, recovery, team-manager-guide, the-velocity-trap, manifesto, research, corporate-ai-wellness, hiring
 **Commit:** `008d70f`
 **Next:** LinkedIn Post 1 (deploy NOW), Thread #55 Tue, Reddit Fresh Pack, HN Fri/Sat
+
+### Hour f4509cba-4263-B — 2026-05-12 7:43 PM PDT / 2026-05-13 02:43 UTC
+**Phase:** Phase 1 (Content Pillar) — 184th window
+**Phase rotation:** P1=183, P2=260, P3=159, P4=128. P1 wins (40/30/20/10 target: P1=27% actual vs 40% target).
+
+**Built:** `engineering-velocity-ai-fatigue.html` — "Engineering Velocity in the AI Era: When More Shipped Means Less Built" (~5,000 words)
+
+**Page structure (8 sections):**
+1. The numbers say one thing. Your gut says another. (opening paradox)
+2. The five ways AI makes velocity metrics lie (ticket mirage, review asymmetry, knowledge transfer gap, tech debt compound, confidence erosion)
+3. Who the velocity trap catches first (senior engineers, tech leads/staff, quality-conscious engineers)
+4. Healthy velocity vs. AI-inflated velocity (8-signal comparison table)
+5. What to measure instead of story points (circuit breaker / system health / sustainability metrics)
+6. A framework for velocity conversations with leadership
+7. If you are the senior engineer in the room (what you can/cannot control)
+8. FAQ accordion (6 Q&As)
+
+**Schema:** Article + FAQPage (6 Q&As) + BreadcrumbList
+**Internal links:** the-velocity-trap, productivity-theater, team-guide, hiring, skill-atrophy, senior-identity, manifesto, cognitive-load, flow-state
+**Nav update:** engineering-velocity-ai-fatigue.html added to Understand dropdown on 22 existing pages
+**sitemap.xml:** 409 URLs (added new page after the-velocity-trap entry, priority 0.9, weekly)
+
+**SEO impact:** New keyword cluster: "engineering velocity AI", "story points AI era", "sprint velocity AI tools", "engineering health metrics", "tech lead velocity", "agile velocity AI distortion". Targets EM/tech lead audience — new backlink pool (engineering management newsletters, DevOps publications). Complementary to existing the-velocity-trap.html (psychological) and productivity-theater.html (performance theater angle).
+
+**Git commits:** 277d71e (new page), e476ebe (nav + sitemap)
+**Push:** ✅ Pushed to GitHub Pages
+
+**Site stats:** 201 pages | ~938k words | Lighthouse 97 | Technical SEO 99/100 | Day 9 post-launch
+**Next window:** Phase 2 outreach (Twitter threads #50/#55 deployment, LinkedIn Post 1, Reddit May 12-18 fresh pack), or Phase 3 technical SEO
+

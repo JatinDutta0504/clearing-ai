@@ -771,3 +771,11 @@
 **Links:** All tweets link to clearing-ai.com/the-offload-loop
 **Commit:** 7987989
 **Next:** Reddit Comment 6 (r/cscareerquestions, 1-3 PM PDT), Thread #51 (Explanation Requirement, 9 tweets), Reddit Comments 7-8 Thu May 15, HN submission Fri/Sat May 15-16
+
+### Hour f4509cba-4263-477c-9d5b-26a1cf314919-2 — 2026-05-14 19:46 UTC Phase 1 Window 192
+**Built:** developer-burnout-2025.html (~5k words) — Research report on developer burnout 2025: velocity paradox (68% ship more / 71% confidence down), identity erosion, cognitive offload burnout, velocity theater exhaustion. Covers signal metrics managers should track, what teams getting it right are doing differently.
+**Schema:** Article + BreadcrumbList
+**Internal links:** ai-fatigue-in-2026.html, skill-atrophy.html, imposter-syndrome-ai.html, team-manager-guide.html, ai-fatigue-severity-index.html
+**Sitemap:** added developer-burnout-2025.html
+**Commit:** e4500d5
+**Next:** Phase 3 tech SEO (lighthouse audit), Thread #51 (Explanation Requirement, 9 tweets), Reddit comments, HN submission

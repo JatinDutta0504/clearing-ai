@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Newsletter Infrastructure Hub — The Clearing</title>
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta name="description" content="Newsletter infrastructure, email setup, and outreach status for The Clearing. Formspree configuration and The Dispatch delivery tracking." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-infrastructure.html" />
+  <link rel="alternate" type="application/rss+xml" title="The Clearing RSS Feed" href="https://clearing-ai.com/feed.xml" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://clearing-ai.com/newsletter-infrastructure.html" />
+  <meta property="og:title" content="Newsletter Infrastructure Hub — The Clearing" />
+  <meta property="og:description" content="Newsletter setup, Formspree configuration, and Dispatch email status." />
+  <meta property="og:site_name" content="The Clearing" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Newsletter Infrastructure Hub — The Clearing" />
+  <meta name="twitter:description" content="Newsletter setup, Formspree configuration, and Dispatch email status." />
+
+  <link rel="stylesheet" href="css/style.min.css" />
+
+  <style>
+    @font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:local('system-ui');ascent-override:107%;descent-override:27%;size-adjust:107%;}
+    @font-face{font-family:'Lora';font-style:normal;font-weight:400;font-display:swap;src:local('Georgia');ascent-override:94%;descent-override:23%;size-adjust:94%;}
+
+    .page {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 4rem 2rem 8rem;
+    }
+
+    .page-label {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--forest-light);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+      color: var(--forest-deep);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      font-family: var(--font-sans);
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+      line-height: 1.6;
+    }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .status-card {
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+
+    .status-label {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .status-value {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--forest-deep);
+    }
+
+    .status-note {
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .status-ok .status-value { color: var(--forest-deep); }
+    .status-warn .status-value { color: #b45309; }
+    .status-block .status-value { color: var(--text-muted); }
+
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      color: var(--forest-deep);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .block {
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .block-title {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      color: var(--forest-deep);
+      margin-bottom: 0.75rem;
+    }
+
+    .block p {
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 0.75rem;
+    }
+
+    .block code {
+      font-family: 'Courier New', monospace;
+      font-size: 0.82rem;
+      background: var(--surface-overlay);
+      padding: 0.15em 0.4em;
+      border-radius: 4px;
+      color: var(--forest-light);
+    }
+
+    .file-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .file-list li {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      padding: 0.35rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .file-list li::before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      background: var(--forest-light);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .file-list code {
+      font-family: 'Courier New', monospace;
+      font-size: 0.78rem;
+      background: var(--surface-overlay);
+      padding: 0.1em 0.35em;
+      border-radius: 3px;
+      color: var(--forest-light);
+    }
+
+    .alert {
+      background: var(--surface-raised);
+      border: 1px solid var(--forest-light);
+      border-left: 3px solid var(--forest-light);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .alert-title {
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--forest-light);
+      margin-bottom: 0.4rem;
+    }
+
+    .alert p {
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .dispatch-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .dispatch-item {
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .dispatch-num {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--forest-light);
+      background: var(--surface-overlay);
+      padding: 0.2em 0.6em;
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .dispatch-info {
+      flex: 1;
+    }
+
+    .dispatch-title {
+      font-family: var(--font-serif);
+      font-size: 0.95rem;
+      color: var(--forest-deep);
+      margin-bottom: 0.3rem;
+    }
+
+    .dispatch-meta {
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .dispatch-status {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.2em 0.65em;
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .dispatch-status.ready {
+      background: rgba(34, 197, 94, 0.15);
+      color: #22c55e;
+    }
+
+    .dispatch-status.pending {
+      background: rgba(234, 179, 8, 0.12);
+      color: #ca8a04;
+    }
+
+    .dispatch-status.draft {
+      background: rgba(107, 114, 128, 0.12);
+      color: #6b7280;
+    }
+
+    .outreach-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-sans);
+      font-size: 0.83rem;
+    }
+
+    .outreach-table th {
+      text-align: left;
+      padding: 0.65rem 0.85rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .outreach-table td {
+      padding: 0.65rem 0.85rem;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border-light);
+      vertical-align: middle;
+    }
+
+    .outreach-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 0.15em 0.55em;
+      border-radius: 4px;
+    }
+
+    .badge.sent { background: rgba(34, 197, 94, 0.15); color: #22c55e; }
+    .badge.pending { background: rgba(234, 179, 8, 0.12); color: #ca8a04; }
+    .badge.noresponse { background: rgba(107, 114, 128, 0.12); color: #6b7280; }
+
+    .steps {
+      list-style: none;
+      padding: 0;
+      counter-reset: steps;
+    }
+
+    .steps li {
+      counter-increment: steps;
+      display: flex;
+      gap: 0.85rem;
+      margin-bottom: 1rem;
+      align-items: flex-start;
+    }
+
+    .steps li::before {
+      content: counter(steps);
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: var(--forest-light);
+      color: var(--surface);
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .steps li div {
+      flex: 1;
+    }
+
+    .steps li strong {
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      color: var(--forest-deep);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .steps li span {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .steps li code {
+      font-family: 'Courier New', monospace;
+      font-size: 0.78rem;
+      background: var(--surface-overlay);
+      padding: 0.1em 0.35em;
+      border-radius: 3px;
+      color: var(--forest-light);
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--surface);
+      background: var(--forest-deep);
+      padding: 0.65em 1.2em;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s;
+      margin-top: 0.5rem;
+    }
+
+    .cta-button:hover { background: var(--forest); }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-bottom: 2rem;
+    }
+
+    .back-link:hover { color: var(--forest-light); }
+
+    @media (max-width: 600px) {
+      .page { padding: 3rem 1.25rem 6rem; }
+      .status-grid { grid-template-columns: 1fr 1fr; }
+      .dispatch-item { flex-wrap: wrap; }
+      .dispatch-status { margin-top: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav id="main-nav" role="navigation" aria-label="Main navigation"></nav>
+  <a href="index.html" class="back-link">← Back to The Clearing</a>
+
+  <main class="page" id="main-content">
+    <span class="page-label">Infrastructure</span>
+    <h1>Newsletter Infrastructure Hub</h1>
+    <p class="subtitle">Formspree setup, The Dispatch email status, and newsletter partnership outreach tracking. Everything that moves the needle on email subscribers.</p>
+
+    <!-- Status Overview -->
+    <div class="status-grid">
+      <div class="status-card status-block">
+        <div class="status-label">Email Subscribers</div>
+        <div class="status-value">0</div>
+        <div class="status-note">Formspree not configured</div>
+      </div>
+      <div class="status-card status-warn">
+        <div class="status-label">Forms Needing Setup</div>
+        <div class="status-value">15</div>
+        <div class="status-note">YOUR_FORM_ID placeholder in 15 pages</div>
+      </div>
+      <div class="status-card status-ok">
+        <div class="status-label">Dispatch Issues Drafted</div>
+        <div class="status-value">4</div>
+        <div class="status-note">Issues #1–4 ready to send</div>
+      </div>
+      <div class="status-card status-ok">
+        <div class="status-label">Newsletter Pages</div>
+        <div class="status-value">6</div>
+        <div class="status-note">signup, archive, infrastructure hub</div>
+      </div>
+    </div>
+
+    <!-- Formspree Setup -->
+    <div class="section">
+      <h2 class="section-title">Formspree Configuration</h2>
+
+      <div class="alert">
+        <div class="alert-title">Action Required — Manual Setup</div>
+        <p>Formspree requires account owner action (API key generation). The email pipeline is built and ready — it just needs the Formspree form ID. Estimated time: <strong>5 minutes</strong>.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-title">Why Formspree?</div>
+        <p>The newsletter signup, checklist downloads, and quick-start guides all need a way to collect emails without a backend server. Formspree handles this with zero server code — form submissions go straight to your email.</p>
+        <p><strong>Cost:</strong> Free tier covers up to 50 submissions/month. The Clearing is currently at 0 subscribers, so there's plenty of headroom for growth.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-title">Setup Steps</div>
+        <ol class="steps">
+          <li>
+            <div>
+              <strong>Create a Formspree account</strong>
+              <span>Go to <strong>formspree.io</strong> and create a free account using your email. No credit card required for the free tier.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Create a new form</strong>
+              <span>Click "New Form" → name it "Newsletter Signup" → copy the form ID (something like <code>xpwzwqvd</code>).</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Create a second form for the checklist</strong>
+              <span>Create a second form called "Checklist Download" and copy its ID separately.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Find all 15 placeholder files</strong>
+              <span>Run this in the project root: <code>grep -rl "YOUR_FORM_ID" *.html</code> — this lists all 15 files that need the IDs replaced.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Replace YOUR_FORM_ID in each file</strong>
+              <span>Open each file, find <code>YOUR_FORM_ID</code>, and replace it with the actual form ID. For checklist pages, use the checklist form ID. For newsletter/quick-start pages, use the newsletter form ID.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Test the form</strong>
+              <span>Submit a test signup at <strong>clearing-ai.com/newsletter.html</strong> — you should receive the submission in your Formspree inbox and/or email.</span>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="block">
+        <div class="block-title">Files With YOUR_FORM_ID (15 total)</div>
+        <ul class="file-list">
+          <li><code>ai-fatigue-checklist.html</code> — Lead magnet: AI Fatigue Recovery Checklist (2 forms: top + bottom)</li>
+          <li><code>ai-fatigue-quick-start.html</code> — Quick-start guide signup</li>
+          <li><code>ai-fatigue-recovery-checklist-pdf.html</code> — PDF checklist variant</li>
+          <li><code>ai-weekly-audit.html</code> — Weekly AI audit tool signup</li>
+          <li><code>community-hub.html</code> — Community signup form</li>
+          <li><code>newsletter.html</code> — The Dispatch signup (main newsletter)</li>
+          <li><code>daily-practice.html</code> — 30-day challenge signup</li>
+          <li><code>checkin.html</code> — Daily check-in tool (streak reminder signup)</li>
+          <li><code>ai-detox-plan.html</code> — 30-day detox plan signup</li>
+          <li><code>mental-health.html</code> — Mental health resources (contact form)</li>
+          <li><code>hiring.html</code> — Engineering hiring guide signup</li>
+          <li><code>team-guide.html</code> — Team manager guide signup</li>
+          <li><code>journal.html</code> — Reflective journal (entry save/recall)</li>
+          <li><code>resources.html</code> — Resource library signup</li>
+          <li><code>newsletter-outreach-dashboard.html</code> — Outreach partnership contact form</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-title">Form IDs Reference (fill these in)</div>
+        <p style="font-family: 'Courier New', monospace; font-size: 0.82rem; color: var(--forest-light); line-height: 1.8;">
+          newsletter.html: https://formspree.io/f/<strong>[YOUR_FORM_ID]</strong><br>
+          ai-fatigue-checklist.html (form 1): https://formspree.io/f/<strong>[YOUR_FORM_ID]</strong><br>
+          ai-fatigue-checklist.html (form 2): https://formspree.io/f/<strong>[YOUR_FORM_ID_2]</strong><br>
+          ai-fatigue-quick-start.html: https://formspree.io/f/<strong>[YOUR_FORM_ID]</strong><br>
+          ai-fatigue-recovery-checklist-pdf.html: https://formspree.io/f/<strong>[YOUR_FORM_ID]</strong><br>
+          ai-weekly-audit.html: https://formspree.io/f/<strong>[YOUR_FORM_ID]</strong><br>
+          community-hub.html: https://formspree.io/f/<strong>[YOUR_FORM_ID]</strong><br>
+          daily-practice.html: https://formspree.io/f/<strong>[YOUR_FORM_ID]</strong><br>
+          checkin.html: https://formspree.io/f/<strong>[YOUR_FORM_ID]</strong><br>
+          ai-detox-plan.html: https://formspree.io/f/<strong>[YOUR_FORM_ID]</strong><br>
+          mental-health.html: https://formspree.io/f/<strong>[YOUR_FORM_ID]</strong><br>
+          hiring.html: https://formspree.io/f/<strong>[YOUR_FORM_ID]</strong><br>
+          team-guide.html: https://formspree.io/f/<strong>[YOUR_FORM_ID]</strong><br>
+          journal.html: https://formspree.io/f/<strong>[YOUR_FORM_ID]</strong><br>
+          resources.html: https://formspree.io/f/<strong>[YOUR_FORM_ID]</strong><br>
+          newsletter-outreach-dashboard.html: https://formspree.io/f/<strong>[YOUR_FORM_ID]</strong>
+        </p>
+      </div>
+    </div>
+
+    <!-- The Dispatch -->
+    <div class="section">
+      <h2 class="section-title">The Dispatch — Drafted Issues</h2>
+      <p style="font-family: var(--font-sans); font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.6;">
+        Four issues are fully drafted and ready to send. Once Formspree is configured, these go out on a weekly schedule (every Tuesday morning, targeting inboxes before the week's velocity kicks in).
+      </p>
+
+      <ul class="dispatch-list">
+        <li class="dispatch-item">
+          <span class="dispatch-num">#1</span>
+          <div class="dispatch-info">
+            <div class="dispatch-title">The Middleman Problem</div>
+            <div class="dispatch-meta">653 words · 4 sections · The invisible cost of AI-assisted work</div>
+          </div>
+          <span class="dispatch-status ready">Ready to send</span>
+        </li>
+        <li class="dispatch-item">
+          <span class="dispatch-num">#2</span>
+          <div class="dispatch-info">
+            <div class="dispatch-title">Who Has It Worst</div>
+            <div class="dispatch-meta">~600 words · Survey data breakdown · Who is most affected by AI fatigue</div>
+          </div>
+          <span class="dispatch-status ready">Ready to send</span>
+        </li>
+        <li class="dispatch-item">
+          <span class="dispatch-num">#3</span>
+          <div class="dispatch-info">
+            <div class="dispatch-title">The Velocity Trap</div>
+            <div class="dispatch-meta">845 words · 4 sections · Why shipping more feels like less</div>
+          </div>
+          <span class="dispatch-status ready">Ready to send</span>
+        </li>
+        <li class="dispatch-item">
+          <span class="dispatch-num">#4</span>
+          <div class="dispatch-info">
+            <div class="dispatch-title">The Sunday Dread Pattern</div>
+            <div class="dispatch-meta">~550 words · 4 sections · The specific feeling of AI-era Sunday dread</div>
+          </div>
+          <span class="dispatch-status ready">Ready to send</span>
+        </li>
+      </ul>
+
+      <div class="block" style="margin-top: 1.25rem;">
+        <div class="block-title">Send Schedule</div>
+        <p>Recommended: Every Tuesday at 8:00 AM in each reader's timezone. This catches people before the week's sprint begins. The Dispatch should feel like a calm Tuesday morning — not another notification demanding attention.</p>
+        <p>Tools to send: Formspree submissions collected in a spreadsheet. When a real email service is set up (Mailchimp, ConvertKit, Buttondown), all 4 issues import cleanly.</p>
+      </div>
+    </div>
+
+    <!-- Outreach Tracking -->
+    <div class="section">
+      <h2 class="section-title">Newsletter Partnership Outreach</h2>
+
+      <div class="block">
+        <div class="block-title">Outreach Status</div>
+        <table class="outreach-table">
+          <thead>
+            <tr>
+              <th>Newsletter</th>
+              <th>Subscribers</th>
+              <th>Day-7 Email</th>
+              <th>Day-14 Email</th>
+              <th>Response</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Bytes (bytes.dev)</td>
+              <td>~80k</td>
+              <td><span class="badge sent">Sent Apr 24</span></td>
+              <td><span class="badge pending">Due May 8</span></td>
+              <td><span class="badge noresponse">No response yet</span></td>
+            </tr>
+            <tr>
+              <td>TLDR (tldr.tech)</td>
+              <td>~200k</td>
+              <td><span class="badge sent">Sent Apr 24</span></td>
+              <td><span class="badge sent">Sent May 4</span></td>
+              <td><span class="badge noresponse">No response yet</span></td>
+            </tr>
+            <tr>
+              <td>SWE Weekly (swec.io)</td>
+              <td>~15k</td>
+              <td><span class="badge sent">Sent Apr 24</span></td>
+              <td><span class="badge sent">Sent May 8</span></td>
+              <td><span class="badge noresponse">No response yet</span></td>
+            </tr>
+            <tr>
+              <td>Cody (cody.sh)</td>
+              <td>~10k</td>
+              <td><span class="badge sent">Sent Apr 24</span></td>
+              <td><span class="badge sent">Sent May 8</span></td>
+              <td><span class="badge noresponse">No response yet</span></td>
+            </tr>
+            <tr>
+              <td>Devweekly (devweekly.com)</td>
+              <td>~30k</td>
+              <td><span class="badge sent">Sent Apr 24</span></td>
+              <td><span class="badge sent">Sent May 8</span></td>
+              <td><span class="badge noresponse">No response yet</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="block">
+        <div class="block-title">Day-21 Final Follow-up</div>
+        <p>Day-14 follow-ups have been sent (May 8 and May 12). If no response by Day 21 (May 15 or later), send one final brief email with a different hook stat. This is the last contact attempt — if no response, move on and focus on organic distribution.</p>
+        <p style="margin-top: 0.75rem;"><strong>Final follow-up angle suggestion:</strong> "71% of engineers say AI tools make them feel like observers in their own code — we wrote about why this is happening and what to do about it."</p>
+        <p style="font-family: var(--font-sans); font-size: 0.8rem; color: var(--text-muted); margin-top: 0.75rem;">Final follow-up emails ready to send from <code>newsletter-outreach/send-kit/ready-to-post/</code></p>
+      </div>
+    </div>
+
+    <!-- What's Needed to Generate Subscribers -->
+    <div class="section">
+      <h2 class="section-title">What's Needed to Generate Subscribers</h2>
+
+      <div class="block">
+        <div class="block-title">The email list is blocked on ONE manual step</div>
+        <p>Everything else is built. The pages, the forms, the 4 Dispatch drafts, the outreach emails — all done. The only missing piece is the Formspree API key, which Sunny needs to create manually.</p>
+        <p>Once Formspree is configured:</p>
+        <ol style="font-family: var(--font-sans); font-size: 0.85rem; color: var(--text-muted); line-height: 1.8; padding-left: 1.2rem; margin: 0.5rem 0;">
+          <li>Newsletter signup starts collecting emails</li>
+          <li>The Dispatch sends to first real subscribers</li>
+          <li>Checklist downloads collect email + send the PDF</li>
+          <li>Reddit/LinkedIn/Twitter traffic converts to email subscribers</li>
+          <li>Newsletter partnerships get an actual destination to send readers</li>
+        </ol>
+        <p style="margin-top: 0.75rem;">Time to first subscriber after Formspree setup: <strong>same day</strong>. Time to 100 subscribers: depends on the outreach follow-ups and social distribution.</p>
+      </div>
+
+      <div class="block" style="background: var(--surface-overlay);">
+        <div class="block-title" style="color: var(--forest-light);">Quick Win: The 5-Minute Setup That Unblocks Everything</div>
+        <p>1. Open <a href="https://formspree.io" style="color: var(--forest-light);">formspree.io</a></p>
+        <p>2. Click "Start with a template" → "Contact Form"</p>
+        <p>3. Copy the form ID from the embed code</p>
+        <p>4. In the project: <code>grep -rl "YOUR_FORM_ID" *.html | xargs sed -i '' 's/YOUR_FORM_ID/your_real_id/g'</code></p>
+        <p>5. Test newsletter.html — email goes to your inbox</p>
+        <p style="margin-top: 0.75rem;">That's it. The whole email pipeline works. Everything else is done.</p>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div style="margin-top: 3rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+      <a href="newsletter.html" class="cta-button">Newsletter Signup →</a>
+      <a href="ai-fatigue-checklist.html" class="cta-button" style="background: var(--forest-light);">Download Checklist →</a>
+      <a href="newsletter-outreach-dashboard.html" class="cta-button" style="background: transparent; border: 1px solid var(--border); color: var(--text-muted);">Outreach Dashboard →</a>
+    </div>
+
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

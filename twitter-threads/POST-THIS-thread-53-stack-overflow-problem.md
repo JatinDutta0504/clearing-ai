@@ -100,7 +100,7 @@ The "AI Debugging Fatigue" guide at clearing-ai.com has a full section on mainta
 
 It takes 10 minutes to read. Your future debugging self will thank you.
 
-→ clearing-ai.com/ai-debugging-fatigue
+→ clearing-ai.com/recovery
 
 #SoftwareEngineering #AIFatigue #StackOverflow #DeepWork
 

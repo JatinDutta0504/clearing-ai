@@ -1,702 +1,493 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark" >
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Architecture Fatigue: When AI Designs Your System</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <meta name="description" content="AI architecture fatigue: when AI designs your system and you lose the craft. Signs, recovery, and maintaining architectural judgment in the AI era."> />
-  <meta name="keywords" content="AI architecture fatigue, AI system design burnout, software architect AI fatigue, senior engineer AI architecture, technical architecture AI tools, architecture decision fatigue, software design AI tools, staff engineer AI fatigue, system design AI overload, architectural thinking AI erosion, tech lead AI fatigue 2025" />
+  <title>AI Architecture Fatigue: Why Designing Systems Feels Broken</title>
+  <meta name="description" content="AI architecture fatigue: why relying on AI for system design decisions erodes the judgment that makes senior engineers valuable — and how to rebuild." />
+  <meta name="keywords" content="AI architecture fatigue, system design AI, software architecture judgment, senior engineer AI fatigue, AI design decisions, architecture skills eroding, software design thinking AI era" />
   <meta name="author" content="The Clearing" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://clearing-ai.com/ai-architecture-fatigue.html" />
-  <link rel="alternate" type="application/rss+xml" title="The Clearing RSS Feed" href="https://clearing-ai.com/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="The Clearing RSS Feed" href="https://clearing-ai.com/feed.xml" />
+
+  <!-- Open Graph -->
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://clearing-ai.com/ai-architecture-fatigue.html" />
-  <meta property="og:title" content="AI Architecture Fatigue: When AI Designs Your System and You Lose the Craft" />
-  <meta property="og:description" content="AI tools can generate architecture — but they can't replace architectural judgment. Here's why system design with AI creates a unique and dangerous fatigue for senior engineers." />
+  <meta property="og:title" content="AI Architecture Fatigue: Why Designing Systems Feels Broken" />
+  <meta property="og:description" content="Relying on AI for system design decisions erodes the judgment that makes senior engineers valuable. Here's what's happening and how to rebuild." />
   <meta property="og:image" content="https://clearing-ai.com/og-image.png" />
   <meta property="og:site_name" content="The Clearing" />
-  <meta property="article:published_time" content="2026-04-14T23:44:00Z" />
+  <meta property="article:author" content="The Clearing" />
+  <meta property="article:published_time" content="2026-05-15" />
+  <meta property="article:section" content="AI Tool Overwhelm" />
+
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="AI Architecture Fatigue: When AI Designs Your System and You Lose the Craft" />
-  <meta name="twitter:description" content="AI tools can generate architecture — but they can't replace architectural judgment. Here's why system design with AI creates a unique and dangerous fatigue for senior engineers." />
+  <meta name="twitter:title" content="AI Architecture Fatigue: Why Designing Systems Feels Broken" />
+  <meta name="twitter:description" content="Relying on AI for system design decisions erodes the judgment that makes senior engineers valuable." />
   <meta name="twitter:image" content="https://clearing-ai.com/og-image.png" />
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/wordpress.css" />
+
+  <!-- Breadcrumb Schema -->
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "AI Architecture Fatigue: When AI Designs Your System and You Lose the Craft",
-      "description": "AI tools can generate architecture \u2014 but they can't replace architectural judgment. Here's why system design with AI creates a unique and dangerous fatigue for senior engineers.",
-      "url": "https://clearing-ai.com/ai-architecture-fatigue.html",
-      "datePublished": "2026-04-14",
-      "dateModified": "2026-04-14",
-      "author": {
-        "@type": "Organization",
-        "name": "The Clearing"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "The Clearing",
-        "url": "https://clearing-ai.com"
-      },
-      "wordCount": 4200,
-      "inLanguage": "en-US"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Can AI replace software architects?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. AI can generate plausible architecture diagrams and code scaffolding, but architectural judgment requires understanding organizational constraints, team capabilities, long-term trade-offs, and emergent system properties that only come from experience. AI produces architecture-shaped content; it doesn't produce architecture wisdom."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Why does reviewing AI-generated architecture feel so exhausting?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Because you're doing double cognitive work: evaluating the AI's proposal AND detecting its blind spots. You inherit the thinking without having done the thinking \u2014 which strips the sense of ownership while adding the burden of validation. It's like proofreading someone else's essay about a subject you know better than they do."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What's the difference between a senior engineer's AI architecture fatigue and a junior's?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Juniors feel confusion and dependency anxiety \u2014 they don't know if the AI architecture is right. Seniors feel something worse: the quiet erosion of the judgment they spent years building. Seniors can spot the AI's mistakes, but they're being paid to both catch errors AND produce work, and the AI keeps generating faster than they can evaluate."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does using AI for architecture planning speed up teams?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Short-term yes, long-term questionable. AI accelerates the drafting phase. But teams that over-rely on AI for architecture planning often accumulate technical debt faster, because the AI optimizes for plausible structure rather than the specific constraints of your system. Speed without judgment is just fast mediocrity."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do you use AI for architecture without losing architectural skill?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Three practices: (1) Always form the architecture in your head first \u2014 describe it to yourself before looking at what AI produces. (2) Make the AI defend its choices \u2014 ask it to explain trade-offs, failure modes, and scaling constraints. (3) Maintain an Architecture Decision Record for every significant choice, written in your own judgment, not AI's."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is architecture fatigue a senior-specific problem?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "It's most acute for seniors, but it affects anyone whose job involves designing or evaluating system structure. Staff engineers, tech leads, and experienced ICs who are expected to both generate architecture AND validate AI-generated proposals experience the most intense version."
-          }
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "The Clearing", "item": "https://clearing-ai.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Understand", "item": "https://clearing-ai.com/" },
+      { "@type": "ListItem", "position": 3, "name": "AI Architecture Fatigue", "item": "https://clearing-ai.com/ai-architecture-fatigue.html" }
+    ]
+  }
+  </script>
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can AI help with system architecture?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AI can generate architecture diagrams, suggest patterns, and describe trade-offs. But the judgment about which architecture fits your specific context — team size, constraints, future scale — requires human experience. AI provides information; you provide judgment."
         }
-      ]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://clearing-ai.com"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Understand",
-          "item": "https://clearing-ai.com/research.html"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "AI Architecture Fatigue",
-          "item": "https://clearing-ai.com/ai-architecture-fatigue.html"
+      },
+      {
+        "@type": "Question",
+        "name": "Why does asking AI for architecture advice feel exhausting?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Architecture decisions are high-stakes, low-feedback decisions. AI compounds this by offering many options, increasing the cognitive load of evaluation. You're doing the hard work of judgment while AI handles the recall — a particularly depleting combination."
         }
-      ]
-    }
-  ]
-}
-</script>
-  <link rel="stylesheet" href="css/style.min.css" />
-  <style>
-    #rp{position:fixed;top:0;left:0;height:4px;background:var(--accent,#4CAF50);z-index:1000;transition:width .1s linear;width:0%}
-    .article{max-width:720px;margin:0 auto;padding:2rem 1rem 6rem}
-    .hero{text-align:center;padding:3rem 1rem 2rem;border-bottom:1px solid var(--border);margin-bottom:3rem}
-    .hero h1{font-size:clamp(1.8rem,5vw,2.6rem);font-weight:700;line-height:1.2;margin-bottom:1rem;letter-spacing:-0.02em}
-    .hero .subtitle{font-size:1.1rem;color:var(--text-secondary);line-height:1.6;max-width:560px;margin:0 auto}
-    .meta{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;font-size:0.85rem;color:var(--text-secondary);margin-top:1.5rem}
-    .meta span{display:flex;align-items:center;gap:0.3rem}
-    section{margin-bottom:3.5rem}
-    h2{font-size:1.5rem;font-weight:600;margin-bottom:1.2rem;color:var(--heading);letter-spacing:-0.01em;border-bottom:1px solid var(--border);padding-bottom:0.5rem}
-    h3{font-size:1.15rem;font-weight:600;margin:1.5rem 0 0.8rem;color:var(--heading)}
-    p{line-height:1.8;font-size:1rem;color:var(--text);margin-bottom:1.2rem}
-    .lead{font-size:1.15rem;color:var(--text-secondary);line-height:1.7;border-left:3px solid var(--accent,#4CAF50);padding-left:1.2rem;margin-bottom:2rem}
-    .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin:1.5rem 0}
-    .card{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:1.2rem}
-    .card h4{font-size:0.95rem;font-weight:600;margin-bottom:0.5rem;color:var(--accent,#4CAF50)}
-    .card p{font-size:0.9rem;margin-bottom:0;line-height:1.6}
-    .warning{background:rgba(245,108,38,0.1);border:1px solid rgba(245,108,38,0.3);border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem 0}
-    .warning h4{color:#f56c08;font-size:0.9rem;font-weight:700;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em}
-    .warning p{margin-bottom:0;font-size:0.95rem}
-    .table-wrap{overflow-x:auto;margin:1.5rem 0;border-radius:8px;border:1px solid var(--border)}
-    table{width:100%;border-collapse:collapse;font-size:0.9rem}
-    th{background:var(--surface-2);padding:0.8rem 1rem;text-align:left;font-weight:600;border-bottom:1px solid var(--border);color:var(--heading)}
-    td{padding:0.75rem 1rem;border-bottom:1px solid var(--border);vertical-align:top}
-    tr:last-child td{border-bottom:none}
-    tr:nth-child(even) td{background:rgba(255,255,255,0.02)}
-    .faq-list{max-width:680px;margin:2rem 0}
-    .faq-item{border:1px solid var(--border);border-radius:8px;margin-bottom:0.75rem;overflow:hidden}
-    .faq-question{width:100%;background:var(--surface-2);border:none;padding:1rem 1.2rem;text-align:left;font-size:0.95rem;font-weight:600;color:var(--heading);cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background .2s}
-    .faq-question:hover{background:var(--surface-3)}
-    .faq-question:focus{outline:2px solid var(--accent);outline-offset:-2px}
-    .faq-question::after{content:"+";font-size:1.3rem;transition:transform .2s;flex-shrink:0;margin-left:0.5rem;color:var(--accent)}
-    .faq-item.open .faq-question::after{transform:rotate(45deg)}
-    .faq-answer{max-height:0;overflow:hidden;transition:max-height .3s ease}
-    .faq-item.open .faq-answer{max-height:400px}
-    .faq-answer-inner{padding:1rem 1.2rem;font-size:0.9rem;line-height:1.7;color:var(--text)}
-    .signs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0.75rem;margin:1.5rem 0}
-    .sign{background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:0.9rem 1rem;font-size:0.88rem;line-height:1.5;display:flex;gap:0.7rem;align-items:flex-start}
-    .sign .num{background:var(--accent,#4CAF50);color:#000;font-weight:700;font-size:0.75rem;min-width:1.5rem;height:1.5rem;line-height:1.5rem;text-align:center;border-radius:50%;flex-shrink:0}
-    .sign p{margin:0}
-    .continue{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin-top:3rem}
-    .continue h3{font-size:1rem;font-weight:700;margin:0 0 1rem;color:var(--heading);text-transform:uppercase;letter-spacing:0.05em}
-    .continue-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0.75rem;margin-top:1rem}
-    .continue-card{background:var(--surface-3);border:1px solid var(--border);border-radius:7px;padding:0.9rem;font-size:0.85rem;transition:transform .2s,box-shadow .2s}
-    .continue-card:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.3)}
-    .continue-card h4{font-size:0.88rem;font-weight:600;margin-bottom:0.3rem;color:var(--accent,#4CAF50)}
-    .continue-card p{margin:0;font-size:0.8rem;color:var(--text-secondary);line-height:1.5}
-    .continue-card a{color:inherit;text-decoration:none}
-    blockquote{background:var(--surface-2);border-left:3px solid var(--accent,#4CAF50);padding:1rem 1.3rem;margin:1.5rem 0;border-radius:0 8px 8px 0;font-style:italic;font-size:1.05rem;color:var(--text-secondary);line-height:1.7}
-    blockquote cite{display:block;margin-top:0.5rem;font-size:0.85rem;font-style:normal;color:var(--text-secondary)}
-    .steps{counter-reset:step;list-style:none;padding:0;margin:1.5rem 0}
-    .steps li{counter-increment:step;padding:0.8rem 0.8rem 0.8rem 3rem;position:relative;border-bottom:1px solid var(--border);font-size:0.92rem;line-height:1.6}
-    .steps li:last-child{border-bottom:none}
-    .steps li::before{content:counter(step);position:absolute;left:0;top:0.8rem;width:1.8rem;height:1.8rem;background:var(--accent,#4CAF50);color:#000;border-radius:50%;text-align:center;line-height:1.8rem;font-size:0.8rem;font-weight:700}
-    .share-bar{display:flex;gap:0.75rem;align-items:center;padding:1rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:2rem 0;flex-wrap:wrap}
-    .share-bar span{font-size:0.85rem;color:var(--text-secondary);font-weight:600}
-    .share-btn{display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 1rem;border-radius:6px;font-size:0.82rem;font-weight:600;cursor:pointer;border:none;transition:opacity .2s,transform .1s;text-decoration:none}
-    .share-btn:hover{opacity:0.85;transform:translateY(-1px)}
-    .share-btn.twitter{background:#1da1f2;color:#fff}
-    .share-btn.linkedin{background:#0077b5;color:#fff}
-    .share-btn.copy{background:var(--surface-3);color:var(--text);border:1px solid var(--border)}
-    @media(max-width:600px){.article{padding:1rem 0.75rem 4rem}.hero{padding:2rem 0.75rem 1.5rem}.card-grid{grid-template-columns:1fr}.signs-grid{grid-template-columns:1fr}.continue-grid{grid-template-columns:1fr}.meta{flex-direction:column;gap:0.5rem;align-items:center}}
-  </style>
-  <!-- Google Fonts (CLS fix — replaced self-hosted 318KB fonts with ~30KB CDN) -->
-      <!-- Critical @font-face: immediate text render, no network round-trip -->
-  <style>
-    @font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:local('system-ui');ascent-override:107%;descent-override:27%;size-adjust:107%;}
-    @font-face{font-family:'Lora';font-style:normal;font-weight:400;font-display:swap;src:local('Georgia');ascent-override:94%;descent-override:23%;size-adjust:94%;}
-    @font-face{font-family:'Lora';font-style:italic;font-weight:400;font-display:swap;src:local('Georgia');ascent-override:94%;descent-override:23%;size-adjust:94%;}
-  </style>
+      },
+      {
+        "@type": "Question",
+        "name": "What skills are lost when you rely on AI for architecture decisions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The primary loss is constraint identification — the ability to recognize which architectural choices matter given your specific team, codebase, and business context. Secondary losses include technical judgment about trade-offs, system-level thinking, and the pattern recognition that comes from having made bad architecture decisions yourself."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you rebuild architecture judgment after AI erosion?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The rebuild is slower than the erosion but possible: weekly architecture reviews (evaluate decisions made with and without AI), architecture diaries (document why you chose a path), teaching architecture to others, and deliberate exposure to system failures."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is AI consultation fatigue different from other types of AI fatigue?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Consultation fatigue is specific to the cognitive pattern of using AI as an advisor rather than a tool. It combines decision fatigue, authority uncertainty (is AI right?), and the paradox of feeling informed but less confident. It's different from code-production fatigue."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do senior engineers protect their architecture skills?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The engineers who maintain strong architecture judgment have three practices: they make major architectural decisions without AI for the first pass, they maintain a personal architecture decision log with outcomes, and they periodically review failed systems (their own and others') to rebuild pattern recognition."
+        }
+      }
+    ]
+  }
+  </script>
 
-  <!-- Self-hosted fonts via fonts.css (async, font-display:optional) -->
-  <!-- Google Fonts CDN — replaces self-hosted 318KB fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" />
-
-  <!-- Non-render-blocking CSS -->
-
-  <!-- Critical font-face (fallback — prevents FOB/FOIT before fonts.css loads) -->
-  <style>
-    @font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:local('system-ui');}
-    @font-face{font-family:'Lora';font-style:normal;font-weight:400;font-display:swap;src:local('Georgia');}
-  </style>
-
-  <!-- Non-render-blocking CSS -->
-
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI Architecture Fatigue: Why Designing Systems Feels Broken",
+    "description": "Relying on AI for system design decisions erodes the judgment that makes senior engineers valuable — and how to rebuild.",
+    "author": { "@type": "Organization", "name": "The Clearing" },
+    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "datePublished": "2026-05-15",
+    "dateModified": "2026-05-15",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://clearing-ai.com/ai-architecture-fatigue.html" },
+    "wordCount": 3100
+  }
+  </script>
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to content</a>
-  <div id="rp" aria-hidden="true"></div>
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
+  <!-- Header Nav -->
   <header class="site-header">
-    <nav class="nav-main" role="navigation" aria-label="Main">
-      <a href="index.html" class="nav-logo" aria-label="The Clearing home">
-        <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><text y=".9em" font-size="90">🌿</text></svg>
-        <span>The Clearing</span>
-      </a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-      <ul class="nav-links">
-        <li class="nav-dropdown">
-          <button class="nav-link nav-link-drop" aria-expanded="false">Quiz<span class="caret">▾</span></button>
-          <div class="nav-sub">
-            <a href="index.html#quiz">Take the Quiz</a>
-            <a href="quiz-results.html">Quiz Results</a>
-          </div>
-        </li>
-        <li class="nav-dropdown">
-          <button class="nav-link nav-link-drop" aria-expanded="false">Recover<span class="caret">▾</span></button>
-          <div class="nav-sub">
-            <a href="recovery.html">Recovery Guide</a>
-          <a href="the-explanation-requirement.html">Explanation Requirement</a>
-            <a href="ai-detox-plan.html">30-Day Detox</a>
-          <a href="return-to-office-ai-fatigue.html">Return to Office</a>
-            <a href="mental-health.html">Mental Health</a>
-            <a href="developer-wellbeing.html">Wellbeing</a>
-            <a href="decompress.html">Decompress</a>
-            <a href="the-24-month-projection.html">24-Month Projection</a>
-          </div>
-        </li>
-        <li class="nav-dropdown">
-          <button class="nav-link nav-link-drop" aria-expanded="false">Understand<span class="caret">▾</span></button>
-          <div class="nav-sub">
-            <a href="research.html">Research</a>
-            <a href="skill-atrophy.html">Skill Atrophy</a>
-            <a href="cognitive-load.html">Cognitive Load</a>
-            <a href="attention-residue.html">Attention Residue</a>
-            <a href="flow-state.html">Flow State</a>
-            <a href="ai-architecture-fatigue.html" aria-current="page">Architecture Fatigue</a>
-          </div>
-        </li>
-            <li><a href="the-ai-dependency-trap.html">AI Dependency Trap</a></li>
-        <li class="nav-dropdown">
-          <button class="nav-link nav-link-drop" aria-expanded="false">Stories<span class="caret">▾</span></button>
-          <div class="nav-sub">
-            <a href="stories.html">Engineer Stories</a>
-            <a href="testimonials.html">Testimonials</a>
-            <a href="share-your-story.html">Share Your Story</a>
-            <a href="journal.html">Journal</a>
-          </div>
-        </li>
-        <li class="nav-dropdown">
-          <button class="nav-link nav-link-drop" aria-expanded="false">Resources<span class="caret">▾</span></button>
-          <div class="nav-sub">
-            <a href="resources.html">Reading List</a>
-            <a href="community.html">Community</a>
-      <a href="outreach-kit.html">Outreach</a>
-            <a href="newsletter.html">Newsletter</a>
-        <a href="newsletter-outreach-dashboard.html" class="nav-link">Outreach</a>
-            <a href="newsletter-archive.html">Archive</a>
-            <a href="checkin.html">Daily Check-in</a>
-          </div>
-        </li>
-      </ul>
-      <button class="theme-toggle" aria-label="Toggle theme">☀</button>
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+      <div class="nav-left">
+        <a href="index.html" class="logo" aria-label="The Clearing — Home">
+          <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2z" fill="#2D5A27"/>
+            <path d="M10 16c0-3.314 2.686-6 6-6s6 2.686 6 6-2.686 6-6 6-6-2.686-6-6z" fill="#4A8C45"/>
+            <path d="M16 10v6M16 20v2" stroke="#E8F5E9" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span class="logo-text">The Clearing</span>
+        </a>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+        <span class="toggle-icon">🌙</span>
+      </button>
     </nav>
   </header>
 
-  <main id="main" class="article">
-    <div class="hero">
-      <h1>AI Architecture Fatigue: When AI Designs Your System and You Lose the Craft</h1>
-      <p class="subtitle">AI tools can generate architecture faster than any senior engineer. But what you're left reviewing is a system without a soul — and the fatigue of holding that together is unlike anything you've felt before.</p>
-      <div class="meta">
-        <span>📖 18 min read</span>
-        <span>🌿 The Clearing</span>
-        <span>April 2026</span>
-      </div>
-    </div>
+  <main id="main-content">
+    <article class="page-content">
 
-    <p class="lead">You spent fifteen years building the ability to look at a requirements doc and see the system that should live inside it. The failure modes. The trade-off space. The things that will break in production that no one has thought about yet. Now AI generates a plausible architecture in forty seconds — and you're left staring at it, looking for what it got wrong.</p>
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html">Understand</a></li>
+          <li aria-current="page">AI Architecture Fatigue</li>
+        </ol>
+      </nav>
 
-    <p>This is AI architecture fatigue. It's not burnout. It's not exactly skill atrophy, though it touches that. It's the specific exhaustion of having your craft partially automated — of being both the architect and the quality assurance engineer for a machine that doesn't understand consequences.</p>
-
-    <section>
-      <h2>What Architectural Thinking Actually Is</h2>
-
-      <p>Most people outside senior engineering think architecture is about drawing boxes and arrows. It's not. Architecture is the accumulated judgment about which problems are worth solving, which constraints are real, and which future scenarios you need to design for today versus deferring to later.</p>
-
-      <p>Good architectural thinking includes:</p>
-
-      <ul>
-        <li><strong>Constraint mapping</strong> — knowing which non-functional requirements are actually negotiable and which are load-bearing for the business</li>
-        <li><strong>Failure mode anticipation</strong> — not just what could break, but what the cascade looks like when it does, at 3am, on a Friday</li>
-        <li><strong>Team capability alignment</strong> — designing systems that your specific team can actually build, maintain, and evolve</li>
-        <li><strong>Technical debt accounting</strong> — knowing which shortcuts are survivable and which ones compound into existential risk</li>
-        <li><strong>Emergent property recognition</strong> — understanding how system behaviors arise from the interaction of components, not just from individual components</li>
-      </ul>
-
-      <p>None of this appears in an AI-generated architecture diagram. It can't. AI produces architecture-shaped content by recombining patterns from training data. The patterns are real — that's what makes the output so convincing — but they're not judgment. And when you review AI architecture professionally, you're working double: evaluating the proposal <em>and</em> compensating for its blind spots simultaneously.</p>
-    </section>
-
-    <section>
-      <h2>Why AI Generates Such Plausible — and Dangerous — Architecture</h2>
-
-      <p>AI architecture tools are genuinely useful. They can generate reasonable service decomposition, suggest appropriate technology choices, and produce coherent API designs for standard problems. If you're building a CRUD application with well-understood patterns, AI architecture assistance can save real time.</p>
-
-      <p>The danger is in what AI can't see.</p>
-
-      <div class="card-grid">
-        <div class="feature-card">
-          <h4>It Doesn't Know Your Team</h4>
-          <p>AI suggests patterns that require expertise your team doesn't have. It recommends the architecture it would write, not the architecture your team can build and own.</p>
+      <!-- Hero -->
+      <header class="page-hero">
+        <div class="hero-badge">Understand · AI Tool Overwhelm</div>
+        <h1>AI Architecture Fatigue: Why Designing Systems Feels Broken</h1>
+        <p class="hero-subtitle">Senior engineers used to be the people who knew how systems should be built. AI is quietly eroding that judgment — and the replacement isn't working.</p>
+        <div class="hero-meta">
+          <span class="reading-time" aria-label="Approximately 14 minute read">14 min read</span>
+          <span class="separator" aria-hidden="true">·</span>
+          <span class="updated-date">Updated May 2026</span>
         </div>
-        <div class="feature-card">
-          <h4>It Can't Weight Trade-offs</h4>
-          <p>When you choose PostgreSQL over MongoDB, there's a reason rooted in your specific data patterns. AI knows both options exist but can't weight them against each other for your context.</p>
+      </header>
+
+      <!-- Table of Contents -->
+      <nav class="toc" aria-label="Table of contents">
+        <h2>What this covers</h2>
+        <ol>
+          <li><a href="#the-problem">The problem nobody names</a></li>
+          <li><a href="#what-architecture-judgment">What architecture judgment actually is</a></li>
+          <li><a href="#how-ai-breaks-it">How AI breaks the judgment loop</a></li>
+          <li><a href="#signs">Signs your architecture skills are eroding</a></li>
+          <li><a href="#seniority-paradox">The seniority paradox</a></li>
+          <li><a href="#the-compounding-problem">The compounding problem</a></li>
+          <li><a href="#what-helps">What actually helps</a></li>
+          <li><a href="#rebuild">How to rebuild</a></li>
+          <li><a href="#faq">Frequently asked questions</a></li>
+        </ol>
+      </nav>
+
+      <hr class="section-divider" />
+
+      <!-- Section 1 -->
+      <section id="the-problem">
+        <h2>The problem nobody names</h2>
+        <p>There's a specific moment that marks the onset of AI architecture fatigue. It usually happens like this: you're in a design review. Someone asks a question about how the system should handle a new failure mode, or what the caching strategy should be, or whether to go event-driven or synchronous. You feel the familiar weight of a decision you should be able to make. But instead of reaching for your own reasoning, you reach for AI.</p>
+        <p>You ask the AI. It gives you a good answer — structured, thorough, with trade-offs listed. You nod. You incorporate it. You move on. But something feels off. Not wrong. Just... thin. Like you learned what the answer was without learning how to get there.</p>
+        <p>That's the signal. The architecture judgment that used to develop through genuine struggle is being bypassed. And you're not always aware it's happening.</p>
+        <p>The pattern is subtle enough that most engineers don't notice until they find themselves unable to make an architecture decision without AI — not because AI is better, but because their own judgment has gone quiet.</p>
+      </section>
+
+      <!-- Section 2 -->
+      <section id="what-architecture-judgment">
+        <h2>What architecture judgment actually is</h2>
+        <p>Most engineers describe architecture as "knowing how to design systems." That's the output. The skill underneath is harder to name.</p>
+        <p>Architecture judgment is the ability to look at a problem space, a team, a codebase, and a set of constraints, and make a decision that will hold up under future conditions you can't fully predict. It requires:</p>
+        <ul>
+          <li><strong>Constraint recognition</strong> — seeing which limitations actually matter given the specific context</li>
+          <li><strong>Trade-off calibration</strong> — understanding that every architectural choice is a set of trade-offs, not a right answer</li>
+          <li><strong>Failure imagination</strong> — picturing what will break and under what conditions</li>
+          <li><strong>Pattern recognition from prior mistakes</strong> — having made bad architecture decisions and learned from them</li>
+          <li><strong>System-level intuition</strong> — feeling, experienced-based, whether a proposed architecture will survive contact with reality</li>
+        </ul>
+        <p>None of these are things you can extract from a prompt. They develop through repeated exposure to system failures, messy migrations, scaling crises, and the accumulated evidence of what works and what doesn't in conditions that don't match the happy path.</p>
+        <p>This is why senior engineers who've been through real outages tend to make better architectural decisions — not because they're smarter, but because they've lived through the consequences of bad ones.</p>
+      </section>
+
+      <!-- Section 3 -->
+      <section id="how-ai-breaks-it">
+        <h2>How AI breaks the judgment loop</h2>
+        <p>Architecture judgment develops through a specific cognitive loop: you make a decision, you live with its consequences, you update your mental model based on what actually happened. Over time, this loop produces genuine intuition.</p>
+        <p>AI interrupts this loop in three specific ways:</p>
+
+        <h3>1. The explanation bypass</h3>
+        <p>When AI generates an architecture, it provides the answer without the reasoning process that would develop your own judgment. You learn what to do without learning why. The output is complete; the learning is skipped. This is the same mechanism that causes skill atrophy in code writing — but architecture decisions have higher stakes and lower feedback frequency, so the erosion is slower but more consequential.</p>
+
+        <h3>2. The trade-off outsourcing problem</h3>
+        <p>Good architecture judgment comes from having genuinely weighed trade-offs. When AI presents options, it does the weighing for you — based on generalized patterns, not your specific context. You accept the recommendation without doing the trade-off analysis yourself. The muscle that develops from that analysis goes quiet.</p>
+
+        <h3>3. The confidence inflation effect</h3>
+        <p>AI architecture suggestions look confident and well-structured. They use proper terminology, cite patterns, and present trade-offs in organized formats. This creates an illusion of understanding. You feel like you've thought it through because the AI thought it through for you. But feeling like you've evaluated a trade-off is not the same as having evaluated it.</p>
+
+        <div class="callout warning-callout">
+          <strong>The dangerous part:</strong> You can't feel this erosion happening. The output still looks fine. The architecture works. Meetings go smoothly. The judgment erosion is invisible in the moment and only visible when you need it and it's not there.
         </div>
-        <div class="feature-card">
-          <h4>It Optimizes for Plausibility</h4>
-          <p>AI generates architecture that sounds right and looks right. It can't run the production scenario in its head and feel the brittleness the way a veteran architect does.</p>
+      </section>
+
+      <!-- Section 4 -->
+      <section id="signs">
+        <h2>Signs your architecture skills are eroding</h2>
+        <p>These are the signals worth watching for — not as diagnostics, but as evidence that the judgment loop has been interrupted:</p>
+
+        <div class="signs-grid">
+          <div class="sign-card">
+            <h3>You can't explain why you chose an architecture</h3>
+            <p>You selected a pattern but can't articulate the trade-offs you weighed. You know what you chose; you don't know why you rejected alternatives.</p>
+          </div>
+          <div class="sign-card">
+            <h3>Architectural decisions feel arbitrary</h3>
+            <p>When choosing between approaches, you feel equally uncertain about all options. Not "I need more data" — just a blank uncertainty that used to have texture.</p>
+          </div>
+          <div class="sign-card">
+            <h3>You trust AI over your own gut</h3>
+            <p>When your instinct conflicts with AI's suggestion, you follow AI without a strong reason. The gut feeling that used to push back has quieted.</p>
+          </div>
+          <div class="sign-card">
+            <h3>You can't anticipate failure modes without AI prompting</h3>
+            <p>When asked "what would break this system?", you need to ask AI to generate the failure modes rather than generating them from your own mental model.</p>
+          </div>
+          <div class="sign-card">
+            <h3>Design reviews feel like QA sessions</h3>
+            <p>You review AI-generated architecture for correctness rather than contributing your own architectural reasoning. You catch errors but don't add design alternatives.</p>
+          </div>
+          <div class="sign-card">
+            <h3>Junior engineers ask you questions you can't answer</h3>
+            <p>Not technical questions — judgment questions. "Why did we choose this approach?" You find yourself forwarding the question to AI.</p>
+          </div>
         </div>
-        <div class="feature-card">
-          <h4>It Has No Memory of Failure</h4>
-          <p>Real architecture wisdom is built on scars. AI has studied failures but doesn't carry them. It will happily recommend the approach that looked elegant in a blog post and catastrophic in practice.</p>
+      </section>
+
+      <!-- Section 5 -->
+      <section id="seniority-paradox">
+        <h2>The seniority paradox</h2>
+        <p>Junior engineers are not the only ones losing architecture skills. Senior and staff engineers report a distinct version of this erosion: their pattern recognition is strong, but the judgment about when to apply which pattern has become uncertain.</p>
+        <p>They can recognize good architecture when they see it. They can often explain why a system design is sound or flawed. But generating new architecture from scratch — without AI assistance — has become uncomfortable in a way it wasn't before.</p>
+        <p>This is the seniority paradox: the engineers with the most experience are the ones whose judgment is being most thoroughly outsourced.</p>
+        <p>The reason is structural. Senior engineers are the ones who get asked to make architecture decisions most frequently. They are also the ones most likely to use AI to handle the volume. The result: high-experience engineers are the ones most exposed to architecture fatigue.</p>
+        <p>The irony is that their experience is exactly what's needed to calibrate AI's recommendations. When they outsource the calibration, they lose the very judgment that made their experience valuable.</p>
+      </section>
+
+      <!-- Section 6 -->
+      <section id="the-compounding-problem">
+        <h2>The compounding problem</h2>
+        <p>Architecture judgment is not a single skill. It's a system of interlocking competencies that reinforce each other. When one erodes, others follow.</p>
+
+        <div class="comparison-table-wrapper">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>What you lose</th>
+                <th>What it cascades into</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Constraint recognition</td>
+                <td>You design for the wrong problem — architecture that solves a question nobody asked</td>
+              </tr>
+              <tr>
+                <td>Trade-off calibration</td>
+                <td>You default to what AI recommends, which is often the most common pattern — not the best fit</td>
+              </tr>
+              <tr>
+                <td>Failure imagination</td>
+                <td>You miss failure modes that AI didn't surface, which are often the most system-specific ones</td>
+              </tr>
+              <tr>
+                <td>Pattern recognition</td>
+                <td>You lose the library of "I've seen this fail before" that lets you anticipate problems early</td>
+              </tr>
+              <tr>
+                <td>System intuition</td>
+                <td>You can evaluate architecture on paper but can't feel whether it'll hold up under real load</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-      </div>
 
-      <p>Senior engineers who use AI for architecture planning often notice the same thing: the AI-generated architecture is never quite wrong, but it's never quite right either. It's correct in the way a translation is correct — capturing the surface meaning while losing the texture.</p>
+        <p>The compounding happens quietly. Each loss makes the next one more likely, because architecture judgment is path-dependent — the patterns you recognize inform the constraints you see, which inform the trade-offs you weigh, which inform the failures you imagine. Disrupt one, and the whole system gradually goes quiet.</p>
+      </section>
 
-      <blockquote>
-        "I asked AI to design a message queue architecture for our payment system. The diagram was beautiful. Three weeks later I found the flaw it had introduced: a retry loop with no idempotency guarantee that would have caused duplicate charges under exactly the failure scenario we needed to handle."
-        <cite>— Staff engineer, fintech company (anonymous submission)</cite>
-      </blockquote>
-    </section>
+      <!-- Section 7 -->
+      <section id="what-helps">
+        <h2>What actually helps</h2>
+        <p>The goal is not to reject AI in architecture work. It's to stay honest about which part of the work you are practicing versus which you are outsourcing. Three practices have the strongest evidence among engineers who've maintained architecture judgment through the AI transition:</p>
 
-    <section>
-      <h2>The Five Architecture Fatigue Patterns</h2>
+        <h3>The first-draft rule</h3>
+        <p>When facing a significant architecture decision, make your first decision without AI. Not a complete architecture — just the skeleton. The constraints you identify, the trade-offs you consider, the failure modes you anticipate before AI gets involved. Then ask AI to evaluate or expand your draft. The gap between your draft and AI's draft is the data about where your judgment is thin.</p>
 
-      <p>Here's what's actually happening when AI architecture reviews start draining you:</p>
+        <h3>The architecture diary</h3>
+        <p>Keep a log of architectural decisions — not the outcome, but the reasoning. For each decision: what problem you were solving, what options you considered, which trade-offs mattered most, what you think will happen as the system scales. Review this log periodically. The act of articulating reasoning is where judgment develops, not in the receiving of it.</p>
 
-      <div class="signs-grid">
-        <div class="sign">
-          <span class="num">1</span>
-          <p><strong>The Hollow Ownership Feeling</strong> — The architecture has your name on it but not your thinking in it. You approved it. You defended it to leadership. But when something goes wrong, you can't trace the failure back to your own reasoning. That is a specific and corrosive kind of professional grief.</p>
+        <h3>The failure review</h3>
+        <p>Once a quarter, do a structured review of architecture decisions that went wrong — in your own system, in published postmortems, in case studies. Not to assign blame, but to rebuild the pattern recognition that comes from seeing how architecture decisions created or failed to prevent failure. This is the experience-equivalent that AI can't provide: living through failure vicariously enough to develop intuition.</p>
+      </section>
+
+      <!-- Section 8 -->
+      <section id="rebuild">
+        <h2>How to rebuild (if it's already eroded)</h2>
+        <p>The rebuild is slower than the erosion, but it's possible. The key is deliberate practice that forces the judgment loop back open:</p>
+
+        <div class="step-list">
+          <div class="step">
+            <h3>Week 1–2: Architecture audits</h3>
+            <p>Pick one significant architecture decision made in the last 6 months — ideally with AI involvement. Rebuild the reasoning from scratch without AI. Then compare. Where did your reasoning diverge from what actually happened? That's your curriculum.</p>
+          </div>
+          <div class="step">
+            <h3>Week 3–4: AI-shadow mode</h3>
+            <p>For any architecture work, generate your own analysis first — in writing, without AI. Then use AI. Note every point where AI's thinking either confirms, challenges, or expands yours. The expansion points are where your model was thin.</p>
+          </div>
+          <div class="step">
+            <h3>Month 2: Teaching architecture</h3>
+            <p>Teach one architecture concept to someone who doesn't know it — a junior engineer, a peer outside your area, or even an AI (describe a system and ask it to identify the trade-offs you made). The act of explaining requires you to make your reasoning explicit. The gaps show up immediately.</p>
+          </div>
+          <div class="step">
+            <h3>Ongoing: Architecture decision log</h3>
+            <p>Document each significant architecture decision with: context, options considered, trade-offs weighed, decision made, and — critically — predicted outcome. Update the log when you learn the actual outcome. Over time, this builds a personal dataset that AI cannot replicate.</p>
+          </div>
         </div>
-        <div class="sign">
-          <span class="num">2</span>
-          <p><strong>The Double Cognitive Work</strong> — You generate less architecture yourself but review far more. And reviewing AI-generated architecture is harder than reviewing human architecture because AI makes subtler errors: not mistakes, but plausible-but-wrong decisions that require deep expertise to catch.</p>
+
+        <div class="callout info-callout">
+          <strong>The framing that helps:</strong> Architecture judgment is not about knowing the right answer. It's about knowing how to think about the question. AI can provide answers. You need to maintain the capacity to ask the right questions. That's what's at stake.
         </div>
-        <div class="sign">
-          <span class="num">3</span>
-          <p><strong>The Velocity Displacement</strong> — AI can generate architecture faster than you can evaluate it. The pressure to keep up with the AI's output pace creates a specific anxiety: you're being measured by your review speed, not your judgment quality.</p>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq">
+        <h2>Frequently asked questions</h2>
+        <div class="faq-accordion" role="region" aria-label="Frequently asked questions">
+          <details>
+            <summary>Can AI help with system architecture?</summary>
+            <div class="faq-answer">
+              <p>AI can generate architecture diagrams, suggest patterns, and describe trade-offs. But the judgment about which architecture fits your specific context — team size, constraints, future scale — requires human experience. AI provides information; you provide judgment. Used well, AI accelerates the research phase. Used carelessly, it replaces the judgment phase.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Why does asking AI for architecture advice feel exhausting?</summary>
+            <div class="faq-answer">
+              <p>Architecture decisions are high-stakes, low-feedback decisions. AI compounds this by offering many options, increasing the cognitive load of evaluation. You're doing the hard work of judgment while AI handles the recall — a particularly depleting combination. The exhaustion is the cost of carrying the cognitive burden of evaluation without the confidence that comes from having developed the judgment yourself.</p>
+            </div>
+          </details>
+          <details>
+            <summary>What skills are lost when you rely on AI for architecture decisions?</summary>
+            <div class="faq-answer">
+              <p>The primary loss is constraint identification — the ability to recognize which architectural choices matter given your specific team, codebase, and business context. Secondary losses include technical judgment about trade-offs, system-level thinking, and the pattern recognition that comes from having made bad architecture decisions yourself. These are the skills that make senior engineers valuable and that take years to develop.</p>
+            </div>
+          </details>
+          <details>
+            <summary>How do you rebuild architecture judgment after AI erosion?</summary>
+            <div class="faq-answer">
+              <p>The rebuild is slower than the erosion but possible: weekly architecture reviews (evaluate decisions made with and without AI), architecture diaries (document why you chose a path), teaching architecture to others, and deliberate exposure to system failures — both your own and published case studies. The key is forcing the judgment loop back open: make decisions, document reasoning, compare outcomes to predictions, update your model.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Is AI architecture fatigue different from other types of AI fatigue?</summary>
+            <div class="faq-answer">
+              <p>Yes. Architecture fatigue is specific to the cognitive pattern of using AI as an advisor rather than a tool. It combines decision fatigue, authority uncertainty (is AI right?), and the paradox of feeling informed but less confident. It's different from code-production fatigue (which affects junior engineers more) and consultation fatigue (which affects anyone who uses AI iteratively). Architecture fatigue specifically targets senior and staff engineers who use AI as a design partner.</p>
+            </div>
+          </details>
+          <details>
+            <summary>How do senior engineers protect their architecture skills?</summary>
+            <div class="faq-answer">
+              <p>The engineers who maintain strong architecture judgment have three practices: they make major architectural decisions without AI for the first pass, they maintain a personal architecture decision log with outcomes, and they periodically review failed systems (their own and others') to rebuild pattern recognition. The goal is to keep the judgment loop active — making decisions, evaluating them, updating mental models — even while using AI as a research tool.</p>
+            </div>
+          </details>
         </div>
-        <div class="sign">
-          <span class="num">4</span>
-          <p><strong>The Judgment Atrophy Signal</strong> — You start noticing that your gut reactions to architecture proposals are getting weaker. You rely more on what the AI thinks. That's not laziness — that's the beginning of the erosion of the pattern-recognition capacity you spent years building.</p>
-        </div>
-        <div class="sign">
-          <span class="num">5</span>
-          <p><strong>The Explanatory Debt</strong> — AI-generated architecture often has surface-level coherence without underlying explanatory depth. When stakeholders ask "why this way?", you can repeat what the AI said, but you can't reconstruct the real reasoning. Over time, this degrades your ability to be the technical voice in the room.</p>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section>
-      <h2>What Engineers Are Actually Losing</h2>
-
-      <p>The deepest part of architecture fatigue isn't the extra work. It's the quiet loss of the thing you built your career on: the ability to look at a system and <em>know</em> it.</p>
-
-      <p>Architectural judgment isn't just knowledge. It's a form of professional intuition built from years of seeing systems fail, understanding why designs succeeded or collapsed, and developing an internalized model of how software systems behave under pressure. When you stop exercising that judgment — because AI is making the big calls — the intuition doesn't just sleep. It fades.</p>
-
-      <div class="warning">
-        <h4>The Expertise Reversal Effect Is Real Here</h4>
-        <p>Research by Slava Kalyuga shows that the expertise-reversal effect is strongest for senior practitioners: instructional aids that help novices actually reduce learning for experts. AI architecture tools, optimized for helpfulness and comprehensiveness, are most likely to deskill exactly the engineers who most need to maintain their architectural judgment. If you're a senior IC, the AI is working hardest to replace your thinking — and in doing so, eroding it.</p>
-      </div>
-
-      <p>What's particularly insidious is that this loss is invisible. You don't feel less capable immediately. You just notice, over months, that you're more uncertain in architecture discussions. You defer more. You say "let me check what AI suggests" when previously you would have had an opinion. By the time the erosion is visible, it's already deep.</p>
-    </section>
-
-    <section>
-      <h2>AI vs. Human Architecture: A Comparison</h2>
-
-      <p>The differences aren't just philosophical. They have concrete consequences for how systems behave over time.</p>
-
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Dimension</th>
-              <th>AI-Generated Architecture</th>
-              <th>Human-Developed Architecture</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Context awareness</strong></td>
-              <td>General patterns from training data; no knowledge of your team, business, or history</td>
-              <td>Built from lived experience with your specific constraints and organizational context</td>
-            </tr>
-            <tr>
-              <td><strong>Failure mode modeling</strong></td>
-              <td>Can describe common failure patterns; cannot anticipate novel failure scenarios</td>
-              <td>Pattern recognition built from scars; can feel the brittleness in a design</td>
-            </tr>
-            <tr>
-              <td><strong>Trade-off handling</strong></td>
-              <td>Presents options with balanced descriptions; cannot weight them for your situation</td>
-              <td>Knows which trade-offs are load-bearing vs. negotiable for your specific context</td>
-            </tr>
-            <tr>
-              <td><strong>Technical debt</strong></td>
-              <td>Recommends patterns; doesn't account for existing debt or future flexibility needs</td>
-              <td>Can design for manageable debt loads and planned extension points</td>
-            </tr>
-            <tr>
-              <td><strong>Team capability fit</strong></td>
-              <td>Recommends "best" architecture regardless of team expertise and learning curve</td>
-              <td>Designs systems the team can actually build and evolve with their current capabilities</td>
-            </tr>
-            <tr>
-              <td><strong>Long-term ownership</strong></td>
-              <td>Creates system structure; cannot maintain ownership relationship with the codebase</td>
-              <td>Architects who will maintain the system can design for their own comprehension</td>
-            </tr>
-            <tr>
-              <td><strong>Explanatory depth</strong></td>
-              <td>Surface coherence without deep causal reasoning; hard to defend under pressure</td>
-              <td>Rich reasoning chain that can be reconstructed, challenged, and improved</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section>
-      <h2>The Recovery Path: Reclaiming Architectural Judgment</h2>
-
-      <p>You don't have to choose between using AI and maintaining your architecture skills. But you do have to be intentional. AI assistance without deliberate practice is just dependency with extra steps.</p>
-
-      <p>Here's what actually works:</p>
-
-      <ol class="steps">
-        <li><strong>Form your architecture in your head before you look at AI's output.</strong> This is non-negotiable. Describe the system to yourself — its components, interfaces, failure modes, trade-offs. Write it down. Then compare it to what AI produces. The gap between your mental model and AI's proposal is where the most valuable learning happens.</li>
-        <li><strong>Make AI defend its choices, every time.</strong> Don't just evaluate whether the architecture is good. Ask AI to explain the trade-offs it considered, the failure modes it designed for, the constraints it assumed. Force it to produce the reasoning a human architect would produce. If it can't, that's a signal.</li>
-        <li><strong>Maintain Architecture Decision Records in your own voice.</strong> Every significant architectural choice should have an ADR that explains why you made the decision you made, including the options you considered and rejected. These documents are how you think through decisions, not just record them. AI can't write your ADRs for you without hollowing them out.</li>
-        <li><strong>Design systems you can't AI-generate.</strong> Some of the most valuable architectural work — understanding the business domain deeply enough to model it faithfully, building the team's shared mental model, establishing the coding conventions and quality standards that make the architecture livable — require human judgment that AI can't replicate. Lean into those areas.</li>
-        <li><strong>Audit your own confidence quarterly.</strong> Ask yourself: in an architecture review, would you have an opinion before checking what AI thinks? If the answer is increasingly no, that's a warning sign. Schedule deliberate practice: design systems without AI assistance, even for toy problems, to keep the muscle alive.</li>
-      </ol>
-    </section>
-
-    <section>
-      <h2>For Teams: Building Architecture Norms That Work With AI</h2>
-
-      <p>Individual practices help, but teams need structural support. If your team is using AI for architecture, these norms reduce the deskilling risk:</p>
-
-      <div class="card-grid">
-        <div class="feature-card">
-          <h4>Human-First Architecture Reviews</h4>
-          <p>Every significant architecture decision should have a human-authored position paper before AI is consulted. AI input comes after the human has staked a preliminary position — so the human thinking stays primary.</p>
-        </div>
-        <div class="feature-card">
-          <h4>Architecture Reviewer Rotation</h4>
-          <p>Rotate who leads architecture reviews so deskilling doesn't concentrate in one person. If only your most senior engineer reviews AI architecture proposals, only they carry the evaluation burden. Spread the cognitive work.</p>
-        </div>
-        <div class="feature-card">
-          <h4>Explicit AI Assumption Documentation</h4>
-          <p>When AI contributes to an architecture decision, document what it contributed and what the human override was. This creates accountability and a learning loop — and prevents AI assumptions from becoming invisible debt.</p>
-        </div>
-        <div class="feature-card">
-          <h4>Scheduled No-AI Architecture Time</h4>
-          <p>Block some portion of architecture work as AI-free. Teams that use AI for all architecture work will lose the ability to do architecture work without AI. Protect the skill by protecting the practice.</p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>The Deeper Question: What Is Architecture For?</h2>
-
-      <p>There's a reason AI struggles with architecture: architecture is fundamentally about human coordination, not technical optimality. The best architecture is the one your team can build, understand, maintain, and argue about. It lives in the social fabric of your organization as much as it lives in your diagrams.</p>
-
-      <p>AI doesn't understand that. It optimizes for technical elegance in a vacuum. It produces architectures that would be correct in a world with infinite time, perfect information, and teams with no history. Real architecture is always constrained — by people, by politics, by accumulated decisions you can't undo, by the specific way your codebase has grown.</p>
-
-      <p>The fatigue you're feeling isn't just from the extra review work. It's from the growing gap between what AI produces and what architecture actually requires. The AI keeps handing you blueprints for a building that can't be built on your site, with materials you don't have, for      the people who have to live in it. And you're the one trying to translate.</p>
-
-      <p>That's the work. It's important work. And it's exhausting in a way that doesn't show up in any productivity metric.</p>
-
-      <p>The engineers who thrive in this environment won't be the ones who use AI most — they'll be the ones who use it most intelligently, who maintain the judgment to know when the AI is right and when it's confidently wrong, who can hold the human context of a system in their head even while AI generates alternatives faster than thought.</p>
-
-      <p>That capacity doesn't preserve itself. It requires deliberate practice, the same as any other craft skill. The difference is that the erosion is invisible, and the replacement is seductive.</p>
-    </section>
-
-    <section>
-      <h2>Frequently Asked Questions</h2>
-
-      
-<br><br>
-<div class="see-also-block">
-    <strong>See also:</strong> <a href="the-estimation-problem.html">Architecture decision fatigue</a> · <a href="knowledge-debt.html">Technical debt</a> · <a href="attention-residue.html">Attention residue</a>
-</div>
-<style>
-.see-also-block { margin: 2rem 0; padding: 1.25rem; background: var(--surface); border-left: 3px solid var(--accent); border-radius: 4px; font-size: 0.9rem; line-height: 2; }
-.see-also-block a { color: var(--accent); text-decoration: none; }
-.see-also-block a:hover { text-decoration: underline; }
-</style>
-
-<div class="faq-list">
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">Can AI replace software architects?</button>
-          <div class="faq-answer"><div class="faq-answer-inner">No. AI can generate plausible architecture diagrams and code scaffolding, but architectural judgment requires understanding organizational constraints, team capabilities, long-term trade-offs, and emergent system properties that only come from experience. AI produces architecture-shaped content; it doesn't produce architecture wisdom.</div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">Why does reviewing AI-generated architecture feel so exhausting?</button>
-          <div class="faq-answer"><div class="faq-answer-inner">Because you're doing double cognitive work: evaluating the AI's proposal AND detecting its blind spots simultaneously. You inherit the thinking without having done the thinking — which strips the sense of ownership while adding the burden of validation. It's like proofreading someone else's essay about a subject you know better than they do.</div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">What's the difference between a senior engineer's architecture fatigue and a junior's?</button>
-          <div class="faq-answer"><div class="faq-answer-inner">Juniors feel confusion and dependency anxiety — they don't know if the AI architecture is right. Seniors feel something worse: the quiet erosion of the judgment they spent years building. Seniors can spot the AI's mistakes, but they're being paid to both catch errors AND produce work, and the AI keeps generating faster than they can evaluate.</div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">Does using AI for architecture planning speed up teams?</button>
-          <div class="faq-answer"><div class="faq-answer-inner">Short-term yes, long-term questionable. AI accelerates the drafting phase. But teams that over-rely on AI for architecture planning often accumulate technical debt faster, because the AI optimizes for plausible structure rather than the specific constraints of your system. Speed without judgment is just fast mediocrity.</div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">How do I use AI for architecture without losing my skill?</button>
-          <div class="faq-answer"><div class="faq-answer-inner">Three practices: (1) Always form the architecture in your head first — describe it to yourself before looking at what AI produces. (2) Make the AI defend its choices — ask it to explain trade-offs, failure modes, and scaling constraints. (3) Maintain an Architecture Decision Record for every significant choice, written in your own judgment, not AI's.</div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">Is architecture fatigue a senior-specific problem?</button>
-          <div class="faq-answer"><div class="faq-answer-inner">It's most acute for seniors, but it affects anyone whose job involves designing or evaluating system structure. Staff engineers, tech leads, and experienced ICs who are expected to both generate architecture AND validate AI-generated proposals experience the most intense version.</div></div>
-        </div>
-      </div>
-    </section>
-
-    <div class="share-bar">
-      <span>Share this:</span>
-      <a href="https://twitter.com/intent/tweet?text=AI%20Architecture%20Fatigue%3A%20When%20AI%20Designs%20Your%20System%20and%20You%20Lose%20the%20Craft%20https%3A%2F%2Fclearing-ai.com%2Fai-architecture-fatigue.html" class="share-btn twitter" target="_blank" rel="noopener">Twitter</a>
-      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fclearing-ai.com%2Fai-architecture-fatigue.html" class="share-btn linkedin" target="_blank" rel="noopener">LinkedIn</a>
-      <button class="share-btn copy" onclick="navigator.clipboard.writeText('https://clearing-ai.com/ai-architecture-fatigue.html')">Copy link</button>
-    </div>
-
-    <div class="continue">
-      <h3>Continue Exploring</h3>
-      <div class="continue-grid">
-        <div class="continue-card">
-          <a href="cognitive-load.html">
-            <h4>Cognitive Load Theory</h4>
-            <p>Why AI increases your working memory demands — and what to do about it</p>
+      <!-- Continue Exploring -->
+      <section class="explore-grid" aria-label="Continue exploring">
+        <h2>Continue exploring</h2>
+        <div class="card-grid">
+          <a href="ai-decision-stack.html" class="explore-card">
+            <span class="card-tag">Understand</span>
+            <h3>The AI Decision Stack</h3>
+            <p>The layered framework for which decisions to make with AI versus without.</p>
+          </a>
+          <a href="skill-atrophy.html" class="explore-card">
+            <span class="card-tag">Understand</span>
+            <h3>Skill Atrophy</h3>
+            <p>How AI quietly erodes the competencies you're being evaluated on.</p>
+          </a>
+          <a href="mindset.html" class="explore-card">
+            <span class="card-tag">Recover</span>
+            <h3>Mental Models for Healthy AI Use</h3>
+            <p>12 frameworks for using AI without losing what makes you valuable.</p>
+          </a>
+          <a href="recovery.html" class="explore-card">
+            <span class="card-tag">Recover</span>
+            <h3>How to Recover from AI Fatigue</h3>
+            <p>A practical guide for engineers who want their judgment back.</p>
+          </a>
+          <a href="ai-consultation-fatigue.html" class="explore-card">
+            <span class="card-tag">Understand</span>
+            <h3>AI Consultation Fatigue</h3>
+            <p>Why prompting AI repeatedly feels more depleting than productive work.</p>
+          </a>
+          <a href="ai-debugging-confidence.html" class="explore-card">
+            <span class="card-tag">Understand</span>
+            <h3>AI Debugging Confidence</h3>
+            <p>The specific erosion that happens when AI fixes your bugs for you.</p>
           </a>
         </div>
-        <div class="continue-card">
-          <a href="skill-atrophy.html">
-            <h4>Skill Atrophy</h4>
-            <p>The slow erosion of coding abilities when AI handles the hard parts</p>
-          </a>
-        </div>
-        <div class="continue-card">
-          <a href="senior-identity.html">
-            <h4>The Senior Identity Crisis</h4>
-            <p>What happens to your sense of self when AI can do your job</p>
-          </a>
-        </div>
-        <div class="continue-card">
-          <a href="recovery.html">
-            <h4>Recovery Guide</h4>
-            <p>A practical path back from AI architecture fatigue and related exhaustion</p>
-          </a>
-        </div>
-        <div class="continue-card">
-          <a href="research.html">
-            <h4>Research</h4>
-            <p>Academic citations and deep dives on the science behind AI fatigue</p>
-          </a>
-        </div>
-        <div class="continue-card">
-          <a href="developer-identity.html">
-            <h4>Developer Identity</h4>
-            <p>Who are you without your code? The identity question at the heart of AI fatigue</p>
-          </a>
+      </section>
 
-<a href="ai-debugging-confidence.html">AI Debugging Confidence</a>
-        </div>
-      </div>
-    </div>
+    </article>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <a href="index.html" class="footer-logo">
-          <svg width="24" height="24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><text y=".9em" font-size="90">🌿</text></svg>
-          <span>The Clearing</span>
-        </a>
-        <p>A quiet space for engineers navigating AI fatigue. No ads. No tracking. No hustle culture.</p>
+        <svg class="footer-logo" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2z" fill="#2D5A27"/>
+          <path d="M10 16c0-3.314 2.686-6 6-6s6 2.686 6 6-2.686 6-6 6-6-2.686-6-6z" fill="#4A8C45"/>
+          <path d="M16 10v6M16 20v2" stroke="#E8F5E9" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <strong>The Clearing</strong>
+          <p>Free resources for engineers experiencing AI fatigue. No ads. No account required.</p>
+        </div>
       </div>
-      <div class="footer-links">
+      <nav class="footer-nav" aria-label="Footer navigation">
         <div class="footer-col">
-          <h4>Recover</h4>
-          <ul>
-            <li><a href="recovery.html">Recovery Guide</a>
-          <a href="the-explanation-requirement.html">Explanation Requirement</a></li>
-            <li><a href="ai-detox-plan.html">30-Day Detox</a>
-          <a href="return-to-office-ai-fatigue.html">Return to Office</a></li>
-            <li><a href="qa-engineer-ai-fatigue.html">QA Engineer AI Fatigue</a></li>
-<li><a href="data-engineer-ai-fatigue.html">Data Engineer AI Fatigue</a></li>
-            <li><a href="mental-health.html">Mental Health</a></li>
-            <li><a href="developer-wellbeing.html">Wellbeing</a></li>
-            <li><a href="decompress.html">Decompress</a></li>
-          </ul>
+          <h4>Start here</h4>
+          <a href="index.html">Home</a>
+          <a href="quiz.html">AI Fatigue Quiz</a>
+          <a href="recovery.html">Recovery Guide</a>
+          <a href="ai-fatigue.html">What is AI Fatigue?</a>
         </div>
         <div class="footer-col">
           <h4>Understand</h4>
-          <ul>
-            <li><a href="research.html">Research</a></li>
-                        <li><a href="r-programming-llm-ban-what-it-means-for-engineers.html">r/Programming LLM Ban</a></li>
-<li><a href="the-estimation-problem.html">The Estimation Problem</a></li>
-            <li><a href="skill-atrophy.html">Skill Atrophy</a></li>
-          <li><a href="vibe-coding-ai-fatigue.html">Vibe Coding Fatigue</a></li>
-
-            <li><a href="cognitive-load.html">Cognitive Load</a></li>
-            <li><a href="the-ai-skill-stack.html">AI Skill Stack</a></li>
-            <li><a href="ai-architecture-fatigue.html">Architecture Fatigue</a></li>
-            <li><a href="attention-residue.html">Attention Residue</a></li>
-            <li><a href="context-switching-ai.html">Context Switching</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Connect</h4>
-          <ul>
-            <li><a href="stories.html">Stories</a></li>
-            <li><a href="testimonials.html">Testimonials</a></li>
-            <li><a href="community.html">Community</a>
-      <a href="outreach-kit.html">Outreach</a></li>
-            <li><a href="newsletter.html">Newsletter</a>
-        <a href="newsletter-outreach-dashboard.html" class="nav-link">Outreach</a>
-            <a href="newsletter-archive.html">Archive</a></li>
-            <li><a href="share-your-story.html">Share Your Story</a></li>
-          </ul>
+          <a href="skill-atrophy.html">Skill Atrophy</a>
+          <a href="cognitive-load.html">Cognitive Load</a>
+          <a href="developer-identity.html">Developer Identity</a>
+          <a href="mindset.html">Mental Models</a>
         </div>
         <div class="footer-col">
           <h4>Tools</h4>
-          <ul>
-            <li><a href="index.html#quiz">AI Fatigue Quiz</a></li>
-            <li><a href="checkin.html">Daily Check-in</a></li>
-            <li><a href="journal.html">Journal</a></li>
-            <li><a href="decompress.html">Focus Timer</a></li>
-            <li><a href="ai-fatigue-severity-index.html">Severity Index</a>
-          <a href="ai-fatigue-type-calculator.html">Type Calculator</a>
-        <a href="recovery-toolkit.html">Recovery Toolkit</a>
-            <a href="ai-fatigue-checklist.html">Checklist</a></li>
-          </ul>
+          <a href="checkin.html">Daily Check-in</a>
+          <a href="decompress.html">Deep Work Timer</a>
+          <a href="journal.html">Reflective Journal</a>
+          <a href="ai-detox-plan.html">30-Day Plan</a>
         </div>
-      </div>
+        <div class="footer-col">
+          <h4>Community</h4>
+          <a href="newsletter.html">The Dispatch</a>
+          <a href="stories.html">Engineer Stories</a>
+          <a href="resources.html">Reading List</a>
+          <a href="community.html">Communities</a>
+        </div>
+      </nav>
+      <p class="footer-legal">&copy; 2026 The Clearing · <a href="privacy.html">Privacy</a> · <a href="manifesto.html">Manifesto</a></p>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025–2026 The Clearing. Built for engineers, by engineers.</p>
-      <p><a href="about.html">About</a> · <a href="press-kit.html">Press Kit</a> &middot; <a href="media-kit.html">Media Kit</a>
-      <a href="press-mentions.html">Press Mentions</a> · <a href="sitemap.html">Sitemap</a></p>
-    </div>
-          <a href="hn-launch.html" style="font-size:13px;color:var(--text2);">HN Launch</a>
-      </footer>
+  </footer>
 
-  <script src="js/main.min.js" defer></script>
-  <script>
-    // Reading progress bar
-    window.addEventListener('scroll',()=>{
-      const b=document.getElementById('rp'),c=document.documentElement,d=c.scrollTop||document.body.scrollTop,f=c.scrollHeight-c.clientHeight;
-      if(f>0){b.style.width=(d/f*100)+'%'}
-    });
-    // FAQ accordion
-    document.querySelectorAll('.faq-question').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        const item=btn.closest('.faq-item');
-        const isOpen=item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
-        if(!isOpen) item.classList.add('open');
-        btn.setAttribute('aria-expanded',!isOpen);
-      });
-      btn.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')btn.click()});
-    });
-  </script>
+  <script src="js/main.js"></script>
+  <script src="js/reading-progress.js"></script>
 </body>
 </html>

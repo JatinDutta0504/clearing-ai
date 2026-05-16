@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Fatigue Emergency Kit</title>
+  <meta name="description" content="Quick recovery actions for moments when AI fatigue hits hard — immediate relief for software engineers">
+  <meta name="keywords" content="AI fatigue, emergency kit, developer burnout, cognitive overload, AI tools exhaustion">
+  <meta property="og:title" content="AI Fatigue Emergency Kit">
+  <meta property="og:description" content="A one-page reference for when AI stops feeling like a productivity boost and starts feeling like weight.">
+    <meta property="og:image" content="https://clearing-ai.com/og-image.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clearing-ai.com/ai-fatigue-emergency-kit.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://clearing-ai.com/ai-fatigue-emergency-kit.html">
+  <link rel="alternate" type="application/rss+xml" title="The Clearing RSS Feed" href="https://clearing-ai.com/feed.xml">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Print styles */
+    @media print {
+      nav, footer, .kit-footer-cta, .print-btn, .nav-section, .meta-bar { display: none !important; }
+      body { background: #fff; color: #1a1a2e; font-size: 11pt; line-height: 1.5; }
+      h1 { font-size: 20pt; color: #1a1a2e; border-bottom: 2px solid #1a1a2e; }
+      h2 { font-size: 14pt; color: #1a1a2e; }
+      h3 { font-size: 12pt; color: #2d2d44; }
+      p, li { color: #2d2d44; font-size: 10pt; }
+      .kit-page { max-width: none; padding: 0; border: none; background: none; }
+      .alert-box { border: 1.5px solid #1a1a2e; }
+      .signal-item { border-left: 3px solid #1a1a2e; padding-left: 8px; }
+      .action-card { border: 1px solid #ccc; page-break-inside: avoid; }
+      .zone-tag { background: #1a1a2e; color: #fff; }
+      .print-only { display: block !important; }
+      @page { margin: 0.6in; size: letter; }
+    }
+    .print-only { display: none; }
+    .kit-page { max-width: 800px; margin: 0 auto; padding: var(--space-lg); }
+    .kit-header { text-align: center; padding: var(--space-xl) 0; border-bottom: 2px solid var(--forest); margin-bottom: var(--space-xl); }
+    .kit-header h1 { color: var(--forest); margin-bottom: var(--space-sm); }
+    .kit-header p { color: var(--muted); font-size: 1rem; max-width: 520px; margin: 0 auto; }
+    .kit-section { margin-bottom: var(--space-xl); }
+    .kit-section h2 { color: var(--forest); margin-bottom: var(--space-md); font-size: 1.1rem; }
+    .kit-section h3 { color: var(--text); margin-bottom: var(--space-sm); font-size: 0.95rem; }
+    .alert-box { background: rgba(255, 107, 53, 0.08); border: 1.5px solid var(--alert); border-radius: 8px; padding: var(--space-md); margin-bottom: var(--space-lg); }
+    .alert-box p { margin: 0; color: var(--text); font-size: 0.95rem; }
+    .signals-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin-bottom: var(--space-lg); }
+    .signal-item { padding: var(--space-sm) var(--space-md); border-left: 3px solid var(--alert); background: rgba(255,107,53,0.05); border-radius: 0 6px 6px 0; }
+    .signal-item p { margin: 0; font-size: 0.9rem; color: var(--text); }
+    .action-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: var(--space-md); margin-bottom: var(--space-sm); }
+    .action-card h3 { color: var(--forest); margin-bottom: 4px; font-size: 0.95rem; }
+    .action-card p { margin: 0 0 8px; font-size: 0.88rem; color: var(--muted); }
+    .zone-block { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-md); margin-bottom: var(--space-lg); }
+    .zone-card { background: rgba(255,255,255,0.03); border-radius: 10px; padding: var(--space-md); text-align: center; }
+    .zone-tag { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-bottom: var(--space-sm); letter-spacing: 0.05em; text-transform: uppercase; }
+    .zone-a .zone-tag { background: rgba(139, 195, 74, 0.2); color: #8bc34a; }
+    .zone-b .zone-tag { background: rgba(255, 193, 7, 0.2); color: #ffc107; }
+    .zone-c .zone-tag { background: rgba(255, 107, 53, 0.2); color: #ff6b35; }
+    .zone-card h3 { font-size: 0.9rem; margin: var(--space-xs) 0; color: var(--text); }
+    .zone-card p { font-size: 0.82rem; color: var(--muted); margin: 0; }
+    .tool-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm); }
+    .tool-item { background: rgba(255,255,255,0.03); border-radius: 6px; padding: var(--space-sm); font-size: 0.88rem; color: var(--text); display: flex; align-items: center; gap: 8px; }
+    .tool-item span { font-size: 1rem; }
+    .score-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-sm); }
+    .score-item { text-align: center; padding: var(--space-sm); background: rgba(255,255,255,0.04); border-radius: 8px; }
+    .score-item .num { font-size: 1.8rem; font-weight: 700; color: var(--forest); display: block; }
+    .score-item .label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .score-item.crisis .num { color: var(--alert); }
+    .phrase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm); margin-bottom: var(--space-lg); }
+    .phrase-item { background: rgba(255,255,255,0.03); border-radius: 6px; padding: var(--space-sm); font-size: 0.88rem; color: var(--text); font-style: italic; }
+    .phrase-item strong { font-style: normal; display: block; color: var(--forest); font-size: 0.78rem; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .meta-bar { display: flex; gap: var(--space-md); justify-content: center; margin-bottom: var(--space-lg); flex-wrap: wrap; }
+    .meta-badge { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 4px 12px; font-size: 0.8rem; color: var(--muted); }
+    .kit-footer-cta { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: var(--space-lg); text-align: center; margin-top: var(--space-xl); }
+    .print-btn { display: inline-block; background: var(--forest); color: var(--bg); padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; cursor: pointer; border: none; text-decoration: none; transition: opacity 0.2s; }
+    .print-btn:hover { opacity: 0.85; }
+    @media (max-width: 600px) {
+      .signals-grid, .zone-block, .tool-grid, .phrase-grid { grid-template-columns: 1fr; }
+      .score-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "AI Fatigue Emergency Kit",
+    "description": "A one-page reference for the moment AI stops feeling like a productivity boost and starts feeling like weight.",
+    "url": "https://clearing-ai.com/ai-fatigue-emergency-kit.html",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "The Clearing",
+      "url": "https://clearing-ai.com"
+    },
+    "about": {
+      "@type": "Thing",
+      "name": "AI Fatigue",
+      "description": "Software engineer burnout and cognitive overload caused by excessive AI tool usage"
+    }
+  }
+  </script>
+</head>
+<body>
+  <nav role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo">🌿 The Clearing</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <div class="nav-links">
+      <a href="ai-fatigue.html">Understand</a>
+      <a href="recovery.html">Recover</a>
+      <a href="resources.html">Resources</a>
+      <a href="newsletter.html">Newsletter</a>
+      <a href="ai-fatigue-checklist.html" class="nav-cta">Free Checklist</a>
+    </div>
+  </nav>
+
+  <main class="kit-page" role="main">
+    <header class="kit-header">
+      <p style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--forest); margin-bottom: 8px;">The Clearing — Reference Card</p>
+      <h1>AI Fatigue Emergency Kit</h1>
+      <p>A one-page reference for the moment AI stops feeling like a productivity boost and starts feeling like weight. Print it. Keep it visible.</p>
+      <div class="meta-bar">
+        <span class="meta-badge">📄 Print-friendly</span>
+        <span class="meta-badge">🔄 Updated 2026</span>
+        <span class="meta-badge">🌿 clearing-ai.com</span>
+      </div>
+    </header>
+
+    <div class="alert-box">
+      <p><strong>This kit is for you if:</strong> You feel a gap between "shipping" and "building." You can't remember the last time you understood code deeply. You are productive but not satisfied. You have a growing sense that you're learning less while doing more.</p>
+    </div>
+
+    <section class="kit-section">
+      <h2>📖 What Is AI Fatigue, Exactly?</h2>
+      <p style="color: var(--muted); font-size: 0.88rem; margin-bottom: var(--space-md);">Most people call it burnout. But AI fatigue has a different mechanism — and knowing the difference changes what you do about it.</p>
+      <div class="signals-grid" style="margin-bottom: var(--space-md);">
+        <div class="signal-item" style="border-left-color: var(--forest);">
+          <p><strong>Burnout</strong> — You worked too hard for too long. Rest helps. Vacation helps. The fix is recovery.</p>
+        </div>
+        <div class="signal-item" style="border-left-color: var(--alert);">
+          <p><strong>AI Fatigue</strong> — You've outsourced the learning loop so consistently that your skills are quietly eroding while your output stays high. Rest doesn't fix it. You have to rebuild the loop.</p>
+        </div>
+      </div>
+      <p style="color: var(--muted); font-size: 0.88rem; margin-bottom: var(--space-md);">The dangerous part: AI fatigue doesn't feel like a problem at first. You're shipping. You're productive. You're "keeping up." The erosion is invisible until suddenly you can't do alone what you used to do before AI existed.</p>
+      <div class="callout-box" style="background: rgba(74,124,89,0.08); border: 1px solid rgba(74,124,89,0.2); border-radius: 8px; padding: var(--space-md); margin-bottom: var(--space-md);">
+        <p style="margin: 0; font-size: 0.88rem; color: var(--text);"><strong>The key signal:</strong> You can ship code you can't explain. You can solve problems you don't understand. You're fast but shallow. That's not burnout. That's a learning loop that's been interrupted by a tool that skips the hard parts on your behalf.</p>
+      </div>
+      <p style="color: var(--muted); font-size: 0.88rem;">The good news: the learning loop can be rebuilt. The skills can be recovered. It takes 4–8 weeks of deliberate practice — not heroic effort, just consistent intention. This kit is your entry point.</p>
+    </section>
+
+    <section class="kit-section">
+      <h2>🗺 The 5-Day Reset Protocol</h2>
+      <p style="color: var(--muted); font-size: 0.88rem; margin-bottom: var(--space-md);">Not a cure — a recalibration. Do these five things in sequence. Each one builds on the last.</p>
+      <div class="action-card">
+        <h3>Day 1: Name the Gap</h3>
+        <p>Open a blank document. Write: "The part of my job I used to own completely that now feels thin: ___." Be honest. Don't write what you think should be the answer — write what actually feels thin. This isn't a journaling exercise. It's a calibration document. Keep it.</p>
+      </div>
+      <div class="action-card">
+        <h3>Day 2: The 20-Minute Solo</h3>
+        <p>Same as the emergency action above, but now with intention. After you finish, write one sentence: what did you learn about how your brain works when it has to figure something out without AI? The sentence is the data point.</p>
+      </div>
+      <div class="action-card">
+        <h3>Day 3: Review Without AI</h3>
+        <p>Find one PR you shipped in the last two weeks. Read the code as if you're the only person who will ever maintain it. Circle anything you wouldn't have written yourself. Those circles are your skill map — they show you where AI is doing the thinking.</p>
+      </div>
+      <div class="action-card">
+        <h3>Day 4: The Explanation Requirement</h3>
+        <p>Every time you use AI today, write down: "AI helped me with ___ and I understand it because ___." If you can't complete the second blank, stop. Read the code until you can. This is non-negotiable — it's the seam between delegation and abdication.</p>
+      </div>
+      <div class="action-card">
+        <h3>Day 5: The Calibration Check</h3>
+        <p>Look at the gap you named on Day 1. Rate your confidence in it from 1–10. Then: what's one small thing you could practice this week — without AI — that would move that number up by 1? Write it down. This is your first real recovery target.</p>
+      </div>
+      <p style="color: var(--muted); font-size: 0.82rem; margin-top: var(--space-md);">Repeat this protocol monthly. Each cycle, the gap gets smaller and the confidence gets higher. That's the recovery — not a single heroic effort, but a compounding practice.</p>
+    </section>
+
+    <section class="kit-section">
+      <h2>❓ Frequently Asked Questions</h2>
+      <div class="faq-item" style="margin-bottom: var(--space-md); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: var(--space-md);">
+        <h3 style="color: var(--forest); font-size: 0.95rem; margin-bottom: 0.5rem;">"Isn't this just gatekeeping? AI tools are just better — why fight them?"</h3>
+        <p style="color: var(--muted); font-size: 0.88rem; margin: 0;">The question assumes the goal is to reject AI. It's not. The goal is to stay in the learning loop — to use AI without letting it replace the thinking that keeps your skills alive. The engineers who do well with AI tools are the ones who use them as amplifiers, not as replacements. This kit is about staying in the amplifier camp.</p>
+      </div>
+      <div class="faq-item" style="margin-bottom: var(--space-md); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: var(--space-md);">
+        <h3 style="color: var(--forest); font-size: 0.95rem; margin-bottom: 0.5rem;">"I don't have time for 20-minute solo blocks. My sprint ends Friday."</h3>
+        <p style="color: var(--muted); font-size: 0.88rem; margin: 0;">The sprint pressure is exactly what creates the condition this kit is for. The engineers who say "I'll recover after the sprint" are the ones who look up 6 months later and can't do alone what they used to do. 20 minutes isn't a luxury — it's the minimum maintenance dose for the skill you depend on for your job security.</p>
+      </div>
+      <div class="faq-item" style="margin-bottom: var(--space-md); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: var(--space-md);">
+        <h3 style="color: var(--forest); font-size: 0.95rem; margin-bottom: 0.5rem;">"I'm a junior engineer — I started with AI. Is this already unrecoverable for me?"</h3>
+        <p style="color: var(--muted); font-size: 0.88rem; margin: 0;">No — and this is important. The junior engineers who struggle most are the ones who never built the pre-AI foundation in the first place, not the ones who had it and lost it. If you started with AI, you have a gap that senior engineers don't have — but you also have the chance to build intentionally from the start. The 20-minute solo blocks are more important for you, not less.</p>
+      </div>
+      <div class="faq-item" style="margin-bottom: var(--space-md); border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: var(--space-md);">
+        <h3 style="color: var(--forest); font-size: 0.95rem; margin-bottom: 0.5rem;">"What if my manager requires AI tool usage for everything?"</h3>
+        <p style="color: var(--muted); font-size: 0.88rem; margin: 0;">Then the issue is a team-level norm, not an individual practice problem. Use the language from this kit: "I want to make sure I'm maintaining the depth of understanding that makes my code reviews valuable." Frame it as team quality, not personal preference. The best managers understand that skill maintenance is a long-term team asset.</p>
+      </div>
+      <div class="faq-item">
+        <h3 style="color: var(--forest); font-size: 0.95rem; margin-bottom: 0.5rem;">"How do I know if I've already crossed into permanent skill loss?"</h3>
+        <p style="color: var(--muted); font-size: 0.88rem; margin: 0;">Skill atrophy from disuse looks and feels like skill atrophy from AI use — the observable result is the same: you can't do it without the tool. The difference is reversibility. If the skill was ever built, the neural pathways exist. Recovery is slower than you'd like (4–8 weeks for measurable improvement), but it is real. If you never built it in the first place, you start from scratch — which is harder, but still possible. The only way to know which you are: try the 5-day protocol.</p>
+      </div>
+    </section>
+
+    <section class="kit-section">
+      <h2>🔴 Recognize: The Red Flag Patterns</h2>
+      <p style="color: var(--muted); font-size: 0.88rem; margin-bottom: var(--space-md);">Check yourself. If 3 or more are true right now, use the Recovery section below.</p>
+      <div class="signals-grid">
+        <div class="signal-item">
+          <p>You can't explain an AI-generated solution without re-reading the code first</p>
+        </div>
+        <div class="signal-item">
+          <p>You feel a quiet dread before sitting down to code — not the challenge kind, the hollow kind</p>
+        </div>
+        <div class="signal-item">
+          <p>When something breaks without AI, your first instinct is to ask AI instead of looking</p>
+        </div>
+        <div class="signal-item">
+          <p>You couldn't build your current project's core feature from scratch in an hour</p>
+        </div>
+        <div class="signal-item">
+          <p>You're learning the tool, not the craft. You've noticed this for weeks.</p>
+        </div>
+        <div class="signal-item">
+          <p>When you try to describe your job to a non-engineer, you describe the AI — not the work</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="kit-section">
+      <h2>⚡ Act Now: 4 Immediate Actions</h2>
+      <div class="action-card">
+        <h3>1. The 20-Minute Solo Block</h3>
+        <p>Close every AI tab. Open a blank file. Build the smallest thing you can think of — a function, a component, a config. No autocomplete. No Copilot. No ChatGPT. Just you. 20 minutes. If that's too long, start with 10.</p>
+      </div>
+      <div class="action-card">
+        <h3>2. The Explanation Requirement</h3>
+        <p>Before you accept any AI-generated solution: explain it out loud to yourself. If you can't, don't accept it. Copy it into a note, paste your own explanation next to it. This is the seam between delegation and abdication.</p>
+      </div>
+      <div class="action-card">
+        <h3>3. The Skill Audit</h3>
+        <p>Pick one skill you used to have cold confidence in — debugging, system design, SQL, writing tests. Try to use it without AI for one hour. Notice where you reach for the tool automatically. That's your atrophied spot.</p>
+      </div>
+      <div class="action-card">
+        <h3>4. The Sentence Test</h3>
+        <p>At end of day, write one sentence: "Today I built [X]. I understand [Y] about it." If you can't finish that sentence — if you shipped something but can't explain what you understand — that's the gap. Name it. That's the start of closing it.</p>
+      </div>
+    </section>
+
+    <section class="kit-section">
+      <h2>📋 Your AI Usage Zones</h2>
+      <p style="color: var(--muted); font-size: 0.88rem; margin-bottom: var(--space-md);">Categorize your tools by how much thinking they remove. The goal is to stay in Zone A at least part of the day.</p>
+      <div class="zone-block">
+        <div class="zone-card zone-a">
+          <span class="zone-tag">Zone A — Safe</span>
+          <h3>Stretch thinking</h3>
+          <p>AI helps you think through architecture, review patterns, debug hard problems. You still decide. The effort is yours.</p>
+        </div>
+        <div class="zone-card zone-b">
+          <span class="zone-tag">Zone B — Caution</span>
+          <h3>Replace thinking</h3>
+          <p>AI writes the code after you defined the structure. You review, test, and own it. Useful for boilerplate. Risky for anything novel.</p>
+        </div>
+        <div class="zone-card zone-c">
+          <span class="zone-tag">Zone C — Danger</span>
+          <h3>Bypass thinking</h3>
+          <p>Prompt → code → ship, without deep review. The gap between working and understanding grows here. This is where fatigue lives.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="kit-section">
+      <h2>🛠 The Toolkit Reset</h2>
+      <p style="color: var(--muted); font-size: 0.88rem; margin-bottom: var(--space-md);">Pick one tool. Use it with a constraint for one week. See what you learn about your own thinking.</p>
+      <div class="tool-grid">
+        <div class="tool-item"><span>💻</span> IDE autocomplete — turn it off for your hardest files</div>
+        <div class="tool-item"><span>💬</span> ChatGPT — explain before you prompt. Write your question by hand first.</div>
+        <div class="tool-item"><span>🔍</span> Code search/AI review — read the surrounding code without AI first</div>
+        <div class="tool-item"><span>🧪</span> AI test generation — review every test, understand what it covers before accepting</div>
+        <div class="tool-item"><span>📐</span> Architecture AI — draw it yourself first, then compare</div>
+        <div class="tool-item"><span>📝</span> Documentation AI — read the source first, then use AI to contrast your understanding</div>
+      </div>
+    </section>
+
+    <section class="kit-section">
+      <h2>📊 Recovery Scorecard</h2>
+      <p style="color: var(--muted); font-size: 0.88rem; margin-bottom: var(--space-md);">Track this weekly. Improving numbers mean the recovery practices are working.</p>
+      <div class="score-grid">
+        <div class="score-item">
+          <span class="num" id="score-confidence">—</span>
+          <span class="label">Skill Confidence</span>
+          <p style="font-size: 0.75rem; color: var(--muted); margin: 4px 0 0;">1-10, last week vs this week</p>
+        </div>
+        <div class="score-item">
+          <span class="num" id="score-understand">—</span>
+          <span class="label">Can Explain Own Code</span>
+          <p style="font-size: 0.75rem; color: var(--muted); margin: 4px 0 0;">% of last sprint you authored</p>
+        </div>
+        <div class="score-item">
+          <span class="num" id="score-solo">—</span>
+          <span class="label">Solo Deep Work Mins</span>
+          <p style="font-size: 0.75rem; color: var(--muted); margin: 4px 0 0;">this week, no AI assist</p>
+        </div>
+        <div class="score-item crisis">
+          <span class="num">988</span>
+          <span class="label">Crisis Line (US)</span>
+          <p style="font-size: 0.75rem; color: var(--muted); margin: 4px 0 0;">if it ever feels too heavy</p>
+        </div>
+      </div>
+      <p style="text-align: center; font-size: 0.82rem; color: var(--muted); margin-top: var(--space-sm);">Keep a simple table in your Notes app. Week / Confidence / Solo mins / Notes.</p>
+    </section>
+
+    <section class="kit-section">
+      <h2>💬 Things to Say Out Loud (When It Gets Heavy)</h2>
+      <div class="phrase-grid">
+        <div class="phrase-item">
+          <strong>When you feel behind</strong>
+          "The pace of the industry is not a measure of my value."
+        </div>
+        <div class="phrase-item">
+          <strong>When you feel like a fraud</strong>
+          "Shipping with AI is still shipping. The fatigue is real. The work is real."
+        </div>
+        <div class="phrase-item">
+          <strong>When the tool feels faster but emptier</strong>
+          "I am trading speed for understanding. That is a real trade-off, not a failure."
+        </div>
+        <div class="phrase-item">
+          <strong>When you think you should quit</strong>
+          "The problem might not be the work. The problem might be the relationship with the tools. That's fixable."
+        </div>
+      </div>
+    </section>
+
+    <section class="kit-section">
+      <h2>🔗 Go Deeper</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm);">
+        <a href="ai-fatigue-checklist.html" class="action-card" style="text-decoration: none;">
+          <h3 style="font-size: 0.9rem;">📋 30-Day Recovery Checklist</h3>
+          <p style="margin: 0; font-size: 0.82rem;">Full interactive tracker with daily prompts and weekly reviews.</p>
+        </a>
+        <a href="ai-fatigue.html" class="action-card" style="text-decoration: none;">
+          <h3 style="font-size: 0.9rem;">🧠 Understand AI Fatigue</h3>
+          <p style="margin: 0; font-size: 0.82rem;">The full guide: what it is, why it happens, what actually helps.</p>
+        </a>
+        <a href="recovery.html" class="action-card" style="text-decoration: none;">
+          <h3 style="font-size: 0.9rem;">🌿 The Recovery Guide</h3>
+          <p style="margin: 0; font-size: 0.82rem;">7 phases, day-by-day timeline, specific strategies by dimension.</p>
+        </a>
+        <a href="mental-health.html" class="action-card" style="text-decoration: none;">
+          <h3 style="font-size: 0.9rem;">🆘 Professional Support</h3>
+          <p style="margin: 0; font-size: 0.82rem;">When this goes deeper than habit. Therapist directory and crisis resources.</p>
+        </a>
+      </div>
+    </section>
+
+    <div class="kit-footer-cta">
+      <p style="margin: 0 0 var(--space-sm); font-size: 0.95rem; color: var(--muted);">Know an engineer who needs this? Share it.</p>
+      <button class="print-btn" onclick="window.print()">🖨 Print This Kit</button>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="ai-fatigue.html">Understand</a>
+      <a href="recovery.html">Recovery</a>
+      <a href="resources.html">Resources</a>
+      <a href="newsletter.html">Newsletter</a>
+      <a href="mental-health.html">Crisis Support</a>
+    </div>
+    <p>A project by engineers who went through this. Built free and kept free.</p>
+  </footer>
+
+  <script src="main.min.js"></script>
+  <script>
+    document.querySelector('.print-btn').addEventListener('click', function() {
+      window.print();
+    });
+  </script>
+</body>
+</html>

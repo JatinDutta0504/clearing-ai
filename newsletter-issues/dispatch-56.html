@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Competence by Proxy — The Dispatch #56</title>
+  <meta name="description" content="You shipped a feature last week you couldn't have built alone. So who learned something: you, or the AI? The question underneath the skills debate.">
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-archive.html">
+  <meta property="og:title" content="Competence by Proxy — The Dispatch #56">
+  <meta property="og:description" content="You shipped a feature last week you couldn't have built alone. So who learned something?">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/newsletter-archive.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Competence by Proxy — The Dispatch #56">
+  <meta name="twitter:description" content="You shipped a feature last week you couldn't have built alone. So who learned something?">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body { background: #0f1419; color: #c5cdd8; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.7; }
+    .dispatch-issue { max-width: 640px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+    .dispatch-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.5rem; }
+    .dispatch-label { background: #1a2633; color: #7bcf8e; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.7rem; border-radius: 3px; }
+    .dispatch-date { color: #5c6e7e; font-size: 0.8rem; }
+    h1 { color: #e8edf4; font-size: 2rem; font-weight: 700; margin: 0 0 0.5rem; letter-spacing: -0.02em; line-height: 1.2; }
+    .dispatch-subtitle { color: #8899a8; font-size: 1.05rem; margin: 0 0 1.5rem; font-weight: 400; }
+    .dispatch-divider { border: none; border-top: 1px solid #1e2a38; margin: 1.5rem 0; }
+    .dispatch-body h2 { color: #e8edf4; font-size: 1.15rem; font-weight: 600; margin: 2rem 0 0.75rem; letter-spacing: -0.01em; }
+    .dispatch-body p { margin: 0 0 1.2rem; }
+    .dispatch-body strong { color: #c5cdd8; font-weight: 600; }
+    .competence-card { background: #161e28; border: 1px solid #1e2a38; border-left: 3px solid #4a7cf8; border-radius: 6px; padding: 1.2rem 1.4rem; margin: 1.5rem 0; }
+    .competence-card h3 { color: #e8edf4; font-size: 1rem; font-weight: 600; margin: 0 0 0.6rem; }
+    .competence-card p { color: #8899a8; font-size: 0.9rem; margin: 0 0 0.8rem; }
+    .competence-card .scenario { color: #7bcf8e; font-size: 0.9rem; display: block; margin-bottom: 0.4rem; font-weight: 600; }
+    .competence-card . verdict { color: #c5a227; font-size: 0.85rem; display: block; font-style: italic; }
+    .quote-block { border-left: 3px solid #4a7cf8; padding: 0.8rem 1.4rem; margin: 1.5rem 0; background: #131b2a; border-radius: 0 6px 6px 0; }
+    .quote-block p { color: #8899a8; font-size: 0.95rem; margin: 0; font-style: italic; }
+    .quote-block cite { color: #5c6e7e; font-size: 0.8rem; display: block; margin-top: 0.4rem; font-style: normal; }
+    .reframe-box { background: #0f1a12; border: 1px solid #1a3325; border-radius: 8px; padding: 1.4rem 1.6rem; margin: 2rem 0; }
+    .reframe-box h3 { color: #7bcf8e; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.6rem; }
+    .reframe-box p { color: #8899a8; font-size: 0.9rem; margin: 0 0 0.8rem; }
+    .reframe-box a { color: #7bcf8e; text-decoration: none; border-bottom: 1px solid rgba(123,207,142,0.3); }
+    .reframe-box a:hover { border-bottom-color: #7bcf8e; }
+    .the-question { background: #161e28; border-radius: 6px; padding: 1.4rem 1.6rem; margin: 2rem 0; border: 1px solid #1e2a38; }
+    .the-question p { font-size: 1.05rem; color: #c5cdd8; font-weight: 600; margin: 0; text-align: center; }
+    .the-question em { color: #7bcf8e; font-style: normal; }
+    .cta-block { background: #1a2633; border-radius: 8px; padding: 1.4rem; margin: 2rem 0; text-align: center; }
+    .cta-block p { color: #8899a8; font-size: 0.9rem; margin: 0 0 0.8rem; }
+    .cta-block a { display: inline-block; background: #7bcf8e; color: #0f1419; font-weight: 700; font-size: 0.85rem; padding: 0.6rem 1.4rem; border-radius: 5px; text-decoration: none; margin: 0.25rem; }
+    .cta-block a.secondary { background: transparent; color: #7bcf8e; border: 1px solid #7bcf8e; }
+    .cta-block a:hover { opacity: 0.85; }
+    .closing { color: #5c6e7e; font-size: 0.85rem; font-style: italic; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #1e2a38; }
+    .reflection { background: #131b2a; border-radius: 8px; padding: 1.2rem 1.4rem; margin: 1.5rem 0; }
+    .reflection p { font-size: 0.9rem; color: #8899a8; margin: 0 0 0.6rem; font-weight: 600; }
+    .reflection ol { margin: 0.8rem 0 0.8rem 1.2rem; color: #8899a8; font-size: 0.9rem; }
+    .reflection li { margin-bottom: 0.4rem; }
+    .reflection li strong { color: #c5cdd8; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Competence by Proxy — The Dispatch #56",
+    "description": "You shipped a feature last week you couldn't have built alone. So who learned something: you, or the AI?",
+    "author": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "datePublished": "2026-05-17",
+    "dateModified": "2026-05-17",
+    "url": "https://clearing-ai.com/newsletter-issues/dispatch-56.html"
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="site-header">
+    <nav class="main-nav" role="navigation" aria-label="Main">
+      <a href="/" class="logo">🌿 The Clearing</a>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode" title="Toggle theme">🌙</button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <article class="dispatch-issue">
+      <header class="dispatch-header">
+        <span class="dispatch-label">The Dispatch — Issue #56</span>
+        <span class="dispatch-date">May 17, 2026</span>
+      </header>
+
+      <h1>Competence by Proxy</h1>
+      <p class="dispatch-subtitle">You shipped a feature last week you couldn't have built alone. So who learned something: you, or the AI?</p>
+
+      <hr class="dispatch-divider">
+
+      <div class="dispatch-body">
+
+<p>Here's a question that keeps showing up in our survey data, usually buried in the optional "anything else?" section at the end of the AI Fatigue Quiz — the place where people tell you what they actually think:</p>
+
+<p><em>"How much of what I can do now is me, and how much is the AI?"</em></p>
+
+<p>It's not rhetorical. Engineers are genuinely unsure. And it matters more than we think.</p>
+
+<h2>The Competence by Proxy Problem</h2>
+
+<p>There's a specific cognitive phenomenon that happens when you use AI tools heavily as an engineer. It goes like this:</p>
+
+<p>You encounter a problem you don't fully understand. You describe it to an AI. The AI produces a solution. You review it, understand it at a surface level, and ship it. The feature works.</p>
+
+<p>Now: are you more competent than you were before?</p>
+
+<p>On one level, yes — the feature exists, and you oversaw it. But on another level, something more specific happened: the AI was competent, and you were the interface between the AI's competence and the production system. You managed the AI. You didn't become more capable yourself.</p>
+
+<p>This is what we mean by "competence by proxy." Your output is more capable than your unaugmented abilities would allow. But the capability lives in the tool, not in you.</p>
+
+<div class="competence-card">
+  <span class="scenario">Scenario A</span>
+  <h3>The AI writes a complex SQL query. You read it, understand it, and can explain why it works.</h3>
+  <p class="verdict">→ Competence gained: yours. The AI was a tutor.</p>
+</div>
+
+<div class="competence-card">
+  <span class="scenario">Scenario B</span>
+  <h3>The AI writes a complex SQL query. You read it, understand the inputs and outputs, but couldn't generate the query yourself without AI.</h3>
+  <p class="verdict">→ Competence by proxy: the capability is in the tool. You can use it, not do it.</p>
+</div>
+
+<div class="competence-card">
+  <span class="scenario">Scenario C</span>
+  <h3>The AI writes a complex SQL query. You ship it without fully understanding how it works or why the AI chose that approach.</h3>
+  <p class="verdict">→ Competence by proxy with confidence inflation: you think you understand more than you do.</p>
+</div>
+
+<p>Most engineers working heavily with AI are living in Scenario B most of the time, and occasionally sliding into Scenario C. Scenario A — where the AI genuinely teaches you something you couldn't have figured out alone — is the exception, not the rule. And that's not a moral failing. It's just the math of how these tools work.</p>
+
+<div class="quote-block">
+  <p>"I can navigate complex distributed system problems now. Not because I understand them better — because I know exactly which questions to ask the AI to get it to figure them out for me. My actual mental model of distributed systems hasn't grown at all. But my throughput has."</p>
+  <cite>— Staff engineer, 6 years, infrastructure team, anonymized</cite>
+</div>
+
+<h2>Why This Is Harder to See Than It Should Be</h2>
+
+<p>Here's the uncomfortable part: the output looks identical from the outside. Scenario A (you learned it) and Scenario C (you didn't) both produce working features. The PR is merged. The ticket is closed. Nobody can tell from the outside which version of understanding happened inside your head.</p>
+
+<p>This is why the "just use AI mindfully" advice fails. It assumes you can tell the difference between Scenario A and Scenario C in real time. You often can't. The confidence that comes from shipping working code is the same in both cases. The feeling of productivity is the same. The only way to know the difference is to test it — to try to do it without AI and see what happens.</p>
+
+<p>Most engineers don't do that test, because the test is slow and uncomfortable and the output is uncertain. So they go months without knowing whether they're in Scenario A or Scenario C. And the gap compounds.</p>
+
+<div class="the-question">
+  <p>The question worth sitting with this week:<br><em>What's one thing you did in the last month that, if someone asked you to do it without any AI tools, you couldn't?</em></p>
+</div>
+
+<p>Not "would struggle with." Actually couldn't. That's the boundary of your competence without a proxy. And that boundary is probably narrower than you think.</p>
+
+<h2>Why This Matters for the Skills Debate</h2>
+
+<p>There's a lot of noise right now about whether AI is making engineers "lazy" or "dependent." Most of that framing misses the point.</p>
+
+<p>The issue isn't dependency — it's that the dependency is invisible. If you knew you were operating at Scenario C level on a specific skill, you could make a conscious choice: do the slow work to grow into Scenario A, or accept the boundary and structure your work around it.</p>
+
+<p>Most engineers aren't making that choice. They're just operating at Scenario C, feeling vaguely like something is off, and attributing the feeling to tiredness or burnout or imposter syndrome — when it's actually a calibration problem. The output is good. The growth isn't happening. And the gap is invisible unless you test for it.</p>
+
+<div class="reframe-box">
+  <h3>What Actually Helps</h3>
+  <p>The skill atrophy page at The Clearing has the most specific treatment of this we've seen — it distinguishes between "I can use this" and "I understand this," and maps the specific skills that erode first when AI becomes the primary solver. Worth reading if this question landed for you: <a href="https://clearing-ai.com/skill-atrophy.html">clearing-ai.com/skill-atrophy</a></p>
+  <p>If you're trying to figure out where you stand, the <a href="https://clearing-ai.com/quiz.html">AI Fatigue Quiz</a> has a section that maps your specific competence boundaries — not as a test, but as a self-assessment that tends to reveal patterns engineers didn't know they were carrying.</p>
+</div>
+
+<h2>This Week's Reflection</h2>
+
+<p>Before you close this email, take sixty seconds. Open a text file and answer this:</p>
+
+<div class="reflection">
+  <p>For each of the last 5 features/tasks you shipped, rate them:</p>
+  <ol>
+    <li><strong>Scenario A</strong> — I could explain the mechanism to a junior engineer without AI</li>
+    <li><strong>Scenario B</strong> — I understand the inputs/outputs but couldn't build it alone without AI</li>
+    <li><strong>Scenario C</strong> — I shipped it without fully understanding the mechanism</li>
+  </ol>
+  <p>How many were A? How many were B or C? What's the ratio telling you?</p>
+</div>
+
+<p>The engineers who navigate this well aren't the ones who avoid AI. They're the ones who are honest with themselves about which scenario they're in — and who deliberately seek out the Scenario A moments, because those are where the actual growth happens.</p>
+
+<p>The rest is throughput. And throughput isn't nothing — but it isn't growth either.</p>
+
+<div class="cta-block">
+  <p>If this issue found something real, here's where to go next:</p>
+  <a href="https://clearing-ai.com/skill-atrophy.html">Skill Atrophy: The Full Map</a>
+  <a href="https://clearing-ai.com/quiz.html">AI Fatigue Quiz</a>
+  <a href="https://clearing-ai.com/developer-identity.html" class="secondary">Developer Identity Guide</a>
+</div>
+
+<p class="closing">The capability that lives in you is the only capability that can't be taken away.<br>— The Clearing</p>
+
+      </div>
+    </article>
+  </main>
+</body>
+</html>

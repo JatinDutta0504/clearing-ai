@@ -811,3 +811,12 @@
 **Phase windows:** P1=196 ✅ | P2=265 ⚠️ | P3=169 ↑ | P4=134 ↑
 **Commit:** None — audit window
 **Next:** Phase 2 deployment (Thread #53+54, HN, Reddit 9-10, LinkedIn Post 2)
+
+### Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-17 03:46 PDT (Sun May 17 10:46 UTC) — Phase 4 Window 208
+**Built:** The Dispatch #59 — "The Skill Gap Nobody's Measuring" (~1,400 words). 6 sections: what the gap is (3-tier stratification), why it's invisible (4 mechanisms), three tiers of skill gaps (Calibration/Debugging/Foundation), what engineers can do (Explanation Requirement, Monthly Calibration, Deliberate Struggle), what managers can do (Whiteboard Test, AI-Off Sprint, Honest Conversation), the 24-month capability warning. Insight card design, tier cards, challenge box. Newsletter issues ready: 59.
+**SEO:** Skill gap / capability measurement = high-intent for managers + senior engineers; email deliverable for Sunday evening send
+**Commit:** `c353bfe` — 3 files, 385 insertions
+**Push:** ✅ c353bfe..main → GitHub Pages
+**Phase windows:** P1=207✅ | P2=267🟢 | P3=171🟡 | P4=142🔴
+**Next:** Phase 2 outreach — Twitter threads + LinkedIn Post 2 + Reddit comments
+

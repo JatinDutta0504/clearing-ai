@@ -299,4 +299,197 @@ share_section = '''
 <p class="story-quote">"I am the person who used to be the most skeptical on my team. I would argue against technology hype. Then AI coding tools got good and I rationalized my way in. Within a year, I was the person most dependent on them. Not because they were better -- because they were faster."</p>
 <div class="story-meta"><span>Staff Engineer</span><span> - </span><span>11 years exp</span><span> - </span><span>Tier 3</span></div>
 <div class="story-share">
-<button class="share-btn-sm" onclick="shareStory('twitter','Staff Engineer','I was the most skeptical on my team. Within a year of AI tools, I was the most dependent. Not because they were better -- because they were faster.')">
+<button class="share-btn-sm" onclick="shareStory('twitter','Staff Engineer','I was the most skeptical on my team. Within a year of AI tools, I was the most dependent. Not because they were better -- because they were faster.')"><button class="share-btn-sm" onclick="shareStory('twitter','Staff Engineer','I was the most skeptical on my team. Within a year of AI tools, I was the most dependent. Not because they were better -- because they were faster.')">X Tweet</button>
+<button class="share-btn-sm" onclick="shareStory('linkedin','Staff Engineer','I was the most skeptical on my team. Within a year of AI tools, I was the most dependent. Not because they were better -- because they were faster.')">LinkedIn</button>
+</div>
+</div>
+
+</div><!-- end stories-grid -->
+
+<section class="section" id="submit" aria-labelledby="submit-title">
+<h2 id="submit-title">Submit Your Story</h2>
+<p class="section-intro">Your recovery story is someone else's proof they're not lazy, not broken — they're experiencing something real. Takes 5 minutes to write.</p>
+
+<div class="incentive-box">
+<h3>Why share your story?</h3>
+<p>Every story published here has driven at least one person to tell us "I thought I was the only one." That's worth something. We also send a small thank-you (AI fatigue recovery resource pack) to everyone whose story we publish.</p>
+</div>
+
+<div class="form-section">
+<form id="story-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+<div class="form-grid">
+<div class="form-field">
+<label for="role">Your role</label>
+<input type="text" id="role" name="role" placeholder="e.g. Senior Backend Engineer, Engineering Manager, Staff IC" required/>
+</div>
+<div class="form-field">
+<label for="years">Years of experience</label>
+<input type="text" id="years" name="years" placeholder="e.g. 7 years"/>
+</div>
+<div class="form-field">
+<label for="tier">AI Fatigue Quiz Tier (if you've taken it)</label>
+<select id="tier" name="tier">
+<option value="">Not sure / haven't taken it</option>
+<option value="tier-1">Tier 1 — Holding Up</option>
+<option value="tier-2">Tier 2 — Some Fatigue</option>
+<option value="tier-3">Tier 3 — Real Fatigue</option>
+<option value="tier-4">Tier 4 — Need a Real Break</option>
+</select>
+</div>
+<div class="form-field">
+<label for="email">Your email (never published)</label>
+<input type="email" id="email" name="email" placeholder="For follow-up only"/>
+</div>
+<div class="form-field full">
+<label for="story">Your story</label>
+<textarea id="story" name="story" placeholder="What did AI fatigue feel like for you? What helped? What do you wish you knew sooner?" required></textarea>
+</div>
+</div>
+<button type="submit" class="btn-submit">Submit Your Story</button>
+<p class="form-note">Stories are reviewed within 48 hours. We remove names and identifying details. Your email is never published or shared.</p>
+</form>
+<div class="success-msg" id="success-msg">
+<p>Story submitted — thank you.</p>
+<span>We read every submission. If we publish your story, we'll email you within 48 hours.</span>
+</div>
+</div>
+</section>
+
+<hr class="divider"/>
+
+<section class="section" id="outreach" aria-labelledby="outreach-title">
+<h2 id="outreach-title">Nominate a Colleague</h2>
+<p class="section-intro">Know an engineer who's struggling quietly? A thoughtful message from a peer can be the thing that finally helps them name what's been wrong. Here are templates you can use.</p>
+
+<div class="guide-card">
+<h3>Template A — Peer to peer (Slack/email)</h3>
+<ul>
+<li>Subject or opening: "This made me think of you"</li>
+<li>Share what specifically reminded you of them (a specific behavior, comment, or pattern)</li>
+<li>Name the thing: "I've been reading about AI fatigue and it sounded like what you described last week"</li>
+<li>Offer without pressure: "No need to talk about it, but if you ever want to, I'm here"</li>
+<li>Include the link naturally: "There's this quiz that names it really well — https://clearing-ai.com/quiz"</li>
+</ul>
+</div>
+
+<div class="guide-card">
+<h3>Template B — Manager to report (1:1 or email)</h3>
+<ul>
+<li>Opening: "I noticed something in our last retro I'd like to follow up on"</li>
+<li>Name the observation specifically: "You mentioned feeling like you're not learning anymore / moving too fast to absorb things / dreading work"</li>
+<li>Validate: "That's actually a really common experience right now — there's actual research on this"</li>
+<li>Offer: "I'd like to talk about what might help, without any judgment"</li>
+<li>Link as resource: "In case it's useful — there's a free quiz and guide at clearing-ai.com"</li>
+</ul>
+</div>
+
+<div class="guide-card">
+<h3>Template C — Colleague to quiet colleague (message)</h3>
+<ul>
+<li>Opening: "I saw this and immediately thought of you"</li>
+<li>Share a specific quote or data point from the site: "Apparently 71% of engineers report feeling like they're 'taking a test' rather than building"</li>
+<li>Personal connection: "I took the quiz and it was weirdly accurate — helped me name something I'd been feeling"</li>
+<li>Keep it light: No need to make it heavy. Just open the door.</li>
+<li>Link: https://clearing-ai.com — "No pressure, just if you're ever curious"</li>
+</ul>
+</div>
+</section>
+
+<hr class="divider"/>
+
+<section class="section" id="share" aria-labelledby="share-title">
+<h2 id="share-title">Spread the Word</h2>
+<p class="section-intro">Every engineer who sees this and feels less alone is a win. Share the campaign.</p>
+<div class="share-row">
+<a href="https://twitter.com/intent/tweet?text=I%20just%20read%2010%20real%20engineers%27%20AI%20fatigue%20recovery%20stories.%20If%20you%27ve%20felt%20the%20same%2C%20you%27re%20not%20alone.%20https%3A%2F%2Fclearing-ai.com%2Ftestimonials-campaign.html" class="share-link share-twitter" target="_blank" rel="noopener">X Share on Twitter</a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fclearing-ai.com%2Ftestimonials-campaign.html&title=10+Engineers+Shared+Their+AI+Fatigue+Stories" class="share-link share-linkedin" target="_blank" rel="noopener">Share on LinkedIn</a>
+<button class="share-link share-copy-btn" id="copy-link-btn" onclick="copyLink()">Copy Link</button>
+</div>
+</section>
+
+</div><!-- end content-wrap -->
+
+<footer>
+<p>The Clearing — helping software engineers name and recover from AI fatigue.</p>
+<div class="footer-links">
+<a href="/">Home</a>
+<a href="/quiz.html">Take the Quiz</a>
+<a href="/recovery.html">Recovery</a>
+<a href="/newsletter.html">Newsletter</a>
+<a href="/community.html">Community</a>
+<a href="/testimonials.html">Testimonials</a>
+</div>
+</footer>
+
+<script>
+// Reading progress bar
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const scrollTop = window.scrollY;
+  const scrollHeight = doc.scrollHeight - doc.clientHeight;
+  const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+  document.getElementById('progress').style.width = progress + '%';
+});
+
+// Theme toggle
+document.querySelector('.theme-toggle').addEventListener('click', () => {
+  const html = document.documentElement;
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+  document.querySelector('.theme-toggle').textContent = isDark ? '☀️' : '🌙';
+});
+if (localStorage.getItem('theme') === 'light') {
+  document.documentElement.setAttribute('data-theme', 'light');
+  document.querySelector('.theme-toggle').textContent = '☀️';
+}
+
+// Copy link
+function copyLink() {
+  navigator.clipboard.writeText('https://clearing-ai.com/testimonials-campaign.html').then(() => {
+    const btn = document.getElementById('copy-link-btn');
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = 'Copy Link', 2000);
+  });
+}
+
+// Share story
+function shareStory(platform, role, quote) {
+  const text = quote + ' — ' + role + ', via @ClearingAI';
+  const url = 'https://clearing-ai.com/testimonials-campaign.html';
+  if (platform === 'twitter') {
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url), '_blank');
+  } else if (platform === 'linkedin') {
+    window.open('https://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(text), '_blank');
+  }
+}
+
+// Form submission
+document.getElementById('story-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const data = new FormData(form);
+  try {
+    const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+    if (res.ok) {
+      form.style.display = 'none';
+      document.getElementById('success-msg').classList.add('show');
+    } else {
+      alert('Something went wrong. Please try again or email us at hello@clearing-ai.com');
+    }
+  } catch {
+    alert('Network error. Please try again.');
+  }
+});
+</script>
+</body>
+</html>
+if __name__ == "__main__":
+    with open("testimonials-campaign.html", "w") as f:
+        f.write(head)
+        f.write(share_section)
+        f.write(submit_section)
+        f.write(outreach_section)
+        f.write(footer_section)
+        f.write(script_section)
+    print("Built testimonials-campaign.html")

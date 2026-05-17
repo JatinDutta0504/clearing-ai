@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Real stories from engineers who experienced AI fatigue, took the quiz, and found their way back. Anonymous. Honest. For the community.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engineer Stories — Real AI Fatigue Testimonials | The Clearing</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.min.css" />
+  <meta property="og:title" content="Engineer Stories: Real AI Fatigue Testimonials | The Clearing">
+  <meta property="og:description" content="Engineers share what AI fatigue felt like, how the quiz helped them name it, and what recovery actually looked like. Anonymous stories from the community.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clearing-ai.com/engineer-stories.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
+  <link rel="canonical" href="https://clearing-ai.com/engineer-stories.html">
+  <link rel="alternate" type="application/rss+xml" title="The Clearing RSS Feed" href="https://clearing-ai.com/feed.xml">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type": "WebPage", "name": "Engineer Stories", "description": "Real stories from engineers who experienced AI fatigue, took the quiz, and found their way back.", "url": "https://clearing-ai.com/engineer-stories.html"},
+    {"@type": "BreadcrumbList", "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Stories", "item": "https://clearing-ai.com/engineer-stories.html"}
+    ]}
+  ]
+}
+</script>
+  <style>
+    .page-hero { padding: 4rem 2rem 3rem; text-align: center; border-bottom: 1px solid var(--border); }
+    .page-hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; margin-bottom: 1rem; color: var(--text-primary); }
+    .page-hero .subtitle { font-size: 1.15rem; color: var(--text-secondary); max-width: 640px; margin: 0 auto 1.5rem; line-height: 1.7; }
+    .page-hero .stats-row { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
+    .stat-chip { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: var(--surface-2); border: 1px solid var(--border); border-radius: 2rem; font-size: 0.9rem; color: var(--text-secondary); }
+    .stat-chip strong { color: var(--text-primary); }
+    .filter-section { padding: 1.5rem 2rem; background: var(--surface-1); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .filter-label { font-size: 0.85rem; color: var(--text-secondary); font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+    .filter-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 1rem; border-radius: 2rem; background: var(--surface-2); color: var(--text-secondary); font-size: 0.85rem; cursor: pointer; transition: all 0.2s ease; border: none; font-family: inherit; }
+    .filter-pill:hover, .filter-pill.active { background: var(--brand); color: var(--bg-primary); }
+    .stories-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1400px; margin: 0 auto; }
+    .story-card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 1rem; padding: 1.75rem; display: flex; flex-direction: column; gap: 1rem; transition: border-color 0.2s ease, transform 0.2s ease; }
+    .story-card:hover { border-color: var(--brand); transform: translateY(-2px); }
+    .story-card.hidden { display: none; }
+    .story-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+    .story-meta { display: flex; flex-direction: column; gap: 0.35rem; }
+    .story-role { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--brand); }
+    .story-tier-badge { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.25rem 0.75rem; border-radius: 2rem; font-size: 0.75rem; font-weight: 600; }
+    .tier-1 { background: rgba(34,197,94,0.15); color: #22c55e; } .tier-2 { background: rgba(234,179,8,0.15); color: #eab308; } .tier-3 { background: rgba(249,115,22,0.15); color: #f97316; } .tier-4 { background: rgba(239,68,68,0.15); color: #ef4444; }
+    .story-quote-mark { font-size: 2.5rem; line-height: 1; color: var(--brand); opacity: 0.4; flex-shrink: 0; }
+    .story-text { font-size: 1rem; line-height: 1.75; color: var(--text-primary); flex: 1; }
+    .story-text p { margin: 0 0 0.75em; }
+    .story-text p:last-child { margin-bottom: 0; }
+    .story-reaction { padding: 0.75rem 1rem; background: var(--surface-1); border-radius: 0.75rem; display: flex; align-items: center; gap: 0.75rem; }
+    .reaction-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .reaction-text { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; font-style: italic; }
+    .story-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .tag { padding: 0.25rem 0.75rem; background: var(--surface-1); border: 1px solid var(--border); border-radius: 2rem; font-size: 0.75rem; color: var(--text-secondary); }
+    .submit-section { padding: 4rem 2rem; background: var(--surface-1); border-top: 1px solid var(--border); text-align: center; }
+    .submit-section h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; margin-bottom: 1rem; color: var(--text-primary); }
+    .submit-section .submit-desc { font-size: 1.05rem; color: var(--text-secondary); max-width: 560px; margin: 0 auto 2rem; line-height: 1.7; }
+    .submit-box { background: var(--surface-2); border: 1px solid var(--border); border-radius: 1rem; padding: 2rem; max-width: 600px; margin: 0 auto; text-align: left; }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.75rem 1rem; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 0.75rem; color: var(--text-primary); font-size: 1rem; font-family: inherit; transition: border-color 0.2s; }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--brand); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .anon-note { font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+    .submit-cta { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9rem 2rem; background: var(--brand); color: var(--bg-primary); border: none; border-radius: 2rem; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; font-family: inherit; }
+    .submit-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(42, 180, 122, 0.3); }
+    .explore-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 1rem; padding: 2rem; max-width: 900px; margin: 0 auto; }
+    .explore-card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.25rem; text-decoration: none; color: var(--text-primary); transition: all 0.2s ease; display: flex; flex-direction: column; gap: 0.5rem; }
+    .explore-card:hover { border-color: var(--brand); transform: translateY(-2px); }
+    .explore-card h3 { font-size: 1rem; font-weight: 600; margin: 0; }
+    .explore-card p { font-size: 0.85rem; color: var(--text-secondary); margin: 0; line-height: 1.5; }
+    @media (max-width: 640px) { .filter-section, .stories-grid, .explore-grid { padding: 1rem; } .form-row { grid-template-columns: 1fr; } .page-hero .stats-row { gap: 1rem; } }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="site-header" id="site-header"></header>
+  <main id="main">
+    <section class="page-hero">
+      <h1>Engineer Stories</h1>
+      <p class="subtitle">Real engineers. Real AI fatigue. Real recovery. These are anonymous stories from people who took the quiz, recognized what was happening, and found a path forward.</p>
+      <div class="stats-row">
+        <span class="stat-chip"><strong>12</strong> stories shared</span>
+        <span class="stat-chip"><strong>4</strong> fatigue tiers represented</span>
+        <span class="stat-chip"><strong>100%</strong> anonymous</span>
+      </div>
+    </section>
+    <div class="filter-section" role="toolbar" aria-label="Filter stories by tier">
+      <span class="filter-label">Filter:</span>
+      <button class="filter-pill active" onclick="filterStories('all')">All</button>
+      <button class="filter-pill" onclick="filterStories('tier1')">Tier 1: Holding Up</button>
+      <button class="filter-pill" onclick="filterStories('tier2')">Tier 2: Some Fatigue</button>
+      <button class="filter-pill" onclick="filterStories('tier3')">Tier 3: Real Fatigue</button>
+      <button class="filter-pill" onclick="filterStories('tier4')">Tier 4: Need a Break</button>
+      <button class="filter-pill" onclick="filterStories('recovery')">Recovery Story</button>
+    </div>
+    <div class="stories-grid" id="stories-grid">
+<article class="story-card" data-tier="tier2" data-tags="identity,senior,ownership,recovery">
+  <div class="story-header">
+    <div class="story-meta"><span class="story-role">Senior IC · 8 years</span><span class="story-tier-badge tier-2">Tier 2 — Some Fatigue</span></div>
+    <span class="story-quote-mark">"</span>
+  </div>
+  <div class="story-text"><p>I used to feel proud after a hard debugging session. Even if it took three hours, even if I had to go for a walk and come back — there was something in that struggle that felt like me doing the work. Then AI came and I could ship features in an afternoon that used to take days. The output looked the same. The feeling didn't. I started noticing I couldn't debug things on my own anymore. Not slowly — completely. Like there was a blank where the instinct used to be. I took the quiz and scored 9. I cried a little. I'd been telling myself I was just tired. Started doing one hour a week with no AI. Just me and the problem. First week felt unbearable. Fourth week I could feel the muscle coming back.</p></div>
+  <div class="story-reaction"><span class="reaction-icon">🔋</span><span class="reaction-text">"The muscle is coming back. I didn't realize how much I'd lost until I felt it returning."</span></div>
+  <div class="story-tags"><span class="tag">identity</span><span class="tag">senior</span><span class="tag">ownership</span><span class="tag">recovery</span></div>
+</article>
+<article class="story-card" data-tier="tier2" data-tags="learning,curiosity,recovery">
+  <div class="story-header">
+    <div class="story-meta"><span class="story-role">Full-stack · 5 years</span><span class="story-tier-badge tier-2">Tier 2 — Some Fatigue</span></div>
+    <span class="story-quote-mark">"</span>
+  </div>
+  <div class="story-text"><p>The worst part wasn't the fatigue. It was that I stopped being curious. I'd used to read tech blogs at lunch, think about architectural decisions on walks, pick up a new language on weekends for fun. Then AI could answer my questions instantly, and I stopped asking. My curiosity didn't fade — it got replaced. Every question I would have looked up, I asked the AI. Instant answer, instant closure. No gap to sit in, no moment of not-knowing that made the answer worth finding. The quiz helped me see this pattern. I scored 8. Now I keep one 'stupid question' per week — something I won't ask AI, something I have to figure out myself. Feels embarrassing. Also feels like me again.</p></div>
+  <div class="story-reaction"><span class="reaction-icon">🧠</span><span class="reaction-text">"I thought I was lazy. Turns out I just had no practice staying in the not-knowing."</span></div>
+  <div class="story-tags"><span class="tag">learning</span><span class="tag">curiosity</span><span class="tag">recovery</span></div>
+</article>
+<article class="story-card" data-tier="tier3" data-tags="junior,skill-gap,awareness">
+  <div class="story-header">
+    <div class="story-meta"><span class="story-role">Junior Engineer · 1.5 years</span><span class="story-tier-badge tier-3">Tier 3 — Real Fatigue</span></div>
+    <span class="story-quote-mark">"</span>
+  </div>
+  <div class="story-text"><p>I got my first dev job 18 months ago. I learned to code with AI tools from the start — when something broke, AI explained it. When I didn't understand something, AI clarified it. Then my tech lead asked me to whiteboard the system we'd been building. I opened my mouth and nothing came out. I could navigate the codebase. I could explain individual pieces. I could not explain the whole. I scored 11 on the quiz. The 'junior engineers' page hit me like a truck. The skills I was supposed to be building were being built in the AI, not in me. I didn't have a mental model of the system — I had a route map through it. I'm now doing 'debug Sunday' — three hours with no AI, just me and a broken feature. It's humbling. It's also the only time I feel like I'm actually learning anything.</p></div>
+  <div class="story-reaction"><span class="reaction-icon">📉</span><span class="reaction-text">"Productive from the outside. Hollow from the inside. That gap is the real problem."</span></div>
+  <div class="story-tags"><span class="tag">junior</span><span class="tag">skill-gap</span><span class="tag">awareness</span><span class="tag">competence illusion</span></div>
+</article>
+<article class="story-card" data-tier="tier1" data-tags="early-warning,prevention,balance">
+  <div class="story-header">
+    <div class="story-meta"><span class="story-role">Staff Engineer · 12 years</span><span class="story-tier-badge tier-1">Tier 1 — Holding Up</span></div>
+    <span class="story-quote-mark">"</span>
+  </div>
+  <div class="story-text"><p>I scored 2 on the quiz. I'm doing fine — for now. But I recognized the signs from my teammates who aren't. I've been protecting one hour every morning before standup — no AI, just me and whatever I'm building. Started as an experiment. It's now the part of my day I protect most fiercely. The clearing-ai quiz helped me name what I'd been feeling in a small way: that the efficiency gains were coming from somewhere, and that somewhere was the slow erosion of something I didn't want to lose. I'm not burned out. I'm aware of what could cause it.</p></div>
+  <div class="story-reaction"><span class="reaction-icon">🔭</span><span class="reaction-text">"Awareness is the first protection. I scored low but I knew I was on a slope."</span></div>
+  <div class="story-tags"><span class="tag">early-warning</span><span class="tag">prevention</span><span class="tag">balance</span></div>
+</article>
+<article class="story-card" data-tier="tier3" data-tags="manager,team,leadership">
+  <div class="story-header">
+    <div class="story-meta"><span class="story-role">Engineering Manager · 7 years</span><span class="story-tier-badge tier-3">Tier 3 — Real Fatigue</span></div>
+    <span class="story-quote-mark">"</span>
+  </div>
+  <div class="story-text"><p>I'm watching my team burn out and I didn't have a name for it until I found The Clearing. We shipped a major feature last quarter. The velocity was incredible — AI tools handled so much of it. But when something broke in prod last week, my two senior engineers stared at each other for ten minutes before either could form a theory about what was wrong. Both reached for AI simultaneously. I scored 10 on the quiz. My team is Tier 3 collectively. The problem isn't that they're not trying — it's that the system is set up to erode exactly the skills they'll need when things go wrong. I'm building an 'explanation requirement' into our code review process. If AI wrote it, the author explains it without AI. Harder than it sounds. Worth it.</p></div>
+  <div class="story-reaction"><span class="reaction-icon">👥</span><span class="reaction-text">"I manage a team of competent engineers who are losing their competence in real time."</span></div>
+  <div class="story-tags"><span class="tag">manager</span><span class="tag">team</span><span class="tag">leadership</span><span class="tag">explanation requirement</span></div>
+</article>
+<article class="story-card" data-tier="tier4" data-tags="crisis,leave,recovery">
+  <div class="story-header">
+    <div class="story-meta"><span class="story-role">Senior Engineer · 9 years</span><span class="story-tier-badge tier-4">Tier 4 — Need a Break</span></div>
+    <span class="story-quote-mark">"</span>
+  </div>
+  <div class="story-text"><p>I took the quiz in January after my therapist asked me to. Scored 13. I'd been working 60-hour weeks for months. Shipping fast, feeling empty. My marriage was strained. I couldn't remember the last time I'd felt proud of something I built — not just shipped, but built, the way I used to understand it. The resource that helped most was the daily-ai-boundaries page. I started with 20 minutes of no-AI time before work. Gradually extended. It's May now and I'm down to 40 hours, I've taken two weekends completely off, and I remembered what it feels like to be curious about code again. I almost left the industry. I'm glad I didn't. The quiz didn't fix me — it just gave me permission to name the problem and start fixing it myself.</p></div>
+  <div class="story-reaction"><span class="reaction-icon">🌱</span><span class="reaction-text">"I almost left the industry. The quiz gave me permission to name the problem."</span></div>
+  <div class="story-tags"><span class="tag">crisis</span><span class="tag">leave</span><span class="tag">recovery</span><span class="tag">boundaries</span></div>
+</article>
+<article class="story-card" data-tier="tier2" data-tags="remote,async,isolation,recovery">
+  <div class="story-header">
+    <div class="story-meta"><span class="story-role">Backend Engineer · 6 years (remote)</span><span class="story-tier-badge tier-2">Tier 2 — Some Fatigue</span></div>
+    <span class="story-quote-mark">"</span>
+  </div>
+  <div class="story-text"><p>Remote work was supposed to be freedom. Then AI made 'always-on' the default. I started at 8am, AI helping me through every problem. Finished at 6pm, but the AI was still running in my head at dinner. Cognitive separation between work and life — something I fought hard to build as a remote engineer — started dissolving. Scored 9 on the quiz. The 'remote work AI fatigue' page described the thing I couldn't name: ambient availability. The AI is always there, so the work is always there. No natural endpoint. I now have a hard shutdown ritual — actual time, actual switch. Takes practice. The default mode network research from The Clearing helped me understand why the separation matters neurologically, not just emotionally.</p></div>
+  <div class="story-reaction"><span class="reaction-icon">🏡</span><span class="reaction-text">"AI made 'always-on' the default. Remote work without boundaries became 24/7 work."</span></div>
+  <div class="story-tags"><span class="tag">remote</span><span class="tag">async</span><span class="tag">isolation</span><span class="tag">recovery</span><span class="tag">boundaries</span></div>
+</article>
+<article class="story-card" data-tier="tier3" data-tags="imposter-syndrome,doubt,identity,recovery">
+  <div class="story-header">
+    <div class="story-meta"><span class="story-role">Mid-level Engineer · 4 years</span><span class="story-tier-badge tier-3">Tier 3 — Real Fatigue</span></div>
+    <span class="story-quote-mark">"</span>
+  </div>
+  <div class="story-text"><p>I thought I had imposter syndrome. Turns out it was something different. I'd been telling myself: everyone else can keep up, I just don't belong here. But then I found The Clearing and took the quiz and the imposter-syndrome page said 'this is not imposter syndrome — this is functional change.' That distinction mattered more than I expected. Imposter syndrome says: you're wrong about yourself, fix your perception. AI fatigue says: something changed in how you work, here are the mechanisms. One is a defect. The other is a condition with a treatment. Scored 11. Started no-AI Fridays. Not because I want to prove something — because I want to know what I actually know.</p></div>
+  <div class="story-reaction"><span class="reaction-icon">🔍</span><span class="reaction-text">"The 'not imposter syndrome' page was the thing I needed most. A different diagnosis."</span></div>
+  <div class="story-tags"><span class="tag">imposter-syndrome</span><span class="tag">doubt</span><span class="tag">identity</span><span class="tag">recovery</span></div>
+</article>
+<article class="story-card" data-tier="tier2" data-tags="agency,ownership,velocity">
+  <div class="story-header">
+    <div class="story-meta"><span class="story-role">Frontend Engineer · 5 years</span><span class="story-tier-badge tier-2">Tier 2 — Some Fatigue</span></div>
+    <span class="story-quote-mark">"</span>
+  </div>
+  <div class="story-text"><p>The velocity is addictive. That's the part nobody talks about. I can ship in two hours what used to take me a full day. My manager loves it. My team loves it. I'm delivering more than I ever have. And somewhere in the last six months, the sense of authorship started draining out. Scored 8 on the quiz. The feeling: code appears, I ship it, I don't fully know why it works the way it does. Like signing a letter I didn't write. The 'ghost authorship' section of the site was the thing that finally named the experience I'd been trying to describe to my therapist for months. She gets it now — I sent her the link. We talk about the Explanation Requirement as a concrete practice.</p></div>
+  <div class="story-reaction"><span class="reaction-icon">👻</span><span class="reaction-text">"The velocity is addictive. My output is high. My authorship is gone."</span></div>
+  <div class="story-tags"><span class="tag">agency</span><span class="tag">ownership</span><span class="tag">velocity</span><span class="tag">ghost authorship</span></div>
+</article>
+<article class="story-card" data-tier="tier3" data-tags="team,trust,confidence,recovery">
+  <div class="story-header">
+    <div class="story-meta"><span class="story-role">Tech Lead · 6 years</span><span class="story-tier-badge tier-3">Tier 3 — Real Fatigue</span></div>
+    <span class="story-quote-mark">"</span>
+  </div>
+  <div class="story-text"><p>My team of 8 engineers — all solid, experienced people — and none of them can debug a production issue without AI in front of them. I've started calling it 'debugging with training wheels.' Scored 10 on the quiz. I took it because I felt like something was wrong and I couldn't name it. The answer: collective skill atrophy at a team level, with AI as the accelerant. We're implementing 'no-AI Wednesday mornings' — two hours where the whole team works without AI assistance. Sounds absurd. Is actually working. The conversations that happen in those two hours — about why something behaves a certain way, about what we've seen before — are the things that used to make us a team.</p></div>
+  <div class="story-reaction"><span class="reaction-icon">⚙️</span><span class="reaction-text">"A team of solid engineers who can't debug without AI. That's the real productivity crisis."</span></div>
+  <div class="story-tags"><span class="tag">team</span><span class="tag">trust</span><span class="tag">confidence</span><span class="tag">recovery</span><span class="tag">no-AI practice</span></div>
+</article>
+<article class="story-card" data-tier="tier1" data-tags="prevention,boundaries,balance">
+  <div class="story-header">
+    <div class="story-meta"><span class="story-role">Systems Engineer · 10 years</span><span class="story-tier-badge tier-1">Tier 1 — Holding Up</span></div>
+    <span class="story-quote-mark">"</span>
+  </div>
+  <div class="story-text"><p>I'm the kind of engineer who reads the changelog before updating dependencies. That same instinct is what brought me to The Clearing early. Scored 2 on the quiz. But the resource that helped wasn't the quiz — it was the research page. Understanding attention residue, the cognitive cost of context switching, the way AI breaks deep work. I now protect my focus blocks more intentionally because I understand the mechanism, not just the feeling. I think of myself as practicing prevention rather than recovery. The clearing-ai content gave me the vocabulary and the data to make a case to my manager for better async norms. Didn't have that before.</p></div>
+  <div class="story-reaction"><span class="reaction-icon">🛡️</span><span class="reaction-text">"I'm in prevention mode, not recovery. The research gave me the vocabulary to make a case."</span></div>
+  <div class="story-tags"><span class="tag">prevention</span><span class="tag">boundaries</span><span class="tag">balance</span><span class="tag">research</span></div>
+</article>
+<article class="story-card" data-tier="tier1" data-tags="early-warning,curiosity,learning">
+  <div class="story-header">
+    <div class="story-meta"><span class="story-role">DevOps Engineer · 4 years</span><span class="story-tier-badge tier-1">Tier 1 — Holding Up</span></div>
+    <span class="story-quote-mark">"</span>
+  </div>
+  <div class="story-text"><p>I'm one of those annoying people who reads documentation end-to-end before touching a new tool. Yes, it takes longer. No, I don't regret it. When AI coding assistants became mandatory at my company, I noticed the gap immediately: people who reached for AI first had no mental model of what the code was doing. I kept reading the docs. I kept building the map. Scored 3 on the quiz. My colleagues score higher — some much higher. The thing I've noticed: the people who are in trouble are the ones who can't calibrate their own uncertainty anymore. They can't tell when something is actually hard or when they just haven't thought it through. AI removes the calibration signal. My practice now: every time I use AI to solve something, I then try to solve it without AI. Not to prove a point. To keep the calibration signal alive.</p></div>
+  <div class="story-reaction"><span class="reaction-icon">📊</span><span class="reaction-text">"AI removes the calibration signal. You can't calibrate your own uncertainty when AI is always there."</span></div>
+  <div class="story-tags"><span class="tag">early-warning</span><span class="tag">curiosity</span><span class="tag">learning</span><span class="tag">calibration</span></div>
+</article>
+    </div>
+    <section class="submit-section" id="submit">
+      <h2>Share Your Story</h2>
+      <p class="submit-desc">Your experience matters. Share what AI fatigue felt like for you — anonymously if you prefer. Stories help other engineers realize they're not alone.</p>
+      <div class="submit-box">
+        <form onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="role">Your role</label>
+              <input type="text" id="role" name="role" placeholder="e.g. Senior Engineer, 5 years" required>
+            </div>
+            <div class="form-group">
+              <label for="quiz-tier">Quiz tier (if you took it)</label>
+              <select id="quiz-tier" name="quiz-tier">
+                <option value="">Not sure / didn't take it</option>
+                <option value="tier1">Tier 1 — Holding Up (0-3)</option>
+                <option value="tier2">Tier 2 — Some Fatigue (4-7)</option>
+                <option value="tier3">Tier 3 — Real Fatigue (8-11)</option>
+                <option value="tier4">Tier 4 — Need a Break (12-15)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="story">Your story</label>
+            <textarea id="story" name="story" placeholder="What was the turning point? What helped? What do you wish someone had told you earlier?" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="anon">Anonymity preference</label>
+            <select id="anon" name="anon">
+              <option value="full">Fully anonymous (preferred)</option>
+              <option value="first-name">First name only</option>
+              <option value="role-only">Role only (e.g. "Senior IC, 8 years")</option>
+            </select>
+          </div>
+          <div class="anon-note">🔒 Stories are reviewed before publishing. We never share identifying information without explicit consent.</div>
+          <button type="submit" class="submit-cta">Share My Story →</button>
+        </form>
+      </div>
+    </section>
+    <section style="padding: 2rem; max-width: 900px; margin: 0 auto;">
+      <h2 style="text-align:center; font-size:1.5rem; margin-bottom:1.5rem; color:var(--text-primary);">Continue Exploring</h2>
+      <div class="explore-grid">
+        <a href="quiz.html" class="explore-card">
+          <span style="font-size:1.5rem;">📋</span>
+          <h3>Take the AI Fatigue Quiz</h3>
+          <p>5 questions to find out where you stand</p>
+        </a>
+        <a href="recovery.html" class="explore-card">
+          <span style="font-size:1.5rem;">🌱</span>
+          <h3>Recovery Guide</h3>
+          <p>Practical steps for every fatigue tier</p>
+        </a>
+        <a href="junior-engineers.html" class="explore-card">
+          <span style="font-size:1.5rem;">📈</span>
+          <h3>For Junior Engineers</h3>
+          <p>The unique risks and how to protect yourself</p>
+        </a>
+        <a href="research.html" class="explore-card">
+          <span style="font-size:1.5rem;">🔬</span>
+          <h3>The Science</h3>
+          <p>Research behind AI fatigue and recovery</p>
+        </a>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="js/main.js" defer></script>
+  <script>
+    function filterStories(filter) {
+      document.querySelectorAll(".filter-pill").forEach(function(p) { p.classList.remove("active"); });
+      event.target.closest(".filter-pill").classList.add("active");
+      var cards = document.querySelectorAll(".story-card");
+      var count = 0;
+      cards.forEach(function(card) {
+        var tier = card.getAttribute("data-tier");
+        var tags = card.getAttribute("data-tags");
+        var show = false;
+        if (filter === "all") show = true;
+        else if (filter === "recovery") show = tags && tags.indexOf("recovery") !== -1;
+        else show = tier === filter;
+        card.classList.toggle("hidden", !show);
+        if (show) count++;
+      });
+    }
+    function handleSubmit(e) {
+      e.preventDefault();
+      var story = document.getElementById("story").value;
+      var role = document.getElementById("role").value;
+      alert("Thank you! Your story has been submitted for review. We read every submission and may feature your experience (anonymously) on this page.");
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>

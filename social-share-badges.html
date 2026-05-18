@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Share Your AI Fatigue Score — The Clearing</title>
+  <meta name="description" content="Generate your personal AI Fatigue badge. Share it with the world and show engineers they're not alone.">
+  <meta property="og:title" content="Share Your AI Fatigue Score">
+  <meta property="og:description" content="Generate your personal AI Fatigue badge. Share it with the world.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://clearing-ai.com/social-share-badges.html">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg, #0d1117);
+      color: var(--text, #e6edf3);
+      min-height: 100vh;
+      padding: 2rem 1rem;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .page-header h1 {
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .page-header p {
+      font-size: 1.1rem;
+      color: var(--muted, #8b949e);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* Badge Generator Card */
+    .generator-card {
+      background: var(--card-bg, #161b22);
+      border: 1px solid var(--border, #30363d);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .input-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text, #e6edf3);
+    }
+
+    .input-group input, .input-group select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: var(--input-bg, #0d1117);
+      border: 1px solid var(--border, #30363d);
+      border-radius: 8px;
+      color: var(--text, #e6edf3);
+      font-size: 1rem;
+      transition: border-color 0.2s;
+    }
+
+    .input-group input:focus, .input-group select:focus {
+      outline: none;
+      border-color: #3fb950;
+    }
+
+    /* Tier Selector */
+    .tier-selector {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tier-btn {
+      padding: 0.75rem 0.5rem;
+      border: 1px solid var(--border, #30363d);
+      border-radius: 8px;
+      background: var(--card-bg, #161b22);
+      color: var(--muted, #8b949e);
+      cursor: pointer;
+      font-size: 0.75rem;
+      text-align: center;
+      transition: all 0.2s cubic-bezier(0.22,1,0.36,1);
+      font-weight: 600;
+    }
+
+    .tier-btn:hover {
+      border-color: var(--text, #e6edf3);
+      color: var(--text, #e6edf3);
+    }
+
+    .tier-btn.active {
+      border-color: #3fb950;
+      color: #3fb950;
+      background: rgba(63, 185, 80, 0.08);
+    }
+
+    .tier-btn span {
+      display: block;
+      font-size: 1.25rem;
+      margin-bottom: 0.2rem;
+    }
+
+    /* Theme Selector */
+    .theme-selector {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .theme-btn {
+      padding: 0.75rem;
+      border: 2px solid var(--border, #30363d);
+      border-radius: 10px;
+      background: var(--card-bg, #161b22);
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.22,1,0.36,1);
+      text-align: center;
+    }
+
+    .theme-btn:hover { border-color: #8b949e; transform: scale(1.02); }
+    .theme-btn.active { border-color: #3fb950; }
+
+    .theme-preview {
+      width: 100%;
+      height: 60px;
+      border-radius: 6px;
+      margin-bottom: 0.4rem;
+    }
+
+    .theme-preview.forest { background: linear-gradient(135deg, #1a3a2a, #0d2018); }
+    .theme-preview.slate { background: linear-gradient(135deg, #1e2530, #141a22); }
+    .theme-preview.dawn { background: linear-gradient(135deg, #2d1b4e, #1a1030); }
+
+    .theme-btn span { font-size: 0.75rem; color: var(--muted, #8b949e); font-weight: 600; }
+
+    /* Canvas */
+    .canvas-wrapper {
+      display: flex;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+
+    canvas {
+      border-radius: 12px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+      max-width: 100%;
+    }
+
+    /* Action Buttons */
+    .action-row {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s cubic-bezier(0.22,1,0.36,1);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: #3fb950;
+      color: #0d1117;
+    }
+    .btn-primary:hover { background: #4ade80; transform: scale(1.03); }
+
+    .btn-secondary {
+      background: var(--card-bg, #161b22);
+      color: var(--text, #e6edf3);
+      border: 1px solid var(--border, #30363d);
+    }
+    .btn-secondary:hover { border-color: #8b949e; transform: scale(1.03); }
+
+    /* Share Copy */
+    .share-copy {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: var(--bg, #0d1117);
+      border: 1px solid var(--border, #30363d);
+      border-radius: 8px;
+    }
+
+    .share-copy label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--muted, #8b949e);
+    }
+
+    .share-copy textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      color: var(--text, #e6edf3);
+      font-size: 0.85rem;
+      resize: none;
+      height: 80px;
+      font-family: inherit;
+    }
+
+    .share-copy textarea:focus { outline: none; }
+
+    /* Info */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .info-card {
+      background: var(--card-bg, #161b22);
+      border: 1px solid var(--border, #30363d);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+
+    .info-card h3 { font-size: 0.85rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .info-card p { font-size: 0.8rem; color: var(--muted, #8b949e); }
+    .info-card span { font-size: 1.5rem; display: block; margin-bottom: 0.4rem; }
+
+    /* Take Quiz CTA */
+    .quiz-cta {
+      text-align: center;
+      margin-top: 2.5rem;
+      padding: 2rem;
+      background: var(--card-bg, #161b22);
+      border: 1px solid var(--border, #30363d);
+      border-radius: 16px;
+    }
+
+    .quiz-cta h2 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+    .quiz-cta p { color: var(--muted, #8b949e); margin-bottom: 1.25rem; }
+
+    /* Mobile */
+    @media (max-width: 500px) {
+      .tier-selector { grid-template-columns: repeat(2, 1fr); }
+      .theme-selector { grid-template-columns: repeat(3, 1fr); }
+      .action-row { flex-direction: column; }
+      .btn { justify-content: center; }
+    }
+
+    [data-theme="dark"] { --bg: #0d1117; --text: #e6edf3; --muted: #8b949e; --border: #30363d; --card-bg: #161b22; --input-bg: #21262d; }
+    [data-theme="light"] { --bg: #f6f8fa; --text: #1f2328; --muted: #636c76; --border: #d0d7de; --card-bg: #ffffff; --input-bg: #f6f8fa; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <p style="font-size:0.85rem;color:#3fb950;font-weight:700;margin-bottom:0.5rem;letter-spacing:0.05em;text-transform:uppercase;">The Clearing — Share Your Score</p>
+    <h1>🛡️ Your AI Fatigue Badge</h1>
+    <p>Generate a personal badge showing your AI Fatigue Quiz result. Share it on LinkedIn, Twitter, or wherever engineers gather.</p>
+  </div>
+
+  <!-- Generator Card -->
+  <div class="generator-card">
+
+    <!-- Name -->
+    <div class="input-group">
+      <label for="badgeName">Your Name or Handle (optional)</label>
+      <input type="text" id="badgeName" placeholder="e.g. Alex, @alex_codes" maxlength="40">
+    </div>
+
+    <!-- Tier Selector -->
+    <div class="input-group">
+      <label>Your Quiz Result</label>
+      <div class="tier-selector">
+        <button class="tier-btn active" data-tier="1" onclick="selectTier(1)">
+          <span>🌿</span>Holding Up
+          <small style="display:block;font-size:0.65rem;margin-top:2px;">Score 0–3</small>
+        </button>
+        <button class="tier-btn" data-tier="2" onclick="selectTier(2)">
+          <span>🌤</span>Some Fatigue
+          <small style="display:block;font-size:0.65rem;margin-top:2px;">Score 4–7</small>
+        </button>
+        <button class="tier-btn" data-tier="3" onclick="selectTier(3)">
+          <span>🌧</span>Real Fatigue
+          <small style="display:block;font-size:0.65rem;margin-top:2px;">Score 8–11</small>
+        </button>
+        <button class="tier-btn" data-tier="4" onclick="selectTier(4)">
+          <span>🌑</span>Need a Break
+          <small style="display:block;font-size:0.65rem;margin-top:2px;">Score 12–15</small>
+        </button>
+      </div>
+    </div>
+
+    <!-- Theme Selector -->
+    <div class="input-group">
+      <label>Badge Theme</label>
+      <div class="theme-selector">
+        <button class="theme-btn active" data-theme="forest" onclick="selectTheme('forest')">
+          <div class="theme-preview forest"></div>
+          <span>🌲 Forest</span>
+        </button>
+        <button class="theme-btn" data-theme="slate" onclick="selectTheme('slate')">
+          <div class="theme-preview slate"></div>
+          <span>🌑 Slate</span>
+        </button>
+        <button class="theme-btn" data-theme="dawn" onclick="selectTheme('dawn')">
+          <div class="theme-preview dawn"></div>
+          <span>🌅 Dawn</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Canvas -->
+    <div class="canvas-wrapper">
+      <canvas id="badgeCanvas" width="600" height="314"></canvas>
+    </div>
+
+    <!-- Actions -->
+    <div class="action-row">
+      <button class="btn btn-primary" onclick="downloadBadge()">
+        📥 Download PNG
+      </button>
+      <button class="btn btn-secondary" onclick="copyBadgeLink()">
+        🔗 Copy Link
+      </button>
+      <button class="btn btn-secondary" onclick="generateBadge()">
+        ✨ Regenerate
+      </button>
+    </div>
+
+    <!-- Share Copy -->
+    <div class="share-copy">
+      <label>📋 Share Text (copy and paste)</label>
+      <textarea id="shareText" readonly>I just took the AI Fatigue Quiz on @clearing_ai and got: [YOUR RESULT]. If you're a software engineer feeling the pressure of constant AI tooling, you owe yourself 5 minutes to take this quiz → clearing-ai.com/quiz #AIFatigue #DeveloperWellbeing</textarea>
+    </div>
+
+    <div id="copyConfirm" style="text-align:center;color:#3fb950;font-size:0.85rem;margin-top:0.5rem;display:none;">✅ Link copied to clipboard!</div>
+
+  </div>
+
+  <!-- Info Cards -->
+  <div class="info-grid">
+    <div class="info-card">
+      <span>🌿</span>
+      <h3>🌿 Holding Up</h3>
+      <p>You're managing well. Share to normalize the conversation.</p>
+    </div>
+    <div class="info-card">
+      <span>🌤</span>
+      <h3>🌤 Some Fatigue</h3>
+      <p>You're not alone. Many senior engineers feel this way.</p>
+    </div>
+    <div class="info-card">
+      <span>🌧</span>
+      <h3>🌧 Real Fatigue</h3>
+      <p>Recovery is possible. Explore the 30-day AI detox plan.</p>
+    </div>
+    <div class="info-card">
+      <span>🌑</span>
+      <h3>🌑 Need a Break</h3>
+      <p>Please talk to someone. You don't have to figure this out alone.</p>
+    </div>
+  </div>
+
+  <!-- Quiz CTA -->
+  <div class="quiz-cta">
+    <h2>Take the AI Fatigue Quiz</h2>
+    <p>Not sure of your score? Take the 5-question quiz and get your personalized result.</p>
+    <a href="index.html#quiz" class="btn btn-primary">→ Take the Quiz</a>
+  </div>
+
+</div>
+
+<script>
+  // State
+  let selectedTier = 1;
+  let selectedTheme = 'forest';
+  const nameInput = document.getElementById('badgeName');
+
+  // Tier data
+  const tierData = {
+    1: { emoji: '🌿', label: 'Holding Up', tagline: 'Still standing. Still learning.', color: '#3fb950', bgGradient: ['#0d2018', '#1a3a2a'] },
+    2: { emoji: '🌤', label: 'Some Fatigue', tagline: 'The tools are fast. The toll is real.', color: '#f0b429', bgGradient: ['#1a1500', '#2d2800'] },
+    3: { emoji: '🌧', label: 'Real Fatigue', tagline: 'Something\'s wrong. You know it.', color: '#79c0ff', bgGradient: ['#0d1a2a', '#1a2d40'] },
+    4: { emoji: '🌑', label: 'Need a Break', tagline: 'You don\'t have to figure this out alone.', color: '#ff7b72', bgGradient: ['#1a0d0d', '#2d1a1a'] }
+  };
+
+  // Theme color overrides
+  const themeOverrides = {
+    forest: { accent: '#3fb950', bg: ['#0d2018', '#1a3a2a'], text: '#e6edf3', muted: '#8b949e' },
+    slate: { accent: '#79c0ff', bg: ['#141a22', '#1e2530'], text: '#e6edf3', muted: '#8b949e' },
+    dawn:  { accent: '#d2a8ff', bg: ['#1a1030', '#2d1b4e'], text: '#e6edf3', muted: '#a09cc9' }
+  };
+
+  function selectTier(tier) {
+    selectedTier = tier;
+    document.querySelectorAll('.tier-btn').forEach(b => {
+      b.classList.toggle('active', parseInt(b.dataset.tier) === tier);
+    });
+    generateBadge();
+  }
+
+  function selectTheme(theme) {
+    selectedTheme = theme;
+    document.querySelectorAll('.theme-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.theme === theme);
+    });
+    generateBadge();
+  }
+
+  function generateBadge() {
+    const canvas = document.getElementById('badgeCanvas');
+    const ctx = canvas.getContext('2d');
+    const W = 600, H = 314;
+    ctx.clearRect(0, 0, W, H);
+
+    const td = tierData[selectedTier];
+    const th = themeOverrides[selectedTheme];
+    const accent = th.accent;
+    const bgStart = th.bg[0], bgEnd = th.bg[1];
+
+    // Background gradient
+    const grad = ctx.createLinearGradient(0, 0, W, H);
+    grad.addColorStop(0, bgStart);
+    grad.addColorStop(1, bgEnd);
+    ctx.fillStyle = grad;
+    roundRect(ctx, 0, 0, W, H, 16);
+    ctx.fill();
+
+    // Accent top bar
+    ctx.fillStyle = accent;
+    roundRectTop(ctx, 0, 0, W, 8, 16);
+    ctx.fill();
+
+    // Left colored column
+    ctx.fillStyle = accent + '22';
+    roundRect(ctx, 16, 16, 80, H - 32, 12);
+    ctx.fill();
+
+    // Emoji in left column
+    ctx.font = '48px serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(td.emoji, 56, 105);
+
+    // Tier label
+    ctx.font = 'bold 14px system-ui, sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillStyle = accent;
+    ctx.fillText('AI FATIGUE QUIZ RESULT', 110, 52);
+
+    // Main label
+    ctx.font = 'bold 32px system-ui, sans-serif';
+    ctx.fillStyle = th.text;
+    ctx.fillText(td.label, 110, 95);
+
+    // Tagline
+    ctx.font = '15px system-ui, sans-serif';
+    ctx.fillStyle = th.muted;
+    ctx.fillText(td.tagline, 110, 125);
+
+    // Divider
+    ctx.fillStyle = accent + '44';
+    ctx.fillRect(110, 148, W - 240, 1);
+
+    // Name or default
+    const nameVal = nameInput.value.trim();
+    if (nameVal) {
+      ctx.font = '13px system-ui, sans-serif';
+      ctx.fillStyle = th.muted;
+      ctx.fillText('SHARED BY', 110, 178);
+      ctx.font = 'bold 17px system-ui, sans-serif';
+      ctx.fillStyle = th.text;
+      ctx.fillText(nameVal, 110, 200);
+    } else {
+      ctx.font = '13px system-ui, sans-serif';
+      ctx.fillStyle = th.muted;
+      ctx.fillText('clearing-ai.com/quiz', 110, 198);
+    }
+
+    // Score ring (right side)
+    const ringX = W - 110, ringY = H / 2 - 8, ringR = 62;
+    ctx.strokeStyle = accent + '33';
+    ctx.lineWidth = 10;
+    ctx.beginPath();
+    ctx.arc(ringX, ringY, ringR, 0, Math.PI * 2);
+    ctx.stroke();
+
+    ctx.strokeStyle = accent;
+    ctx.lineWidth = 10;
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    ctx.arc(ringX, ringY, ringR, -Math.PI * 0.6, -Math.PI * 0.6 + (Math.PI * 1.7 * (selectedTier / 4)));
+    ctx.stroke();
+
+    ctx.font = 'bold 26px system-ui, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillStyle = th.text;
+    ctx.fillText(selectedTier, ringX, ringY + 4);
+    ctx.font = '11px system-ui, sans-serif';
+    ctx.fillStyle = th.muted;
+    ctx.fillText('TIER', ringX, ringY + 20);
+
+    // Bottom bar
+    ctx.fillStyle = accent + '18';
+    roundRectBottom(ctx, 0, H - 48, W, 48, 16);
+    ctx.fill();
+
+    ctx.font = 'bold 13px system-ui, sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillStyle = accent;
+    ctx.fillText('🌿 The Clearing', 20, H - 20);
+    ctx.font = '13px system-ui, sans-serif';
+    ctx.textAlign = 'right';
+    ctx.fillStyle = th.muted;
+    ctx.fillText('clearing-ai.com', W - 20, H - 20);
+
+    // Update share text with tier
+    const shareTexts = {
+      1: "I just took the AI Fatigue Quiz on @clearing_ai and got: 🌿 Holding Up (Tier 1). If you're a software engineer feeling the pressure of constant AI tooling, you owe yourself 5 minutes to take this quiz → clearing-ai.com/quiz #AIFatigue #DeveloperWellbeing",
+      2: "I just took the AI Fatigue Quiz on @clearing_ai and got: 🌤 Some Fatigue (Tier 2). The tools are fast. The toll is real. If this resonates, take the quiz and see where you stand → clearing-ai.com/quiz #AIFatigue #DeveloperWellbeing",
+      3: "I just took the AI Fatigue Quiz on @clearing_ai and got: 🌧 Real Fatigue (Tier 3). Something's wrong. I know it. If you're a software engineer feeling this too, you're not alone → clearing-ai.com/quiz #AIFatigue #DeveloperWellbeing",
+      4: "I just took the AI Fatigue Quiz on @clearing_ai and got: 🌑 Need a Break (Tier 4). I'm taking this seriously and working on recovery. If you're feeling this way too — you're not alone, and you don't have to figure it out alone → clearing-ai.com/quiz #AIFatigue"
+    };
+    document.getElementById('shareText').value = shareTexts[selectedTier];
+  }
+
+  // Rounded rect helpers
+  function roundRect(ctx, x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.lineTo(x + w - r, y);
+    ctx.arcTo(x + w, y, x + w, y + r, r);
+    ctx.lineTo(x + w, y + h - r);
+    ctx.arcTo(x + w, y + h, x + w - r, y + h, r);
+    ctx.lineTo(x + r, y + h);
+    ctx.arcTo(x, y + h, x, y + h - r, r);
+    ctx.lineTo(x, y + r);
+    ctx.arcTo(x, y, x + r, y, r);
+    ctx.closePath();
+  }
+
+  function roundRectTop(ctx, x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.lineTo(x + w - r, y);
+    ctx.arcTo(x + w, y, x + w, y + r, r);
+    ctx.lineTo(x + w, y + h);
+    ctx.lineTo(x, y + h);
+    ctx.lineTo(x, y + r);
+    ctx.arcTo(x, y, x + r, y, r);
+    ctx.closePath();
+  }
+
+  function roundRectBottom(ctx, x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.lineTo(x + w - r, y);
+    ctx.lineTo(x + w - r, y + h - r);
+    ctx.arcTo(x + w, y + h, x + w - r, y + h, r);
+    ctx.lineTo(x + r, y + h);
+    ctx.arcTo(x, y + h, x, y + h - r, r);
+    ctx.lineTo(x, y + r);
+    ctx.closePath();
+  }
+
+  function downloadBadge() {
+    const canvas = document.getElementById('badgeCanvas');
+    const link = document.createElement('a');
+    link.download = `ai-fatigue-badge-tier-${selectedTier}.png`;
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  }
+
+  function copyBadgeLink() {
+    const name = nameInput.value.trim() || 'anonymous';
+    const url = `https://clearing-ai.com/social-share-badges.html?tier=${selectedTier}&theme=${selectedTheme}`;
+    navigator.clipboard.writeText(url).then(() => {
+      const confirm = document.getElementById('copyConfirm');
+      confirm.style.display = 'block';
+      setTimeout(() => { confirm.style.display = 'none'; }, 2500);
+    }).catch(() => {
+      // Fallback
+      const ta = document.createElement('textarea');
+      ta.value = url;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      document.getElementById('copyConfirm').style.display = 'block';
+      setTimeout(() => { document.getElementById('copyConfirm').style.display = 'none'; }, 2500);
+    });
+  }
+
+  // Auto-select tier from URL param
+  function init() {
+    const params = new URLSearchParams(window.location.search);
+    if (params.has('tier')) {
+      const t = parseInt(params.get('tier'));
+      if (t >= 1 && t <= 4) selectTier(t);
+    }
+    if (params.has('theme')) {
+      const th = params.get('theme');
+      if (['forest','slate','dawn'].includes(th)) selectTheme(th);
+    }
+    generateBadge();
+    nameInput.addEventListener('input', generateBadge);
+  }
+
+  init();
+</script>
+
+</body>
+</html>

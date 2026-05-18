@@ -615,10 +615,11 @@
   </style>
 
   <!-- Self-hosted fonts via fonts.css (async, font-display:optional) -->
-  <!-- Google Fonts CDN — replaces self-hosted 318KB fonts -->
+  <!-- Google Fonts CDN — async load prevents render-blocking (fallback fonts inline above) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" /></noscript>
 
   <!-- Non-render-blocking CSS -->
 

@@ -87,10 +87,11 @@
     @font-face{font-family:'Lora';font-style:italic;font-weight:400;font-display:swap;src:local('Georgia');ascent-override:94%;descent-override:23%;size-adjust:94%;}
   </style>
 
-  <!-- Google Fonts CDN — replaces self-hosted 318KB fonts (faster globally, Brotli-compressed ~30KB) -->
+  <!-- Google Fonts CDN — async load prevents render-blocking (fallback fonts inline above) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" /></noscript>
 
   <!-- Font loading via fonts.css — DISABLED (self-hosted fonts replaced by Google Fonts CDN) -->
   <!-- <link rel="preload" as="style" href="fonts/fonts.css" onload="this.onload=null;this.rel='stylesheet'" /> -->

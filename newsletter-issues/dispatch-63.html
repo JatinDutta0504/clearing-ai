@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You Shipped It. Can You Explain It? — The Dispatch #63</title>
+  <meta name="description" content="Why shipping more with AI tools doesn't mean you're learning more — and the explanation gap that keeps growing. One practice that closes it.">
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-archive.html">
+  <meta property="og:title" content="You Shipped It. Can You Explain It? — The Dispatch #63">
+  <meta property="og:description" content="Why shipping more with AI tools doesn't mean you're learning more — and the explanation gap that keeps growing.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/newsletter-archive.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="You Shipped It. Can You Explain It? — The Dispatch #63">
+  <meta name="twitter:description" content="Why shipping more with AI tools doesn't mean you're learning more — and the explanation gap that keeps growing.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body { background: #0f1419; color: #c5cdd8; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.7; }
+    .dispatch-issue { max-width: 640px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+    .dispatch-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.5rem; }
+    .dispatch-label { background: #1a2633; color: #7bcf8e; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.7rem; border-radius: 3px; }
+    .dispatch-date { color: #5c6e7e; font-size: 0.8rem; }
+    h1 { color: #e8edf4; font-size: 2rem; font-weight: 700; margin: 0 0 0.5rem; letter-spacing: -0.02em; line-height: 1.2; }
+    .dispatch-subtitle { color: #8899a8; font-size: 1.05rem; margin: 0 0 1.5rem; font-weight: 400; }
+    .dispatch-divider { border: none; border-top: 1px solid #1e2a38; margin: 1.5rem 0; }
+    .dispatch-body h2 { color: #e8edf4; font-size: 1.15rem; font-weight: 600; margin: 2rem 0 0.75rem; letter-spacing: -0.01em; }
+    .dispatch-body p { margin: 0 0 1.2rem; }
+    .dispatch-body strong { color: #c5cdd8; font-weight: 600; }
+    .gap-callout { background: #161e28; border: 1px solid #1e2a38; border-left: 3px solid #4a7cf8; border-radius: 6px; padding: 1.2rem 1.4rem; margin: 1.5rem 0; }
+    .gap-callout h3 { color: #e8edf4; font-size: 1rem; font-weight: 600; margin: 0 0 0.6rem; }
+    .gap-callout p { color: #8899a8; font-size: 0.9rem; margin: 0 0 0.8rem; }
+    .gap-callout p:last-child { margin-bottom: 0; }
+    .gap-callout .num { color: #4a7cf8; font-size: 0.85rem; display: block; margin-bottom: 0.4rem; font-weight: 700; }
+    .quote-block { border-left: 3px solid #7bcf8e; padding: 0.8rem 1.4rem; margin: 1.5rem 0; background: #131b2a; border-radius: 0 6px 6px 0; }
+    .quote-block p { color: #8899a8; font-size: 0.95rem; margin: 0 0 0.8rem; font-style: italic; }
+    .quote-block p:last-child { margin-bottom: 0; }
+    .quote-block cite { color: #5c6e7e; font-size: 0.8rem; display: block; margin-top: 0.4rem; font-style: normal; }
+    .practice-box { background: #0f1a12; border: 1px solid #1a3325; border-radius: 8px; padding: 1.4rem 1.6rem; margin: 2rem 0; }
+    .practice-box h3 { color: #7bcf8e; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.6rem; }
+    .practice-box p { color: #8899a8; font-size: 0.9rem; margin: 0 0 0.8rem; }
+    .practice-box p:last-child { margin-bottom: 0; }
+    .practice-box strong { color: #e8edf4; }
+    .checkin-box { background: #161e28; border-radius: 6px; padding: 1.4rem 1.6rem; margin: 2rem 0; border: 1px solid #1e2a38; }
+    .checkin-box h3 { color: #e8edf4; font-size: 1rem; font-weight: 600; margin: 0 0 0.8rem; }
+    .checkin-box p { color: #8899a8; font-size: 0.9rem; margin: 0 0 0.8rem; }
+    .checkin-box em { color: #7bcf8e; font-style: normal; font-weight: 600; }
+    .checkin-box p:last-child { margin-bottom: 0; }
+    .deeper-box { background: #131b2a; border: 1px solid #1e2a38; border-radius: 8px; padding: 1.4rem 1.6rem; margin: 2rem 0; }
+    .deeper-box h3 { color: #e8edf4; font-size: 1rem; font-weight: 600; margin: 0 0 0.8rem; }
+    .deeper-box p { color: #8899a8; font-size: 0.9rem; margin: 0 0 0.8rem; }
+    .deeper-box p:last-child { margin-bottom: 0; }
+    .cta-block { background: #1a2633; border-radius: 8px; padding: 1.4rem; margin: 2rem 0; text-align: center; }
+    .cta-block p { color: #8899a8; font-size: 0.9rem; margin: 0 0 0.8rem; }
+    .cta-block a { display: inline-block; background: #7bcf8e; color: #0f1419; font-weight: 700; font-size: 0.85rem; padding: 0.6rem 1.4rem; border-radius: 5px; text-decoration: none; margin: 0.25rem; }
+    .cta-block a.secondary { background: transparent; color: #7bcf8e; border: 1px solid #7bcf8e; }
+    .cta-block a:hover { opacity: 0.85; }
+    .closing { color: #5c6e7e; font-size: 0.85rem; font-style: italic; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #1e2a38; }
+    .inline-cta { color: #7bcf8e; text-decoration: none; border-bottom: 1px solid rgba(123,207,142,0.3); }
+    .inline-cta:hover { border-bottom-color: #7bcf8e; }
+    @media(max-width:600px){.dispatch-issue{padding:1.5rem 1rem}h1{font-size:1.6rem}}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"You Shipped It. Can You Explain It?",
+    "description":"Why shipping more with AI tools doesn't mean you're learning more — and the explanation gap that keeps growing. One practice that closes it.",
+    "datePublished":"2026-05-25",
+    "author":{"@type":"Organization","name":"The Clearing","url":"https://clearing-ai.com"},
+    "publisher":{"@type":"Organization","name":"The Clearing","url":"https://clearing-ai.com"},
+    "url":"https://clearing-ai.com/newsletter-issues/dispatch-63.html"
+  }
+  </script>
+</head>
+<body>
+<main class="dispatch-issue">
+  <header class="dispatch-header">
+    <span class="dispatch-label">The Dispatch</span>
+    <span class="dispatch-date">Issue #63 · May 25, 2026</span>
+  </header>
+
+  <h1>You Shipped It. Can You Explain It?</h1>
+  <p class="dispatch-subtitle">Why shipping more with AI tools doesn't mean you're learning more — and the explanation gap that keeps growing.</p>
+  <hr class="dispatch-divider">
+
+  <div class="dispatch-body">
+
+    <h2>Here's a question worth sitting with this week:</h2>
+    <p>Think about the last 3 features you shipped. Not who wrote the code — who actually understands what happened?</p>
+    <p>For most engineers using AI tools heavily, the honest answer is uncomfortable. The code shipped. The tests passed. The PR was approved. But if someone asked you to walk through exactly how the authentication flow works — without looking at the AI's output — how long would you stall?</p>
+    <p>This week: the explanation gap, why it grows silently, and what it costs you beyond just "not knowing things."</p>
+
+    <h2>The Explanation Gap</h2>
+    <p>There's a phenomenon that happens around month 3-4 of heavy AI tool use.</p>
+    <p>You start to notice that you can review AI-generated code, approve it, and ship it — without being able to write that section from scratch. Not because you're not smart. Because you never had to be.</p>
+    <p>The understanding that used to come from wrestling with a problem now comes from reading the solution. And reading a solution feels like understanding it. But it's not the same thing.</p>
+    <p>Psychologists call this the <strong>"illusion of explanatory depth."</strong> You feel like you know how something works after seeing an explanation. But comprehension and true causal understanding are different cognitive states — and the gap only shows up when you need to actually act on that knowledge without the scaffold.</p>
+    <p>For engineers: that gap shows up in debugging, in architecture conversations, in interviews, and in the quiet moments when you realize you couldn't build this from scratch if the AI disappeared tomorrow.</p>
+
+    <div class="gap-callout">
+      <span class="num">The pattern</span>
+      <h3>The explanation gap isn't about intelligence — it's about delegation.</h3>
+      <p>You didn't forget how to build it. You never finished building the mental model — because AI finished it for you. The gap is the difference between what you experienced and what you actually constructed.</p>
+    </div>
+
+    <h2>Why the Gap Feels Worse Than It Is</h2>
+    <p>The thing nobody tells you: having the explanation gap doesn't mean you're not a good engineer.</p>
+    <p>It means you're adapting to a new tool. And adaptation always involves some skill redistribution.</p>
+    <p>The problem isn't that you don't know things. The problem is the gap between what you can do <em>with the tool</em> and what you can do <em>without it</em> — and the fact that most environments don't give you any safe space to practice the "without" part.</p>
+    <p>Most jobs optimize for output. They don't ask: <em>can this engineer explain what they built?</em> They ask: <em>did it ship? Did it work? Did the tests pass?</em></p>
+    <p>So the gap doesn't get noticed until it's wide enough to cause problems. And by then, you've also lost some of the confidence that used to come from genuine mastery.</p>
+
+    <h2>What the Gap Actually Costs</h2>
+    <p>The real cost of the explanation gap isn't technical. It's psychological.</p>
+    <p>Here's what most engineers report: when you can't explain what you shipped, a quiet shame creeps in. You start to feel like a fraud. Like you're fooling everyone. Like eventually someone will figure out that you don't actually know how the things you've shipped actually work.</p>
+    <p>That feeling gets attributed to imposter syndrome — and sometimes it is. But sometimes it's just an accurate read of a real gap.</p>
+
+    <div class="quote-block">
+      <p><strong>Imposter syndrome says:</strong> you're not good enough, fix yourself.</p>
+      <p><strong>The explanation gap says:</strong> you delegated more understanding than you realized, rebuild it intentionally.</p>
+      <p>One is a character flaw. The other is a learnable skill.</p>
+    </div>
+
+    <h2>One Practice That Closes It</h2>
+    <p>There's one practice that engineers who've recovered say helped more than anything else:</p>
+    <div class="practice-box">
+      <h3>After every AI-assisted build, close the tab and explain it out loud.</h3>
+      <p>Not to anyone else. Just to yourself. Write 3-5 sentences in a journal or a doc. Pretend you're explaining it to a junior engineer who needs to maintain this code.</p>
+      <p>If you can't explain it in plain language without looking at the AI's output — that's your gap. That's where to go back and fill in.</p>
+      <p>This sounds small. It compounds. Over 4 weeks, the engineers who do this report that the gap stops growing — and starts to close.</p>
+    </div>
+
+    <h2>This Week's Check-In</h2>
+    <div class="checkin-box">
+      <h3>Before you close your laptop this week, ask yourself:</h3>
+      <p><em>If the AI disappeared tomorrow and someone asked me how the last thing I shipped actually works — would I be able to tell them?</em></p>
+      <p>If <strong>yes</strong>: you're probably maintaining the skill even while using the tool. Keep paying attention.</p>
+      <p>If <strong>no</strong>: that's not a character flaw. That's a gap worth filling. The Explanation Requirement at clearing-ai.com has more on this specific practice — and why it matters more than most engineers realize.</p>
+    </div>
+
+    <h2>The Deeper Issue</h2>
+    <div class="deeper-box">
+      <p>The explanation gap is uncomfortable because it touches something engineers care about more than productivity: <strong>craft</strong>.</p>
+      <p>You didn't become an engineer because you wanted to ship features. You became one because there was something deeply satisfying about understanding how a system actually worked — the way all the pieces fit together, the tradeoffs, the reasons one approach won over another.</p>
+      <p>The explanation gap is what happens when you trade that satisfaction for velocity. It's not a moral failing. It's a trade-off that most environments don't even acknowledge making.</p>
+      <p>The ones who recover are the ones who notice they made the trade — and decide, intentionally, to take some part of it back.</p>
+    </div>
+
+  </div>
+
+  <div class="cta-block">
+    <p><strong>Keep reading:</strong></p>
+    <a href="https://clearing-ai.com/#quiz">Take the AI Fatigue Quiz</a>
+    <a href="https://clearing-ai.com/the-explanation-requirement.html" class="secondary">The Explanation Requirement</a>
+    <a href="https://clearing-ai.com/recovery.html" class="secondary">Recovery Guide</a>
+  </div>
+
+  <p class="closing">This dispatch was written for engineers who use AI tools daily and sometimes notice a gap between what they ship and what they fully understand. Forwarded this? <a href="https://clearing-ai.com/newsletter" class="inline-cta">Subscribe here.</a></p>
+  <p class="closing">The Clearing is free. No ads. No tracking. No monetization. Just content for people who build with AI and sometimes wonder what they're losing in the exchange.</p>
+</main>
+</body>
+</html>

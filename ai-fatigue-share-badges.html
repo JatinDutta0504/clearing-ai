@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Fatigue Quiz Badges — Share Your Result | The Clearing</title>
+  <meta name="description" content="Took the AI Fatigue Quiz? Download your shareable badge and show your result. Download as PNG, share on Twitter, LinkedIn, and Slack.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://clearing-ai.com/ai-fatigue-share-badges.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clearing-ai.com/ai-fatigue-share-badges.html">
+  <meta property="og:title" content="AI Fatigue Quiz Badges — Share Your Result">
+  <meta property="og:description" content="Took the AI Fatigue Quiz? Download your shareable badge and show your result.">
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Fatigue Quiz Badges — Share Your Result">
+  <meta name="twitter:description" content="Took the AI Fatigue Quiz? Download your shareable badge.">
+  <meta name="twitter:image" content="https://clearing-ai.com/og-image.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "AI Fatigue Quiz Share Badges",
+    "description": "Download and share your AI Fatigue Quiz result as a badge.",
+    "url": "https://clearing-ai.com/ai-fatigue-share-badges.html",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "The Clearing",
+      "url": "https://clearing-ai.com"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com"},
+        {"@type": "ListItem", "position": 2, "name": "Quiz", "item": "https://clearing-ai.com/#quiz"},
+        {"@type": "ListItem", "position": 3, "name": "Share Badges", "item": "https://clearing-ai.com/ai-fatigue-share-badges.html"}
+      ]
+    }
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --surface-2: #1c2128;
+      --border: #30363d;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --text-dim: #484f58;
+      --accent: #3fb950;
+      --accent-dim: #238636;
+      --accent-glow: rgba(63, 185, 80, 0.15);
+      --radius: 12px;
+      --radius-sm: 8px;
+      --transition: 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa;
+      --surface: #ffffff;
+      --surface-2: #f0f2f5;
+      --border: #d0d7de;
+      --text: #1f2328;
+      --text-muted: #656d76;
+      --text-dim: #8b949e;
+      --accent: #1a7f37;
+      --accent-dim: #2da44e;
+      --accent-glow: rgba(26, 127, 55, 0.1);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.6 var(--font);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; transition: var(--transition); }
+    a:hover { text-decoration: underline; }
+
+    /* Skip */
+    .skip-link {
+      position: absolute; top: -40px; left: 1rem;
+      background: var(--accent); color: var(--bg);
+      padding: 8px 16px; border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+      font-size: 0.875rem; font-weight: 600; z-index: 999;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* Reading progress */
+    .reading-progress {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: linear-gradient(90deg, #3fb950, #7aab8a);
+      width: 0%; z-index: 100; pointer-events: none;
+      transition: width 0.1s linear;
+    }
+
+    /* Header */
+    header {
+      background: rgba(13, 17, 23, 0.97);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(12px);
+    }
+    [data-theme="light"] header { background: rgba(246, 248, 250, 0.97); }
+
+    .nav {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 24px; gap: 16px;
+    }
+
+    .nav-logo {
+      font-weight: 700; font-size: 0.95rem;
+      color: var(--accent); text-decoration: none;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .nav-logo::before { content: "🌿"; }
+
+    .nav-links { display: flex; align-items: center; gap: 2px; flex-wrap: wrap; }
+    .nav-links a {
+      padding: 6px 12px; color: var(--text-muted);
+      text-decoration: none; font-size: 0.875rem; font-weight: 500;
+      border-radius: var(--radius-sm); transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); background: var(--surface-2); text-decoration: none; }
+
+    .theme-toggle {
+      background: var(--surface-2); border: 1px solid var(--border);
+      color: var(--text-muted); padding: 5px 12px;
+      border-radius: 20px; cursor: pointer; font-size: 0.82rem;
+      font-family: inherit; transition: all 0.2s;
+    }
+    .theme-toggle:hover { border-color: var(--text-muted); color: var(--text); }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+    }
+
+    /* Page hero */
+    .page-hero {
+      background: linear-gradient(135deg, #1a2e1a 0%, #243524 60%, #1e2e1e 100%);
+      color: #f5f0e8; padding: 4rem 2rem 3.5rem; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(63, 185, 80, 0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-inner { max-width: 700px; margin: 0 auto; position: relative; }
+
+    .hero-eyebrow {
+      font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1rem; font-weight: 600;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 700;
+      line-height: 1.2; max-width: 640px; margin: 0 auto 1rem;
+      color: #f5f0e8;
+    }
+
+    .hero-sub {
+      font-size: 1rem; color: rgba(245, 240, 232, 0.65);
+      max-width: 520px; margin: 0 auto 1.5rem; line-height: 1.7;
+    }
+
+    .hero-cta-row { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-block; padding: 0.65rem 1.4rem;
+      border-radius: var(--radius-sm); font-size: 0.9rem;
+      font-weight: 600; text-decoration: none; cursor: pointer;
+      border: none; font-family: inherit; transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn-primary { background: var(--accent); color: #0d1117; }
+    .btn-primary:hover {
+      background: #4ac95e; transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(63, 185, 80, 0.35);
+      text-decoration: none;
+    }
+    .btn-secondary {
+      background: rgba(63, 185, 80, 0.1); color: var(--accent);
+      border: 1px solid rgba(63, 185, 80, 0.3);
+    }
+    .btn-secondary:hover { background: rgba(63, 185, 80, 0.18); transform: translateY(-1px); text-decoration: none; }
+
+    /* Content */
+    .content-wrap { max-width: 900px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+
+    h2 {
+      font-size: clamp(1.3rem, 3vw, 1.7rem); font-weight: 700;
+      margin-bottom: 0.75rem; color: var(--text);
+    }
+    .section-intro {
+      font-size: 0.95rem; color: var(--text-muted);
+      line-height: 1.75; margin-bottom: 2rem; max-width: 620px;
+    }
+
+    .section { margin-bottom: 3.5rem; }
+
+    /* Tier selector */
+    .tier-select-section {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem; margin-bottom: 2rem;
+    }
+    .tier-select-section label {
+      display: block; font-weight: 600; font-size: 0.95rem;
+      margin-bottom: 0.75rem; color: var(--text);
+    }
+    .tier-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.75rem;
+    }
+    .tier-btn {
+      background: var(--surface-2); border: 2px solid var(--border);
+      border-radius: var(--radius-sm); padding: 0.75rem 1rem;
+      color: var(--text-muted); cursor: pointer; font-family: inherit;
+      font-size: 0.9rem; font-weight: 600; text-align: left;
+      transition: all 0.2s;
+    }
+    .tier-btn:hover { border-color: var(--accent); color: var(--text); }
+    .tier-btn.selected { border-color: var(--accent); background: var(--accent-glow); color: var(--accent); }
+    .tier-btn .tier-name { display: block; margin-bottom: 0.2rem; }
+    .tier-btn .tier-desc { font-size: 0.75rem; font-weight: 400; opacity: 0.7; }
+
+    /* Badge canvas area */
+    .badge-preview {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem; text-align: center; margin-bottom: 1.5rem;
+      min-height: 280px; display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 1.5rem;
+    }
+
+    #badgeCanvas { border-radius: 8px; max-width: 100%; }
+
+    .badge-actions {
+      display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem;
+    }
+    .badge-action-btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.6rem 1.2rem; border-radius: var(--radius-sm);
+      font-size: 0.875rem; font-weight: 600; cursor: pointer;
+      border: 1px solid var(--border); background: var(--surface);
+      color: var(--text); font-family: inherit; transition: all 0.2s;
+      text-decoration: none;
+    }
+    .badge-action-btn:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+    .badge-action-btn.download-btn { background: var(--accent); color: #0d1117; border-color: var(--accent); }
+    .badge-action-btn.download-btn:hover { background: #4ac95e; }
+    [data-theme="light"] .badge-action-btn.download-btn { color: #fff; }
+
+    /* Share textarea */
+    .share-section {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem;
+    }
+    .share-section label {
+      display: block; font-weight: 600; font-size: 0.9rem;
+      margin-bottom: 0.5rem; color: var(--text);
+    }
+    .share-textarea {
+      width: 100%; background: var(--surface-2); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 0.75rem 1rem;
+      color: var(--text); font-family: inherit; font-size: 0.875rem;
+      resize: vertical; min-height: 100px; transition: border-color 0.2s;
+    }
+    .share-textarea:focus { outline: none; border-color: var(--accent); }
+    .share-btn-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .share-btn {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      padding: 0.5rem 1rem; border-radius: 6px;
+      font-size: 0.82rem; font-weight: 600; cursor: pointer;
+      border: none; font-family: inherit; transition: all 0.2s;
+    }
+    .share-btn-twitter { background: #1da1f2; color: #fff; }
+    .share-btn-twitter:hover { background: #1a91da; }
+    .share-btn-linkedin { background: #0a66c2; color: #fff; }
+    .share-btn-linkedin:hover { background: #0958a8; }
+    .share-btn-copy { background: var(--surface-2); color: var(--text); border: 1px solid var(--border); }
+    .share-btn-copy:hover { border-color: var(--accent); color: var(--accent); }
+    .share-btn-copy.copied { background: var(--accent-glow); color: var(--accent); border-color: var(--accent); }
+
+    /* All badges gallery */
+    .all-badges-section { margin-top: 3rem; }
+    .badges-gallery {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem; margin-top: 1.5rem;
+    }
+    .gallery-badge {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem; text-align: center;
+      transition: all 0.2s;
+    }
+    .gallery-badge:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .gallery-badge-name { font-weight: 600; font-size: 0.95rem; margin: 0.75rem 0 0.25rem; }
+    .gallery-badge-desc { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.75rem; }
+    .gallery-badge canvas { border-radius: 6px; cursor: pointer; }
+    .gallery-badge .badge-score {
+      font-size: 2rem; font-weight: 800; margin: 0.5rem 0 0.25rem;
+      line-height: 1;
+    }
+
+    /* How it works */
+    .how-it-works { margin-bottom: 3rem; }
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem; margin-top: 1.5rem;
+    }
+    .step-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+    }
+    .step-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px; background: var(--accent);
+      color: #0d1117; border-radius: 50%; font-size: 0.8rem;
+      font-weight: 800; margin-bottom: 0.75rem;
+    }
+    .step-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .step-card p { font-size: 0.85rem; color: var(--text-muted); margin: 0; }
+
+    /* Social proof */
+    .social-proof-bar {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem 2rem;
+      display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center;
+      margin-bottom: 3rem;
+    }
+    .proof-stat { text-align: center; }
+    .proof-stat strong { display: block; font-size: 1.8rem; font-weight: 800; color: var(--accent); line-height: 1.1; }
+    .proof-stat span { font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+
+    /* Tips section */
+    .tips-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem; margin-top: 1.5rem;
+    }
+    .tip-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.25rem;
+    }
+    .tip-card h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .tip-card p { font-size: 0.85rem; color: var(--text-muted); margin: 0; }
+
+    /* Why share */
+    .why-share-section {
+      background: linear-gradient(135deg, rgba(63, 185, 80, 0.08), rgba(26, 127, 55, 0.04));
+      border: 1px solid rgba(63, 185, 80, 0.2);
+      border-radius: var(--radius); padding: 2rem; margin-bottom: 2rem;
+    }
+    .why-share-section h2 { color: var(--accent); margin-bottom: 1rem; }
+    .why-share-list { list-style: none; padding: 0; }
+    .why-share-list li {
+      font-size: 0.9rem; color: var(--text-muted); padding: 0.4rem 0;
+      display: flex; gap: 0.5rem; align-items: flex-start;
+    }
+    .why-share-list li::before { content: "✓"; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(135deg, #1a2e1a 0%, #243524 100%);
+      border-radius: var(--radius); padding: 2.5rem;
+      text-align: center; margin-bottom: 2rem;
+    }
+    .cta-section h2 { color: #f5f0e8; margin-bottom: 0.75rem; }
+    .cta-section p { color: rgba(245, 240, 232, 0.7); font-size: 0.95rem; margin-bottom: 1.5rem; }
+    .cta-section .btn-primary {
+      background: #3fb950; color: #0d1117;
+      font-size: 1rem; padding: 0.75rem 1.75rem;
+    }
+    .cta-section .btn-primary:hover { background: #4ac95e; }
+
+    /* Footer */
+    footer {
+      background: var(--surface); border-top: 1px solid var(--border);
+      padding: 2rem; text-align: center;
+    }
+    .footer-links { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-top: 0.75rem; }
+    footer p { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.4rem; }
+    footer a { color: var(--text-muted); }
+    footer a:hover { color: var(--accent); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .badges-gallery { grid-template-columns: 1fr 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .social-proof-bar { gap: 1.5rem; }
+      .badge-preview { padding: 1.5rem; }
+    }
+  </style>
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>🌿</text></svg>"/>
+
+  <!-- Fonts (non-render-blocking) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+<div class="reading-progress" id="progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+<header>
+  <nav class="nav" aria-label="Main navigation">
+    <a href="/" class="nav-logo" aria-label="The Clearing home">The Clearing</a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="index.html">Take the Quiz</a>
+      <a href="recovery.html">Recovery</a>
+      <a href="community.html">Community</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="newsletter.html">Newsletter</a>
+    </div>
+    <button class="theme-toggle" aria-label="Toggle color theme" onclick="toggleTheme()">🌙</button>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="page-hero" aria-labelledby="hero-title">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">AI Fatigue Quiz — Share Your Result</p>
+      <h1 id="hero-title">Show Your Result. Help Another Engineer Feel Less Alone.</h1>
+      <p class="hero-sub">Took the AI Fatigue Quiz? Download a badge with your result and share it with your team, your Slack, or your timeline. One share normalizes the conversation.</p>
+      <div class="hero-cta-row">
+        <a href="index.html#quiz" class="btn btn-primary">Take the Quiz First →</a>
+        <a href="#badges" class="btn btn-secondary">Preview All Badges</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF BAR -->
+  <div class="content-wrap" style="padding-bottom: 0;">
+    <div class="social-proof-bar">
+      <div class="proof-stat">
+        <strong>3,000+</strong>
+        <span>Engineers took the quiz</span>
+      </div>
+      <div class="proof-stat">
+        <strong>4</strong>
+        <span>Fatigue tiers tracked</span>
+      </div>
+      <div class="proof-stat">
+        <strong>12</strong>
+        <span>Companies sharing results</span>
+      </div>
+      <div class="proof-stat">
+        <strong>100%</strong>
+        <span>Free &amp; anonymous</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works" aria-labelledby="how-title">
+      <h2 id="how-title">How Badge Sharing Works</h2>
+      <p class="section-intro">Three steps from quiz result to shared proof — and each share helps another engineer realize they're not alone.</p>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <h3>Take the Quiz</h3>
+          <p>5 questions. 2 minutes. Get your tier: Holding Up, Some Fatigue, Real Fatigue, or Need a Real Break.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <h3>Pick Your Badge</h3>
+          <p>Select your tier below and preview your badge with your score. Customize if you want to stay anonymous.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <h3>Share Anywhere</h3>
+          <p>Download as PNG, copy pre-written share text for Twitter, LinkedIn, Slack, or Hacker News.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">4</div>
+          <h3>Drive the Conversation</h3>
+          <p>Sharing your result opens the door to conversations teams have been avoiding.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY SHARE -->
+    <section class="why-share-section" aria-labelledby="why-share-title">
+      <h2 id="why-share-title">Why Sharing Your Result Matters</h2>
+      <ul class="why-share-list">
+        <li>Normalizes the conversation — AI fatigue is real and named, not "laziness" or "burnout"</li>
+        <li>Helps managers understand their teams better — data opens doors that complaints can't</li>
+        <li>Creates permission for others to speak up — your share gives them the words they don't have</li>
+        <li>Builds team awareness without requiring anyone to admit anything individually</li>
+        <li>100% anonymous — no email, no tracking, no account required to take the quiz</li>
+        <li>Free forever — no product pitch, no upsell, just resources that actually help</li>
+      </ul>
+    </section>
+
+    <!-- BADGE GENERATOR -->
+    <section class="section" aria-labelledby="generator-title">
+      <h2 id="generator-title">Generate Your Badge</h2>
+      <p class="section-intro">Select your tier below and see your badge instantly. No email, no account — it's yours to share.</p>
+
+      <!-- Tier selector -->
+      <div class="tier-select-section">
+        <label id="tier-label">Which tier did you get?</label>
+        <div class="tier-grid" role="radiogroup" aria-labelledby="tier-label">
+          <button class="tier-btn" data-tier="1" onclick="selectTier(1)" aria-pressed="false">
+            <span class="tier-name">🌿 Tier 1 — Holding Up</span>
+            <span class="tier-desc">0–3: Mild fatigue, manageable</span>
+          </button>
+          <button class="tier-btn" data-tier="2" onclick="selectTier(2)" aria-pressed="false">
+            <span class="tier-name">🌤 Tier 2 — Some Fatigue</span>
+            <span class="tier-desc">4–7: Noticeable, worth addressing</span>
+          </button>
+          <button class="tier-btn" data-tier="3" onclick="selectTier(3)" aria-pressed="false">
+            <span class="tier-name">🌧 Tier 3 — Real Fatigue</span>
+            <span class="tier-desc">8–11: Significant, needs attention</span>
+          </button>
+          <button class="tier-btn" data-tier="4" onclick="selectTier(4)" aria-pressed="false">
+            <span class="tier-name">🌑 Tier 4 — Need a Real Break</span>
+            <span class="tier-desc">12–15: Serious, prioritize recovery</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Name input -->
+      <div style="margin-bottom: 1.5rem;">
+        <label for="engineerName" style="display:block; font-weight:600; font-size:0.9rem; margin-bottom:0.5rem;">Your name or handle (optional — leave blank to stay anonymous)</label>
+        <input type="text" id="engineerName" placeholder="Anonymous Engineer" maxlength="40"
+          style="width:100%; max-width:360px; background:var(--surface-2); border:1px solid var(--border); border-radius:8px; padding:0.6rem 1rem; color:var(--text); font-family:inherit; font-size:0.9rem;"
+          oninput="updateBadge()">
+      </div>
+
+      <!-- Preview -->
+      <div class="badge-preview" aria-label="Badge preview">
+        <canvas id="badgeCanvas" width="600" height="314" aria-live="polite"></canvas>
+        <p id="badgeStatus" style="font-size:0.85rem; color:var(--text-muted);">Select your tier above to preview your badge</p>
+      </div>
+
+      <!-- Download & share -->
+      <div class="badge-actions">
+        <button class="badge-action-btn download-btn" onclick="downloadBadge()" id="downloadBtn" disabled>
+          ⬇ Download PNG
+        </button>
+        <button class="badge-action-btn" onclick="copyBadge()" id="copyBtn" disabled>
+          📋 Copy Image
+        </button>
+        <button class="badge-action-btn" onclick="resetBadge()" id="resetBtn" style="display:none;">
+          ↺ Start Over
+        </button>
+      </div>
+    </section>
+
+    <!-- SHARE TEXT -->
+    <section class="section" aria-labelledby="share-text-title">
+      <h2 id="share-text-title">Pre-Written Share Text</h2>
+      <p class="section-intro">Copy, paste, and post — or edit to make it your own. Each share helps normalize AI fatigue in engineering.</p>
+
+      <div class="share-section">
+        <label for="shareText">Share text (editable):</label>
+        <textarea id="shareText" class="share-textarea" aria-label="Share text" rows="4">Just took the AI Fatigue Quiz at clearing-ai.com.
+
+Result: [YOUR TIER]
+
+The question that hit hardest: "Do you feel like you're learning anything new, or just shipping things faster?"
+
+If that resonates — clearing-ai.com is free, anonymous, no account needed. Worth 5 minutes.
+
+#AIEngineer #DevLife #Engineering</textarea>
+        <div class="share-btn-row">
+          <button class="share-btn share-btn-twitter" onclick="shareToTwitter()">🐦 Twitter / X</button>
+          <button class="share-btn share-btn-linkedin" onclick="shareToLinkedIn()">💼 LinkedIn</button>
+          <button class="share-btn share-btn-copy" onclick="copyShareText()" id="copyShareBtn">📋 Copy Text</button>
+        </div>
+      </div>
+
+      <!-- Per-tier share options -->
+      <div style="margin-top: 1.5rem;">
+        <label style="font-weight:600; font-size:0.9rem; margin-bottom:0.75rem; display:block;">Tier-specific copy:</label>
+        <div class="tips-grid">
+          <div class="tip-card">
+            <h3>🌿 Tier 1 — "Holding Up"</h3>
+            <p>"Took the AI Fatigue Quiz. Scored: Holding Up. Turns out noticing the problem early is actually the first step. clearing-ai.com/free #DevLife"</p>
+          </div>
+          <div class="tip-card">
+            <h3>🌤 Tier 2 — "Some Fatigue"</h3>
+            <p>"Scored 'Some Fatigue' on the AI Fatigue Quiz. Honestly relieved it has a name. clearing-ai.com — free resources for engineers navigating this. #AIEngineer"</p>
+          </div>
+          <div class="tip-card">
+            <h3>🌧 Tier 3 — "Real Fatigue"</h3>
+            <p>"The AI Fatigue Quiz at clearing-ai.com gave me a name for what I've been feeling for months. Not burnout. Something specific to how we work now. Worth checking."</p>
+          </div>
+          <div class="tip-card">
+            <h3>🌑 Tier 4 — "Need a Real Break"</h          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALL BADGES GALLERY -->
+    <section class="all-badges-section" id="badges" aria-labelledby="gallery-title">
+      <h2 id="gallery-title">All Four Badge Tiers — Preview</h2>
+      <p class="section-intro">Click any badge to preview and generate it. Share your result to help another engineer feel less alone.</p>
+      <div class="badges-gallery" id="badgesGallery">
+        <!-- Filled by JS -->
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <h2 id="cta-title">Haven't Taken the Quiz Yet?</h2>
+      <p>5 questions. 2 minutes. You'll get a tier and a personalized action plan. Free, anonymous, no account needed.</p>
+      <div style="display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap;">
+        <a href="index.html#quiz" class="btn btn-primary">Take the AI Fatigue Quiz →</a>
+        <a href="quiz-results.html" class="btn btn-secondary">View All Tier Results</a>
+      </div>
+    </section>
+
+    <!-- Explore grid -->
+    <section class="section" aria-labelledby="explore-title" style="margin-top:2rem;">
+      <h2 id="explore-title">Continue Exploring</h2>
+      <div class="steps-grid">
+        <div class="step-card" style="cursor:default;">
+          <h3>Quiz Results Explained</h3>
+          <p>Deep dive into what each tier means and the specific actions that help at each stage.</p>
+          <a href="quiz-results.html" style="display:inline-block; margin-top:0.75rem; color:var(--accent); font-size:0.85rem; font-weight:600;">View Results →</a>
+        </div>
+        <div class="step-card" style="cursor:default;">
+          <h3>Recovery Guide</h3>
+          <p>7-phase recovery framework for AI fatigue — practical steps you can start today.</p>
+          <a href="recovery.html" style="display:inline-block; margin-top:0.75rem; color:var(--accent); font-size:0.85rem; font-weight:600;">Start Recovery →</a>
+        </div>
+        <div class="step-card" style="cursor:default;">
+          <h3>30-Day AI Detox</h3>
+          <p>Structured 30-day protocol for engineers who need to rebuild their relationship with AI tools.</p>
+          <a href="ai-detox-plan.html" style="display:inline-block; margin-top:0.75rem; color:var(--accent); font-size:0.85rem; font-weight:600;">Try the Detox →</a>
+        </div>
+        <div class="step-card" style="cursor:default;">
+          <h3>Engineer Stories</h3>
+          <p>Real engineers share what AI fatigue felt like and what finally helped them recover.</p>
+          <a href="engineer-stories.html" style="display:inline-block; margin-top:0.75rem; color:var(--accent); font-size:0.85rem; font-weight:600;">Read Stories →</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <p>🌿 The Clearing — A free resource for engineers experiencing AI fatigue</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="recovery.html">Recovery</a>
+    <a href="quiz-results.html">Quiz Results</a>
+    <a href="newsletter.html">Newsletter</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy</a>
+  </div>
+</footer>
+
+<script>
+// ============================================
+// AI Fatigue Quiz — Share Badge Generator
+// ============================================
+
+const TIERS = {
+  1: {
+    name: 'Tier 1 — Holding Up',
+    emoji: '🌿',
+    score: '0–3',
+    label: 'Mild Fatigue',
+    color: '#3fb950',
+    bgGradient: 'linear-gradient(135deg, #1a2e1a, #2d4a2d)',
+    description: 'You\'re managing. The fatigue is mild and often goes unnoticed by others.',
+    shareText: "Took the AI Fatigue Quiz. Scored: Holding Up. Turns out noticing the problem early is actually the first step. clearing-ai.com/free #DevLife"
+  },
+  2: {
+    name: 'Tier 2 — Some Fatigue',
+    emoji: '🌤',
+    score: '4–7',
+    label: 'Noticeable',
+    color: '#f0b429',
+    bgGradient: 'linear-gradient(135deg, #2a2510, #3d3520)',
+    description: 'The fatigue is noticeable — and it\'s starting to show up in small ways.',
+    shareText: "Scored 'Some Fatigue' on the AI Fatigue Quiz. Honestly relieved it has a name. clearing-ai.com — free resources for engineers navigating this. #AIEngineer"
+  },
+  3: {
+    name: 'Tier 3 — Real Fatigue',
+    emoji: '🌧',
+    score: '8–11',
+    label: 'Significant',
+    color: '#e07020',
+    bgGradient: 'linear-gradient(135deg, #2a1a10, #3d2515)',
+    description: 'Significant fatigue that\'s affecting your work and how you feel about it.',
+    shareText: "The AI Fatigue Quiz at clearing-ai.com gave me a name for what I've been feeling for months. Not burnout. Something specific to how we work now. Worth checking."
+  },
+  4: {
+    name: 'Tier 4 — Need a Real Break',
+    emoji: '🌑',
+    score: '12–15',
+    label: 'Serious',
+    color: '#c84040',
+    bgGradient: 'linear-gradient(135deg, #2a1010, #3d1515)',
+    description: 'Serious fatigue. Recovery needs to be a priority — not an afterthought.',
+    shareText: "Scored 'Need a Real Break' on the AI Fatigue Quiz at clearing-ai.com. This is real. If you're an engineer feeling this — you're not lazy. You're exhausted in a specific, named way."
+  }
+};
+
+let currentTier = null;
+let canvas = null;
+let ctx = null;
+
+// Theme toggle
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  document.querySelector('.theme-toggle').textContent = next === 'dark' ? '🌙' : '☀️';
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const saved = localStorage.getItem('theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+  const btn = document.querySelector('.theme-toggle');
+  if (btn) btn.textContent = (localStorage.getItem('theme') || 'dark') === 'dark' ? '🌙' : '☀️';
+});
+
+// Reading progress
+window.addEventListener('scroll', () => {
+  const el = document.getElementById('progress');
+  if (!el) return;
+  const scrolled = window.scrollY;
+  const total = document.documentElement.scrollHeight - window.innerHeight;
+  el.style.width = (scrolled / total * 100) + '%';
+});
+
+// Tier selection
+function selectTier(tier) {
+  currentTier = tier;
+  document.querySelectorAll('.tier-btn').forEach(btn => {
+    btn.classList.toggle('selected', parseInt(btn.dataset.tier) === tier);
+    btn.setAttribute('aria-pressed', parseInt(btn.dataset.tier) === tier ? 'true' : 'false');
+  });
+  document.getElementById('downloadBtn').disabled = false;
+  document.getElementById('copyBtn').disabled = false;
+  document.getElementById('resetBtn').style.display = 'inline-flex';
+  document.getElementById('badgeStatus').textContent = '';
+  updateBadge();
+}
+
+function updateBadge() {
+  if (!currentTier) return;
+  const name = document.getElementById('engineerName').value.trim() || 'Anonymous Engineer';
+  drawBadge(currentTier, name);
+}
+
+function drawBadge(tier, name) {
+  const t = TIERS[tier];
+  const c = document.getElementById('badgeCanvas');
+  if (!c) return;
+  const width = 600, height = 314;
+  c.width = width; c.height = height;
+  const ctx = c.getContext('2d');
+
+  // Background
+  ctx.fillStyle = '#0d1117';
+  ctx.fillRect(0, 0, width, height);
+
+  // Tier color accent bar top
+  ctx.fillStyle = t.color;
+  ctx.fillRect(0, 0, width, 6);
+
+  // Tier emoji
+  ctx.font = '72px serif';
+  ctx.textAlign = 'center';
+  ctx.fillText(t.emoji, 80, 160);
+
+  // Tier name
+  ctx.font = 'bold 22px Inter, system-ui, sans-serif';
+  ctx.fillStyle = '#e6edf3';
+  ctx.textAlign = 'left';
+  ctx.fillText(t.name, 160, 100);
+
+  // Score
+  ctx.font = 'bold 64px Inter, system-ui, sans-serif';
+  ctx.fillStyle = t.color;
+  ctx.fillText(t.score, 160, 175);
+
+  // Label
+  ctx.font = '14px Inter, system-ui, sans-serif';
+  ctx.fillStyle = '#8b949e';
+  ctx.fillText(t.label + ' range', 160, 200);
+
+  // Divider
+  ctx.strokeStyle = '#30363d';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(380, 40);
+  ctx.lineTo(380, 274);
+  ctx.stroke();
+
+  // AI Fatigue Quiz title
+  ctx.font = 'bold 18px Inter, system-ui, sans-serif';
+  ctx.fillStyle = '#e6edf3';
+  ctx.textAlign = 'center';
+  ctx.fillText('AI FATIGUE QUIZ', 490, 100);
+
+  // "clearing-ai.com" link
+  ctx.font = '14px Inter, system-ui, sans-serif';
+  ctx.fillStyle = t.color;
+  ctx.fillText('clearing-ai.com', 490, 125);
+
+  // Description text
+  ctx.font = '13px Inter, system-ui, sans-serif';
+  ctx.fillStyle = '#8b949e';
+  ctx.textAlign = 'center';
+  const words = t.description.split(' ');
+  let line = '', lineY = 155;
+  for (const word of words) {
+    const test = line + word + ' ';
+    if (ctx.measureText(test).width > 200) {
+      ctx.fillText(line.trim(), 490, lineY);
+      line = word + ' ';
+      lineY += 20;
+      if (lineY > 220) break;
+    } else {
+      line = test;
+    }
+  }
+  if (lineY <= 220) ctx.fillText(line.trim(), 490, lineY);
+
+  // Name / Anonymous label
+  ctx.font = 'bold 15px Inter, system-ui, sans-serif';
+  ctx.fillStyle = '#e6edf3';
+  ctx.fillText(name, 490, 250);
+
+  // Bottom bar
+  ctx.fillStyle = '#161b22';
+  ctx.fillRect(0, height - 44, width, 44);
+  ctx.font = '12px Inter, system-ui, sans-serif';
+  ctx.fillStyle = '#484f58';
+  ctx.textAlign = 'center';
+  ctx.fillText('🌿 The Clearing — Free AI Fatigue Resources for Engineers', width / 2, height - 16);
+
+  // Border
+  ctx.strokeStyle = '#30363d';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(0.5, 0.5, width - 1, height - 1);
+}
+
+// Download PNG
+function downloadBadge() {
+  if (!currentTier) return;
+  const c = document.getElementById('badgeCanvas');
+  const link = document.createElement('a');
+  link.download = `ai-fatigue-quiz-tier-${currentTier}.png`;
+  link.href = c.toDataURL('image/png');
+  link.click();
+}
+
+// Copy image to clipboard
+async function copyBadge() {
+  if (!currentTier) return;
+  try {
+    const c = document.getElementById('badgeCanvas');
+    const blob = await new Promise(resolve => c.toBlob(resolve, 'image/png'));
+    await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
+    const btn = document.getElementById('copyBtn');
+    btn.textContent = '✅ Copied!';
+    setTimeout(() => btn.textContent = '📋 Copy Image', 2000);
+  } catch (e) {
+    // fallback: download
+    downloadBadge();
+  }
+}
+
+function resetBadge() {
+  currentTier = null;
+  document.querySelectorAll('.tier-btn').forEach(btn => {
+    btn.classList.remove('selected');
+    btn.setAttribute('aria-pressed', 'false');
+  });
+  document.getElementById('engineerName').value = '';
+  document.getElementById('downloadBtn').disabled = true;
+  document.getElementById('copyBtn').disabled = true;
+  document.getElementById('resetBtn').style.display = 'none';
+  const c = document.getElementById('badgeCanvas');
+  ctx = c.getContext('2d');
+  ctx.fillStyle = '#161b22';
+  ctx.fillRect(0, 0, 600, 314);
+  ctx.font = '16px Inter, system-ui, sans-serif';
+  ctx.fillStyle = '#484f58';
+  ctx.textAlign = 'center';
+  ctx.fillText('Select your tier above to preview', 300, 157);
+  document.getElementById('badgeStatus').textContent = 'Select your tier above to preview your badge';
+}
+
+function shareToTwitter() {
+  const tier = currentTier || 1;
+  const text = TIERS[tier].shareText;
+  const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
+  window.open(url, '_blank');
+}
+
+function shareToLinkedIn() {
+  const url = 'https://clearing-ai.com';
+  const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+  window.open(shareUrl, '_blank');
+}
+
+function copyShareText() {
+  const text = document.getElementById('shareText').value;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('copyShareBtn');
+    btn.textContent = '✅ Copied!';
+    setTimeout(() => btn.textContent = '📋 Copy Text', 2000);
+  });
+}
+
+// Build all badges gallery on load
+document.addEventListener('DOMContentLoaded', () => {
+  const gallery = document.getElementById('badgesGallery');
+  if (!gallery) return;
+
+  [1, 2, 3, 4].forEach(tier => {
+    const t = TIERS[tier];
+    const div = document.createElement('div');
+    div.className = 'gallery-badge';
+    div.innerHTML = `
+      <canvas width="200" height="105" data-gallery-tier="${tier}" style="cursor:pointer; border-radius:6px;"></canvas>
+      <div class="gallery-badge-name">${t.emoji} ${t.name}</div>
+      <div class="gallery-badge-desc">${t.score} — ${t.label}</div>
+    `;
+    const canvas = div.querySelector('canvas');
+    canvas.addEventListener('click', () => {
+      selectTier(tier);
+      document.getElementById('engineerName').focus();
+      document.getElementById('engineerName').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      window.scrollBy(0, -80);
+    });
+    gallery.appendChild(div);
+
+    // Draw small badge preview
+    const ctx = canvas.getContext('2d');
+    canvas.width = 200; canvas.height = 105;
+    ctx.fillStyle = '#0d1117';
+    ctx.fillRect(0, 0, 200, 105);
+    ctx.fillStyle = t.color;
+    ctx.fillRect(0, 0, 200, 4);
+    ctx.font = '28px serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(t.emoji, 30, 55);
+    ctx.font = 'bold 10px Inter, system-ui, sans-serif';
+    ctx.fillStyle = '#e6edf3';
+    ctx.textAlign = 'left';
+    ctx.fillText(t.name, 55, 40);
+    ctx.font = 'bold 20px Inter, system-ui, sans-serif';
+    ctx.fillStyle = t.color;
+    ctx.fillText(t.score, 55, 68);
+    ctx.font = '8px Inter, system-ui, sans-serif';
+    ctx.fillStyle = '#8b949e';
+    ctx.fillText(t.label, 55, 84);
+  });
+
+  // Init blank canvas
+  resetBadge();
+});
+</script>
+</body>
+</html>

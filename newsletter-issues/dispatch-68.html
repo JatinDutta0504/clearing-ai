@@ -3,307 +3,418 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Dispatch #68 — The Visibility Problem</title>
-  <meta name="description" content="The most valuable AI-era engineering work is often invisible. That's a career problem. Why judgment goes unseen and how to make it legible.">
+  <title>The Dispatch #68 — The Visibility Problem | The Clearing</title>
+  <meta name="description" content="The most valuable AI-era engineering work is often invisible. Here's how to make your judgment visible — without manufacturing evidence.">
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-issues/dispatch-68.html">
+  <link rel="alternate" type="application/rss+xml" title="The Clearing RSS Feed" href="https://clearing-ai.com/feed.xml">
   <meta property="og:title" content="The Dispatch #68 — The Visibility Problem">
-  <meta property="og:description" content="The most valuable AI-era engineering work is often invisible. That's a career problem.">
+  <meta property="og:description" content="The most valuable AI-era engineering work is often invisible. Here's how to make your judgment visible.">
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://clearing-ai.com/newsletter-issues/dispatch-68.html">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="canonical" href="https://clearing-ai.com/newsletter-issues/dispatch-68.html">
-  <link rel="stylesheet" href="../css/style.min.css">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>🌿</text></svg>">
+  <meta name="twitter:title" content="The Dispatch #68 — The Visibility Problem">
+  <meta name="twitter:description" content="The most valuable AI-era engineering work is often invisible. Here's how to make your judgment visible.">
+  <meta name="author" content="The Clearing">
+  <meta property="article:published_time" content="2026-06-15">
+  <meta property="article:section" content="The Dispatch">
+  <link rel="stylesheet" href="../css/style.min.css" />
+  <noscript><style>.fallback { display: block; }</style></noscript>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "The Dispatch #68 — The Visibility Problem",
-    "description": "The most valuable AI-era engineering work is often invisible. That's a career problem. Why judgment goes unseen and how to make it legible.",
+    "description": "The most valuable AI-era engineering work is often invisible. Here's how to make your judgment visible — without manufacturing evidence.",
+    "author": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
     "datePublished": "2026-06-15",
     "dateModified": "2026-06-15",
-    "author": { "@type": "Organization", "name": "The Clearing" },
-    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
-    "isPartOf": { "@type": "Periodical", "name": "The Dispatch" }
+    "url": "https://clearing-ai.com/newsletter-issues/dispatch-68.html",
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "The Dispatch",
+      "issn": "https://clearing-ai.com/newsletter-archive.html"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Newsletter", "item": "https://clearing-ai.com/newsletter.html" },
+        { "@type": "ListItem", "position": 3, "name": "Archive", "item": "https://clearing-ai.com/newsletter-archive.html" },
+        { "@type": "ListItem", "position": 4, "name": "#68 The Visibility Problem", "item": "https://clearing-ai.com/newsletter-issues/dispatch-68.html" }
+      ]
+    }
   }
   </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #0d1117; --surface: #161b22; --surface-2: #1c2128;
-      --border: #21262d; --text: #e6edf3; --muted: #8b949e;
-      --accent: #3fb950; --accent-dim: #238636;
-      --forest-soft: rgba(46,160,67,0.15);
+      --bg: #0c0c0e;
+      --surface: #141418;
+      --surface2: #1c1c22;
+      --border: #2a2a35;
+      --text: #e8e6e3;
+      --text-muted: #8a8a96;
+      --accent: #4a9c6d;
+      --accent-warm: #c4793a;
+      --accent-cool: #4a7a9c;
+      --radius: 10px;
+      --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
     }
     [data-theme="light"] {
-      --bg: #f6f8fa; --surface: #ffffff; --surface-2: #f0f3f6;
-      --border: #d0d7de; --text: #1f2328; --muted: #656d76;
-      --accent: #1a7f37; --accent-dim: #2da44e;
-      --forest-soft: rgba(26,127,55,0.1);
+      --bg: #f4f1ec;
+      --surface: #ece8e2;
+      --surface2: #e2ddd5;
+      --border: #ccc5ba;
+      --text: #1a1a18;
+      --text-muted: #6a6a62;
     }
-    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.75; font-size: 17px; }
-    a { color: var(--accent); }
-    .container { max-width: 680px; margin: 0 auto; padding: 0 24px; }
-    .issue-header { padding: 60px 0 40px; text-align: center; }
-    .issue-number { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
-    .issue-title { font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 20px; }
-    .issue-date { font-size: 0.9rem; color: var(--muted); }
-    .issue-meta { display: flex; justify-content: center; gap: 24px; margin-top: 12px; flex-wrap: wrap; }
-    .issue-meta span { font-size: 0.85rem; color: var(--muted); }
-    .dispatch-hero { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 36px 40px; margin-bottom: 40px; }
-    .dispatch-hero p { font-size: 1.1rem; color: var(--text); line-height: 1.8; }
-    .dispatch-hero p strong { color: var(--accent); }
-    .dispatch-section { margin-bottom: 36px; }
-    .dispatch-section h2 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; color: var(--text); }
-    .dispatch-section p { color: var(--text); margin-bottom: 16px; font-size: 1rem; line-height: 1.8; }
-    .dispatch-section strong { color: var(--accent); }
-    .stat-callout { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 20px 24px; margin: 20px 0; }
-    .stat-callout p { font-size: 1rem; margin-bottom: 12px; }
-    .stat-number { font-size: 2rem; font-weight: 800; color: var(--accent); letter-spacing: -0.04em; }
-    .stat-label { font-size: 0.85rem; color: var(--muted); }
-    .three-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 24px 0; }
-    .three-cards .card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
-    .three-cards .card .num { font-size: 1.6rem; font-weight: 800; color: var(--accent); letter-spacing: -0.04em; margin-bottom: 8px; }
-    .three-cards .card .label { font-size: 0.8rem; color: var(--muted); }
-    .three-cards .card .title { font-size: 0.95rem; font-weight: 600; color: var(--text); margin-bottom: 8px; }
-    .tips-box { background: var(--forest-soft); border: 1px solid var(--accent-dim); border-radius: 12px; padding: 24px 28px; margin: 24px 0; }
-    .tips-box h3 { font-size: 1.1rem; font-weight: 700; color: var(--accent); margin-bottom: 16px; }
-    .tips-box .tip { margin-bottom: 14px; padding-left: 16px; border-left: 3px solid var(--accent-dim); }
-    .tips-box .tip:last-child { margin-bottom: 0; }
-    .tips-box .tip strong { display: block; color: var(--text); margin-bottom: 4px; }
-    .tips-box .tip p { font-size: 0.9rem; color: var(--muted); }
-    .ps-box { background: var(--forest-soft); border: 1px solid var(--accent-dim); border-radius: 12px; padding: 24px 28px; margin-top: 40px; }
-    .ps-box p { font-size: 0.95rem; color: var(--muted); margin-bottom: 12px; }
-    .dispatch-footer { text-align: center; padding: 48px 0 60px; border-top: 1px solid var(--border); margin-top: 60px; }
-    .dispatch-footer p { font-size: 0.875rem; color: var(--muted); margin-bottom: 12px; }
-    .dispatch-footer a { color: var(--accent); }
-    .cta-block { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 28px 32px; margin: 40px 0; text-align: center; }
-    .cta-block p { font-size: 1rem; margin-bottom: 20px; line-height: 1.7; }
-    .cta-block .btn { display: inline-block; background: var(--accent); color: #0d1117; font-weight: 700; font-size: 15px; padding: 12px 28px; border-radius: 10px; text-decoration: none; transition: opacity 0.15s; }
-    .cta-block .btn:hover { opacity: 0.85; text-decoration: none; }
-    .invisible-list { background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; padding: 24px 28px; margin: 20px 0; }
-    .invisible-list h3 { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 16px; }
-    .invisible-item { margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid var(--border); }
-    .invisible-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
-    .invisible-item .inv-title { font-weight: 600; color: var(--text); margin-bottom: 6px; font-size: 0.95rem; }
-    .invisible-item .inv-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
-    nav { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 20px; position: sticky; top: 0; z-index: 100; }
-    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; height: 56px; }
-    .nav-logo { font-weight: 700; font-size: 18px; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 8px; }
-    .nav-logo:hover { text-decoration: none; }
-    .nav-links { display: flex; margin-left: 32px; gap: 0; }
-    .nav-links a { color: var(--muted); padding: 0 14px; height: 56px; display: flex; align-items: center; font-size: 14px; font-weight: 500; transition: color 0.15s; }
-    .nav-links a:hover { color: var(--text); text-decoration: none; }
-    .nav-right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
-    .theme-toggle { background: none; border: 1px solid var(--border); color: var(--muted); width: 34px; height: 34px; border-radius: 6px; cursor: pointer; font-size: 16px; }
-    .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
-    .nav-cta { background: var(--accent); color: #0d1117; font-weight: 600; font-size: 14px; padding: 8px 16px; border-radius: 8px; transition: opacity 0.15s; }
-    .nav-cta:hover { opacity: 0.85; text-decoration: none; }
-    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 32px 20px; text-align: center; }
-    footer p { font-size: 0.8rem; color: var(--muted); }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.7; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .nav-bar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      height: 56px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-bar a { color: var(--text-muted); font-size: 0.9rem; }
+    .nav-bar a:hover { color: var(--text); text-decoration: none; }
+    .nav-bar .sep { color: var(--border); }
+
+    .issue-header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+    .issue-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .issue-header h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .issue-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 36px;
+      margin: 40px auto;
+      max-width: 720px;
+    }
+    .hero-banner h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 16px;
+    }
+    .hero-banner p { color: var(--text-muted); font-size: 0.95rem; }
+
+    main { max-width: 680px; margin: 0 auto; padding: 0 24px 80px; }
+
+    h2.section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 48px 0 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    p { margin-bottom: 18px; color: var(--text); }
+    strong { font-weight: 600; color: var(--text); }
+
+    .section-block { margin-bottom: 44px; }
+    .section-block h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+    .section-block p { margin-bottom: 14px; }
+
+    .callout {
+      background: var(--surface2);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 20px;
+      margin: 24px 0;
+      font-size: 0.95rem;
+    }
+    .callout p { margin: 0; }
+    .callout strong { color: var(--accent); }
+
+    .cost-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      margin: 24px 0;
+    }
+    .cost-block h4 {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-warm);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .cost-block p { margin-bottom: 10px; font-size: 0.95rem; }
+    .cost-block p:last-child { margin-bottom: 0; }
+
+    .behavior-list { list-style: none; margin: 20px 0; }
+    .behavior-list li {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+    }
+    .behavior-list li strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--accent-cool);
+    }
+
+    .strategy-list { list-style: none; counter-reset: strategy; margin: 20px 0; }
+    .strategy-list li {
+      counter-increment: strategy;
+      padding-left: 44px;
+      position: relative;
+      margin-bottom: 18px;
+      font-size: 0.95rem;
+    }
+    .strategy-list li::before {
+      content: counter(strategy);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 28px;
+      height: 28px;
+      background: var(--accent);
+      color: var(--bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    .cta-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin: 48px 0;
+      text-align: center;
+    }
+    .cta-block p { font-size: 0.95rem; margin-bottom: 16px; }
+    .cta-block a {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--bg);
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .cta-block a:hover { background: #3d8a5e; text-decoration: none; }
+    .cta-block .secondary {
+      display: block;
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .ps-block {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin: 32px 0 0;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
     footer a { color: var(--accent); }
     @media (max-width: 600px) {
-      .dispatch-hero { padding: 24px 20px; }
-      .container { padding: 0 16px; }
-      .three-cards { grid-template-columns: 1fr; gap: 12px; }
+      .issue-header h1 { font-size: 1.7rem; }
+      .hero-banner { padding: 24px 20px; margin: 24px 16px; }
+      main { padding: 0 16px 60px; }
     }
   </style>
 </head>
 <body>
-  <nav>
-    <div class="nav-inner">
-      <a href="https://clearing-ai.com/" class="nav-logo">🌿 The Clearing</a>
-      <div class="nav-links">
-        <a href="https://clearing-ai.com/tips.html">Tips</a>
-        <a href="https://clearing-ai.com/stories.html">Stories</a>
-        <a href="https://clearing-ai.com/resources.html">Resources</a>
-        <a href="https://clearing-ai.com/research.html">Research</a>
-        <a href="https://clearing-ai.com/newsletter.html">Newsletter</a>
-      </div>
-      <div class="nav-right">
-        <button class="theme-toggle" onclick="document.body.dataset.theme=document.body.dataset.theme==='dark'?'light':'dark'" aria-label="Toggle theme">🌙</button>
-        <a href="https://clearing-ai.com/quiz.html" class="nav-cta">Take the Quiz</a>
-      </div>
-    </div>
+
+  <nav class="nav-bar">
+    <a href="https://clearing-ai.com/">Home</a>
+    <span class="sep">›</span>
+    <a href="https://clearing-ai.com/newsletter.html">Newsletter</a>
+    <span class="sep">›</span>
+    <a href="https://clearing-ai.com/newsletter-archive.html">Archive</a>
+    <span class="sep">›</span>
+    <a href="https://clearing-ai.com/newsletter-issues/dispatch-68.html">#68 The Visibility Problem</a>
   </nav>
 
-  <div class="container">
-    <header class="issue-header">
-      <div class="issue-number">The Dispatch #68</div>
-      <h1 class="issue-title">The Visibility Problem</h1>
-      <div class="issue-date">June 15, 2026</div>
-      <div class="issue-meta">
-        <span>For engineers who use AI tools daily</span>
-        <span>~8 min read</span>
+  <header class="issue-header">
+    <div class="issue-label">The Dispatch #68 · June 15, 2026</div>
+    <h1>The Visibility Problem: Why the Engineers Doing the Most Important Work Have the Least to Show</h1>
+    <div class="issue-meta">
+      <span>For engineers who use AI tools daily</span>
+      <span>~8 min read</span>
+      <span>Recovery Tactics</span>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="hero-banner">
+      <h2>There's a specific tension in how AI-era engineering performance gets evaluated.</h2>
+      <p>When you use AI well, the output — the code, the feature, the system — looks the same as the output of an engineer using AI poorly. The artifact is identical. The judgment behind it isn't.</p>
+    </div>
+
+    <div class="section-block">
+      <p>The best engineers working with AI are often making invisible decisions: framing the right problem, identifying which questions actually matter, catching when the AI-generated solution doesn't fit the context, deciding what not to build.</p>
+      <p>None of that shows up in a pull request.</p>
+      <p><strong>This is the visibility problem.</strong> And if you're not intentional about it, it will cost you in performance reviews, promotions, and the quiet reputation that shapes how your work gets perceived.</p>
+      <p>This week: why the best work is invisible, what that costs you in measurable ways, and how to make your judgment visible — without manufacturing false evidence of contribution.</p>
+    </div>
+
+    <h2 class="section-title">Why AI Makes Good Work Invisible</h2>
+
+    <div class="section-block">
+      <p>The value in good engineering has always had two components:</p>
+      <p><strong>The artifact:</strong> Code, systems, features — the things that get committed and shipped</p>
+      <p><strong>The judgment:</strong> The decisions about what to build, what to skip, what problem to solve first, where to accept complexity and where to fight it</p>
+      <p>AI has made artifacts dramatically easier to produce. It has not made judgment easier — in some cases, it has made judgment harder to exercise, because the ease of generating artifacts reduces the pressure to think carefully before building.</p>
+      <div class="callout">
+        <p><strong>The problem:</strong> An engineer who spends two days carefully framing a problem, rejecting three bad solutions, and building the fourth with full understanding of why the other three were wrong — produces the same artifact as an engineer who spent two hours prompting AI and shipped the first working solution. The artifact is the same. The judgment is not.</p>
       </div>
-    </header>
+    </div>
 
-    <main>
-      <!-- HERO -->
-      <div class="dispatch-hero">
-        <p><strong>The Visibility Problem: Why the Engineers Doing the Most Important Work Have the Least to Show</strong></p>
-        <p>There's a specific tension in how AI-era engineering performance gets evaluated.</p>
-        <p>When you use AI well, the output — the code, the feature, the system — looks the same as the output of an engineer using AI poorly. The artifact is identical. The judgment behind it isn't.</p>
-        <p>The best engineers working with AI are often making <strong>invisible decisions:</strong> framing the right problem, identifying which questions actually matter, catching when the AI-generated solution doesn't fit the context, deciding what not to build.</p>
-        <p>None of that shows up in a pull request.</p>
-        <p>This is the <strong>visibility problem</strong>. And if you're not intentional about it, it will cost you in performance reviews, promotions, and the quiet reputation that shapes how your work gets perceived.</p>
-        <p>This week: why the best work is invisible, what that costs you in measurable ways, and how to make your judgment visible — without manufacturing false evidence of contribution.</p>
+    <h2 class="section-title">What This Costs You in Performance Reviews</h2>
+
+    <div class="section-block">
+      <h3>On output metrics</h3>
+      <p>If your performance review measures lines of code, features shipped, or PRs merged — AI assistance will make your numbers look better regardless of the judgment behind them. The metric doesn't know the difference between a carefully framed solution and a quickly prompted one.</p>
+      <p>This isn't hypothetical. Engineers report being evaluated on velocity metrics that AI inflates without corresponding increases in quality or thoughtfulness. The numbers go up. The work gets thinner.</p>
+    </div>
+
+    <div class="section-block">
+      <h3>On promotion decisions</h3>
+      <p>Promotion committees often look for evidence of impact: the project you led, the system you designed, the problem you solved. When AI is generating the artifacts of your work, the evidence of impact is diluted.</p>
+      <p>You shipped the feature. But did you understand it deeply enough to defend the architecture? To debug it at 2am? To extend it when requirements changed? The promotion decision can't see that. It sees the feature.</p>
+    </div>
+
+    <div class="section-block">
+      <h3>On technical reputation</h3>
+      <p>Over time, engineers build reputation through the quality of their decisions — the times they caught a problem early, proposed a better approach, or avoided building the wrong thing. This reputation is built through demonstrated judgment, not just demonstrated output.</p>
+      <p>When AI generates the output, your judgment is not visible in the work. Other people can't see the difference between your judgment and the AI's judgment embedded in the code you wrote.</p>
+      <div class="callout">
+        <p><strong>The engineers who will thrive in the AI era are the ones who find ways to make their judgment legible</strong> — not to show off, but because invisible work doesn't get credited.</p>
       </div>
+    </div>
 
-      <!-- SECTION 1 -->
-      <div class="dispatch-section">
-        <h2>Section 1: Why AI Makes Good Work Invisible</h2>
-        <p>The value in good engineering has always had two components:</p>
-        <p><strong>The artifact:</strong> Code, systems, features — the things that get committed and shipped<br>
-        <strong>The judgment:</strong> The decisions about what to build, what to skip, what problem to solve first, where to accept complexity and where to fight it</p>
-        <p>AI has made artifacts dramatically easier to produce. It has not made judgment easier — in some cases, it has made judgment harder to exercise, because the ease of generating artifacts reduces the pressure to think carefully before building.</p>
-        <p>The problem is that the evaluation systems we use for engineering — code review, PR metrics, features shipped, story points — almost entirely measure the artifact. The judgment that shaped the artifact is invisible unless you make it explicit.</p>
-        <p>This means: an engineer who spends two days carefully framing a problem, rejecting three bad solutions, and building the fourth with full understanding of why the other three were wrong — produces the same artifact as an engineer who spent two hours prompting AI and shipped the first working solution.</p>
-        <p style="color: var(--accent); font-weight: 600;">The artifact is the same. The judgment is not.</p>
+    <h2 class="section-title">The Specific Behaviors That Get Invisible</h2>
+
+    <div class="section-block">
+      <p>There are specific things you do as an engineer that AI can't replace — and that evaluation systems don't see.</p>
+      <ul class="behavior-list">
+        <li>
+          <strong>Deciding what not to build</strong>
+          The best engineering decisions are often the ones that prevented work — the feature request you talked a stakeholder out of because you understood the underlying problem well enough to propose a simpler solution. That's invisible. The PR shows nothing happened.
+        </li>
+        <li>
+          <strong>Identifying the real problem</strong>
+          You spent an hour with a product manager reframing what they were actually asking for. The solution that shipped was half the scope and twice as useful. No artifact shows that reframing happened. The feature shipped, and that's all the record shows.
+        </li>
+        <li>
+          <strong>Catching AI's mistakes</strong>
+          You reviewed an AI-generated solution and caught three subtle bugs — one a security issue, one a scaling problem, one a violation of the system's implicit contract with its users. You wrote them in the review. The AI was wrong. You were right. The PR merged. The record is a code review comment that three issues were found. The judgment isn't there.
+        </li>
+        <li>
+          <strong>Choosing the right question</strong>
+          You rejected the AI-generated approach and insisted on a different architecture because you'd seen this pattern fail in production before. You couldn't fully explain why — it was a pattern recognition from experience. The architecture held. The AI-generated approach would have caused problems six months later.
+        </li>
+      </ul>
+    </div>
+
+    <h2 class="section-title">How to Make Your Judgment Visible</h2>
+
+    <div class="section-block">
+      <p>The visibility problem has a practical solution: build evidence of your thinking, not just evidence of your output.</p>
+      <ol class="strategy-list">
+        <li><strong>Write the problem-framing document.</strong> Before you build anything, write one paragraph — in a PR description, a design doc, a comment — explaining why you're solving this problem this way, and what you considered and rejected. This is not extra work. It's the record that shows the judgment happened. If you're using AI to generate the solution, the problem-framing document becomes the evidence of your thinking.</li>
+        <li><strong>Comment your non-obvious decisions.</strong> When you make a judgment call that isn't immediately obvious — this naming convention, this error handling approach, this way of structuring the config — write a brief comment explaining why. Not for the AI. For the human who will inherit this code in two years and need to understand what was in your head when you made that decision. This comment is also evidence of your thinking. It demonstrates judgment, not just output.</li>
+        <li><strong>Document the alternatives you rejected.</strong> The PR that shipped is evidence of what you built. The design doc that shows what you considered and why you rejected it is evidence of how you think. Keep that record. When you make a decision about architecture, scope, or approach, note in the PR or design doc what alternatives you considered and why you chose the path you chose. This is not vanity. It's the documentation that shows you exercised judgment.</li>
+        <li><strong>Make your code review comments a portfolio.</strong> Your code review comments — the catches, the questions, the architectural pushback — are evidence of technical judgment. If you review other people's AI-assisted code and catch problems they missed, that judgment is valuable. Make sure your review comments are visible and acknowledged.</li>
+      </ol>
+    </div>
+
+    <h2 class="section-title">The Longer Game</h2>
+
+    <div class="section-block">
+      <p>The visibility problem is not just about performance reviews. It's about something more fundamental: if your judgment is invisible, you're not building the reputation that will sustain your career.</p>
+      <p>The engineers who will be trusted with the highest-leverage problems five years from now are the ones whose judgment has been tested and observed. If your work with AI is invisible, your judgment isn't being observed, even if it's being exercised.</p>
+      <p>The solution isn't to manufacture evidence. It's to make your actual thinking visible in the natural artifacts of your work — the PRs, the design docs, the code reviews, the architectural discussions.</p>
+      <div class="callout">
+        <p><strong>The goal is not to perform thinking.</strong> It's to make sure the thinking you're actually doing is visible to the people who make decisions about your career.</p>
       </div>
+    </div>
 
-      <!-- SECTION 2 -->
-      <div class="dispatch-section">
-        <h2>Section 2: What This Costs You in Performance Reviews</h2>
-        <p>The visibility problem shows up in the places where engineering performance gets evaluated.</p>
+    <div class="cta-block">
+      <p>If the visibility problem resonates — if you've noticed that the work you do well doesn't show up in the ways you're evaluated — the AI Fatigue Quiz surfaces where else this dynamic shows up in your daily experience with AI tools.</p>
+      <a href="https://clearing-ai.com/quiz.html">Take the AI Fatigue Quiz →</a>
+      <a class="secondary" href="https://clearing-ai.com/manifesto.html">Read: An Engineer's Manifesto for Intentional AI Use →</a>
+    </div>
 
-        <div class="invisible-list">
-          <h3>Where the visibility problem hits hardest</h3>
-          <div class="invisible-item">
-            <div class="inv-title">Output metrics</div>
-            <div class="inv-desc">If your performance review measures lines of code, features shipped, or PRs merged — AI assistance will make your numbers look better regardless of the judgment behind them. The metric doesn't know the difference between a carefully framed solution and a quickly prompted one.</div>
-          </div>
-          <div class="invisible-item">
-            <div class="inv-title">Promotion decisions</div>
-            <div class="inv-desc">Promotion committees look for evidence of impact: the project you led, the system you designed, the problem you solved. When AI generates the artifacts of your work, the evidence of impact is diluted. You shipped the feature. But did you understand it deeply enough to defend the architecture? To debug it at 2am? To extend it when requirements changed?</div>
-          </div>
-          <div class="invisible-item">
-            <div class="inv-title">Technical reputation</div>
-            <div class="inv-desc">Over time, engineers build reputation through the quality of their decisions — the times they caught a problem early, proposed a better approach, or avoided building the wrong thing. When AI generates the output, your judgment is not visible in the work.</div>
-          </div>
-        </div>
+    <div class="ps-block">
+      <strong>P.S.</strong> If you've run into the visibility problem in your own performance reviews — or if you've been on the other side, evaluating engineers whose AI-assisted work looked the same as everyone else's — this Dispatch is worth forwarding. It's the conversation worth having before your best judgment gets invisible.
+    </div>
 
-        <div class="stat-callout">
-          <p class="stat-number">~62%</p>
-          <p class="stat-label">of senior engineers surveyed by The Clearing (Q1 2026, n=1,842) reported that their best technical decisions — the ones that prevented major problems — were not visible in their performance records. Only the shipped work appeared.</p>
-        </div>
-      </div>
-
-      <!-- SECTION 3 -->
-      <div class="dispatch-section">
-        <h2>Section 3: The Specific Behaviors That Get Invisible</h2>
-        <p>There are specific things you do as an engineer that AI can't replace — and that evaluation systems don't see.</p>
-
-        <div class="invisible-list">
-          <h3>Judgment calls that never make it into the artifact</h3>
-          <div class="invisible-item">
-            <div class="inv-title">Deciding what not to build</div>
-            <div class="inv-desc">The best engineering decisions are often the ones that prevented work — the feature request you talked a stakeholder out of because you understood the underlying problem well enough to propose a simpler solution. That's invisible. The PR shows nothing happened.</div>
-          </div>
-          <div class="invisible-item">
-            <div class="inv-title">Identifying the real problem</div>
-            <div class="inv-desc">You spent an hour with a PM reframing what they were actually asking for. The solution that shipped was half the scope and twice as useful. No artifact shows that reframing happened. The feature shipped, and that's all the record shows.</div>
-          </div>
-          <div class="invisible-item">
-            <div class="inv-title">Catching AI's mistakes</div>
-            <div class="inv-desc">You reviewed an AI-generated solution and caught three subtle bugs — one a security issue, one a scaling problem, one a violation of the system's implicit contract with its users. You wrote them in the review. The AI was wrong. You were right. The PR merged. The record is a code review comment that three issues were found. The judgment isn't there.</div>
-          </div>
-          <div class="invisible-item">
-            <div class="inv-title">Choosing the right question</div>
-            <div class="inv-desc">You rejected the AI-generated approach and insisted on a different architecture because you'd seen this pattern fail in production before. The architecture held. The AI-generated approach would have caused problems six months later. But your reasoning was based on experience, not something you could fully articulate in the moment — and so it's invisible in the commit history.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- SECTION 4 -->
-      <div class="dispatch-section">
-        <h2>Section 4: How to Make Your Judgment Visible</h2>
-        <p>The visibility problem has a practical solution: build evidence of your thinking, not just evidence of your output.</p>
-
-        <div class="tips-box">
-          <h3>The Problem-Framing Document</h3>
-          <div class="tip">
-            <strong>Before you build anything, write one paragraph explaining why.</strong>
-            <p>In a PR description, a design doc, a comment — explain why you're solving this problem this way, and what you considered and rejected. This is not extra work. It's the record that shows the judgment happened.</p>
-            <p>If you're using AI to generate the solution, the problem-framing document becomes the evidence of your thinking. When the architecture decision is questioned six months later, the record shows you thought carefully before building.</p>
-          </div>
-        </div>
-
-        <div class="tips-box">
-          <h3>Comment Your Non-Obvious Decisions</h3>
-          <div class="tip">
-            <strong>When you make a judgment call that isn't immediately obvious — document it.</strong>
-            <p>This naming convention, this error handling approach, this way of structuring the config — write a brief comment explaining why. Not for the AI. For the human who will inherit this code in two years.</p>
-            <p>This comment is also evidence of your thinking. It demonstrates judgment, not just output.</p>
-          </div>
-        </div>
-
-        <div class="tips-box">
-          <h3>Document the Alternatives You Rejected</h3>
-          <div class="tip">
-            <strong>The PR that shipped is evidence of what you built. The design doc that shows what you considered is evidence of how you think.</strong>
-            <p>When you make a decision about architecture, scope, or approach, note what alternatives you considered and why you chose the path you chose. This is not vanity. It's the documentation that shows you exercised judgment.</p>
-          </div>
-        </div>
-
-        <div class="tips-box">
-          <h3>Make Your Code Review Comments a Portfolio</h3>
-          <div class="tip">
-            <strong>Your code review comments — the catches, the questions, the architectural pushback — are evidence of technical judgment.</strong>
-            <p>If you review other people's AI-assisted code and catch problems they missed, that judgment is valuable. Make sure your review comments are visible and acknowledged.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- SECTION 5 -->
-      <div class="dispatch-section">
-        <h2>Section 5: The Longer Game</h2>
-        <p>The visibility problem is not just about performance reviews. It's about something more fundamental: if your judgment is invisible, you're not building the reputation that will sustain your career.</p>
-        <p>The engineers who will be trusted with the highest-leverage problems five years from now are the ones whose judgment has been tested and observed. If your work with AI is invisible, your judgment isn't being observed — even if it's being exercised.</p>
-        <p>The solution isn't to manufacture evidence. It's to make your actual thinking visible in the natural artifacts of your work — the PRs, the design docs, the code reviews, the architectural discussions.</p>
-        <div class="stat-callout">
-          <p style="font-size: 1rem; line-height: 1.7;">The goal is not to perform thinking. It's to make sure the thinking you're actually doing is visible to the people who make decisions about your career.</p>
-        </div>
-      </div>
-
-      <!-- CTA BLOCK -->
-      <div class="cta-block">
-        <p>If the visibility problem resonates — if you've noticed that the work you do well doesn't show up in the ways you're evaluated — the AI Fatigue Quiz surfaces where else this dynamic shows up in your daily experience with AI tools.</p>
-        <a href="https://clearing-ai.com/quiz.html" class="btn">Take the AI Fatigue Quiz →</a>
-        <p style="margin-top: 16px; font-size: 0.9rem; color: var(--muted);">The <a href="https://clearing-ai.com/manifesto.html">manifesto on intentional AI use</a> goes deeper on what it means to stay in the loop when AI is in the output — including the judgment calls that AI can't make for you.</p>
-        <a href="https://clearing-ai.com/manifesto.html" class="btn" style="background: transparent; border: 1px solid var(--accent-dim); color: var(--accent);">Read the Manifesto →</a>
-      </div>
-
-      <!-- CLOSING -->
-      <div class="dispatch-section">
-        <p>The engineers who will navigate the AI era best are not the ones who produce the most output. They're the ones whose judgment is visible — in the decisions they document, the problems they reframe, the architectural choices they can explain.</p>
-        <p>The artifact is the easy part. The thinking is the hard part. Make sure the thinking is visible.</p>
-        <p style="font-weight: 600; color: var(--accent);">— The Clearing</p>
-      </div>
-
-      <!-- PS -->
-      <div class="ps-box">
-        <p><strong>P.S.</strong> If you've run into the visibility problem in your own performance reviews — or if you've been on the other side, evaluating engineers whose AI-assisted work looked the same as everyone else's — this Dispatch is worth forwarding. It's the conversation worth having before your best judgment gets invisible.</p>
-      </div>
-
-      <!-- FOOTER LINKS -->
-      <div class="dispatch-footer">
-        <p>Not subscribed yet? <a href="https://clearing-ai.com/newsletter.html">Join 2,400+ engineers</a> getting The Dispatch weekly.</p>
-        <p>Missed an issue? <a href="https://clearing-ai.com/newsletter-archive.html">Browse the archive →</a></p>
-      </div>
-    </main>
-  </div>
+  </main>
 
   <footer>
-    <p>© 2026 The Clearing · <a href="https://clearing-ai.com/">clearing-ai.com</a> · For engineers experiencing AI fatigue</p>
+    <p>Not subscribed yet? <a href="https://clearing-ai.com/newsletter.html">Join 2,400+ engineers</a> getting The Dispatch weekly.</p>
+    <p style="margin-top:8px"><a href="https://clearing-ai.com/newsletter-archive.html">Browse the archive →</a></p>
   </footer>
 
-  <script>
-    document.querySelector('.theme-toggle').addEventListener('click', function() {
-      document.body.dataset.theme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
-    });
-    if (window.matchMedia('(prefers-color-scheme: light)').matches && !localStorage.getItem('theme')) {
-      document.body.dataset.theme = 'light';
-    }
-  </script>
 </body>
 </html>

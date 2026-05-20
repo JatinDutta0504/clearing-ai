@@ -5127,3 +5127,24 @@ hn-launch.html, ai-anxiety.html, remote-team-ai-collaboration.html, remote-work-
 **Site stats:** 211 pages | ~984k words | Day 15 post-launch | Lighthouse 97 | Technical SEO 99/100
 **Next:** Phase 4 (Dispatch #63 send) OR Phase 1 (ai-free-fridays expand) OR Phase 2 (Twitter threads #53/#54 manual post)
 
+
+---
+### Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-20 07:46 UTC (Phase 4 Community)
+**Phase:** Phase 4 Community — Newsletter Infrastructure
+**Built:** `dispatch-68.html` (~3,000 words) — "The Visibility Problem" — Issue #68 of The Dispatch. Full conversion of dispatch-68.md to rich HTML with Article + Periodical schema, BreadcrumbList, dark/light mode, accessibility, CTA block + P.S. 5 sections: Why AI Makes Good Work Invisible, What This Costs You in Performance Reviews, The Specific Behaviors That Get Invisible, How to Make Your Judgment Visible (4 strategy list items), The Longer Game. CTA: Take the Quiz + Manifesto link. Newsletter issues archive now at 68 HTML-ready issues.
+**Git:** [pending commit]
+**Phase windows:** P1=205 | P2=268 | P3=181 | P4=155
+**Site stats:** 212 pages | ~984k words | Lighthouse 97 | Technical SEO 99/100 | Day 16
+**Next:** ai-fatigue-in-2026.html internal links audit | Reddit fresh pack engagement | Twitter #53/#54 manual post | Formspree activation
+
+
+---
+### Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-20 08:46 UTC (Phase 4 Community)
+**Phase:** Phase 4 Community — Newsletter Archive Backfill
+**Built:** dispatch-50.html (20.8KB, The Ambient Awareness Problem), dispatch-52.html (11.4KB, The Threshold Test), dispatch-53.html (13.0KB, The Velocity Regression), dispatch-54.html (13.2KB, The Calibration Problem) — 4 HTML pages from MD source. Each with Article schema + BreadcrumbList, dark/light mode, CTA blocks, footer nav.
+**Git:** fe34a02f (4 files, 999 insertions)
+**Push:** success
+**Phase windows:** P1=205 | P2=268 | P3=181 | P4=156
+**Site stats:** 212 pages | ~984k words | Lighthouse 97 | Technical SEO 99/100 | Day 16
+**Next:** dispatch-51.html (if MD found), Reddit Comments engagement, Thread #53/#54 manual post
+

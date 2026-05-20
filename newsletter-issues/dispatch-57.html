@@ -1,105 +1,274 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Dispatch #57 — The Confirmation Loop | The Clearing</title>
-  <meta name="description" content="How engineers get locked into a cycle where AI use begets more AI use — and how to break it." />
-  <link rel="canonical" href="https://clearing-ai.com/newsletter-issues/dispatch-57.html" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Dispatch #57 — The Confirmation Loop</title>
+  <meta name="description" content="The trap where AI use begets more AI use — how engineers get locked into a cycle that drains energy and confidence simultaneously.">
+  <meta property="og:title" content="The Dispatch #57 — The Confirmation Loop">
+  <meta property="og:description" content="The trap where AI use begets more AI use — how engineers get locked into a cycle that drains energy and confidence simultaneously.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/newsletter-issues/dispatch-57.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-issues/dispatch-57.html">
+  <link rel="stylesheet" href="../css/style.min.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>🌿</text></svg>">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Dispatch #57 — The Confirmation Loop",
+    "description": "The trap where AI use begets more AI use — how engineers get locked into a cycle that drains energy and confidence simultaneously.",
+    "datePublished": "2026-04-20",
+    "dateModified": "2026-04-20",
+    "author": { "@type": "Organization", "name": "The Clearing" },
+    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "isPartOf": { "@type": "Periodical", "name": "The Dispatch" }
+  }
+  </script>
   <style>
-    body { background: #0a0a0f; color: #e8e6e3; font-family: Georgia, serif; max-width: 680px; margin: 0 auto; padding: 40px 20px; line-height: 1.8; }
-    .header { border-bottom: 1px solid #2a2a35; padding-bottom: 24px; margin-bottom: 40px; }
-    .issue-num { font-size: 11px; letter-spacing: 2px; color: #6b7280; text-transform: uppercase; margin-bottom: 8px; }
-    .tagline { font-size: 13px; color: #9ca3af; font-style: italic; }
-    h1 { font-size: 28px; color: #f0f0f0; margin: 0 0 8px 0; font-weight: 400; letter-spacing: -0.5px; }
-    .subtitle { font-size: 16px; color: #9ca3af; margin: 0; font-style: italic; }
-    .meta { font-size: 12px; color: #6b7280; margin-top: 12px; }
-    .section { margin: 36px 0; }
-    .section h2 { font-size: 18px; color: #f0f0f0; font-weight: 400; border-left: 3px solid #3b82f6; padding-left: 14px; margin-bottom: 16px; }
-    .section p { margin: 0 0 20px 0; color: #d1d5db; }
-    .data-callout { background: #13131a; border: 1px solid #2a2a35; border-radius: 8px; padding: 20px 24px; margin: 28px 0; }
-    .data-callout .big { font-size: 32px; color: #3b82f6; font-weight: 400; margin-bottom: 4px; }
-    .data-callout .label { font-size: 13px; color: #9ca3af; }
-    .story-block { background: #13131a; border-radius: 8px; padding: 20px 24px; margin: 28px 0; border-left: 3px solid #f59e0b; }
-    .story-block p { color: #d1d5db; font-style: italic; margin: 0; }
-    .challenge-box { background: #0d1f1a; border: 1px solid #166534; border-radius: 8px; padding: 20px 24px; margin: 28px 0; }
-    .challenge-box p { color: #86efac; margin: 0; }
-    .steps { margin: 20px 0; }
-    .step { display: flex; gap: 16px; margin-bottom: 16px; align-items: flex-start; }
-    .step-num { font-size: 14px; color: #3b82f6; min-width: 24px; padding-top: 2px; }
-    .step-text { color: #d1d5db; font-size: 15px; }
-    .divider { border: none; border-top: 1px solid #1f1f28; margin: 40px 0; }
-    .cta { background: #1a2332; border: 1px solid #3b82f6; border-radius: 8px; padding: 24px; text-align: center; margin: 40px 0 32px 0; }
-    .cta a { color: #60a5fa; font-size: 16px; text-decoration: none; }
-    .cta a:hover { color: #93c5fd; }
-    .cta small { display: block; color: #6b7280; font-size: 12px; margin-top: 8px; }
-    .footer-note { font-size: 12px; color: #4b5563; border-top: 1px solid #1f1f28; padding-top: 20px; margin-top: 40px; }
-    .footer-note a { color: #6b7280; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0d1117; --surface: #161b22; --surface-2: #1c2128;
+      --border: #21262d; --text: #e6edf3; --muted: #8b949e;
+      --accent: #3fb950; --accent-dim: #238636;
+      --forest-soft: rgba(46,160,67,0.15);
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --surface-2: #f0f3f6;
+      --border: #d0d7de; --text: #1f2328; --muted: #656d76;
+      --accent: #1a7f37; --accent-dim: #2da44e;
+      --forest-soft: rgba(26,127,55,0.1);
+    }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.75; font-size: 17px; }
+    a { color: var(--accent); }
+    .container { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+    nav { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 20px; position: sticky; top: 0; z-index: 100; }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; height: 56px; }
+    .nav-logo { font-weight: 700; font-size: 18px; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+    .nav-logo:hover { text-decoration: none; }
+    .nav-links { display: flex; margin-left: 32px; gap: 0; }
+    .nav-links a { color: var(--muted); padding: 0 14px; height: 56px; display: flex; align-items: center; font-size: 14px; font-weight: 500; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .nav-right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+    .theme-toggle { background: none; border: 1px solid var(--border); color: var(--muted); width: 34px; height: 34px; border-radius: 6px; cursor: pointer; font-size: 16px; }
+    .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+    .nav-cta { background: var(--accent); color: #0d1117; font-weight: 600; font-size: 14px; padding: 8px 16px; border-radius: 8px; transition: opacity 0.15s; }
+    .nav-cta:hover { opacity: 0.85; text-decoration: none; }
+    .issue-header { padding: 64px 0 40px; text-align: center; }
+    .issue-number { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .issue-title { font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 20px; }
+    .issue-date { font-size: 0.9rem; color: var(--muted); }
+    .issue-meta { display: flex; justify-content: center; gap: 24px; margin-top: 12px; flex-wrap: wrap; }
+    .issue-meta span { font-size: 0.85rem; color: var(--muted); }
+    .dispatch-hero { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 36px 40px; margin-bottom: 40px; }
+    .dispatch-hero p { font-size: 1.05rem; color: var(--text); line-height: 1.85; margin-bottom: 16px; }
+    .dispatch-hero p:last-child { margin-bottom: 0; }
+    .dispatch-hero p strong { color: var(--accent); }
+    .dispatch-section { margin-bottom: 32px; }
+    .dispatch-section h2 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; color: var(--text); }
+    .dispatch-section p { color: var(--text); margin-bottom: 16px; font-size: 1rem; line-height: 1.85; }
+    .dispatch-section ul { margin: 0 0 16px 24px; }
+    .dispatch-section li { margin-bottom: 10px; font-size: 1rem; line-height: 1.75; color: var(--text); }
+    .dispatch-section strong { color: var(--accent); font-weight: 700; }
+    .stat-callout { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 20px 24px; margin: 20px 0; }
+    .stat-callout .stat-number { font-size: 2rem; font-weight: 800; color: var(--accent); letter-spacing: -0.04em; }
+    .stat-callout .stat-label { font-size: 0.85rem; color: var(--muted); display: block; }
+    .tips-box { background: var(--forest-soft); border: 1px solid var(--accent-dim); border-radius: 12px; padding: 24px 28px; margin: 24px 0; }
+    .tips-box h3 { font-size: 1.1rem; font-weight: 700; color: var(--accent); margin-bottom: 12px; }
+    .tips-box p { font-size: 0.95rem; color: var(--text); margin-bottom: 12px; }
+    .tips-box p:last-child { margin-bottom: 0; }
+    .loop-step { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; margin-bottom: 12px; display: flex; gap: 16px; align-items: flex-start; }
+    .loop-step .step-num { font-size: 1.1rem; font-weight: 800; color: var(--accent); min-width: 28px; }
+    .loop-step .step-text { font-size: 0.95rem; color: var(--text); line-height: 1.65; }
+    .quote-box { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 0 10px 10px 0; padding: 20px 24px; margin: 24px 0; font-style: italic; }
+    .quote-box p { font-size: 0.95rem; color: var(--muted); line-height: 1.8; margin-bottom: 12px; }
+    .quote-box p:last-child { margin-bottom: 0; }
+    .cta-block { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 28px 32px; margin: 40px 0; text-align: center; }
+    .cta-block p { font-size: 1rem; margin-bottom: 20px; line-height: 1.7; }
+    .cta-block .btn { display: inline-block; background: var(--accent); color: #0d1117; font-weight: 700; font-size: 15px; padding: 12px 28px; border-radius: 10px; text-decoration: none; transition: opacity 0.15s; }
+    .cta-block .btn:hover { opacity: 0.85; text-decoration: none; }
+    .cta-links { display: flex; flex-direction: column; gap: 12px; align-items: center; margin-top: 16px; }
+    .cta-links a { color: var(--accent); font-size: 0.95rem; font-weight: 600; }
+    .ps-box { background: var(--forest-soft); border: 1px solid var(--accent-dim); border-radius: 12px; padding: 24px 28px; margin-top: 40px; }
+    .ps-box p { font-size: 0.95rem; color: var(--muted); margin-bottom: 12px; }
+    .ps-box p:last-child { margin-bottom: 0; }
+    .dispatch-footer { text-align: center; padding: 48px 0 60px; border-top: 1px solid var(--border); margin-top: 60px; }
+    .dispatch-footer p { font-size: 0.875rem; color: var(--muted); margin-bottom: 12px; }
+    .dispatch-footer a { color: var(--accent); }
+    .explore-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 40px 0 0; }
+    .explore-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px; text-decoration: none; transition: all 0.2s; display: block; }
+    .explore-card:hover { border-color: var(--accent); transform: translateY(-2px); text-decoration: none; }
+    .explore-card .explore-icon { font-size: 1.5rem; margin-bottom: 8px; }
+    .explore-card h4 { font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .explore-card p { font-size: 0.78rem; color: var(--muted); margin-bottom: 0; line-height: 1.5; }
+    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 32px 20px; text-align: center; }
+    footer p { font-size: 0.8rem; color: var(--muted); }
+    footer a { color: var(--accent); }
+    @media (max-width: 600px) {
+      .dispatch-hero { padding: 24px 20px; }
+      .container { padding: 0 16px; }
+      .cta-block { padding: 24px 20px; }
+      .loop-step { flex-direction: column; gap: 8px; }
+    }
   </style>
 </head>
 <body>
-  <header class="header">
-    <div class="issue-num">Issue #57 · May 17, 2026</div>
-    <h1>The Confirmation Loop</h1>
-    <p class="subtitle">How AI use begets more AI use — and how to break it</p>
-    <div class="meta">The Clearing · Weekly for software engineers · ~6 min read</div>
-  </header>
-
-  <div class="section">
-    <p>You've noticed it. Every task starts to feel like it needs AI. Not because you're dependent — because the muscle for doing it yourself has quietly atrophied. So you reach for the shortcut. The shortcut works. You reach faster next time. The loop closes.</p>
-  </div>
-
-  <div class="section">
-    <h2>The loop works like this</h2>
-    <div class="steps">
-      <div class="step"><span class="step-num">1.</span><span class="step-text">You use AI to solve a problem → it solves it faster than you expected</span></div>
-      <div class="step"><span class="step-num">2.</span><span class="step-text">Your brain registers this as "I couldn't have done it that fast" → subtle competence doubt starts here</span></div>
-      <div class="step"><span class="step-num">3.</span><span class="step-text">Next problem: you reach for AI before even trying → velocity reinforces the pattern</span></div>
-      <div class="step"><span class="step-num">4.</span><span class="step-text">The small attempts stop. Those small attempts were where skill lived.</span></div>
-      <div class="step"><span class="step-num">5.</span><span class="step-text">Now every task that doesn't use AI feels slow and uncertain</span></div>
-      <div class="step"><span class="step-num">6.</span><span class="step-text">You're locked in. Not because AI is bad. Because the loop never let you practice.</span></div>
+  <nav>
+    <div class="nav-inner">
+      <a href="https://clearing-ai.com/" class="nav-logo">🌿 The Clearing</a>
+      <div class="nav-links">
+        <a href="https://clearing-ai.com/tips.html">Tips</a>
+        <a href="https://clearing-ai.com/stories.html">Stories</a>
+        <a href="https://clearing-ai.com/resources.html">Resources</a>
+        <a href="https://clearing-ai.com/research.html">Research</a>
+        <a href="https://clearing-ai.com/newsletter.html">Newsletter</a>
+      </div>
+      <div class="nav-right">
+        <button class="theme-toggle" onclick="document.body.dataset.theme=document.body.dataset.theme==='dark'?'light':'dark'" aria-label="Toggle color theme">🌙</button>
+        <a href="https://clearing-ai.com/quiz.html" class="nav-cta">Take Quiz →</a>
+      </div>
     </div>
-  </div>
+  </nav>
 
-  <div class="data-callout">
-    <div class="big">60/40</div>
-    <div class="label">If you use AI for 60% of your coding tasks, you're practicing 40% of your previous skill. That 40% decays. The 60% grows. But that 40% — the debugging, the architecture decisions, the edge cases — that's where senior engineers live. That's where the work feels like yours.</div>
-  </div>
+  <main>
+    <div class="container">
+      <header class="issue-header">
+        <p class="issue-number">The Dispatch #57 · April 20, 2026</p>
+        <h1 class="issue-title">The Confirmation Loop</h1>
+        <p class="issue-date">For engineers who use AI tools daily</p>
+        <div class="issue-meta">
+          <span>📖 7 min read</span>
+          <span>🌿 The Clearing</span>
+          <span>Free · Forever</span>
+        </div>
+      </header>
 
-  <div class="section">
-    <h2>What breaking the loop actually looks like</h2>
-    <p>The hardest part isn't the no-AI block. It's the first week of feeling slow. Actually slow. Like you're learning again.</p>
-    <p>That's the point.</p>
-    <p>The discomfort is the signal that you're rebuilding something. Not performing something. Rebuilding it from the ground up.</p>
-  </div>
+      <!-- Hero -->
+      <div class="dispatch-hero">
+        <p>You've noticed it. Every task starts to feel like it needs AI. Not because you're dependent — because the muscle for doing it yourself has quietly atrophied.</p>
+        <p>So you reach for the shortcut. The shortcut works. You reach faster next time. <strong>The loop closes.</strong></p>
+        <p>This week: how the confirmation loop traps engineers, what it's actually costing you, and how to break it before the gap becomes unrecoverable.</p>
+      </div>
 
-  <div class="story-block">
-    <p>"I spent three years using AI for almost everything. When I finally tried to build something without it — a small API for a side project — I couldn't debug a simple 500 error for two days. I used to debug that in twenty minutes. I didn't realize how much I'd lost until I tried to use it."<br><br>— Senior IC, 9 years experience, anonymous submission</p>
-  </div>
+      <!-- What is the confirmation loop -->
+      <div class="dispatch-section">
+        <h2>The Confirmation Loop — Step by Step</h2>
 
-  <div class="challenge-box">
-    <p><strong>This week's challenge:</strong><br>One intentional, small, AI-free task. Not a big project. Not a week off. One afternoon where you let yourself be slow on purpose. Build something simple. Debug something without asking AI first. The friction is the point.</p>
-  </div>
+        <div class="loop-step">
+          <span class="step-num">1</span>
+          <p class="step-text"><strong>You use AI to solve a problem.</strong> It solves it faster than you expected.</p>
+        </div>
+        <div class="loop-step">
+          <span class="step-num">2</span>
+          <p class="step-text"><strong>Your brain registers this as "I couldn't have done it that fast."</strong> Subtle competence doubt creeps in.</p>
+        </div>
+        <div class="loop-step">
+          <span class="step-num">3</span>
+          <p class="step-text"><strong>Next problem: you reach for AI before even trying.</strong> Velocity reinforces the pattern — it's faster, so why wouldn't you?</p>
+        </div>
+        <div class="loop-step">
+          <span class="step-num">4</span>
+          <p class="step-text"><strong>The small attempts stop.</strong> And the small attempts were where the skill actually lived.</p>
+        </div>
+        <div class="loop-step">
+          <span class="step-num">5</span>
+          <p class="step-text"><strong>Now every task that doesn't use AI feels slow and uncertain.</strong> You've recalibrated your baseline for "normal speed."</p>
+        </div>
+        <div class="loop-step">
+          <span class="step-num">6</span>
+          <p class="step-text"><strong>You're locked in.</strong> Not because AI is bad. Because the loop never let you practice.</p>
+        </div>
+      </div>
 
-  <div class="section">
-    <h2>Where you probably are right now</h2>
-    <p>Take the quiz → find out where you are in the loop. Not whether you're "addicted" or "doing it wrong." Just: where does the pattern have you?</p>
-  </div>
+      <!-- The math -->
+      <div class="dispatch-section">
+        <h2>The Math Nobody Talks About</h2>
+        <p>If you use AI for 60% of your coding tasks, you're deliberately not practicing 40% of your previous skill. That 40% decays. The 60% grows. But that 40% — the debugging, the architecture decisions, the edge cases — <strong>that's where senior engineers live. That's where the work feels like yours.</strong></p>
+        <p>The loop doesn't just slow your skill growth. It actively erodes what you already had.</p>
 
-  <div class="cta">
-    <a href="https://clearing-ai.com/quiz">Take the AI Fatigue Quiz →</a>
-    <small>3 minutes · Find out which tier you're in</small>
-  </div>
+        <div class="stat-callout">
+          <span class="stat-number">60%</span>
+          <span class="stat-label">of tasks AI-assisted = 40% of previous skill not practiced</span>
+        </div>
+      </div>
 
-  <hr class="divider">
+      <!-- Story -->
+      <div class="dispatch-section">
+        <h2>One Engineer, One Story</h2>
+        <div class="quote-box">
+          <p>"I spent three years using AI for almost everything. When I finally tried to build something without it — a small API for a side project — I couldn't debug a simple 500 error for two days. I used to debug that in twenty minutes. I didn't realize how much I'd lost until I tried to use it."</p>
+        </div>
+        <p>The gap doesn't announce itself. It hides in the velocity. By the time you notice it, the distance between "with AI" and "without AI" has become significant.</p>
+      </div>
 
-  <div class="section">
-    <p><strong>Resource of the week:</strong> <a href="https://clearing-ai.com/developer-identity.html" style="color:#60a5fa;">developer-identity.html</a> — for when you're quietly asking yourself "am I still actually a developer?" That question is worth sitting with.</p>
-  </div>
+      <!-- Challenge -->
+      <div class="dispatch-section">
+        <h2>This Week's Challenge</h2>
+        <div class="tips-box">
+          <h3>One Intentional AI-Free Task</h3>
+          <p>Not a big project. Not a week off. Just <strong>one afternoon where you let yourself be slow on purpose.</strong></p>
+          <p>Pick something small. A utility script. A refactor you've been putting off. Something where the outcome matters less than the process of getting there.</p>
+          <p>The discomfort is the point. The feeling slow is the signal that you're rebuilding something.</p>
+        </div>
+      </div>
 
-  <div class="footer-note">
-    <p>You're receiving this because you signed up for The Dispatch, the weekly email from <a href="https://clearing-ai.com">The Clearing</a>. To unsubscribe, reply with "stop" — though we'd miss you.</p>
-    <p><a href="https://clearing-ai.com/newsletter-issues/dispatch-57.html">View this issue online</a> · <a href="https://clearing-ai.com/newsletter-issues">Archive</a></p>
-  </div>
+      <!-- Resource -->
+      <div class="dispatch-section">
+        <h2>Resource of the Week</h2>
+        <p>Asking yourself: <em>"Am I still actually a developer?"</em> — that question has a name and a page.</p>
+        <p><a href="https://clearing-ai.com/developer-identity.html">developer-identity.html</a> — for engineers navigating the identity question that the confirmation loop makes worse.</p>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-block">
+        <p>The AI Fatigue Quiz takes 90 seconds and maps which specific skills have drifted furthest from your unaugmented baseline. Find out where you are in the loop.</p>
+        <a href="https://clearing-ai.com/quiz.html" class="btn">Take the Quiz →</a>
+        <div class="cta-links">
+          <a href="https://clearing-ai.com/ai-fatigue.html">Explore AI Fatigue Deep Dive →</a>
+        </div>
+      </div>
+
+      <!-- Explore -->
+      <div class="explore-grid">
+        <a href="https://clearing-ai.com/skill-atrophy.html" class="explore-card">
+          <div class="explore-icon">🧠</div>
+          <h4>Skill Atrophy</h4>
+          <p>The slow erosion of generative capacity when origination is outsourced to AI.</p>
+        </a>
+        <a href="https://clearing-ai.com/attention-residue.html" class="explore-card">
+          <div class="explore-icon">⏱️</div>
+          <h4>Attention Residue</h4>
+          <p>Why your brain can't fully switch tasks — and why AI makes it worse.</p>
+        </a>
+        <a href="https://clearing-ai.com/productivity-theater.html" class="explore-card">
+          <div class="explore-icon">🎭</div>
+          <h4>Productivity Theater</h4>
+          <p>When AI makes you busy, not better — and how to tell the difference.</p>
+        </a>
+        <a href="https://clearing-ai.com/recovery.html" class="explore-card">
+          <div class="explore-icon">🌿</div>
+          <h4>Recovery Guide</h4>
+          <p>The 30-day plan for rebuilding the muscle the loop eroded.</p>
+        </a>
+      </div>
+
+      <!-- Closing -->
+      <div class="ps-box">
+        <p>The loop doesn't feel like a trap while you're in it. It feels like productivity.</p>
+        <p>That's what makes it dangerous.</p>
+        <p>— The Clearing</p>
+      </div>
+
+      <footer class="dispatch-footer">
+        <p>📬 <a href="https://clearing-ai.com/newsletter.html">Subscribe to The Dispatch</a> — one email per Sunday</p>
+        <p>🌿 <a href="https://clearing-ai.com/">clearing-ai.com</a> · Free forever · Built by engineers, for engineers</p>
+      </footer>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 <a href="https://clearing-ai.com/">The Clearing</a> · <a href="https://clearing-ai.com/newsletter-archive.html">Archive</a> · <a href="https://clearing-ai.com/privacy.html">Privacy</a></p>
+  </footer>
 </body>
 </html>

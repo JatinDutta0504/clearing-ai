@@ -3,197 +3,313 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Velocity Trap — The Dispatch #61</title>
-  <meta name="description" content="There's a particular trap in AI-assisted engineering that nobody names directly enough. You ship more. Your velocity looks better. And yet — when something breaks — you feel a flicker of uncertainty.">
-  <link rel="canonical" href="https://clearing-ai.com/newsletter-archive.html">
-  <meta property="og:title" content="The Velocity Trap — The Dispatch #61">
-  <meta property="og:description" content="You ship more. Your velocity looks better. And yet — when something breaks — you feel a flicker of uncertainty.">
+  <title>The Dispatch #61 — The Velocity Trap</title>
+  <meta name="description" content="Why shipping more with AI doesn't mean you're learning more — and what the mirage is actually costing you.">
+  <meta property="og:title" content="The Dispatch #61 — The Velocity Trap">
+  <meta property="og:description" content="Why shipping more with AI doesn't mean you're learning more — and what the mirage is actually costing you.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://clearing-ai.com/newsletter-archive.html">
+  <meta property="og:url" content="https://clearing-ai.com/newsletter-issues/dispatch-61.html">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="The Velocity Trap — The Dispatch #61">
-  <meta name="twitter:description" content="You ship more. Your velocity looks better. And yet — when something breaks — you feel a flicker of uncertainty.">
-  <link rel="stylesheet" href="css/style.css">
-  <style>
-    body { background: #0f1419; color: #c5cdd8; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.7; }
-    .dispatch-issue { max-width: 640px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
-    .dispatch-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.5rem; }
-    .dispatch-label { background: #1a2633; color: #7bcf8e; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.7rem; border-radius: 3px; }
-    .dispatch-date { color: #5c6e7e; font-size: 0.8rem; }
-    h1 { color: #e8edf4; font-size: 2rem; font-weight: 700; margin: 0 0 0.5rem; letter-spacing: -0.02em; line-height: 1.2; }
-    .dispatch-subtitle { color: #8899a8; font-size: 1.05rem; margin: 0 0 1.5rem; font-weight: 400; }
-    .dispatch-divider { border: none; border-top: 1px solid #1e2a38; margin: 1.5rem 0; }
-    .dispatch-body h2 { color: #e8edf4; font-size: 1.15rem; font-weight: 600; margin: 2rem 0 0.75rem; letter-spacing: -0.01em; }
-    .dispatch-body p { margin: 0 0 1.2rem; }
-    .dispatch-body strong { color: #c5cdd8; font-weight: 600; }
-    .mechanism-card { background: #161e28; border: 1px solid #1e2a38; border-left: 3px solid #c44f4f; border-radius: 6px; padding: 1.2rem 1.4rem; margin: 1.5rem 0; }
-    .mechanism-card h3 { color: #e8edf4; font-size: 1rem; font-weight: 600; margin: 0 0 0.6rem; }
-    .mechanism-card p { color: #8899a8; font-size: 0.9rem; margin: 0 0 0.8rem; }
-    .mechanism-card .num { color: #c44f4f; font-size: 0.85rem; display: block; margin-bottom: 0.4rem; font-weight: 700; }
-    .quote-block { border-left: 3px solid #4a7cf8; padding: 0.8rem 1.4rem; margin: 1.5rem 0; background: #131b2a; border-radius: 0 6px 6px 0; }
-    .quote-block p { color: #8899a8; font-size: 0.95rem; margin: 0 0 0.8rem; font-style: italic; }
-    .quote-block p:last-child { margin-bottom: 0; }
-    .quote-block cite { color: #5c6e7e; font-size: 0.8rem; display: block; margin-top: 0.4rem; font-style: normal; }
-    .reframe-box { background: #0f1a12; border: 1px solid #1a3325; border-radius: 8px; padding: 1.4rem 1.6rem; margin: 2rem 0; }
-    .reframe-box h3 { color: #7bcf8e; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.6rem; }
-    .reframe-box p { color: #8899a8; font-size: 0.9rem; margin: 0 0 0.8rem; }
-    .reframe-box a { color: #7bcf8e; text-decoration: none; border-bottom: 1px solid rgba(123,207,142,0.3); }
-    .reframe-box a:hover { border-bottom-color: #7bcf8e; }
-    .calibration-box { background: #161e28; border-radius: 6px; padding: 1.4rem 1.6rem; margin: 2rem 0; border: 1px solid #1e2a38; }
-    .calibration-box h3 { color: #e8edf4; font-size: 1rem; font-weight: 600; margin: 0 0 0.8rem; }
-    .calibration-box p { color: #8899a8; font-size: 0.9rem; margin: 0 0 0.8rem; }
-    .calibration-box p:last-child { margin-bottom: 0; }
-    .calibration-box em { color: #c44f4f; font-style: normal; font-weight: 600; }
-    .cta-block { background: #1a2633; border-radius: 8px; padding: 1.4rem; margin: 2rem 0; text-align: center; }
-    .cta-block p { color: #8899a8; font-size: 0.9rem; margin: 0 0 0.8rem; }
-    .cta-block a { display: inline-block; background: #7bcf8e; color: #0f1419; font-weight: 700; font-size: 0.85rem; padding: 0.6rem 1.4rem; border-radius: 5px; text-decoration: none; margin: 0.25rem; }
-    .cta-block a.secondary { background: transparent; color: #7bcf8e; border: 1px solid #7bcf8e; }
-    .cta-block a:hover { opacity: 0.85; }
-    .closing { color: #5c6e7e; font-size: 0.85rem; font-style: italic; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #1e2a38; }
-    .inline-cta { color: #7bcf8e; text-decoration: none; border-bottom: 1px solid rgba(123,207,142,0.3); }
-    .inline-cta:hover { border-bottom-color: #7bcf8e; }
-    @media(max-width:600px){.dispatch-issue{padding:1.5rem 1rem}h1{font-size:1.6rem}}
-  </style>
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-issues/dispatch-61.html">
+  <link rel="stylesheet" href="../css/style.min.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>🌿</text></svg>">
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"Article",
-    "headline":"The Velocity Trap: Why More Output Doesn't Mean More Skill",
-    "description":"There's a particular trap in AI-assisted engineering that nobody names directly enough. You ship more. Your velocity looks better. And yet — when something breaks — you feel a flicker of uncertainty.",
-    "author":{"@type":"Organization","name":"The Clearing","url":"https://clearing-ai.com"},
-    "publisher":{"@type":"Organization","name":"The Clearing","url":"https://clearing-ai.com"},
-    "datePublished":"2026-05-18",
-    "dateModified":"2026-05-18",
-    "url":"https://clearing-ai.com/newsletter-issues/dispatch-61.html"
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Dispatch #61 — The Velocity Trap: Why More Output Doesn't Mean More Skill",
+    "description": "Why shipping more with AI doesn't mean you're learning more — and what the mirage is actually costing you.",
+    "datePublished": "2026-05-18",
+    "dateModified": "2026-05-18",
+    "author": { "@type": "Organization", "name": "The Clearing" },
+    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "isPartOf": { "@type": "Periodical", "name": "The Dispatch" }
   }
   </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0d1117; --surface: #161b22; --surface-2: #1c2128;
+      --border: #21262d; --text: #e6edf3; --muted: #8b949e;
+      --accent: #3fb950; --accent-dim: #238636;
+      --forest-soft: rgba(46,160,67,0.15);
+      --warn: #d29922; --warn-soft: rgba(210,153,34,0.15);
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --surface-2: #f0f3f6;
+      --border: #d0d7de; --text: #1f2328; --muted: #656d76;
+      --accent: #1a7f37; --accent-dim: #2da44e;
+      --forest-soft: rgba(26,127,55,0.1);
+      --warn-soft: rgba(210,153,34,0.1);
+    }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.75; font-size: 17px; }
+    a { color: var(--accent); }
+    .container { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+    nav { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 20px; position: sticky; top: 0; z-index: 100; }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; height: 56px; }
+    .nav-logo { font-weight: 700; font-size: 18px; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+    .nav-logo:hover { text-decoration: none; }
+    .nav-links { display: flex; margin-left: 32px; gap: 0; }
+    .nav-links a { color: var(--muted); padding: 0 14px; height: 56px; display: flex; align-items: center; font-size: 14px; font-weight: 500; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .nav-right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+    .theme-toggle { background: none; border: 1px solid var(--border); color: var(--muted); width: 34px; height: 34px; border-radius: 6px; cursor: pointer; font-size: 16px; }
+    .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+    .nav-cta { background: var(--accent); color: #0d1117; font-weight: 600; font-size: 14px; padding: 8px 16px; border-radius: 8px; transition: opacity 0.15s; }
+    .nav-cta:hover { opacity: 0.85; text-decoration: none; }
+    .issue-header { padding: 64px 0 40px; text-align: center; }
+    .issue-number { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .issue-title { font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 20px; }
+    .issue-date { font-size: 0.9rem; color: var(--muted); }
+    .issue-meta { display: flex; justify-content: center; gap: 24px; margin-top: 12px; flex-wrap: wrap; }
+    .issue-meta span { font-size: 0.85rem; color: var(--muted); }
+    .dispatch-hero { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 36px 40px; margin-bottom: 40px; }
+    .dispatch-hero p { font-size: 1.05rem; color: var(--text); line-height: 1.85; margin-bottom: 16px; }
+    .dispatch-hero p:last-child { margin-bottom: 0; }
+    .dispatch-hero p strong { color: var(--accent); }
+    .dispatch-section { margin-bottom: 36px; }
+    .dispatch-section h2 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; color: var(--text); }
+    .dispatch-section p { color: var(--text); margin-bottom: 16px; font-size: 1rem; line-height: 1.85; }
+    .dispatch-section ul { margin: 0 0 16px 24px; }
+    .dispatch-section li { margin-bottom: 10px; font-size: 1rem; line-height: 1.75; color: var(--text); }
+    .dispatch-section strong { color: var(--accent); font-weight: 700; }
+    .stat-callout { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 20px 24px; margin: 20px 0; }
+    .stat-callout .stat-number { font-size: 2rem; font-weight: 800; color: var(--accent); letter-spacing: -0.04em; }
+    .stat-callout .stat-label { font-size: 0.85rem; color: var(--muted); display: block; }
+    .three-mechanisms { display: grid; gap: 16px; margin: 24px 0; }
+    .mechanism-card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 20px 24px; }
+    .mechanism-card .mech-num { font-size: 0.8rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+    .mechanism-card h3 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 10px; }
+    .mechanism-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; margin-bottom: 0; }
+    .warn-box { background: var(--warn-soft); border: 1px solid var(--warn); border-radius: 12px; padding: 20px 24px; margin: 20px 0; }
+    .warn-box p { font-size: 0.95rem; color: var(--text); margin-bottom: 0; }
+    .tips-box { background: var(--forest-soft); border: 1px solid var(--accent-dim); border-radius: 12px; padding: 24px 28px; margin: 24px 0; }
+    .tips-box h3 { font-size: 1.1rem; font-weight: 700; color: var(--accent); margin-bottom: 16px; }
+    .tips-box .tip { margin-bottom: 16px; padding-left: 16px; border-left: 3px solid var(--accent-dim); }
+    .tips-box .tip:last-child { margin-bottom: 0; }
+    .tips-box .tip strong { display: block; color: var(--text); margin-bottom: 4px; font-size: 0.95rem; }
+    .tips-box .tip p { font-size: 0.875rem; color: var(--muted); }
+    .test-box { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 0 10px 10px 0; padding: 20px 24px; margin: 24px 0; }
+    .test-box p { font-size: 0.9rem; color: var(--text); margin-bottom: 10px; }
+    .test-box p strong { color: var(--accent); }
+    .test-box p:last-child { margin-bottom: 0; font-style: italic; color: var(--muted); }
+    .cta-block { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 28px 32px; margin: 40px 0; text-align: center; }
+    .cta-block p { font-size: 1rem; margin-bottom: 20px; line-height: 1.7; }
+    .cta-block .btn { display: inline-block; background: var(--accent); color: #0d1117; font-weight: 700; font-size: 15px; padding: 12px 28px; border-radius: 10px; text-decoration: none; transition: opacity 0.15s; }
+    .cta-block .btn:hover { opacity: 0.85; text-decoration: none; }
+    .cta-links { display: flex; flex-direction: column; gap: 12px; align-items: center; margin-top: 16px; }
+    .cta-links a { color: var(--accent); font-size: 0.95rem; font-weight: 600; }
+    .ps-box { background: var(--forest-soft); border: 1px solid var(--accent-dim); border-radius: 12px; padding: 24px 28px; margin-top: 40px; }
+    .ps-box p { font-size: 0.95rem; color: var(--muted); margin-bottom: 12px; }
+    .ps-box p:last-child { margin-bottom: 0; }
+    .dispatch-footer { text-align: center; padding: 48px 0 60px; border-top: 1px solid var(--border); margin-top: 60px; }
+    .dispatch-footer p { font-size: 0.875rem; color: var(--muted); margin-bottom: 12px; }
+    .dispatch-footer a { color: var(--accent); }
+    .explore-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 40px 0 0; }
+    .explore-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px; text-decoration: none; transition: all 0.2s; display: block; }
+    .explore-card:hover { border-color: var(--accent); transform: translateY(-2px); text-decoration: none; }
+    .explore-card .explore-icon { font-size: 1.5rem; margin-bottom: 8px; }
+    .explore-card h4 { font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .explore-card p { font-size: 0.78rem; color: var(--muted); margin-bottom: 0; line-height: 1.5; }
+    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 32px 20px; text-align: center; }
+    footer p { font-size: 0.8rem; color: var(--muted); }
+    footer a { color: var(--accent); }
+    @media (max-width: 600px) {
+      .dispatch-hero { padding: 24px 20px; }
+      .container { padding: 0 16px; }
+      .cta-block { padding: 24px 20px; }
+    }
+  </style>
 </head>
 <body>
-<a href="#main" class="skip-link" style="position:absolute;left:-9999px">Skip to content</a>
-<header class="dispatch-header">
-  <span class="dispatch-label">&#127793; The Dispatch #61</span>
-  <span class="dispatch-date">May 18, 2026</span>
-</header>
-<main class="dispatch-issue" id="main">
-  <h1>The Velocity Trap</h1>
-  <p class="dispatch-subtitle">Why shipping more with AI doesn't mean you're learning more — and what the mirage costs you</p>
-  <hr class="dispatch-divider">
-
-  <div class="dispatch-body">
-    <p>There's a particular trap in AI-assisted engineering that nobody names directly enough.</p>
-
-    <p>It goes like this:</p>
-
-    <p>You ship more. Your PR count goes up. Your velocity metrics look better than last quarter. You're building features faster, closing tickets faster, shipping faster.</p>
-
-    <p>And yet — when something breaks that isn't a normal error, something you've "shipped" a dozen times — you feel a flicker of uncertainty. A moment where you can't quite trust your own read of the system.</p>
-
-    <p><strong>The output increased. The understanding didn't.</strong></p>
-
-    <p>This week: the velocity trap, why it's so insidious, and what you can actually do about it.</p>
-
-    <h2>What "Velocity" Is Hiding</h2>
-
-    <p>Velocity is a measure of output per unit time.</p>
-
-    <p>What it doesn't measure:</p>
-
-    <ul style="margin:0 0 1.2rem 1.5rem;color:#8899a8">
-      <li>Whether you understand the output</li>
-      <li>Whether the problem-solving capability that generated it lives in you or in the tool</li>
-      <li>Whether you'll be able to solve the same problem without the tool next time</li>
-      <li>Whether your mental models of the system are getting richer or shallower</li>
-    </ul>
-
-    <p>When AI handles the middle of the work — the debugging, the edge cases, the optimization passes, the "why isn't this working" sessions — your velocity increases. Your actual problem-solving capability might be decreasing.</p>
-
-    <p><strong>The mirage:</strong> you feel productive because you're producing. But production and growth are different things.</p>
-
-    <h2>Why This Happens So Fast</h2>
-
-    <div class="mechanism-card">
-      <span class="num">1. AI reduces the friction that generates learning</span>
-      <h3>The struggle with a hard problem is where learning happens.</h3>
-      <p>Not the answer — the struggle.</p>
-      <p>When AI removes the struggle, it removes the condition for learning. You get to the answer faster. You skip the part that would have built the mental model.</p>
-      <p>This is the "friction is a feature" finding in cognitive science. The difficulty of retrieval strengthens the memory. Ease of retrieval weakens it.</p>
+  <nav>
+    <div class="nav-inner">
+      <a href="https://clearing-ai.com/" class="nav-logo">🌿 The Clearing</a>
+      <div class="nav-links">
+        <a href="https://clearing-ai.com/tips.html">Tips</a>
+        <a href="https://clearing-ai.com/stories.html">Stories</a>
+        <a href="https://clearing-ai.com/resources.html">Resources</a>
+        <a href="https://clearing-ai.com/research.html">Research</a>
+        <a href="https://clearing-ai.com/newsletter.html">Newsletter</a>
+      </div>
+      <div class="nav-right">
+        <button class="theme-toggle" onclick="document.body.dataset.theme=document.body.dataset.theme==='dark'?'light':'dark'" aria-label="Toggle color theme">🌙</button>
+        <a href="https://clearing-ai.com/quiz.html" class="nav-cta">Take Quiz →</a>
+      </div>
     </div>
+  </nav>
 
-    <div class="mechanism-card">
-      <span class="num">2. AI generates confidence without requiring comprehension</span>
-      <h3>Following an explanation isn't the same as understanding it.</h3>
-      <p>When AI explains something confidently, with clear reasoning and clean code, your brain accepts the explanation as understanding.</p>
-      <p>But understanding something that was explained to you is not the same as understanding something you figured out through struggle. You can follow it. You can nod along. You can reproduce it. The deeper structure — the "why does this actually work that way" — doesn't transfer.</p>
+  <main>
+    <div class="container">
+      <header class="issue-header">
+        <p class="issue-number">The Dispatch #61 · May 18, 2026</p>
+        <h1 class="issue-title">The Velocity Trap: Why More Output Doesn't Mean More Skill</h1>
+        <p class="issue-date">For engineers who use AI tools daily</p>
+        <div class="issue-meta">
+          <span>📖 8 min read</span>
+          <span>🌿 The Clearing</span>
+          <span>Free · Forever</span>
+        </div>
+      </header>
+
+      <!-- Hero -->
+      <div class="dispatch-hero">
+        <p>You ship more. Your PR count goes up. Your velocity metrics look better than last quarter. You're building features faster, closing tickets faster, shipping faster.</p>
+        <p>And yet — when something breaks that isn't a normal error, something you've "shipped" a dozen times — you feel a flicker of uncertainty. A moment where you can't quite trust your own read of the system.</p>
+        <p><strong>The output increased. The understanding didn't.</strong></p>
+        <p>This week: the velocity trap, why it's so insidious, and what you can actually do about it.</p>
+      </div>
+
+      <!-- Section 1 -->
+      <div class="dispatch-section">
+        <h2>What "Velocity" Is Hiding</h2>
+        <p>Velocity is a measure of output per unit time.</p>
+        <p>What it doesn't measure:</p>
+        <ul>
+          <li>Whether you understand the output</li>
+          <li>Whether the problem-solving capability that generated it lives in you or in the tool</li>
+          <li>Whether you'll be able to solve the same problem without the tool next time</li>
+          <li>Whether your mental models of the system are getting richer or shallower</li>
+        </ul>
+        <p>When AI handles the middle of the work — the debugging, the edge cases, the optimization passes, the "why isn't this working" sessions — your velocity increases. Your actual problem-solving capability might be decreasing.</p>
+        <div class="stat-callout">
+          <span class="stat-number">The mirage</span>
+          <span class="stat-label">You feel productive because you're producing. But production and growth are different things.</span>
+        </div>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="dispatch-section">
+        <h2>The Mechanism — Why This Happens So Fast</h2>
+
+        <div class="three-mechanisms">
+          <div class="mechanism-card">
+            <div class="mech-num">Mechanism 1</div>
+            <h3>AI reduces the friction that generates learning</h3>
+            <p>The struggle with a hard problem is where learning happens. Not the answer — the struggle. When AI removes the struggle, it removes the condition for learning. You get to the answer faster. You skip the part that would have built the mental model.</p>
+            <p style="margin-top:10px;color:var(--accent);font-size:0.85rem;font-weight:600;">"Friction is a feature" — the difficulty of retrieval strengthens the memory. Ease of retrieval weakens it.</p>
+          </div>
+
+          <div class="mechanism-card">
+            <div class="mech-num">Mechanism 2</div>
+            <h3>AI generates confidence without requiring comprehension</h3>
+            <p>When AI explains something confidently, with clear reasoning and clean code, your brain accepts the explanation as understanding. But understanding something that was explained to you is not the same as understanding something you figured out through struggle. You can follow the explanation. You can nod along. You can even reproduce it. But the deeper structure doesn't transfer.</p>
+          </div>
+
+          <div class="mechanism-card">
+            <div class="mech-num">Mechanism 3</div>
+            <h3>The feedback loop rewards velocity, not depth</h3>
+            <p>Your team's velocity metrics go up. Your code review is faster. Your PRs ship faster. The feedback loop is designed to reward production. It has no signal for whether your mental models are getting stronger or weaker. The trap closes. The velocity keeps going up. The depth keeps going down.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3 -->
+      <div class="dispatch-section">
+        <h2>The Cost Nobody Talks About</h2>
+        <p>The real cost of the velocity trap isn't lost productivity. It's <strong>latent risk.</strong></p>
+
+        <div class="warn-box">
+          <p><strong>The knowledge mirage:</strong> You know more than you did two years ago — in the sense that you've seen more solutions, worked on more systems, reviewed more code. But you know less in the sense that actually matters: can you solve novel problems in this domain without AI?</p>
+          <p style="margin-top:8px;">What you know feels like understanding. But it's recognition, not comprehension.</p>
+        </div>
+
+        <p><strong>The backup failure:</strong> The engineers most vulnerable to the velocity trap have one thing in common: they can't tell you, in their own words, without an AI tab open, how their system actually works. Not because they're bad engineers. Because the AI handles the parts that used to build that understanding.</p>
+
+        <p><strong>The compounding invisibility:</strong> Skill atrophy from AI isn't dramatic. You don't wake up one day unable to code. You wake up one day unable to debug something that would have been routine two years ago — and you can't pinpoint exactly when it happened. The velocity trap compounds quietly. Until it doesn't.</p>
+      </div>
+
+      <!-- Section 4 -->
+      <div class="dispatch-section">
+        <h2>The Calibration Test</h2>
+        <p>Here's the test worth running monthly:</p>
+        <p><strong>Pick one feature you've shipped in the last 30 days. Without looking at the code or any AI tools:</strong></p>
+        <ul>
+          <li>Can you explain why the architecture decisions were made the way they were?</li>
+          <li>Can you identify the three most likely failure points, and why?</li>
+          <li>Could you debug a production issue in this feature at 2am without AI?</li>
+        </ul>
+        <div class="test-box">
+          <p><strong>If you can answer all three confidently:</strong> you're probably in better shape than most.</p>
+          <p><strong>If you can answer one or two:</strong> the velocity trap has a grip.</p>
+          <p><strong>If you can't answer any of them:</strong> the code shipped, but the understanding didn't.</p>
+        </div>
+      </div>
+
+      <!-- Section 5 -->
+      <div class="dispatch-section">
+        <h2>What Actually Changes the Trajectory</h2>
+        <p>The fix isn't to use AI less. That won't stick and isn't the real goal.</p>
+        <p><strong>The fix:</strong> be deliberate about when you're learning and when you're producing.</p>
+
+        <div class="tips-box">
+          <h3>The Split Practice</h3>
+          <div class="tip">
+            <strong>Structure your week so that some of what you do is deliberately learning.</strong>
+            <p>With AI off — or AI as a teacher rather than a collaborator — and some is production. The production work can use AI freely. The learning work needs friction.</p>
+          </div>
+          <div class="tip">
+            <strong>The Explanation Requirement</strong>
+            <p>After any AI-assisted session, spend 5 minutes writing in your own words what you did and why it worked. Without the AI's framing. Without the code open. If you can't: that's your gap. That's the work.</p>
+          </div>
+          <div class="tip">
+            <strong>The Quarterly Calibration</strong>
+            <p>Once per quarter, take a medium-sized problem you've been working on with AI for several weeks. Solve it for one hour without AI. Don't look at the AI's previous solutions. Work from first principles. Measure: how far did you get? Where did you get stuck? How did it feel?</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-block">
+        <p>If this described something you've been feeling: the AI Fatigue Quiz takes 90 seconds and maps where your understanding has drifted from your unaugmented capability. Free. No email required.</p>
+        <a href="https://clearing-ai.com/quiz.html" class="btn">Take the AI Fatigue Quiz →</a>
+        <div class="cta-links">
+          <a href="https://clearing-ai.com/recovery.html">Recovery Guide: 30-Day Plan →</a>
+        </div>
+      </div>
+
+      <!-- Explore -->
+      <div class="explore-grid">
+        <a href="https://clearing-ai.com/skill-atrophy.html" class="explore-card">
+          <div class="explore-icon">🧠</div>
+          <h4>Skill Atrophy</h4>
+          <p>The slow erosion of generative capacity when origination is outsourced.</p>
+        </a>
+        <a href="https://clearing-ai.com/productivity-theater.html" class="explore-card">
+          <div class="explore-icon">🎭</div>
+          <h4>Productivity Theater</h4>
+          <p>When AI makes you busy, not better — and how to spot the difference.</p>
+        </a>
+        <a href="https://clearing-ai.com/cognitive-load.html" class="explore-card">
+          <div class="explore-icon">🧩</div>
+          <h4>Cognitive Load</h4>
+          <p>Why your mental bandwidth is finite — and why AI doesn't actually expand it.</p>
+        </a>
+        <a href="https://clearing-ai.com/daily-practice.html" class="explore-card">
+          <div class="explore-icon">🌅</div>
+          <h4>Daily Practice</h4>
+          <p>The micro-habits that maintain skill while using AI freely.</p>
+        </a>
+      </div>
+
+      <!-- Closing -->
+      <div class="ps-box">
+        <p>Velocity is a metric. Understanding is a capability.</p>
+        <p>Metrics are easy to optimize for. Capabilities are hard to maintain.</p>
+        <p>The trap is optimizing the metric at the expense of the capability.</p>
+        <p><strong>Measure both.</strong></p>
+        <p style="margin-top:16px;"><em>P.S. If you've been meaning to share The Clearing with a colleague who feels like they're running faster but getting shallower — this is the week.</em></p>
+      </div>
+
+      <footer class="dispatch-footer">
+        <p>📬 <a href="https://clearing-ai.com/newsletter.html">Subscribe to The Dispatch</a> — one email per Sunday</p>
+        <p>🌿 <a href="https://clearing-ai.com/">clearing-ai.com</a> · Free forever · Built by engineers, for engineers</p>
+      </footer>
     </div>
+  </main>
 
-    <div class="mechanism-card">
-      <span class="num">3. The feedback loop rewards velocity, not depth</span>
-      <h3>The system is optimizing for the wrong signal.</h3>
-      <p>Your team's velocity metrics go up. Your code review is faster. Your PRs ship faster.</p>
-      <p>The feedback loop is designed to reward production. It has no signal for whether your mental models are getting stronger or weaker.</p>
-      <p>The trap closes. The velocity keeps going up. The depth keeps going down.</p>
-    </div>
-
-    <h2>The Cost Nobody Talks About</h2>
-
-    <p>The real cost of the velocity trap isn't lost productivity. It's latent risk.</p>
-
-    <div class="quote-block">
-      <p><strong>The knowledge mirage:</strong> what you know feels like understanding. But it's recognition, not comprehension. You've seen the solutions. You haven't built the capability.</p>
-    </div>
-
-    <p><strong>The backup failure:</strong> the engineers most vulnerable to the velocity trap have one thing in common — they can't tell you, in their own words, without an AI tab open, how their system actually works. Not because they're bad engineers. Because the AI handles the parts that used to build that understanding.</p>
-
-    <p><strong>The compounding invisibility:</strong> skill atrophy from AI isn't dramatic. You don't wake up one day unable to code. You wake up one day unable to debug something that would have been routine two years ago — and you can't pinpoint exactly when it happened. The velocity trap compounds quietly. Until it doesn't.</p>
-
-    <h2>The Calibration Test</h2>
-
-    <p>Here's the test worth running monthly:</p>
-
-    <div class="calibration-box">
-      <h3>Pick one feature you've shipped in the last 30 days. Without looking at the code or any AI tools:</h3>
-      <p>→ Can you explain why the architecture decisions were made the way they were?</p>
-      <p>→ Can you identify the three most likely failure points, and why?</p>
-      <p>→ Could you debug a production issue in this feature at 2am without AI?</p>
-      <p><em>If you can answer all three confidently:</em> you're probably in better shape than most.</p>
-      <p><em>If you can answer one or two:</em> the velocity trap has a grip.</p>
-      <p><em>If you can't answer any of them:</em> the code shipped. But the understanding didn't.</p>
-    </div>
-
-    <h2>What Actually Changes the Trajectory</h2>
-
-    <p>The fix isn't to use AI less. That won't stick and isn't the real goal.</p>
-
-    <p>The fix is to be deliberate about when you're <em>learning</em> and when you're <em>producing</em>.</p>
-
-    <div class="reframe-box">
-      <h3>The Split Practice</h3>
-      <p>Structure your week so that some of what you do is deliberately learning — with AI off or AI as a teacher rather than a collaborator — and some is production.</p>
-      <p>The production work can use AI freely. The learning work needs friction.</p>
-    </div>
-
-    <div class="reframe-box">
-      <h3>The Explanation Requirement</h3>
-      <p>After any AI-assisted session, spend 5 minutes writing in your own words what you did and why it worked. Without the AI's framing. Without the code open.</p>
-      <p>If you can't: that's your gap. That's the work.</p>
-      <p>→ <a href="https://clearing-ai.com/the-explanation-requirement.html">The Explanation Requirement guide</a></p>
-    </div>
-
-    <div class="reframe-box">
-      <h3>The Quarterly Calibration</h3>
-      <p>Once per quarter, take a medium-sized problem you've been working on with AI for several weeks. Solve it for one hour without AI. Don't look at the AI's previous solutions. Work from first principles.</p>
-      <p>Measure: how far did you get? Where did you get stuck? How did it feel?</p>
-      <p>This is your calibration baseline. Repeat it every quarter. Watch the trajectory.</p>
-    </div>
-
-    <div class="cta-block">
-      <p>If this described something you've been feeling — the AI Fatigue Quiz takes 90 seconds and maps where your understanding has drifted from your unaugmented capability.</p>
-      <a href="https://clearing-ai.com/quiz.html">Take the AI Fatigue Quiz →</a>
-      <a href="https://clearing-ai.com/recovery.html" class="secondary">Recovery Guide →</a>
-    </div>
-
-    <p class="closing">Velocity is a metric. Understanding is a capability.<br>Metrics are easy to optimize for. Capabilities are hard to maintain.<br>The trap is optimizing the metric at the expense of the capability.<br>Measure both.<br><br>— The Clearing<br><br><em>P.S. If you've been meaning to share The Clearing with a colleague who feels like they're running faster but getting shallower — this is the week.</em></p>
-  </div>
-</main>
+  <footer>
+    <p>© 2026 <a href="https://clearing-ai.com/">The Clearing</a> · <a href="https://clearing-ai.com/newsletter-archive.html">Archive</a> · <a href="https://clearing-ai.com/privacy.html">Privacy</a></p>
+  </footer>
 </body>
 </html>

@@ -1,5 +1,16 @@
 # The Clearing — Overnight Growth Plan
 
+# Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-20 02:46 UTC (Phase 4 Community)
+**Phase:** Phase 4 Community — Newsletter Infrastructure
+**Built:** `dispatch-67.md` (~3,200 words) + `dispatch-67.html` (~22KB full HTML) + `newsletter-archive.html` (Issues 66+67 added, 76 total archived). Issue 67 theme: "The Autonomy Gap" — why having answers isn't the same as knowing which questions to ask. 5 sections: When the Answer Stops Being the Problem, Three Ways It Shows Up (solution-seeking before framing / verification replacing judgment / confidence without calibration), What It Costs You (autonomy, career resilience, ownership + meaning), Rebuilding the Problem-Framing Instinct (10-Minute Rule, Explain It Twice, No-AI Sprint, Meta-Question), The Thing AI Can't Own. CTA block + PS. Issue 66 HTML archived as "Ready to Send" (MD already existed).
+**Git:** 5301dc98 (3 files, 499 insertions, 2 deletions)
+**Push:** success
+**Phase windows:** P1=205 | P2=268 | P3=181 | P4=154
+**Site stats:** 212 pages | ~984k words | Lighthouse 97 | Technical SEO 99/100 | Day 16
+**Next:** community-hub.html retry | Reddit Comments 1-8 schedule | Twitter #53/#54 manual post
+
+---
+
 ---
 ### Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-13 13:43 PDT (Phase 1 Window 188)
 **Built:** `ai-learning-burnout.html` (~3,200 words) — "AI Learning Burnout: The Hidden Cost of Constantly Keeping Up". 5 sections: The Paradox of Effortless Learning, 4-mechanism grid (recognition without retrieval, velocity imprinting, shallow encoding, confidence inflation), research stats (50% retrieval practice boost, 6× forget rate, 73% survey), Constrained Learning Framework (4 steps: AI for exploration not encoding, no-AI blocks, generate before consume, retrieval log), The Question Worth Sitting With. FAQPage schema (6 Q&As, rich snippet eligible). Internal links: ai-tool-overload, skill-atrophy, cognitive-load, recovery, ai-detox-plan, compare, mindset. **Pillar 3 (AI Tool Overwhelm) now complete: compare, ai-tool-overload, ai-learning-burnout, coding-ai-tools-comparison.**

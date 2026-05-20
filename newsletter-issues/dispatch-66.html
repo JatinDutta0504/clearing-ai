@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Dispatch #66 — The API Design Problem — The Clearing</title>
+  <meta name="description" content="AI can generate an API that works. It can't generate an API that fits. The API design problem and why judgment can't be prompted.">
+  <meta property="og:title" content="The Dispatch #66 — The API Design Problem">
+  <meta property="og:description" content="AI can generate an API that works. It can't generate an API that fits. The API design problem and why judgment can't be prompted.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/newsletter-issues/dispatch-66.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-issues/dispatch-66.html">
+  <link rel="stylesheet" href="../css/style.min.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>🌿</text></svg>">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Dispatch #66 — The API Design Problem",
+    "description": "AI can generate an API that works. It can't generate an API that fits. The API design problem and why judgment can't be prompted.",
+    "datePublished": "2026-06-01",
+    "dateModified": "2026-06-01",
+    "author": { "@type": "Organization", "name": "The Clearing" },
+    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "isPartOf": { "@type": "Periodical", "name": "The Dispatch", "issueNumber": 66 }
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0d1117; --surface: #161b22; --surface-2: #1c2128;
+      --border: #21262d; --text: #e6edf3; --muted: #8b949e;
+      --accent: #3fb950; --accent-dim: #238636;
+      --forest-soft: rgba(46,160,67,0.15);
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --surface-2: #f0f3f6;
+      --border: #d0d7de; --text: #1f2328; --muted: #656d76;
+      --accent: #1a7f37; --accent-dim: #2da44e;
+      --forest-soft: rgba(26,127,55,0.1);
+    }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.75; font-size: 17px; }
+    a { color: var(--accent); }
+    .container { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+    .issue-header { padding: 60px 0 40px; text-align: center; }
+    .issue-number { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .issue-title { font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 20px; }
+    .issue-date { font-size: 0.9rem; color: var(--muted); }
+    .issue-meta { display: flex; justify-content: center; gap: 24px; margin-top: 12px; flex-wrap: wrap; }
+    .issue-meta span { font-size: 0.85rem; color: var(--muted); }
+    .dispatch-hero { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 36px 40px; margin-bottom: 40px; }
+    .dispatch-hero p { font-size: 1.1rem; color: var(--text); line-height: 1.8; }
+    .dispatch-hero p strong { color: var(--accent); }
+    .dispatch-section { margin-bottom: 36px; }
+    .dispatch-section h2 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; color: var(--text); }
+    .dispatch-section p { color: var(--text); margin-bottom: 16px; font-size: 1rem; line-height: 1.8; }
+    .dispatch-section strong { color: var(--accent); }
+    .stat-callout { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 20px 24px; margin: 20px 0; }
+    .stat-callout p { font-size: 1rem; margin-bottom: 12px; }
+    .stat-number { font-size: 2rem; font-weight: 800; color: var(--accent); letter-spacing: -0.04em; }
+    .stat-label { font-size: 0.85rem; color: var(--muted); }
+    .three-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 24px 0; }
+    .three-cards .card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+    .three-cards .card .num { font-size: 1.6rem; font-weight: 800; color: var(--accent); letter-spacing: -0.04em; margin-bottom: 8px; }
+    .three-cards .card .label { font-size: 0.8rem; color: var(--muted); }
+    .three-cards .card .title { font-size: 0.95rem; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+    .tips-box { background: var(--forest-soft); border: 1px solid var(--accent-dim); border-radius: 12px; padding: 24px 28px; margin: 24px 0; }
+    .tips-box h3 { font-size: 1.1rem; font-weight: 700; color: var(--accent); margin-bottom: 16px; }
+    .tips-box .tip { margin-bottom: 14px; padding-left: 16px; border-left: 3px solid var(--accent-dim); }
+    .tips-box .tip:last-child { margin-bottom: 0; }
+    .tips-box .tip strong { display: block; color: var(--text); margin-bottom: 4px; }
+    .tips-box .tip p { font-size: 0.9rem; color: var(--muted); }
+    .ps-box { background: var(--forest-soft); border: 1px solid var(--accent-dim); border-radius: 12px; padding: 24px 28px; margin-top: 40px; }
+    .ps-box p { font-size: 0.95rem; color: var(--muted); margin-bottom: 12px; }
+    .dispatch-footer { text-align: center; padding: 48px 0 60px; border-top: 1px solid var(--border); margin-top: 60px; }
+    .dispatch-footer p { font-size: 0.875rem; color: var(--muted); margin-bottom: 12px; }
+    .dispatch-footer a { color: var(--accent); }
+    .cta-block { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 28px 32px; margin: 40px 0; text-align: center; }
+    .cta-block p { font-size: 1rem; margin-bottom: 20px; line-height: 1.7; }
+    .cta-block a { display: inline-block; background: var(--accent); color: #0a1a0f; font-weight: 700; font-size: 0.9rem; padding: 12px 28px; border-radius: 24px; text-decoration: none; transition: opacity 0.2s; }
+    .cta-block a:hover { opacity: 0.85; }
+    hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+    h2 { margin-top: 36px; }
+    ul, ol { padding-left: 24px; margin-bottom: 16px; }
+    li { margin-bottom: 8px; }
+    code { background: var(--surface-2); border: 1px solid var(--border); border-radius: 4px; padding: 2px 6px; font-size: 0.88em; color: var(--accent); }
+    strong { color: var(--text); }
+    @media (max-width: 600px) {
+      .dispatch-hero { padding: 24px 20px; }
+      .three-cards { grid-template-columns: 1fr; }
+      .issue-meta { gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="issue-header">
+      <div class="issue-number">Issue #66</div>
+      <h1 class="issue-title">The API Design Problem</h1>
+      <div class="issue-date">June 1, 2026</div>
+      <div class="issue-meta">
+        <span>The Dispatch</span>
+        <span>·</span>
+        <span>For engineers who use AI tools daily</span>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <div class="dispatch-hero">
+        <p><strong>The API Design Problem: Why AI Gets the Signature Wrong</strong></p>
+        <p style="margin-top: 16px;">There's a specific kind of code review comment that goes like this: <em>"The implementation is correct. But the API is wrong."</em></p>
+        <p style="margin-top: 16px;">By "wrong" no one means a bug. No tests are failing. The behavior is documented. The OpenAPI spec is generated.</p>
+        <p style="margin-top: 16px;">What they mean is: the API doesn't fit the problem. It has the right operations but the wrong shape. The naming is technically accurate but semantically opaque. The abstraction leaks in the third case someone actually tries to use it.</p>
+        <p style="margin-top: 16px;">This is the API design problem. And it's one of the clearest places where AI tool use and engineering judgment diverge — because API design is not about correctness. It's about fit.</p>
+        <p style="margin-top: 16px;">This week: why this specific problem is worth understanding, how it shows up across the stack, and what to do when you need an API that actually works in the world it enters.</p>
+      </div>
+
+      <!-- SECTION 1 -->
+      <div class="dispatch-section">
+        <h2>What API Design Actually Is</h2>
+        <p>Most engineers learn to think about APIs in terms of contract specification: what does this endpoint accept, what does it return, what are the error codes?</p>
+        <p>That's the mechanical layer of API design. It's necessary but not sufficient.</p>
+        <p>The harder layer is the design layer. And design is about questions like:</p>
+        <ul>
+          <li>Does this API match how the callers actually think about the problem?</li>
+          <li>When the requirements change in the ways they always change, does this abstraction hold or crack?</li>
+          <li>Is the naming legible to someone who wasn't in the room when it was designed?</li>
+          <li>Does this API make the easy things easy and the hard things possible? Or does it make everything equally awkward?</li>
+          <li>What does this API cost to maintain? What's the migration burden when the domain model evolves?</li>
+        </ul>
+        <p>AI tools are good at the mechanical layer. They struggle with everything else — because everything else requires judgment about people, contexts, and futures that the model has no reliable signal on.</p>
+        <p>The result is an API that looks correct in isolation and reveals its design debt the moment it meets the real world.</p>
+      </div>
+
+      <!-- SECTION 2 -->
+      <div class="dispatch-section">
+        <h2>The Three Failure Modes</h2>
+        <p>The API design failures from AI assistance cluster into three patterns:</p>
+
+        <div class="tips-box" style="margin-top: 24px;">
+          <h3>1. The Generic Shape Problem</h3>
+          <p>AI-generated APIs tend toward generic shapes: REST endpoints that could belong to any CRUD system, with resource names that technically describe the data but don't encode the domain.</p>
+          <p>A notification service gets a <code>/notifications</code> endpoint. A payment system gets a <code>/payments</code> endpoint. These are accurate. They're also meaningless beyond the immediate implementation.</p>
+          <p>The design question AI can't answer: what should this look like if we're optimizing for how the product team thinks about this domain, not how the database is structured?</p>
+        </div>
+
+        <div class="tips-box">
+          <h3>2. The Naming Flatness Problem</h3>
+          <p>Good API naming is a translation problem. You take a domain concept and find the word or phrase that best maps to it — for the specific audience that will call this API.</p>
+          <p>AI names tend to be technically accurate and semantically flat. <code>getUserById</code> vs <code>getAccountHolder</code> vs <code>getPrimaryBillingContact</code> — these are all technically correct for the same call, but they encode very different assumptions about who is calling and why.</p>
+          <p>The name shapes how future developers think about the API. Generic names produce generic thinking.</p>
+        </div>
+
+        <div class="tips-box">
+          <h3>3. The Assumption Inheritance Problem</h3>
+          <p>AI generates APIs based on patterns in training data. Those patterns encode assumptions — about scale, about caller sophistication, about error handling norms, about consistency requirements.</p>
+          <p>When those assumptions match your situation: great. When they don't: you get an API that works for the problem the model learned from, not the problem you actually have.</p>
+          <p>The model doesn't know you're building for 10k daily active users with a 3-person team, or for a compliance-heavy domain where the error semantics matter more than the happy path.</p>
+        </div>
+      </div>
+
+      <!-- SECTION 3 -->
+      <div class="dispatch-section">
+        <h2>What This Looks Like Across the Stack</h2>
+
+        <div class="tips-box" style="margin-top: 20px;">
+          <h3>Public API / Platform</h3>
+          <p>The API becomes a product surface. Every design decision is a commitment. AI-generate a payment API and you get something that works for the test case — but the naming, the error semantics, the webhook reliability, the idempotency design — these are all underdetermined by the prompt and overdetermined by the actual use cases you'll face.</p>
+          <p>The cost of getting it wrong: you ship the API, clients build against it, and now changing it is expensive.</p>
+        </div>
+
+        <div class="tips-box">
+          <h3>Internal Service API</h3>
+          <p>Internal APIs have more tolerance for evolution, but they still carry design debt. A poorly designed internal API creates invisible friction: teams work around it instead of with it, the documentation is technically accurate but not useful, onboarding new engineers takes longer because the mental model doesn't match the code.</p>
+        </div>
+
+        <div class="tips-box">
+          <h3>Library / SDK</h3>
+          <p>The API of a library is its contract with every caller. AI-generated libraries tend to expose implementation structure rather than domain structure. The result is a library that's technically correct but ergonomically hostile — callers have to understand how the library works to use it, rather than being guided by how the domain works.</p>
+        </div>
+      </div>
+
+      <!-- SECTION 4 -->
+      <div class="dispatch-section">
+        <h2>The Judgment That Can't Be Prompted</h2>
+        <p>API design requires a kind of judgment that sits outside any specific technical decision:</p>
+        <ul>
+          <li>You have to hold the caller's perspective in mind without being able to ask them directly</li>
+          <li>You have to anticipate requirement changes in directions you can't fully predict</li>
+          <li>You have to decide what to make easy, what to make possible, and what to make impossible</li>
+          <li>You have to weigh the cost of changing the API later against the cost of getting it right now</li>
+          <li>You have to know when a design is "good enough for where we are" vs when it's going to cause compound pain</li>
+        </ul>
+        <p>None of these questions have correct answers in the abstract. They're judgment calls — tradeoffs made with incomplete information, in a specific context, with a specific set of stakeholders.</p>
+        <p>This is not a deficiency in AI tools. It's a structural feature of the problem. API design is a design task. Design requires judgment about people and futures. That's exactly what's outside the model's reach.</p>
+      </div>
+
+      <!-- SECTION 5 -->
+      <div class="dispatch-section">
+        <h2>What Actually Helps</h2>
+        <p>You don't have to give up AI-generated scaffolding. You have to apply judgment to what AI generates — specifically in the places where the model can't.</p>
+
+        <div class="tips-box" style="margin-top: 24px;">
+          <h3>The Caller Audit</h3>
+          <p>Before finalizing any API design, write out three things:</p>
+          <ol>
+            <li>Who will call this API and why</li>
+            <li>What they'll want to do that's easy today</li>
+            <li>What they'll want to do that requires workarounds today</li>
+          </ol>
+          <p>The third item is your design debt. If it's a long list, the API shape doesn't fit the problem.</p>
+        </div>
+
+        <div class="tips-box">
+          <h3>The Rename Test</h3>
+          <p>After AI generates an API, go through every named thing and ask: could this name mean something different in this domain? Could it be more specific? More legible to a newcomer?</p>
+          <p>Generic names are often AI names. Domain-specific names that encode the business logic are usually human names.</p>
+        </div>
+
+        <div class="tips-box">
+          <h3>The Schema Stress Test</h3>
+          <p>Take the AI-generated schema and run two cases through it:</p>
+          <ol>
+            <li>The happy path (the normal case the model optimized for)</li>
+            <li>The edge case you've already told it to handle in the spec</li>
+          </ol>
+          <p>Then run a third case: the edge case you didn't specify. Where does the schema break down? Where does the API's behavior become ambiguous?</p>
+          <p>This third case is where design debt lives.</p>
+        </div>
+
+        <div class="tips-box">
+          <h3>The 90-Day Check</h3>
+          <p>Set a calendar reminder for 90 days after shipping. When it fires, go back to the API and answer: does this still fit the problem? What have we worked around? What have we changed? What would we do differently?</p>
+          <p>This is the honest evaluation that AI can't give you — a retrospective on whether the design held up.</p>
+        </div>
+      </div>
+
+      <hr>
+
+      <!-- CTA -->
+      <div class="cta-block">
+        <p>If the "fits the problem" framing resonates, the AI Fatigue Quiz surfaces where else this dynamic shows up in your work — specifically, where AI assistance is producing output that looks correct but isn't quite yours.</p>
+        <a href="https://clearing-ai.com/quiz.html">Take the AI Fatigue Quiz →</a>
+        <p style="margin-top: 20px;">The manifesto on intentional AI use goes deeper on the judgment calls that AI tools can't make for you.</p>
+        <a href="https://clearing-ai.com/manifesto.html">Read: An Engineer's Manifesto for Intentional AI Use →</a>
+      </div>
+
+      <!-- CLOSING -->
+      <div class="dispatch-section">
+        <h2>Closing</h2>
+        <p>The goal isn't to distrust AI-generated code. The goal is to know which decisions require your judgment and which ones don't.</p>
+        <p>API design is one of the clearest places where that line falls. The model can generate the contract. You still have to design the fit.</p>
+        <p>— The Clearing</p>
+      </div>
+
+      <!-- PS -->
+      <div class="ps-box">
+        <p><strong>P.S.</strong> If you've got a colleague that keeps shipping AI-generated APIs that work but feel wrong in code review — send them this week's Dispatch. It's the conversation you probably need to have.</p>
+      </div>
+
+      <!-- FOOTER LINKS -->
+      <div class="dispatch-footer">
+        <p>Not subscribed yet? <a href="https://clearing-ai.com/newsletter.html">Join 2,400+ engineers</a> getting The Dispatch weekly.</p>
+        <p>Missed an issue? <a href="https://clearing-ai.com/newsletter-archive.html">Browse the archive →</a></p>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    <p>© 2026 The Clearing · <a href="https://clearing-ai.com/">clearing-ai.com</a> · For engineers experiencing AI fatigue</p>
+  </footer>
+
+  <script>
+    // Respect OS preference for light theme
+    if (window.matchMedia('(prefers-color-scheme: light)').matches && !localStorage.getItem('theme')) {
+      document.documentElement.dataset.theme = 'light';
+    }
+  </script>
+</body>
+</html>

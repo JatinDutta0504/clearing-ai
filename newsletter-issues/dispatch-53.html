@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Dispatch #53 — The Velocity Regression | The Clearing</title>
+  <meta name="description" content="Why shipping more code with AI can make your team look faster while making them actually slower — and the measurement trap nobody's naming.">
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-issues/dispatch-53.html">
+  <meta property="og:title" content="The Dispatch #53 — The Velocity Regression">
+  <meta property="og:description" content="Why shipping more code with AI can make your team look faster while making them actually slower — and the measurement trap nobody's naming.">
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/newsletter-issues/dispatch-53.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Dispatch #53 — The Velocity Regression">
+  <meta name="twitter:description" content="Why shipping more code with AI can make your team look faster while making them actually slower.">
+  <meta name="author" content="The Clearing">
+  <meta property="article:published_time" content="2026-06-20">
+  <meta property="article:section" content="The Dispatch">
+  <link rel="stylesheet" href="../css/style.min.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Dispatch #53 — The Velocity Regression",
+    "description": "Why shipping more code with AI can make your team look faster while making them actually slower — and the measurement trap nobody's naming.",
+    "author": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "datePublished": "2026-06-20",
+    "dateModified": "2026-06-20",
+    "url": "https://clearing-ai.com/newsletter-issues/dispatch-53.html",
+    "isPartOf": { "@type": "Periodical", "name": "The Dispatch" },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Newsletter", "item": "https://clearing-ai.com/newsletter.html" },
+        { "@type": "ListItem", "position": 3, "name": "Archive", "item": "https://clearing-ai.com/newsletter-archive.html" },
+        { "@type": "ListItem", "position": 4, "name": "#53 The Velocity Regression", "item": "https://clearing-ai.com/newsletter-issues/dispatch-53.html" }
+      ]
+    }
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #0c0c0e; --surface: #141418; --surface2: #1c1c22; --border: #2a2a35; --text: #e8e6e3; --text-muted: #8a8a96; --accent: #4a9c6d; --accent-warm: #c4793a; --radius: 10px; --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+    [data-theme="light"] { --bg: #f4f1ec; --surface: #ece8e2; --surface2: #e2ddd5; --border: #ccc5ba; --text: #1a1a18; --text-muted: #6a6a62; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.7; }
+    a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
+    .nav-bar { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 24px; display: flex; align-items: center; gap: 8px; height: 56px; position: sticky; top: 0; z-index: 100; }
+    .nav-bar a { color: var(--text-muted); font-size: 0.9rem; } .nav-bar a:hover { color: var(--text); text-decoration: none; }
+    .nav-bar .sep { color: var(--border); }
+    .issue-header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 48px 24px 40px; text-align: center; }
+    .issue-label { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 16px; }
+    .issue-header h1 { font-size: 2.2rem; font-weight: 700; line-height: 1.2; margin-bottom: 12px; }
+    .issue-meta { font-size: 0.85rem; color: var(--text-muted); display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+    .dispatch-container { max-width: 720px; margin: 0 auto; padding: 0 24px 80px; }
+    .dispatch-subtitle { font-size: 1.1rem; color: var(--text-muted); font-style: italic; margin-bottom: 32px; }
+    .dispatch-divider { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+    .dispatch-body h2 { font-size: 1.3rem; font-weight: 700; margin: 40px 0 16px; color: var(--text); }
+    .dispatch-body h3 { font-size: 1.1rem; font-weight: 600; margin: 28px 0 12px; color: var(--text); }
+    .dispatch-body p { margin-bottom: 20px; font-size: 1.05rem; }
+    .dispatch-body ul, .dispatch-body ol { margin: 0 0 20px 24px; }
+    .dispatch-body li { margin-bottom: 10px; font-size: 1.05rem; }
+    .dispatch-body strong { color: var(--text); font-weight: 600; }
+    .dispatch-body em { font-style: italic; }
+    .section-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 32px; margin: 32px 0; }
+    .section-block h3 { font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-warm); margin-bottom: 16px; }
+    .callout { background: var(--surface2); border-left: 3px solid var(--accent); padding: 16px 20px; margin: 24px 0; border-radius: 0 var(--radius) var(--radius) 0; }
+    .callout p { margin-bottom: 0; }
+    .cta-block { background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px 36px; margin: 40px 0; text-align: center; }
+    .cta-block h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; }
+    .cta-block p { color: var(--text-muted); margin-bottom: 20px; }
+    .cta-block .cta-button { display: inline-block; background: var(--accent); color: #fff; padding: 12px 28px; border-radius: 6px; font-weight: 600; transition: opacity 0.2s; }
+    .cta-block .cta-button:hover { opacity: 0.85; text-decoration: none; }
+    .closing { border-top: 1px solid var(--border); padding-top: 28px; margin-top: 40px; font-size: 1rem; color: var(--text-muted); }
+    .closing p { margin-bottom: 16px; }
+    .footer-nav { background: var(--surface); border-top: 1px solid var(--border); padding: 20px 24px; text-align: center; }
+    .footer-nav a { color: var(--text-muted); font-size: 0.85rem; margin: 0 12px; }
+    @media (max-width: 600px) { .issue-header h1 { font-size: 1.6rem; } .dispatch-container { padding: 0 16px 60px; } }
+  </style>
+</head>
+<body>
+  <nav class="nav-bar">
+    <a href="https://clearing-ai.com/">Home</a><span class="sep">›</span>
+    <a href="https://clearing-ai.com/newsletter.html">Newsletter</a><span class="sep">›</span>
+    <a href="https://clearing-ai.com/newsletter-archive.html">Archive</a><span class="sep">›</span>
+    <span style="color: var(--text); font-size: 0.9rem;">#53</span>
+  </nav>
+  <header class="issue-header">
+    <div class="issue-label">The Dispatch #53</div>
+    <h1>The Velocity Regression</h1>
+    <div class="issue-meta"><span>June 20, 2026</span><span>For engineers navigating AI without losing themselves</span></div>
+  </header>
+  <main class="dispatch-container">
+    <p class="dispatch-subtitle">A letter about what happens when your velocity metrics optimize for output while your capability metrics quietly decline.</p>
+    <hr class="dispatch-divider">
+    <div class="dispatch-body">
+      <p>A team ships 40% more features this quarter than they did last year.</p>
+
+      <p>The AI tools are working. The sprint retrospectives are glowing. The roadmap is ahead of schedule.</p>
+
+      <p>And then something breaks — something that used to be straightforward — and the team that could rebuild it in a day now takes a week. Not because the problem is harder. Because the capability to solve it without AI has quietly contracted.</p>
+
+      <p>This is the <strong>velocity regression</strong>. And it's one of the most insidious dynamics in software engineering right now.</p>
+
+      <h2>What the Regression Looks Like</h2>
+
+      <p>The velocity regression happens in three stages.</p>
+
+      <p><strong>Stage 1: Apparent acceleration.</strong> AI tools let your team ship more. Features land faster. Velocity metrics go up. Everyone feels good.</p>
+
+      <p><strong>Stage 2: Capability substitution.</strong> The team learns to rely on AI for the hard parts — architecture decisions, debugging, complex refactors. Each sprint ships more, but each sprint also requires more AI assistance to achieve the same output. The team is effectively outsourcing its problem-solving capacity.</p>
+
+      <p><strong>Stage 3: Hidden deceleration.</strong> A system issue surfaces. The team's mental model of their own code is incomplete — they've been operating on AI's understanding, not their own. The recovery time is longer than it would have been a year ago. Velocity drops. Nobody knows why.</p>
+
+      <p>The features shipped faster. The capability to handle what those features require has quietly atrophied.</p>
+
+      <h2>The Measurement Trap</h2>
+
+      <p>Here's why this is hard to see: <strong>we measure what AI makes faster, not what it makes slower.</strong></p>
+
+      <p>Sprint velocity, story points, features shipped — these all improve with AI. They're easy to measure. They're visible on dashboards.</p>
+
+      <p>The things that get worse — debugging depth, architectural judgment, the ability to work without AI assistance — aren't measured. They're invisible on the metrics board.</p>
+
+      <div class="callout">
+        <p>The result is a team that looks like it's accelerating on every metric that gets reported, while slowly losing the capability that those features depend on.</p>
+      </div>
+
+      <h2>The Specific Mechanism</h2>
+
+      <p>The velocity regression is a form of technical debt — but it's debt in the team's knowledge, not in the codebase.</p>
+
+      <p>When a senior engineer uses AI to ship a feature, they're choosing between two paths:</p>
+
+      <p><strong>Path A:</strong> Use AI, ship faster, and let the understanding of what they just built stay partially in the AI's model rather than theirs.</p>
+
+      <p><strong>Path B:</strong> Use AI to accelerate, but take the time to understand what they just built — complete the cognitive loop, maintain the mental model.</p>
+
+      <p>Path A is easier. Path B is what's required to prevent the regression.</p>
+
+      <p>Most teams are doing Path A by default. The metrics reward Path A. The sprint schedule rewards Path A.</p>
+
+      <h2>The Question Worth Asking</h2>
+
+      <p>If you lead a team: when something goes wrong with a feature shipped in the last six months — something that requires genuine debugging or architectural repair — how long does it take?</p>
+
+      <p>If the answer is "longer than it used to" or "I don't know, we'd have to check" — that's the regression happening in real time.</p>
+
+      <div class="section-block">
+        <h3>The Fix</h3>
+        <p>The practice that helps: <strong>quarterly calibration</strong>. Pick three features shipped with heavy AI assistance. Can your team explain, design, and debug them without AI? If not, that's the gap. That's where the coaching time goes.</p>
+        <p>The fix isn't to use AI less. It's to be honest about what AI is optimizing for and to protect the capabilities it's quietly eroding.</p>
+      </div>
+
+      <div class="cta-block">
+        <h3>If This Resonated</h3>
+        <p>The AI Fatigue Quiz takes 90 seconds and gives you a tier — a way to name what's happening and understand where you stand.</p>
+        <a href="https://clearing-ai.com/quiz.html" class="cta-button">Take the AI Fatigue Quiz →</a>
+      </div>
+
+      <div class="closing">
+        <p>Next week: Dispatch #54 — more from the archive.</p>
+        <p>— The Clearing | clearing-ai.com</p>
+        <p style="font-size: 0.9rem; margin-top: 20px;">Not subscribed yet? <a href="https://clearing-ai.com/newsletter.html">Join 2,400+ engineers</a> getting The Dispatch weekly.</p>
+        <p style="font-size: 0.9rem;">Missed an issue? <a href="https://clearing-ai.com/newsletter-archive.html">Browse the archive →</a></p>
+      </div>
+    </div>
+  </main>
+  <footer class="footer-nav">
+    <a href="https://clearing-ai.com/">Home</a>
+    <a href="https://clearing-ai.com/newsletter.html">Newsletter</a>
+    <a href="https://clearing-ai.com/newsletter-archive.html">Archive</a>
+    <a href="https://clearing-ai.com/quiz.html">Take the Quiz</a>
+  </footer>
+</body>
+</html>

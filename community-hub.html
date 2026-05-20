@@ -162,7 +162,7 @@
     .community-item p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; margin-bottom: 10px; }
     .community-item .community-link { font-size: 0.875rem; font-weight: 600; color: var(--accent); }
 
-    .story-callout { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 0 var(--radius) var(--radius> 0; padding: 28px 32px; margin: 40px 0; }
+    .story-callout { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 0 12px 12px 0; padding: 28px 32px; margin: 40px 0; }
     .story-callout p { font-size: 0.95rem; color: var(--muted); line-height: 1.7; margin-bottom: 16px; font-style: italic; }
     .story-callout cite { font-size: 0.85rem; color: var(--accent); font-style: normal; }
 
@@ -178,6 +178,23 @@
     .faq-accordion summary::after { content: '+'; font-size: 1.2rem; color: var(--muted); transition: transform 0.2s; }
     .faq-accordion details[open] summary::after { transform: rotate(45deg); }
     .faq-accordion .faq-answer { padding: 0 20px 16px; color: var(--muted); font-size: 0.95rem; line-height: 1.7; }
+
+
+    .course-card { background: linear-gradient(135deg, var(--surface) 0%, var(--surface-2) 100%); border: 1px solid var(--border); border-radius: 16px; padding: 40px; margin-top: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .course-card .course-eyebrow { display: inline-flex; align-items: center; gap: 6px; background: rgba(210,153,34,0.15); color: var(--warning); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; margin-bottom: 16px; }
+    .course-card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; }
+    .course-card p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px; }
+    .course-days { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; margin-bottom: 24px; }
+    .course-day { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; }
+    .course-day strong { display: block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+    .course-day span { font-size: 0.85rem; color: var(--muted); line-height: 1.4; }
+    .course-form { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 20px; }
+    .course-form input[type="email"] { flex: 1; min-width: 200px; padding: 11px 16px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 15px; outline: none; transition: border-color 0.15s; }
+    .course-form input[type="email"]:focus { border-color: var(--warning); }
+    .course-form input[type="email"]::placeholder { color: var(--muted); }
+    .course-form button { background: var(--warning); color: #0d1117; font-weight: 700; font-size: 15px; padding: 11px 22px; border-radius: 8px; border: none; cursor: pointer; transition: opacity 0.15s; font-family: inherit; white-space: nowrap; }
+    .course-form button:hover { opacity: 0.88; }
+    .course-note { font-size: 0.78rem; color: var(--muted); margin-top: 10px; text-align: center; }
 
     footer { background: var(--surface); border-top: 1px solid var(--border); padding: 48px 20px 32px; }
     .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; }
@@ -279,7 +296,7 @@
             <span class="stat-label">Newsletter subscribers</span>
           </div>
           <div class="stat">
-            <span class="stat-number">60+</span>
+            <span class="stat-number">72+</span>
             <span class="stat-label">Dispatch issues sent</span>
           </div>
           <div class="stat">
@@ -301,9 +318,9 @@
           <h3 id="newsletter-heading">The Dispatch — Weekly Letter</h3>
           <p>One honest email per week for engineers navigating AI fatigue. No growth hacking, no master-the-future energy. Just: this is what's happening, and here's one thing that actually helps.</p>
           <div class="dispatch-preview">
-            <div class="issue-num">Latest — Issue #63 · May 25, 2026</div>
-            <div class="issue-title">You Shipped It. Can You Explain It?</div>
-            <div class="issue-excerpt">Why shipping more with AI tools doesn't mean you're learning more — and the explanation gap that keeps growing. The illusion of explanatory depth and the one practice that closes it.</div>
+            <div class="issue-num">Latest — Issue #72 · May 18, 2026</div>
+            <div class="issue-title">The Calibration Gap</div>
+            <div class="issue-excerpt">Why having answers isn't the same as knowing which questions to ask — and what the gap costs you professionally and personally.</div>
             <div class="issue-date">Read time: ~6 minutes</div>
           </div>
           <form class="newsletter-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
@@ -313,8 +330,33 @@
           </form>
           <p class="newsletter-promise">Free forever. No spam. Unsubscribe anytime. Your email never shared.</p>
           <div style="margin-top: 20px; text-align: center;">
-            <a href="newsletter-archive.html" style="font-size: 0.875rem; color: var(--muted);">Browse all 63 issues →</a>
+            <a href="newsletter-archive.html" style="font-size: 0.875rem; color: var(--muted);">Browse all 72 issues →</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5-Day Email Course -->
+    <section class="section" id="email-course" aria-labelledby="email-course-heading">
+      <div class="container">
+        <div class="course-card">
+          <div class="course-eyebrow">📧 Free Course</div>
+          <h3 id="email-course-heading">5-Day AI Fatigue Reset</h3>
+          <p>A free email course for engineers who've started to notice something off — in their work, in their confidence, in the way they feel about their job. One honest email per day for 5 days.</p>
+          <div class="course-days">
+            <div class="course-day"><strong>Day 1</strong><span>Your Brain Is Not a Bug</span></div>
+            <div class="course-day"><strong>Day 2</strong><span>The Thing Nobody Names</span></div>
+            <div class="course-day"><strong>Day 3</strong><span>Your First No-AI Block</span></div>
+            <div class="course-day"><strong>Day 4</strong><span>You're Not Alone</span></div>
+            <div class="course-day"><strong>Day 5</strong><span>Keep Going</span></div>
+          </div>
+          <p style="font-size: 0.875rem; color: var(--muted); margin-bottom: 0;">Free forever. No tracking. No ads. Your email never shared or sold.</p>
+          <form class="course-form" action="https://formspree.io/f/xpwqqvln" method="POST" id="course-form">
+            <input type="email" name="email" placeholder="your@email.com" required aria-label="Email address for course">
+            <input type="hidden" name="_subject" value="New 5-Day AI Fatigue Reset signup">
+            <button type="submit">Start the Course →</button>
+          </form>
+          <p class="course-note">Confirm your email after signup — course starts immediately.</p>
         </div>
       </div>
     </section>
@@ -410,4 +452,157 @@
           <p>"I thought I was just tired. But I realized I'd gone weeks without writing a single function from scratch. Everything came through AI. I couldn't remember the last time I actually solved a hard problem myself. That's when I knew something was actually wrong."</p>
           <cite>— Senior IC, 8 years experience, asked to remain anonymous</cite>
         </div>
-        <div style="text-align: center; margin-top:
+        <div style="text-align: center; margin-top: 28px;">
+          <a href="engineer-stories.html" class="btn-primary">Read More Stories →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Share Your Badge -->
+    <section class="section" id="share" aria-labelledby="share-heading">
+      <div class="container">
+        <div class="share-section">
+          <h3 id="share-heading">Share the Clearing</h3>
+          <p>Know an engineer who's exhausted from AI? Send them here. Or share your score and help others find this resource.</p>
+          <div class="share-buttons">
+            <a href="https://twitter.com/intent/tweet?text=I+just+took+the+AI+Fatigue+Quiz+at+clearing-ai.com.+Turns+out+I+have+some+recovery+to+do.+🌿&url=https://clearing-ai.com" target="_blank" rel="noopener" class="share-btn share-twitter">𝕏 Share on X</a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://clearing-ai.com&title=I+found+a+free+resource+for+AI-fatigued+engineers&summary=I+just+took+the+AI+Fatigue+Quiz+at+clearing-ai.com.+Turns+out+I+have+some+recovery+to+do." target="_blank" rel="noopener" class="share-btn share-linkedin">in Share on LinkedIn</a>
+            <button type="button" class="share-btn share-copy" onclick="copyLink()">🔗 Copy Link</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-alt" id="faq" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="section-label">❓ FAQ</div>
+        <h2 id="faq-heading">Common Questions</h2>
+        <div class="faq-accordion">
+          <details>
+            <summary>Is this really free? What's the catch?</summary>
+            <div class="faq-answer">100% free. The newsletter, the email course, everything. No premium tier, no upsell, no tracking. We believe the information should be free because engineers need it, not because we have a monetization strategy. If you find it useful and want to support the project, sharing it with a colleague is the best thing you can do.</div>
+          </details>
+          <details>
+            <summary>I already feel burned out. Is this for me or for people with mild fatigue?</summary>
+            <div class="faq-answer">Both. AI fatigue exists on a spectrum, and so does recovery. The quiz helps you figure out where you are. The newsletter and email course meet you there. If you're in a genuine crisis — please also see a doctor or mental health professional. This site is a supplement to professional care, not a replacement.</div>
+          </details>
+          <details>
+            <summary>How is this different from regular burnout resources?</summary>
+            <div class="faq-answer">Traditional burnout resources are written for people who've been overworked for years. AI fatigue is different — it's newer, and it has specific mechanisms (automation bias, skill atrophy, explanation abdication) that generic burnout advice doesn't address. We've built this specifically for the AI era with the specific experience of software engineers in mind.</div>
+          </details>
+          <details>
+            <summary>Who runs The Clearing?</summary>
+            <div class="faq-answer">A small independent project by engineers, for engineers. We built this because we couldn't find anything honest and useful out there about AI fatigue. No VC funding, no corporate sponsor, no agenda beyond helping people who are going through this.</div>
+          </details>
+          <details>
+            <summary>Can I use the email course for my team?</summary>
+            <div class="faq-answer">Yes — forward it, share it, print it for your team wall. It's Creative Commons-adjacent. The more engineers who get access to honest information about AI fatigue, the better. If you want to do something more formal with your team, the team-manager-guide.html has frameworks for that.</div>
+          </details>
+          <details>
+            <summary>How do I know if I have AI fatigue vs regular burnout?</summary>
+            <div class="faq-answer">Take the quiz. But broadly: AI fatigue tends to show up as a loss of confidence in your own abilities, a feeling that you're not actually learning, a dependence on AI to start even small tasks, and a specific kind of Sunday dread that's less about workload and more about feeling like you're faking it. Burnout from overwork looks different — more exhaustion, more cynicism, more interpersonal conflict.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">🌿 The Clearing</div>
+        <div class="footer-tagline">Honest help for AI-fatigued engineers.</div>
+        <p style="margin-top: 12px; font-size: 0.875rem; color: var(--muted);">Free forever. No tracking. No ads. Made for people who need it.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="why.html">Why AI Fatigue?</a></li>
+          <li><a href="recovery.html">Recovery Guide</a></li>
+          <li><a href="research.html">The Science</a></li>
+          <li><a href="community-hub.html">Community</a></li>
+          <li><a href="newsletter.html">Newsletter</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="ai-fatigue.html">AI Fatigue Guide</a></li>
+          <li><a href="ai-detox-plan.html">30-Day AI Detox</a></li>
+          <li><a href="compare.html">Tool Comparison</a></li>
+          <li><a href="mental-health.html">Mental Health</a></li>
+          <li><a href="sitemap.html">All Pages</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 The Clearing · <a href="index.html">Home</a> · <a href="sitemap.html">Sitemap</a> · <a href="privacy.html">Privacy</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Theme toggle
+    function toggleTheme() {
+      const html = document.documentElement;
+      const btn = document.querySelector('.theme-toggle');
+      if (html.getAttribute('data-theme') === 'light') {
+        html.setAttribute('data-theme', 'dark');
+        btn.textContent = '🌙';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        html.setAttribute('data-theme', 'light');
+        btn.textContent = '☀️';
+        localStorage.setItem('theme', 'light');
+      }
+    }
+    // Init theme
+    const saved = localStorage.getItem('theme');
+    if (saved === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      document.querySelector('.theme-toggle').textContent = '☀️';
+    } else if (window.matchMedia('(prefers-color-scheme: light)').matches && !saved) {
+      document.documentElement.setAttribute('data-theme', 'light');
+      document.querySelector('.theme-toggle').textContent = '☀️';
+    }
+
+    // Copy link
+    function copyLink() {
+      navigator.clipboard.writeText('https://clearing-ai.com/community-hub.html').then(() => {
+        const btn = document.querySelector('.share-copy');
+        const orig = btn.textContent;
+        btn.textContent = '✅ Copied!';
+        setTimeout(() => { btn.textContent = orig; }, 2000);
+      });
+    }
+
+    // Reading progress bar
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+      bar.style.width = scrolled + '%';
+    }, { passive: true });
+
+    // Dropdown accessibility
+    document.querySelectorAll('.nav-dropdown > button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+      });
+      btn.addEventListener('keydown', e => {
+        if (e.key === 'Escape') btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // FAQ accordion keyboard nav
+    document.querySelectorAll('.faq-accordion details').forEach(d => {
+      d.addEventListener('toggle', () => {
+        if (d.open) {
+          d.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          d.querySelector('summary').focus();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

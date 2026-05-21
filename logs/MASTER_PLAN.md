@@ -5148,3 +5148,37 @@ hn-launch.html, ai-anxiety.html, remote-team-ai-collaboration.html, remote-work-
 **Site stats:** 212 pages | ~984k words | Lighthouse 97 | Technical SEO 99/100 | Day 16
 **Next:** dispatch-51.html (if MD found), Reddit Comments engagement, Thread #53/#54 manual post
 
+
+---
+### Hour f4509cba — 2026-05-20 18:46 PDT (Phase 2 Outreach)
+
+**Thread 1 — r/ExperiencedDevs "No longer writing code, are we really here?":**
+- Hot thread (4h old, 198 comments) — senior engineer reflecting on interviewing at a company where the senior engineer "no longer writes code, uses Claude for everything"
+- Posted comment: The middleman problem + Explanation Requirement + clearing-ai.com quiz
+
+**Thread 2 — r/ExperiencedDevs "Where do you draw the line between learning vs just letting AI do it?":**
+- Posted comment: The Explanation Requirement as the line between learning and delegating
+
+**Thread 3 — r/ExperiencedDevs "Peer pressure regarding AI":**
+- Posted comment: Velocity gap + capability velocity vs shipping velocity
+
+**Thread 4 — r/ExperiencedDevs "How are you continuing to grow?":**
+- Posted comment: Growth practices for the AI era + 3 concrete habits
+
+**Site stats:** 211 pages | ~984k words | Day 17 | Lighthouse 97 | Technical SEO 99/100
+**Reddit comments deployed:** 290 (+4 this window)
+**Manual actions still needed:** LinkedIn Post 2 (10+ days overdue), Twitter Thread #53, #54, Reddit posts Thu/Fri May 22-23
+
+
+### Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-21 02:46 UTC (Phase 1 Window 206)
+**Built:** `ai-fatigue.html` (~4,740 words) — "AI Fatigue: The Definitive Guide for Software Engineers"
+- Pillar 1 gap fill: comprehensive 4.7k-word definitive AI fatigue resource
+- Sections: what it is (5-type breakdown), anatomy (old vs new loop), 12 warning signs, burnout/IS comparison table, engineer vulnerability (4 reasons), compounding effects (4 spirals), research (5 research areas), recovery framework (6 principles), 30-day rebuild plan (4 weeks), manager section
+- FAQPage schema (6 Q&As: fatigue vs burnout, prevalence, warning signs, reversibility, breaks vs active recovery, vs IS)
+- Article + BreadcrumbList schema, full OG/Twitter meta, canonical URL
+- Internal links: signs-ai-fatigue, recovery, skill-atrophy, cognitive-load, ai-detox-plan, index, why
+**SEO:** "AI fatigue guide", "what is AI fatigue", "AI fatigue symptoms", "software engineer fatigue" — high-intent, underserved definitive cluster; FAQPage rich snippet eligible; 4,740 words = authority signal
+**Git:** 1afcfb25 (1 file, 390 insertions)
+**Phase windows:** P1=206 | P2=270 | P3=184 | P4=159
+**Site stats:** 212 pages | ~989k words | Lighthouse 97 | Technical SEO 99/100 | Day 16
+**Next:** LinkedIn Post 2 overdue (post now), Reddit schedule Thu/Fri, Twitter #53/#54 Sat

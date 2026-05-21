@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Dispatch #76 — The Calibration Gap</title>
+  <meta name="description" content="After months of AI-assisted work, your map of your own abilities no longer matches the territory. This week: how calibration drifts, and how to restore it.">
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-archive.html#issue-76">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="The Clearing RSS Feed" href="https://clearing-ai.com/feed.xml">
+  <meta property="og:title" content="The Dispatch #76 — The Calibration Gap">
+  <meta property="og:description" content="After months of AI-assisted work, your map of your own abilities no longer matches the territory.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clearing-ai.com/newsletter-archive.html#issue-76">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Dispatch #76 — The Calibration Gap">
+  <meta name="twitter:description" content="Your internal map of your abilities no longer matches the territory.">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#0a0a0a;--card:#111111;--border:#1e1e1e;--text:#d0d0d0;--muted:#666;
+      --green:#3d6b4f;--green-light:#5a8a6a;--forest:#1a3a2a;--accent:#8fbc8f;
+      --red:#8b3d3d;--red-light:#a85454
+    }
+    @media(prefers-color-scheme:light){
+      :root{
+        --bg:#f5f2ed;--card:#ffffff;--border:#e0dbd3;--text:#2a2a2a;--muted:#888;
+        --green:#3d6b4f;--green-light:#4a7a5a;--forest:#e8f0e8;--accent:#2d5a3d;
+        --red:#8b3d3d;--red-light:#a85454
+      }
+    }
+    html{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{color:var(--green-light);text-decoration:none}
+    a:hover{color:var(--accent);text-decoration:underline}
+    body{min-height:100vh}
+    nav{display:flex;align-items:center;padding:16px 32px;gap:24px;border-bottom:1px solid var(--border);background:var(--bg)}
+    .nav-logo{font-size:18px;font-weight:700;color:var(--text);letter-spacing:-0.3px}
+    .nav-logo span{color:var(--green-light)}
+    .nav-links{display:flex;gap:20px;flex-wrap:wrap}
+    .nav-links a{color:var(--muted);font-size:14px;font-weight:500;transition:color 0.2s}
+    .nav-links a:hover{color:var(--text)}
+    .container{max-width:680px;margin:0 auto;padding:0 24px}
+    .issue-header{padding:56px 0 40px;border-bottom:1px solid var(--border);margin-bottom:48px}
+    .issue-meta{font-size:12px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px}
+    .issue-number{font-size:13px;color:var(--muted);margin-bottom:12px}
+    .issue-title{font-size:clamp(24px,5vw,36px);font-weight:800;letter-spacing:-0.5px;line-height:1.15;margin-bottom:16px;color:var(--text)}
+    .issue-subtitle{font-size:17px;color:var(--muted);line-height:1.5;font-weight:400}
+    .issue-subtitle strong{color:var(--text);font-weight:600}
+    .content{padding-bottom:64px}
+    .section{margin-bottom:48px}
+    .lead{font-size:18px;line-height:1.65;color:var(--text);margin-bottom:32px}
+    .lead p{margin-bottom:20px}
+    h2{font-size:20px;font-weight:700;letter-spacing:-0.3px;margin-bottom:16px;color:var(--text)}
+    h3{font-size:16px;font-weight:700;margin-bottom:12px;color:var(--text)}
+    p{font-size:15px;color:var(--text);margin-bottom:16px;line-height:1.7}
+    ul,ol{padding-left:20px;margin-bottom:16px}
+    li{font-size:15px;color:var(--text);margin-bottom:8px;line-height:1.65}
+    blockquote{border-left:3px solid var(--green);padding:4px 20px;margin:24px 0;background:var(--card);border-radius:0 6px 6px 0}
+    blockquote p{font-size:16px;font-style:italic;color:var(--text);margin-bottom:0}
+    .callout{background:var(--forest);border:1px solid var(--green);border-radius:10px;padding:24px;margin:32px 0}
+    .callout h3{font-size:14px;text-transform:uppercase;letter-spacing:0.5px;color:var(--accent);margin-bottom:10px}
+    .callout p{font-size:14px;color:var(--text);margin-bottom:0}
+    .divider{height:1px;background:var(--border);margin:40px 0}
+    .subsection{margin:32px 0}
+    .subsection p{color:var(--text)}
+    .signal-label{display:inline-block;background:var(--forest);border:1px solid var(--green);border-radius:4px;padding:2px 8px;font-size:10px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px}
+    .signal-block{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;margin:20px 0}
+    .signal-block h3{font-size:15px;font-weight:600;margin-bottom:10px;color:var(--text)}
+    .signal-block p{font-size:14px;color:var(--muted);margin-bottom:0}
+    .tactic-block{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;margin:24px 0}
+    .tactic-block h3{font-size:15px;font-weight:700;margin-bottom:8px;color:var(--text)}
+    .tactic-block p{font-size:14px;color:var(--text);margin-bottom:12px;line-height:1.6}
+    .tactic-block p:last-child{margin-bottom:0}
+    .practice-box{background:var(--card);border:2px solid var(--green);border-radius:10px;padding:24px;margin:32px 0}
+    .practice-box h3{font-size:15px;font-weight:700;margin-bottom:4px;color:var(--accent)}
+    .practice-box .sub{font-size:12px;color:var(--muted);margin-bottom:16px;text-transform:uppercase;letter-spacing:0.5px}
+    .practice-box ol{padding-left:18px}
+    .practice-box li{font-size:14px;margin-bottom:10px}
+    .cta-block{background:var(--forest);border:1px solid var(--green);border-radius:12px;padding:32px;margin:40px 0;text-align:center}
+    .cta-block p{font-size:14px;color:var(--muted);margin-bottom:16px}
+    .cta-block a{display:inline-block;padding:12px 24px;background:var(--green);color:#fff;font-size:14px;font-weight:600;border-radius:8px;transition:background 0.2s;margin:6px 8px}
+    .cta-block a:hover{background:var(--green-light);text-decoration:none}
+    .closing{padding:32px 0;border-top:1px solid var(--border);font-size:14px;color:var(--muted);line-height:1.7}
+    .closing p{margin-bottom:12px}
+    .ps{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px 20px;font-size:14px;color:var(--text);margin-top:24px;line-height:1.6}
+    footer{text-align:center;padding:32px;border-top:1px solid var(--border);font-size:12px;color:var(--muted)}
+    footer a{color:var(--green-light)}
+    @media(max-width:600px){
+      nav{flex-direction:column;gap:12px;padding:12px 16px}
+      .nav-links{gap:14px}
+      .issue-header{padding:40px 0 32px}
+      .container{padding:0 16px}
+      .cta-block a{display:block;margin:8px 0}
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Dispatch #76 — The Calibration Gap",
+    "description": "After months of AI-assisted work, your map of your own abilities no longer matches the territory.",
+    "datePublished": "2026-07-06",
+    "author": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+    "publisher": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+    "url": "https://clearing-ai.com/newsletter-archive.html#issue-76"
+  }
+  }
+  </script>
+</head>
+<body>
+  <nav>
+    <a href="https://clearing-ai.com" class="nav-logo">The <span>Clearing</span></a>
+    <div class="nav-links">
+      <a href="https://clearing-ai.com">Home</a>
+      <a href="https://clearing-ai.com/quiz.html">Quiz</a>
+      <a href="https://clearing-ai.com/recovery.html">Recover</a>
+      <a href="https://clearing-ai.com/newsletter.html">Newsletter</a>
+      <a href="https://clearing-ai.com/newsletter-archive.html">Archive</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header class="issue-header">
+      <div class="issue-meta">The Dispatch</div>
+      <div class="issue-number">Issue #76 &nbsp;·&nbsp; July 6, 2026 &nbsp;·&nbsp; For Engineers Who Use AI Daily</div>
+      <h1 class="issue-title">The Calibration Gap</h1>
+      <p class="issue-subtitle">After months of AI-assisted work, your internal map of your own abilities no longer matches the territory.</p>
+    </header>
+
+    <article class="content">
+
+      <!-- HERO -->
+      <div class="section">
+        <div class="lead">
+          <p>There's a gap that builds up quietly over months of AI-assisted work.</p>
+          <p>It shows up when someone asks you a technical question and you can't answer it cleanly — not because you don't know, but because you don't know <em>whether</em> you know. The answer feels like it's in the room somewhere, but you're not sure if it's yours or if you just saw it come out of the model recently.</p>
+          <p>It shows up when a system breaks in an unexpected way and you realize you can navigate the code fluently but you can't diagnose it without AI. You're not sure where the boundary is between your knowledge and the model's.</p>
+          <p><strong>This is the calibration gap.</strong> Your internal map of your own abilities no longer matches the territory. And you can't easily tell — from the inside — where the gaps are.</p>
+          <p>This week's Dispatch is about why that happens, how it compounds, and what genuine calibration looks like after months of AI assistance.</p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- SECTION 1 -->
+      <div class="section">
+        <h2>What the Calibration Gap Actually Is</h2>
+        <p>Calibration is the ability to accurately judge your own confidence and competence. Well-calibrated engineers know what they know, know what they don't know, and know roughly how long something will take them to figure out.</p>
+        <p>AI assistance breaks calibration in a specific way.</p>
+        <p>When you use AI to solve a problem, you typically verify the solution — you check whether the code works, whether the approach is reasonable. But you don't usually verify whether <em>you</em> could have solved it. The verification step confirms the output without telling you anything about your own capability.</p>
+        <p>Over enough repetitions, a pattern develops: your confidence in the work stays high (because the work is good) but your confidence in <em>yourself as the agent who produced the work</em> becomes inflated. You know the work is correct. You're less sure whether <em>you</em> are correct — whether the skill that produced it is actually yours.</p>
+        <div class="callout">
+          <h3>The Core Dynamic</h3>
+          <p>The gap between "this solution is correct" and "I know how to solve this" is the calibration gap. And the uncomfortable part: AI makes the work look so good that the gap is genuinely hard to see from inside the process.</p>
+        </div>
+      </div>
+
+      <!-- SECTION 2 -->
+      <div class="section">
+        <h2>How It Shows Up in Practice</h2>
+
+        <div class="signal-block">
+          <h3>The interview question you used to be able to answer</h3>
+          <p>You get a technical question in an interview or on-the-job. You know <em>of</em> the answer — it feels familiar. But when you try to walk through it, you realize you're narrating the AI's logic rather than producing your own reasoning. The answer sounds right but you're not confident it <em>is</em> right.</p>
+          <p>This is calibration drift. The knowledge was real at some point. It's now mixed in with a lot of AI output that you absorbed without realizing you were absorbing it.</p>
+        </div>
+
+        <div class="signal-block">
+          <h3>The code review where you can't articulate why</h3>
+          <p>Someone proposes an approach in code review. Your gut says it's wrong, but you can't immediately articulate why. The instinct is yours. The reasoning to support it is somewhere in the same mental space where you store AI output — and you can't tell which is which.</p>
+        </div>
+
+        <div class="signal-block">
+          <h3>The debugging session that goes sideways</h3>
+          <p>A production issue lands. You start debugging — and realize you can follow the code, but when it comes to diagnosing the root cause without AI, you're uncertain in a way that feels different from normal uncertainty. There's a wall you hit faster than you used to.</p>
+        </div>
+
+        <div class="signal-block">
+          <h3>The promotion packet that can't tell the story</h3>
+          <p>You're writing your own performance review. You have a long list of things you shipped. When you try to describe what <em>you personally</em> contributed — the judgment calls, the architectural decisions, the problems you solved that AI couldn't have solved — the story is harder to tell than it should be after three years in the role.</p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- SECTION 3 -->
+      <div class="section">
+        <h2>Why This Is Harder to Fix Than It Looks</h2>
+        <p>The calibration gap has a self-reinforcing structure that makes it unusually persistent.</p>
+
+        <div class="subsection">
+          <h3>You can't see it from inside</h3>
+          <p>You know your work is correct. The code ships. The features work. You have no direct evidence of a calibration gap. The evidence is in what you <em>can't</em> do — and you haven't needed to do those things, because AI has been doing them for you.</p>
+        </div>
+
+        <div class="subsection">
+          <h3>The measures you use to track yourself are all AI-adjusted</h3>
+          <p>When you estimate how long something will take, you're partly estimating how long it takes you <em>with AI assistance</em>. Without that crutch, the estimates would be very different — but you don't have recent unaided experience to calibrate against.</p>
+        </div>
+
+        <div class="subsection">
+          <h3>The feedback that would correct it is missing</h3>
+          <p>In normal learning, you have a clear feedback loop: you try something, it works or it doesn't, you update. With AI assistance, the failure signal is suppressed — the AI fixes the mistake before it registers as a failure. The correction mechanism that would keep your calibration accurate is mostly offline.</p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- SECTION 4 -->
+      <div class="section">
+        <h2>What Genuine Calibration Looks Like After AI Assistance</h2>
+        <p>The goal isn't to avoid AI — it's to know what you actually know.</p>
+        <p>Genuine calibration after months of AI-assisted work looks like this:</p>
+
+        <div class="tactic-block">
+          <h3>You can identify the gaps specifically</h3>
+          <p>Not "I probably have some gaps" but "I am genuinely unsure about X and Y, and I know this because I've tried to explain X recently and couldn't without looking it up." The gaps are specific and nameable, not vague ambient uncertainty.</p>
+        </div>
+
+        <div class="tactic-block">
+          <h3>You know which problems you directed versus solved</h3>
+          <p>You can articulate — for significant pieces of work — what decision you made that shaped the outcome, versus what the AI produced in response to that direction. This isn't about claiming credit. It's about maintaining the connection between your judgment and your output.</p>
+        </div>
+
+        <div class="tactic-block">
+          <h3>Your confidence in yourself and your work are separate — and you track both</h3>
+          <p>You can say "the solution is correct" and "I'm confident I understand the solution well enough to maintain and extend it" as two separate statements. They often align. When they don't, you know which direction the gap runs.</p>
+        </div>
+
+        <div class="tactic-block">
+          <h3>You have recent unaided practice to calibrate against</h3>
+          <p>You have some recent experience — even small things — where you worked without AI assistance and got a clear result. Not to prove a point, but to have a fresh data point on where your actual abilities are.</p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- SECTION 5 -->
+      <div class="section">
+        <h2>The Weekly Calibration Practice</h2>
+        <p>Here's a specific, low-friction practice for maintaining calibration:</p>
+
+        <div class="practice-box">
+          <h3>Every Friday: 15 Minutes, No AI</h3>
+          <div class="sub">A weekly calibration signal</div>
+          <p>Pick something small — a utility function, a configuration fix, a small refactor. Work without AI. Complete it. Ship it (or at least finish it).</p>
+          <p>At the end, ask yourself two questions:</p>
+          <ol>
+            <li><em>Could I have done this faster with AI?</em> Almost certainly yes. That's not the point.</li>
+            <li><em>Do I know what I just did, and could I do it again without AI?</em> If yes, the practice is working. If no — if you're not sure what you just did or whether you could replicate it — that's the calibration gap showing up. That's the data.</li>
+          </ol>
+          <p>The 15 minutes isn't about productivity. It's about maintaining a fresh signal on where your abilities actually are, so the gap doesn't drift further.</p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- CTA -->
+      <div class="cta-block">
+        <p>The AI Fatigue Quiz has a dimension that maps directly to this: how confident you feel about your skills, and whether that confidence is based on what you can do or what you've shipped.</p>
+        <a href="https://clearing-ai.com/quiz.html">Take the AI Fatigue Quiz →</a>
+        <a href="https://clearing-ai.com/daily-ai-boundaries.html">Read: Daily AI Boundaries →</a>
+      </div>
+
+      <!-- CLOSING -->
+      <div class="closing">
+        <p>The calibration gap isn't a character flaw. It's a structural consequence of working in a mode where your tools are very good and your feedback on your own abilities is suppressed.</p>
+        <p>The engineers who navigate this well aren't the ones with stronger willpower. They're the ones who found a way to maintain the signal — to periodically ask "but could I have done this myself?" and actually check the answer.</p>
+        <p>The gap is real. The way to close it is through direct experience, not through more analysis. The 15 minutes a week is worth it.</p>
+        <p>Make the time.</p>
+        <p style="margin-top:20px;font-weight:600;color:var(--text)">— The Clearing</p>
+        <div class="ps">
+          <strong>P.S.</strong> If you've found a specific practice for keeping your calibration honest — something that regularly tells you where your abilities actually are — hit reply. This is a problem that responds well to specific, concrete solutions and the collective wisdom of engineers in the same situation is worth a lot.
+        </div>
+      </div>
+
+    </article>
+  </div>
+
+  <footer>
+    <p><a href="https://clearing-ai.com/newsletter.html">Subscribe to The Dispatch</a> · <a href="https://clearing-ai.com/newsletter-archive.html">Browse the Archive</a> · <a href="https://clearing-ai.com">clearing-ai.com</a></p>
+    <p style="margin-top:8px">© 2026 The Clearing · <a href="https://clearing-ai.com/privacy.html">Privacy</a></p>
+  </footer>
+</body>
+</html>

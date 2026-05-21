@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Dispatch #79 — The Side Project Trap | The Clearing</title>
+  <meta name="description" content="Why 'just build side projects' stopped working — and what actually fills the learning gap for AI-fatigued engineers.">
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-issues/dispatch-79.html">
+  <link rel="alternate" type="application/rss+xml" title="The Clearing RSS Feed" href="https://clearing-ai.com/feed.xml">
+  <meta property="og:title" content="The Dispatch #79 — The Side Project Trap">
+  <meta property="og:description" content="Why 'just build side projects' stopped working for engineers using AI tools — and what actually closes the learning gap.">
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/newsletter-issues/dispatch-79.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Dispatch #79 — The Side Project Trap">
+  <meta name="twitter:description" content="Why 'just build side projects' stopped working — and what actually fills the gap.">
+  <meta name="author" content="The Clearing">
+  <meta property="article:published_time" content="2026-05-21">
+  <meta property="article:section" content="The Dispatch">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Dispatch #79 — The Side Project Trap",
+    "description": "Why 'just build side projects' stopped working for engineers using AI tools — and what actually closes the learning gap.",
+    "author": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "datePublished": "2026-05-21",
+    "dateModified": "2026-05-21",
+    "url": "https://clearing-ai.com/newsletter-issues/dispatch-79.html",
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "The Dispatch",
+      "issn": "https://clearing-ai.com/newsletter-archive.html"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Newsletter", "item": "https://clearing-ai.com/newsletter.html" },
+        { "@type": "ListItem", "position": 3, "name": "Archive", "item": "https://clearing-ai.com/newsletter-archive.html" },
+        { "@type": "ListItem", "position": 4, "name": "#79 The Side Project Trap", "item": "https://clearing-ai.com/newsletter-issues/dispatch-79.html" }
+      ]
+    }
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0d1117;
+      --bg-elevated: #161b22;
+      --bg-card: #1c2128;
+      --border: #30363d;
+      --text-primary: #e6edf3;
+      --text-secondary: #8b949e;
+      --text-muted: #6e7681;
+      --accent: #3fb950;
+      --accent-dim: #238636;
+      --accent-glow: rgba(63, 185, 80, 0.15);
+      --link: #58a6ff;
+      --warning: #d29922;
+      --danger: #f85149;
+      --prose-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+      --mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      --radius: 8px;
+      --transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    [data-theme="light"] {
+      --bg: #ffffff;
+      --bg-elevated: #f6f8fa;
+      --bg-card: #f6f8fa;
+      --border: #d0d7de;
+      --text-primary: #1f2328;
+      --text-secondary: #656d76;
+      --text-muted: #8c959f;
+      --accent: #1a7f37;
+      --accent-dim: #2da44e;
+      --accent-glow: rgba(26, 127, 55, 0.1);
+      --link: #0969da;
+    }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      font-family: var(--prose-font);
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+      transition: var(--transition);
+    }
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 100;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 0.4rem 0.8rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: var(--transition);
+    }
+    .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+    .email-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .email-logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .email-issue {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+    .email-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0.5rem 0;
+      line-height: 1.3;
+    }
+    .email-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+    .email-meta {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+    }
+    .email-meta span { display: flex; align-items: center; gap: 0.3rem; }
+    hr.section-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2rem 0;
+    }
+    .hook-block {
+      background: var(--accent-glow);
+      border-left: 3px solid var(--accent);
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin-bottom: 2rem;
+    }
+    .hook-block p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--text-primary);
+    }
+    .hook-block .question-prompt {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 1rem;
+    }
+    h2.email-h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 2rem 0 1rem;
+      padding-top: 1rem;
+    }
+    h3.email-h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 1.5rem 0 0.75rem;
+    }
+    p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      line-height: 1.75;
+    }
+    p:last-child { margin-bottom: 0; }
+    strong { color: var(--text-primary); font-weight: 600; }
+    em { color: var(--text-secondary); }
+    code {
+      font-family: var(--mono);
+      font-size: 0.85em;
+      background: var(--bg-elevated);
+      padding: 0.15em 0.4em;
+      border-radius: 4px;
+      color: var(--accent);
+    }
+    pre {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .three-ways { margin: 1.5rem 0; }
+    .way-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .way-block h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .way-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background: var(--accent);
+      color: var(--bg);
+      border-radius: 50%;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    .way-block p { margin-bottom: 0; font-size: 0.9rem; }
+    .gap-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .gap-block p { font-size: 0.95rem; margin-bottom: 0.75rem; }
+    .gap-block p:last-child { margin-bottom: 0; }
+    .senior-note {
+      background: rgba(210, 153, 34, 0.1);
+      border: 1px solid rgba(210, 153, 34, 0.3);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin: 1.5rem 0;
+    }
+    .senior-note h4 {
+      color: var(--warning);
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .senior-note p { font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .senior-note p:last-child { margin-bottom: 0; }
+    .warning-signs { margin: 1.5rem 0; }
+    .sign-item {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background: var(--bg-card);
+      border-radius: var(--radius);
+    }
+    .sign-number {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--accent);
+      min-width: 24px;
+    }
+    .sign-content h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.35rem;
+    }
+    .sign-content p { font-size: 0.875rem; margin-bottom: 0; line-height: 1.5; }
+    .what-works { margin: 1.5rem 0; }
+    .works-item {
+      margin-bottom: 1.25rem;
+      padding: 1rem 1.25rem;
+      background: var(--accent-glow);
+      border-radius: var(--radius);
+    }
+    .works-item strong {
+      color: var(--accent);
+      font-size: 0.9rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .works-item p { font-size: 0.875rem; margin-bottom: 0; }
+    .question-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      text-align: center;
+    }
+    .question-block p {
+      font-size: 1rem;
+      color: var(--text-primary);
+      font-style: italic;
+      margin-bottom: 0.75rem;
+    }
+    .question-block .sub { font-size: 0.875rem; color: var(--text-secondary); font-style: normal; }
+    .resource-block {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .resource-icon { font-size: 1.5rem; line-height: 1; }
+    .resource-text { flex: 1; }
+    .resource-text strong { color: var(--text-primary); font-size: 0.95rem; display: block; margin-bottom: 0.25rem; }
+    .resource-text p { font-size: 0.85rem; margin-bottom: 0; }
+    .resource-text a { color: var(--link); text-decoration: none; }
+    .resource-text a:hover { text-decoration: underline; }
+    .cta-section {
+      background: var(--accent-glow);
+      border: 1px solid var(--accent-dim);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin: 2rem 0 1.5rem;
+      text-align: center;
+    }
+    .cta-section p {
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+    .cta-section .sub-cta { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--bg);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.6rem 1.5rem;
+      border-radius: 20px;
+      text-decoration: none;
+      margin-top: 0.75rem;
+      transition: var(--transition);
+    }
+    .cta-btn:hover { background: var(--accent-dim); transform: translateY(-1px); }
+    .email-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .footer-brand {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 0.8rem;
+      color: var(--link);
+      text-decoration: none;
+    }
+    .footer-links a:hover { text-decoration: underline; }
+    .footer-links span { color: var(--text-muted); font-size: 0.8rem; }
+    .footer-meta {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .footer-meta p { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.25rem; }
+    @media (max-width: 480px) {
+      .email-container { padding: 1rem; }
+      .email-title { font-size: 1.35rem; }
+      .email-meta { flex-direction: column; gap: 0.25rem; }
+      .footer-links { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" onclick="document.documentElement.toggleAttribute('data-theme'); localStorage.setItem('theme', document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark');" aria-label="Toggle color theme">☀️ / 🌙</button>
+  <div class="email-container">
+    <header class="email-header">
+      <div class="email-logo">🌿 The Clearing</div>
+      <p class="email-issue">Issue #79 — May 21, 2026</p>
+      <h1 class="email-title">The Side Project Trap</h1>
+      <p class="email-subtitle">Why "just build side projects" stopped working — and what actually fills the gap</p>
+      <div class="email-meta">
+        <span>📧 The Dispatch</span>
+        <span>•</span>
+        <span>⏱ 9 min read</span>
+        <span>•</span>
+        <span>👤 For AI-Fatigued Engineers</span>
+      </div>
+    </header>
+
+    <main>
+      <div class="hook-block">
+        <p>There was a time when a senior engineer would tell a newer developer: "Build side projects. Ship things. That's how you learn."</p>
+        <p>It was good advice. For decades, it was the clearest path from "reading about code" to "understanding code." You built something real. You hit a wall. You figured out how through the wall. You shipped. You learned.</p>
+        <p>That advice still gets given. It still gets followed. And for the first time in a long while, it's not working the way it used to.</p>
+      </div>
+
+      <h2 class="email-h2">What Changed</h2>
+      <p><strong>Side projects used to be a learning environment. Now they're a performance environment.</strong></p>
+      <p>When everyone with a laptop can spin up a full-stack app in an afternoon with AI assistance, "I built a side project" stopped being a meaningful signal. Not because the project itself is worthless — but because the <em>proof of learning</em> it used to represent got severed from the activity.</p>
+      <p>You can build a side project. You can ship it. You can put it on GitHub. You can list it on your resume.</p>
+      <p>And a senior engineer looking at it will ask a different question than they used to: not "did they ship something?" but "did they <em>learn</em> something building it?"</p>
+      <p>That question is harder to answer now. Because learning looks different when the hard parts got handled by an AI.</p>
+
+      <hr class="section-divider">
+
+      <h2 class="email-h2">The Three Ways Side Projects Broke</h2>
+
+      <div class="three-ways">
+        <div class="way-block">
+          <h4><span class="way-number">1</span> The barrier to shipping collapsed. The barrier to learning didn't.</h4>
+          <p><strong>The old model:</strong> You didn't know how to build auth, so you spent three days fighting it, read four tutorials, made ten mistakes, and finally got it working. You understood auth at the end because you understood every way it could fail.</p>
+          <p><strong>The new model:</strong> AI builds auth in ten minutes. You ship it. It's correct. You move on.</p>
+          <p>What happened to the three days of struggle? They disappeared. So did the understanding.</p>
+          <p>This isn't an argument against AI. It's a description of what gets lost. The struggle was the learning, not the shipping. When the struggle gets automated, you can still ship — but you learn less per project.</p>
+        </div>
+
+        <div class="way-block">
+          <h4><span class="way-number">2</span> The portfolio signal inverted.</h4>
+          <p>Somewhere around 2024, the side project on a resume stopped being unusual. Recruiters started seeing dozens of "full-stack AI apps" from candidates at every level. The project itself stopped differentiating.</p>
+          <p>What recruiters started looking for instead: evidence of depth. Not "built a thing" but "built something <em>well</em>." Not a list of technologies but a demonstration of judgment.</p>
+          <p>The problem: the side project format doesn't naturally produce that evidence. It's a finished artifact, not a window into how someone thinks. And when the project was built mostly with AI assistance, the artifact doesn't even reliably show the candidate's actual skill level.</p>
+        </div>
+
+        <div class="way-block">
+          <h4><span class="way-number">3</span> The motivation structure reversed.</h4>
+          <p>Building side projects used to require a certain kind of internal drive. You had to be willing to sit alone with a hard problem for hours, fail repeatedly, and keep going. That process built more than code — it built the identity of someone who could handle hard problems.</p>
+          <p>AI didn't just make building easier. It made the <em>motivation to build</em> thinner. Because you no longer need to build side projects to prove you can handle hard problems — you can <em>show</em> you can handle hard problems in your actual job using AI tools.</p>
+          <p>The side project used to be where you developed the resilience that made you valuable. When it became easy to skip the resilience, the resilience stopped developing.</p>
+        </div>
+      </div>
+
+      <hr class="section-divider">
+
+      <h2 class="email-h2">The Gap Nobody Named</h2>
+      <p>There's a specific experience a lot of engineers are having right now that doesn't have a clean name yet.</p>
+      <p>It goes like this: you want to grow. You know you should be building things. You sit down to build a side project. You use AI to get it working. It works. It's fine.</p>
+      <p>You feel nothing.</p>
+      <p>Not satisfaction. Not pride. Not the "I figured that out" feeling that used to make the hours worthwhile.</p>
+      <p>It shipped. It exists. It doesn't feel like yours.</p>
+      <p>So you stop mid-project. Or you finish it but don't update your resume. Or you start a new one and repeat the cycle.</p>
+      <p><strong>This is what "just build side projects" looks like now for a lot of people:</strong> a hollowed-out exercise that produces artifacts without producing growth.</p>
+
+      <hr class="section-divider">
+
+      <h2 class="email-h2">Why This Hits Senior Engineers Hard</h2>
+      <div class="senior-note">
+        <h4>You'd think this would be a junior problem. Here's why it's not.</h4>
+        <p>A senior engineer's identity was built on the evidence of having figured things out. The side project used to be another data point in that story: <em>I saw a hard problem. I sat with it. I solved it.</em></p>
+        <p>When you build a side project with heavy AI assistance, you don't get to tell that story to yourself. You solved it — but you didn't figure it out. And your own nervous system knows the difference, even if you can't articulate it.</p>
+        <p>This creates a strange double-bind: you're supposed to be using AI tools (the industry expects it, the work demands it, the market rewards velocity). But using AI removes the thing that used to make your growth feel real.</p>
+        <p><strong>You're producing more and growing less.</strong> And the side project — the old reliable growth mechanism — stopped being able to bridge that gap.</p>
+      </div>
+
+      <hr class="section-divider">
+
+      <h2 class="email-h2">The Other Problem: The Gap Compounds</h2>
+      <p>Engineers who learned the old way — by building, failing, iterating — developed a kind of learning muscle. When they hit something new, they knew how to sit with discomfort, push through not-knowing, and eventually emerge with genuine understanding.</p>
+      <p>That muscle atrophies without use.</p>
+      <p>When you hit every new technology with an AI assistant, the muscle doesn't get used. The discomfort gets bypassed. You skip the not-knowing and arrive at the answer.</p>
+      <p>This works fine for a while. You stay productive. You ship things. You perform well.</p>
+      <p>But the muscle is atrophying quietly. And when you finally need it — when the AI can't answer the question, when the problem doesn't fit the pattern, when the thing you've been outsourcing suddenly needs you to have opinions about it — that's when you notice the gap.</p>
+      <p>The side project used to be the workout that kept the muscle strong. Now the side project is also getting automated away.</p>
+
+      <hr class="section-divider">
+
+      <h2 class="email-h2">What Actually Fills the Gap</h2>
+      <p>This isn't "give up on side projects." It's "the side project alone isn't enough anymore."</p>
+
+      <div class="what-works">
+        <div class="works-item">
+          <strong>Build things you can't outsource.</strong>
+          <p>The projects that still produce growth are the ones where the hard part is opinion, not implementation. Architectural decisions. Design choices. Trade-offs where there's no right answer — only your answer, based on your understanding of the context. AI can generate code. It can't generate taste. It can't generate judgment. It can't generate the thing you believe about what good looks like and why. The side project worth building is the one that forces you to have opinions about things that matter.</p>
+        </div>
+        <div class="works-item">
+          <strong>Use the project as a diagnostic tool, not just a portfolio item.</strong>
+          <p>After you build something with AI, open a blank editor and rebuild the hardest part without any assistance. Don't ship it. Just see what you actually know. The gap between what you built with AI and what you can build without it is the real signal. It's uncomfortable to look at. But it's the most accurate measure of what you actually learned.</p>
+        </div>
+        <div class="works-item">
+          <strong>Replace "shipping" with "teaching."</strong>
+          <p>The thing that most reliably closes the calibration gap is explaining what you built. Not documentation — documentation can be AI-generated. Teaching: walking someone through why you made the decisions you made, what alternatives you rejected, what you got wrong, what you'd do differently. Teaching requires you to understand the why, not just the what. A side project you can teach about is a project you actually learned from.</p>
+        </div>
+        <div class="works-item">
+          <strong>Build the muscle deliberately, in small doses.</strong>
+          <p>You don't need three hours a day. You need twenty minutes of deliberate struggle with something hard enough to require it. Not because struggling is virtuous — because struggling is the mechanism by which understanding gets encoded. Once a week: build something without AI, even if it's small. Even if it's slower. Even if it produces less. Keep the muscle alive.</p>
+        </div>
+      </div>
+
+      <hr class="section-divider">
+
+      <div class="question-block">
+        <p>"There's a version of this that's just anxiety. And there's a version that's a genuine structural problem: you are producing more than you're learning, and the side projects that used to close that gap aren't closing it anymore."</p>
+        <p class="sub">The difference between those two versions is the same: can you build the hard part without assistance or not?</p>
+      </div>
+
+      <div class="resource-block">
+        <div class="resource-icon">📚</div>
+        <div class="resource-text">
+          <strong>If this landed, read AI Learning Burnout</strong>
+          <p>Goes deeper into the mechanism of why keeping up with AI tools feels like learning but isn't — and what to do about it.</p>
+          <p><a href="https://clearing-ai.com/ai-learning-burnout.html">clearing-ai.com/ai-learning-burnout.html →</a></p>
+        </div>
+      </div>
+
+      <div class="cta-section">
+        <p>📬 <strong>Get The Dispatch in your inbox every week.</strong></p>
+        <p>Stories and frameworks for engineers who use AI tools and want to stay sharp.</p>
+        <a href="https://clearing-ai.com/newsletter.html" class="cta-btn">Subscribe — it's free</a>
+        <p class="sub-cta">Join engineers who've reclaimed their craft, one issue at a time.</p>
+      </div>
+
+      <div class="question-block" style="margin-top: 1.5rem;">
+        <p><strong>Next week:</strong> The real cost of "just keep shipping."</p>
+      </div>
+    </main>
+
+    <footer class="email-footer">
+      <div class="footer-brand">🌿 The Clearing</div>
+      <div class="footer-links">
+        <a href="https://clearing-ai.com">Home</a>
+        <span>|</span>
+        <a href="https://clearing-ai.com/recovery.html">Recovery</a>
+        <span>|</span>
+        <a href="https://clearing-ai.com/quiz.html">Quiz</a>
+        <span>|</span>
+        <a href="https://clearing-ai.com/newsletter-archive.html">Archive</a>
+        <span>|</span>
+        <a href="https://clearing-ai.com/about.html">About</a>
+      </div>
+      <div class="footer-meta">
+        <p>You're receiving this because you signed up for The Dispatch.</p>
+        <p>© 2026 The Clearing · <a href="https://clearing-ai.com" style="color: var(--link);">clearing-ai.com</a> · Recover. Rebuild. Resume.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.7rem; color: var(--text-muted);">Powered by The Clearing · For engineers who use AI daily and want to stay sharp · 100% independent, no tracking, no ads.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Theme toggle handler
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    else document.documentElement.setAttribute('data-theme', 'dark');
+  </script>
+</body>
+</html>

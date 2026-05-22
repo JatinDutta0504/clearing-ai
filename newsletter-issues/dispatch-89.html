@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Dispatch #89 — The Dependency Gradient</title>
+  <meta name="description" content="Issue #89 of The Dispatch — the dependency gradient, why the skills line keeps moving, and how to find it again."/>
+  <meta name="robots" content="noindex, follow"/>
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-issues/dispatch-89.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="The Dispatch #89 — The Dependency Gradient"/>
+  <meta property="og:description" content="Issue #89 — the dependency gradient: why the skills line keeps moving and how to find it again."/>
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png"/>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <style>
+    body { background: var(--bg, #0f1a0f); color: var(--text, #e8f0e8); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.8; max-width: 680px; margin: 0 auto; padding: 0 24px 80px; }
+    .header { padding: 48px 0 32px; border-bottom: 1px solid var(--border, #2a3f2a); margin-bottom: 40px; }
+    .header .label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-green, #7aab8a); margin-bottom: 12px; }
+    .header h1 { font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 12px; }
+    .header .meta { font-size: 13px; color: var(--text-secondary, #a0b8a8); }
+    .section { margin-bottom: 36px; }
+    .section h2 { font-size: 1.3rem; font-weight: 700; color: var(--text); margin-bottom: 16px; border-left: 3px solid var(--accent-green, #7aab8a); padding-left: 12px; }
+    .section p { margin-bottom: 16px; color: var(--text); font-size: 1.05rem; }
+    .callout { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .callout p { font-style: italic; color: var(--text-secondary, #a0b8a8); margin-bottom: 0; }
+    ul { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 10px; color: var(--text); }
+    .cta-block { background: var(--surface-2, #1a2e1a); border: 1px solid var(--accent-green, #7aab8a); border-radius: 8px; padding: 28px; text-align: center; margin: 36px 0; }
+    .cta-block a { display: inline-block; background: var(--accent-green, #7aab8a); color: #0a0a0a; text-decoration: none; padding: 12px 28px; border-radius: 6px; font-weight: 600; font-size: 15px; }
+    .cta-block a:hover { opacity: 0.85; }
+    .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border, #2a3f2a); font-size: 12px; color: var(--text-secondary, #a0b8a8); }
+    .footer a { color: var(--accent-green, #7aab8a); }
+    hr { border: none; border-top: 1px solid var(--border, #2a3f2a); margin: 32px 0; }
+    strong { color: var(--text); }
+    .question-block { background: linear-gradient(135deg, #1a2e1a, #0f1a0f); border: 1px solid var(--accent-green, #7aab8a); border-radius: 8px; padding: 28px; margin: 28px 0; text-align: center; }
+    .question-block p { font-size: 1.15rem; font-weight: 500; color: var(--text); margin: 0; }
+    .sub-text { font-size: 0.9rem; color: var(--text-secondary, #a0b8a8); margin-top: 12px; font-style: italic; }
+    .practice-box { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .practice-box h3 { font-size: 1.1rem; font-weight: 700; color: var(--accent-green, #7aab8a); margin-bottom: 12px; }
+    .practice-box p { margin-bottom: 12px; }
+    .practice-box p:last-child { margin-bottom: 0; }
+    .gradient-box { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .gradient-box h3 { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 16px; }
+    .gradient-ends { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .gradient-end { font-size: 0.85rem; color: var(--text-secondary, #a0b8a8); }
+    .gradient-arrow { color: var(--accent-green, #7aab8a); font-size: 1.2rem; }
+    .gradient-line { height: 4px; background: linear-gradient(90deg, var(--accent-green, #7aab8a), #4a7a5a, #2a3f2a); border-radius: 2px; margin-bottom: 16px; position: relative; }
+    .gradient-labels { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-secondary, #a0b8a8); }
+    .ps { background: var(--surface-2, #1a2e1a); border-left: 3px solid var(--accent-green, #7aab8a); padding: 16px 20px; margin: 24px 0; font-size: 0.95rem; color: var(--text-secondary, #a0b8a8); }
+    .ps strong { color: var(--text); }
+    .feeling-block { background: var(--surface-2, #1a2e1a); border-radius: 8px; padding: 24px; margin: 24px 0; border-left: 3px solid var(--accent-green, #7aab8a); }
+    .feeling-block p { font-style: italic; color: var(--text-secondary, #a0b8a8); margin: 0; font-size: 1rem; }
+    .asymmetry-box { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .asymmetry-box h3 { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 16px; }
+    .asymmetry-row { display: flex; gap: 16px; margin-bottom: 12px; align-items: flex-start; }
+    .asymmetry-row:last-child { margin-bottom: 0; }
+    .asymmetry-label { font-size: 0.8rem; font-weight: 700; color: var(--accent-green, #7aab8a); min-width: 80px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .asymmetry-desc { font-size: 0.95rem; color: var(--text); }
+    .nav-note { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 20px 24px; margin: 32px 0 0; font-size: 0.95rem; color: var(--text-secondary, #a0b8a8); }
+    .nav-note strong { color: var(--text); }
+    .nav-note a { color: var(--accent-green, #7aab8a); }
+    .skip-link { position: absolute; top: -9999px; left: 0; background: var(--accent-green); color: #0a0a0a; padding: 8px 16px; z-index: 100; text-decoration: none; font-weight: 600; }
+    .skip-link:focus { top: 0; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Dispatch #89 — The Dependency Gradient",
+    "description": "Issue #89 of The Dispatch — the dependency gradient: why the skills line keeps moving without you noticing, and how to find it again.",
+    "author": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+    "datePublished": "2026-05-22",
+    "about": {"@type": "Thing", "name": "AI Fatigue", "description": "The dependency gradient: how AI use shifts the line between what you can do unaided and what you need help with"},
+    "articleSection": "Newsletter"
+  }
+  }
+  </script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<nav class="nav"><div class="nav-inner"><a href="index.html" class="nav-home">The Clearing</a></div></nav>
+<main id="main">
+<article>
+<header class="header">
+<div class="label">The Dispatch #89 — May 22, 2026</div>
+<h1>The Dependency Gradient</h1>
+<p class="meta">For engineers who can ship anything except their own confidence</p>
+</header>
+
+<div class="section">
+<h2>The Feeling Nobody Names</h2>
+<p>There's a specific feeling that comes after a heavy AI-assisted coding session.</p>
+<p>You're done. The PR is up. The tests pass. The deploy is green.</p>
+<p>But underneath the completion there's something smaller, quieter: a question you don't want to ask yourself.</p>
+<p><em>Did I actually build this, or did I mostly manage the AI's output?</em></p>
+<p>Most engineers I know feel this. Almost none of them talk about it.</p>
+<p>Not because they're ashamed — though some are. Not because they think they're alone — though they assume they are.</p>
+<p>They don't talk about it because naming it feels like it might make it real. Like if you said it out loud, you'd have to do something about it. And doing something about it sounds exhausting.</p>
+</div>
+
+<div class="gradient-box">
+<h3>The Dependency Gradient</h3>
+<p style="margin-bottom: 16px; color: var(--text); font-size: 1rem;">Think of your skills as existing on a gradient. At one end: things you can do fully unaided. At the other: things you'd need to research extensively even with AI.</p>
+<div class="gradient-ends">
+  <span class="gradient-end">Can do unaided</span>
+  <span class="gradient-arrow">←→</span>
+  <span class="gradient-end">Needs AI help</span>
+</div>
+<div class="gradient-line"></div>
+<div class="gradient-labels">
+  <span>Full independence</span>
+  <span>Full delegation</span>
+</div>
+<p style="margin-top: 16px; color: var(--text-secondary); font-size: 0.9rem;">Most engineers, after 12-18 months of heavy AI use, have noticed the line moving. Some things that used to be on the left side have migrated to the right.</p>
+</div>
+
+<div class="section">
+<h2>What the Velocity Signal Misses</h2>
+<p>Here's the uncomfortable part:</p>
+<p>Your shipping velocity is probably going up. The output increased. The signal said "you're doing great."</p>
+<p>The signal was right about the output. It was silent about the dependency.</p>
+<p>The gap between those two numbers — what you can demonstrate with AI, and what you can do alone — is the thing nobody tracks. Until they suddenly have to.</p>
+</div>
+
+<div class="asymmetry-box">
+<h3>The Asymmetry Nobody Tracks</h3>
+<div class="asymmetry-row">
+  <span class="asymmetry-label">Gain</span>
+  <span class="asymmetry-desc" style="color: var(--accent-green);">Loud and visible — you feel capable, productive, fast. The skill feels real in the moment.</span>
+</div>
+<div class="asymmetry-row">
+  <span class="asymmetry-label">Loss</span>
+  <span class="asymmetry-desc" style="color: #b07070;">Silent and easy to miss — you don't feel it going. You just notice one day it's harder than it used to be.</span>
+</div>
+<p style="margin-top: 16px; color: var(--text-secondary); font-size: 0.9rem; font-style: italic;">This is why the 20-minute, once-a-week check-in is the most underrated tool in the engineer-as-maintainer toolkit. It's not productivity. It's instrumentation.</p>
+</div>
+
+<div class="section">
+<h2>What Nobody Tells You About Recovery</h2>
+<p>If you've noticed the gradient shifting — if you've felt the line moving — here's what I want you to know:</p>
+<p>You don't have to choose between using AI and maintaining your skills. Those aren't actually opposites.</p>
+<p>The engineers who navigate this best aren't the ones who use AI least. They're the ones who've gotten intentional about <em>where the line sits for them specifically</em> — and which skills they're willing to let migrate and which ones they want to keep on the "can do unaided" side.</p>
+<p>This requires two things most engineers skip:</p>
+<ul>
+  <li><strong>A: Naming the skills that matter to you.</strong> Not commercially. Not by what the industry says you should know. What actually matters to you — what you'd miss, what you'd feel bereft without.</li>
+  <li><strong>B: Protecting them deliberately.</strong> Not by avoiding AI entirely. By carving out specific zones where you don't use it — not because efficiency doesn't matter, but because some things are worth maintaining at depth.</li>
+</ul>
+<p>The boundary is personal. The boundary is also learnable.</p>
+</div>
+
+<div class="question-block">
+<p>What is the one skill — the single, specific capability — that you most want to still be able to exercise without AI a year from now?</p>
+<p class="sub-text">Not the most commercially valuable. The one that, if you lost the ability to do it yourself, would make you feel like you were losing yourself as an engineer.</p>
+</div>
+
+<div class="practice-box">
+<h3>How to Find the Line (Again)</h3>
+<p>If you've been meaning to do this but haven't found the moment: this is your prompt.</p>
+<p><strong>This weekend. 20 minutes. A problem you've seen before, or one you make up. Something small. No AI.</strong></p>
+<p>Just you and the problem. See what happens.</p>
+<p>If you solve it easily: note that. Your gradient is still strong in that area.</p>
+<p>If you struggle: note that too. That's not a failure. That's data.</p>
+<p>The data is the point.</p>
+</div>
+
+<div class="section">
+<h2>The Thing Worth Protecting</h2>
+<p>Your confidence isn't the same as your capability — but they're related. When you maintain the skills, the confidence has a real foundation. When the skills drift without you noticing, the confidence can feel increasingly theoretical.</p>
+<p>This isn't about "earning" the right to use AI. It's about knowing where you actually stand.</p>
+<p>The clearest engineers I know have made a kind of peace with the gradient: they've accepted that some things they'll maintain at depth, some things they'll use AI for, and they're clear about which is which.</p>
+<p>That clarity is underrated. It reduces the ambient anxiety that comes from not knowing whether you could still do the thing — or whether you're just good at directing the AI that does the thing for you.</p>
+<p>You can know. The 20 minutes will tell you.</p>
+</div>
+
+<div class="cta-block">
+<p style="margin-bottom: 16px; color: var(--text-secondary);">3 minutes. Real readout on where you stand.</p>
+<a href="https://clearing-ai.com/quiz.html">Take the AI Fatigue Quiz →</a>
+</div>
+
+<div class="nav-note">
+<strong>Start here:</strong> The <a href="https://clearing-ai.com/ai-detox-plan.html">30-Day AI Detox Plan</a> is a structured protocol for recalibrating — rebuilding the skills that matter most, one deliberate practice at a time. No full resets required. Just the zones worth protecting.
+</div>
+
+<div class="ps">
+<strong>P.S.</strong> If you took the quiz a while back, it's worth retaking. What you find might be different than what it was — the gradient moves. <a href="https://clearing-ai.com/quiz.html">clearing-ai.com/quiz.html</a>
+</div>
+
+<footer class="footer">
+<p><a href="https://clearing-ai.com">clearing-ai.com</a> · <a href="https://clearing-ai.com/newsletter.html">The Dispatch</a> · Free forever</p>
+<p>You're receiving this because you signed up. <a href="https://clearing-ai.com/newsletter.html">Unsubscribe</a> — no dark patterns, one click.</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

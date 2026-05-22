@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Dispatch #87 — The Ownership Gap</title>
+  <meta name="description" content="Issue #87 of The Dispatch, exploring the accumulated distance between code you ship and code you could rebuild from scratch — and how to find the boundary."/>
+  <meta name="robots" content="noindex, follow"/>
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-issues/dispatch-87.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="The Dispatch #87 — The Ownership Gap"/>
+  <meta property="og:description" content="Issue #87, exploring the gap between code you ship and code you could rebuild from scratch."/>
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png"/>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <style>
+    body { background: var(--bg, #0f1a0f); color: var(--text, #e8f0e8); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.8; max-width: 680px; margin: 0 auto; padding: 0 24px 80px; }
+    .header { padding: 48px 0 32px; border-bottom: 1px solid var(--border, #2a3f2a); margin-bottom: 40px; }
+    .header .label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-green, #7aab8a); margin-bottom: 12px; }
+    .header h1 { font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 12px; }
+    .header .meta { font-size: 13px; color: var(--text-secondary, #a0b8a8); }
+    .section { margin-bottom: 36px; }
+    .section h2 { font-size: 1.3rem; font-weight: 700; color: var(--text); margin-bottom: 16px; border-left: 3px solid var(--accent-green, #7aab8a); padding-left: 12px; }
+    .section p { margin-bottom: 16px; color: var(--text); font-size: 1.05rem; }
+    .callout { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .callout p { font-style: italic; color: var(--text-secondary, #a0b8a8); margin-bottom: 0; }
+    ul { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 10px; color: var(--text); }
+    .cta-block { background: var(--surface-2, #1a2e1a); border: 1px solid var(--accent-green, #7aab8a); border-radius: 8px; padding: 28px; text-align: center; margin: 36px 0; }
+    .cta-block a { display: inline-block; background: var(--accent-green, #7aab8a); color: #0a0a0a; text-decoration: none; padding: 12px 28px; border-radius: 6px; font-weight: 600; font-size: 15px; }
+    .cta-block a:hover { opacity: 0.85; }
+    .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border, #2a3f2a); font-size: 12px; color: var(--text-secondary, #a0b8a8); }
+    .footer a { color: var(--accent-green, #7aab8a); }
+    hr { border: none; border-top: 1px solid var(--border, #2a3f2a); margin: 32px 0; }
+    strong { color: var(--text); }
+    .question-block { background: linear-gradient(135deg, #1a2e1a, #0f1a0f); border: 1px solid var(--accent-green, #7aab8a); border-radius: 8px; padding: 28px; margin: 28px 0; text-align: center; }
+    .question-block p { font-size: 1.15rem; font-weight: 500; color: var(--text); margin: 0; }
+    .sub-text { font-size: 0.9rem; color: var(--text-secondary, #a0b8a8); margin-top: 12px; font-style: italic; }
+    .practice-box { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .practice-box h3 { font-size: 1.1rem; font-weight: 700; color: var(--accent-green, #7aab8a); margin-bottom: 12px; }
+    .practice-box p { margin-bottom: 12px; }
+    .practice-box p:last-child { margin-bottom: 0; }
+    .stages { display: flex; flex-direction: column; gap: 16px; margin: 24px 0; }
+    .stage { background: var(--surface-2, #1a2e1a); border-left: 3px solid var(--accent-green, #7aab8a); border-radius: 0 8px 8px 0; padding: 20px 24px; }
+    .stage h3 { font-size: 1rem; font-weight: 700; color: var(--accent-green, #7aab8a); margin-bottom: 8px; }
+    .stage p { margin-bottom: 0; font-size: 1rem; color: var(--text); }
+    .test-grid { display: grid; gap: 10px; margin: 24px 0; }
+    .test-item { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 16px 20px; font-size: 1rem; color: var(--text); }
+    .test-item em { color: var(--text-secondary, #a0b8a8); font-style: normal; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Dispatch #87 — The Ownership Gap",
+    "description": "Issue #87 of The Dispatch, exploring the accumulated distance between code you ship and code you could rebuild from scratch — and how to find the boundary.",
+    "author": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+    "datePublished": "2026-06-01",
+    "about": {"@type": "Thing", "name": "AI Fatigue", "description": "The ownership gap: when code you ship with AI isn't the same as code you own"},
+    "articleSection": "Newsletter"
+  }
+  }
+  </script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<nav class="nav"><div class="nav-inner"><a href="index.html" class="nav-home">The Clearing</a></div></nav>
+<main id="main">
+<article>
+<header class="header">
+<div class="label">The Dispatch #87 — June 1, 2026</div>
+<h1>The Ownership Gap</h1>
+<p class="meta">For engineers who ship things they're not sure they can rebuild</p>
+</header>
+
+<div class="section">
+<h2>The Thing You Ship Without Knowing How It Works</h2>
+<p>There's a version of every codebase that lives only in your head.</p>
+<p>It's the version where you understand why every decision was made. Where you know not just that the code works, but why it was structured this way instead of some other way. Why this abstraction was chosen over that one. Why this error gets caught here and not there.</p>
+<p>That's the version that makes you an engineer, not just a code operator.</p>
+<p>Most engineers can still access that version of the codebase — for older parts of the system, the parts they built before AI was in the workflow. But increasingly, there's a new layer growing on top: the AI-generated layer, where the code works but the understanding didn't fully transfer.</p>
+<p>You can read it. You can modify it. You can debug it with AI's help. But there's a quiet voice in the back of your head — the one that sounds like the engineer you used to be — that's not entirely sure what's in there.</p>
+<p>That voice is worth listening to.</p>
+</div>
+
+<div class="section">
+<h2>Why This Is Different from the Other Issues</h2>
+<p>We've talked about calibration (knowing what you know), velocity (shipping faster without growing), and explanation (understanding what AI generates).</p>
+<p>The Ownership Gap is the next layer.</p>
+<p>It's what happens when calibration, velocity, and explanation problems compound over time. You've been shipping AI-assisted code for months. Your metrics look good. You can hold a conversation about the system. And then one day — during an outage, or a new codebase, or an AI blackout — you try to do something yourself, and the voice in the back of your head gets very loud, very fast.</p>
+<p>The ownership gap is the accumulated distance between the code you ship and the code you could have written from scratch.</p>
+<p>Not "should have written." Could have. Without AI. With your own brain and hands.</p>
+</div>
+
+<div class="section">
+<h2>How the Gap Gets Bigger</h2>
+<p>Here's what the gap-building process looks like in practice:</p>
+<div class="stages">
+<div class="stage">
+<h3>Stage 1: The Helpful Start</h3>
+<p>You use AI to get unstuck, to accelerate the boring parts, to generate boilerplate you would have written anyway. It feels efficient. It probably is. The learning curve for new APIs flattens. You get more done.</p>
+</div>
+<div class="stage">
+<h3>Stage 2: The Subtle Shift</h3>
+<p>You start noticing that you reach for AI before you reach for your own knowledge. Not because you're incapable — because AI is faster, and speed feels like progress. The friction that used to signal "this is where I learn something" gets removed before it can signal anything. You don't notice it happening.</p>
+</div>
+<div class="stage">
+<h3>Stage 3: The Invisible Erosion</h3>
+<p>Your unaided capability starts diverging from your AI-assisted output. Not dramatically — slowly, quietly, invisibly. The code you ship still works. The tests pass. But there's a growing list of things you could explain but couldn't independently generate. Things you understand in context but couldn't produce from scratch.</p>
+</div>
+<div class="stage">
+<h3>Stage 4: The Dependency Confirmation</h3>
+<p>You go to do something without AI — during an outage, on a flight, in a context where AI isn't available — and the gap becomes felt rather than theoretical. Your hands hesitate at the keyboard. The first few minutes are slower than you expect. You're not sure if what you're writing is right.</p>
+</div>
+</div>
+<p class="sub-text">The uncomfortable part: you usually can't tell which stage you're in while you're in it.</p>
+</div>
+
+<div class="section">
+<h2>The Test That's Worth Running</h2>
+<p>Here's a version of the test that works without taking much time.</p>
+<p>Think about the last five features you shipped. For each one, ask yourself a single question: could I have built this without AI?</p>
+<p>Not "would it have taken longer?" That's obvious — yes, it would have. That's not the question.</p>
+<p>The question is: could I have done it at all? Without AI's help. Starting from a blank file, your own brain, your own knowledge.</p>
+<div class="test-grid">
+<div class="test-item"><strong>Yes, fully:</strong> <em>you understand it deeply and could have built it independently</em></div>
+<div class="test-item"><strong>Partially:</strong> <em>you understand pieces but couldn't have assembled the whole thing</em></div>
+<div class="test-item"><strong>Not really:</strong> <em>you understand the requirements and can work with the code, but couldn't have generated it yourself</em></div>
+<div class="test-item"><strong>No:</strong> <em>you'd need AI to rebuild it from scratch</em></div>
+</div>
+<p>If you're honest, most engineers will find their answers cluster toward "partially" or "not really" for most recent work — and that gap is worth sitting with.</p>
+</div>
+
+<div class="section">
+<h2>What the Gap Actually Costs</h2>
+<p>The reason this matters isn't philosophical. It's practical.</p>
+<p>Because when the AI is gone — during an outage where you need to understand the system fast, during an interview where you have to demonstrate capability, during a new job where you're expected to hit the ground running, during any moment where you're alone with the problem — you're alone with the version of the code that lives in your head.</p>
+<p>And if the version in your head is incomplete, the decisions you make will be noisier. The debug sessions will be longer. The architecture reasoning will be shakier. The confidence will be lower than it should be.</p>
+<p>More than that: the relationship with the work changes. When you know you didn't build something — when you know the code exists because AI generated it and you reviewed it — there's a different quality to the satisfaction. Less "I made this." More "I approved this."</p>
+<p>That difference compounds. Over years, it changes what the work means to you.</p>
+</div>
+
+<div class="section">
+<h2>The One Thing Worth Protecting</h2>
+<p>Here's the thing most recovery advice gets wrong: it frames the problem as "use less AI" versus "use more AI." That's not the right axis.</p>
+<p>The right axis is: which parts of your work do you want to own — and which parts are you comfortable delegating?</p>
+<p>Not everything needs to be owned. Boilerplate, repetitive patterns, unfamiliar APIs — these are fine to delegate. The efficiency is real. The tradeoffs are worth it.</p>
+<p>But something does need to be owned. The core of your craft. The problems that define what you actually know. The skills that make you <em>you</em>, rather than someone who can operate AI tools.</p>
+<p>Here's a way to think about it: imagine you had to explain to someone why your last feature was structured the way it was. Not what it does — why the design decisions were made the way they were made.</p>
+<p>Could you?</p>
+<p>If yes: you own that part of the system, even with AI assistance. That's fine.</p>
+<p>If no: that's the boundary. That's the thing worth rebuilding without AI, just once, to close the gap and make it yours again.</p>
+</div>
+
+<div class="question-block">
+<p>The Question Worth Sitting With:<br/><strong>What is the thing you most want to still be able to do without AI in two years?</strong></p>
+<p class="sub-text">Not "what will AI do for me." Not "what skills are most in demand."<br/>What do you want? What part of the work feels most like yours?</p>
+</div>
+
+<div class="cta-block">
+<p style="margin-bottom:16px;font-size:1.05rem;">If you've been wondering where you stand with AI and your skills — the AI Fatigue Quiz is a three-minute read on where the gap might be in your specific workflow. Over 2,500 engineers have taken it.</p>
+<a href="https://clearing-ai.com/quiz.html">Take the AI Fatigue Quiz →</a>
+</div>
+
+<div class="footer">
+<p>— The Clearing | <a href="https://clearing-ai.com">clearing-ai.com</a> | Free forever</p>
+<p>You're receiving this because you signed up at clearing-ai.com</p>
+</div>
+</article>
+</main>
+</body>
+</html>

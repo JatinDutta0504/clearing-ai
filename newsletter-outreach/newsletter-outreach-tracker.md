@@ -1,7 +1,21 @@
 # Newsletter Partnership Tracker — The Clearing
-**Updated:** Hour 799 — 2026-05-12 11:43 UTC
+**Updated:** Hour f4509cba — 2026-05-22 07:47 UTC (v4 sent)
 
-| Newsletter | Email | Date Initial Sent | Day 7 Follow-up | Day 14 Follow-up | Status | Notes |
+## v4 Newsletter Targets (sent 2026-05-22)
+
+| Newsletter | Email | Date Sent | Subject | Status | Notes |
+|-----------|-------|-----------|---------|--------|-------|
+| ByteByteGo | hello@bytebytego.com | 2026-05-22 | The calibration gap | EM1_SENT | ~100k |
+| Software Design Weekly | adam@softwaredesignweekly.com | 2026-05-22 | AI fatigue is a software design problem | EM1_SENT | ~15-20k |
+| Increment Magazine | hi@increment.com | 2026-05-22 | The human cost of AI efficiency | EM1_SENT | ~30-50k |
+| Engineering Manager | hello@engineeringmanager.io | 2026-05-22 | AI fatigue is your readers' biggest retention threat | EM1_SENT | ~15k |
+| DevOps Weekly | hi@devopsweekly.com | 2026-05-22 | DevOps engineers are burning out on AI tools | EM1_SENT | ~20k |
+
+---
+
+## v1-v3 Archive (EM3_SENT May 12, no response)
+
+| Newsletter | Email | Date Initial Sent | Day 14 Follow-up | Status | Notes |
 |-----------|-------|-------------------|-----------------|------------------|--------|-------|
 | Bytes | hello@bytes.dev | ~Apr 20 | ~Apr 27 (unconfirmed) | **SENT MAY 12** | EM3_SENT | ~80k subscribers |
 | TLDR | letters@tldr.tech | ~Apr 20 | ~Apr 27 (unconfirmed) | **SENT MAY 12** | EM3_SENT | ~200k subscribers |

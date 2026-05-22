@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Dispatch #84 — The Calibration Gap</title>
+  <meta name="description" content="Issue #84 of The Dispatch, exploring the gap between AI-assisted competence and actual unaided capability."/>
+  <meta name="robots" content="noindex, follow"/>
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-issues/dispatch-84.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="The Dispatch #84 — The Calibration Gap"/>
+  <meta property="og:description" content="Issue #84 of The Dispatch, exploring the gap between AI-assisted competence and actual unaided capability."/>
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png"/>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.8; max-width: 680px; margin: 0 auto; padding: 0 24px 80px; }
+    .header { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+    .header .label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-green); margin-bottom: 12px; }
+    .header h1 { font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 12px; }
+    .header .meta { font-size: 13px; color: var(--text-secondary); }
+    .section { margin-bottom: 36px; }
+    .section h2 { font-size: 1.3rem; font-weight: 700; color: var(--text); margin-bottom: 16px; border-left: 3px solid var(--accent-green); padding-left: 12px; }
+    .section p { margin-bottom: 16px; color: var(--text); font-size: 1.05rem; }
+    .callout { background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .callout p { font-style: italic; color: var(--text-secondary); margin-bottom: 0; }
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 24px 0; }
+    .stat-card { background: var(--surface-2); border-radius: 8px; padding: 20px; border-left: 3px solid var(--accent-green); }
+    .stat-card.red { border-left-color: var(--accent-red); }
+    .stat-card.orange { border-left-color: var(--accent-orange); }
+    .stat-card .num { font-size: 1.8rem; font-weight: 700; color: var(--accent-green); }
+    .stat-card.red .num { color: var(--accent-red); }
+    .stat-card.orange .num { color: var(--accent-orange); }
+    .stat-card .desc { font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px; }
+    ul { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 10px; color: var(--text); }
+    .cta-block { background: var(--surface-2); border: 1px solid var(--accent-green); border-radius: 8px; padding: 28px; text-align: center; margin: 36px 0; }
+    .cta-block a { display: inline-block; background: var(--accent-green); color: #0a0a0a; text-decoration: none; padding: 12px 28px; border-radius: 6px; font-weight: 600; font-size: 15px; }
+    .cta-block a:hover { opacity: 0.85; }
+    .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-secondary); }
+    .footer a { color: var(--accent-green); }
+    hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+    strong { color: var(--text); }
+  </style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<div id="progressBar"></div>
+<nav class="nav"><div class="nav-inner"><a href="index.html" class="nav-home">The Clearing</a></div></nav>
+<main id="main">
+<article>
+<header class="header">
+<div class="label">The Dispatch #84 — May 22, 2026</div>
+<h1>The Calibration Gap</h1>
+<p class="meta">For engineers who suspect they're getting worse at the things that matter most</p>
+</header>
+
+<div class="section">
+<h2>The Problem with Knowing the Answer</h2>
+<p>There's a phenomenon researchers call the <strong>fluency illusion</strong>. When you encounter information in a context that makes it easy to process — like AI-generated code that looks correct, runs correctly, and passes tests — your brain registers that information as familiar and therefore as "learned."</p>
+<p>But what your brain is actually registering is: <em>processed</em>. Not <em>understood</em>. Not <em>retained</em>. Just processed, once, with assistance.</p>
+<p>The distinction matters because it compounds. Each time AI helps you solve a problem, your brain files that problem under "solved." It doesn't separately file "solved with AI" and "would solve the same way without AI." Over time, this creates an accumulated self-assessment gap — a widening distance between how competent you feel and how competent you actually are, unaided.</p>
+<p>You feel fine. You ship code. Tests pass. But there's a growing quiet unease — a sense that you're not entirely sure what's yours anymore, and you're not entirely sure how to find out.</p>
+</div>
+
+<div class="section">
+<h2>The Question Nobody Asks</h2>
+<p>The question worth sitting with isn't "Is AI making me less capable?"</p>
+<p>It's: <strong>If I stopped using AI tools tomorrow, for one week, what could I still do?</strong></p>
+<p>Not "what would I delegate." Not "what would I simplify." What would you still do — from scratch, alone, with your own brain and hands?</p>
+<p>If that question makes you uncomfortable — even a little — that's the calibration gap talking.</p>
+</div>
+
+<div class="section">
+<h2>What This Has to Do with Engineering</h2>
+<p>Software engineering is, at its core, a judgment-intensive practice. The code itself is the relatively easy part. The hard part is knowing which problem to solve, knowing when a solution is actually working, knowing when you're building something that will matter in six months versus shipping something that will create debt in two.</p>
+<p>That judgment is built through struggle. Through bugs you had to hunt for hours. Through architectures that failed in production and taught you things no tutorial ever could. Through the slow, frustrating process of getting something wrong and understanding why.</p>
+<p>AI skips that process. That's the point. And the efficiency gain is real.</p>
+<p>But the calibration cost is also real — and invisible until it isn't.</p>
+</div>
+
+<div class="section">
+<h2>What Actually Helps</h2>
+<p>This isn't a call to throw out your tools. It's a call to notice the gap before the gap notices you.</p>
+<ul>
+<li><strong>One hour per week, no AI tools.</strong> Work on something you already know how to do — not to prove a point, but to stay in touch with what you can still do without assistance. The goal isn't to suffer. The goal is to calibrate.</li>
+<li><strong>After AI generates something that works, take thirty seconds.</strong> Ask yourself: do I understand why this works? Not "do I understand that it works" — every debugger understands that. Do you understand the mechanism? If no, that's the edge of the gap. That's where the learning is.</li>
+<li><strong>Find someone you trust and ask them.</strong> "Hey, can you look at this code and tell me if there's anything I'm missing?" A real human reviewing your work with fresh eyes is the most reliable calibration mechanism I know of.</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>What Nobody Says</h2>
+<p>Here's what I don't say enough: <strong>this isn't your fault.</strong></p>
+<p>The industry created the conditions for this. The velocity demands, the FOMO, the mandatory tool mandates, the hiring bar that now implicitly includes "AI proficient." You didn't choose to have your learning loop disrupted. You were handed tools and told to use them and then judged on the output.</p>
+<p>The question now is whether you want to do something about the gap — not because you have to, but because you're an engineer, and engineers care about accurate models of reality.</p>
+<p>That's what this newsletter is for. Not to make you feel bad about what you can't do. To help you stay sharp enough to keep doing the work you care about.</p>
+</div>
+
+<hr>
+
+<div class="cta-block">
+<p style="margin-bottom:16px;font-size:1rem;color:var(--text-secondary)">The AI Fatigue Quiz has now been taken by over 2,400 engineers. If you haven't yet, it takes 3 minutes and gives you a genuine read on where you stand.</p>
+<a href="https://clearing-ai.com/quiz.html">Take the AI Fatigue Quiz →</a>
+</div>
+
+<div class="footer">
+<p><strong>The Clearing</strong> — Free forever, no tracking, no account required.</p>
+<p>You received this because you signed up at <a href="https://clearing-ai.com">clearing-ai.com</a>.</p>
+</div>
+</article>
+</main>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Dispatch #91 — The Proxy Productivity Trap</title>
+  <meta name="description" content="Issue #91 of The Dispatch — why shipping faster is the industry's most expensive distraction, and the one metric worth tracking."/>
+  <meta name="robots" content="noindex, follow"/>
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-issues/dispatch-91.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="The Dispatch #91 — The Proxy Productivity Trap"/>
+  <meta property="og:description" content="Issue #91 — why shipping faster is the industry's most expensive distraction."/>
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png"/>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <style>
+    body { background: var(--bg, #0f1a0f); color: var(--text, #e8f0e8); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.8; max-width: 680px; margin: 0 auto; padding: 0 24px 80px; }
+    .header { padding: 48px 0 32px; border-bottom: 1px solid var(--border, #2a3f2a); margin-bottom: 40px; }
+    .header .label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-green, #7aab8a); margin-bottom: 12px; }
+    .header h1 { font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 12px; }
+    .header .meta { font-size: 13px; color: var(--text-secondary, #a0b8a8); }
+    .section { margin-bottom: 36px; }
+    .section h2 { font-size: 1.3rem; font-weight: 700; color: var(--text); margin-bottom: 16px; border-left: 3px solid var(--accent-green, #7aab8a); padding-left: 12px; }
+    .section p { margin-bottom: 16px; color: var(--text); font-size: 1.05rem; }
+    .callout { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .callout p { font-style: italic; color: var(--text-secondary, #a0b8a8); margin-bottom: 0; }
+    ul { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 10px; color: var(--text); }
+    .cta-block { background: var(--surface-2, #1a2e1a); border: 1px solid var(--accent-green, #7aab8a); border-radius: 8px; padding: 28px; text-align: center; margin: 36px 0; }
+    .cta-block a { display: inline-block; background: var(--accent-green, #7aab8a); color: #0a0a0a; text-decoration: none; padding: 12px 28px; border-radius: 6px; font-weight: 600; font-size: 15px; }
+    .cta-block a:hover { opacity: 0.85; }
+    .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border, #2a3f2a); font-size: 12px; color: var(--text-secondary, #a0b8a8); }
+    .footer a { color: var(--accent-green, #7aab8a); }
+    hr { border: none; border-top: 1px solid var(--border, #2a3f2a); margin: 32px 0; }
+    strong { color: var(--text); }
+    .question-block { background: linear-gradient(135deg, #1a2e1a, #0f1a0f); border: 1px solid var(--accent-green, #7aab8a); border-radius: 8px; padding: 28px; margin: 28px 0; text-align: center; }
+    .question-block p { font-size: 1.15rem; font-weight: 500; color: var(--text); margin: 0; }
+    .sub-text { font-size: 0.9rem; color: var(--text-secondary, #a0b8a8); margin-top: 12px; font-style: italic; }
+    .practice-box { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .practice-box h3 { font-size: 1.1rem; font-weight: 700; color: var(--accent-green, #7aab8a); margin-bottom: 12px; }
+    .practice-box p { margin-bottom: 12px; }
+    .practice-box p:last-child { margin-bottom: 0; }
+    .ps { background: var(--surface-2, #1a2e1a); border-left: 3px solid var(--accent-green, #7aab8a); padding: 16px 20px; margin: 24px 0; font-size: 0.95rem; color: var(--text-secondary, #a0b8a8); }
+    .ps strong { color: var(--text); }
+    .feeling-block { background: var(--surface-2, #1a2e1a); border-radius: 8px; padding: 24px; margin: 24px 0; border-left: 3px solid var(--accent-green, #7aab8a); }
+    .feeling-block p { font-style: italic; color: var(--text-secondary, #a0b8a8); margin: 0; font-size: 1rem; }
+    .skip-link { position: absolute; top: -9999px; left: 0; background: var(--accent-green); color: #0a0a0a; padding: 8px 16px; z-index: 100; text-decoration: none; font-weight: 600; }
+    .skip-link:focus { top: 0; }
+    .reading-block { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 20px 24px; margin: 28px 0; }
+    .reading-block p { font-size: 0.95rem; color: var(--text-secondary); margin: 0; }
+    .reading-block a { color: var(--accent-green); font-weight: 500; }
+    .reading-links { margin-top: 12px; }
+    .reading-links a { display: block; margin-bottom: 6px; font-size: 0.9rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Dispatch #91 — The Proxy Productivity Trap",
+    "description": "Issue #91 of The Dispatch — why shipping faster is the industry's most expensive distraction, and the one metric worth tracking.",
+    "author": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+    "datePublished": "2026-05-31",
+    "about": {"@type": "Thing", "name": "AI Fatigue", "description": "The proxy productivity trap: why shipping velocity metrics hide what actually matters in engineering."},
+    "articleSection": "Newsletter"
+  }
+  }
+  </script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<nav class="nav"><div class="nav-inner"><a href="index.html" class="nav-home">The Clearing</a></div></nav>
+<main id="main">
+
+<header class="header">
+  <p class="label">The Dispatch — Issue #91</p>
+  <h1>The Proxy Productivity Trap</h1>
+  <p class="meta">Week of May 25, 2026 · <a href="https://clearing-ai.com/newsletter.html" style="color:#7aab8a">Subscribe free</a></p>
+</header>
+
+<section class="section">
+  <h2>The Opening</h2>
+  <p>A senior engineer I know — fifteen years in, solid reputation — told me last week that he'd started timing how long problems take him without AI assistance.</p>
+  <p>He called it his "unaided baseline."</p>
+  <p>Not because he was worried about skill atrophy (though he is). Not because he was building a case for a performance improvement plan. He started doing it because something had stopped feeling right, and he couldn't figure out what.</p>
+  <p>His unaided baseline was holding steady. His AI-assisted velocity was going up every quarter. The gap between those two numbers was widening, and he wanted to know if he should be alarmed.</p>
+  <p>The honest answer: nobody knows. Because almost no one is measuring what he's measuring.</p>
+</section>
+
+<section class="section">
+  <h2>The Proxy Problem</h2>
+  <p>The tech industry has a long history of optimizing for the wrong thing. We measured lines of code until that became a joke. We measured story points until everyone gamed them. We measured deployment frequency until we realized speed without quality was just faster breakage.</p>
+  <p>Now we're measuring shipping velocity with AI.</p>
+  <p>The proxy has changed. The problem hasn't.</p>
+  <p>When a developer's output goes from 2 tickets per week to 6 tickets per week, the velocity number looks unambiguous. It's right there in the dashboard. It's shareable in engineering all-hands. It shows up in performance reviews.</p>
+  <p>What's harder to measure: whether each of those 6 tickets represents the same depth of understanding as each of the 2 tickets used to.</p>
+  <p>The gap between those two numbers — between what you're shipping and what you understand — is the thing nobody's tracking. Until it shows up as an incident, an architecture decision nobody on the team can explain, or a senior engineer who can't solve a problem in an interview that they definitely would have solved three years ago.</p>
+</section>
+
+<section class="section">
+  <h2>What "Shipping" Actually Means Now</h2>
+  <p>Here's the thing about the word "shipping":</p>
+  <p>In 2019, shipping meant you wrote code, you understood it, you tested it, you shipped it. There was a continuous thread of understanding from problem to solution.</p>
+  <p>In 2026, shipping often means: you described the problem to an AI, you evaluated its output, you iterated on the prompt, you merged the suggestion, you moved on.</p>
+  <p>The output looks the same. The process isn't. And the process is where the learning — or the atrophy — happens.</p>
+  <p>This isn't an argument against AI tools. It's an observation that the word "shipping" now conceals a wide range of cognitive involvement, and treating all shipping as equivalent is how you end up with teams that produce a lot and understand very little.</p>
+</section>
+
+<div class="question-block">
+  <p>What's your unaided baseline?</p>
+  <p class="sub-text">Not as a test. Not as proof of anything. Just as a calibration signal.</p>
+</div>
+
+<section class="section">
+  <h2>The Most Common Version of This</h2>
+  <p>It usually starts like this:</p>
+  <p>A developer gets a problem. They open a chat window. They describe the problem. They get code back. They read the code, they understand it at the surface level — they could explain what it does — but the deeper understanding of <em>why</em> this approach was right, why this data structure makes sense here, what edge cases this solves — that understanding doesn't come.</p>
+  <p>So they move on to the next problem.</p>
+  <p>The next problem takes three exchanges instead of one. The code is more complex. They understand it even less. They start to feel like they're managing an AI rather than programming with one.</p>
+  <p>By month six, they're spending more time evaluating AI output than they would have spent just solving the problem. But the ticket count is higher, the velocity dashboard looks great, and nobody — including them — has made the connection between the growing fog and the growing output.</p>
+  <p>The velocity metric has become a proxy that hides the thing it's supposed to represent.</p>
+</section>
+
+<section class="section">
+  <h2>What the Industry Got Wrong This Time</h2>
+  <p>The framing was wrong from the start.</p>
+  <p>When AI coding tools became mainstream, the conversation was about productivity. The question everyone asked: "Will this make us faster?"</p>
+  <p>That's the wrong question.</p>
+  <p>The right question is: "Faster at what, exactly?"</p>
+  <p>Faster at producing code that looks right? Yes.</p>
+  <p>Faster at building understanding that compounds over time? No.</p>
+  <p>Faster at developing the judgment that tells you which approach is right before you try it? Definitely not.</p>
+  <p>The productivity gains from AI are real. They're also narrow. They apply to the output side of the equation, not the input side. And in a field where the input — the engineer's thinking, reasoning, judgment — is the actual product, optimizing for output while degrading input is not a productivity win. It's a trade.</p>
+  <p>The engineers who understand this most clearly are the ones who are now asking a different question before using any AI tool:</p>
+  <div class="practice-box">
+    <h3>The Question Worth Asking</h3>
+    <p>"Will this make me better at this, or just faster at producing this?"</p>
+  </div>
+  <p>That question is harder to answer than "should I use AI here?" But it's the only one that leads somewhere useful.</p>
+</section>
+
+<section class="section">
+  <h2>The One Metric Worth Tracking</h2>
+  <p>Here's what I'd suggest if you're the kind of engineer who likes self-experimentation:</p>
+  <p>Once a month, spend an hour on a problem with zero AI assistance. Not because you're testing yourself. Not because you're proving a point. Because you're calibrating.</p>
+  <p>Note these things:</p>
+  <ul>
+    <li>Can you still do this? Can you read code you wrote a month ago and understand what you wrote and why?</li>
+    <li>Can you explain the architecture decision to a junior engineer without using the phrase "I asked ChatGPT"?</li>
+    <li>Can you debug this in production at 2 AM without AI assistance?</li>
+  </ul>
+  <p>These aren't moral questions. They're calibration questions. They're the difference between knowing how your system works and knowing that you used AI to build it.</p>
+  <p>The engineers who are going to be fine in five years aren't necessarily the ones using AI the least. They're the ones who are tracking the right numbers — including the numbers that don't show up in any dashboard.</p>
+</section>
+
+<section class="section">
+  <h2>What I'm Working On</h2>
+  <p>I've been spending more time in what's now called "deep debugging mode" — problems where AI gets disabled entirely for the first 45 minutes.</p>
+  <p>It's uncomfortable. It forces you to sit with not-knowing in a way that AI use doesn't. The friction is the point. The friction is where the understanding gets built.</p>
+  <p>I've also started keeping a "what I actually figured out this week" list alongside the "what I shipped this week" list. They're not the same list. They're rarely even correlated.</p>
+  <p>The shipping list gets shown in standups. The other list is the one that actually tells me whether I'm growing or just producing.</p>
+</section>
+
+<div class="question-block">
+  <p>The gap between those two numbers — is it widening, narrowing, or holding steady?</p>
+</div>
+
+<section class="section">
+  <h2>What I'm Reading This Week</h2>
+  <p>If you want to go deeper on the calibration question, these three are worth your time:</p>
+  <div class="reading-block">
+    <p><strong>The Explanation Requirement</strong><br/>
+    The single practice that keeps learning from disappearing when AI does the explaining for you.<br/>
+    <a href="https://clearing-ai.com/the-explanation-requirement.html">clearing-ai.com/the-explanation-requirement →</a></p>
+    <div class="reading-links">
+      <a href="https://clearing-ai.com/ai-fatigue-severity-index.html">→ The AI Fatigue Severity Index — take the 15-question quiz</a>
+      <a href="https://clearing-ai.com/the-science-of-ai-fatigue.html">→ The Science of AI Fatigue — what's actually happening in your brain</a>
+      <a href="https://clearing-ai.com/daily-practice.html">→ Daily Practice — 30 days of small recovery actions</a>
+    </div>
+  </div>
+</section>
+
+<div class="ps">
+  <strong>P.S.</strong> If you're tracking your own unaided baseline, I'd genuinely love to hear what you're measuring. Reply to this email — I read everything.
+</div>
+
+<div class="cta-block">
+  <p style="margin-bottom:16px;font-size:1rem;color:#e8f0e8">Forwarded from a friend?Get The Dispatch in your inbox every Sunday morning.</p>
+  <a href="https://clearing-ai.com/newsletter.html">Subscribe to The Dispatch →</a>
+</div>
+
+<footer class="footer">
+  <p>You're receiving this because you subscribed to <a href="https://clearing-ai.com/newsletter.html">The Dispatch</a>, a weekly letter for software engineers navigating AI tools without losing themselves.</p>
+  <p style="margin-top:8px"><a href="https://clearing-ai.com">clearing-ai.com</a> · <a href="https://clearing-ai.com/ai-fatigue-severity-index.html">Take the Quiz</a> · <a href="https://clearing-ai.com/recovery.html">Recovery Guide</a></p>
+  <p style="margin-top:8px">Unsubscribe anytime — one click, no guilt, no follow-up emails.</p>
+</footer>
+
+</main>
+</body>
+</html>

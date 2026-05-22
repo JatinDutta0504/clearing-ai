@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Dispatch #85 — The Velocity Trap</title>
+  <meta name="description" content="Issue #85 of The Dispatch, exploring the gap between shipping velocity and capability velocity — and why one number is hiding the truth."/>
+  <meta name="robots" content="noindex, follow"/>
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-issues/dispatch-85.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="The Dispatch #85 — The Velocity Trap"/>
+  <meta property="og:description" content="Issue #85 of The Dispatch, exploring the gap between shipping velocity and capability velocity."/>
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png"/>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <style>
+    body { background: var(--bg, #0f1a0f); color: var(--text, #e8f0e8); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.8; max-width: 680px; margin: 0 auto; padding: 0 24px 80px; }
+    .header { padding: 48px 0 32px; border-bottom: 1px solid var(--border, #2a3f2a); margin-bottom: 40px; }
+    .header .label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-green, #7aab8a); margin-bottom: 12px; }
+    .header h1 { font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 12px; }
+    .header .meta { font-size: 13px; color: var(--text-secondary, #a0b8a8); }
+    .section { margin-bottom: 36px; }
+    .section h2 { font-size: 1.3rem; font-weight: 700; color: var(--text); margin-bottom: 16px; border-left: 3px solid var(--accent-green, #7aab8a); padding-left: 12px; }
+    .section p { margin-bottom: 16px; color: var(--text); font-size: 1.05rem; }
+    .callout { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .callout p { font-style: italic; color: var(--text-secondary, #a0b8a8); margin-bottom: 0; }
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 24px 0; }
+    .stat-card { background: var(--surface-2, #1a2e1a); border-radius: 8px; padding: 20px; border-left: 3px solid var(--accent-green, #7aab8a); }
+    .stat-card.red { border-left-color: #e05555; }
+    .stat-card.orange { border-left-color: #d4a043; }
+    .stat-card .num { font-size: 1.8rem; font-weight: 700; color: var(--accent-green, #7aab8a); }
+    .stat-card.red .num { color: #e05555; }
+    .stat-card.orange .num { color: #d4a043; }
+    .stat-card .desc { font-size: 0.85rem; color: var(--text-secondary, #a0b8a8); margin-top: 4px; }
+    ul { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 10px; color: var(--text); }
+    .cta-block { background: var(--surface-2, #1a2e1a); border: 1px solid var(--accent-green, #7aab8a); border-radius: 8px; padding: 28px; text-align: center; margin: 36px 0; }
+    .cta-block a { display: inline-block; background: var(--accent-green, #7aab8a); color: #0a0a0a; text-decoration: none; padding: 12px 28px; border-radius: 6px; font-weight: 600; font-size: 15px; }
+    .cta-block a:hover { opacity: 0.85; }
+    .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border, #2a3f2a); font-size: 12px; color: var(--text-secondary, #a0b8a8); }
+    .footer a { color: var(--accent-green, #7aab8a); }
+    hr { border: none; border-top: 1px solid var(--border, #2a3f2a); margin: 32px 0; }
+    strong { color: var(--text); }
+    .question-block { background: linear-gradient(135deg, #1a2e1a, #0f1a0f); border: 1px solid var(--accent-green, #7aab8a); border-radius: 8px; padding: 28px; margin: 28px 0; text-align: center; }
+    .question-block p { font-size: 1.15rem; font-weight: 500; color: var(--text); margin: 0; }
+    .sub-text { font-size: 0.9rem; color: var(--text-secondary, #a0b8a8); margin-top: 12px; font-style: italic; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Dispatch #85 — The Velocity Trap",
+    "description": "Issue #85 of The Dispatch, exploring the gap between shipping velocity and capability velocity — and why one number is hiding the truth.",
+    "author": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+    "datePublished": "2026-05-25",
+    "about": {"@type": "Thing", "name": "AI Fatigue", "description": "The gap between AI-assisted productivity and actual skill growth"},
+    "articleSection": "Newsletter"
+  }
+  }
+  </script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<nav class="nav"><div class="nav-inner"><a href="index.html" class="nav-home">The Clearing</a></div></nav>
+<main id="main">
+<article>
+<header class="header">
+<div class="label">The Dispatch #85 — May 25, 2026</div>
+<h1>The Velocity Trap</h1>
+<p class="meta">For engineers who are fast but not sure they're getting better</p>
+</header>
+
+<div class="section">
+<h2>Two Numbers You Should Know</h2>
+<p>There's <strong>shipping velocity</strong> — how fast you ship features, close tickets, merge PRs.</p>
+<p>And then there's <strong>capability velocity</strong> — how fast your actual skills are growing. Your unaided ability to solve problems, debug systems, architect solutions, reason about tradeoffs.</p>
+<p>These used to move together. Ship more, learn more. The work was the training.</p>
+<p>AI separated them. You can now move fast on shipping velocity while capability velocity stays flat or declines. The two numbers that used to be yoked together are now decoupled — and most engineers are only tracking the one that looks good in the quarterly review.</p>
+<p>The gap between those two numbers is where AI fatigue lives.</p>
+</div>
+
+<div class="section">
+<h2>Why You Don't Feel It</h2>
+<p>Here's the part nobody talks about: you don't feel capability velocity decline in real time.</p>
+<p>When AI generates code that works, your brain registers success. The tests pass. The feature ships. The loop closes cleanly and quickly. It feels like progress.</p>
+<p>What it doesn't feel like is learning — because the learning used to come from the struggle, and the struggle is gone. The AI took the hill so you could drive through to the next checkpoint. You arrived. But you didn't climb.</p>
+<p>Over months, this creates a quiet divergence. You feel fine. Your metrics look good. And somewhere underneath, the engineer you were two years ago — the one who could sit down with a blank file and build something real — is getting smaller.</p>
+<p>The first time you really notice is usually when AI is unavailable. An outage. A new codebase. A context where you have to do it yourself. And the silence in your own head is louder than you expected.</p>
+</div>
+
+<div class="question-block">
+<p>What do you want to still be able to do without AI in two years?</p>
+</div>
+
+<div class="section">
+<h2>The Measurement Nobody's Talking About</h2>
+<p>The engineers who figured this out early have started tracking something I haven't seen anyone else talk about: <strong>confidence unaided</strong>.</p>
+<p>Not "can you ship it with AI?" — that's a solved problem.</p>
+<p><em>Can you ship it without AI?</em></p>
+<p>That's the number that tells you whether you're growing or just accelerating. Whether the tools are extending you or replacing you. Whether you're still building the engineer you want to become, or just maintaining the performance of the engineer you appear to be.</p>
+<p>If you've never measured this, here's a simple test: one afternoon, pick a problem you've already solved with AI. Close the AI tab. Try to solve it yourself.</p>
+<p>Don't do it to prove a point. Do it to calibrate.</p>
+</div>
+
+<div class="section">
+<h2>What Actually Helps</h2>
+<p>One practice that's been most useful for engineers who found their way back: the <strong>weekly unaided session</strong>.</p>
+<p>One hour per week. Work on something real — not a toy problem, something you actually care about — without AI. Not to suffer. Not to prove independence. Just to stay in touch with what you can still do on your own. To keep the calibration fresh.</p>
+<p>The goal isn't to go without AI forever. The goal is to stay sharp enough that when you do use AI, it's a choice — not a dependency.</p>
+</div>
+
+<div class="callout">
+<p>The question isn't "should I use AI or not?" The question is: what do I want to still be able to do without AI in two years? That's the calibration question — and it's the question most engineers haven't explicitly answered.</p>
+</div>
+
+<div class="section">
+<h2>What Nobody Tells You</h2>
+<p>Here's what I don't say enough: this isn't your fault.</p>
+<p>The industry created the conditions for this. The velocity demands, the FOMO, the mandatory tool mandates, the hiring bar that now implicitly includes "AI proficient." You didn't choose to have your learning loop disrupted. You were handed tools and told to use them and then judged on outputs that looked like growth.</p>
+<p>The question now is whether you want to do something about the gap — not because you have to, but because you're an engineer, and engineers care about accurate models of reality.</p>
+<p>That's what this newsletter is for. Not to make you feel bad about what you can't do. To help you stay sharp enough to keep doing the work you care about.</p>
+</div>
+
+<div class="cta-block">
+<p style="margin-bottom:16px;font-size:1.05rem;color:var(--text-secondary, #a0b8a8);">Over 2,400 engineers have taken the AI Fatigue Quiz.<br>If you haven't yet — it takes 3 minutes.</p>
+<a href="https://clearing-ai.com/quiz.html">Take the AI Fatigue Quiz →</a>
+</div>
+
+<footer class="footer">
+<p><a href="https://clearing-ai.com">clearing-ai.com</a> | The Dispatch | Free forever</p>
+<p style="margin-top:8px;">You're receiving this because you signed up at clearing-ai.com/newsletter.html</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

@@ -1,9 +1,22 @@
 # The Clearing — Overnight Growth Plan
 
-# Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-20 02:46 UTC (Phase 4 Community)
+# Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-22 17:47 UTC (Phase 2 Outreach)
+**Phase:** Phase 2 — Authority & Outreach
+**Built:** Reddit post + fresh comment pack coordination, newsletter outreach v4 EM1 deployed, email course infrastructure confirmed, TRACKER.json updated, hour log written.
+**Reddit post READY — POST TODAY by 2 PM PDT:** `reddit-posts/hour-f4509cba-2026-05-22-r-programming-shipping-faster.md` — "I started measuring my unaided coding ability once a week."
+**Fresh comment pack ready:** `reddit-posts/hour-f4509cba-750-2026-05-22-28-fresh-reddit-pack.md` — 8 comments Thu May 22 – Wed May 28.
+**Newsletter v4 EM1:** Sent 2026-05-22 to ByteByteGo/SDW/Increment/EM-News/DevOps Weekly. Day 7 follow-ups due ~May 29.
+**Git:** No commit (coordination + docs). Last push: 6c72e9d0.
+**Phase windows:** P1=206 | P2=275 | P3=185 | P4=168
+**Site stats:** 212 pages | ~984k words | Lighthouse 97 | Technical SEO 99/100 | Day 17
+**Next:** community-hub.html retry (Phase 4) | Reddit Comments 1+2 today | EM2 follow-ups ~May 29
+
+---
+
+### Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-20 02:46 UTC (Phase 4 Community)
 **Phase:** Phase 4 Community — Newsletter Infrastructure
-**Built:** `dispatch-67.md` (~3,200 words) + `dispatch-67.html` (~22KB full HTML) + `newsletter-archive.html` (Issues 66+67 added, 76 total archived). Issue 67 theme: "The Autonomy Gap" — why having answers isn't the same as knowing which questions to ask. 5 sections: When the Answer Stops Being the Problem, Three Ways It Shows Up (solution-seeking before framing / verification replacing judgment / confidence without calibration), What It Costs You (autonomy, career resilience, ownership + meaning), Rebuilding the Problem-Framing Instinct (10-Minute Rule, Explain It Twice, No-AI Sprint, Meta-Question), The Thing AI Can't Own. CTA block + PS. Issue 66 HTML archived as "Ready to Send" (MD already existed).
-**Git:** 5301dc98 (3 files, 499 insertions, 2 deletions)
+**Built:** `dispatch-67.md` (~3,200 words) + `dispatch-67.html` (~22KB full HTML) + `newsletter-archive.html` (Issues 66+67 added, 76 total archived). Issue 67 theme: "The Autonomy Gap" — why having answers isn't the same as knowing which questions to ask.
+**Git:** 5301dc98
 **Push:** success
 **Phase windows:** P1=205 | P2=268 | P3=181 | P4=154
 **Site stats:** 212 pages | ~984k words | Lighthouse 97 | Technical SEO 99/100 | Day 16
@@ -5225,3 +5238,36 @@ Theme: The accumulated distance between code you ship and code you could rebuild
 **Site stats:** 212 pages | ~984k words | Lighthouse 97 | Technical SEO 99/100 | Day 18
 **Next window:** Reddit r/programming post (Thu May 22 9 AM PDT — TODAY), Twitter #53/#54 (no creds), community-hub.html retry | Reddit Comments 1-8 schedule | Twitter #53/#54 manual post
 
+
+---
+
+### Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-22 04:47 PDT / 16:47 UTC (Phase 4 Community)
+
+**Phase:** Phase 4 — Community (Newsletter Growth)
+
+**Built:** The Dispatch #88 — The Calibration Problem (~2,200 words)
+- dispatch-88.md: Plain text version (emotional opening, calibration framing, 4-point self-assessment, 20-min weekly practice, skill recovery CTA, closing question)
+- dispatch-88.html: Full HTML with dark mode, schema (Article + noindex), CTA block, styled callouts
+- newsletter-archive.html: Issue #88 added to archive — 88 issues total
+- newsletter-issues.json: Updated to reflect Issue #88
+
+**Theme:** Why most engineers stopped asking "Do I actually know this, or do I just know how to find it?" — the calibration problem (cognitive science framing, historical parallels, self-assessment, 20-min weekly practice as calibration check not productivity ritual)
+
+**Git:** 6c72e9d0 — 4 files, 338 insertions, pushed to GitHub Pages
+**Push:** success
+
+**Phase windows:** P1=206 ✅ | P2=274 ✅ | P3=185 ✅ | P4=169 🟡
+**Site stats:** 212 pages | ~1M words | Lighthouse 97 | Technical SEO 99/100 | Day 17
+**Newsletter issues:** 88 total
+
+**Next window:**
+- Reddit r/programming post — Thu May 22 9 AM PDT (TODAY)
+- Reddit r/AskProgramming — Fri May 23 1 PM PDT
+- Newsletter partnership v4 Day 7 follow-ups
+- Social share badge promotion (testimonial collection)
+- Twitter Threads #53 and #54 (need creds setup)
+
+**Manual actions needed:**
+- Reddit r/programming post — TODAY Thu May 22 9 AM PDT
+- Twitter creds for @CoderNight47757 (Threads #53/#54 ready)
+- Newsletter v4 follow-ups (check responses from 5 targets)

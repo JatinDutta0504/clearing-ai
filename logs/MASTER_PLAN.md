@@ -5200,3 +5200,28 @@ hn-launch.html, ai-anxiety.html, remote-team-ai-collaboration.html, remote-work-
 **Site stats:** 212 pages | ~1,000k words | Day 17 | Lighthouse 97 | Technical SEO 99/100
 **Next:** Post LinkedIn Post 4 + Twitter Thread #53/#54, continue Phase rotation
 
+
+---
+### Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-22 07:47 PDT (Phase 4 Community Window 168)
+**Phase:** Phase 4 Community — Newsletter Infrastructure
+**Built:** `dispatch-87.md` (~7,475 chars) + `dispatch-87.html` (~13,749 bytes) + newsletter-archive.html update (Issue #87 card added, issue counts 81→87)
+
+**Issue #87: "The Ownership Gap"**
+Theme: The accumulated distance between code you ship and code you could rebuild from scratch without AI — and how to find the boundary between what to own vs delegate.
+5 sections:
+1. **The Thing You Ship Without Knowing How It Works** — the version of the codebase that lives only in your head vs the AI-generated layer
+2. **Why This Is Different** — calibration + velocity + explanation problems compounding into ownership gap
+3. **How the Gap Gets Bigger** — 4-stage process (Helpful Start → Subtle Shift → Invisible Erosion → Dependency Confirmation)
+4. **The Test That's Worth Running** — 4-point self-assessment: Yes Fully / Partially / Not Really / No
+5. **What the Gap Actually Costs** — outage/interview/new job scenarios; the "I approved this" vs "I made this" satisfaction difference
+- Question Worth Sitting With: What is the thing you most want to still be able to do without AI in two years?
+- PS links to quiz.html (2,500+ engineers have taken it)
+
+**SEO:** Newsletter infrastructure — Issue #87 card added to newsletter-archive.html (data-topics: ownership gap, unaided capability, code authorship). Archive now shows 87+ issues. Issue counts updated throughout page metadata.
+
+**Git:** 64e3480b (5 files, 350 insertions, 12 deletions)
+**Push:** success
+**Phase windows:** P1=206 | P2=274 | P3=185 | P4=168
+**Site stats:** 212 pages | ~984k words | Lighthouse 97 | Technical SEO 99/100 | Day 18
+**Next window:** Reddit r/programming post (Thu May 22 9 AM PDT — TODAY), Twitter #53/#54 (no creds), community-hub.html retry | Reddit Comments 1-8 schedule | Twitter #53/#54 manual post
+

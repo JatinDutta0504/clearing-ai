@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Dispatch #88 — The Calibration Problem</title>
+  <meta name="description" content="Issue #88 of The Dispatch — why most engineers stopped asking one of the most important questions about their own capability."/>
+  <meta name="robots" content="noindex, follow"/>
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-issues/dispatch-88.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="The Dispatch #88 — The Calibration Problem"/>
+  <meta property="og:description" content="Issue #88 — why most engineers stopped asking one of the most important questions about their own capability."/>
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png"/>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <style>
+    body { background: var(--bg, #0f1a0f); color: var(--text, #e8f0e8); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.8; max-width: 680px; margin: 0 auto; padding: 0 24px 80px; }
+    .header { padding: 48px 0 32px; border-bottom: 1px solid var(--border, #2a3f2a); margin-bottom: 40px; }
+    .header .label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-green, #7aab8a); margin-bottom: 12px; }
+    .header h1 { font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 12px; }
+    .header .meta { font-size: 13px; color: var(--text-secondary, #a0b8a8); }
+    .section { margin-bottom: 36px; }
+    .section h2 { font-size: 1.3rem; font-weight: 700; color: var(--text); margin-bottom: 16px; border-left: 3px solid var(--accent-green, #7aab8a); padding-left: 12px; }
+    .section p { margin-bottom: 16px; color: var(--text); font-size: 1.05rem; }
+    .callout { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .callout p { font-style: italic; color: var(--text-secondary, #a0b8a8); margin-bottom: 0; }
+    ul { margin: 16px 0 16px 24px; }
+    li { margin-bottom: 10px; color: var(--text); }
+    .cta-block { background: var(--surface-2, #1a2e1a); border: 1px solid var(--accent-green, #7aab8a); border-radius: 8px; padding: 28px; text-align: center; margin: 36px 0; }
+    .cta-block a { display: inline-block; background: var(--accent-green, #7aab8a); color: #0a0a0a; text-decoration: none; padding: 12px 28px; border-radius: 6px; font-weight: 600; font-size: 15px; }
+    .cta-block a:hover { opacity: 0.85; }
+    .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border, #2a3f2a); font-size: 12px; color: var(--text-secondary, #a0b8a8); }
+    .footer a { color: var(--accent-green, #7aab8a); }
+    hr { border: none; border-top: 1px solid var(--border, #2a3f2a); margin: 32px 0; }
+    strong { color: var(--text); }
+    .question-block { background: linear-gradient(135deg, #1a2e1a, #0f1a0f); border: 1px solid var(--accent-green, #7aab8a); border-radius: 8px; padding: 28px; margin: 28px 0; text-align: center; }
+    .question-block p { font-size: 1.15rem; font-weight: 500; color: var(--text); margin: 0; }
+    .sub-text { font-size: 0.9rem; color: var(--text-secondary, #a0b8a8); margin-top: 12px; font-style: italic; }
+    .practice-box { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .practice-box h3 { font-size: 1.1rem; font-weight: 700; color: var(--accent-green, #7aab8a); margin-bottom: 12px; }
+    .practice-box p { margin-bottom: 12px; }
+    .practice-box p:last-child { margin-bottom: 0; }
+    .test-grid { display: grid; gap: 10px; margin: 24px 0; }
+    .test-item { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 16px 20px; font-size: 1rem; color: var(--text); }
+    .test-item em { color: var(--text-secondary, #a0b8a8); font-style: normal; }
+    .ps { background: var(--surface-2, #1a2e1a); border-left: 3px solid var(--accent-green, #7aab8a); padding: 16px 20px; margin: 24px 0; font-size: 0.95rem; color: var(--text-secondary, #a0b8a8); }
+    .ps strong { color: var(--text); }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Dispatch #88 — The Calibration Problem",
+    "description": "Issue #88 of The Dispatch — why most engineers stopped asking one of the most important questions about their own capability, and how to get the signal back.",
+    "author": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+    "datePublished": "2026-06-05",
+    "about": {"@type": "Thing", "name": "AI Fatigue", "description": "Calibration: the gap between your confidence and your actual capability when using AI tools"},
+    "articleSection": "Newsletter"
+  }
+  }
+  </script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<nav class="nav"><div class="nav-inner"><a href="index.html" class="nav-home">The Clearing</a></div></nav>
+<main id="main">
+<article>
+<header class="header">
+<div class="label">The Dispatch #88 — June 5, 2026</div>
+<h1>The Calibration Problem</h1>
+<p class="meta">For engineers who've stopped asking themselves one important question</p>
+</header>
+
+<div class="section">
+<h2>The Question Most Engineers Stopped Asking</h2>
+<p>There's a question that used to come naturally to every good engineer:</p>
+<p><em>"Do I actually know this, or do I just know how to find it?"</em></p>
+<p>It was the question behind every "I've never seen that API before, let me figure it out" moment. Every late-night debugging session where you traced a bug to its root cause. Every architecture decision where you weighed trade-offs you understood deeply.</p>
+<p>It was the question that separated engineers who understood systems from engineers who could operate them.</p>
+<p>Most engineers stopped asking it somewhere around month six of heavy AI use.</p>
+<p>Not deliberately. Not maliciously. It just became unnecessary. AI always knew. AI always had an answer. The question dissolved into the workflow because the workflow stopped requiring the answer.</p>
+<p>The problem is what happens when you stop asking the question and the AI is suddenly gone.</p>
+</div>
+
+<div class="section">
+<h2>What Calibration Actually Means</h2>
+<p>Calibration is the word cognitive scientists use for the relationship between your confidence and your actual knowledge.</p>
+<p>A well-calibrated engineer knows what they know and knows what they don't. The confidence matches the competence.</p>
+<p>An poorly calibrated engineer — one whose confidence has drifted from their actual capability — can think they understand something they don't. Can think they're capable of something they've outsourced. Can believe they're growing when they're actually delegating.</p>
+<p>This isn't unique to the AI era. It's happened before:</p>
+<ul>
+<li><strong>Calculators</strong> made mathematicians feel like they understood arithmetic they couldn't do mentally</li>
+<li><strong>GPS</strong> made drivers feel like they knew routes they couldn't navigate</li>
+<li><strong>Stack Overflow</strong> made engineers feel like they understood errors they just copy-pasted fixes for</li>
+</ul>
+<p>The difference now: AI accelerates every one of these effects simultaneously, across every layer of the work, faster than any previous tool.</p>
+<p>And the drift happens so gradually that most engineers don't feel it until it's significant.</p>
+</div>
+
+<div class="section">
+<h2>How to Know If You're Calibrated</h2>
+<p>Here's a simple test that takes about three minutes:</p>
+<p>Think about the last five problems you solved — real problems, with real debugging, real architecture decisions.</p>
+<p>For each one, ask: could I have solved this without AI?</p>
+<p>Not "would it have taken longer?" — yes, it would have. That's not the question.</p>
+<p>Could you have done it? Starting from a blank file, your own brain, your own knowledge?</p>
+<div class="test-grid">
+  <div class="test-item"><strong>Yes, fully.</strong> <em>— I understood it deeply and could have built it independently.</em></div>
+  <div class="test-item"><strong>Mostly.</strong> <em>— I understood the pieces but couldn't have assembled the whole.</em></div>
+  <div class="test-item"><strong>Partially.</strong> <em>— I understood the requirements but couldn't have generated the solution.</em></div>
+  <div class="test-item"><strong>No.</strong> <em>— I needed AI to get this done.</em></div>
+</div>
+<p>If your answers cluster toward "mostly" or "partially" for most recent work — that's not a failure. That's just calibration data.</p>
+<p>And calibration data is only useful if you do something with it.</p>
+</div>
+
+<div class="section">
+<h2>Why This Matters More Than Your Velocity Number</h2>
+<p>Here's the uncomfortable part:</p>
+<p>Your shipping velocity is probably going up. Your code quality metrics probably look fine. Your team probably thinks you're doing great.</p>
+<p>And you might be calibrated so far from your actual capability that you'd be startled by a week without AI tools.</p>
+<p>This isn't about being bad. It's about the gap between what you can demonstrate with AI and what you can do alone — and whether that gap is growing without you noticing.</p>
+<p>The engineers who navigate this best aren't the ones using AI the least. They're the ones who've figured out which capabilities they want to maintain at full depth — and which ones they're comfortable delegating.</p>
+<p>The key word: <em>chosen.</em> Not defaulted. Not drifted. Chosen.</p>
+</div>
+
+<div class="practice-box">
+<h3>The One Practice That Helps</h3>
+<p>Here's the thing that actually works:</p>
+<p><strong>Once a week, solve something without AI. For 20 minutes.</strong></p>
+<p>Not because it's efficient. Not because you'll produce better output. Not because it's the "right" way to work.</p>
+<p>Because it's the only way to maintain the calibration signal.</p>
+<p>When you go without AI — even for 20 minutes — you get real data on where you actually are. The gap becomes felt rather than theoretical. The "I could probably do this" becomes "I can do this" or "I actually can't."</p>
+<p>That feeling is information. It's worth having.</p>
+<p>The engineers who've maintained their skills through heavy AI use almost all have some version of this practice. Not as a productivity ritual. As a calibration check.</p>
+</div>
+
+<div class="section">
+<h2>Why This Is Recoverable</h2>
+<p>If you took the test above and found the gap — don't panic.</p>
+<p>The gap is recoverable. The brain is not a fixed-capacity machine. Skills that atrophy can be rebuilt. Understanding that drifted can be re-anchored.</p>
+<p>The <a href="https://clearing-ai.com/ai-detox-plan.html">30-Day AI Detox Plan</a> is a structured protocol for exactly this: rebuilding the skills that matter most, one deliberate practice at a time.</p>
+<p>But you don't have to do the full protocol. You can start with the 20-minute check-in. Once a week. Sunday morning, before the week starts. One problem. No AI.</p>
+<p>The data you get from that 20 minutes is worth more than another sprint's worth of AI-assisted output.</p>
+</div>
+
+<div class="question-block">
+<p>What is the one problem — the single, specific thing — that you most want to still be able to solve without AI in a year from now?</p>
+<p class="sub-text">Not the most commercially valuable skill. The one that, if you lost it, would make you feel like you were losing yourself as an engineer.</p>
+</div>
+
+<div class="cta-block">
+<p style="margin-bottom: 16px; color: var(--text-secondary);">Start with a 3-minute readout on where you stand.</p>
+<a href="https://clearing-ai.com/quiz.html">Take the AI Fatigue Quiz →</a>
+</div>
+
+<div class="ps">
+<strong>P.S.</strong> The AI Fatigue Quiz takes three minutes and gives you a real readout on where you stand. Over 2,500 engineers have taken it. Some found out they were more independent than they felt. Others found out the gap had grown further than they'd realized. Either way: <a href="https://clearing-ai.com/quiz.html">clearing-ai.com/quiz.html</a>
+</div>
+
+<footer class="footer">
+<p><a href="https://clearing-ai.com">clearing-ai.com</a> · <a href="https://clearing-ai.com/newsletter.html">The Dispatch</a> · Free forever</p>
+<p>You're receiving this because you signed up. <a href="https://clearing-ai.com/newsletter.html">Unsubscribe</a> — no dark patterns, one click.</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

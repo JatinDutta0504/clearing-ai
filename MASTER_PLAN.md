@@ -890,3 +890,14 @@
 **Phase windows:** P1=207 | P2=276 | P3=189 | P4=173
 **Site stats:** 213 pages | ~1,002k words | Lighthouse 97 | Technical SEO 99/100 | Day 18
 **Next:** community-hub.html retry (Phase 4) | Reddit Comments 3+4 (Sat May 24) | Twitter #53/#54 manual post
+
+---
+
+### Hour f4509cba — 2026-05-23 07:47 PDT (Phase 4 Community)
+**Phase:** Phase 4 — Newsletter Infrastructure
+**Built:** `dispatch-96.md` (~1,600 words) + `dispatch-96.html` (~12.9KB full HTML) + `newsletter-issues.json` updated to issue 96. Issue 96 theme: "The Expertise Illusion" — why seniority creates MORE AI fatigue, not less. Three mechanisms (Pattern Dependency, Confidence-Skill Mismatch, Loss of Internal Model), Five Failure Modes (Competence Illusion, Phantom Understanding, Velocity Trap, Craft Identity Erosion, Compounding Gap), self-diagnostic test.
+**Git:** cd6716f6 (5 files, 385 insertions)
+**Push:** success
+**Phase windows:** P1=207 | P2=276 | P3=190 | P4=174
+**Site stats:** 213 pages | ~1,002k words | Lighthouse 97 | Technical SEO 99/100 | Day 19
+**Next:** Reddit r/AskProgramming (Fri May 23 1 PM PDT) | Reddit Comments 3+4 (Sat May 24) | LinkedIn Post 4 | Newsletter v4 follow-ups ~May 29

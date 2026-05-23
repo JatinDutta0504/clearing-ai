@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Dispatch #92 — The Calibration Gap</title>
+  <meta name="description" content="Issue #92 of The Dispatch — why you can no longer accurately judge your own skills, and the test that proves it."/>
+  <meta name="robots" content="noindex, follow"/>
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-issues/dispatch-92.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="The Dispatch #92 — The Calibration Gap"/>
+  <meta property="og:description" content="Why you can no longer accurately judge your own skills — and the test that proves it."/>
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png"/>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <style>
+    body { background: var(--bg, #0f1a0f); color: var(--text, #e8f0e8); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.8; max-width: 680px; margin: 0 auto; padding: 0 24px 80px; }
+    .header { padding: 48px 0 32px; border-bottom: 1px solid var(--border, #2a3f2a); margin-bottom: 40px; }
+    .header .label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-green, #7aab8a); margin-bottom: 12px; display: block; }
+    .header h1 { font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 12px; }
+    .header .meta { font-size: 13px; color: var(--text-secondary, #a0b8a8); }
+    h2 { font-size: 1.25rem; font-weight: 700; color: var(--text); margin: 36px 0 16px; border-left: 3px solid var(--accent-green, #7aab8a); padding-left: 12px; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: var(--text); margin: 28px 0 12px; }
+    p { margin: 0 0 18px; color: var(--text); font-size: 1.05rem; }
+    p:last-child { margin-bottom: 0; }
+    .callout { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 24px; margin: 28px 0; }
+    .callout p { font-style: italic; color: var(--text-secondary, #a0b8a8); }
+    ul, ol { margin: 16px 0 20px 24px; }
+    li { margin-bottom: 10px; color: var(--text); font-size: 1rem; }
+    strong { color: var(--text); }
+    em { color: var(--text-secondary, #a0b8a8); }
+    .cta-block { background: var(--surface-2, #1a2e1a); border: 1px solid var(--accent-green, #7aab8a); border-radius: 8px; padding: 28px; text-align: center; margin: 40px 0; }
+    .cta-block a { display: inline-block; background: var(--accent-green, #7aab8a); color: #0a0a0a; text-decoration: none; padding: 12px 28px; border-radius: 6px; font-weight: 600; font-size: 15px; }
+    .cta-block a:hover { opacity: 0.85; }
+    .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border, #2a3f2a); font-size: 12px; color: var(--text-secondary, #a0b8a8); }
+    .footer a { color: var(--accent-green, #7aab8a); }
+    .practice-box { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 24px; margin: 28px 0; }
+    .practice-box h3 { color: var(--accent-green, #7aab8a); margin-bottom: 14px; }
+    .ps { background: var(--surface-2, #1a2e1a); border-left: 3px solid var(--accent-green, #7aab8a); padding: 16px 20px; margin: 28px 0; font-size: 0.95rem; color: var(--text-secondary, #a0b8a8); }
+    .ps strong { color: var(--text); }
+    .reading-block { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 20px 24px; margin: 28px 0; }
+    .reading-block p { font-size: 0.95rem; color: var(--text-secondary); }
+    .skip-link { position: absolute; top: -9999px; left: 0; background: var(--accent-green); color: #0a0a0a; padding: 8px 16px; z-index: 100; text-decoration: none; font-weight: 600; }
+    .skip-link:focus { top: 0; }
+    @media(prefers-color-scheme:light){ body{background:#f5f2ed;color:#1a2e1a} h2,h3,.header h1,strong{color:#1a3a2a} .callout,.practice-box,.reading-block,.cta-block{background:#e8f0e8;border-color:#c8dac8} .callout p,.ps,li,p em,.reading-block p{color:#4a6a4a} .header .label,.cta-block a,.footer a,.ps strong{color:#2d5a3d} .footer{border-top-color:#c8dac8} }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div id="main">
+    <header class="header">
+      <span class="label">The Dispatch — Issue #92</span>
+      <h1>The Calibration Gap</h1>
+      <p class="meta">Week of June 1, 2026 &middot; Why you can no longer accurately judge your own skills — and the test that proves it</p>
+    </header>
+
+    <section class="section">
+      <h2>The Opening</h2>
+      <p>Last month, a lead engineer at a mid-size startup reached out with a specific problem.</p>
+      <p>His team had been using AI coding tools for about 18 months. Velocity was up. Deployment frequency was up. Code review looked clean.</p>
+      <p>And yet: something had quietly gone wrong.</p>
+      <p>The specific thing he noticed: when his engineers encountered problems that required genuine debugging — not prompt-debugging, actual diagnosis — they took much longer than they used to. Not because they were slower. Because they had lost the intuitive sense of <em>where to look</em>.</p>
+      <p>His phrase: "It's like they've been flying with autopilot so long they've forgotten how to read the instruments."</p>
+      <p>The instruments are still there. The ability to read them has atrophied.</p>
+      <p><strong>This is the calibration gap.</strong></p>
+    </section>
+
+    <section class="section">
+      <h2>What Calibration Actually Means</h2>
+      <p>Calibration in engineering is the relationship between your internal model and reality.</p>
+      <p>You know how long something will take because you've done it before. You know where to look when something breaks because you've seen similar failures. You know what "good enough" looks like in a code review because you've built up a felt sense of quality through hundreds of decisions.</p>
+      <p>This calibration is not just intuition. It's accumulated evidence encoded as judgment. It lives in the gap between what you know and what you can immediately articulate — the same gap that lets a senior engineer look at a piece of code and immediately sense something is off <em>before</em> they can explain why.</p>
+      <p>AI tools are very good at filling this gap. Too good.</p>
+      <p>When you hit a bug and AI generates a fix in 20 seconds, the gap between "something feels wrong" and "I found the problem" collapses. You never have to develop the sense of where to look, because AI already knows.</p>
+      <p>Over time: the calibration doesn't just fade. It reverses.</p>
+      <p>You start thinking you're better than you are, because AI output looks correct and you're the one who approved it. The feedback loop that used to correct your calibration — the system breaks and you debug it and you learn — has been broken. You're flying blind and you don't realize it because the instruments look like they're working.</p>
+    </section>
+
+    <section class="section">
+      <h2>The Specific Versions That Show Up Most</h2>
+      <p>It usually surfaces as one of these:</p>
+      <ul>
+        <li><strong>The estimation reversal.</strong> You used to estimate in days and be within a factor of two. Now you estimate in hours and you're off by 3x — but in the wrong direction. You think you're faster. You've actually lost the calibration that made your estimates accurate.</li>
+        <li><strong>The review confidence gap.</strong> You review AI code and it looks correct. You approve it. Three weeks later it breaks in production and you have no idea why. Your confidence in your review ability is higher than your actual review ability — AI has been doing the deep review you used to do, and you didn't notice the difference.</li>
+        <li><strong>The interview gap.</strong> You get to a system design interview and you can describe the high-level approach. You can't build it. You can't debug it. You can talk about architecture fluently but you can't generate the implementation. This shows up most painfully in take-home technical assessments done without AI.</li>
+        <li><strong>The "I'll know it when I see it" gap.</strong> This one is subtle. You used to have a sense for when code was right before you ran it — a kind of pre-conscious pattern recognition built from thousands of hours of reading and writing code. Now that sense is gone. You wait for the AI to tell you something is wrong, and you're not sure you could have caught it yourself.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Why This Is Different From Imposter Syndrome</h2>
+      <p><strong>Imposter syndrome is:</strong> you are capable but you feel like a fraud.</p>
+      <p><strong>The calibration gap is:</strong> you have measurably lost capability and you haven't noticed.</p>
+      <p>The important distinction: imposter syndrome makes you feel bad about something that isn't real. The calibration gap makes you feel fine about something that is very real.</p>
+      <p>Engineers in the calibration gap often feel confident. They're shipping, they're reviewing, they're estimating. The outputs look fine. They don't feel like they're struggling.</p>
+      <p>Until they try to do something — debug something real, build something from scratch, solve something without AI — and the gap becomes impossible to ignore.</p>
+      <p>And by then it's been 18 months.</p>
+    </section>
+
+    <section class="section">
+      <h2>The Test You Can Run Right Now</h2>
+      <p><em>This is not a self-assessment. This is a measurement.</em></p>
+      <div class="practice-box">
+        <h3>The unaided estimation test</h3>
+        <p>Take your last 10 completed tickets. For each one, ask:</p>
+        <ol>
+          <li>Could I have estimated this without AI assistance? (Not: should I have. Could I have.)</li>
+          <li>What would my unaided estimate have been vs. what actually happened?</li>
+          <li>If you had to estimate it today without AI, what would you say?</li>
+        </ol>
+        <p>Most engineers who run this test find something specific: their AI-assisted estimates are 30–50% shorter than their unaided estimates would be. Not because they got faster. Because they lost the parts of the problem that used to make estimation hard.</p>
+      </div>
+      <div class="practice-box">
+        <h3>The Explanation Test</h3>
+        <p>Pick a feature you shipped in the last two weeks. Not a trivial one — something with real logic. Now answer these three questions <em>without looking at the code</em>:</p>
+        <ol>
+          <li>Why was this approach right instead of another one?</li>
+          <li>What would break if you removed this part?</li>
+          <li>What edge cases does this handle that might not be obvious?</li>
+        </ol>
+        <p>If you can't answer all three in 60 seconds, that's your calibration gap.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>What Actually Closes the Gap</h2>
+      <p>The obvious answer: use AI less.</p>
+      <p>That's not wrong. It's also incomplete.</p>
+      <p>The calibration gap doesn't close by using AI less. It closes by rebuilding the feedback loop that AI interrupted.</p>
+      <p><strong>The feedback loop:</strong> you do something hard, you get feedback on whether it worked, you update your model. Repeat.</p>
+      <p>What AI does: it completes the loop for you. You do the hard part (describe the problem), AI does the execution, you get the output. The loop is closed — but not by you.</p>
+      <p>The key insight: the loop has to close with you in it. The learning happens in the gap between what you attempted and what happened, not in the output itself.</p>
+      <p><strong>Three practices that do this:</strong></p>
+      <ul>
+        <li><strong>The 20-minute buffer.</strong> Before you open any AI tool for a problem: spend 20 minutes thinking about it. Not to solve it without AI. Just to have a hypothesis. Then open AI, compare what you expected to what it produced. The comparison is the learning.</li>
+        <li><strong>Weekly unaided estimation.</strong> Once a week, estimate one ticket by hand. Not to prove you can — to measure your calibration. Track the ratio of unaided estimate to actual. Watch whether it improves or degrades.</li>
+        <li><strong>The explanation requirement.</strong> Before you accept any AI code: complete this sentence out loud. "I added this because..." Not the AI added this because. You. If you can't finish the sentence in 30 seconds, that 30 seconds is the gap.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>The Uncomfortable Part</h2>
+      <p>The engineers who are navigating this best share one trait: they've stopped measuring themselves by their outputs and started measuring themselves by their <em>unaided capability</em>.</p>
+      <p>That's a harder number to track. It doesn't show up in velocity dashboards. It doesn't show up in sprint metrics. It's invisible to everyone except you.</p>
+      <p>It's also the number that matters for whether you're still the engineer you were, or whether you're a high-output middleman with excellent metrics and a growing gap in your actual capability.</p>
+      <p>There's no shame in being in the gap. It's the natural consequence of 18 months of heavy AI use. The question is what you do about it.</p>
+      <p>The first step: measure it.</p>
+    </section>
+
+    <section class="section">
+      <h2>One Thing This Week</h2>
+      <p>Find one problem you've been meaning to solve — something you haven't touched yet, something in your backlog. Don't open AI. Don't search for the answer. Spend 20 minutes thinking about it before you do anything else.</p>
+      <p>Write down your approach before you look at anything.</p>
+      <p>Then: open AI, build it, ship it.</p>
+      <p>Compare what you expected to what happened. If the gap surprises you, that's data. The data is the beginning of calibration.</p>
+    </section>
+
+    <section class="reading-block">
+      <h3 style="margin-top:0;color:var(--accent-green)">What to Read This Week</h3>
+      <p><a href="../the-estimation-problem.html">The Estimation Problem</a> — why estimation accuracy degrades with AI tooling and the practice that rebuilds it.</p>
+      <p><a href="../debugger-drift.html">The Debugger Drift</a> — the specific way debugging skill erodes and why senior engineers feel it most acutely.</p>
+      <p><a href="../ai-fatigue-checklist.html">The 30-Day Recovery Plan</a> — structured practice for engineers who are ready to rebuild rather than just cope.</p>
+    </section>
+
+    <div class="cta-block">
+      <p style="font-size:1.1rem;font-weight:600;color:var(--text);margin-bottom:16px">Where does your calibration currently fall?</p>
+      <p style="font-size:0.95rem;color:var(--text-secondary);margin-bottom:20px">The 5-question AI Fatigue Quiz tells you your specific profile and what the gap means for your work.</p>
+      <a href="../index.html#quiz">Take the AI Fatigue Quiz</a>
+    </div>
+
+    <div class="ps">
+      <strong>P.S.</strong> If you ran the tests above and the gap surprised you — that's not a verdict. That's the start of the information you need. Reply and tell me what you found.
+    </div>
+
+    <footer class="footer">
+      <p>The Clearing is built by engineers who got tired of naming problems without offering solutions.</p>
+      <p><a href="../index.html">clearing-ai.com</a> &middot; <a href="../newsletter.html">Subscribe</a> &middot; <a href="../share-your-story.html">Share your story</a></p>
+      <p style="margin-top:12px">&copy; 2026 The Clearing &middot; Built for engineers, by engineers</p>
+    </footer>
+  </div>
+</body>
+</html>

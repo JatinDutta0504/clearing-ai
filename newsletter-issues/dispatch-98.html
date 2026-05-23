@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Dispatch #98 — The Competence by Proxy</title>
+  <meta name="description" content="Issue #98 of The Dispatch — when you stop trusting your own code and why the fear that follows is different from burnout, different from imposter syndrome, and deserves its own name."/>
+  <meta name="robots" content="noindex, follow"/>
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-issues/dispatch-98.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="The Dispatch #98 — The Competence by Proxy"/>
+  <meta property="og:description" content="When you stop trusting your own code — and why the fear that follows deserves its own name."/>
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png"/>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <style>
+    body { background: var(--bg, #0f1a0f); color: var(--text, #e8f0e8); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.65; max-width: 680px; margin: 0 auto; padding: 0 24px; }
+    .header { padding: 48px 0 32px; border-bottom: 1px solid var(--border, #2a3f2a); margin-bottom: 40px; }
+    .header .label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-green, #7aab8a); margin-bottom: 12px; display: block; }
+    .header h1 { font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 12px; }
+    .header .meta { font-size: 13px; color: var(--text-secondary, #a0b8a8); }
+    h2 { font-size: 1.25rem; font-weight: 700; color: var(--text); margin: 36px 0 16px; border-left: 3px solid var(--accent-green, #7aab8a); padding-left: 14px; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: var(--text); margin: 28px 0 12px; }
+    p { margin: 0 0 18px; color: var(--text); font-size: 1.05rem; }
+    p:last-child { margin-bottom: 0; }
+    .callout { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+    .callout p { font-style: italic; color: var(--text-secondary, #a0b8a8); margin: 0; font-size: 1rem; }
+    ul, ol { margin: 16px 0 20px 24px; }
+    li { margin-bottom: 10px; color: var(--text); font-size: 1rem; }
+    strong { color: var(--text); }
+    em { color: var(--text-secondary, #a0b8a8); }
+    .divider { border: none; border-top: 1px solid var(--border, #2a3f2a); margin: 40px 0; }
+    .rule-card { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 20px 24px; margin: 20px 0; }
+    .rule-card h3 { color: var(--accent-green, #7aab8a); margin: 0 0 10px; font-size: 1rem; }
+    .rule-card p { margin: 0; font-size: 0.97rem; color: var(--text-secondary); }
+    .test-box { background: var(--surface-2, #1a2e1a); border-left: 3px solid var(--accent-green, #7aab8a); padding: 20px 24px; margin: 28px 0; }
+    .test-box p { margin: 0 0 10px; font-size: 1rem; }
+    .test-box p:last-child { margin-bottom: 0; }
+    .cta-block { background: var(--surface-2, #1a2e1a); border: 1px solid var(--accent-green, #7aab8a); border-radius: 8px; padding: 28px; text-align: center; margin: 36px 0 0; }
+    .cta-block a { display: inline-block; background: var(--accent-green, #7aab8a); color: #0a0a0a; text-decoration: none; padding: 12px 28px; border-radius: 6px; font-weight: 600; font-size: 1rem; margin-bottom: 8px; }
+    .cta-block a:hover { opacity: 0.85; }
+    .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border, #2a3f2a); font-size: 12px; color: var(--text-secondary, #a0b8a8); }
+    .footer a { color: var(--accent-green, #7aab8a); }
+    .ps { background: var(--surface-2, #1a2e1a); border-left: 3px solid var(--accent-green, #7aab8a); padding: 16px 20px; margin: 28px 0; font-size: 0.95rem; }
+    .ps strong { color: var(--text); }
+    .reading-block { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 20px 24px; margin: 28px 0; }
+    .reading-block p { font-size: 0.95rem; color: var(--text-secondary); margin: 0; }
+    .skip-link { position: absolute; top: -9999px; left: 0; background: var(--accent-green); color: #0a0a0a; padding: 8px 16px; z-index: 100; text-decoration: none; border-radius: 0 0 4px 4px; }
+    .skip-link:focus { top: 0; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+    .two-col .rule-card { margin: 0; }
+    @media(prefers-color-scheme:light){ body{background:#f5f2ed;color:#1a2e1a} h2,h3,.header h1,strong{color:#1a3a2a} .callout,.rule-card,.reading-block,.test-box,.ps{background:#edeae3;border-color:#c8c4bb} .footer{border-color:#c8c4bb} }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div id="main">
+
+    <header class="header">
+      <span class="label">The Dispatch · Issue #98</span>
+      <h1>The Competence by Proxy</h1>
+      <div class="meta">Week of July 13, 2026 · <a href="../newsletter.html" style="color: var(--accent-green)">clearing-ai.com</a></div>
+    </header>
+
+    <h2>The Moment You Stop Trusting Your Own Code</h2>
+    <p>There's a moment that happens quietly, and then all at once.</p>
+    <p>It starts as a feeling. Not imposter syndrome — something more specific. You're looking at code you approved, code you shipped, code that's in production — and you can't tell if it's right. Not from the surface. You need to run it. You need to test it. You need someone else to tell you.</p>
+    <p>And the part that makes it distinct from ordinary uncertainty is this: you used to know. Not sometimes. Not most of the time. You used to have a direct line between your judgment and your work, and that line is now uncertain in a way it wasn't before.</p>
+    <p>You didn't get worse at coding. Your code is fine. But you can't feel fine about it anymore — because the validation has moved.</p>
+
+    <h2>How Trust Worked Before AI</h2>
+    <p>Before AI tools became constant in your workflow, trust in code worked in a specific way.</p>
+    <p>You wrote something. You felt whether it was right — not just whether it compiled, but whether the approach made sense, whether the edge cases were handled, whether the logic held. That feeling was built from thousands of hours of debugging your own mistakes. You knew what wrong looked like. You could feel it before you proved it.</p>
+    <p>When you reviewed someone else's code, your gut caught things the tests didn't catch. When you saw a bug in production, your first instinct was usually right about where to look. When something felt off in a PR, it was off.</p>
+    <p>That gut feeling was not superstition. It was calibration — a model of how your systems work, built from failures you personally witnessed.</p>
+    <p>The model was the point. Not the code. The model.</p>
+
+    <h2>The Third Party</h2>
+    <p>AI tools introduced a third party between you and your work.</p>
+    <p>Before, you wrote code and knew whether it was right. Now: you describe what you want to an AI, the AI generates it, you evaluate whether it looks right. The validation step is no longer between you and the code — it's between you, the code, and the AI's explanation of the code.</p>
+    <p>And over time, your calibration starts to drift toward the AI.</p>
+    <p>Not because AI is wrong. Because the AI becomes the reference point. When you look at AI-generated code, you judge it by whether it looks like what AI would write — not by whether it feels like what you would write. The standard shifts. The internal reference changes.</p>
+    <p>The gut feeling that used to be calibrated to your work is now calibrated to AI output. And when that happens, you start to lose the ability to judge code on your own terms.</p>
+
+    <h2>The Three Failure Modes</h2>
+    <p>Once the calibration has drifted, three specific things start happening. They're easy to miss individually — they're most visible as a pattern.</p>
+
+    <div class="rule-card">
+      <h3>1. Trusting AI Over Your Gut (Even When You're Right)</h3>
+      <p>You look at something. Your gut says it's wrong. The AI says it's fine. You trust the AI — not because you have a reason to, but because the AI is the reference point now. You override your own judgment with the AI's explanation, even when your gut was correct. After a few of these, you stop trusting the gut. The gut was right. The calibration was wrong.</p>
+    </div>
+
+    <div class="rule-card">
+      <h3>2. Taking Credit You Don't Feel</h3>
+      <p>You solved a hard problem this week. You feel pleased — but when you try to locate the specific thinking that solved it, you can't quite find it. The solution is yours because you're the one who shipped it. But the thinking came in the form of evaluating AI-generated output, not generating it yourself. You feel competent but not confident. There's a difference.</p>
+    </div>
+
+    <div class="rule-card">
+      <h3>3. Validating Through AI Instead of Through Understanding</h3>
+      <p>When something feels uncertain — a complex piece of logic, a tricky edge case — your first move is to ask AI to explain it. Not to think it through yourself. To let AI hold the uncertainty for you. Over time, this becomes the primary way uncertainty gets resolved. Not through your own reasoning, but through AI's explanation. The reasoning path atrophies. The uncertainty tolerance drops. You need the explanation to feel okay about the code.</p>
+    </div>
+
+    <h2>The Double-Bind</h2>
+    <p>The hardest part of the competence-by-proxy problem is the double-bind at the center of it.</p>
+    <p>The fear of trusting only AI is real. You see the outputs. You know the gaps. You know that shipping code you don't fully understand is a risk — for the system, for the team, for you as the engineer who has to maintain it.</p>
+    <p>But the fear of trusting only yourself is also real. Your calibration has drifted. The gut feeling is no longer as reliable as it used to be — not because you're less capable, but because it hasn't been maintained against your actual work. When you trust your gut alone, you might be right, or you might be working from an outdated model.</p>
+    <p>So you end up in a loop: AI validates your gut, your gut validates the AI, and neither is anchored to direct contact with the code itself.</p>
+    <p>This is the part that feels like madness. You're not incompetent. The work is not bad. But you can't trust either your judgment or the AI's — and you can't trust yourself to trust either of them.</p>
+
+    <div class="callout">
+      <p><strong>The uncomfortable truth:</strong> the answer is not to trust yourself more, and it's not to trust AI less. The answer is to rebuild the calibration — which requires direct contact with code written without AI assistance, enough times that your internal model starts updating again.</p>
+    </div>
+
+    <h2>The Path Back</h2>
+    <p>The path back is slower and less dramatic than it sounds.</p>
+    <p>It starts with one thing: code written without AI assistance, small enough to not feel consequential.</p>
+    <p>Not to prove you can still do it. Not to rebuild your confidence. Just to get your calibration back in contact with the actual work of building something — the friction, the debugging, the moments where you don't know and you have to figure it out.</p>
+    <p>That contact rebuilds the model. Slowly. The gut starts to mean something again. Not something perfect — but something that belongs to you, that reflects your actual understanding, not the residue of expertise left over from before the drift.</p>
+
+    <div class="two-col">
+      <div class="rule-card">
+        <h3>The Before</h3>
+        <p>You → code → gut feeling (calibrated)</p>
+        <p>Error detection: starts at 100%, adjusts with evidence</p>
+      </div>
+      <div class="rule-card">
+        <h3>The After</h3>
+        <p>You → AI → code → gut feeling (calibrated to AI)</p>
+        <p>Error detection: starts at 70%, adjusts with AI input</p>
+      </div>
+    </div>
+
+    <h2>The Test</h2>
+    <p>This week's question — and it's one you have to answer honestly to get anything from it:</p>
+    <div class="test-box">
+      <p>Think about the last time something you shipped broke in production.</p>
+      <p>Did you see it coming before it happened?</p>
+      <p>If yes — if your gut said something was off and you overrode it — that's data.</p>
+      <p>If no — if it surprised you — that's also data. Different data.</p>
+      <p>The question worth sitting with is not whether you made a mistake. It's whether you had access to the information that would have prevented it before the mistake was made. And whether you trusted that information when you had it.</p>
+    </div>
+
+    <div class="ps">
+      <strong>One more thing:</strong> if you're in the competence-by-proxy state — where you can't quite trust your own code without AI validation — you're not broken. The model rebuilds. It just takes contact with the actual work. Start small. One function. One decision. One thing you know because you figured it out, not because you approved it.
+    </div>
+
+    <div class="cta-block">
+      <p><a href="../index.html#quiz">Take the AI Fatigue Quiz →</a></p>
+      <p style="font-size: 0.85rem; margin-top: 12px; color: var(--text-secondary);">5 questions · 4 tiers · See where you stand</p>
+    </div>
+
+    <footer class="footer">
+      <p><strong>Previously in The Dispatch:</strong><br/>
+      <a href="dispatch-97.html">#97: The Two-Week Test</a> — the diagnostic that tells you more about your relationship with AI tools than six months of self-reflection<br/>
+      <a href="dispatch-96.html">#96: The Expertise Illusion</a> — why seniority makes AI fatigue worse, not better<br/>
+      <a href="dispatch-95.html">#95: The Autonomy Gap</a> — why having answers isn't the same as knowing which questions to ask</p>
+      <p style="margin-top: 16px;"><a href="../newsletter.html">Subscribe to The Dispatch</a> · Free forever · No spam · <a href="../sitemap.html">All issues</a></p>
+    </footer>
+
+  </div>
+</body>
+</html>

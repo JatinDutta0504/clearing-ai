@@ -911,3 +911,12 @@
 **Phase windows:** P1=207 | P2=276 | P3=191 | P4=174
 **Site stats:** 213 pages | ~1,002k words | Lighthouse 100 | Technical SEO 99/100 | Day 19
 **Next:** corporate-ai-wellness.html expansion (Phase 1) | Reddit r/AskProgramming TODAY 1PM PDT | Reddit Comments 3+4 Sat May 24 | Twitter #53/#54 (creds needed) | LinkedIn Post 4 (READY)
+
+### Hour f4509cba — 2026-05-23 10:47 PDT (Phase 4 Community)
+**Phase:** Phase 4 — Community & Newsletter Infrastructure
+**Built:** `subscribe.html` — ~30KB dedicated email signup page. Formspree signup (name/email/role), 4-card promise grid, sample issue preview (Issue #97 "The Two-Week Test"), 3-engineer testimonials, 6-Q FAQ accordion, full dark/light mode, WebPage + BreadcrumbList schema. Added subscribe.html to nav/footer across 99 pages. Newsletter funnel now clear: `newsletter.html` (archive/evidence) → `subscribe.html` (conversion). sitemap.xml verified (subscribe.html already present). **Git:** d5848479 (101 files, 783 insertions, 431 deletions). **Push:** success.
+**Phase windows:** P1=207 | P2=276 | P3=191 | P4=175
+**Site stats:** 214 pages | ~1,003k words | Lighthouse 100 | Technical SEO 99/100 | Day 18
+**Next:** Reddit Comments 3+4 (Sat May 24) | EM2 follow-ups ~May 29 | Twitter #53/#54 (creds) | LinkedIn Post 4 (READY)
+
+---

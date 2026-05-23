@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Dispatch #101 — The Two Tracks</title>
+  <meta name="description" content="Issue #101 of The Dispatch — the split happening among software engineers, Track One vs Track Two, and why staying in the loop matters more than ever."/>
+  <meta name="robots" content="noindex, follow"/>
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-issues/dispatch-101.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="The Dispatch #101 — The Two Tracks"/>
+  <meta property="og:description" content="Two groups of engineers are diverging. Here's how to know which one you're in — and how to stay in the right one."/>
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png"/>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <style>
+    body { background: var(--bg, #0f1a0f); color: var(--text, #e8f0e8); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.65; max-width: 680px; margin: 0 auto; padding: 0 24px; }
+    .header { padding: 48px 0 32px; border-bottom: 1px solid var(--border, #2a3f2a); margin-bottom: 40px; }
+    .header .label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-green, #7aab8a); margin-bottom: 12px; display: block; }
+    .header h1 { font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 12px; }
+    .header h1 em { font-style: normal; color: var(--accent-green, #7aab8a); }
+    .header .meta { font-size: 13px; color: var(--text-secondary, #a0b8a8); }
+    h2 { font-size: 1.25rem; font-weight: 700; color: var(--text); margin: 36px 0 16px; border-left: 3px solid var(--accent-green, #7aab8a); padding-left: 14px; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: var(--text); margin: 28px 0 12px; }
+    p { margin: 0 0 18px; color: var(--text); font-size: 1.05rem; }
+    p:last-child { margin-bottom: 0; }
+    .callout { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+    .callout p { font-style: italic; color: var(--text-secondary, #a0b8a8); margin: 0; font-size: 1rem; }
+    ul, ol { margin: 16px 0 20px 24px; }
+    li { margin-bottom: 10px; color: var(--text); font-size: 1rem; }
+    strong { color: var(--text); }
+    em { color: var(--text-secondary, #a0b8a8); }
+    .divider { border: none; border-top: 1px solid var(--border, #2a3f2a); margin: 40px 0; }
+    .track-card { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 20px 24px; margin: 20px 0; }
+    .track-card h3 { color: var(--accent-green, #7aab8a); margin: 0 0 10px; font-size: 1.05rem; }
+    .track-card p { margin: 0 0 8px; font-size: 0.97rem; color: var(--text-secondary); }
+    .track-card p:last-child { margin-bottom: 0; }
+    .test-box { background: var(--surface-2, #1a2e1a); border-left: 3px solid var(--accent-green, #7aab8a); padding: 20px 24px; margin: 28px 0; }
+    .test-box p { margin: 0 0 10px; font-size: 1rem; }
+    .test-box p:last-child { margin-bottom: 0; }
+    .test-box strong { color: var(--accent-green); }
+    .test-box ol { margin: 12px 0 0 20px; }
+    .test-box li { font-size: 0.97rem; margin-bottom: 8px; }
+    .quote-block { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+    .quote-block p { font-size: 1rem; color: var(--text-secondary); margin: 0 0 10px; }
+    .quote-block p:last-child { margin-bottom: 0; }
+    .cta-block { background: var(--surface-2, #1a2e1a); border: 1px solid var(--accent-green, #7aab8a); border-radius: 8px; padding: 28px; text-align: center; margin: 36px 0 0; }
+    .cta-block a { display: inline-block; background: var(--accent-green, #7aab8a); color: #0a0a0a; text-decoration: none; padding: 12px 28px; border-radius: 6px; font-weight: 600; font-size: 1rem; margin-bottom: 8px; }
+    .cta-block a:hover { opacity: 0.85; }
+    .cta-block .sub { font-size: 0.875rem; color: var(--text-secondary); }
+    .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border, #2a3f2a); font-size: 12px; color: var(--text-secondary, #a0b8a8); }
+    .footer a { color: var(--accent-green, #7aab8a); }
+    .ps { background: var(--surface-2, #1a2e1a); border-left: 3px solid var(--accent-green, #7aab8a); padding: 16px 20px; margin: 28px 0; font-size: 0.95rem; }
+    .ps strong { color: var(--text); }
+    .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 24px 0; }
+    .stat-box { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 16px; text-align: center; }
+    .stat-box .num { font-size: 1.5rem; font-weight: 800; color: var(--accent-green); margin-bottom: 4px; }
+    .stat-box .label { font-size: 0.8rem; color: var(--text-secondary); }
+    @media(prefers-color-scheme:light){ body{background:#f5f2ed;color:#1a2e1a} h2,h3,.header h1,strong{color:#1a3a2a} .callout,.quote-block,.track-card,.test-box,.stat-box,.ps{background:#edeae3;border-color:#c8c4bb} .footer{border-color:#c8c4bb} }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <span class="label">The Dispatch — Issue #101</span>
+    <h1>The <em>Two Tracks</em></h1>
+    <div class="meta">May 23, 2026 · 7 min read · Week 101</div>
+  </div>
+
+  <h2>The Split</h2>
+  <p>There's a split happening among software engineers right now.</p>
+  <p>It's not loud. It doesn't show up in surveys. But if you spend time with enough engineers — really listen to what they're saying beneath what they're saying — you start to feel it.</p>
+  <p>Some engineers are using AI tools and getting better at the work.</p>
+  <p>Others are using AI tools and slowly losing the ability to do the work without them.</p>
+  <p>Both groups look the same from the outside. Both ship code. Both pass code reviews. Both get their features done. Both ship on time.</p>
+  <p>But in six months, a year, five years — the two groups will have diverged in ways that are very hard to reverse.</p>
+
+  <h2>Track One: AI as Amplifier</h2>
+  <div class="track-card">
+    <h3>Track One Engineers</h3>
+    <p>Treat AI as a serious tool. They have a mental model of what they know and what the AI knows, and they stay attentive to the difference. When the AI produces something, they engage with it — they question it, test it, push back on it, extract the parts that teach them something.</p>
+    <p>For these engineers, AI accelerates the work they already know how to do. It widens the scope of what they can take on. It gives them more leverage on the problems they've already learned to solve.</p>
+    <p>Their confidence in the work grows — not just in the outputs, but in their own judgment about those outputs. They can tell the difference between a good AI suggestion and a bad one, because they understand the domain well enough to have opinions.</p>
+    <p><strong>They use AI to go further. They still go there on foot.</strong></p>
+  </div>
+
+  <h2>Track Two: AI as Outsourcing</h2>
+  <div class="track-card">
+    <h3>Track Two Engineers</h3>
+    <p>Have quietly offloaded the work itself — not just the execution, but the understanding.</p>
+    <p>They paste the error message in. They accept the first solution that works. They move on. They don't always check why it worked, whether there's a better approach, what the tradeoffs were.</p>
+    <p>The work gets done. The features ship. The tests pass.</p>
+    <p>But the understanding isn't accumulating. The judgment isn't sharpening. The engineer's internal model of how systems work is slowly diverging from the systems they're building.</p>
+    <p><strong>They get outcomes. They don't get growth.</strong> And at some point — maybe when there's a novel problem, maybe when the AI is wrong in a subtle way, maybe when the scaffolding is removed — they feel the gap where their confidence used to live.</p>
+    <p>They used to know how to do this.</p>
+  </div>
+
+  <h2>The Sneaky Part</h2>
+  <p>What makes this dangerous is that it doesn't feel wrong in the moment.</p>
+  <p>When you use AI to solve a problem, you get a solution. The problem is solved. The error is gone. The test passes. You're done.</p>
+  <p>You don't feel yourself getting worse. You feel productive. You're shipping. You're moving.</p>
+  <p>The erosion is invisible until it's structural.</p>
+  <div class="callout">
+    <p>This is what the fluency illusion does — the ease of processing feels like understanding. And because it feels like understanding, you don't notice you're not building it.</p>
+  </div>
+
+  <h2>The Research Nobody Talks About</h2>
+  <p>Robert Bjork's "desirable difficulties" research — which has been in the literature since the early 1990s — shows that learning is deepest when retrieval is hard. The struggle is the point. The ease of re-reading, the comfort of already-understood explanations, the speed of having answers handed to you — these feel like learning. They are not learning.</p>
+  <p>AI makes everything easy to retrieve. In the short term, this feels like fluency. In the long term, if you don't add deliberate retrieval effort on top of it, you get the fluency without the mastery.</p>
+  <p>The desirable difficulty is gone. What's left is a gap between the ease of your outputs and the depth of your understanding — and that gap doesn't show up on any performance review.</p>
+
+  <h2>What This Week's Quiz Data Shows</h2>
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="num">4,200+</div>
+      <div class="label">engineers took the AI Fatigue Quiz</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">62%</div>
+      <div class="label">show checking-before-accepting habit</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">38%</div>
+      <div class="label">skip the judgment step entirely</div>
+    </div>
+  </div>
+  <p>The most common pattern among mid-tier scorers (Tier 2 — "Some Fatigue") is a specific combination: high productivity, low confidence in unassisted work, and a habit of checking AI output against their own judgment before accepting it.</p>
+  <p>That last habit — <strong>checking before accepting</strong> — is the divider.</p>
+  <p>Engineers who have it: more likely to be in Track One.</p>
+  <p>Engineers who skip it: more likely to be drifting toward Track Two.</p>
+  <p>It's not the AI use that's the problem. It's whether you're still in the loop — whether you're the one making the judgment call, or whether the judgment has been delegated.</p>
+
+  <h2>The Test Worth Running</h2>
+  <div class="test-box">
+    <p><strong>Try something this week:</strong></p>
+    <p>The next time AI gives you a solution to a real problem, don't just apply it. Instead:</p>
+    <ol>
+      <li><strong>Before you look at what the AI suggests</strong> — try to solve it yourself. Even if it's rough. Even if you can't get all the way there. Try.</li>
+      <li>Notice where you get stuck. What does the stuck point tell you about the edges of your knowledge?</li>
+      <li>Then look at the AI's answer. How does your rough attempt compare? Where did it differ?</li>
+      <li>Ask: what did the AI know that I didn't? What will I remember next time?</li>
+    </ol>
+    <p>This is not about rejecting AI. It's about staying in the loop — making sure that the AI is expanding what you can do, not replacing what you can do.</p>
+  </div>
+
+  <h2>The Thing Worth Protecting</h2>
+  <p>You still have time to be in the first group.</p>
+  <p>It requires something small and consistent: a deliberate practice of engaging with the AI's outputs rather than just consuming them. Not rejecting the help — using it as data.</p>
+  <p>The comprehension gap is real. But it's also closeable — as long as you stay attentive to what's happening on your side of the interaction.</p>
+  <div class="quote-block">
+    <p><em>The engineers who will still be growing in five years are the ones who maintain that distinction.</em></p>
+  </div>
+  <p>The distance between knowing and understanding is the whole game right now.</p>
+  <p>Stay in the game.</p>
+
+  <div class="cta-block">
+    <a href="https://clearing-ai.com/#quiz">Take the AI Fatigue Quiz →</a>
+    <div class="sub">Find out which track you're on — and what to do about it</div>
+  </div>
+
+  <div class="footer">
+    <p>🌿 The Clearing — Resources for engineers navigating AI fatigue</p>
+    <p><a href="https://clearing-ai.com/newsletter-archive">Archive</a> · <a href="https://clearing-ai.com/newsletter">Subscribe</a> · <a href="https://clearing-ai.com">clearing-ai.com</a></p>
+  </div>
+</body>
+</html>

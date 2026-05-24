@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Dispatch #103 — What 100 Issues Teaches You About Knowing Things</title>
+  <meta name="description" content="Issue #103 of The Dispatch — the test nobody runs, the three shapes of erosion, and what two years of writing about AI fatigue actually teaches."/>
+  <meta name="robots" content="noindex, follow"/>
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-issues/dispatch-103.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="The Dispatch #103 — What 100 Issues Teaches You About Knowing Things"/>
+  <meta property="og:description" content="The test nobody runs, the three shapes of erosion, and what two years of writing about AI fatigue actually teaches."/>
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png"/>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <style>
+    body { background: var(--bg, #0f1a0f); color: var(--text, #e8f0e8); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.65; max-width: 680px; margin: 0 auto; padding: 0 24px; }
+    .header { padding: 48px 0 32px; border-bottom: 1px solid var(--border, #2a3f2a); margin-bottom: 40px; }
+    .header .label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-green, #7aab8a); margin-bottom: 12px; display: block; }
+    .header h1 { font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 12px; }
+    .header .meta { font-size: 13px; color: var(--text-secondary, #a0b8a8); }
+    h2 { font-size: 1.25rem; font-weight: 700; color: var(--text); margin: 36px 0 16px; border-left: 3px solid var(--accent-green, #7aab8a); padding-left: 14px; }
+    h3 { font-size: 1.1rem; font-weight: 700; color: var(--text); margin: 28px 0 12px; }
+    p { margin: 0 0 18px; color: var(--text); font-size: 1.05rem; }
+    p:last-child { margin-bottom: 0; }
+    .callout { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+    .callout p { font-style: italic; color: var(--text-secondary, #a0b8a8); margin: 0; font-size: 1rem; }
+    ul, ol { margin: 16px 0 20px 24px; }
+    li { margin-bottom: 10px; color: var(--text); font-size: 1rem; }
+    strong { color: var(--text); }
+    em { color: var(--text-secondary, #a0b8a8); }
+    .divider { border: none; border-top: 1px solid var(--border, #2a3f2a); margin: 40px 0; }
+    .test-box { background: var(--surface-2, #1a2e1a); border-left: 3px solid var(--accent-green, #7aab8a); padding: 20px 24px; margin: 28px 0; }
+    .test-box p { margin: 0 0 10px; font-size: 1rem; }
+    .test-box p:last-child { margin-bottom: 0; }
+    .test-box strong { color: var(--accent-green); }
+    .cta-block { background: var(--surface-2, #1a2e1a); border: 1px solid var(--accent-green, #7aab8a); border-radius: 8px; padding: 28px; text-align: center; margin: 36px 0 0; }
+    .cta-block a { display: inline-block; background: var(--accent-green, #7aab8a); color: #0a0a0a; text-decoration: none; padding: 12px 28px; border-radius: 6px; font-weight: 600; font-size: 1rem; margin-bottom: 8px; }
+    .cta-block a:hover { opacity: 0.85; }
+    .cta-block a.secondary { background: transparent; color: var(--accent-green); border: 1px solid var(--accent-green); padding: 10px 24px; font-size: 0.95rem; }
+    .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border, #2a3f2a); font-size: 12px; color: var(--text-secondary, #a0b8a8); }
+    .footer a { color: var(--accent-green, #7aab8a); }
+    .ps { background: var(--surface-2, #1a2e1a); border-left: 3px solid var(--accent-green, #7aab8a); padding: 16px 20px; margin: 28px 0; font-size: 0.95rem; }
+    .ps strong { color: var(--text); }
+    .reading-block { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 20px 24px; margin: 28px 0; }
+    .reading-block p { font-size: 0.95rem; color: var(--text-secondary); margin: 0 0 8px; }
+    .reading-block p:last-child { margin-bottom: 0; }
+    .shape-card { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 20px 24px; margin: 16px 0; }
+    .shape-card h3 { color: var(--accent-green, #7aab8a); margin: 0 0 10px; font-size: 1.05rem; }
+    .shape-card p { margin: 0 0 8px; font-size: 0.97rem; color: var(--text-secondary); }
+    .shape-card p:last-child { margin-bottom: 0; }
+    .track-card { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 20px 24px; margin: 16px 0; }
+    .track-card h3 { color: var(--accent-green, #7aab8a); margin: 0 0 10px; font-size: 1.05rem; }
+    .track-card p { margin: 0 0 8px; font-size: 0.97rem; color: var(--text-secondary); }
+    .track-card .tradeoff { font-size: 0.9rem; color: var(--text-secondary); border-top: 1px solid var(--border, #2a3f2a); padding-top: 10px; margin-top: 12px; }
+    @media(prefers-color-scheme:light){ body{background:#f5f2ed;color:#1a2e1a} h2,h3,.header h1,strong{color:#1a3a2a} .callout,.shape-card,.reading-block,.test-box,.ps,.track-card{background:#edeae3;border-color:#c8c4bb} .footer{border-color:#c8c4bb} }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div id="main">
+
+    <header class="header">
+      <span class="label">The Dispatch · Issue #103</span>
+      <h1>What 100 Issues Teaches You About Knowing Things</h1>
+      <div class="meta">Week of May 25, 2026 · <a href="../newsletter.html" style="color: var(--accent-green)">clearing-ai.com</a></div>
+    </header>
+
+    <p>Two things happened after last week's Issue #100.</p>
+
+    <p>First: a lot of you wrote back. Not the usual "thanks, forwarded to a friend" emails — longer ones. Detailed ones. Ones that started with "you described something I've been feeling for six months and couldn't name." That part was worth the two years.</p>
+
+    <p>Second: several of you asked the same question in different ways. It went something like:</p>
+
+    <blockquote style="border-left: 3px solid var(--accent-green); padding: 12px 20px; margin: 20px 0; color: var(--text-secondary); font-style: italic;">
+      How do I actually know if I'm on the acceleration track or the understanding track? Is there a test I can run?
+    </blockquote>
+
+    <p>That question is worth answering properly. Because the answer reveals something about what this newsletter is actually for.</p>
+
+    <h2>The Test Nobody Runs</h2>
+
+    <p>Here's the simplest version of the test:</p>
+
+    <p>Think about the last time you solved a hard problem — one where you understood the system deeply, where you could explain not just what you did but why you did it that way and not another way.</p>
+
+    <p>How long ago was that?</p>
+
+    <p>For many engineers reading this, the honest answer is uncomfortable. It was months ago. Maybe longer. Not because you stopped having hard problems. Because the hard problems started getting solved by AI before you had to sit with them.</p>
+
+    <p>The test isn't about whether you use AI. It's about whether you're still building the understanding underneath the assistance.</p>
+
+    <p>Here's the more specific version:</p>
+
+    <p><strong>Take one feature you've shipped in the last two weeks.</strong> Any feature. Now close all AI tabs and answer these four questions without looking at anything:</p>
+
+    <div class="test-box">
+      <p><strong>1.</strong> Could you explain why the architecture takes the shape it does — not just what it does, but why that approach was chosen over alternatives?</p>
+      <p><strong>2.</strong> Could you debug a failure in this feature at 2am without AI assistance — not just find the symptom, but understand the root cause?</p>
+      <p><strong>3.</strong> If you had to estimate how long it would take to build this feature again from scratch with no AI, no reference code, no Stack Overflow — what would you say?</p>
+      <p><strong>4.</strong> When you review code in this area now, do you feel like you're evaluating something you understand, or evaluating output you're trusting?</p>
+    </div>
+
+    <p>If you can answer all four confidently — you are on the understanding track. Keep doing exactly what you're doing.</p>
+
+    <p>If you hesitated on two or more — you're on the acceleration track, whether you knew it or not. That is not a failing. It's information. And it's reversible.</p>
+
+    <h2>The Three Shapes of Erosion</h2>
+
+    <p>Two years of reading your emails and quiz responses has taught us something: AI fatigue doesn't show up the same way for everyone. But it has three consistent shapes.</p>
+
+    <div class="shape-card">
+      <h3>Shape 1: The Debugging Fade</h3>
+      <p>You used to be the person who could trace anything. Now when something breaks in an area you haven't touched directly, you prompt-storm until something works. You're getting the fix. You're losing the model.</p>
+    </div>
+
+    <div class="shape-card">
+      <h3>Shape 2: The Estimation Gap</h3>
+      <p>Your estimates used to be built on felt sense — you knew how long things took because you'd built them. Now AI assists so much of the implementation that your estimates come from watching AI work, not from doing the work yourself. You notice it when something takes twice as long as you estimated — without AI.</p>
+    </div>
+
+    <div class="shape-card">
+      <h3>Shape 3: The Review Confidence Erosion</h3>
+      <p>You used to review PRs with genuine judgment. Now you mostly confirm that the AI-generated code looks reasonable. You're not sure you'd have the same confidence if you had to evaluate the approach without AI having already suggested it.</p>
+    </div>
+
+    <p>These aren't character flaws. They're structural. They happen because the feedback loop that used to build understanding has been interrupted.</p>
+
+    <h2>The Practice That Scales</h2>
+
+    <p>One question comes up repeatedly from engineers who've been working the recovery path for a while:</p>
+
+    <blockquote style="border-left: 3px solid var(--accent-green); padding: 12px 20px; margin: 20px 0; color: var(--text-secondary); font-style: italic;">
+      Is there a minimum viable practice? Something that moves the needle without requiring an hour a day of deliberate no-AI work?
+    </blockquote>
+
+    <p>Yes. And it's smaller than you'd expect.</p>
+
+    <p><strong>Once a week: before you open any AI tool, spend 20 minutes working on something at the edge of your ability.</strong></p>
+
+    <p>Not something hard for the sake of hard. Something real — a bug in a system you care about, a feature in a personal project, a piece of code you've been meaning to understand better.</p>
+
+    <p>The goal isn't to prove you can do it without AI. The goal is to feel the difference between your unaided thinking and AI-assisted thinking. That feeling — the slight friction, the slower path, the part where you have to remember — is the signal that learning is happening.</p>
+
+    <p>20 minutes. Once a week. It compounds.</p>
+
+    <p>The engineers who write to us after three months of this practice all describe the same thing: the feeling comes back before the speed does. You start noticing that you understand more than you thought, and that the gaps are smaller than you feared.</p>
+
+    <h2>What Two Years Teaches</h2>
+
+    <p>When I look back at 103 issues, here's what I notice:</p>
+
+    <p>The problems haven't changed. The names have gotten more precise. Two years ago we were calling it burnout-adjacent exhaustion. Now we have a vocabulary that actually fits — middleman problem, fluency illusion, the two tracks, the comprehension gap.</p>
+
+    <p>That's meaningful. Getting the diagnosis right is the first step toward doing something about it.</p>
+
+    <p>What's also changed: the community. Engineers who found this early, who've been reading since Issue #1, have become the people who send the detailed emails after Issue #100. They were the ones who first described the Sunday reckoning, the debugger drift, the explanation requirement in their own words before we had names for any of it.</p>
+
+    <p>That exchange — your experiences shaping the vocabulary, the vocabulary helping you understand your experiences — that's the part that makes this worth doing.</p>
+
+    <div class="callout">
+      <p>We're going to keep writing this. The format changes — some weeks a single practice, some weeks a data point, some weeks a longer essay. The through-line stays the same: honest, specific, useful content for engineers who care about what they're doing and notice that something has quietly changed.</p>
+    </div>
+
+    <p>If you've been meaning to share your own AI fatigue story — what it feels like, what you've tried, what works — the door is still open at <a href="../share-your-story.html" style="color: var(--accent-green)">share-your-story.html</a>.</p>
+
+    <p>If you're not sure what track you're on, <a href="../index.html#quiz" style="color: var(--accent-green)">the quiz takes three minutes</a> and will tell you your profile. Some people find that more useful than any article we've written.</p>
+
+    <p>And if Issue #100 landed for you, forward it to someone who's been quieter than usual in the last six months. They probably needed it.</p>
+
+    <p>See you next week.</p>
+
+    <p style="color: var(--text-secondary); margin-top: 32px;">— Sunny + The Clearing team</p>
+
+    <div class="ps">
+      <strong>Further reading from this week:</strong><br/>
+      <a href="../newsletter-issues/dispatch-100.html" style="color: var(--accent-green)">The Distance Between Knowing and Understanding</a> — Issue #100, the milestone that prompted this one<br/>
+      <a href="../newsletter-issues/dispatch-41.html" style="color: var(--accent-green)">The Competence Illusion</a> — the fluency illusion and surface comprehension, from Issue #41<br/>
+      <a href="../debugger-drift.html" style="color: var(--accent-green)">The Debugger Drift</a> — what the debugging fade actually costs you over time<br/>
+      <a href="../index.html#quiz" style="color: var(--accent-green)">Take the AI Fatigue Quiz</a> — find out where you stand in 3 minutes
+    </div>
+
+    <div class="cta-block">
+      <a href="../newsletter-archive.html">Read the full archive →</a>
+      <br/>
+      <a href="../newsletter.html" class="secondary">Subscribe to The Dispatch</a>
+    </div>
+
+    <footer class="footer">
+      <p>🌿 The Clearing — Resources for engineers navigating AI fatigue</p>
+      <p><a href="https://clearing-ai.com/newsletter-archive">Archive</a> · <a href="https://clearing-ai.com/newsletter">Subscribe</a> · <a href="https://clearing-ai.com">clearing-ai.com</a></p>
+    </footer>
+
+  </div>
+</body>
+</html>

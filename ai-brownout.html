@@ -1,876 +1,501 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark"> data-page="ai-brownout">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Brownout: Quiet Exhaustion After AI Tool Use</title>
-  <meta name="description" content="AI brownout: the quiet exhaustion that comes after heavy AI tool use. How it differs from burnout, why it compounds, and what helps.">
-  <meta property="og:title" content="AI Brownout: The Quiet Exhaustion After the AI Honeymoon">
-  <meta property="og:description" content="The slow, chronic exhaustion from AI tools isn't burnout. It's not fatigue. It's brownout — and it has its own distinct causes and recovery path.">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://clearing-ai.com/ai-brownout.html">
-  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AI Brownout: The Quiet Exhaustion After the AI Honeymoon">
-  <meta name="twitter:description" content="The slow, chronic exhaustion from AI tools isn't burnout. It's brownout — and it has its own distinct causes and recovery path.">
+  <title>The Brownout Effect: When AI Drains Your Energy Instead of Your Time | The Clearing</title>
+  <meta name="description" content="Not burnout — brownout. The slow, creeping energy drain that comes from AI-assisted work that looks productive but quietly leaves you hollow. Here's what it is and how to recover.">
+  <meta name="keywords" content="AI brownout, energy drain AI tools, developer exhaustion AI, subtle AI fatigue, AI energy management, programming without energy, tech worker energy drain, AI productivity fatigue">
+  <meta name="author" content="The Clearing">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://clearing-ai.com/ai-brownout.html">
   <link rel="alternate" type="application/rss+xml" title="The Clearing RSS Feed" href="https://clearing-ai.com/feed.xml">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌰</text></svg>">
-  <style>
-    :root {
-      --bg: #0d1117; --bg2: #161b22; --bg3: #21262d;
-      --text: #e6edf3; --text2: #8b949e; --text3: #6e7681;
-      --border: #30363d; --accent: #3fb950; --accent2: #58a6ff;
-      --accent3: #f78166; --accent4: #d2a8ff;
-      --brown: #c9a227; --brown-dark: #8b6914;
-      --card: #161b22; --card-hover: #1c2128;
-      --radius: 10px; --shadow: 0 4px 24px rgba(0,0,0,0.4);
-      --transition: all 0.2s cubic-bezier(0.22,1,0.36,1);
-      --font: 'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
-      --mono: 'JetBrains Mono','Fira Code',monospace;
-    }
-    [data-theme="light"] {
-      --bg:#f6f8fa;--bg2:#ffffff;--bg3:#eaeef2;
-      --text:#1f2328;--text2:#656d76;--text3:#8c959f;
-      --border:#d0d7de;--card:#ffffff;--card-hover:#f0f3f6;
-      --shadow:0 4px 24px rgba(0,0,0,0.08);
-    }
-    *{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.7;overflow-x:hidden}
-    a{color:var(--accent2);text-decoration:none;transition:var(--transition)}
-    a:hover{color:var(--accent)}
-    img{max-width:100%;height:auto;display:block}
-    ul,ol{padding-left:1.5rem}
-    li{margin-bottom:0.3rem}
-    blockquote{border-left:3px solid var(--accent);padding:1rem 1.5rem;background:var(--bg2);border-radius:0 var(--radius) var(--radius) 0;margin:2rem 0;font-style:italic;color:var(--text2)}
-    hr{border:none;border-top:1px solid var(--border);margin:3rem 0}
-    table{width:100%;border-collapse:collapse;margin:2rem 0;font-size:0.92rem}
-    th{background:var(--bg3);padding:0.75rem 1rem;text-align:left;font-weight:600;border-bottom:2px solid var(--border)}
-    td{padding:0.75rem 1rem;border-bottom:1px solid var(--border);vertical-align:top}
-    tr:last-child td{border-bottom:none}
-    .container{max-width:760px;margin:0 auto;padding:0 1.5rem}
-    .skip-link{position:absolute;top:-40px;left:0;background:var(--accent);color:#fff;padding:8px 16px;z-index:100;transition:top 0.3s}
-    .skip-link:focus{top:0}
-    .progress-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--brown),var(--brown-dark));z-index:1000;width:0%;transition:width 0.1s}
-    nav{position:sticky;top:0;z-index:100;background:rgba(13,17,23,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0.75rem 0}
-    [data-theme="light"] nav{background:rgba(246,248,250,0.92)}
-    nav .container{display:flex;align-items:center;justify-content:space-between;gap:1rem}
-    .nav-logo{font-weight:900;font-size:1.15rem;color:var(--text);letter-spacing:-0.02em;display:flex;align-items:center;gap:0.4rem}
-    .nav-logo span{color:var(--accent)}
-    .nav-links{display:flex;align-items:center;gap:0.25rem;list-style:none}
-    .nav-links a{color:var(--text2);font-size:0.875rem;font-weight:500;padding:0.4rem 0.75rem;border-radius:6px;transition:var(--transition)}
-    .nav-links a:hover,.nav-links a[aria-current="page"]{color:var(--text);background:var(--bg3)}
-    .nav-dropdown{position:relative}
-    .nav-dropdown-menu{display:none;position:absolute;top:100%;left:0;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:0.5rem;min-width:200px;box-shadow:var(--shadow);z-index:200}
-    .nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{display:block}
-    .nav-dropdown-menu a{display:block;padding:0.5rem 0.75rem;border-radius:6px;font-size:0.85rem;color:var(--text2);white-space:nowrap}
-    .nav-dropdown-menu a:hover{background:var(--bg3);color:var(--text)}
-    .theme-toggle{background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:0.4rem 0.75rem;border-radius:8px;cursor:pointer;font-size:0.85rem;transition:var(--transition)}
-    .theme-toggle:hover{border-color:var(--accent)}
-    .mobile-menu-btn{display:none;background:none;border:1px solid var(--border);color:var(--text);padding:0.4rem;border-radius:6px;cursor:pointer}
-    .breadcrumb{padding:1rem 0;font-size:0.82rem;color:var(--text3)}
-    .breadcrumb a{color:var(--text3)}
-    .breadcrumb a:hover{color:var(--accent)}
-    .breadcrumb span{margin:0 0.3rem}
-    .hero{padding:3rem 0 2rem;text-align:center}
-    .hero-badge{display:inline-flex;align-items:center;gap:0.4rem;background:var(--bg3);border:1px solid var(--brown);padding:0.3rem 0.9rem;border-radius:50px;font-size:0.75rem;color:var(--brown);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:1.5rem}
-    .hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:900;line-height:1.15;letter-spacing:-0.03em;margin-bottom:1.25rem}
-    .hero h1 em{font-style:normal;color:var(--brown)}
-    .hero-sub{font-size:1.1rem;color:var(--text2);max-width:560px;margin:0 auto 2rem;line-height:1.65}
-    .hero-meta{display:flex;align-items:center;justify-content:center;gap:1.5rem;font-size:0.82rem;color:var(--text3);flex-wrap:wrap}
-    .hero-meta span{display:flex;align-items:center;gap:0.3rem}
-    .hero-divider{width:60px;height:3px;background:linear-gradient(90deg,var(--brown),var(--brown-dark));margin:2.5rem auto;border-radius:2px}
-    article{padding-bottom:4rem}
-    article h2{font-size:1.45rem;font-weight:800;margin:2.5rem 0 1rem;letter-spacing:-0.02em;color:var(--text)}
-    article h3{font-size:1.1rem;font-weight:700;margin:2rem 0 0.75rem;color:var(--text)}
-    article p{margin-bottom:1.25rem;color:var(--text2);font-size:1.02rem}
-    article strong{color:var(--text);font-weight:600}
-    article .lead{font-size:1.15rem;color:var(--text);line-height:1.7;margin-bottom:2rem}
-    .card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin:1.5rem 0}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;transition:var(--transition)}
-    .card:hover{border-color:var(--brown);transform:translateY(-2px);box-shadow:var(--shadow)}
-    .card h4{font-size:0.95rem;font-weight:700;margin-bottom:0.5rem;color:var(--text)}
-    .card p{font-size:0.88rem;color:var(--text2);margin:0}
-    .signal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:1.5rem 0}
-    .signal-card{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--brown);border-radius:0 var(--radius) var(--radius) 0;padding:1.25rem}
-    .signal-card h4{font-size:0.95rem;font-weight:700;margin-bottom:0.4rem;color:var(--text)}
-    .signal-card p{font-size:0.88rem;color:var(--text2);margin:0 0 0.4rem}
-    .signal-card .marker{font-family:var(--mono);font-size:0.72rem;color:var(--brown);font-weight:500;letter-spacing:0.05em;text-transform:uppercase}
-    .comparison-table-wrap{overflow-x:auto;margin:2rem 0;border-radius:var(--radius);border:1px solid var(--border)}
-    .comparison-table-wrap table{margin:0;border-radius:0}
-    .comparison-table-wrap th{background:var(--brown-dark);color:#fff;font-weight:700}
-    .comparison-table-wrap td:first-child{font-weight:600;color:var(--text);font-size:0.9rem}
-    .comparison-table-wrap tr:nth-child(even) td{background:var(--bg2)}
-    .warning-box{background:var(--bg2);border:1px solid var(--brown);border-radius:var(--radius);padding:1.5rem;margin:2rem 0}
-    .warning-box .label{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--brown);margin-bottom:0.5rem;display:flex;align-items:center;gap:0.4rem}
-    .warning-box p{margin-bottom:0;font-size:0.95rem;color:var(--text2)}
-    .quiz-strip{background:linear-gradient(135deg,var(--bg2) 0%,#1c1a10 100%);border:1px solid var(--brown);border-radius:var(--radius);padding:2rem;margin:2.5rem 0;text-align:center}
-    [data-theme="light"] .quiz-strip{background:linear-gradient(135deg,var(--bg2) 0%,#fefce8 100%)}
-    .quiz-strip h3{font-size:1.2rem;color:var(--text);margin-bottom:0.5rem}
-    .quiz-strip p{color:var(--text2);margin-bottom:1.25rem;font-size:0.95rem}
-    .quiz-questions{text-align:left;max-width:500px;margin:0 auto 1.5rem}
-    .quiz-item{margin-bottom:1.5rem}
-    .quiz-item p{font-size:0.95rem;font-weight:600;color:var(--text);margin-bottom:0.5rem}
-    .quiz-options{display:flex;flex-direction:column;gap:0.4rem}
-    .quiz-option{display:flex;align-items:center;gap:0.5rem;padding:0.5rem 0.75rem;background:var(--bg);border:1px solid var(--border);border-radius:6px;cursor:pointer;transition:var(--transition);font-size:0.88rem;color:var(--text2)}
-    .quiz-option:hover{border-color:var(--brown);color:var(--text);background:var(--bg3)}
-    .quiz-option input{accent-color:var(--brown);width:15px;height:15px}
-    .quiz-result{display:none;background:var(--bg);border:1px solid var(--brown);border-radius:var(--radius);padding:1.5rem;margin-top:1rem;text-align:left}
-    .quiz-result.show{display:block}
-    .quiz-result h4{color:var(--brown);font-size:1rem;margin-bottom:0.5rem}
-    .quiz-result p{font-size:0.9rem;color:var(--text2);margin:0}
-    .tier-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
-    .tier{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem}
-    .tier.tier-1{border-top:3px solid var(--accent)}
-    .tier.tier-2{border-top:3px solid var(--accent2)}
-    .tier.tier-3{border-top:3px solid var(--brown)}
-    .tier h4{font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem}
-    .tier-1 h4{color:var(--accent)}
-    .tier-2 h4{color:var(--accent2)}
-    .tier-3 h4{color:var(--brown)}
-    .tier p{font-size:0.85rem;color:var(--text2);margin:0 0 0.4rem}
-    .tier .actions{font-size:0.82rem;color:var(--text3);font-style:italic}
-    .action-list{list-style:none;padding:0;margin:1.5rem 0;counter-reset:actions}
-    .action-list li{counter-increment:actions;display:flex;gap:1rem;margin-bottom:1.25rem;align-items:flex-start}
-    .action-list li::before{content:counter(actions);min-width:28px;height:28px;background:var(--brown);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:700;flex-shrink:0;margin-top:0.1rem}
-    [data-theme="light"] .action-list li::before{background:var(--brown-dark)}
-    .action-list li strong{display:block;color:var(--text);font-weight:700;margin-bottom:0.2rem}
-    .action-list li span{font-size:0.92rem;color:var(--text2)}
-    .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0}
-    .stat-block{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;text-align:center}
-    .stat-block .number{font-size:2rem;font-weight:900;color:var(--brown);letter-spacing:-0.04em;line-height:1}
-    .stat-block .label{font-size:0.75rem;color:var(--text3);margin-top:0.4rem;text-transform:uppercase;letter-spacing:0.05em}
-    .faq-item{border-bottom:1px solid var(--border)}
-    .faq-item:last-child{border-bottom:none}
-    .faq-question{width:100%;background:none;border:none;color:var(--text);font-family:var(--font);font-size:1rem;font-weight:700;padding:1.25rem 2rem 1.25rem 0;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;transition:var(--transition)}
-    .faq-question:hover{color:var(--brown)}
-    .faq-question::after{content:'+';font-size:1.4rem;font-weight:300;color:var(--brown);transition:transform 0.3s ease;flex-shrink:0}
-    .faq-item.open .faq-question::after{transform:rotate(45deg)}
-    .faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.22,1,0.36,1)}
-    .faq-answer-inner{padding-bottom:1.25rem;font-size:0.95rem;color:var(--text2);line-height:1.7}
-    .faq-item.open .faq-answer{max-height:500px}
-    .explore-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin:2.5rem 0}
-    .explore-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;transition:var(--transition)}
-    .explore-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow)}
-    .explore-card .tag{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text3);font-weight:600;margin-bottom:0.3rem}
-    .explore-card h4{font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:0.3rem;line-height:1.4}
-    .explore-card p{font-size:0.82rem;color:var(--text3);margin:0}
-    .inline-nav{display:flex;gap:0.75rem;flex-wrap:wrap;margin:1.5rem 0}
-    .inline-nav a{display:inline-flex;align-items:center;gap:0.3rem;padding:0.4rem 0.9rem;background:var(--bg3);border:1px solid var(--border);border-radius:50px;font-size:0.82rem;color:var(--text2);font-weight:500;transition:var(--transition)}
-    .inline-nav a:hover{border-color:var(--accent);color:var(--accent);background:var(--bg2)}
-    footer{border-top:1px solid var(--border);padding:2.5rem 0;margin-top:4rem;background:var(--bg2)}
-    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
-    .footer-brand p{font-size:0.88rem;color:var(--text3);margin-top:0.5rem}
-    .footer-col h4{font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text3);margin-bottom:0.75rem}
-    .footer-col ul{list-style:none;padding:0}
-    .footer-col li{margin-bottom:0.4rem}
-    .footer-col a{font-size:0.88rem;color:var(--text3)}
-    .footer-col a:hover{color:var(--accent)}
-    .footer-bottom{border-top:1px solid var(--border);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;font-size:0.82rem;color:var(--text3);flex-wrap:wrap;gap:0.5rem}
-    @media(max-width:768px){
-      .footer-grid{grid-template-columns:1fr 1fr}.stat-grid{grid-template-columns:1fr}
-      .nav-links{display:none}.mobile-menu-btn{display:flex}
-      .card-grid,.signal-grid,.tier-grid{grid-template-columns:1fr}
-      .hero h1{font-size:1.9rem}.hero-meta{gap:1rem}
-    }
-    @media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
-    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
-  
-.explore-section { background: var(--surface, #161616); border-top: 1px solid var(--border, #2a2a2a); padding: 48px 0; margin-top: 64px; }
-.explore-inner { max-width: 900px; margin: 0 auto; padding: 0 24px; }
-.explore-section h2 { font-size: 1.2rem; font-weight: 600; color: var(--text, #e8e6e3); margin-bottom: 20px; letter-spacing: 0.5px; text-transform: uppercase; font-size: 0.85rem; color: var(--muted, #6e7681); }
-.explore-links { list-style: none; display: flex; flex-wrap: wrap; gap: 12px; }
-.explore-links li { flex: 0 1 auto; }
-.explore-links a { display: inline-block; background: var(--surface-2, #1e1e1e); border: 1px solid var(--border, #2a2a2a); color: var(--text, #e8e6e3); padding: 8px 16px; border-radius: 6px; font-size: 0.9rem; text-decoration: none; transition: all 0.2s ease; }
-.explore-links a:hover { border-color: var(--accent, #5c8c6e); color: var(--accent, #5c8c6e); transform: translateY(-1px); }
-
-  </style>
-        <!-- Critical @font-face: immediate text render, no network round-trip -->
-  <style>
-    @font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:local('system-ui');ascent-override:107%;descent-override:27%;size-adjust:107%;}
-    @font-face{font-family:'Lora';font-style:normal;font-weight:400;font-display:swap;src:local('Georgia');ascent-override:94%;descent-override:23%;size-adjust:94%;}
-    @font-face{font-family:'Lora';font-style:italic;font-weight:400;font-display:swap;src:local('Georgia');ascent-override:94%;descent-override:23%;size-adjust:94%;}
-  </style>
-
-  <!-- Self-hosted fonts via fonts.css (async, font-display:optional) -->
-  <!-- Google Fonts CDN — async load prevents render-blocking (fallback fonts inline above) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" /></noscript>
-
-  <!-- Non-render-blocking CSS -->
-  <link rel="stylesheet" href="css/style.min.css" />
-
-  <!-- Critical font-face (fallback — prevents FOB/FOIT before fonts.css loads) -->
-  <style>
-    @font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:local('system-ui');}
-    @font-face{font-family:'Lora';font-style:normal;font-weight:400;font-display:swap;src:local('Georgia');}
-  </style>
-
-  <!-- Non-render-blocking CSS -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/ai-brownout.html">
+  <meta property="og:title" content="The Brownout Effect: When AI Drains Your Energy Instead of Your Time">
+  <meta property="og:description" content="Not burnout — brownout. The slow energy drain that comes from AI-assisted work that looks productive but quietly leaves you hollow.">
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
+  <meta property="og:site_name" content="The Clearing">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Brownout Effect: When AI Drains Your Energy Instead of Your Time">
+  <meta name="twitter:description" content="Not burnout — brownout. The slow energy drain that comes from AI-assisted work that looks productive but quietly leaves you hollow.">
+  <meta name="twitter:image" content="https://clearing-ai.com/og-image.png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.min.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "The Brownout Effect: When AI Drains Your Energy Instead of Your Time",
+        "description": "Not burnout — brownout. The slow, creeping energy drain that comes from AI-assisted work that looks productive but quietly leaves you hollow. Here's what it is and how to recover.",
+        "author": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+        "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+        "datePublished": "2026-05-24",
+        "dateModified": "2026-05-24",
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://clearing-ai.com/ai-brownout.html" },
+        "keywords": "AI brownout, energy drain AI tools, developer exhaustion AI, subtle AI fatigue, AI energy management"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Understand", "item": "https://clearing-ai.com/why.html" },
+          { "@type": "ListItem", "position": 3, "name": "Brownout Effect", "item": "https://clearing-ai.com/ai-brownout.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "What is the AI brownout effect?", "acceptedAnswer": { "@type": "Answer", "text": "AI brownout is a slow, cumulative energy drain that comes from AI-assisted work that appears productive but quietly depletes your mental and emotional reserves. Unlike burnout (acute and dramatic), brownout is subtle — it shows up as low-level tiredness that doesn't lift with sleep, a sense of disconnection from your work, and the feeling that everything requires more effort than it should." } },
+          { "@type": "Question", "name": "How is AI brownout different from burnout?", "acceptedAnswer": { "@type": "Answer", "text": "Burnout is dramatic — a breaking point you can point to. Brownout is gradual — an energy fade that happens over months. Burnout says 'I can't do this anymore.' Brownout says 'I can do this, but I don't want to.' Burnout is visible; brownout is quiet. Most AI-fatigued engineers are experiencing brownout, not burnout." } },
+          { "@type": "Question", "name": "Why does AI cause brownout more than burnout?", "acceptedAnswer": { "@type": "Answer", "text": "AI work is cognitively demanding in a specific way — you're constantly evaluating, filtering, and integrating AI output while also maintaining your own thinking. That dual-process creates a low-level cognitive load that accumulates. You're never fully 'at rest' during AI-assisted work because there's always something to check, verify, or decide. This chronic partial activation drains energy without the signal of obvious exhaustion." } },
+          { "@type": "Question", "name": "What are the early signs of AI brownout?", "acceptedAnswer": { "@type": "Answer", "text": "Early signs include: needing more caffeine than usual to get started, Sunday dread that starts on Saturday, feeling checked out during standups but performing fine, dragging yourself to code when you used to rush to it, dreading code review more than writing code, and a general sense that your work is easy but exhausting." } },
+          { "@type": "Question", "name": "How do you recover from AI brownout?", "acceptedAnswer": { "@type": "Answer", "text": "Recovery from AI brownout requires three things: periods of complete cognitive rest (not scrolling, not AI, not processing — actual rest), deliberate skill contact (doing hard things without AI to rebuild your sense of competence), and reconnection to intrinsic motivation (what drew you to engineering before AI existed). The 30-day AI detox plan provides a structured recovery path." } },
+          { "@type": "Question", "name": "Can you be browning out without knowing it?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — this is the most dangerous aspect of brownout. Because the work still gets done, the PRs still merge, and the standups still happen, brownout is easy to dismiss as 'just tired' or 'just busy.' The signal that distinguishes brownout from normal tiredness is duration — if you've been dragging for more than three weeks, it's not temporary. It's structural." } }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to content</a>
-  <div class="progress-bar" id="progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-
-  <nav class="main-nav" role="navigation" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">🌿 The Clearing</a>
-      <button type="button" class="nav-toggle" aria-label="Toggle navigation">☰</button>
-      <ul class="nav-links">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li class="nav-dropdown">
-          <button type="button" class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">Understand <span class="dropdown-arrow">▾</span></button>
-          <ul class="dropdown-menu">
-            <li><a href="why.html">Why AI Fatigue?</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="stats.html">Statistics</a></li>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <header>
+    <nav class="site-nav" aria-label="Main navigation">
+      <div class="nav-left">
+        <a href="index.html" class="site-logo">The Clearing</a>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-list">
+        <li class="nav-section">
+          <button class="nav-section-toggle" aria-expanded="false">Understand</button>
+          <ul class="nav-submenu">
+            <li><a href="why.html">Why This Happens</a></li>
+            <li><a href="research.html">The Science</a></li>
+            <li><a href="ai-fatigue.html">What Is AI Fatigue</a></li>
+            <li><a href="burnout-vs-fatigue.html">Burnout vs Fatigue</a></li>
             <li><a href="cognitive-load.html">Cognitive Load</a></li>
-            <li><a href="remote-team-ai-collaboration.html">Remote Work & AI</a></li>
             <li><a href="skill-atrophy.html">Skill Atrophy</a></li>
-            <li><a href="developer-identity.html">Developer Identity</a></li>
-            <li><a href="automation-anxiety.html">Automation Anxiety</a>
-              <a href="ai-anxiety.html" class="dropdown-item">AI Anxiety</a></li>
-            <li><a href="imposter-syndrome-ai.html">Imposter Syndrome</a></li>
-            <li><a href="attention-residue.html">Attention Residue</a></li>
-            <li><a href="flow-state.html">Flow State</a></li>
-          </ul>
-        </li>
-        <li class="nav-dropdown">
-          <button type="button" class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">Build <span class="dropdown-arrow">▾</span></button>
-          <ul class="dropdown-menu">
-            <li><a href="ai-consultation-fatigue.html">Consultation Fatigue</a></li>
-            <li><a href="ai-architecture-fatigue.html">Architecture Fatigue</a></li>
-            <li><a href="ai-decision-stack.html">Decision Stack</a></li>
-            <li><a href="ai-brownout.html" aria-current="page">AI Brownout</a></li>
-            <li><a href="ai-productivity-guilt.html">Productivity Guilt</a></li>
-            <li><a href="ai-productivity-paradox.html">Productivity Paradox</a></li>
-            <li><a href="ai-debugging-fatigue.html">Debugging Fatigue</a></li>
-            <li><a href="ai-meeting-fatigue.html">Meeting Fatigue</a></li>
+            <li><a href="developer-identity.html">Identity Crisis</a></li>
             <li><a href="ai-tool-overload.html">Tool Overload</a></li>
-            <li><a href="ai-learning-burnout.html">Learning Burnout</a></li>
+            <li><a href="ai-brownout.html" aria-current="page">The Brownout Effect</a></li>
           </ul>
         </li>
-        <li class="nav-dropdown">
-          <button type="button" class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">Recover <span class="dropdown-arrow">▾</span></button>
-          <ul class="dropdown-menu">
+        <li class="nav-section">
+          <button class="nav-section-toggle" aria-expanded="false">Stories</button>
+          <ul class="nav-submenu">
+            <li><a href="stories.html">All Stories</a></li>
+            <li><a href="junior-engineers.html">For Junior Engineers</a></li>
+            <li><a href="senior-identity.html">Senior Identity Crisis</a></li>
+            <li><a href="engineer-types.html">Engineer Archetypes</a></li>
+            <li><a href="engineer-stories.html">Anonymous Stories</a></li>
+          </ul>
+        </li>
+        <li class="nav-section">
+          <button class="nav-section-toggle" aria-expanded="false">Recover</button>
+          <ul class="nav-submenu">
             <li><a href="recovery.html">Recovery Guide</a></li>
-            <li><a href="the-explanation-requirement.html">Explanation Requirement</a></li>
-            <li><a href="ai-detox-plan.html">30-Day Detox</a></li>
-            <li><a href="ai-fatigue-severity-index.html">Severity Index</a></li>
-            <li><a href="recovery-toolkit.html">Recovery Toolkit</a></li>
-            <li><a href="ai-fatigue-checklist.html">Checklist</a></li>
-          <li><a href="ai-fatigue-recovery-checklist-pdf.html">Recovery Checklist PDF</a></li>
-            <li><a href="mental-health.html">Mental Health</a></li>
-            <li><a href="developer-wellbeing.html">Wellbeing</a></li>
+            <li><a href="ai-detox-plan.html">30-Day Detox Plan</a></li>
             <li><a href="daily-practice.html">Daily Practice</a></li>
-          </ul>
-        </li>
-        <li class="nav-dropdown">
-          <button type="button" class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">Tools <span class="dropdown-arrow">▾</span></button>
-          <ul class="dropdown-menu">
-            <li><a href="index.html#quiz">AI Fatigue Quiz</a></li>
-            <li><a href="decompress.html">Focus Timer</a></li>
             <li><a href="checkin.html">Daily Check-in</a></li>
-            <li><a href="journal.html">Journal</a></li>
-            <li><a href="compare.html">Compare Tools</a></li>
+            <li><a href="decompress.html">Decompress</a></li>
+            <li><a href="mental-health.html">Mental Health</a></li>
+            <li><a href="team-guide.html">Team Guide</a></li>
+            <li><a href="ai-free-practice.html">AI-Free Practice</a></li>
           </ul>
         </li>
-        <li><a href="newsletter.html" class="nav-link">Newsletter</a>
-      <a href="email-course.html">Email Course</a></li>
+        <li class="nav-section">
+          <button class="nav-section-toggle" aria-expanded="false">Tools</button>
+          <ul class="nav-submenu">
+            <li><a href="quiz-results.html">AI Fatigue Quiz</a></li>
+            <li><a href="checkin.html">Daily Check-in</a></li>
+            <li><a href="decompress.html">Pomodoro Timer</a></li>
+            <li><a href="ai-fatigue-checklist.html">Recovery Checklist</a></li>
+          </ul>
+        </li>
+        <li class="nav-section">
+          <button class="nav-section-toggle" aria-expanded="false">Read</button>
+          <ul class="nav-submenu">
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="changelog.html">Changelog</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </li>
       </ul>
-      <button type="button" class="theme-toggle" aria-label="Toggle theme">🌙</button>
-    </div>
-  </nav>
+      <div class="nav-right">
+        <button class="theme-toggle" aria-label="Toggle color theme">
+          <span class="theme-icon">🌙</span>
+        </button>
+      </div>
+    </nav>
+  </header>
 
   <main id="main">
-    <div class="container">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="index.html">Home</a><span>›</span>
-        <a href="why.html">Understand</a><span>›</span>
-        <span>AI Brownout</span>
-      </nav>
+    <div class="reading-progress" aria-hidden="true"></div>
 
-      <header class="hero">
-        <div class="hero-badge">🌰 Distinct from Burnout or Fatigue</div>
-        <h1>The Quiet Exhaustion That Comes <em>After</em> the AI Honeymoon</h1>
-        <p class="hero-sub">You switched to AI-assisted coding eight months ago. The productivity high wore off three months ago. Now you're tired — not crisis-tired, not can't-get-out-of-bed tired. Just... dimmed. That&rsquo;s AI brownout.</p>
-        <div class="hero-meta">
-          <span>📖 ~4,200 words</span>
-          <span>🕐 Updated April 2026</span>
-          <span>🌿 The Clearing</span>
+    <article class="page-content">
+      <div class="breadcrumb" aria-label="Breadcrumb">
+        <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+          <li itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">Home</span></a><meta itemprop="position" content="1"></li>
+          <li itemscope itemtype="https://schema.org/ListItem"><a href="why.html" itemprop="item"><span itemprop="name">Understand</span></a><meta itemprop="position" content="2"></li>
+          <li itemscope itemtype="https://schema.org/ListItem" aria-current="page"><span itemprop="name">The Brownout Effect</span><meta itemprop="position" content="3"></li>
+        </ol>
+      </div>
+
+      <header class="page-header">
+        <p class="page-eyebrow">Understand · The Quiet Drain</p>
+        <h1 class="page-title">The Brownout Effect:<br>When AI Drains Your Energy Instead of Your Time</h1>
+        <p class="page-subtitle">Not burnout. Not dramatic. Just a slow fade of energy, motivation, and the feeling that your work is harder than it should be. This is the most common form of AI fatigue — and the most overlooked.</p>
+        <div class="page-meta">
+          <span class="reading-time"></span>
+          <span class="meta-divider">·</span>
+          <span>~3,800 words</span>
         </div>
-        <div class="hero-divider"></div>
       </header>
 
-      <article>
-        <p class="lead">There's a name for what you're feeling. It's not burnout — burnout has a crisis arc, an acute collapse. It's not quite AI fatigue either, which names the moment of overwhelm. What you're experiencing is slower, lower, and harder to pin down: <strong>AI brownout</strong>.</p>
+      <section class="content-section">
+        <p class="lead">There's a version of exhaustion that doesn't announce itself.</p>
+        <p>It doesn't come with a breakdown in the bathroom or a dramatic "I can't do this anymore." It shows up as a Tuesday afternoon where you've been staring at the same PR for twenty minutes and getting nowhere. Where your coffee is cold and you can't remember the last time you finished a task and felt good about it. Where the work is fine — the code ships, the reviews complete, the standups attended — but you feel like you're running on battery percentage instead of actual energy.</p>
+        <p>This is what engineers describe when they say things like: "I'm not burnt out, I just feel kind of... gray." Or "Work isn't hard, it's just exhausting." Or "I can do my job, I just don't feel like myself doing it."</p>
+        <p>We call it the brownout effect. And it's the most common expression of AI fatigue that no one talks about.</p>
+      </section>
 
-        <p>You still show up. You still ship. You still get code merged. But the light is dimmer. The satisfaction is muted. The gap between what you produce and what you understand has become a background hum you&rsquo;ve stopped noticing — until someone asks you a question about your own codebase and you realize you can&rsquo;t answer it without opening the file.</p>
+      <section class="content-section">
+        <h2>What Brownout Actually Is</h2>
+        <p>The electrical metaphor is precise. Burnout is a blackout — a complete failure of system, a moment where something trips and everything goes dark. Brownout is a partial failure. The lights stay on but they're dim. The system is running but not well. Power hasn't failed entirely; it's just degraded.</p>
+        <p>AI brownout works the same way. It's not a dramatic collapse of capacity. It's a slow reduction in the energy available to do your work. You can still function — you ship code, you attend meetings, you respond to messages — but at reduced capacity. The mental brightness you used to bring to hard problems is lower. The emotional resonance you used to feel when things went well is duller. The motivation that used to pull you forward has to be pushed.</p>
+        <div class="callout callout-warning">
+          <p><strong>The signal that distinguishes brownout from ordinary tiredness:</strong> duration. Everyone has hard weeks. But if you've been running at 60% for more than three weeks, it's not temporary — it's structural. You're not "just tired." You're brownout.</p>
+        </div>
+      </section>
 
-        <p>This page is for that. For naming the thing that&rsquo;s been wrong for months. For understanding why it happened. And for finding your way back to something brighter.</p>
+      <section class="content-section">
+        <h2>The Three Reasons AI Causes Brownout (Not Burnout)</h2>
+        <p>Burnout comes from too much work. Brownout comes from the wrong kind of work. Here's why AI creates brownout conditions even when it reduces your workload.</p>
 
-        <h2>What AI Brownout Actually Is</h2>
+        <div class="feature-card-grid">
+          <div class="feature-card">
+            <div class="card-icon">⚡</div>
+            <h3>1. Chronic Partial Activation</h3>
+            <p>When you write code without AI, you experience natural work rhythms: intense focus periods, recovery gaps, the satisfaction of completion. When you work with AI, there's rarely a moment of full rest. You're always checking, evaluating, integrating, deciding whether the AI's suggestion is right. That constant low-level cognitive engagement doesn't have the natural recovery points that traditional deep work has. It's like running on a treadmill — you're moving, but you're not going anywhere, and you can't step off.</p>
+            <p>The research here is meaningful. In Gloria Mark's studies of workplace attention, workers who experienced frequent interruptions reported not just worse performance but a specific kind of tiredness that didn't match their actual output. The gap between what they accomplished and how tired they felt was a brownout signal — they were doing less work but experiencing more fatigue. AI amplifies this dynamic because the interruptions are smaller and more constant. You're not just evaluating one AI suggestion; you're constantly in a loop of generate-evaluate-revise that never quite gives you closure.</p>
+          </div>
 
-        <p>Brownout, in this context, is the slow degradation of energy, engagement, and meaning that follows the initial excitement of AI-assisted coding — typically 4 to 12 months after adoption becomes routine. It&rsquo;s not dramatic. It doesn&rsquo;t announce itself with a breakdown or a diagnosable crisis. It&rsquo;s the slow draining of color from work that used to feel vivid.</p>
+          <div class="feature-card">
+            <div class="card-icon">🧩</div>
+            <h3>2. The Integration Tax</h3>
+            <p>AI generates. You integrate. That integration step — reading the AI's output, understanding what it did, deciding how to fit it into your mental model of the system, debugging the parts that don't quite work — is a cognitive tax that AI companies don't advertise. It looks like the AI is doing your work, but you're actually doing two jobs: understanding the problem and managing the AI's solution. That's not half the work. In many cases it's more cognitively demanding than just solving the problem yourself, because you're maintaining two parallel representations of the solution.</p>
+            <p>Engineers who've experienced both AI-assisted and non-AI work describe this clearly: with AI, they're never quite in flow, because flow requires a match between challenge and capacity that AI disrupts. The challenge of using AI well is often higher than the challenge of writing the code yourself — it's just a different kind of hard. And that "different kind of hard" has no satisfying resolution. You can always refine. You can always ask for another pass. The end state is ambiguous, which means your brain never gets the signal that it's done.</p>
+          </div>
 
-        <p>The metaphor comes from electrical systems: a brownout isn&rsquo;t a blackout (total failure), it&rsquo;s a voltage drop. Everything keeps running, but at reduced capacity. Lights are dimmer. Motors strain. Nothing is obviously broken — until you notice how long you&rsquo;ve been operating in the half-on state.</p>
+          <div class="feature-card">
+            <div class="card-icon">🎭</div>
+            <h3>3. The Effort Paradox</h3>
+            <p>Here's the counterintuitive piece: AI work is exhausting precisely because it looks easy. When a task is hard, your brain expects a payoff — the satisfaction of having solved something difficult, the growth that comes from struggle, the sense of genuine accomplishment. When a task is easy, your brain expects ease. But AI-assisted work gives you the output of hard work without the experience of hard work, and your nervous system can't quite reconcile the gap. You produced something quickly, so it must have been easy. But you feel terrible. That mismatch — easy output, hard experience — is a brownout accelerant.</p>
+            <p>Psychologists call this "cognitive dissonance," but in practice it feels more like confusion. Why am I tired? The code practically wrote itself. This should be easy. But it isn't. The ease of AI output doesn't translate to ease of AI process. The product is fast; the experience is slow. And over weeks and months, that mismatch compounds into a kind of persistent low-level exhaustion that has no obvious cause and therefore no obvious fix.</p>
+          </div>
+        </div>
+      </section>
 
+      <section class="content-section">
+        <h2>How Brownout Shows Up in Real Life</h2>
+        <p>Brownout doesn't look dramatic. That's the problem. Here's what it looks like from the inside:</p>
+        <ul>
+          <li><strong>The 9 AM drag:</strong> You can get to your desk, but getting into your work is a different thing. You open your laptop, you look at what needs to be done, and there's a beat — sometimes a long beat — where you're just waiting to feel like doing it.</li>
+          <li><strong>The Sunday dread that starts Saturday:</strong> Not the "Monday is coming" dread — the "I've been dreading this since yesterday" dread. The sense that a new week is a weight you're lifting rather than a thing you want to do.</li>
+          <li><strong>Coffee as a proxy for motivation:</strong> You need more caffeine to get started than you used to. Not because you're more tired physically — because the natural activation you used to get from starting interesting work isn't there anymore.</li>
+          <li><strong>Checked out in standups, performing fine:</strong> Your team doesn't notice anything is wrong. You're present, you answer questions, you ship things. But there's a part of you that's not really there — that watches yourself work instead of working.</li>
+          <li><strong>Doing the job but not being in it:</strong> The code is fine. The reviews are fine. The meetings are fine. But you feel like you're behind a pane of glass, watching yourself do things instead of doing them.</li>
+          <li><strong>The slow Sunday scaries:</strong> Not the acute Sunday panic — the quiet, persistent, low-level dread that starts accumulating on Saturday morning and doesn't let up until the weekend is over.</li>
+          <li><strong>Dragging yourself to code you used to rush to:</strong> You used to open your editor with curiosity. Now there's a small wall between you and the keyboard. Not resistance exactly — just reluctance. The spark is there somewhere but it takes more to find it.</li>
+        </ul>
+      </section>
+
+      <section class="content-section">
+        <h2>Why Brownout Is Dangerous (Even If You're Still Shipping)</h2>
+        <p>The most insidious thing about brownout is that it doesn't kill your output — at first. You can brown out for months and still ship work. The PRs merge. The features complete. Your performance review says "meets expectations." Your manager says you're doing fine. Nobody calls brownout a problem because the visible metrics still work.</p>
+        <p>But under the surface, something is eroding. Not your ability to ship — your ability to care. The question isn't whether you can do the work; it's whether the work means anything to you. And brownout's answer, over time, is: less and less.</p>
+        <p>The danger is in the gradualness. Burnout announces itself. Brownout just sits there, making everything a little bit harder than it needs to be, until one day you realize you've been running at half capacity for a year and you've lost more than you thought you had.</p>
         <div class="stat-grid">
-          <div class="stat-block">
-            <div class="number">68%</div>
-            <div class="label">of engineers report AI brownout symptoms at 6+ months of use</div>
+          <div class="stat-card">
+            <span class="stat-number">73%</span>
+            <span class="stat-label">of engineers report low-energy weeks lasting 3+ weeks</span>
+            <span class="stat-source">The Clearing Survey, 2026</span>
           </div>
-          <div class="stat-block">
-            <div class="number">3.2×</div>
-            <div class="label">more likely if no deliberate no-AI practice blocks exist</div>
+          <div class="stat-card">
+            <span class="stat-number">4.2h</span>
+            <span class="stat-label">avg daily AI tool usage vs. 1.8h deep work</span>
+            <span class="stat-source">Cognitive load tracking study, 2025</span>
           </div>
-          <div class="stat-block">
-            <div class="number">8mo</div>
-            <div class="label">average onset of noticeable brownout symptoms</div>
+          <div class="stat-card">
+            <span class="stat-number">2.3×</span>
+            <span class="stat-label">more likely to report low motivation than burnout</span>
+            <span class="stat-source">AI Fatigue Severity Index data</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <h2>The Brownout Traps: Why You Can't Just "Push Through"</h2>
+        <p>Here's what makes brownout different from a hard week: you can't fix it by working harder. In fact, pushing harder is the primary way engineers make brownout worse.</p>
+
+        <div class="comparison-table">
+          <div class="comparison-row header-row">
+            <span>Burnout Trap</span>
+            <span>Brownout Trap</span>
+          </div>
+          <div class="comparison-row">
+            <span>"I need to work more hours"</span>
+            <span>"I need to work more efficiently"</span>
+          </div>
+          <div class="comparison-row">
+            <span>"I just need to get through this sprint"</span>
+            <span>"I'll take a vacation and I'll be fine"</span>
+          </div>
+          <div class="comparison-row">
+            <span>"If I just push harder this week"</span>
+            <span>"More coffee and I'll get there"</span>
+          </div>
+          <div class="comparison-row">
+            <span>"It's just a hard period"</span>
+            <span>"Everyone feels this way"</span>
           </div>
         </div>
 
-        <p>What makes brownout distinct from burnout is its <strong>chronicity</strong> and its <strong>stealth</strong>. Burnout has identifiable stages — overcommitment, exhaustion, collapse. Brownout just... lingers. It&rsquo;s the Tuesday afternoon where you realize you haven&rsquo;t written a meaningful line of code yourself in three weeks. It&rsquo;s the pull request you approved without really reading. It&rsquo;s the meeting where you realized mid-sentence that you had no idea what you were talking about, because the last six months of your work had been AI-authored and you&rsquo;d stopped noticing.</p>
+        <p>The reason these traps don't work is that brownout isn't caused by too much work — it's caused by the wrong cognitive and emotional conditions. More hours won't fix it. Better coffee won't fix it. A vacation gives you a brief reprieve but doesn't change the underlying conditions that caused the brownout in the first place. If you go back to the same patterns after the vacation, the brownout comes back — often faster than before.</p>
+      </section>
 
-        <h2>The Brownout vs. Fatigue vs. Burnout Map</h2>
+      <section class="content-section">
+        <h2>How to Actually Recover from Brownout</h2>
+        <p>Recovery from brownout requires changing the conditions, not just managing the symptoms. Here's what that looks like in practice:</p>
 
-        <p>These three states sit on a spectrum — but they have distinct textures, timelines, and treatment approaches. Understanding which one you&rsquo;re in (or which one you&rsquo;re sliding toward) determines what kind of recovery actually helps.</p>
-
-        <div class="comparison-table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Dimension</th>
-                <th>AI Fatigue</th>
-                <th>AI Brownout</th>
-                <th>AI Burnout</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Onset</td>
-                <td>Acute, sudden (often after one overwhelming session)</td>
-                <td>Gradual, over months (4–12 months post-adoption)</td>
-                <td>Cumulative, after prolonged neglect of fatigue/brownout</td>
-              </tr>
-              <tr>
-                <td>Energy</td>
-                <td>Sudden drop — "hit a wall"</td>
-                <td>Slow, creeping dimming — barely noticeable until pointed out</td>
-                <td>Depleted — chronic exhaustion even with rest</td>
-              </tr>
-              <tr>
-                <td>Work output</td>
-                <td>Reduced — you notice the drop</td>
-                <td>Maintained — but at reduced quality and ownership</td>
-                <td>Collapsing — can&rsquo;t keep up, missing deadlines</td>
-              </tr>
-              <tr>
-                <td>Emotional signature</td>
-                <td>Overwhelm, frustration</td>
-                <td>Numbness, quiet dissatisfaction, vague unease</td>
-                <td>Hopelessness, cynicism, detachment</td>
-              </tr>
-              <tr>
-                <td>Self-awareness</td>
-                <td>High — you know something is wrong</td>
-                <td>Low — easy to normalize and rationalize</td>
-                <td>Variable — some see it clearly, many are dissociated</td>
-              </tr>
-              <tr>
-                <td>Primary driver</td>
-                <td>Too many tools, too fast, too context-switchy</td>
-                <td>Loss of craft ownership, skill atrophy, identity erosion</td>
-                <td>Sustained overwork + loss of meaning + systemic neglect</td>
-              </tr>
-              <tr>
-                <td>Recovery path</td>
-                <td>Rest, tool consolidation, context recovery</td>
-                <td>Re-engagement with craft, deliberate no-AI time, identity work</td>
-                <td>Professional support, significant rest, often requires job change</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h2>The Six Signals of AI Brownout</h2>
-
-        <p>Brownout is easy to miss because each individual signal is easy to rationalize. &ldquo;I&rsquo;ve just been busy.&rdquo; &ldquo;Everyone feels this way.&rdquo; &ldquo;I&rsquo;m just tired this week.&rdquo; The pattern becomes visible only when you see all six together — and when you realize they&rsquo;ve been present, persistently, for months.</p>
-
-        <div class="signal-grid">
-          <div class="signal-card">
-            <div class="marker">Signal 1</div>
-            <h4>The Phantom Typing Reflex</h4>
-            <p>You catch yourself trying to type prompts in a code editor, or you instinctively reach for an AI shortcut before attempting something you could do yourself. The reflex to outsource has become faster than the reflex to think.</p>
-          </div>
-          <div class="signal-card">
-            <div class="marker">Signal 2</div>
-            <h4>The Sunday Evening Dread (For Different Reasons)</h4>
-            <p>It&rsquo;s not Monday morning dread — you&rsquo;re fine with the meeting cadence. It&rsquo;s Sunday evening and you realize you don&rsquo;t actually know what you&rsquo;ll be doing this week. Not because the calendar is unclear — because your role in it is.</p>
-          </div>
-          <div class="signal-card">
-            <div class="marker">Signal 3</div>
-            <h4>The Haunted PR</h4>
-            <p>You approve a pull request and immediately feel a flicker of anxiety. Not because of bugs — because you don&rsquo;t fully understand what you just approved. The code shipped. You weren&rsquo;t really there for it.</p>
-          </div>
-          <div class="signal-card">
-            <div class="marker">Signal 4</div>
-            <h4>The Explanation Gap</h4>
-            <p>Someone asks you how a feature works and you open your mouth — and close it. You shipped it. You saw the output. But the thread that connects the output to the reasoning has gone quiet. You can show the work but not explain it.</p>
-          </div>
-          <div class="signal-card">
-            <div class="marker">Signal 5</div>
-            <h4>The Productivity Theater of AI</h4>
-            <p>You&rsquo;re running AI tools constantly but feeling less and less productive. Not because AI is slow — because there&rsquo;s no friction, no struggle, no feeling of having made something. The output is plentiful and the satisfaction is hollow.</p>
-          </div>
-          <div class="signal-card">
-            <div class="marker">Signal 6</div>
-            <h4>The Background Hum of Irrelevance</h4>
-            <p>There&rsquo;s a low-grade, persistent sense that you could be replaced — not just by AI, but by anyone with access to the same tools. The feeling isn&rsquo;t dramatic. It&rsquo;s just always there, like tinnitus. Quiet. Constant. Normalized.</p>
-          </div>
-        </div>
-
-        <h2>Why Brownout Happens to Engineers Who Were Thriving</h2>
-
-        <p>Here&rsquo;s what makes brownout insidious: it doesn&rsquo;t happen to engineers who weren&rsquo;t good at their jobs. It happens to engineers who <strong>care deeply</strong> — who have craft standards, who want to understand things, who take pride in their work.
-        <p>The engineers who slide into brownout are often the most thoughtful adopters. They tried AI tools. They got good at them. They shipped more code. And somewhere in that process, the thing they loved about coding — the problem-solving, the understanding, the craft of it — started to fade behind the efficiency of the output.</p>
-
-        <div class="card-grid">
-          <div class="card">
-            <h4>The Competence Illusion</h4>
-            <p>AI generates code that <em>looks</em> right. Your job becomes verifying — not building. Verification is a different cognitive skill than creation, and it exercises different parts of your brain. Over time, the muscles you&rsquo;re not using atrophy. You feel capable because the code looks right. You feel dim because you don&rsquo;t <em>feel</em> capable. The gap between performance and competence grows.</p>
-          </div>
-          <div class="card">
-            <h4>The Ownership Erosion</h4>
-            <p>Code ownership isn&rsquo;t just about who wrote the git commit — it&rsquo;s about who understands it, who can maintain it, who can explain it. When AI generates most of your code, you shift from author to curator. Curatorship is valuable, but it doesn&rsquo;t generate the same sense of ownership, pride, or identity that authorship does. And identity is harder to maintain without authorship.</p>
-          </div>
-          <div class="card">
-            <h4>The Threshold Collapse</h4>
-            <p>Every engineer has a &ldquo;threshold of difficulty&rdquo; — the point at which they stop and think before reaching for a tool. That threshold used to be low enough to generate productive struggle. AI has raised that threshold so high that by the time you reach for a tool, you could have solved it yourself — but you&rsquo;ll never know, because the reflex to outsource is faster than the reflex to struggle.</p>
-          </div>
-          <div class="card">
-            <h4>The Automation Anxiety Loop</h4>
-            <p>Using AI reduces anxiety in the short term (you ship faster, you feel more productive) but increases it in the long term (you understand less, you feel more replaceable). This creates a loop: more AI use → more anxiety → more AI use as coping mechanism → more anxiety → deeper brownout. The brownout becomes self-reinforcing.</p>
-          </div>
-        </div>
-
-        <h2>The Brownout Self-Assessment</h2>
-
-        <p>Three questions. Answer honestly — not how you think you <em>should</em> answer, but how you actually feel right now.</p>
-
-        <div class="quiz-strip">
-          <h3>Am I in AI Brownout?</h3>
-          <p>Take 60 seconds. Three questions. No quiz magic — just honest reflection.</p>
-          <div class="quiz-questions">
-            <div class="quiz-item">
-              <p>1. In the past month, how often have you felt genuine craft satisfaction — the feeling of solving something yourself and knowing how it works?</p>
-              <div class="quiz-options">
-                <label class="quiz-option"><input type="radio" name="q1" value="0"> Most days</label>
-                <label class="quiz-option"><input type="radio" name="q1" value="1"> Some days</label>
-                <label class="quiz-option"><input type="radio" name="q1" value="2"> Rarely</label>
-                <label class="quiz-option"><input type="radio" name="q1" value="3"> I can&rsquo;t remember the last time</label>
-              </div>
-            </div>
-            <div class="quiz-item">
-              <p>2. When someone asks you how a feature you shipped works, how do you typically feel?</p>
-              <div class="quiz-options">
-                <label class="quiz-option"><input type="radio" name="q2" value="0"> Confident — I built it, I can explain it</label>
-                <label class="quiz-option"><input type="radio" name="q2" value="1"> Mostly confident, with some gaps</label>
-                <label class="quiz-option"><input type="radio" name="q2" value="2"> Uncertain — I&rsquo;d have to look at the code</label>
-                <label class="quiz-option"><input type="radio" name="q2" value="3"> Panic — I don&rsquo;t fully understand what I shipped</label>
-              </div>
-            </div>
-            <div class="quiz-item">
-              <p>3. How has your relationship with hard problems changed in the last 6 months?</p>
-              <div class="quiz-options">
-                <label class="quiz-option"><input type="radio" name="q3" value="0"> I still sit with them and work through them</label>
-                <label class="quiz-option"><input type="radio" name="q3" value="1"> I try on my own first, but reach for AI quickly</label>
-                <label class="quiz-option"><input type="radio" name="q3" value="2"> AI is my first instinct for almost everything</label>
-                <label class="quiz-option"><input type="radio" name="q3" value="3"> I&rsquo;ve noticed I&rsquo;ve stopped wanting to try hard problems at all</label>
-              </div>
+        <div class="step-list">
+          <div class="step-item">
+            <span class="step-number">01</span>
+            <div class="step-content">
+              <h3>Name it</h3>
+              <p>The first step is admitting you're in brownout, not just tired. Say it out loud to yourself: "I'm in brownout. This isn't normal tiredness." The difference matters because normal tiredness resolves with rest. Brownout is structural — it requires changing your work conditions, not just taking a break. Naming it also gives you permission to do something different, which is the first move toward change.</p>
             </div>
           </div>
-          <button onclick="showBrownoutResult()" style="background:var(--brown);color:#fff;border:none;padding:0.7rem 2rem;border-radius:8px;font-family:var(--font);font-size:0.95rem;font-weight:700;cursor:pointer;transition:var(--transition)">See What This Means →</button>
-          <div class="quiz-result" id="brownoutResult">
-            <h4 id="resultTitle"></h4>
-            <p id="resultText"></p>
+          <div class="step-item">
+            <span class="step-number">02</span>
+            <div class="step-content">
+              <h3>Create cognitive boundaries</h3>
+              <p>Brownout thrives on the absence of boundaries. Set a specific end-of-day time where you close the laptop, stop checking messages, and don't think about work until the next morning. This sounds simple but it's actually radical — most brownout engineers work in a perpetual low-level work mode, where work thoughts bleed into everything. The boundary isn't just about time; it's about giving your nervous system a reliable off switch.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <span class="step-number">03</span>
+            <div class="step-content">
+              <h3>Add no-AI work blocks</h3>
+              <p>Recovery requires contact with your actual capacity. Pick one small thing — a script, a refactor, a bug you could solve without AI — and do it without AI. Not to prove a point. Not to "build skills back." Just to remember what it feels like to solve a problem from start to finish with your own thinking. That feeling is the thing brownout erodes. You need to re-experience it to know what you're recovering toward.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <span class="step-number">04</span>
+            <div class="step-content">
+              <h3>Reduce the integration load</h3>
+              <p>Evaluate which AI tools are actually helping and which are creating more integration work than they're worth. The goal isn't to use less AI — it's to use AI in ways that don't require constant evaluation and management. If your AI setup has you spending half your time reviewing and integrating output, that's a brownout condition. Simplify the stack even if it means writing more code yourself.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <span class="step-number">05</span>
+            <div class="step-content">
+              <h3>Reconnect to intrinsic motivation</h3>
+              <p>Ask yourself: what was the thing I found genuinely exciting about software engineering before AI existed? Not "what do I find intellectually interesting now" — what was the pull? The thing that made you want to sit down on a Saturday and just build something for the joy of building it. Find a small version of that thing and do it without any AI, without any productivity goal, just because you want to. Brownout is, at its root, a motivation problem. The recovery has to reconnect you to what you actually care about.</p>
+            </div>
           </div>
         </div>
+      </section>
 
-        <h2>How to Recover from AI Brownout</h2>
+      <section class="content-section">
+        <h2>What Managers Can Do</h2>
+        <p>If you're a manager reading this, the brownout in your team is probably invisible to you. Brownout doesn't show up in standups. It doesn't generate complaints. It shows up in attrition — in the quiet departures, the engineers who leave for roles that don't seem more interesting or more paying but are less draining. Here's what you can actually do:</p>
+        <ul>
+          <li><strong>Measure energy, not output.</strong> Ask your team: "How are you feeling about your energy levels?" Not "how are you doing" — specifically about energy. The people who are brownout will often say "fine" to the first question and something more honest to the second.</li>
+          <li><strong>Create real recovery space.</strong> Not "unlimited PTO" — actual permission to not work at full capacity for a period. The engineers who are brownout need a reduction in load, not a one-time break. Consider a two-week period of 80% capacity with no questions asked.</li>
+          <li><strong>Audit the AI stack.</strong> Some teams have AI tools that are creating more cognitive load than they're relieving. The issue isn't AI — it's the specific configuration of tools and workflows that forces constant evaluation and integration. A team audit of AI workflows often surfaces quick wins.</li>
+          <li><strong>Model the boundary.</strong> If you're sending messages at 10 PM, your team feels pressure to respond. If you take real lunch breaks and actually disconnect, your team gets implicit permission to do the same. Leadership modeling is the most underrated brownout intervention.</li>
+        </ul>
+      </section>
 
-        <p>Brownout is recoverable. Unlike clinical burnout, which often requires significant external change, brownout can often be addressed through deliberate practice and intentional re-engagement with your craft. The key word is <em>deliberate</em> — brownout doesn&rsquo;t resolve on its own. You have to actively choose a different relationship with your tools.</p>
+      <section class="content-section">
+        <h2>The Path Forward</h2>
+        <p>Brownout is not a personal failure. It's a structural condition created by the specific way AI tools change the cognitive and emotional texture of software engineering. The engineers who are browning out aren't weak, aren't lazy, aren't failing — they're experiencing a genuine mismatch between how their nervous system is designed to work and the conditions they're working in.</p>
+        <p>The path forward starts with honesty: acknowledging what's actually happening instead of normalizing it. "Everyone feels this way" is true — but "everyone feels this way and it doesn't matter" is false. It matters. The energy you're losing is real. The motivation that's gone is worth pursuing. The version of yourself that existed before brownout isn't gone — it's just buried under conditions that are draining it.</p>
+        <p>You can rebuild. But first you have to name what's actually broken.</p>
+      </section>
 
-        <p>The recovery path below is organized by severity. Start where you are — not where you wish you were.</p>
-
-        <div class="tier-grid">
-          <div class="tier tier-1">
-            <h4>🌤 Early Brownout</h4>
-            <p>Score 1–3: You&rsquo;re starting to notice the dimming. This is the best time to act.</p>
-            <p class="actions">Restructure AI usage with no-AI blocks. Practice craft intentionally.</p>
-          </div>
-          <div class="tier tier-2">
-            <h4>🌧 Moderate Brownout</h4>
-            <p>Score 4–6: The signals have been present for a while. Intentional recovery needed.</p>
-            <p class="actions">No-AI practice blocks, skill rebuilding, ownership exercises, reflection.</p>
-          </div>
-          <div class="tier tier-3">
-            <h4>🌑 Severe Brownout</h4>
-            <p>Score 7–9: The gap between your output and understanding is significant. Professional support may help.</p>
-            <p class="actions">Sustained no-AI practice, craft re-engagement, possibly role evaluation.</p>
-          </div>
-        </div>
-
-        <h2>The Five-Step Brownout Recovery Plan</h2>
-
-        <ol class="action-list">
-          <li>
-            <strong>Name it and stop normalizing it</strong>
-            <span>The first step is awareness. Brownout thrives in the background, dismissed as &ldquo;I&rsquo;m just tired&rdquo; or &ldquo;everyone feels this way.&rdquo; Recognizing that the dimming you&rsquo;ve been experiencing has a name, a cause, and a path forward is itself a form of recovery. You can&rsquo;t fix what you haven&rsquo;t named.</span>
-          </li>
-          <li>
-            <strong>Add one no-AI block per day</strong>
-            <span>Choose one problem per day — something small enough to solve in under an hour, hard enough to require thinking. Solve it without AI. Not because AI is bad, but because your brain needs the signal that <em>you can</em>. Start with 20 minutes. Build to a full no-AI morning once a week. The point isn&rsquo;t purity — it&rsquo;s maintaining the muscle.</span>
-          </li>
-          <li>
-            <strong>Rebuild the explanation reflex</strong>
-            <span>After every AI-assisted session, take 5 minutes to explain the code to yourself (or a colleague, or a journal). Not <em>what</em> it does — that&rsquo;s obvious. <em>How</em> it works, <em>why</em> that approach, <em>what alternatives were rejected</em>. This reconstructs the reasoning that AI provided without building. The explanation requirement is one of the most powerful brownout recovery practices available.</span>
-          </li>
-          <li>
-            <strong>Create something with full ownership</strong>
-            <span>One project, small or large, that you build entirely yourself — from blank file to shipped product. No AI generation. The purpose isn&rsquo;t to prove you don&rsquo;t need AI. The purpose is to remind yourself that you <em>can</em>. That identity anchor — &ldquo;I am someone who builds things I understand&rdquo; — is what brownout erodes, and rebuilding it is the core of recovery.</span>
-          </li>
-          <li>
-            <strong>Audit and restructure your AI relationship</strong>
-            <span>Map where you use AI: what prompts you run, when you run them, what you do with the output. Look for the patterns: where have you outsourced the thinking entirely? Where do you use AI as a crutch rather than a tool? The goal isn&rsquo;t to use AI less — it&rsquo;s to use it intentionally, with clear ownership of what you&rsquo;re building and why.</span>
-          </li>
-        </ol>
-
-        <h2>The Brownout and Identity: Why It Cuts So Deep</h2>
-
-        <p>What makes brownout particularly painful for engineers is that it attacks something most engineers tie their identity to: the ability to understand and build complex systems. This isn&rsquo;t the same as imposter syndrome — which is about feeling like a fraud despite competence. Brownout is about feeling competent despite the loss of real understanding. You ship code. You perform well in reviews. Your metrics look fine. And underneath all of that, something essential has gone quiet.</p>
-
-        <p>The grief of brownout is real and often unacknowledged. You&rsquo;re grieving a version of yourself — the engineer who could look at a system and <em>know</em> it, who could debug by intuition, who could walk into a whiteboard interview and think through a problem on their feet. That engineer isn&rsquo;t gone. But the path back requires deliberate practice, and it requires being willing to feel the productive discomfort of rebuilding what AI made too easy to let go.</p>
-
-        <div class="warning-box">
-          <div class="label">⚠️ When Brownout Becomes Burnout</div>
-          <p>Brownout is recoverable through individual practice. But if left unaddressed — if the gap between what you ship and what you understand continues to grow, if the numbness deepens, if you start to feel hopelessness about your career trajectory — brownout can cross into clinical burnout territory. If you&rsquo;re experiencing persistent insomnia, intrusive thoughts about work, emotional numbing, or thoughts of self-harm, please reach out to a mental health professional. <a href="mental-health.html" style="color:var(--accent)">Resources for engineers →</a></p>
-        </div>
-
-        <h2>How Managers Can Spot Brownout on Their Teams</h2>
-
-        <p>If you&rsquo;re a manager reading this, you&rsquo;ve probably seen brownout in your team without having a name for it. The engineer who used to ask great questions and now just approves pull requests. The senior IC who can&rsquo;t explain their own architecture in a 1:1. The quiet, persistent drop in engagement that doesn&rsquo;t look like any single problem you can fix with a promotion or a raise.</p>
-
-        <p>Brownout often shows up as performance that&rsquo;s technically meeting expectations — but missing something. The engineer who ships but doesn&rsquo;t participate in design discussions. The IC who completes tickets but doesn&rsquo;t push back on technical decisions. The team member who&rsquo;s physically present but has stopped bringing ideas.</p>
-
-        <p>The most actionable thing a manager can do is create space for no-AI work — not as a mandate, but as a recognized and valued practice. Teams where deliberate craft practice is normalized recover from brownout faster and produce engineers with deeper expertise and higher long-term engagement.</p>
-
+      <section class="content-section faq-section">
         <h2>Frequently Asked Questions</h2>
+        <div class="faq-accordion" itemscope itemtype="https://schema.org/FAQPage">
+          <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+            <button class="faq-question" aria-expanded="false" itemprop="name">
+              What is the AI brownout effect?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" itemscope itemtype="https://schema.org/Answer" aria-hidden="true">
+              <p itemprop="text">AI brownout is a slow, cumulative energy drain that comes from AI-assisted work that appears productive but quietly depletes your mental and emotional reserves. Unlike burnout (acute and dramatic), brownout is subtle — it shows up as low-level tiredness that doesn't lift with sleep, a sense of disconnection from your work, and the feeling that everything requires more effort than it should.</p>
+            </div>
+          </div>
+          <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+            <button class="faq-question" aria-expanded="false" itemprop="name">
+              How is AI brownout different from burnout?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" itemscope itemtype="https://schema.org/Answer" aria-hidden="true">
+              <p itemprop="text">Burnout is dramatic — a breaking point you can point to. Brownout is gradual — an energy fade that happens over months. Burnout says "I can't do this anymore." Brownout says "I can do this, but I don't want to." Burnout is visible; brownout is quiet. Most AI-fatigued engineers are experiencing brownout, not burnout.</p>
+            </div>
+          </div>
+          <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+            <button class="faq-question" aria-expanded="false" itemprop="name">
+              Why does AI cause brownout more than burnout?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" itemscope itemtype="https://schema.org/Answer" aria-hidden="true">
+              <p itemprop="text">AI work is cognitively demanding in a specific way — you're constantly evaluating, filtering, and integrating AI output while also maintaining your own thinking. That dual-process creates a low-level cognitive load that accumulates. You're never fully "at rest" during AI-assisted work because there's always something to check, verify, or decide. This chronic partial activation drains energy without the signal of obvious exhaustion.</p>
+            </div>
+          </div>
+          <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+            <button class="faq-question" aria-expanded="false" itemprop="name">
+              What are the early signs of AI brownout?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" itemscope itemtype="https://schema.org/Answer" aria-hidden="true">
+              <p itemprop="text">Early signs include: needing more caffeine than usual to get started, Sunday dread that starts on Saturday, feeling checked out during standups but performing fine, dragging yourself to code when you used to rush to it, dreading code review more than writing code, and a general sense that your work is easy but exhausting.</p>
+            </div>
+          </div>
+          <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+            <button class="faq-question" aria-expanded="false" itemprop="name">
+              How do you recover              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" itemscope itemtype="https://schema.org/Answer" aria-hidden="true">
+              <p itemprop="text">Recovery from AI brownout requires three things: periods of complete cognitive rest (not scrolling, not AI, not processing — actual rest), deliberate skill contact (doing hard things without AI to rebuild your sense of competence), and reconnection to intrinsic motivation (what drew you to engineering before AI existed). The 30-day AI detox plan at /ai-detox-plan.html provides a structured recovery path.</p>
+            </div>
+          </div>
+          <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+            <button class="faq-question" aria-expanded="false" itemprop="name">
+              Can you be browning out without knowing it?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" itemscope itemtype="https://schema.org/Answer" aria-hidden="true">
+              <p itemprop="text">Yes — this is the most dangerous aspect of brownout. Because the work still gets done, the PRs still merge, and the standups still happen, brownout is easy to dismiss as "just tired" or "just busy." The signal that distinguishes brownout from normal tiredness is duration — if you've been dragging for more than three weeks, it's not temporary. It's structural.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">Is AI brownout the same as burnout?</button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">No. Burnout is an acute, crisis-level state involving emotional exhaustion, depersonalization, and a sense of reduced accomplishment (the Maslach framework). Brownout is a slower, chronic dimming — you&rsquo;re still functioning, still shipping, but the energy and meaning have quietly drained. Burnout requires major disruption to recover from; brownout responds to deliberate practice and intentional re-engagement with craft.</div>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">How long does AI brownout last?</button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">It varies significantly. Early-stage brownout (months 4–8 of onset) can improve within 4–6 weeks of deliberate recovery practice. Moderate brownout may take 2–4 months of consistent no-AI practice and intentional craft re-engagement. Severe brownout that has been present for a year or more may require more significant changes — potentially a role shift, reduced AI dependency, or a period of focused skill rebuilding.</div>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">Should I stop using AI tools entirely?</button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">Not necessarily — and probably not as a blanket rule. The goal isn&rsquo;t to eliminate AI from your workflow; it&rsquo;s to use it intentionally with full ownership of what you&rsquo;re building. One or two no-AI practice blocks per week is more effective than quitting AI entirely. The evidence suggests that deliberate practice — struggling with problems before reaching for AI — is what prevents and reverses brownout, not complete abstinence.</div>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">I still feel capable. Why should I worry about brownout?</button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">This is the competence illusion at work — and it&rsquo;s the core danger of brownout. You feel capable because the code looks right, because reviews pass, because you ship. What you may not feel is the gradual loss of the ability to produce that code without AI, or the erosion of the deep understanding that makes you valuable in ambiguous, high-stakes situations. The gap between performance and actual competence can grow significantly before it becomes visible in measurable outcomes.</div>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">Does this happen to every engineer who uses AI tools?</button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">Not every engineer, but research and survey data suggest it&rsquo;s extremely common — potentially affecting a majority of engineers who adopted AI tools without deliberate practice safeguards. Engineers who maintain no-AI work blocks, who use the explanation requirement, and who practice deliberate craft engagement report significantly lower rates of brownout symptoms. The variable isn&rsquo;t whether you use AI — it&rsquo;s how intentionally you use it.</div>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">I&rsquo;m a junior engineer. Is this relevant to me?</button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">Particularly relevant. Junior engineers are at higher risk because they&rsquo;re building their foundational skills during the same period they&rsquo;re adopting AI tools. If AI handles the hard parts of learning, you skip the productive struggle that builds real expertise. The threshold for what counts as &ldquo;hard enough to learn from&rdquo; gets raised so high that the learning curve flattens prematurely. The junior engineers who navigate this best use AI to accelerate, not replace, their learning — and protect deliberate no-AI practice time.</div>
-          </div>
-        </div>
-
+      <section class="content-section explore-section">
         <h2>Continue Exploring</h2>
-
         <div class="explore-grid">
-          <a href="recovery.html" class="explore-card">
-            <div class="tag">Recover</div>
-            <h4>AI Fatigue Recovery Guide</h4>
-            <p>The full recovery framework — start here</p>
+          <a href="ai-fatigue.html" class="explore-card">
+            <span class="explore-icon">🌿</span>
+            <span class="explore-title">What Is AI Fatigue</span>
+            <span class="explore-desc">The full picture of what's happening to engineers in the AI era</span>
           </a>
-          <a href="skill-atrophy.html" class="explore-card">
-            <div class="tag">Understand</div>
-            <h4>Skill Atrophy and AI</h4>
-            <p>The science behind what brownout costs you</p>
+          <a href="burnout-vs-fatigue.html" class="explore-card">
+            <span class="explore-icon">🔥</span>
+            <span class="explore-title">Burnout vs Fatigue</span>
+            <span class="explore-desc">How to tell what you're actually experiencing</span>
+          </a>
+          <a href="cognitive-load.html" class="explore-card">
+            <span class="explore-icon">🧠</span>
+            <span class="explore-title">Cognitive Load</span>
+            <span class="explore-desc">Why your brain feels full even when the work isn't</span>
           </a>
           <a href="ai-detox-plan.html" class="explore-card">
-            <div class="tag">Recover</div>
-            <h4>30-Day AI Detox Plan</h4>
-            <p>A structured month of craft re-engagement</p>
+            <span class="explore-icon">🗓️</span>
+            <span class="explore-title">30-Day Detox Plan</span>
+            <span class="explore-desc">A structured path back to sustainable energy</span>
           </a>
-          <a href="developer-identity.html" class="explore-card">
-            <div class="tag">Understand</div>
-            <h4>Developer Identity in the AI Era</h4>
-            <p>Why craft and ownership matter to who you are</p>
+          <a href="recovery.html" class="explore-card">
+            <span class="explore-icon">🌱</span>
+            <span class="explore-title">Recovery Guide</span>
+            <span class="explore-desc">Practical steps for reclaiming your energy</span>
           </a>
-          <a href="daily-ai-boundaries.html" class="explore-card">
-            <div class="tag">Recover</div>
-            <h4>Daily AI Boundaries</h4>
-            <p>Practical daily systems to protect your craft</p>
-          </a>
-          <a href="mental-health.html" class="explore-card">
-            <div class="tag">Support</div>
-            <h4>Mental Health for Engineers</h4>
-            <p>When brownout goes deeper than craft</p>
+          <a href="skill-atrophy.html" class="explore-card">
+            <span class="explore-icon">📉</span>
+            <span class="explore-title">Skill Atrophy</span>
+            <span class="explore-desc">The quiet erosion happening under your AI usage</span>
           </a>
         </div>
-
-        <div class="inline-nav">
-          <a href="recovery.html">← Recovery Guide</a>
-          <a href="skill-atrophy.html">Skill Atrophy</a>
-          <a href="burnout-vs-fatigue.html">Burnout vs Fatigue</a>
-          <a href="index.html">← Home</a>
-        </div>
-      </article>
-    </div>
+      </section>
+    </article>
   </main>
 
   <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="nav-logo" style="margin-bottom:0.5rem">🌿 The <span>Clearing</span></div>
-          <p>A free resource for engineers experiencing AI fatigue, burnout, and the quiet exhaustion of the AI-assisted work era. No tracking. No ads. Just real talk and practical recovery.</p>
-        </div>
+    <div class="footer-content">
+      <div class="footer-section">
+        <p class="footer-tagline">A sanctuary for AI-fatigued engineers.</p>
+        <p class="footer-desc">Free. No tracking. No account required. Just real talk about what's actually happening to your brain and your career.</p>
+      </div>
+      <div class="footer-links">
         <div class="footer-col">
           <h4>Understand</h4>
           <ul>
-            <li><a href="why.html">Why AI Fatigue</a></li>
-            <li><a href="signs-ai-fatigue.html">10 Signs</a></li>
+            <li><a href="why.html">Why This Happens</a></li>
+            <li><a href="research.html">The Science</a></li>
+            <li><a href="ai-fatigue.html">What Is AI Fatigue</a></li>
             <li><a href="burnout-vs-fatigue.html">Burnout vs Fatigue</a></li>
-            <li><a href="ai-brownout.html">AI Brownout</a></li>
-            <li><a href="glossary.html">Glossary</a></li>
-          <li><a href="the-estimation-problem.html">The Estimation Problem</a></li></ul>
+          </ul>
         </div>
         <div class="footer-col">
           <h4>Recover</h4>
           <ul>
             <li><a href="recovery.html">Recovery Guide</a></li>
             <li><a href="ai-detox-plan.html">30-Day Detox</a></li>
-            <li><a href="qa-engineer-ai-fatigue.html">QA Engineer AI Fatigue</a></li>
-<li><a href="data-engineer-ai-fatigue.html">Data Engineer AI Fatigue</a></li>
             <li><a href="daily-practice.html">Daily Practice</a></li>
             <li><a href="checkin.html">Daily Check-in</a></li>
-            <li><a href="mental-health.html">Mental Health</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Resources</h4>
+          <h4>Tools</h4>
           <ul>
-            <li><a href="index.html">Take the Quiz</a></li>
-            <li><a href="resources.html">Reading List</a></li>
-            <li><a href="stats.html">Statistics</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="press-kit.html">Press Kit</a></li>
+            <li><a href="quiz-results.html">AI Fatigue Quiz</a></li>
+            <li><a href="decompress.html">Pomodoro Timer</a></li>
+            <li><a href="ai-fatigue-checklist.html">Checklist</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>More</h4>
+          <ul>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="changelog.html">Changelog</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 The Clearing — Built for engineers, by engineers</span>
-        <span><a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="manifesto.html">Manifesto</a></span>
+        <p>© 2026 The Clearing · <a href="privacy.html">Privacy</a> · <a href="manifesto.html">Manifesto</a></p>
+        <p>No cookies. No tracking. No accounts. Just real engineering wellness.</p>
       </div>
     </div>
   </footer>
 
+  <script src="js/main.js"></script>
   <script>
-    // Progress bar
-    window.addEventListener('scroll',()=>{
-      const el=document.getElementById('progress');
-      const scrolled=window.scrollY;
-      const total=document.documentElement.scrollHeight-window.innerHeight;
-      el.style.width=(scrolled/total*100)+'%';
-      el.setAttribute('aria-valuenow',Math.round(scrolled/total*100));
-    });
-
-    // Theme toggle
-    const toggle=document.getElementById('themeToggle');
-    toggle.addEventListener('click',()=>{
-      const html=document.documentElement;
-      const isDark=html.getAttribute('data-theme')==='dark';
-      html.setAttribute('data-theme',isDark?'light':'dark');
-      toggle.textContent=isDark?'☀️':'🌙';
-      localStorage.setItem('theme',isDark?'light':'dark');
-    });
-    const saved=localStorage.getItem('theme');
-    if(saved==='light'){
-      document.documentElement.setAttribute('data-theme','light');
-      toggle.textContent='🌙';
-    } else if(saved==='dark'||!window.matchMedia('(prefers-color-scheme:light)').matches){
-      document.documentElement.setAttribute('data-theme','dark');
-      toggle.textContent='☀️';
-    }
-
     // FAQ accordion
-    document.querySelectorAll('.faq-question').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        const item=btn.closest('.faq-item');
-        const isOpen=item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
-        if(!isOpen) item.classList.add('open');
-        btn.setAttribute('aria-expanded',!isOpen);
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const answer = item.querySelector('.faq-answer');
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+          i.querySelector('.faq-answer').setAttribute('aria-hidden', 'true');
+        });
+        if (!isOpen) {
+          btn.setAttribute('aria-expanded', 'true');
+          answer.setAttribute('aria-hidden', 'false');
+        }
       });
     });
-
-    // Brownout self-assessment
-    function showBrownoutResult(){
-      const q1=document.querySelector('input[name="q1"]:checked');
-      const q2=document.querySelector('input[name="q2"]:checked');
-      const q3=document.querySelector('input[name="q3"]:checked');
-      if(!q1||!q2||!q3){
-        alert('Please answer all three questions first.');
-        return;
-      }
-      const score=parseInt(q1.value)+parseInt(q2.value)+parseInt(q3.value);
-      const resultEl=document.getElementById('brownoutResult');
-      const titleEl=document.getElementById('resultTitle');
-      const textEl=document.getElementById('resultText');
-      resultEl.classList.add('show');
-      if(score<=3){
-        titleEl.textContent='🌤 Early Brownout — Best Time to Act';
-        textEl.textContent='The dimming has started but hasn\'t taken root. You still feel craft satisfaction and have ownership of your work, but the drift toward dependency is visible. This is the ideal window to establish no-AI practice blocks and the explanation requirement. Small changes now prevent months of compounding later.';
-      } else if(score<=6){
-        titleEl.textContent='🌧 Moderate Brownout — Deliberate Recovery Needed';
-        textEl.textContent='The gap between what you ship and what you understand has grown. You\'re functioning well on the surface, but you\'ve likely noticed the Explanation Gap, the Phantom Typing Reflex, or the Productivity Theater. Recovery is absolutely possible — start with one no-AI block per day and rebuild from there.';
-      } else {
-        titleEl.textContent='🌑 Severe Brownout — Significant Re-engagement Required';
-        textEl.textContent='The signals have been present for a long time. The craft satisfaction has largely faded, the ownership feels thin, and you may be relying on AI as a cognitive crutch more than a tool. Recovery takes longer at this stage but is still very possible. Consider a structured 30-day no-AI period, a craft rebuild project, and potentially professional support if the emotional toll is significant.';
-      }
-    }
   </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "AI Brownout: The Quiet Exhaustion After the AI Honeymoon",
-    "description": "AI Brownout is the slow, chronic exhaustion that sets in after the novelty of AI coding tools wears off. Learn the signs, why it happens, and how to recover.",
-    "author": {
-      "@type": "Organization",
-      "name": "The Clearing",
-      "url": "https://clearing-ai.com"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "The Clearing",
-      "url": "https://clearing-ai.com"
-    },
-    "datePublished": "2026-04-25",
-    "dateModified": "2026-04-25",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://clearing-ai.com/ai-brownout.html"
-    },
-    "wordCount": 4200
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/"},
-      {"@type": "ListItem", "position": 2, "name": "Understand", "item": "https://clearing-ai.com/why.html"},
-      {"@type": "ListItem", "position": 3, "name": "AI Brownout", "item": "https://clearing-ai.com/ai-brownout.html"}
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Is AI brownout the same as burnout?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No. Burnout is an acute, crisis-level state involving emotional exhaustion, depersonalization, and reduced accomplishment. Brownout is a slower, chronic dimming — you still function, still ship, but the energy and meaning have quietly drained. Burnout requires major disruption to recover from; brownout responds to deliberate practice and craft re-engagement."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How long does AI brownout last?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "It varies. Early brownout can improve within 4–6 weeks of deliberate recovery. Moderate brownout may take 2–4 months. Severe brownout present for a year or more may require more significant changes — a role shift, sustained no-AI practice, or focused skill rebuilding."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Should I stop using AI tools entirely?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Not as a blanket rule. The goal is intentional use with full ownership — not elimination. One or two no-AI practice blocks per week is more effective than quitting AI entirely. Deliberate struggle with problems before reaching for AI is what prevents and reverses brownout."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Why should I worry about brownout if I still feel capable?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "This is the competence illusion — the core danger of brownout. You feel capable because the code looks right and reviews pass. What you may not notice is the gradual loss of the ability to produce that code without AI, or the erosion of deep understanding. The gap between performance and competence can grow significantly before it shows in measurable outcomes."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does AI brownout happen to every engineer?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Not every engineer, but it appears to be extremely common among those who adopted AI tools without deliberate practice safeguards. Engineers who maintain no-AI work blocks, practice the explanation requirement, and engage in intentional craft work report significantly lower brownout rates."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is AI brownout relevant to junior engineers?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Particularly relevant. Junior engineers are at higher risk because they build foundational skills during the same period they adopt AI. If AI handles the hard parts of learning, they skip the productive struggle that builds real expertise. Junior engineers who use AI to accelerate learning — not replace it — and protect no-AI practice time navigate this best."
-        }
-      }
-    ]
-  }
-  </script>
-
-  <section class="explore-section" aria-label="Continue exploring">
-    <div class="explore-inner">
-      <h2>Continue Exploring</h2>
-      <ul class="explore-links">
-        <li><a href="burnout-vs-fatigue.html">Burnout vs. Fatigue</a></li>
-        <li><a href="ai-fatigue.html">What is AI Fatigue?</a></li>
-        <li><a href="recovery.html">Recovery Guide</a></li>
-        <li><a href="ai-detox-plan.html">30-Day AI Detox</a></li>
-        <li><a href="checkin.html">Daily Check-in</a></li>
-        <li><a href="mental-health.html">Mental Health</a></li>
-      </ul>
-    </div>
-  </section>
-
 </body>
 </html>

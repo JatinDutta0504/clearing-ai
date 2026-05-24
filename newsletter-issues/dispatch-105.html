@@ -1,157 +1,367 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Dispatch #105 — The Comprehension Gap</title>
-  <meta name="description" content="Issue #105 of The Dispatch — three places the gap between understanding and generating shows up, and what actually helps."/>
-  <meta name="robots" content="noindex, follow"/>
-  <link rel="canonical" href="https://clearing-ai.com/newsletter-issues/dispatch-105.html"/>
-  <meta property="og:type" content="article"/>
-  <meta property="og:title" content="The Dispatch #105 — The Comprehension Gap"/>
-  <meta property="og:description" content="Three places the gap between understanding and generating shows up, and what actually helps."/>
-  <meta property="og:image" content="https://clearing-ai.com/og-image.png"/>
-  <link rel="icon" href="../favicon.svg" type="image/svg+xml"/>
-  <link rel="stylesheet" href="../css/style.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Comprehension Gap — Issue #105 — The Dispatch</title>
   <style>
-    body { background: var(--bg, #0f1a0f); color: var(--text, #e8f0e8); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.65; max-width: 680px; margin: 0 auto; padding: 0 24px; }
-    .header { padding: 48px 0 32px; border-bottom: 1px solid var(--border, #2a3f2a); margin-bottom: 40px; }
-    .header .label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-green, #7aab8a); margin-bottom: 12px; display: block; }
-    .header h1 { font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 12px; }
-    .header .meta { font-size: 13px; color: var(--text-secondary, #a0b8a8); }
-    h2 { font-size: 1.25rem; font-weight: 700; color: var(--text); margin: 36px 0 16px; border-left: 3px solid var(--accent-green, #7aab8a); padding-left: 14px; }
-    h3 { font-size: 1.1rem; font-weight: 700; color: var(--text); margin: 28px 0 12px; }
-    p { margin: 0 0 18px; color: var(--text); font-size: 1.05rem; }
-    p:last-child { margin-bottom: 0; }
-    .callout { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
-    .callout p { font-style: italic; color: var(--text-secondary, #a0b8a8); margin: 0; font-size: 1rem; }
-    ul, ol { margin: 16px 0 20px 24px; }
-    li { margin-bottom: 10px; color: var(--text); font-size: 1rem; }
-    strong { color: var(--text); }
-    em { color: var(--text-secondary, #a0b8a8); }
-    blockquote { border-left: 3px solid var(--accent-green, #7aab8a); padding: 12px 20px; margin: 20px 0; color: var(--text-secondary, #a0b8a8); font-style: italic; }
-    blockquote p { margin: 0; font-size: 1rem; }
-    .divider { border: none; border-top: 1px solid var(--border, #2a3f2a); margin: 40px 0; }
-    .gap-card { background: var(--surface-2, #1a2e1a); border-left: 3px solid var(--accent-green, #7aab8a); padding: 20px 24px; margin: 20px 0; }
-    .gap-card h3 { color: var(--accent-green, #7aab8a); margin: 0 0 10px; font-size: 1.05rem; }
-    .gap-card p { margin: 0 0 8px; font-size: 0.97rem; color: var(--text-secondary); }
-    .gap-card p:last-child { margin-bottom: 0; }
-    .practice-box { background: var(--surface-2, #1a2e1a); border: 1px solid var(--accent-green, #7aab8a); border-radius: 8px; padding: 24px 28px; margin: 28px 0; }
-    .practice-box h3 { color: var(--accent-green); margin: 0 0 12px; }
-    .practice-box p { font-size: 1rem; margin: 0 0 10px; }
-    .practice-box p:last-child { margin-bottom: 0; }
-    .cta-block { background: var(--surface-2, #1a2e1a); border: 1px solid var(--accent-green, #7aab8a); border-radius: 8px; padding: 28px; text-align: center; margin: 36px 0 0; }
-    .cta-block a { display: inline-block; background: var(--accent-green, #7aab8a); color: #0a0a0a; text-decoration: none; padding: 12px 28px; border-radius: 6px; font-weight: 600; font-size: 1rem; margin-bottom: 8px; }
-    .cta-block a:hover { opacity: 0.85; }
-    .cta-block a.secondary { background: transparent; color: var(--accent-green); border: 1px solid var(--accent-green); padding: 10px 24px; font-size: 0.95rem; }
-    .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border, #2a3f2a); font-size: 12px; color: var(--text-secondary, #a0b8a8); }
-    .footer a { color: var(--accent-green, #7aab8a); }
-    .ps { background: var(--surface-2, #1a2e1a); border-left: 3px solid var(--accent-green, #7aab8a); padding: 16px 20px; margin: 28px 0; font-size: 0.95rem; }
-    .ps strong { color: var(--text); }
-    .reading-block { background: var(--surface-2, #1a2e1a); border: 1px solid var(--border, #2a3f2a); border-radius: 8px; padding: 20px 24px; margin: 28px 0; }
-    .reading-block p { font-size: 0.95rem; color: var(--text-secondary); margin: 0 0 8px; }
-    .reading-block p:last-child { margin-bottom: 0; }
-    .sign { font-style: italic; color: var(--text-secondary); font-size: 0.95rem; margin-top: 28px; }
-    @media(prefers-color-scheme:light){ body{background:#f5f2ed;color:#1a2e1a} h2,h3,.header h1,strong{color:#1a3a2a} .callout,.gap-card,.reading-block,.ps,.practice-box,.cta-block{background:#edeae3;border-color:#c8c4bb} .footer{border-color:#c8c4bb} }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #fafaf8;
+      --text: #1a1a1a;
+      --muted: #6b6b6b;
+      --accent: #2d7a4f;
+      --accent-light: #e8f5ed;
+      --card: #ffffff;
+      --border: #e5e5e0;
+      --highlight: #f0f7f2;
+      --callout: #fff9ec;
+      --callout-border: #e8c97a;
+      --cost-bg: #fef2f2;
+      --cost-border: #e07a7a;
+    }
+    [data-theme="dark"] {
+      --bg: #0f0f0e;
+      --text: #e8e8e3;
+      --muted: #888;
+      --accent: #4ade80;
+      --accent-light: #1a2e1f;
+      --card: #181816;
+      --border: #2a2a27;
+      --highlight: #1a2419;
+      --callout: #1f1c10;
+      --callout-border: #6b5c2a;
+      --cost-bg: #1f1212;
+      --cost-border: #7a3b3b;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      padding: 0;
+      margin: 0;
+    }
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid var(--border);
+    }
+    .site-name {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .issue-tag {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
+    .intro {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+    .intro strong {
+      color: var(--text);
+    }
+    h2 {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 36px 0 12px;
+      letter-spacing: -0.01em;
+    }
+    p {
+      font-size: 15px;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+    .gap-section {
+      background: var(--callout);
+      border: 1px solid var(--callout-border);
+      border-radius: 8px;
+      padding: 24px;
+      margin: 28px 0;
+    }
+    .gap-section h3 {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .gap-section p {
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+    .gap-section p:last-child { margin-bottom: 0; }
+    .places-grid {
+      display: grid;
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .place-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+    }
+    .place-card h4 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .place-card p {
+      font-size: 14px;
+      margin: 0;
+      color: var(--muted);
+    }
+    .asymmetry {
+      background: var(--highlight);
+      border-radius: 8px;
+      padding: 24px;
+      margin: 32px 0;
+    }
+    .asymmetry h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+    .asymmetry p {
+      font-size: 14px;
+    }
+    .practice-box {
+      background: var(--accent-light);
+      border-left: 4px solid var(--accent);
+      padding: 20px 24px;
+      border-radius: 0 8px 8px 0;
+      margin: 28px 0;
+    }
+    .practice-box h3 {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .practice-box p {
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+    .cta-block {
+      text-align: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px;
+      margin: 36px 0;
+    }
+    .cta-block p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .cta-block a {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 12px 28px;
+      border-radius: 6px;
+    }
+    .cta-block a:hover { opacity: 0.9; }
+    .question-section {
+      text-align: center;
+      padding: 28px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin: 32px 0;
+    }
+    .question-section p {
+      font-size: 15px;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .reading-block {
+      margin: 32px 0;
+    }
+    .reading-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .reading-links {
+      display: grid;
+      gap: 10px;
+    }
+    .reading-links a {
+      display: block;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      text-decoration: none;
+      font-size: 13px;
+      color: var(--text);
+      font-weight: 500;
+      transition: border-color 0.15s;
+    }
+    .reading-links a:hover { border-color: var(--accent); }
+    .signature {
+      margin: 36px 0 24px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .signature strong { color: var(--text); }
+    .footer {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+    }
+    .footer a { color: var(--muted); }
+    @media (max-width: 480px) {
+      h1 { font-size: 22px; }
+      .places-grid { grid-template-columns: 1fr; }
+      .email-container { padding: 24px 16px; }
+    }
   </style>
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to content</a>
-  <div id="main">
-
-    <header class="header">
-      <span class="label">The Dispatch · Issue #105</span>
+  <div class="email-container">
+    <div class="header">
+      <div class="site-name">The Clearing</div>
+      <div class="issue-tag">Issue #105 &nbsp;·&nbsp; May 31, 2026</div>
       <h1>The Comprehension Gap</h1>
-      <div class="meta">Week of June 1, 2026 · <a href="../newsletter.html" style="color: var(--accent-green)">clearing-ai.com</a></div>
-    </header>
-
-    <p>There's a specific moment that shows up in debugging sessions, architecture reviews, and 2am incidents.</p>
-
-    <p>You open a system you worked on six months ago. The AI built most of it. You approved the work. You shipped it.</p>
-
-    <p>And now — without AI in the room — you realize you can't explain it. Not fully. Not from first principles. Not without reaching for the output you don't have access to right now.</p>
-
-    <p>This isn't a moral failure. It's not about being a bad engineer.</p>
-
-    <p>It's what happens when the work of understanding gets outsourced to the same system that did the building.</p>
-
-    <h2>Three Places the Gap Shows Up</h2>
-
-    <div class="gap-card">
-      <h3>In incidents.</h3>
-      <p>When something breaks at 2am and your AI tab is closed, you're the one in the room. If your understanding is explanation-based rather than model-based, you spend the first twenty minutes reconstructing what you thought you understood. The incident clock is running. The fluency illusion becomes very expensive, very fast.</p>
+      <p class="subtitle">Why understanding an explanation isn't the same as understanding something</p>
     </div>
 
-    <div class="gap-card">
-      <h3>In architecture decisions.</h3>
-      <p>When you're asked to extend a system or choose between approaches, the judgment you need is different from the judgment you can gain from reading explanations of how others made those decisions. Explanations are after-the-fact reconstructions. Architecture is prospective. The skills don't transfer cleanly.</p>
+    <p class="intro">
+      Last week we talked about the <strong>fluency illusion</strong> — the difference between understanding an explanation and actually understanding something.
+    </p>
+    <p class="intro">
+      This week: what the gap costs you, and one way to measure whether you're growing or just moving faster.
+    </p>
+
+    <h2>The Gap Nobody Talks About</h2>
+    <p>
+      There's a specific moment that shows up in debugging sessions, architecture reviews, and 2am incidents.
+    </p>
+    <p>
+      You open a system you worked on six months ago. The AI built most of it. You approved the work. You shipped it.
+    </p>
+    <p>
+      And now — without AI in the room — you realize you can't explain it. Not fully. Not from first principles. Not without reaching for the output you don't have access to right now.
+    </p>
+    <p>
+      This isn't a moral failure. It's not about being a bad engineer.
+    </p>
+    <p>
+      It's what happens when the work of understanding gets outsourced to the same system that did the building.
+    </p>
+
+    <div class="gap-section">
+      <h3>Three Places the Gap Shows Up</h3>
+      <p><strong>In incidents.</strong> When something breaks at 2am and your AI tab is closed, you're the one in the room. If your understanding is explanation-based rather than model-based, you spend the first twenty minutes reconstructing what you thought you understood. The incident clock is running. The fluency illusion becomes very expensive, very fast.</p>
+      <p><strong>In architecture decisions.</strong> When you're asked to extend a system or choose between approaches, the judgment you need is different from the judgment you can gain from reading explanations of how others made those decisions. Explanations are after-the-fact reconstructions. Architecture is prospective. The skills don't transfer cleanly.</p>
+      <p><strong>In the quiet moments.</strong> Friday afternoon. You shipped six features this week. Everything passed review. You close your laptop and there's a feeling — not exhaustion exactly, more like uncertainty about what you actually learned. Not what you processed. What you learned.</p>
     </div>
 
-    <div class="gap-card">
-      <h3>In the quiet moments.</h3>
-      <p>Friday afternoon. You shipped six features this week. Everything passed review. You close your laptop and there's a feeling — not exhaustion exactly, more like uncertainty about what you actually learned. Not what you processed. What you learned.</p>
+    <h2>The Asymmetry Worth Tracking</h2>
+    <p>
+      Here's what nobody measures:
+    </p>
+    <p>
+      Most engineering teams track velocity. PRs per sprint. Cycle time. Throughput.
+    </p>
+    <p>
+      Almost no teams track the gap between what you could explain and what you could generate without assistance.
+    </p>
+    <p>
+      That gap is the truest signal of whether you're accelerating professionally or just accelerating output. Not the number of features shipped. The number of systems you could design, from scratch, without AI, if you had to.
+    </p>
+
+    <div class="asymmetry">
+      <h3>The engineers who figured this out early have started measuring one number:</h3>
+      <p><strong>Confidence unaided.</strong></p>
+      <p>The number is simple: would you feel confident making this decision, explaining this system, solving this problem — without AI in the room? If yes, the understanding is real. If no, the gap is real. And it's worth knowing where you stand.</p>
     </div>
-
-    <h2>The Asymmetry Nobody Tracks</h2>
-
-    <p>Here's what nobody measures:</p>
-
-    <p>Most engineering teams track velocity. PRs per sprint. Cycle time. Throughput.</p>
-
-    <p>Almost no teams track the gap between what you could explain and what you could generate without assistance.</p>
-
-    <p>That gap is the truest signal of whether you're accelerating professionally or just accelerating output. Not the number of features shipped. The number of systems you could design, from scratch, without AI, if you had to.</p>
-
-    <p>The engineers who figured this out early have started measuring one number: confidence unaided.</p>
 
     <h2>What Actually Helps</h2>
-
-    <p>There's one practice that shows up consistently in the recovery stories we collect:</p>
+    <p>
+      There's one practice that shows up consistently in the recovery stories we collect:
+    </p>
 
     <div class="practice-box">
-      <h3>Explaining things out loud.</h3>
+      <h3>Explaining things out loud</h3>
       <p>Not reviewing code. Not testing it. Explaining — to a colleague, to a rubber duck, to yourself — why the system works the way it does, why those design decisions were made, what would break under different assumptions.</p>
-      <p>The act of trying to explain reveals gaps instantly. Things you thought you understood turn out to be things you'd merely recognized. The friction is useful. It's information.</p>
-      <p>What makes this different from most productivity advice: it doesn't require anyone else to participate. You can do it alone, in thirty minutes, at the end of any week. No team buy-in. No process change. Just a different relationship with what you just built.</p>
+      <p style="margin-top:10px;">The act of trying to explain reveals gaps instantly. Things you thought you understood turn out to be things you'd merely recognized. The friction is useful. It's information.</p>
+      <p style="margin-top:10px;">What makes this different from most productivity advice: it doesn't require anyone else to participate. You can do it alone, in thirty minutes, at the end of any week. No team buy-in. No process change. Just a different relationship with what you just built.</p>
     </div>
 
-    <h2>A Question Worth Sitting With</h2>
-
-    <p>If you've been feeling the gap — if you've shipped more in the last six months than ever before and somehow feel less certain about your skills — here's the honest question:</p>
-
-    <p>Have you been measuring what's actually changing?</p>
-
-    <p>Or just what's increasing?</p>
-
-    <p>The AI Fatigue Quiz gives you a baseline on where the gap stands right now. Some engineers find it useful for the honest look in the mirror. Some find it confronting.</p>
-
-    <p>Either is more useful than the uncertainty.</p>
-
-    <p class="sign">— Sunny + The Clearing team</p>
+    <div class="question-section">
+      <p>If you've been feeling the gap — if you've shipped more in the last six months than ever before and somehow feel less certain about your skills — here's the honest question:<br><br>
+      <strong>Have you been measuring what's actually changing? Or just what's increasing?</strong></p>
+    </div>
 
     <div class="cta-block">
-      <p style="margin-bottom:16px;font-size:0.95rem;color:var(--text-secondary)">See you next week.</p>
-      <a href="../index.html#quiz">Take the AI Fatigue Quiz</a><br/>
-      <a href="../newsletter.html" class="secondary" style="display:inline-block;margin-top:10px;">Subscribe to The Dispatch</a>
-    </div>
-
-    <div class="ps" style="margin-top:28px;">
-      <strong>P.S.</strong> If you want to go deeper on why generative learning outperforms passive review: Robert Bjork's work on "desirable difficulties" is worth your time. The core idea is counterintuitive — making learning harder in the right ways leads to better long-term retention. It's the research basis for why explaining things out loud works better than re-reading explanations.
+      <p>The AI Fatigue Quiz gives you a baseline on where the gap stands right now. Some engineers find it useful for the honest look in the mirror. Some find it confronting.</p>
+      <a href="https://clearing-ai.com/index.html#quiz">Take the Quiz →</a>
     </div>
 
     <div class="reading-block">
-      <p><strong>Further reading from this week:</strong></p>
-      <p>• <a href="dispatch-104.html" style="color:var(--accent-green)">The Fluency Illusion</a> — Issue #104, where this week's letter starts</p>
-      <p>• <a href="../the-explanation-requirement.html" style="color:var(--accent-green)">The Explanation Requirement</a> — The one practice that keeps the reasoning loop intact</p>
-      <p>• <a href="../skill-atrophy.html" style="color:var(--accent-green)">The Competence Illusion</a> — how AI makes it easy to feel capable while capability quietly erodes</p>
-      <p>• <a href="../index.html#quiz" style="color:var(--accent-green)">Take the AI Fatigue Quiz</a> — three minutes, honest look at where you stand</p>
+      <div class="reading-label">Further reading from this week</div>
+      <div class="reading-links">
+        <a href="https://clearing-ai.com/the-explanation-requirement.html">The Explanation Requirement — The one practice that keeps the reasoning loop intact</a>
+        <a href="https://clearing-ai.com/skill-atrophy.html">The Competence Illusion — how AI makes it easy to feel capable while capability quietly erodes</a>
+        <a href="https://clearing-ai.com/newsletter-issues/dispatch-104.html">The Fluency Illusion — Issue #104, where this week's letter starts</a>
+      </div>
     </div>
 
-    <footer class="footer">
-      <p>🌿 The Clearing — Resources for engineers navigating AI fatigue</p>
-      <p>Archive: <a href="../newsletter-archive.html">clearing-ai.com/newsletter-archive</a> · Subscribe: <a href="../newsletter.html">clearing-ai.com/newsletter</a></p>
-    </footer>
+    <p class="signature">
+      See you next week.<br>
+      — <strong>Sunny + The Clearing team</strong>
+    </p>
 
+    <div class="footer">
+      <p><a href="https://clearing-ai.com">clearing-ai.com</a> &nbsp;·&nbsp; Free resources for engineers experiencing AI fatigue</p>
+      <p style="margin-top:8px;">You're receiving this because you signed up for The Dispatch. <a href="https://clearing-ai.com/newsletter.html">Manage preferences</a></p>
+    </div>
   </div>
 </body>
 </html>

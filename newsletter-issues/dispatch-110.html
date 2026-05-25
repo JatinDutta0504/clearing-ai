@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Dispatch #110 — The Confidence Inflation Cycle</title>
+  <meta name="description" content="Why AI makes you feel more capable than you are — and the specific gap between recognition and retrieval that most engineers don't notice until it's wide.">
+  <meta property="og:title" content="The Dispatch #110 — The Confidence Inflation Cycle">
+  <meta property="og:description" content="Why AI makes you feel more capable than you are — and the specific gap between recognition and retrieval that most engineers don't notice until it's wide.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/newsletter-issues/dispatch-110.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-issues/dispatch-110.html">
+  <link rel="stylesheet" href="../css/style.min.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>🌿</text></svg>">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Dispatch #110 — The Confidence Inflation Cycle",
+    "description": "Why AI makes you feel more capable than you are — and the specific gap between recognition and retrieval that most engineers don't notice until it's wide.",
+    "datePublished": "2026-06-07",
+    "dateModified": "2026-06-07",
+    "author": { "@type": "Organization", "name": "The Clearing" },
+    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "isPartOf": { "@type": "Periodical", "name": "The Dispatch" }
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0d1117; --surface: #161b22; --surface-2: #1c2128;
+      --border: #21262d; --text: #e6edf3; --muted: #8b949e;
+      --accent: #3fb950; --accent-dim: #238636;
+      --forest-soft: rgba(46,160,67,0.15);
+      --warning: #d29922; --danger: #f85149;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --surface-2: #f0f3f6;
+      --border: #d0d7de; --text: #1f2328; --muted: #656d76;
+      --accent: #1a7f37; --accent-dim: #2da44e;
+      --forest-soft: rgba(26,127,55,0.1);
+      --warning: #9a6700; --danger: #cf222e;
+    }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.75; font-size: 17px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .skip-link { position: absolute; top: -40px; left: 0; background: var(--accent); color: #0d1117; padding: 8px 16px; z-index: 200; font-weight: 600; border-radius: 0 0 8px 0; }
+    .skip-link:focus { top: 0; }
+    .container { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+    nav { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 20px; position: sticky; top: 0; z-index: 100; }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; height: 56px; }
+    .nav-logo { font-weight: 700; font-size: 18px; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+    .nav-logo:hover { text-decoration: none; }
+    .nav-links { display: flex; margin-left: 32px; gap: 0; }
+    .nav-links a { color: var(--muted); padding: 0 14px; height: 56px; display: flex; align-items: center; font-size: 14px; font-weight: 500; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .nav-right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+    .theme-toggle { background: none; border: 1px solid var(--border); color: var(--muted); width: 34px; height: 34px; border-radius: 6px; cursor: pointer; font-size: 16px; transition: border-color 0.15s, color 0.15s; }
+    .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+    .nav-cta { background: var(--accent); color: #0d1117; font-weight: 600; font-size: 14px; padding: 8px 16px; border-radius: 8px; transition: opacity 0.15s; }
+    .nav-cta:hover { opacity: 0.85; text-decoration: none; }
+    .issue-header { padding: 60px 0 40px; text-align: center; }
+    .issue-number { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .issue-title { font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 20px; color: var(--text); }
+    .issue-date { font-size: 0.9rem; color: var(--muted); }
+    .issue-meta { display: flex; justify-content: center; gap: 24px; margin-top: 12px; flex-wrap: wrap; }
+    .issue-meta span { font-size: 0.85rem; color: var(--muted); }
+    .dispatch-hero { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 36px 40px; margin-bottom: 40px; }
+    .dispatch-hero p { font-size: 1.05rem; color: var(--text); line-height: 1.85; margin-bottom: 16px; }
+    .dispatch-hero p:last-child { margin-bottom: 0; }
+    .dispatch-section { margin-bottom: 36px; }
+    .dispatch-section h2 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; color: var(--text); border-bottom: 2px solid var(--accent-dim); padding-bottom: 8px; }
+    .dispatch-section p { color: var(--text); margin-bottom: 16px; font-size: 1rem; line-height: 1.8; }
+    .insight-block { background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; padding: 24px 28px; margin: 24px 0; }
+    .insight-block p { font-size: 1.05rem; color: var(--text); line-height: 1.8; margin-bottom: 0; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 24px 0; }
+    .card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+    .card h3 { font-size: 1rem; font-weight: 700; color: var(--accent); margin-bottom: 10px; }
+    .card p { font-size: 0.92rem; color: var(--muted); margin-bottom: 0; line-height: 1.65; }
+    .dispatch-quote { border-left: 3px solid var(--accent); padding: 16px 20px; margin: 24px 0; background: var(--forest-soft); border-radius: 0 8px 8px 0; font-style: italic; color: var(--muted); font-size: 1.05rem; }
+    .practice-list { list-style: none; margin: 20px 0; padding: 0; }
+    .practice-list li { display: flex; gap: 12px; margin-bottom: 14px; font-size: 0.97rem; line-height: 1.7; }
+    .practice-list li::before { content: "→"; color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+    .cta-block { background: linear-gradient(135deg, var(--accent-dim), #1a4731); border: 1px solid var(--accent); border-radius: 12px; padding: 28px 32px; text-align: center; margin: 40px 0 32px; }
+    .cta-block p { color: rgba(255,255,255,0.9); font-size: 1.05rem; margin-bottom: 16px; line-height: 1.7; }
+    .cta-block a { display: inline-block; background: white; color: var(--accent-dim); font-weight: 700; padding: 12px 28px; border-radius: 8px; font-size: 0.95rem; transition: opacity 0.15s; }
+    .cta-block a:hover { opacity: 0.88; text-decoration: none; }
+    .dispatch-closing { text-align: center; padding: 40px 0 60px; border-top: 1px solid var(--border); margin-top: 40px; }
+    .dispatch-closing p { color: var(--muted); font-size: 0.95rem; margin-bottom: 8px; }
+    .dispatch-closing .sig { font-size: 1rem; color: var(--text); margin-top: 8px; }
+    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 28px 20px; margin-top: 40px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-logo { font-weight: 700; font-size: 16px; color: var(--text); display: flex; align-items: center; gap: 8px; }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { color: var(--muted); font-size: 14px; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-copy { font-size: 13px; color: var(--muted); }
+    .warning-callout { background: rgba(210,153,34,0.12); border: 1px solid var(--warning); border-radius: 8px; padding: 16px 20px; margin: 20px 0; }
+    .warning-callout strong { color: var(--warning); }
+    .warning-callout p { color: var(--text); font-size: 0.95rem; margin-bottom: 0; }
+    .resource-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 20px 0; }
+    .resource-card .rc-title { font-size: 1.1rem; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
+    .resource-card .rc-author { font-size: 0.85rem; color: var(--muted); margin-bottom: 12px; }
+    .resource-card p { font-size: 0.97rem; color: var(--text); line-height: 1.7; margin-bottom: 0; }
+    .cycle-diagram { background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; padding: 28px; margin: 24px 0; text-align: center; }
+    .cycle-diagram .step-row { display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; font-size: 0.92rem; color: var(--text); font-weight: 500; }
+    .cycle-diagram .arrow { color: var(--accent); font-size: 1.2rem; }
+    .cycle-diagram .cycle-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-top: 12px; }
+    @media (max-width: 600px) {
+      .dispatch-hero { padding: 24px 20px; }
+      .cta-block { padding: 20px 16px; }
+      .card-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="https://clearing-ai.com" class="nav-logo">🌿 The Clearing</a>
+      <div class="nav-links">
+        <a href="https://clearing-ai.com/understand.html">Understand</a>
+        <a href="https://clearing-ai.com/recover.html">Recover</a>
+        <a href="https://clearing-ai.com/stories.html">Stories</a>
+        <a href="https://clearing-ai.com/quiz-results.html">Take the Quiz</a>
+        <a href="https://clearing-ai.com/newsletter.html">Subscribe</a>
+      </div>
+      <div class="nav-right">
+        <a href="https://clearing-ai.com/#quiz" class="nav-cta">Start Here</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <div class="container">
+
+      <header class="issue-header">
+        <div class="issue-number">The Dispatch — Issue #110</div>
+        <h1 class="issue-title">The Confidence Inflation Cycle</h1>
+        <div class="issue-date">June 7, 2026</div>
+        <div class="issue-meta">
+          <span>7 min read</span>
+          <span>For engineers using AI daily</span>
+        </div>
+      </header>
+
+      <!-- Opening Hook -->
+      <div class="dispatch-hero">
+        <p>There's a phenomenon happening in engineering teams right now that most people haven't named yet. You're probably experiencing it. You might even be noticing it in yourself.</p>
+        <p>Here's how it goes: you open a chat window, paste in a problem, get back a clear and confident answer. You read it. It makes sense. It feels like you understand it. You might even think: <em>yeah, that's what I would have done.</em></p>
+        <p>Then six weeks later, the same class of problem comes up — a different context, a similar architecture question — and you find yourself opening the chat window again. And you realize you didn't actually learn what you thought you learned. The answer is just as foreign as it was before.</p>
+        <p><strong>This is the confidence inflation cycle.</strong> And it's one of the most insidious things AI is doing to the way engineers develop expertise.</p>
+      </div>
+
+      <!-- Section 1: Why fluency masquerades as understanding -->
+      <div class="dispatch-section">
+        <h2>Why Fluency Masquerades as Understanding</h2>
+        <p>There's a well-documented cognitive phenomenon called the "fluency illusion." The easier something is to process, the more confident we become that we understand it.</p>
+        <p>AI is, by design, a fluency machine. It produces answers that are clear, grammatically impeccable, logically structured. The surface-level processing required to follow an AI's explanation is minimal — it was written to be understood. And the ease with which we follow it gets misread by our cognitive system as evidence of depth.</p>
+        <div class="dispatch-quote">This is the same mechanism that makes a well-explained concept in a lecture feel like you've internalized it. You understood every word. The professor was clear. But ask you to apply it to a novel situation, or derive it from first principles, and the gaps appear.</div>
+        <p>With traditional learning, you had to do the hard work of deriving the answer. That effort — that struggle — was the signal that told your brain: <em>this is hard, remember this carefully.</em> The friction was the registration.</p>
+        <p>AI removes the friction. Which means the signal is gone. And without the signal, the confidence and the competence diverge.</p>
+      </div>
+
+      <!-- Section 2: The Recognition-Retrieval Gap -->
+      <div class="dispatch-section">
+        <h2>The Recognition-Retrieval Gap</h2>
+        <p>Here's the specific version of this that shows up most often for engineers:</p>
+        <p>You can <em>recognize</em> a correct solution. You can evaluate an AI's answer and say: yes, that's right, that's the correct implementation.</p>
+        <p>But you couldn't <em>retrieve</em> that solution on your own. If AI didn't exist, and you had to produce the answer from memory, you couldn't.</p>
+
+        <div class="insight-block">
+          <p>This gap — between recognition and retrieval — is where actual expertise lives. And it's the thing that AI is quietly eroding, not because you're lazy, but because the system doesn't require you to retrieve. You just need to recognize.</p>
+        </div>
+
+        <p>Robert Bjork's research on desirable difficulties shows this clearly: anything that makes learning feel easier tends to make it stick less. The ease is inversely correlated with the encoding. AI is the ultimate ease machine.</p>
+      </div>
+
+      <!-- Section 3: The Confidence Inflation Cycle Diagram -->
+      <div class="dispatch-section">
+        <h2>The Cycle in Plain Sight</h2>
+        <p>Most engineers run through this loop daily without noticing:</p>
+
+        <div class="cycle-diagram">
+          <div class="step-row">
+            <span>1. AI solves a problem for you</span>
+            <span class="arrow">→</span>
+            <span>2. Answer is clear and confident</span>
+            <span class="arrow">→</span>
+            <span>3. You feel like you understand</span>
+          </div>
+          <div class="step-row">
+            <span>4. Skill confidence increases</span>
+            <span class="arrow">←</span>
+            <span>5. Actual retrieval ability unchanged</span>
+            <span class="arrow">←</span>
+            <span>6. Gap between feeling and fact grows</span>
+          </div>
+          <div class="cycle-label">The confidence inflation cycle — repeat daily</div>
+        </div>
+
+        <div class="card-grid">
+          <div class="card">
+            <h3>What you feel</h3>
+            <p>More capable. Faster. On top of things. Your skills are expanding. You understand systems you couldn't touch before.</p>
+          </div>
+          <div class="card">
+            <h3>What the data shows</h3>
+            <p>Retrieval ability for that class of problem is unchanged. You can recognize the answer but not produce it unassisted.</p>
+          </div>
+        </div>
+
+        <p>The gap between these two things is the cycle. And the cycle is self-reinforcing — the more you use AI, the more inflated your confidence becomes, the less you notice the gap.</p>
+      </div>
+
+      <!-- Section 4: The Metacognitive Blind Spot -->
+      <div class="dispatch-section">
+        <h2>The Metacognitive Blind Spot</h2>
+        <p>What makes this particularly tricky is that you probably don't know this is happening to you.</p>
+        <p>Metacognition — your ability to accurately assess your own knowledge — is imperfect at the best of times. We're systematically bad at knowing what we don't know (the Dunning-Kruger effect is the pop-psych version of a real and well-documented phenomenon).</p>
+
+        <div class="insight-block">
+          <p>The confidence inflation cycle exploits this blind spot because it doesn't feel like a loss. It feels like gain. You understood more, faster. You're more productive. Your velocity is higher.</p>
+        </div>
+
+        <p>These things are all true. And underneath them, the actual knowledge — the retrievable kind, the kind you can apply under pressure without an internet connection — is quietly not forming.</p>
+        <div class="warning-callout">
+          <p><strong>This is not a moral failing.</strong> It's not that you're not paying attention or not trying hard enough. It's that the system you're working in has been designed to make following easy, and following is not the same as learning.</p>
+        </div>
+      </div>
+
+      <!-- Section 5: What This Looks Like in Practice -->
+      <div class="dispatch-section">
+        <h2>What This Looks Like in Practice</h2>
+        <p>You might recognize some of these:</p>
+        <ul class="practice-list">
+          <li>You can review AI-generated code and explain why it's right. You can even extend it. But if you had to write the original version from scratch, it would take you significantly longer than the AI took.</li>
+          <li>You've shipped features using libraries and patterns you learned from AI, and you've used them correctly. But if you had to explain the internal mechanics of that library, you'd need to look it up.</li>
+          <li>You've had the experience of feeling confident about a system you designed with AI help — and then been caught off guard by a subtle edge case that AI didn't flag.</li>
+          <li>You find yourself repeatedly asking AI the same class of question, even though you've "solved it before." The solution lives in the chat history, not in your head.</li>
+        </ul>
+        <div class="warning-callout">
+          <p><strong>If any of this resonated: you're not experiencing imposter syndrome.</strong> You're experiencing the confidence inflation cycle. And it's recoverable.</p>
+        </div>
+      </div>
+
+      <!-- Section 6: The Recovery Tactic -->
+      <div class="dispatch-section">
+        <h2>The Recovery Tactic for This Week: The Friction Audit</h2>
+        <p>This week's practice is simple and takes about 30 minutes.</p>
+        <p>Open your chat history. Go back over the last two weeks of conversations with AI. Look for a pattern: what class of problem did you ask AI to solve, where the answer felt obvious once you had it?</p>
+        <p>Now — without looking at the AI's answer — try to answer the underlying question yourself. Not "what would I tell AI to do?" but "what would I do, unassisted?"</p>
+        <ul class="practice-list">
+          <li>Write your answer down. Then compare.</li>
+          <li>Does your unassisted answer capture the key mechanism, or just the surface-level approach?</li>
+          <li>Does it include the edge cases and tradeoffs?</li>
+          <li>Would it actually work in your specific codebase, or is it a plausible-sounding answer?</li>
+        </ul>
+        <div class="insight-block">
+          <p>The gap between those two things — what you wrote unassisted and what AI would have written — is the inflation. It's real. And it's showing you exactly where the learning opportunity is.</p>
+        </div>
+        <p>The goal is not to stop using AI. The goal is to notice where AI is substituting for a skill you actually want to retain — and to make that substitution a conscious choice rather than a gradual drift.</p>
+      </div>
+
+      <!-- Resource -->
+      <div class="resource-card">
+        <div class="rc-title">One Resource Worth Your Time</div>
+        <div class="rc-author">Daniel T. Willingham — "Why Don't Students Like School?"</div>
+        <p>This book is about the cognitive science of learning, written for teachers. It is not about AI. But it explains, with exceptional clarity, why certain learning experiences stick and others don't. Willingham's core argument is that the brain is not designed for abstract thinking — it thinks best when it connects new information to prior knowledge and concrete experience. Learning that bypasses this process produces familiarity, not knowledge. This book will change how you think about what it means to "understand" something. It's a quick read. Most engineers finish it in two or three sessions.</p>
+      </div>
+
+      <!-- CTA Block -->
+      <div class="cta-block">
+        <p>If you took the AI Fatigue Quiz and found your way here, your results are still waiting at clearing-ai.com — specific to your tier, with a recovery path that matches what you're actually dealing with.</p>
+        <a href="https://clearing-ai.com/#quiz">→ Take the AI Fatigue Quiz →</a>
+      </div>
+
+      <!-- Closing -->
+      <div class="dispatch-closing">
+        <p>That's it for this week.</p>
+        <p>The goal isn't to use less AI. It's to notice what you're not learning because of how you're using it.</p>
+        <p class="sig">— The Clearing</p>
+        <p style="margin-top: 16px; font-size: 0.85rem; color: var(--muted);">P.S. The engineers who are navigating this well aren't the ones who stopped using AI. They're the ones who got intentional about which skills they want to retain — and protect.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">🌿 The Clearing</div>
+      <div class="footer-links">
+        <a href="https://clearing-ai.com">Home</a>
+        <a href="https://clearing-ai.com/quiz-results.html">Take the Quiz</a>
+        <a href="https://clearing-ai.com/recover.html">Recover</a>
+        <a href="https://clearing-ai.com/newsletter.html">Subscribe</a>
+      </div>
+      <div class="footer-copy">© 2026 The Clearing</div>
+    </div>
+  </footer>
+</body>
+</html>

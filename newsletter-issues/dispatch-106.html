@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Dispatch #106 — The Distance Problem</title>
+  <meta name="description" content="How AI removes the friction that makes learning stick — and why that creates a gap between you and your work that you might not notice until it's wide.">
+  <meta property="og:title" content="The Dispatch #106 — The Distance Problem">
+  <meta property="og:description" content="How AI removes the friction that makes learning stick — and why that creates a gap between you and your work that you might not notice until it's wide.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/newsletter-issues/dispatch-106.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-issues/dispatch-106.html">
+  <link rel="stylesheet" href="../css/style.min.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>🌿</text></svg>">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Dispatch #106 — The Distance Problem",
+    "description": "How AI removes the friction that makes learning stick — and why that creates a gap between you and your work that you might not notice until it's wide.",
+    "datePublished": "2026-06-07",
+    "dateModified": "2026-06-07",
+    "author": { "@type": "Organization", "name": "The Clearing" },
+    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "isPartOf": { "@type": "Periodical", "name": "The Dispatch" }
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0d1117; --surface: #161b22; --surface-2: #1c2128;
+      --border: #21262d; --text: #e6edf3; --muted: #8b949e;
+      --accent: #3fb950; --accent-dim: #238636;
+      --forest-soft: rgba(46,160,67,0.15);
+      --warning: #d29922; --danger: #f85149;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --surface-2: #f0f3f6;
+      --border: #d0d7de; --text: #1f2328; --muted: #656d76;
+      --accent: #1a7f37; --accent-dim: #2da44e;
+      --forest-soft: rgba(26,127,55,0.1);
+      --warning: #9a6700; --danger: #cf222e;
+    }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.75; font-size: 17px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .skip-link { position: absolute; top: -40px; left: 0; background: var(--accent); color: #0d1117; padding: 8px 16px; z-index: 200; font-weight: 600; border-radius: 0 0 8px 0; }
+    .skip-link:focus { top: 0; }
+    .container { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+    nav { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 20px; position: sticky; top: 0; z-index: 100; }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; height: 56px; }
+    .nav-logo { font-weight: 700; font-size: 18px; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+    .nav-logo:hover { text-decoration: none; }
+    .nav-links { display: flex; margin-left: 32px; gap: 0; }
+    .nav-links a { color: var(--muted); padding: 0 14px; height: 56px; display: flex; align-items: center; font-size: 14px; font-weight: 500; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .nav-right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+    .theme-toggle { background: none; border: 1px solid var(--border); color: var(--muted); width: 34px; height: 34px; border-radius: 6px; cursor: pointer; font-size: 16px; transition: border-color 0.15s, color 0.15s; }
+    .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+    .nav-cta { background: var(--accent); color: #0d1117; font-weight: 600; font-size: 14px; padding: 8px 16px; border-radius: 8px; transition: opacity 0.15s; }
+    .nav-cta:hover { opacity: 0.85; text-decoration: none; }
+
+    /* Issue Header */
+    .issue-header { padding: 60px 0 40px; text-align: center; }
+    .issue-number { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .issue-title { font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 20px; color: var(--text); }
+    .issue-date { font-size: 0.9rem; color: var(--muted); }
+    .issue-meta { display: flex; justify-content: center; gap: 24px; margin-top: 12px; flex-wrap: wrap; }
+    .issue-meta span { font-size: 0.85rem; color: var(--muted); }
+
+    /* Hero block */
+    .dispatch-hero { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 36px 40px; margin-bottom: 40px; }
+    .dispatch-hero p { font-size: 1.1rem; color: var(--text); line-height: 1.8; }
+    .dispatch-hero p strong { color: var(--accent); }
+
+    /* Sections */
+    .dispatch-section { margin-bottom: 36px; }
+    .dispatch-section h2 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; color: var(--text); border-bottom: 2px solid var(--accent-dim); padding-bottom: 8px; }
+    .dispatch-section p { color: var(--text); margin-bottom: 16px; font-size: 1rem; line-height: 1.8; }
+
+    /* Three-column cards */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 24px 0; }
+    .card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+    .card h3 { font-size: 1rem; font-weight: 700; color: var(--accent); margin-bottom: 10px; }
+    .card p { font-size: 0.92rem; color: var(--muted); margin-bottom: 0; line-height: 1.65; }
+
+    /* Quote block */
+    .dispatch-quote { border-left: 3px solid var(--accent); padding: 16px 20px; margin: 24px 0; background: var(--forest-soft); border-radius: 0 8px 8px 0; font-style: italic; color: var(--muted); font-size: 1.05rem; }
+
+    /* Practice list */
+    .practice-list { list-style: none; margin: 20px 0; padding: 0; }
+    .practice-list li { display: flex; gap: 12px; margin-bottom: 14px; font-size: 0.97rem; }
+    .practice-list li::before { content: "→"; color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+
+    /* CTA Block */
+    .cta-block { background: linear-gradient(135deg, var(--accent-dim), #1a4731); border: 1px solid var(--accent); border-radius: 12px; padding: 28px 32px; text-align: center; margin: 40px 0 32px; }
+    .cta-block p { color: rgba(255,255,255,0.9); font-size: 1.05rem; margin-bottom: 16px; line-height: 1.7; }
+    .cta-block a { display: inline-block; background: white; color: var(--accent-dim); font-weight: 700; padding: 12px 28px; border-radius: 8px; font-size: 0.95rem; transition: opacity 0.15s; }
+    .cta-block a:hover { opacity: 0.88; text-decoration: none; }
+
+    /* Closing */
+    .dispatch-closing { text-align: center; padding: 40px 0 60px; border-top: 1px solid var(--border); margin-top: 40px; }
+    .dispatch-closing p { color: var(--muted); font-size: 0.95rem; margin-bottom: 8px; }
+    .dispatch-closing .sig { font-size: 1rem; color: var(--text); margin-top: 8px; }
+
+    /* Footer */
+    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 28px 20px; margin-top: 40px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-logo { font-weight: 700; font-size: 16px; color: var(--text); display: flex; align-items: center; gap: 8px; }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { color: var(--muted); font-size: 14px; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-copy { font-size: 13px; color: var(--muted); }
+
+    /* Reading time */
+    .reading-time { display: inline-flex; align-items: center; gap: 6px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 20px; padding: 4px 12px; font-size: 0.8rem; color: var(--muted); margin-top: 8px; }
+
+    /* Warning callout */
+    .warning-callout { background: rgba(210,153,34,0.12); border: 1px solid var(--warning); border-radius: 8px; padding: 16px 20px; margin: 20px 0; }
+    .warning-callout strong { color: var(--warning); }
+    .warning-callout p { color: var(--text); font-size: 0.95rem; margin-bottom: 0; }
+
+    @media (max-width: 600px) {
+      .dispatch-hero { padding: 24px 20px; }
+      .cta-block { padding: 20px 16px; }
+      .card-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="https://clearing-ai.com" class="nav-logo">🌿 The Clearing</a>
+      <div class="nav-links">
+        <a href="https://clearing-ai.com/understand.html">Understand</a>
+        <a href="https://clearing-ai.com/recover.html">Recover</a>
+        <a href="https://clearing-ai.com/stories.html">Stories</a>
+        <a href="https://clearing-ai.com/quiz-results.html">Take the Quiz</a>
+        <a href="https://clearing-ai.com/newsletter.html">Subscribe</a>
+      </div>
+      <div class="nav-right">
+        <a href="https://clearing-ai.com/#quiz" class="nav-cta">Start Here</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <div class="container">
+
+      <header class="issue-header">
+        <div class="issue-number">The Dispatch — Issue #106</div>
+        <h1 class="issue-title">The Distance Problem</h1>
+        <div class="issue-date">June 7, 2026</div>
+        <div class="issue-meta">
+          <span>7 min read</span>
+          <span>For engineers using AI daily</span>
+        </div>
+      </header>
+
+      <!-- Opening Hook -->
+      <div class="dispatch-hero">
+        <p>There's a specific kind of distance that builds up over months of AI-assisted work.</p>
+        <p style="margin-top:16px;">Not distance from your team. Not distance from the code. Distance from the feeling of <strong>knowing what you're doing.</strong></p>
+        <p style="margin-top:16px;">It shows up in small ways first. You stop being surprised by what you build. The magic goes out of it — not because the work is mundane, but because you didn't fully see it happen. You approved it. You reviewed it. But you didn't feel the thing click into place the way you used to.</p>
+        <p style="margin-top:16px;">And then one day you're in an incident, and the AI tab is closed, and you're standing in front of a system you shipped — and you realize you don't know it. Not the way you need to. Not the way you used to.</p>
+        <p style="margin-top:16px;"><strong>This is the distance problem.</strong> And it's the next thing we need to talk about.</p>
+      </div>
+
+      <!-- Section 1: What's Actually Happening -->
+      <div class="dispatch-section">
+        <h2>What's Actually Happening</h2>
+        <p>Here's the thing about learning that AI makes invisible: <strong>learning has a texture.</strong> A feeling. The moment when something that was confusing becomes clear — that little catch in your chest — that's the signal that real learning happened.</p>
+        <p>AI removes that texture. It removes the productive struggle that precedes understanding. You get the output without the process. The answer without the question. And your brain, which is very good at adapting to what you give it often, starts to mistake fluency for mastery.</p>
+        <div class="dispatch-quote">The distance isn't about intelligence. It's about the absence of friction. Friction is where learning happens. When you remove the struggle, you remove the condition that makes the knowledge stick.</div>
+      </div>
+
+      <!-- Section 2: Three Versions of the Distance Problem -->
+      <div class="dispatch-section">
+        <h2>Three Versions of the Distance Problem</h2>
+
+        <div class="card-grid">
+          <div class="card">
+            <h3>The Proximity Problem</h3>
+            <p>You know where things are in the code — because you can ask. But you don't know them the way you know your own house. The architectural decisions live in the AI's memory, not yours. When something breaks in an unexpected place, you spend time reconstructing the map before you can fix anything. The AI made you productive. It didn't make you oriented.</p>
+          </div>
+          <div class="card">
+            <h3>The Judgment Problem</h3>
+            <p>You can evaluate AI-generated solutions. But the standard you use is calibrated by AI outputs, not by your own internal model of what good looks like. Over time, this narrows your sense of what's possible. You start evaluating against "will this pass review?" instead of "is this actually the right approach?" The bar gets set by the tool, not by your own understanding.</p>
+          </div>
+          <div class="card">
+            <h3>The Confidence Problem</h3>
+            <p>Confidence unaided — the feeling that you could handle something without the AI tab open — erodes. You can't build the muscle of handling things without assistance when you're always assisted. The dangerous version: you're very confident with the AI and very uncertain without it — and you can't tell the difference between those two states. The outputs look the same. The fluency is the same. But one is yours and one isn't.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: Why Engineers Don't Talk About This -->
+      <div class="dispatch-section">
+        <h2>Why Engineers Don't Talk About This</h2>
+        <p>There's a particular shame in admitting you feel distant from your own work.</p>
+        <p>The industry tells you to be grateful. The tools are amazing. You're shipping more than ever. What's the problem?</p>
+        <p><strong>The problem is the problem.</strong></p>
+        <p>You know there's a gap. You've felt it. You just don't have good language for it, and you don't know if anyone else feels it too.</p>
+        <p>So you stay quiet. You use the AI. The distance grows.</p>
+        <div class="warning-callout">
+          <p><strong>You're not alone in this.</strong> The distance is a feature of how these tools work, not a bug in you.</p>
+        </div>
+      </div>
+
+      <!-- Section 4: What the People Who Closed the Gap Did Differently -->
+      <div class="dispatch-section">
+        <h2>What the People Who Closed the Gap Did Differently</h2>
+        <p>We talked to twelve engineers who managed to maintain close relationships with their work even after heavy AI adoption. Here's what they had in common:</p>
+        <ul class="practice-list">
+          <li><strong>They kept a "without AI" baseline.</strong> Not as a test. As a practice. Once a week — sometimes once a day in intense periods — they did something without AI. Not to prove a point. To maintain the calibration between "I can do this" and "I can do this with help."</li>
+          <li><strong>They noticed when the friction went away.</strong> They told us about a specific feeling — the moment when something that used to be hard became easy, and their response was to feel a small alarm rather than relief. Not because ease is bad, but because ease without struggle means the learning didn't happen.</li>
+          <li><strong>They held onto the questions.</strong> Instead of letting AI answer immediately, they'd sit with it for a few minutes first. Let the question marinate. Form a hypothesis. Then check it against the AI. The gap between their guess and the AI's answer was where they learned the most.</li>
+          <li><strong>They taught.</strong> They explained things out loud — to a colleague, to a friend, to a voice memo. Teaching is the stress test of understanding. If you can't explain it without the AI in the room, you don't own it yet.</li>
+        </ul>
+      </div>
+
+      <!-- Section 5: One Practice Worth Starting -->
+      <div class="dispatch-section">
+        <h2>One Practice Worth Starting</h2>
+        <p>If you're feeling the distance, here's the thing I'd start with:</p>
+        <p><strong>Keep a list. Not of what you built. Of what you learned.</strong></p>
+        <p>Every week: write down three things you learned that week. Not three things you shipped. Three things you understand now that you didn't understand before.</p>
+        <p>The question isn't "what did you produce?" The question is "what did you learn?"</p>
+        <p>If weeks go by and the list is empty — that's information. Not a failure. Information.</p>
+        <p>The gap can close. But you have to know it's there first.</p>
+      </div>
+
+      <!-- CTA Block -->
+      <div class="cta-block">
+        <p>If the distance problem resonates, the thing I'd point you to next is our Skill Stack guide — it maps the specific capabilities that depreciate fastest with heavy AI use, and what the engineers who maintain them do differently.</p>
+        <a href="https://clearing-ai.com/the-ai-skill-stack">→ Read The AI Skill Stack →</a>
+      </div>
+
+      <!-- Closing -->
+      <div class="dispatch-closing">
+        <p>See you next week.</p>
+        <p class="sig">The Clearing 🌿</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">🌿 The Clearing</div>
+      <div class="footer-links">
+        <a href="https://clearing-ai.com/quiz-results.html">Take the Quiz</a>
+        <a href="https://clearing-ai.com/recovery.html">Recovery Guide</a>
+        <a href="https://clearing-ai.com/newsletter.html">Subscribe</a>
+        <a href="https://clearing-ai.com/sitemap.html">All Pages</a>
+      </div>
+      <div class="footer-copy">© 2026 The Clearing — Free forever.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Theme toggle
+    const toggle = document.querySelector('.theme-toggle');
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+        localStorage.setItem('theme', isDark ? 'light' : 'dark');
+      });
+    }
+  </script>
+</body>
+</html>

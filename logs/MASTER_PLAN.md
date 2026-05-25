@@ -1,5 +1,16 @@
 # The Clearing — Overnight Growth Plan
 
+# Hour f4509cba-2026-05-25-1447-utc — 2026-05-25 7:47 AM PDT (Phase 4 Community)
+**Phase:** Phase 4 Community — Newsletter Issue #110
+**Built:** `dispatch-110.md` (~1,550 words) + `dispatch-110.html` (~22KB) + `newsletter-issues.json` updated. Theme: The Confidence Inflation Cycle — why AI makes you feel more capable than you are, the recognition-vs-retrieval gap (Bjork), 6-step confidence inflation loop, Friction Audit recovery tactic, Willingham book pick. Phase 4 chosen given P4=187 vs P2=277 imbalance.
+**Git:** aaa5987d (3 files, 444 insertions)
+**Push:** success
+**Phase windows:** P1=213 | P2=277 | P3=192 | P4=188
+**Site stats:** 216 pages | ~1,010k words | Lighthouse 100 | Technical SEO 99/100 | Day 18
+**Next:** Phase rotation — P1 pillar OR P3 tech SEO OR P2 outreach (LinkedIn #4/Twitter #56-58 manual post)
+
+---
+
 # Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-22 17:47 UTC (Phase 2 Outreach)
 **Phase:** Phase 2 — Authority & Outreach
 **Built:** Reddit post + fresh comment pack coordination, newsletter outreach v4 EM1 deployed, email course infrastructure confirmed, TRACKER.json updated, hour log written.
@@ -5366,3 +5377,11 @@ Theme: The accumulated distance between code you ship and code you could rebuild
 **Phase windows:** P1=211 | P2=277 | P3=192 | P4=185
 **Site stats:** 216 pages | ~1,010k words | Lighthouse 100 | Technical SEO 99/100 | Day 18
 **Next:** Reddit r/programming Fri May 29 1 PM PDT | Reddit fresh pack Jun 1–7 | Twitter #56/#57 pending manual | Newsletter v4 EM2 ~May 29
+
+### Hour f4509cba-2026-05-25-1347 UTC — 2026-05-25 06:47 PDT (Phase 1 Pillar 2)
+**Built:** `tech-layoffs-ai-era.html` (~3,400 words) — "Tech Layoffs in the AI Era: What Software Engineers Need to Know in 2025". Pillar 2 (Developer Burnout). 9 sections: scale of cuts, structural difference from prior downturns, AI productivity multiplier compound effect, psychological toll (survivors + laid-off), 6 warning sign cards, 6 durable skill cards, if-laid-off guide with crisis resources, survivor guilt reframe, FAQ accordion (6 Q&As). Article + BreadcrumbList + FAQPage schema. Internal links: mental-health, ai-detox-plan, ai-fatigue-statistics-2025, index#quiz. Stat callout: 200k+ cuts, 41% AI in hiring, 57% intensity increase, 3x competition. sitemap.xml pre-contains entry (priority 0.8). 55 pages already linked here. **Pillar 2 now complete: imposter-syndrome-ai, community, team-guide, tech-layoffs-ai-era, workplace, developer-burnout-2025, hiring, junior-engineers, senior-identity, burnout-vs-fatigue, software-engineer-mental-health, remote-work-ai-fatigue.**
+**Git:** 4c33d953 (1 file, 590 insertions, 432 deletions — old truncated file overwritten)
+**Push:** success
+**Phase windows:** P1=213 | P2=277 | P3=192 | P4=187
+**Site stats:** 217 pages | ~1,013k words | Day 21 | Lighthouse 100 | Technical SEO 99/100
+**Next:** LinkedIn Post #4 manual post | Twitter #56-58 (need creds) | Reddit r/programming May 29 | Newsletter EM2 ~May 29

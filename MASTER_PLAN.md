@@ -930,3 +930,11 @@
 **Phase windows:** P1=210 | P2=277 | P3=191 | P4=179
 **Site stats:** 216 pages | ~1,013k words | Lighthouse 100 | Technical SEO 99/100 | Day 18
 **Next:** LinkedIn Post 2 (Mon Jun 1 morning) | Reddit r/programming Fri May 29 1 PM PDT | EM2 follow-ups ~May 29
+
+---
+### Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-25 06:47 UTC (Phase 4 Community)
+**Phase:** Phase 4 — Community & Newsletter
+**Built:** Dispatch #108 "The Offload Loop" — full HTML email (18KB) + MD source (~1,450 words)
+**Commit:** e886707e | **Push:** success
+**Site stats:** 216 pages | ~1,010k words | Lighthouse 100 | Technical SEO 99/100 | Day 18
+**Next:** Reddit r/programming Fri May 29 1PM PDT | Reddit fresh pack Jun 1–7 | Twitter #56 manual | LinkedIn Post #2 OVERDUE | EM2 follow-ups ~May 29

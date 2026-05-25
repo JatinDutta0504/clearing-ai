@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Dispatch #108 — The Offload Loop</title>
+  <meta name="description" content="The five-step spiral that makes thinking harder by making it easier — and how to protect the cognitive reps that keep your skills sharp.">
+  <meta property="og:title" content="The Dispatch #108 — The Offload Loop">
+  <meta property="og:description" content="The five-step spiral that makes thinking harder by making it easier.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/newsletter-issues/dispatch-108.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-issues/dispatch-108.html">
+  <link rel="stylesheet" href="../css/style.min.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>🌿</text></svg>">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Dispatch #108 — The Offload Loop",
+    "description": "The five-step spiral that makes thinking harder by making it easier — and how to protect the cognitive reps that keep your skills sharp.",
+    "datePublished": "2026-05-24",
+    "dateModified": "2026-05-24",
+    "author": { "@type": "Organization", "name": "The Clearing" },
+    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "isPartOf": { "@type": "Periodical", "name": "The Dispatch" }
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0d1117; --surface: #161b22; --surface-2: #1c2128;
+      --border: #21262d; --text: #e6edf3; --muted: #8b949e;
+      --accent: #3fb950; --accent-dim: #238636;
+      --forest-soft: rgba(46,160,67,0.15);
+      --warning: #d29922; --danger: #f85149;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --surface-2: #f0f3f6;
+      --border: #d0d7de; --text: #1f2328; --muted: #656d76;
+      --accent: #1a7f37; --accent-dim: #2da44e;
+      --forest-soft: rgba(26,127,55,0.1);
+      --warning: #9a6700; --danger: #cf222e;
+    }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.75; font-size: 17px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .skip-link { position: absolute; top: -40px; left: 0; background: var(--accent); color: #0d1117; padding: 8px 16px; z-index: 200; font-weight: 600; border-radius: 0 0 8px 0; }
+    .skip-link:focus { top: 0; }
+    .container { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+    nav { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 20px; position: sticky; top: 0; z-index: 100; }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; height: 56px; }
+    .nav-logo { font-weight: 700; font-size: 18px; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+    .nav-logo:hover { text-decoration: none; }
+    .nav-links { display: flex; margin-left: 32px; gap: 0; }
+    .nav-links a { color: var(--muted); padding: 0 14px; height: 56px; display: flex; align-items: center; font-size: 14px; font-weight: 500; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .nav-right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+    .theme-toggle { background: none; border: 1px solid var(--border); color: var(--muted); width: 34px; height: 34px; border-radius: 6px; cursor: pointer; font-size: 16px; transition: border-color 0.15s, color 0.15s; }
+    .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+    .nav-cta { background: var(--accent); color: #0d1117; font-weight: 600; font-size: 14px; padding: 8px 16px; border-radius: 8px; transition: opacity 0.15s; }
+    .nav-cta:hover { opacity: 0.85; text-decoration: none; }
+
+    .issue-header { padding: 60px 0 40px; text-align: center; }
+    .issue-number { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .issue-title { font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 20px; color: var(--text); }
+    .issue-date { font-size: 0.9rem; color: var(--muted); }
+    .issue-meta { display: flex; justify-content: center; gap: 24px; margin-top: 12px; flex-wrap: wrap; }
+    .issue-meta span { font-size: 0.85rem; color: var(--muted); }
+
+    .dispatch-hero { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 36px 40px; margin-bottom: 40px; }
+    .dispatch-hero p { font-size: 1.1rem; color: var(--text); line-height: 1.8; }
+    .dispatch-hero p strong { color: var(--accent); }
+
+    .dispatch-section { margin-bottom: 36px; }
+    .dispatch-section h2 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; color: var(--text); border-bottom: 2px solid var(--accent-dim); padding-bottom: 8px; }
+    .dispatch-section p { color: var(--text); margin-bottom: 16px; font-size: 1rem; line-height: 1.8; }
+
+    .insight-block { background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; padding: 24px 28px; margin: 24px 0; }
+    .insight-block p { font-size: 1.05rem; color: var(--text); line-height: 1.8; margin-bottom: 0; }
+
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 24px 0; }
+    .card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+    .card h3 { font-size: 1rem; font-weight: 700; color: var(--accent); margin-bottom: 10px; }
+    .card p { font-size: 0.92rem; color: var(--muted); margin-bottom: 0; line-height: 1.65; }
+
+    .dispatch-quote { border-left: 3px solid var(--accent); padding: 16px 20px; margin: 24px 0; background: var(--forest-soft); border-radius: 0 8px 8px 0; font-style: italic; color: var(--muted); font-size: 1.05rem; }
+
+    .practice-list { list-style: none; margin: 20px 0; padding: 0; }
+    .practice-list li { display: flex; gap: 12px; margin-bottom: 14px; font-size: 0.97rem; }
+    .practice-list li::before { content: "→"; color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+
+    .cta-block { background: linear-gradient(135deg, var(--accent-dim), #1a4731); border: 1px solid var(--accent); border-radius: 12px; padding: 28px 32px; text-align: center; margin: 40px 0 32px; }
+    .cta-block p { color: rgba(255,255,255,0.9); font-size: 1.05rem; margin-bottom: 16px; line-height: 1.7; }
+    .cta-block a { display: inline-block; background: white; color: var(--accent-dim); font-weight: 700; padding: 12px 28px; border-radius: 8px; font-size: 0.95rem; transition: opacity 0.15s; }
+    .cta-block a:hover { opacity: 0.88; text-decoration: none; }
+
+    .dispatch-closing { text-align: center; padding: 40px 0 60px; border-top: 1px solid var(--border); margin-top: 40px; }
+    .dispatch-closing p { color: var(--muted); font-size: 0.95rem; margin-bottom: 8px; }
+    .dispatch-closing .sig { font-size: 1rem; color: var(--text); margin-top: 8px; }
+
+    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 28px 20px; margin-top: 40px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-logo { font-weight: 700; font-size: 16px; color: var(--text); display: flex; align-items: center; gap: 8px; }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { color: var(--muted); font-size: 14px; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-copy { font-size: 13px; color: var(--muted); }
+
+    .warning-callout { background: rgba(210,153,34,0.12); border: 1px solid var(--warning); border-radius: 8px; padding: 16px 20px; margin: 20px 0; }
+    .warning-callout strong { color: var(--warning); }
+    .warning-callout p { color: var(--text); font-size: 0.95rem; margin-bottom: 0; }
+
+    .loop-steps { list-style: none; padding: 0; margin: 20px 0; counter-reset: loop-step; }
+    .loop-steps li { counter-increment: loop-step; display: flex; gap: 16px; margin-bottom: 18px; font-size: 1rem; align-items: flex-start; }
+    .loop-steps li::before { content: counter(loop-step); background: var(--accent); color: #0d1117; font-weight: 800; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.85rem; }
+
+    .math-block { background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; padding: 24px 28px; margin: 24px 0; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.95rem; }
+    .math-block p { color: var(--accent); margin-bottom: 8px; }
+    .math-block p:last-child { margin-bottom: 0; }
+
+    @media (max-width: 600px) {
+      .dispatch-hero { padding: 24px 20px; }
+      .cta-block { padding: 20px 16px; }
+      .card-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="https://clearing-ai.com" class="nav-logo">🌿 The Clearing</a>
+      <div class="nav-links">
+        <a href="https://clearing-ai.com/understand.html">Understand</a>
+        <a href="https://clearing-ai.com/recover.html">Recover</a>
+        <a href="https://clearing-ai.com/stories.html">Stories</a>
+        <a href="https://clearing-ai.com/quiz-results.html">Take the Quiz</a>
+        <a href="https://clearing-ai.com/newsletter.html">Subscribe</a>
+      </div>
+      <div class="nav-right">
+        <a href="https://clearing-ai.com/#quiz" class="nav-cta">Start Here</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <div class="container">
+
+      <header class="issue-header">
+        <div class="issue-number">The Dispatch — Issue #108</div>
+        <h1 class="issue-title">The Offload Loop</h1>
+        <div class="issue-date">May 24, 2026</div>
+        <div class="issue-meta">
+          <span>7 min read</span>
+          <span>For engineers using AI daily</span>
+        </div>
+      </header>
+
+      <!-- Opening Hook -->
+      <div class="dispatch-hero">
+        <p>There's a five-step spiral that happens quietly in every AI-assisted engineer's practice.</p>
+        <p style="margin-top:16px;">You might recognize it.</p>
+        <ol class="loop-steps" style="margin-top:20px; color: var(--text);">
+          <li style="color:var(--text);">You use AI to think less.</li>
+          <li style="color:var(--text);">You practice thinking less.</li>
+          <li style="color:var(--text);">Thinking becomes harder.</li>
+          <li style="color:var(--text);">You use more AI to compensate.</li>
+          <li style="color:var(--text);">It becomes harder to think without AI.</li>
+        </ol>
+        <p style="margin-top:20px;">Then the loop restarts at step 2 — with a slightly worse starting point.</p>
+        <p style="margin-top:16px;"><strong>This is The Offload Loop.</strong> And the dangerous part isn't that it feels bad. It's that each step feels completely reasonable at the time.</p>
+      </div>
+
+      <!-- Section 1: Why Each Step Feels Rational -->
+      <div class="dispatch-section">
+        <h2>Why Each Step Feels Rational</h2>
+        <p>When you're working at speed and a hard problem lands on your desk, reaching for AI feels like efficiency. Not laziness — efficiency. You're busy. The output matters. The path to the output is just a means to an end.</p>
+        <p>So you delegate the thinking. And it works. The code comes together. The tests pass. You ship it.</p>
+        <div class="dispatch-quote">Except — and here's where it sneaks up on you — the next hard problem is a little harder than the last one. Not because the domain got more complex. Because your ability to sit with discomfort in hard thinking has degraded slightly.</div>
+        <p>So you reach for AI again. And the loop tightens.</p>
+        <p>The gap between "can understand AI's answer" and "could have generated it" grows every week. You can't always feel it. The AI fills in the gaps in real time. The output looks fine.</p>
+        <p>But the distance between you and your own knowledge grows.</p>
+      </div>
+
+      <!-- Section 2: The Math Nobody Talks About -->
+      <div class="dispatch-section">
+        <h2>The Math Nobody Talks About</h2>
+        <p>Here's the thing about skill maintenance: it requires reps.</p>
+        <p>Before AI tools became mainstream, a hard problem meant 20–40 minutes of genuine struggle before a solution emerged. That struggle — the false starts, the wrong turns, the moment just before clarity — was the rep. That's where the skill lived.</p>
+        <div class="math-block">
+          <p>Before AI: 40 min = 10 min struggle (reps) + 30 min build (output)</p>
+          <p>After AI: 5 min prompt + review, then move on</p>
+          <p style="color:var(--text); margin-top:8px; font-family: -apple-system, BlinkMacSystemFont, sans-serif;">Output doubled. Reps per day dropped 75%.</p>
+        </div>
+        <p>You can double your output and lose 75% of your practice reps in the same week.</p>
+        <div class="insight-block">
+          <p>The skill curve doesn't flatten. It bends downward, slowly, invisibly, while your velocity metrics go up.</p>
+        </div>
+      </div>
+
+      <!-- Section 3: The Engineers Who Navigate This Well -->
+      <div class="dispatch-section">
+        <h2>The Engineers Who Navigate This Well</h2>
+        <p>The thing I've noticed about engineers who maintain their craft while using AI tools heavily: they're not using less AI.</p>
+        <p>They're just more deliberate about <strong>which thinking they protect.</strong></p>
+        <div class="dispatch-quote">Protected thinking = the cognitive reps you don't delegate. The problems you sit with. The code you write unaided. The debugging you do before reaching for an explanation. Everything else — they offload without guilt.</div>
+        <p>The distinction isn't "use less AI." It's "protect the parts that keep your thinking sharp."</p>
+      </div>
+
+      <!-- Section 4: The Honesty Check -->
+      <div class="dispatch-section">
+        <h2>The Honesty Check</h2>
+        <p>Here's a question worth asking once a week:</p>
+        <div class="dispatch-quote" style="font-size:1.1rem; border-left-color: var(--warning); background: rgba(210,153,34,0.1);">
+          <em>"Can I explain what the last piece of AI-generated code does — without looking at it?"</em>
+        </div>
+        <p>Not what it does. Why it works that way. What alternatives were rejected and why. Where it would break if the requirements changed.</p>
+        <p>If the answer is yes — your mental model is intact.</p>
+        <p>If the answer is no — <strong>that's not a knowledge gap. That's a dependency gap.</strong> And it's reversible, but only if you notice it.</p>
+      </div>
+
+      <!-- Section 5: One Thing To Do This Week -->
+      <div class="dispatch-section">
+        <h2>One Thing To Do This Week</h2>
+        <p>Pick one problem at work this week — small enough to be manageable, hard enough to require genuine thinking.</p>
+        <p><strong>Don't use AI.</strong></p>
+        <div class="warning-callout">
+          <p><strong>Not to prove something. Not to be difficult.</strong> Just to keep the rep alive.</p>
+        </div>
+        <p>Document what happens. The discomfort is the point.</p>
+      </div>
+
+      <!-- CTA Block -->
+      <div class="cta-block">
+        <p>The skill-atrophy framework we built maps which thinking to protect and which to offload. It's not about rejecting AI tools. It's about staying honest about where your thinking actually is.</p>
+        <a href="https://clearing-ai.com/the-ai-skill-stack">→ Read The AI Skill Stack →</a>
+      </div>
+
+      <!-- Closing -->
+      <div class="dispatch-closing">
+        <p>The offload loop is real. It's happening to most AI-assisted engineers right now, to some degree.</p>
+        <p>The good news: awareness breaks the loop. Noticing the pattern is the first recovery step.</p>
+        <p>The engineers who navigate this well aren't the ones who use less AI. They're the ones who are honest about the cost — and protect the thinking that keeps them sharp.</p>
+        <p style="margin-top: 24px;">See you next week.</p>
+        <p class="sig">— The Clearing</p>
+        <p style="margin-top: 16px; font-size: 0.85rem; color: var(--muted);">P.S. If this found you at the right moment, share it with an engineer who needs to hear it. There's no signup required to look around.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">🌿 The Clearing</div>
+      <div class="footer-links">
+        <a href="https://clearing-ai.com/quiz-results.html">Take the Quiz</a>
+        <a href="https://clearing-ai.com/recovery.html">Recovery Guide</a>
+        <a href="https://clearing-ai.com/newsletter.html">Subscribe</a>
+        <a href="https://clearing-ai.com/sitemap.html">All Pages</a>
+      </div>
+      <div class="footer-copy">© 2026 The Clearing — Free forever.</div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.theme-toggle');
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+        localStorage.setItem('theme', isDark ? 'light' : 'dark');
+      });
+    }
+  </script>
+</body>
+</html>

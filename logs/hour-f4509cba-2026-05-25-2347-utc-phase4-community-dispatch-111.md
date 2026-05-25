@@ -1,15 +1,3 @@
-# Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-25 15:47 PDT / 22:47 UTC (Phase 1 Window 215)
-**Phase:** Phase 1 — Content Pillar (Pillar 3: AI Tool Overwhelm)
-**Built:** coding-ai-tools-comparison.html (~4,000 words) — 8-dimension fatigue comparison: Copilot vs Claude Code vs Cursor vs ChatGPT. FAQPage + Article + BreadcrumbList schema. 23 pages nav-updated. Pillar 3 now fully built (5/5 pages). P1=215 | P2=278 | P3=197 | P4=188.
-**Git:** c9f3297e | Push: success
-**Site stats:** 218 pages | ~1,018k words | Lighthouse 100 | Technical SEO 99/100 | Day 19
-**Next:** P2 outreach (LinkedIn Post #4, Twitter #56-58 manual post) OR P4 newsletter #111 OR P3 tech SEO
-
----
-# The Clearing — Overnight Growth Plan
-
-# Hour f4509cba-2026-05-25-1447-utc — 2026-05-25 7:47 AM PDT (Phase 4 Community)
-
 # Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-25 15:47 PDT / 23:47 UTC (Phase 4 Community)
 
 **Phase:** Phase 4 Community — Newsletter Issue #111
@@ -18,4 +6,3 @@
 **Phase windows:** P1=215 | P2=278 | P3=197 | P4=189
 **Site stats:** 218 pages | ~1,016k words | Lighthouse 100 | Technical SEO 99/100 | Day 19
 **Next:** LinkedIn Post #4 "The Velocity Trap" (post Tue May 26 7-9 AM PDT) | Twitter threads #56-58 (need X credentials) | Reddit r/programming Fri May 29 1 PM PDT | Reddit Fresh Pack Jun 1-7 (ALREADY PREPPED) | EM2 follow-ups ~May 29
-

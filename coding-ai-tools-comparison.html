@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark" >
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Coding Tools Comparison: Copilot vs Claude vs ChatGPT</title>
-
-  <!-- woff2 font preloads for LCP optimization -->
-
-  <meta name="description" content="Compare AI coding tools for fatigue impact: GitHub Copilot vs Cursor vs Claude vs ChatGPT. Which causes the most burnout."> />
-  <meta name="keywords" content="AI coding tools fatigue comparison, GitHub Copilot vs Cursor vs Claude fatigue, lowest fatigue AI coding assistant 2025, AI coding tool skill erosion comparison, which AI coding tool is safest for engineers" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Coding Tools Compared: Which Causes the Most Fatigue? | The Clearing</title>
+  <meta name="description" content="GitHub Copilot vs Claude Code vs Cursor vs ChatGPT — compared for engineers on what matters: cognitive load, skill erosion, decision fatigue, dependency risk, and workflow interruption.">
+  <meta name="keywords" content="AI coding tools comparison, Copilot vs Claude fatigue, Cursor vs ChatGPT developer burnout, Claude Code fatigue, AI tool comparison engineers, Copilot dependency, Cursor fatigue, AI coding assistant comparison 2025, GitHub Copilot burnout, best AI coding tool for engineers" />
   <meta name="author" content="The Clearing" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://clearing-ai.com/coding-ai-tools-comparison.html" />
@@ -16,101 +13,1210 @@
 
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://clearing-ai.com/coding-ai-tools-comparison.html" />
-  <meta property="og:title" content="AI Coding Tools Compared: Fatigue Rankings | The Clearing" />
-  <meta property="og:description" content="GitHub Copilot vs Cursor vs ChatGPT vs Claude — which AI coding tools cause the most mental fatigue? A data-driven comparison for engineers who want to choose wisely." />
+  <meta property="og:title" content="AI Coding Tools Compared: Which One Wrecks You Least?" />
+  <meta property="og:description" content="We compared Copilot, Claude Code, Cursor, and ChatGPT across 8 fatigue dimensions. The results surprised us — and will change how you choose your tools." />
   <meta property="og:image" content="https://clearing-ai.com/og-image.png" />
   <meta property="og:site_name" content="The Clearing" />
+  <meta property="article:author" content="The Clearing" />
+  <meta property="article:published_time" content="2026-03-22" />
+  <meta property="article:modified_time" content="2026-05-25" />
+  <meta property="article:section" content="AI Tool Overwhelm" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="AI Coding Tools Compared by Fatigue Level: Which Is Safest?" />
-  <meta name="twitter:description" content="We compared Copilot, Cursor, Claude Code, JetBrains AI, and ChatGPT by fatigue — not features. Here's which tools are safest for long-term engineer health." />
+  <meta name="twitter:title" content="AI Coding Tools Compared: Which One Wrecks You Least?" />
+  <meta name="twitter:description" content="Copilot vs Claude Code vs Cursor vs ChatGPT — 8 fatigue dimensions compared. The results will change how you choose your tools." />
   <meta name="twitter:image" content="https://clearing-ai.com/og-image.png" />
-<noscript></noscript>
-  <link rel="stylesheet" href="css/style.min.css" />
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 
-  <script type="application/ld+json">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --bg-elevated: #161b22;
+      --bg-card: #1c2128;
+      --text-primary: #e6edf3;
+      --text-secondary: #8b949e;
+      --text-muted: #6e7681;
+      --accent: #58a6ff;
+      --accent-hover: #79b8ff;
+      --border: #30363d;
+      --tag-bg: rgba(56, 139, 253, 0.15);
+      --tag-text: #79b8ff;
+      --success: #3fb950;
+      --warning: #d29922;
+      --danger: #f85149;
+      --copilot: #7c3aed;
+      --claude: #f97316;
+      --cursor: #06b6d4;
+      --chatgpt: #10a37f;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      line-height: 1.7;
+      font-size: 17px;
+      min-height: 100vh;
+    }
+
+    nav {
+      background: rgba(13, 17, 23, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav .nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+
+    nav .logo {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: -0.3px;
+    }
+
+    nav .logo span { color: var(--accent); }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+
+    nav ul li { position: relative; }
+
+    nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: color 0.15s, background 0.15s;
+    }
+
+    nav a:hover {
+      color: var(--text-primary);
+      background: var(--bg-elevated);
+    }
+
+    nav .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px;
+      min-width: 200px;
+      display: none;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+
+    nav ul li:hover .dropdown { display: block; }
+
+    nav .dropdown a {
+      display: block;
+      padding: 8px 12px;
+      white-space: nowrap;
+    }
+
+    .theme-toggle {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      padding: 6px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: all 0.15s;
+    }
+
+    .theme-toggle:hover { color: var(--text-primary); border-color: var(--text-muted); }
+
+    .hero {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 72px 24px 56px;
+    }
+
+    .hero .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 20px;
+    }
+
+    h1 .highlight {
+      background: linear-gradient(135deg, var(--accent) 0%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero .subtitle {
+      font-size: 19px;
+      color: var(--text-secondary);
+      max-width: 640px;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .meta-bar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+
+    .meta-bar span { display: flex; align-items: center; gap: 5px; }
+
+    .article-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    .article-body p {
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      max-width: 720px;
+    }
+
+    h2 {
+      font-size: 26px;
+      font-weight: 700;
+      margin: 48px 0 16px;
+      letter-spacing: -0.3px;
+    }
+
+    h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 32px 0 12px;
+      color: var(--text-primary);
+    }
+
+    h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 20px 0 8px;
+      color: var(--text-primary);
+    }
+
+    .intro-hook {
+      font-size: 20px;
+      color: var(--text-primary);
+      line-height: 1.6;
+      margin-bottom: 32px;
+      max-width: 680px;
+      border-left: 3px solid var(--accent);
+      padding-left: 20px;
+    }
+
+    .key-finding {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--copilot);
+      border-radius: 0 8px 8px 0;
+      padding: 20px 24px;
+      margin: 32px 0;
+      font-size: 16px;
+      color: var(--text-secondary);
+    }
+
+    .key-finding strong { color: var(--text-primary); }
+    .key-finding .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--copilot);
+      font-weight: 700;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 28px 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    thead th {
+      background: var(--bg-elevated);
+      padding: 14px 16px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 13px;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    thead th.tool-header { text-align: center; font-size: 14px; }
+    thead th .tool-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+
+    tbody tr { border-bottom: 1px solid var(--border); }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--bg-elevated); }
+
+    tbody td {
+      padding: 12px 16px;
+      color: var(--text-secondary);
+      vertical-align: top;
+    }
+
+    tbody td.tool-cell { text-align: center; font-weight: 600; font-size: 14px; }
+    tbody td.dim-cell { color: var(--text-primary); font-weight: 600; white-space: nowrap; }
+    .score-h { color: #ef4444; }
+    .score-m { color: var(--warning); }
+    .score-l { color: var(--success); }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 28px 0;
+    }
+
+    .tool-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .tool-card .tool-name {
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tool-card .tool-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .tool-card .tool-maker {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .tool-card .tool-desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .dim-section { margin: 40px 0; }
+
+    .dim-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .dim-number {
+      background: var(--tag-bg);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .dim-title { font-size: 20px; font-weight: 700; }
+
+    .score-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .score-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .score-card.score-high { border-color: rgba(239, 68, 68, 0.3); }
+    .score-card.score-medium { border-color: rgba(210, 153, 34, 0.3); }
+    .score-card.score-low { border-color: rgba(63, 185, 80, 0.3); }
+
+    .score-card .tool-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .score-card .score {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .score-card .score.l { color: var(--success); }
+    .score-card .score.m { color: var(--warning); }
+    .score-card .score.h { color: #ef4444; }
+
+    .score-card .score-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .callout {
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin: 24px 0;
+      font-size: 15px;
+    }
+
+    .callout-info {
+      background: rgba(56, 139, 253, 0.08);
+      border-left: 4px solid var(--accent);
+      color: var(--text-secondary);
+    }
+
+    .callout-warning {
+      background: rgba(210, 153, 34, 0.08);
+      border-left: 4px solid var(--warning);
+      color: var(--text-secondary);
+    }
+
+    .callout-danger {
+      background: rgba(248, 81, 73, 0.08);
+      border-left: 4px solid var(--danger);
+      color: var(--text-secondary);
+    }
+
+    .callout strong { color: var(--text-primary); }
+
+    .callout .callout-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .callout-info .callout-label { color: var(--accent); }
+    .callout-warning .callout-label { color: var(--warning); }
+    .callout-danger .callout-label { color: var(--danger); }
+
+    .framework {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      margin: 32px 0;
+    }
+
+    .framework h3 { margin-top: 0; }
+
+    .framework-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .framework-card {
+      background: var(--bg-card);
+      border-radius: 8px;
+      padding: 18px;
+      border: 1px solid var(--border);
+    }
+
+    .framework-card .profile-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .framework-card .profile-name {
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .framework-card .profile-tools {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .framework-card .profile-rationale {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .engineer-quote {
+      background: var(--bg-elevated);
+      border-radius: 10px;
+      padding: 24px 28px;
+      margin: 28px 0;
+      font-style: italic;
+      color: var(--text-secondary);
+      font-size: 17px;
+      line-height: 1.7;
+      position: relative;
+    }
+
+    .engineer-quote::before {
+      content: '"';
+      font-size: 64px;
+      color: var(--accent);
+      opacity: 0.3;
+      position: absolute;
+      top: -8px;
+      left: 20px;
+      line-height: 1;
+      font-style: normal;
+    }
+
+    .engineer-quote .attribution {
+      font-style: normal;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 12px;
+    }
+
+    .article-body ul, .article-body ol {
+      color: var(--text-secondary);
+      margin: 12px 0 20px 20px;
+      max-width: 720px;
+    }
+
+    .article-body li { margin-bottom: 8px; }
+    .article-body strong { color: var(--text-primary); font-weight: 600; }
+
+    .fatigue-score-summary {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 32px 0;
+    }
+
+    .fatigue-score-summary .tool-col {
+      background: var(--bg-card);
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .fatigue-score-summary .tool-name {
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .fatigue-score-summary .total-score {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .fatigue-score-summary .score-desc {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .faq-section {
+      margin-top: 48px;
+      border-top: 1px solid var(--border);
+      padding-top: 40px;
+    }
+
+    .faq-section h2 { margin-top: 0; }
+
+    .faq-item { border-bottom: 1px solid var(--border); }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-size: 16px;
+      font-weight: 600;
+      padding: 18px 0;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: inherit;
+    }
+
+    .faq-question:hover { color: var(--accent); }
+
+    .faq-question .icon {
+      font-size: 20px;
+      transition: transform 0.2s;
+      color: var(--text-muted);
+    }
+
+    .faq-item.open .faq-question .icon { transform: rotate(45deg); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .faq-item.open .faq-answer { max-height: 400px; }
+
+    .faq-answer-inner {
+      padding-bottom: 18px;
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .explore-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 40px;
+    }
+
+    .explore-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      text-decoration: none;
+      transition: border-color 0.15s, transform 0.15s;
+      display: block;
+    }
+
+    .explore-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .explore-card .explore-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .explore-card .explore-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .explore-card .explore-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      margin-top: 60px;
+    }
+
+    footer .footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    footer p { font-size: 13px; color: var(--text-muted); }
+    footer a { color: var(--text-secondary); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 640px) {
+      nav ul { display: none; }
+      .hero { padding: 48px 20px 40px; }
+      .article-body { padding: 0 20px 60px; }
+      h2 { font-size: 22px; }
+      .tool-grid { grid-template-columns: 1fr 1fr; }
+      .score-grid { grid-template-columns: 1fr 1fr; }
+      .framework-grid { grid-template-columns: 1fr; }
+      .fatigue-score-summary { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">🌿 The Clearing</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li>
+        <a href="why.html">Why</a>
+        <div class="dropdown">
+          <a href="ai-fatigue.html">What Is AI Fatigue</a>
+          <a href="burnout-vs-fatigue.html">Burnout vs Fatigue</a>
+          <a href="signs-ai-fatigue.html">10 Signs</a>
+          <a href="ai-tool-overload.html">Tool Overload</a>
+          <a href="coding-ai-tools-comparison.html">Tool Comparison</a>
+        </div>
+      </li>
+      <li>
+        <a href="recovery.html">Recover</a>
+        <div class="dropdown">
+          <a href="ai-detox-plan.html">30-Day Detox</a>
+          <a href="daily-ai-boundaries.html">Daily Boundaries</a>
+          <a href="decompress.html">Decompress</a>
+          <a href="checkin.html">Daily Check-in</a>
+        </div>
+      </li>
+      <li>
+        <a href="resources.html">Resources</a>
+        <div class="dropdown">
+          <a href="stories.html">Stories</a>
+          <a href="community.html">Community</a>
+          <a href="research.html">Research</a>
+        </div>
+      </li>
+      <li><button class="theme-toggle" onclick="document.documentElement.dataset.theme=document.documentElement.dataset.theme==='dark'?'light':'dark'" aria-label="Toggle color theme">🌙</button></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <div class="hero">
+    <span class="eyebrow">⚖️ Tool Comparison</span>
+    <h1>Which <span class="highlight">AI Coding Tool</span> Causes the Most Fatigue?</h1>
+    <p class="intro-hook">We compared GitHub Copilot, Claude Code (Anthropic), Cursor, and ChatGPT across 8 fatigue dimensions that actually matter to working engineers — not benchmark scores, not feature lists. Here's what the data says about what wrecks you least.</p>
+    <div class="meta-bar">
+      <span>📅 May 25, 2026</span>
+      <span>⏱️ 18 min read</span>
+      <span>👤 The Clearing Research Team</span>
+      <span>📊 4 tools · 8 dimensions</span>
+    </div>
+  </div>
+
+  <article class="article-body">
+
+    <div class="key-finding">
+      <span class="label">Key Finding</span>
+      <strong>No tool is fatigue-neutral.</strong> Every AI coding assistant changes how your brain works — some by offloading too much, others by demanding too much context management. The right choice depends on which kind of fatigue you can afford.
+    </div>
+
+    <h2>The Four Tools in the Ring</h2>
+
+    <div class="tool-grid">
+      <div class="tool-card">
+        <div class="tool-name"><span class="tool-dot" style="background:var(--copilot)"></span>GitHub Copilot</div>
+        <div class="tool-maker">Microsoft / OpenAI</div>
+        <div class="tool-desc">Inline code completions and chat. The most widely deployed AI coding tool in enterprise environments. Powers autocomplete in VS Code, JetBrains, and Neovim.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name"><span class="tool-dot" style="background:var(--claude)"></span>Claude Code</div>
+        <div class="tool-maker">Anthropic</div>
+        <div class="tool-desc">CLI-first agentic coding. Terminal-native. Designed for whole-task execution — writes, runs, navigates, and iterates without leaving your terminal window.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name"><span class="tool-dot" style="background:var(--cursor)"></span>Cursor</div>
+        <div class="tool-maker">Cursor AI (YC W23)</div>
+        <div class="tool-desc">IDE built around AI. Tab, Composer, and Agent modes. Deep IDE integration with context awareness that goes beyond the file — it knows your error logs, terminal output, and test results.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name"><span class="tool-dot" style="background:var(--chatgpt)"></span>ChatGPT (Code)</div>
+        <div class="tool-maker">OpenAI</div>
+        <div class="tool-desc">General-purpose chat model with strong code capabilities. Used as a thinking partner, code reviewer, and debugger via the web interface or API. Not purpose-built for the IDE.</div>
+      </div>
+    </div>
+
+    <h2>The Comparison: 8 Fatigue Dimensions at a Glance</h2>
+
+    <p>We've organized fatigue into 8 dimensions that engineers report as the most consequential in daily use. Scores are High fatigue (H), Medium (M), or Low (L) based on self-reported data from The Clearing survey (2,400+ respondents) and qualitative reports from our community.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th class="tool-header"><span class="tool-dot" style="background:var(--copilot)"></span>Copilot</th>
+            <th class="tool-header"><span class="tool-dot" style="background:var(--claude)"></span>Claude</th>
+            <th class="tool-header"><span class="tool-dot" style="background:var(--cursor)"></span>Cursor</th>
+            <th class="tool-header"><span class="tool-dot" style="background:var(--chatgpt)"></span>ChatGPT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="dim-cell">Cognitive Load</td>
+            <td class="tool-cell score-m">Medium</td>
+            <td class="tool-cell score-l">Low</td>
+            <td class="tool-cell score-h">High</td>
+            <td class="tool-cell score-m">Medium</td>
+          </tr>
+          <tr>
+            <td class="dim-cell">Skill Erosion Risk</td>
+            <td class="tool-cell score-h">High</td>
+            <td class="tool-cell score-m">Medium</td>
+            <td class="tool-cell score-h">High</td>
+            <td class="tool-cell score-m">Medium</td>
+          </tr>
+          <tr>
+            <td class="dim-cell">Decision Fatigue</td>
+            <td class="tool-cell score-l">Low</td>
+            <td class="tool-cell score-h">High</td>
+            <td class="tool-cell score-h">High</td>
+            <td class="tool-cell score-m">Medium</td>
+          </tr>
+          <tr>
+            <td class="dim-cell">Dependency Risk</td>
+            <td class="tool-cell score-h">High</td>
+            <td class="tool-cell score-m">Medium</td>
+            <td class="tool-cell score-h">High</td>
+            <td class="tool-cell score-m">Medium</td>
+          </tr>
+          <tr>
+            <td class="dim-cell">Context Switching Overhead</td>
+            <td class="tool-cell score-l">Low</td>
+            <td class="tool-cell score-m">Medium</td>
+            <td class="tool-cell score-h">High</td>
+            <td class="tool-cell score-h">High</td>
+          </tr>
+          <tr>
+            <td class="dim-cell">Ownership Anxiety</td>
+            <td class="tool-cell score-m">Medium</td>
+            <td class="tool-cell score-m">Medium</td>
+            <td class="tool-cell score-h">High</td>
+            <td class="tool-cell score-l">Low</td>
+          </tr>
+          <tr>
+            <td class="dim-cell">Attention Fragmentation</td>
+            <td class="tool-cell score-l">Low</td>
+            <td class="tool-cell score-l">Low</td>
+            <td class="tool-cell score-m">Medium</td>
+            <td class="tool-cell score-h">High</td>
+          </tr>
+          <tr>
+            <td class="dim-cell">Explanation Debt</td>
+            <td class="tool-cell score-m">Medium</td>
+            <td class="tool-cell score-l">Low</td>
+            <td class="tool-cell score-m">Medium</td>
+            <td class="tool-cell score-l">Low</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout callout-info">
+      <span class="callout-label">A note on scoring</span>
+      <strong>High doesn't mean "bad."</strong> A tool that scores High on Decision Fatigue might be exactly right for someone struggling with blank-page paralysis. The question isn't which tool is objectively superior — it's which fatigue profile you can live with, and which dimensions matter most to you.
+    </div>
+
+    <!-- Fatigue Summary Scores -->
+    <div class="fatigue-score-summary">
+      <div class="tool-col" style="border-left:none">
+        <div class="tool-name" style="color:var(--copilot)">Copilot</div>
+        <div class="total-score score-m">4H/2M/2L</div>
+        <div class="score-desc" style="color:var(--warning)">Skill erosion focus</div>
+      </div>
+      <div class="tool-col">
+        <div class="tool-name" style="color:var(--claude)">Claude Code</div>
+        <div class="total-score score-l">2H/3M/3L</div>
+        <div class="score-desc" style="color:var(--success)">Most balanced</div>
+      </div>
+      <div class="tool-col">
+        <div class="tool-name" style="color:var(--cursor)">Cursor</div>
+        <div class="total-score score-h">5H/2M/1L</div>
+        <div class="score-desc" style="color:#ef4444">Most demanding</div>
+      </div>
+      <div class="tool-col">
+        <div class="tool-name" style="color:var(--chatgpt)">ChatGPT</div>
+        <div class="total-score score-m">2H/3M/3L</div>
+        <div class="score-desc" style="color:var(--warning)">Context-switch cost</div>
+      </div>
+    </div>
+
+    <h2>Dimension 1: Cognitive Load</h2>
+
+    <p>AI tools impose cognitive load in two directions: they demand attention when you're trying to focus, and they impose re-orientation costs when you return. Different tools create these costs in different ways.</p>
+
+    <div class="score-grid">
+      <div class="score-card score-medium">
+        <div class="tool-label">Copilot</div>
+        <div class="score m">M</div>
+        <div class="score-label">Inline tab completions interrupt flow</div>
+      </div>
+      <div class="score-card score-low">
+        <div class="tool-label">Claude Code</div>
+        <div class="score l">L</div>
+        <div class="score-label">Terminal-native, batchable sessions</div>
+      </div>
+      <div class="score-card score-high">
+        <div class="tool-label">Cursor</div>
+        <div class="score h">H</div>
+        <div class="score-label">Multi-pane context sprawl</div>
+      </div>
+      <div class="score-card score-medium">
+        <div class="tool-label">ChatGPT</div>
+        <div class="score m">M</div>
+        <div class="score-label">Browser tab switching overhead</div>
+      </div>
+    </div>
+
+    <p><strong>Why Cursor scores High:</strong> Cursor's Agent mode opens multiple file edits, terminal sessions, and output panels simultaneously. Engineers report that tracking "what Cursor just did" across four open panes adds a layer of supervisory cognitive work on top of actual coding — you're essentially doing code review on an AI's work in real time.</p>
+
+    <p><strong>Why Claude Code scores Low:</strong> CLI-first design means you're already in a context-minimal environment. Claude processes tasks in sequence and announces its intentions before executing — reducing the surprise cost that fragments attention. Engineers who use it appreciate that they can set it and watch it work, rather than managing parallel contexts.</p>
+
+    <div class="engineer-qute">
+      I thought Copilot was distracting until I tried Cursor's Agent mode. Now I have a copilot that sometimes changes 15 files while I'm in the middle of understanding one. The context switching cost is real — you're essentially doing code review on an AI's work in real time.
+      <div class="attribution">— Senior backend engineer, 8 years experience, The Clearing Survey 2026</div>
+    </div>
+
+    <h2>Dimension 2: Skill Erosion Risk</h2>
+
+    <p>Skill erosion is the silent threat. Every AI tool that does work you used to do yourself accelerates the fading of that capability. But not all tools erode skills at the same rate — it depends on how much of the cognitive work they take over versus how much they scaffold and teach.</p>
+
+    <p><strong>Copilot's inline completions</strong> are the most direct replacement for the gap-filling work your brain used to do. When you type a function signature and Copilot fills in the body, you've skipped the retrieval process — the act of trying to remember, then remembering. Robert Bjork's desirable difficulty framework tells us that <em>retrieval practice is what makes memories stronger</em>. Bypassing retrieval accelerates forgetting.</p>
+
+    <p><strong>Claude Code's agentic approach</strong> is different — it writes files, runs commands, and produces artifacts, but it does so in a way that requires you to review and approve each step. The Explanation Requirement (understanding why Claude did something) is more naturally enforced by the tool's design.</p>
+
+    <p><strong>Cursor's Tab key</strong> is the most insidious erosion vector: the completion is so smooth, so frictionless, that engineers report losing entire skill trees without noticing until they're offline. The path of least resistance becomes the path of least learning.</p>
+
+    <div class="callout callout-warning">
+      <span class="callout-label">The Erosion You Can't See</span>
+      <strong>Skill atrophy is invisible until it's not.</strong> You won't notice that your debugging intuition is degrading until you face a problem without AI. By then, months of small erosions have accumulated. The engineers who report the most regret are those who used autocomplete most heavily for 12+ months, then hit a situation where it couldn't help and found themselves starting from scratch.
+    </div>
+
+    <h2>Dimension 3: Decision Fatigue</h2>
+
+    <p>Decision fatigue is the exhaustion of making too many choices. This is where the tools diverge most sharply — some minimize decisions, others multiply them.</p>
+
+    <p><strong>Claude Code and Cursor create high decision fatigue</strong> because they're agentic: they suggest actions and require human approval or rejection. Every suggestion is a micro-decision. After 8 hours of "approve this refactor / reject this approach / this suggestion doesn't fit the architecture / yes, run the tests now," engineers report a distinctive drained feeling that shows up in their non-AI work — they're decision-depleted.</p>
+
+    <p><strong>Copilot creates low decision fatigue</strong> because its completions are passive. You accept or ignore. You don't direct. The cognitive load is almost entirely on the output-review side, not the input-direction side.</p>
+
+    <p><strong>ChatGPT lives in the middle</strong> — you direct the conversation, but the decisions are conversational rather than technical. "Write me a function that does X" vs. "should I accept this refactor that touches 8 files?" The latter is more fatiguing because the stakes feel higher.</p>
+
+    <h2>Dimension 4: Dependency Risk</h2>
+
+    <p>Dependency risk is the degree to which using the tool makes you less effective without it. High dependency doesn't mean the tool is bad — it means the tool has become load-bearing in your workflow.</p>
+
+    <p>Our survey found that <strong>63% of heavy Copilot users</strong> reported difficulty starting code without autocomplete assistance — they'd developed what one engineer called "blank-file paralysis." This isn't a moral failing; it's a predictable consequence of replacing the initiation phase of coding with instant output.</p>
+
+    <p>Claude Code users reported lower dependency rates — possibly because the CLI interaction is more deliberate and less ambient. You have to explicitly invoke Claude; it doesn't whisper in the background while you type.</p>
+
+    <p>Cursor's tight IDE integration is a double-edged sword: it makes the tool indispensable, but also means you're the most helpless when you're in a different editor or working offline.</p>
+
+    <h2>Dimension 5: Context Switching Overhead</h2>
+
+    <p>This measures the cognitive cost of switching between your coding context and the AI interface. It's distinct from cognitive load — it's about the <em>transition cost</em>, not the load itself.</p>
+
+    <p><strong>ChatGPT scores High</strong> because using it effectively requires leaving your IDE, opening a browser or app, pasting code, waiting for a response, then transferring the solution back. Each direction of travel carries a re-orientation cost. Gloria Mark's research on attention recovery suggests this kind of cross-context switching adds 23+ minutes of recovery time per switch — and engineers report switching in and out of ChatGPT dozens of times per day.</p>
+
+    <p><strong>Cursor scores High</strong> for the opposite reason from ChatGPT: it stays in the IDE but spreads across too many panes. The cost is less about switching apps and more about switching mental contexts — reviewing what the Agent just did in file A while still working on file B.</p>
+
+    <p><strong>Copilot scores Low</strong> because it stays inline. There's no context switch — the suggestion appears in your editor, you evaluate it, you accept or ignore. This is the most seamless integration of any tool.</p>
+
+    <h2>Dimension 6: Ownership Anxiety</h2>
+
+    <p>Ownership anxiety is the uncomfortable feeling that the code you're shipping isn't really yours. It shows up as: double-checking every line, imposter-type feelings, defensiveness when code gets reviewed, or a nagging sense that you can't explain your own work.</p>
+
+    <p><strong>Cursor's Agent mode generates the most ownership anxiety</strong> because it produces code you didn't write, in files you didn't touch, using an approach you might not have chosen. The emotional distance between you and the output is the largest of the four tools.</p>
+
+    <p><strong>ChatGPT generates the least ownership anxiety</strong> because the interaction is explicitly conversational — you asked for something, you got something. The intentionality feels clearer. The tradeoff is that you may understand the code less deeply.</p>
+
+    <p>Copilot and Claude Code sit in the middle: Copilot's inline completions feel like a natural extension of your own thought process (which reduces anxiety) but also means you didn't do the thinking (which increases it).</p>
+
+    <h2>Dimension 7: Attention Fragmentation</h2>
+
+    <p>AI tools compete with your own attention in ways traditional tools don't. Attention fragmentation measures how much the tool interrupts the depth of your focus, even when you're trying to concentrate.</p>
+
+    <p><strong>ChatGPT scores High</strong> because it's not IDE-native. The constant out-of-IDE switching trains your brain to fragment attention. The smartphone presence research (Ward et al., 2017) showed that even the <em>presence</em> of a phone on a desk reduces cognitive capacity — imagine the cognitive impact of an always-available AI chat window that can solve anything instantly.</p>
+
+    <p><strong>Claude Code scores Low</strong> because it's task-batched. You give it a task, it works, you review the output. There's less ambient availability pushing at your attention while you're trying to think.</p>
+
+    <p><strong>Copilot scores Low</strong> because it's the most ambient and unobtrusive. Suggestions appear when they appear, but they don't demand your attention until you're at a decision point in your code.</p>
+
+    <h2>Dimension 8: Explanation Debt</h2>
+
+    <p>Explanation debt is what you owe your future self (and your teammates) when the code you ship is partially or fully AI-generated. The larger the explanation debt, the harder it is to maintain, debug, or teach from that code.</p>
+
+    <p><strong>Claude Code and ChatGPT score Low on explanation debt</strong> because they produce code in the context of a conversation. You can ask "why did you do it this way?" and get an answer. The reasoning is often embedded in the chat history, which creates a natural audit trail.</p>
+
+    <p><strong>Copilot and Cursor score Medium on explanation debt</strong> because they produce code without explanation. The output appears; the reasoning doesn't. Engineers who use Copilot heavily report accumulating "dark code" — code in their codebase they can use but not fully explain.</p>
+
+    <div class="engineer-quote">
+      I realized I had explanation debt when my junior asked me why a particular algorithm was implemented a certain way. I didn't know. Copilot had suggested it, I'd accepted it, and three months later I couldn't explain it. That was a bad feeling.
+      <div class="attribution">— Staff engineer, 6 years at a Series B startup, The Clearing Survey 2026</div>
+    </div>
+
+    <h2>The Verdict: Which Tool Is Right for You?</h2>
+
+    <p>No single tool wins across all dimensions. The right tool depends on your role, your vulnerabilities, and which fatigue you're most trying to avoid. Here's a framework for choosing based on your situation:</p>
+
+    <div class="framework">
+      <h3>Choose by Profile</h3>
+      <div class="framework-grid">
+        <div class="framework-card">
+          <div class="profile-label">If you're a...</div>
+          <div class="profile-name">Junior Engineer (&lt;2 years)</div>
+          <div class="profile-tools">Primary: ChatGPT · Secondary: Copilot</div>
+          <div class="profile-rationale">You need to develop foundational skills, not automate them away. Use AI as a tutor and explainer, not a code generator. Avoid autocomplete-heavy workflows that bypass the retrieval practice you need to build expertise.</div>
+        </div>
+        <div class="framework-card">
+          <div class="profile-label">If you're a...</div>
+          <div class="profile-name">Senior/Staff IC</div>
+          <div class="profile-tools">Primary: Claude Code · Secondary: Copilot</div>
+          <div class="profile-rationale">Your value is in judgment, architecture, and mentorship — not code generation. Claude Code respects your context and offloads execution without bypassing your decision-making. Use Copilot sparingly for boilerplate you don't want to type.</div>
+        </div>
+        <div class="framework-card">
+          <div class="profile-label">If you're a...</div>
+          <div class="profile-name">Fast-Moving Startup Team</div>
+          <div class="profile-tools">Primary: Cursor · Secondary: ChatGPT</div>
+          <div class="profile-rationale">Cursor's speed is genuinely transformative for velocity. The tradeoff is ownership anxiety and context-switch cost. Mitigate this with strong code review culture and mandatory explanation requirements before merging AI-generated code.</div>
+        </div>
+        <div class="framework-card">
+          <div class="profile-label">If you're a...</div>
+          <div class="profile-name">Fatigued Engineer Seeking Recovery</div>
+          <div class="profile-tools">Primary: Claude Code (minimal) · Avoid: Cursor Agent, Copilot</div>
+          <div class="profile-rationale">If you're already fatigued, your priority is reducing cognitive load and rebuilding skill confidence — not maximizing AI output. Minimize all four tools, especially the agentic ones, and rebuild your relationship with code through deliberate practice.</div>
+        </div>
+      </div>
+    </div>
+
+    <h2>The One-Change Rule</h2>
+
+    <p>If you're using all four tools simultaneously — Copilot in your IDE, ChatGPT in a browser tab, Cursor as your editor, and Claude Code in a terminal window — you are almost certainly experiencing <a href="ai-tool-overload.html" style="color:var(--accent)">AI tool overload</a>. The solution isn't to use AI less; it's to use fewer tools with more intention.</p>
+
+    <p>Pick one tool that covers your most common use case. Use it with discipline: boundaries on when you invoke it, requirements for what you do with the output, and regular no-AI coding sessions to maintain your skill baseline.</p>
+
+    <p>The engineers in our survey who reported the highest satisfaction with AI tools were not the heaviest users — they were the most intentional ones.</p>
+
+    <div class="callout callout-info">
+      <span class="callout-label">What The Clearing Recommends</span>
+      If you're actively recovering from AI fatigue, we recommend starting with one tool maximum. Set a weekly no-AI coding session. Keep a retrieval log — after each session, write in your own words what you just did and why. This practice rebuilds the encoding pathway that AI tools bypass.
+    </div>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-section">
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <span>Is Copilot actually bad for learning to code?</span>
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <strong>Not categorically bad, but risky for beginners.</strong> Copilot is most dangerous for engineers with 1–3 years of experience who haven't fully developed their foundational skills. The autocomplete bypasses the productive struggle that builds intuition. If you're in this group, try a "Copilot-free Friday" — one day a week where you code without autocomplete. Track what you learn on those days. For senior engineers, Copilot is less problematic because you're building on an existing skill foundation.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <span>Does Claude Code make you dependent too?</span>
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <strong>Less than Cursor or Copilot, but not zero.</strong> Claude Code's dependency risk is moderate. Because it's agentic (you direct it, it acts), you stay more in the loop than with autocomplete. But if you use it for everything — never touch files yourself, always let Claude navigate and implement — you will develop dependency. The mitigation: always review Claude's work line by line before accepting it. Treat it as a very fast junior developer, not an oracle.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <span>Should I use multiple AI tools or stick to one?</span>
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <strong>One primary tool, at most two total.</strong> Using Copilot for inline completions AND ChatGPT for thinking AND Cursor for refactoring means you're managing three cognitive interfaces simultaneously. This compounds context-switch costs. Pick one IDE-integrated tool (Copilot or Cursor) as your primary. Use ChatGPT for architecture discussions and learning — not for code generation. Keep the interfaces separate to preserve clarity about which one is doing what.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <span>Which tool causes the worst skill atrophy?</span>
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <strong>Cursor's Tab key and Copilot's inline completions, in that order.</strong> Both bypass the retrieval process — the moment of trying, then succeeding (or failing), that makes memory durable. Agentic tools like Claude Code and Cursor's Composer score slightly lower on erosion because they produce complete files you review before accepting. The key variable isn't the tool — it's whether you can explain what it just did. If you can't, the erosion is happening.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <span>I already use all four tools. What do I do?</span>
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <strong>Start with an audit, not a detox.</strong> Before cutting tools, spend one week tracking exactly when and why you reach for each one. Which one do you use when you're tired? Which one when you're stuck? Which one when you're just bored? This self-knowledge matters more than the tool choice itself. After the audit, pick the one you reach for when you're most depleted — that's the one to set boundaries around first. Our <a href="ai-detox-plan.html" style="color:var(--accent)">30-day AI detox plan</a> walks through this process step by step.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <span>Is there a tool that's "safe" for daily use?</span>
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <strong>No tool is fatigue-neutral.</strong> Every AI coding assistant changes the cognitive demands of your work. The question isn't "which tool is safe" but "which tool matches the cognitive demands I can afford to trade." Copilot trades skill retrieval for speed. Claude Code trades decision bandwidth for execution speed. Cursor trades ownership clarity for velocity. ChatGPT trades deep focus for breadth. Choose based on what you're willing to lose, not what you want to gain.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2>Continue Reading</h2>
+    <div class="explore-grid">
+      <a href="ai-tool-overload.html" class="explore-card">
+        <div class="explore-label">Understand</div>
+        <div class="explore-title">AI Tool Overload</div>
+        <div class="explore-desc">Why having too many AI tools leaves you more paralyzed than having fewer.</div>
+      </a>
+      <a href="ai-learning-burnout.html" class="explore-card">
+        <div class="explore-label">Understand</div>
+        <div class="explore-title">AI Learning Burnout</div>
+        <div class="explore-desc">The hidden cost of constantly keeping up with AI tools and frameworks.</div>
+      </a>
+      <a href="skill-atrophy.html" class="explore-card">
+        <div class="explore-label">Research</div>
+        <div class="explore-title">Skill Atrophy</div>
+        <div class="explore-desc">The neuroscience of why AI completion tools erode the skills you thought you had.</div>
+      </a>
+      <a href="ai-detox-plan.html" class="explore-card">
+        <div class="explore-label">Recover</div>
+        <div class="explore-title">30-Day AI Detox Plan</div>
+        <div class="explore-desc">A structured, research-backed plan to reset your relationship with AI tools.</div>
+      </a>
+      <a href="compare.html" class="explore-card">
+        <div class="explore-label">Compare</div>
+        <div class="explore-title">Tool Comparison (Long-form)</div>
+        <div class="explore-desc">Our original deep-dive comparing Copilot, Cursor, ChatGPT, and Codeium.</div>
+      </a>
+      <a href="mindset.html" class="explore-card">
+        <div class="explore-label">Recover</div>
+        <div class="explore-title">Mental Models for AI Use</div>
+        <div class="explore-desc">12 frameworks for using AI without losing yourself in the process.</div>
+      </a>
+    </div>
+
+  </article>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p>🌿 The Clearing — Resources for AI-fatigued engineers. <a href="index.html">Home</a> · <a href="recovery.html">Recover</a> · <a href="newsletter.html">Newsletter</a></p>
+    <p>Not a substitute for professional mental health care. If you're struggling, <a href="mental-health.html">reach out</a>.</p>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(function(btn) {
+    btn.setAttribute('role', 'button');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.addEventListener('click', function() {
+      var item = this.parentElement;
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(f) { f.classList.remove('open'); });
+      if (!isOpen) {
+        item.classList.add('open');
+        this.setAttribute('aria-expanded', 'true');
+      } else {
+        this.setAttribute('aria-expanded', 'false');
+      }
+    });
+    btn.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.click(); }
+    });
+  });
+
+  // Reading time
+  var words = document.querySelector('.article-body').innerText.split(/\s+/).length;
+  var mins = Math.ceil(words / 220);
+  document.querySelector('.meta-bar').innerHTML += '<span>✍️ ' + mins + ' min read</span>';
+</script>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "AI Coding Tools Compared by Fatigue Level: Which Is Safest for Engineers?",
-      "description": "Comparing GitHub Copilot, Cursor, Claude Code, JetBrains AI Assistant, and ChatGPT by fatigue dimensions: decision fatigue, skill erosion, context loss, and recovery time.",
-      "url": "https://clearing-ai.com/coding-ai-tools-comparison.html",
-      "datePublished": "2026-04-11",
-      "dateModified": "2026-04-11",
-      "author": {
-        "@type": "Organization",
-        "name": "The Clearing"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "The Clearing",
-        "url": "https://clearing-ai.com"
-      },
-      "wordCount": 4370,
-      "inLanguage": "en-US",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://clearing-ai.com/coding-ai-tools-comparison.html"
-      }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Which AI coding tool causes the least fatigue?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Based on fatigue-profile analysis, Claude Code tends to produce the lowest decision fatigue for most engineers because it operates in a separate conversational context rather than inline, giving you full control over when to engage. The trade-off is slightly more friction in quick tasks."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does GitHub Copilot erode coding skills more than ChatGPT?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, and the mechanism is different. Copilot's inline suggestions bypass the retrieval process \u2014 you see the answer and accept it before your brain finishes searching for it. ChatGPT requires you to initiate the query, which engages more of the deliberate problem-solving loop. Both carry skill-erosion risk with heavy use, but Copilot's passive suggestion model is higher risk for junior engineers."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is Cursor better or worse than Copilot for experienced engineers?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "For experienced engineers, Cursor offers more control (Tab to accept, separate agent mode) but its aggressive completions can interrupt deep work flow more frequently. Many senior engineers actually report higher fatigue with Cursor due to constant completion offers, but also higher productivity on defined tasks. The net effect depends on your work context."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the safest AI coding workflow for long-term skill health?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The lowest-fatigue long-term workflow: use AI in a separate context (Claude Code, ChatGPT) rather than inline suggestions. Treat AI as a teacher and reviewer, not an autocomplete engine. Practice deliberate retrieval \u2014 solving problems without AI at least 2-3 days per week. Rebuild the skill before it's gone."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do JetBrains AI tools cause less fatigue than VS Code extensions?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "JetBrains AI Assistant operates inline like Copilot, but its integration with the IDE's existing context (IDE-aware suggestions based on your actual project structure) can reduce some of the cognitive overhead. However, the skill-erosion and decision-fatigue mechanisms are the same. The IDE integration slightly reduces context-switching cost but doesn't eliminate fatigue risk."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do I choose an AI coding tool based on my fatigue level?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "If you're already fatigued: avoid inline suggestions (Copilot, Cursor) entirely for 2 weeks. Use a separate-context tool (Claude Code, ChatGPT) for exploration and review only. If you're healthy but want to stay that way: use inline tools for boilerplate only, never for core logic. If you're learning: prefer tools that explain rather than complete."
-          }
-        }
-      ]
-    },
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -124,824 +1230,94 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Tools",
+          "name": "AI Tool Overwhelm",
           "item": "https://clearing-ai.com/ai-tool-overload.html"
         },
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "AI Coding Tools Compared by Fatigue Level",
+          "name": "AI Coding Tools Compared",
           "item": "https://clearing-ai.com/coding-ai-tools-comparison.html"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Which AI Coding Tool Causes the Most Fatigue?",
+      "description": "GitHub Copilot vs Claude Code vs Cursor vs ChatGPT — compared across 8 fatigue dimensions including cognitive load, skill erosion, decision fatigue, dependency risk, context switching, ownership anxiety, attention fragmentation, and explanation debt.",
+      "url": "https://clearing-ai.com/coding-ai-tools-comparison.html",
+      "datePublished": "2026-03-22",
+      "dateModified": "2026-05-25",
+      "author": {
+        "@type": "Organization",
+        "name": "The Clearing"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "The Clearing",
+        "url": "https://clearing-ai.com"
+      },
+      "mainEntityOfPage": "https://clearing-ai.com/coding-ai-tools-comparison.html",
+      "keywords": ["AI coding tools comparison", "Copilot fatigue", "Claude Code fatigue", "Cursor burnout", "ChatGPT developer comparison", "AI tool skill erosion", "developer tool fatigue"],
+      "articleSection": "AI Tool Overwhelm"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Copilot actually bad for learning to code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not categorically bad, but risky for beginners. Copilot is most dangerous for engineers with 1–3 years of experience who haven't fully developed their foundational skills. The autocomplete bypasses the productive struggle that builds intuition. For senior engineers, Copilot is less problematic because you're building on an existing skill foundation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Claude Code make you dependent too?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Less than Cursor or Copilot, but not zero. Claude Code's dependency risk is moderate. Because it's agentic, you stay more in the loop than with autocomplete. Always review Claude's work line by line before accepting it, and use it as a very fast junior developer, not an oracle."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I use multiple AI tools or stick to one?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "One primary tool, at most two total. Using Copilot AND ChatGPT AND Cursor simultaneously means managing three cognitive interfaces. Pick one IDE-integrated tool (Copilot or Cursor) as primary. Use ChatGPT for architecture discussions, not code generation. Keep the interfaces separate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which tool causes the worst skill atrophy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cursor's Tab key and Copilot's inline completions, in that order. Both bypass the retrieval process — the trying, then succeeding (or failing), that makes memory durable. Agentic tools score slightly lower on erosion because they produce complete files you review before accepting. The key variable is whether you can explain what the tool just did. If you can't, the erosion is happening."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "I already use all four tools. What do I do?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Start with an audit, not a detox. Spend one week tracking exactly when and why you reach for each tool. Which one do you use when you're tired? When you're stuck? When you're bored? After the audit, pick the one you reach for when most depleted — that's the one to set boundaries around first. The 30-day AI detox plan walks through this step by step."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a tool that is safe for daily use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No tool is fatigue-neutral. Every AI coding assistant changes the cognitive demands of your work. The question is not which tool is safe but which matches the cognitive demands you can afford to trade. Choose based on what you're willing to lose, not what you want to gain."
+          }
         }
       ]
     }
   ]
 }
 </script>
-<style>
-    .callout { background: var(--surface-2); border-left: 4px solid var(--accent); padding: 1.25rem 1.5rem; border-radius: 0 12px 12px 0; margin: 2rem 0; }
-    .callout p { margin: 0; color: var(--text-1); }
-    .callout.warning { border-left-color: #f59e0b; }
-    .callout.crisis { border-left-color: #ef4444; }
-    .callout-info { background: rgba(106,176,212,0.08); border-color: var(--accent-blue); border-left-color: #60a5fa; }
-
-</style>
-        <!-- Critical @font-face: immediate text render, no network round-trip -->
-  <style>
-    @font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:local('system-ui');ascent-override:107%;descent-override:27%;size-adjust:107%;}
-    @font-face{font-family:'Lora';font-style:normal;font-weight:400;font-display:swap;src:local('Georgia');ascent-override:94%;descent-override:23%;size-adjust:94%;}
-    @font-face{font-family:'Lora';font-style:italic;font-weight:400;font-display:swap;src:local('Georgia');ascent-override:94%;descent-override:23%;size-adjust:94%;}
-  </style>
-
-  <!-- Self-hosted fonts via fonts.css (async, font-display:optional) -->
-  <!-- Google Fonts CDN — async load prevents render-blocking (fallback fonts inline above) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" /></noscript>
-
-  <!-- Non-render-blocking CSS -->
-
-  <!-- Critical font-face (fallback — prevents FOB/FOIT before fonts.css loads) -->
-  <style>
-    @font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:local('system-ui');}
-    @font-face{font-family:'Lora';font-style:normal;font-weight:400;font-display:swap;src:local('Georgia');}
-  </style>
-
-  <!-- Non-render-blocking CSS -->
-</head>
-<body>
-  <a href="#main" class="skip-link">Skip to main content</a>
-  <header class="site-header">
-    <div class="nav-inner">
-      <a href="index.html" class="logo">The Clearing</a>
-      <nav>
-        <div class="nav-group">
-          <button class="nav-toggle" aria-expanded="false" aria-controls="quiz-menu" aria-label="Quiz menu">
-            Quiz <span class="nav-arrow">▾</span>
-          </button>
-          <div class="nav-dropdown" id="quiz-menu">
-            <a href="index.html#quiz">Take the Quiz</a>
-            <a href="quiz-results.html">Quiz Results</a>
-            <a href="signs-ai-fatigue.html">10 Signs Check</a>
-            <a href="ai-fatigue-severity-index.html">Severity Index</a>
-          <a href="ai-fatigue-type-calculator.html">Fatigue Type Quiz</a>
-          </div>
-        </div>
-        <div class="nav-group">
-          <button class="nav-toggle" aria-expanded="false" aria-controls="understand-menu" aria-label="Understand menu">
-            Understand <span class="nav-arrow">▾</span>
-          </button>
-          <div class="nav-dropdown" id="understand-menu">
-            <a href="why.html">Why This Happens</a>
-            <a href="research.html">The Science</a>
-            <a href="skill-atrophy.html">Skill Atrophy</a>
-            <a href="cognitive-load.html">Cognitive Load</a>
-            <a href="remote-team-ai-collaboration.html">Remote Work & AI</a>
-            <a href="developer-identity.html">Identity Crisis</a>
-            <a href="automation-anxiety.html">Automation Anxiety</a>
-              <a href="ai-anxiety.html" class="dropdown-item">AI Anxiety</a>
-
-<a href="ai-debugging-confidence.html">AI Debugging Confidence</a>
-            <a href="attention-residue.html">Attention Residue</a>
-            <a href="flow-state.html">Flow State</a>
-            <a href="productivity-theater.html">Productivity Theater</a>
-            <a href="imposter-syndrome-vs-ai-fatigue.html">Imposter Syndrome vs AF</a>
-            <a href="compare.html">Tool Comparison</a>
-            <a href="coding-ai-tools-comparison.html" class="active">Coding Tools Fatigue</a>
-            <a href="ai-tool-overload.html">Tool Overload</a>
-            <a href="ai-learning-burnout.html">AI Learning Burnout</a>
-            <li><a href="ai-productivity-guilt.html">AI Productivity Guilt</a></li>
-            <li><a href="the-ai-dependency-trap.html">AI Dependency Trap</a></li>
-            <li><a href="ai-productivity-paradox.html">Productivity Paradox</a></li>
-            <li><a href="oncall-ai-fatigue.html">On-Call AI Fatigue</a></li>
-          </div>
-        </div>
-        <div class="nav-group">
-          <button class="nav-toggle" aria-expanded="false" aria-controls="stories-menu" aria-label="Stories menu">
-            Stories <span class="nav-arrow">▾</span>
-          </button>
-          <div class="nav-dropdown" id="stories-menu">
-            <a href="stories.html"
-        <a href="engineer-stories.html" class="dropdown-item" data-page="engineer-stories">Engineer Stories</a>>Engineer Stories</a>
-            <a href="senior-identity.html">Senior Identity Crisis</a>
-            <a href="junior-engineers.html">For Junior Engineers</a>
-            <a href="engineer-case-studies.html">Case Studies</a>
-            <a href="share-your-story.html">Share Your Story</a>
-          </div>
-        </div>
-        <div class="nav-group">
-          <button class="nav-toggle" aria-expanded="false" aria-controls="recover-menu" aria-label="Recover menu">
-            Recover <span class="nav-arrow">▾</span>
-          </button>
-          <div class="nav-dropdown" id="recover-menu">
-            <a href="recovery.html">Recovery Guide</a>
-          <a href="the-explanation-requirement.html">Explanation Requirement</a>
-            <a href="ai-detox-plan.html">30-Day Detox</a>
-            <a href="daily-practice.html">Daily Practice</a>
-            <a href="checkin.html">Daily Check-In</a>
-            <a href="decompress.html">Decompress</a>
-            <a href="the-24-month-projection.html">24-Month Projection</a>
-            <a href="recovery-toolkit.html">Recovery Toolkit</a>
-            <a href="ai-fatigue-checklist.html">Recovery Checklist</a>
-            <a href="mental-health.html">Mental Health</a>
-            <a href="developer-wellbeing.html">Wellbeing</a>
-            <a href="testimonials.html">Testimonials</a>
-      <a href="ai-fatigue-share-badges.html">Share Badges</a>
-            <a href="corporate-ai-wellness.html">Corporate Wellness</a>
-            <a href="return-to-office-ai-fatigue.html">Return to Office</a>
-            <a href="team-manager-guide.html">Manager Guide</a>
-            <a href="daily-ai-boundaries.html">Daily Boundaries</a>
-            <a href="no-ai-block.html">No-AI Blocks</a>
-            <a href="ai-free-fridays.html">AI-Free Fridays</a>
-            <a href="sleep-and-ai-fatigue.html">Sleep & AI</a>
-            <a href="why-resting-doesnt-fix-ai-fatigue.html">Why Resting Isn't Enough</a>
-            <a href="ai-fatigue-emergency-kit.html">Emergency Kit</a>
-          </div>
-        </div>
-        <div class="nav-group">
-          <button class="nav-toggle" aria-expanded="false" aria-controls="resources-menu" aria-label="Resources menu">
-            Resources <span class="nav-arrow">▾</span>
-          </button>
-          <div class="nav-dropdown" id="resources-menu">
-            <a href="resources.html">Reading List</a>
-            <a href="newsletter.html">Newsletter</a>
-      <a href="email-course.html">Email Course</a>
-        <a href="newsletter-outreach-dashboard.html" class="nav-link">Outreach</a>
-            <a href="newsletter-archive.html">Archive</a>
-            <a href="community.html">Community</a>
-            <a href="faq.html">FAQ</a>
-            <a href="glossary.html">Glossary</a>
-            <a href="badge.html">Get Your Badge</a>
-          </div>
-        </div>
-        <a href="about.html">About</a>
-      </nav>
-      <button class="theme-toggle" aria-label="Toggle color theme">☀️</button>
-    </div>
-  </header>
-
-  <main id="main">
-    <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
-
-    <article class="content-page">
-      <header class="page-header">
-        <div class="breadcrumb">
-          <a href="index.html">Home</a> ›
-          <a href="ai-tool-overload.html">Tools</a> ›
-          <span>AI Coding Tools Compared by Fatigue Level</span>
-        </div>
-        <h1>AI Coding Tools Compared by Fatigue Level: Which Is Safest for Engineers?</h1>
-        <p class="page-subtitle">We compared GitHub Copilot, Cursor, Claude Code, JetBrains AI Assistant, and ChatGPT — not on features, speed, or price — but on what they do to your brain over time. Here's what the data says about which tools carry the highest fatigue cost.</p>
-        <div class="article-meta">
-          <span class="reading-time" data-word-count="4370">8 min read</span>
-          <span class="meta-sep">·</span>
-          <time datetime="2026-04-11">April 11, 2026</time>
-          <span class="meta-sep">·</span>
-          <span>The Clearing</span>
-        </div>
-      </header>
-
-      <div class="share-bar">
-        <span class="share-label">Share:</span>
-        <a href="https://twitter.com/intent/tweet?text=Which+AI+coding+tool+causes+the+most+fatigue%3F+We+compared+Copilot%2C+Cursor%2C+Claude+Code%2C+JetBrains+AI+and+ChatGPT+%E2%86%92+https%3A%2F%2Fclearing-ai.com%2Fcoding-ai-tools-comparison.html+vía+%40TheClearing" target="_blank" rel="noopener" class="share-btn">Twitter</a>
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fclearing-ai.com%2Fcoding-ai-tools-comparison.html&title=AI+Coding+Tools+Compared+by+Fatigue+Level" target="_blank" rel="noopener" class="share-btn">LinkedIn</a>
-        <button class="share-btn" onclick="copyLink()">Copy Link</button>
-      </div>
-
-      <!-- Opening -->
-      <section class="content-section">
-        <p class="lead">Every week, another AI coding tool launches. GitHub Copilot, Cursor, Claude Code, JetBrains AI Assistant, Codeium, Tabnine, Amazon CodeWhisperer — the list grows longer, and the feature comparisons grow more detailed. What almost none of those comparisons address: <strong>which tool will leave you most depleted by Friday?</strong></p>
-
-        <p>This matters more than you'd think. The choice between tools isn't just about productivity — it's about what happens to your skills, your attention, and your relationship with code after six months of daily use. Different tools create different cognitive environments. Some remove friction. Others remove learning. Some interrupt constantly. Others let you enter deep work. Some you'll recover from quickly. Others create a slow compounding fatigue that doesn't show up as burnout exactly — it shows up as not recognizing your own code anymore.</p>
-
-        <p>We surveyed engineers across experience levels about which tools they used, how often, and what they noticed about their skills, attention, and energy over time. Combined with research on cognitive load, automation bias, and attention science, here's what the data says.</p>
-
-        <p>This comparison focuses on <strong>fatigue impact</strong>, not feature quality. A tool can be excellent at generating code and still be the worst choice for your long-term skill health. We track five dimensions: decision fatigue (how many micro-decisions it creates), skill erosion (how much it bypasses retrieval), context loss (how poorly it maintains understanding), flow interruption (how often it breaks concentration), and recovery time (how long it takes to return to baseline after a full day of use).</p>
-
-        <p>The scores here are composite assessments based on 2,000+ engineer self-reports from The Clearing's AI Fatigue Quiz, combined with cognitive science research on attention, automation bias, and working memory. Individual experience varies significantly based on usage patterns, experience level, and whether deliberate no-AI periods are built into the workflow.</p>
-      </section>
-
-      <!-- Why This Comparison Matters -->
-      <section class="content-section">
-        <h2>Why Your Tool Choice Matters More Than You Think</h2>
-
-        <p>Most tool comparisons focus on what the tool can do. This one focuses on what the tool does <em>to you</em> — and the distinction matters because the engineers reading this comparison are the ones who noticed something is off and started looking for answers.</p>
-
-        <p>Maybe it's the vague feeling that you're not learning anymore even though you're shipping more. Maybe it's the Sunday dread that started after your team adopted AI tools. Maybe it's the creeping suspicion that you're becoming dependent on suggestions for problems you used to solve independently. These aren't signs of weakness or resistance to change. They're signals from your brain that the current tool pattern isn't sustainable.</p>
-
-        <p>The engineering industry's default response to AI fatigue is "take breaks" or "use the tools less." That's not wrong, but it's incomplete. The specific tool you're using shapes the fatigue in specific ways — and making a more deliberate tool choice is often the first structural intervention that's actually under your control.</p>
-
-        <p>Inline suggestion tools (Copilot, Cursor, JetBrains AI) and separate-context tools (Claude Code, ChatGPT) create fundamentally different cognitive environments. The first type is higher-risk for skill erosion and flow interruption; the second is lower-risk but comes with its own trade-offs around speed and context continuity. Understanding those trade-offs lets you make a deliberate choice rather than defaulting to whatever was recommended in a blog post.</p>
-
-        <p>Use this comparison to understand the fatigue profile of your current tool, what the real differences between tools are, and what practical boundaries matter most for your situation. If you're already fatigued, this should help you identify the immediate changes that matter most. If you're healthy, this should help you stay that way.</p>
-      </section>
-
-      <!-- Quick Comparison Matrix -->
-      <section class="content-section">
-        <h2>The Fatigue Comparison Matrix</h2>
-        <p>Five dimensions, five tools. Scores are relative (lower = less fatiguing, higher = more fatiguing). Based on survey data, cognitive science research, and engineer reports.</p>
-
-        <div class="table-wrapper">
-          <table class="comparison-table" id="fatigue-matrix">
-            <thead>
-              <tr>
-                <th>Tool</th>
-                <th>Decision Fatigue</th>
-                <th>Skill Erosion</th>
-                <th>Context Loss</th>
-                <th>Flow Interruption</th>
-                <th>Recovery Time</th>
-                <th>Overall Fatigue Score</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>GitHub Copilot</strong></td>
-                <td><span class="score score-medium">Medium</span></td>
-                <td><span class="score score-high">High</span></td>
-                <td><span class="score score-medium">Medium</span></td>
-                <td><span class="score score-high">High</span></td>
-                <td><span class="score score-medium">Medium</span></td>
-                <td><span class="score score-high">High</span></td>
-              </tr>
-              <tr>
-                <td><strong>Cursor</strong></td>
-                <td><span class="score score-high">High</span></td>
-                <td><span class="score score-high">High</span></td>
-                <td><span class="score score-medium">Medium</span></td>
-                <td><span class="score score-high">High</span></td>
-                <td><span class="score score-medium">Medium</span></td>
-                <td><span class="score score-high">High</span></td>
-              </tr>
-              <tr>
-                <td><strong>Claude Code</strong></td>
-                <td><span class="score score-low">Low</span></td>
-                <td><span class="score score-low">Low</span></td>
-                <td><span class="score score-low">Low</span></td>
-                <td><span class="score score-low">Low</span></td>
-                <td><span class="score score-low">Low</span></td>
-                <td><span class="score score-low">Low</span></td>
-              </tr>
-              <tr>
-                <td><strong>JetBrains AI</strong></td>
-                <td><span class="score score-medium">Medium</span></td>
-                <td><span class="score score-medium">Medium</span></td>
-                <td><span class="score score-low">Low</span></td>
-                <td><span class="score score-medium">Medium</span></td>
-                <td><span class="score score-low">Low</span></td>
-                <td><span class="score score-medium">Medium</span></td>
-              </tr>
-              <tr>
-                <td><strong>ChatGPT (Code Interpreter)</strong></td>
-                <td><span class="score score-low">Low</span></td>
-                <td><span class="score score-medium">Medium</span></td>
-                <td><span class="score score-medium">Medium</span></td>
-                <td><span class="score score-low">Low</span></td>
-                <td><span class="score score-low">Low</span></td>
-                <td><span class="score score-medium">Medium-Low</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="callout callout-info">
-          <strong>Important caveat:</strong> These scores reflect general patterns from survey data. Your experience depends heavily on <em>how</em> you use the tool — frequency, context, experience level, and whether you take deliberate no-AI days all significantly shift these numbers. A heavy Cursor user who never takes breaks will score higher than a light Copilot user with strong boundaries.
-        </div>
-      </section>
-
-      <!-- Dimension Breakdown -->
-      <section class="content-section">
-        <h2>What Each Dimension Actually Measures</h2>
-
-        <div class="explainer-grid">
-          <div class="explainer-card">
-            <h3>Decision Fatigue</h3>
-            <p>How many micro-decisions the tool forces per hour. Inline completions (accept/reject/modify) create a near-constant decision loop. Conversational tools ask you to decide when to engage — a fundamentally different cognitive demand. High decision fatigue tools leave you mentally drained by midday without a clear reason why.</p>
-            <p><a href="cognitive-load.html">Learn more about cognitive load →</a></p>
-          </div>
-          <div class="explainer-card">
-            <h3>Skill Erosion</h3>
-            <p>How much the tool bypasses the cognitive retrieval process — the act of searching your memory for a solution, trying different approaches, failing, and building the mental model that comes from that struggle. Tools that complete before you finish thinking suppress the retrieval loop that maintains long-term skill.</p>
-          </div>
-          <div class="explainer-card">
-            <h3>Context Loss</h3>
-            <p>How well the tool preserves your awareness of why code works, not just that it does. High context-loss tools generate correct code you can't fully explain to a teammate, can't debug when it breaks in production, and can't adapt when requirements change. You know the tool's output — you don't know your system.</p>
-          </div>
-          <div class="explainer-card">
-            <h3>Flow Interruption</h3>
-            <p>How often the tool breaks your concentration. Inline completions that appear mid-thought are among the worst offenders. Gloria Mark's research on attention recovery shows it takes an average of 23 minutes to return to deep focus after an interruption. Tools that interrupt constantly prevent deep work from ever starting.</p>
-          </div>
-          <div class="explainer-card">
-            <h3>Recovery Time</h3>
-            <p>How long it takes to restore baseline skill and focus after a full day of tool use. Some tools leave you sharp by evening; others require a full weekend to feel like yourself again. Longer recovery times compound when tools are used daily — fatigue accumulates rather than resetting.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Tool-by-tool profiles -->
-      <section class="content-section">
-        <h2>Fatigue Profiles: Each Tool in Detail</h2>
-
-        <div class="tool-profile" id="copilot">
-          <h3>GitHub Copilot — High Fatigue, Especially for Juniors</h3>
-          <div class="tool-tags">
-            <span class="tag tag-high">High Decision Fatigue</span>
-            <span class="tag tag-high">High Skill Erosion</span>
-            <span class="tag tag-medium">Medium Flow Interruption</span>
-          </div>
-
-          <p><strong>The experience:</strong> Copilot's inline suggestions are its defining feature — and its defining fatigue problem. As you type, completions appear. Every completion is a micro-decision: accept it, modify it, or reject it. On average, heavy Copilot users report 40-60 suggestion events per hour during active coding. Each one is a tiny interruption that compounds across a workday.</p>
-
-          <p>The skill erosion mechanism is particularly insidious for engineers early in their career. When a junior engineer reaches for a method name and Copilot provides it before the retrieval process completes, the brain never finishes building the neural pathway. Retrieval strength fades with disuse. After 6-12 months of heavy Copilot use, many junior engineers report they can no longer write core algorithms without assistance — not because they're not smart enough, but because the retrieval pathways weren't reinforced.</p>
-
-          <p><strong>Who feels it most:</strong> Junior engineers (skills still forming), engineers learning new languages or frameworks, anyone doing algorithmic work where pattern recall is part of the skill.</p>
-
-          <p><strong>Who tolerates it better:</strong> Senior engineers with well-established skills who use Copilot primarily for boilerplate and syntax — the retrieval pathways are already deeply grooved and resist erosion better. Staff+ engineers who consciously use it for exploration, not replacement.</p>
-
-          <div class="callout callout-warning">
-            <strong>The Copilot paradox:</strong> Copilot is most seductive for the engineers who need skill-building most (juniors learning new domains) — and most harmful for exactly those engineers. The people most likely to rely on it heavily are the ones who would benefit most from the struggle.
-          </div>
-        </div>
-
-        <div class="tool-profile" id="cursor">
-          <h3>Cursor — Highest Flow Interruption, High Overall Fatigue</h3>
-          <div class="tool-tags">
-            <span class="tag tag-high">High Decision Fatigue</span>
-            <span class="tag tag-high">High Skill Erosion</span>
-            <span class="tag tag-high">High Flow Interruption</span>
-          </div>
-
-          <p><strong>The experience:</strong> Cursor is aggressive in the best and worst ways. Its Tab completion is more powerful than Copilot's — it learns your codebase context more deeply, produces longer and more accurate completions, and offers them more frequently. This makes it genuinely impressive for getting tasks done quickly. It also makes it genuinely exhausting.</p>
-
-          <p>Engineers report that Cursor's suggestions arrive at exactly the wrong moments — mid-thought, when you're three levels deep in understanding a problem, when you're about to have the key insight that would unlock everything. The completion arrives, you evaluate it, you lose your thread. The 23-minute refocus tax applies every single time.</p>
-
-          <p>The Agent mode (Cursor's Claude-powered autonomous coding mode) introduces a different kind of fatigue: watching the tool work creates a peculiar passivity. You're supervising rather than creating, which is cognitively demanding in a different way — sustained attention without the dopamine of authorship. Engineers describe it as "interesting but exhausting" or "I learned less in a week of Agent mode than in a day of manual coding."</p>
-
-          <p><strong>Who feels it most:</strong> Engineers who need long uninterrupted focus blocks (systems programmers, algorithm developers, anyone doing genuinely novel work), anyone prone to compulsive tool-switching, engineers who find suggestions difficult to ignore.</p>
-
-          <p><strong>Who tolerates it better:</strong> Engineers working on well-defined, incremental tasks (bug fixes, test writing, refactoring known codebases) where the primary cost is time, not learning. Engineers who have explicitly trained themselves to ignore suggestions.</p>
-        </div>
-
-        <div class="tool-profile" id="claude-code">
-          <h3>Claude Code — Lowest Overall Fatigue, Requires Most Deliberateness</h3>
-          <div class="tool-tags">
-            <span class="tag tag-low">Low Decision Fatigue</span>
-            <span class="tag tag-low">Low Skill Erosion</span>
-            <span class="tag tag-low">Low Flow Interruption</span>
-          </div>
-
-          <p><strong>The experience:</strong> Claude Code runs in a separate conversational context rather than inline in your editor. This is the key difference — you decide when to engage it. Unlike Copilot or Cursor, it doesn't interrupt your work to offer a suggestion. You open a conversation, you describe what you're trying to do, you get a response.</p>
-
-          <p>This fundamentally changes the cognitive profile. There's no passive suggestion loop taxing your attention. There's no decision about whether to accept something you didn't ask for. The retrieval process remains intact because you had to formulate the problem in your own words before asking. And context switching cost — while real — is bounded by your choice of when to enter and exit.</p>
-
-          <p>The skill-erosion risk is lower because Claude Code tends to explain what it's doing and why, which engages more of the deliberate processing loop. When it provides code, it usually describes the approach, which reinforces rather than bypasses understanding.</p>
-
-          <p><strong>The trade-off:</strong> It's slower for quick tasks. Inline completions are faster when you know exactly what you want and just need the syntax. Claude Code's separation-of-context model is superior for skill health but inferior for throughput on simple, repetitive work.</p>
-
-          <p><strong>Who benefits most:</strong> Engineers who want to use AI as a teacher and thought partner rather than an autocomplete engine. Engineers in learning phases. Senior engineers protecting well-established skills. Anyone recovering from AI fatigue who needs a lower-intensity tool.</p>
-        </div>
-
-        <div class="tool-profile" id="jetbrains">
-          <h3>JetBrains AI Assistant — Medium Fatigue, IDE-Aware Benefits</h3>
-          <div class="tool-tags">
-            <span class="tag tag-medium">Medium Decision Fatigue</span>
-            <span class="tag tag-medium">Medium Skill Erosion</span>
-            <span class="tag tag-medium">Medium Flow Interruption</span>
-          </div>
-
-          <p><strong>The experience:</strong> JetBrains AI Assistant integrates directly into the IDE (IntelliJ, PyCharm, WebStorm, etc.) and has access to your project's full context — actual types, function signatures, project structure. This makes its suggestions more relevant and reduces the "this suggestion doesn't understand my codebase" frustration that contributes to decision fatigue on other tools.</p>
-
-          <p>However, the inline suggestion model is similar to Copilot's, which means the underlying fatigue mechanisms are the same: constant micro-decisions, passive suggestion loops, and skill-erosion risk for junior users. The IDE-awareness reduces context-loss somewhat (you can trace where the suggestion came from in your actual project structure) but doesn't eliminate it.</p>
-
-          <p>JetBrains has been more conservative with AI features than Cursor or Copilot — there was deliberate restraint in what they shipped and when. This shows up in the data as slightly lower flow interruption scores. The features are there but less aggressively promoted by default.</p>
-
-          <p><strong>Who benefits most:</strong> Engineers already committed to JetBrains IDEs who want IDE-aware assistance without switching tools. Engineers who find Copilot's suggestions too context-blind but want similar functionality. The fatigue profile is comparable to Copilot for most users.</p>
-        </div>
-
-        <div class="tool-profile" id="chatgpt">
-          <h3>ChatGPT (Code Interpreter) — Medium-Low Fatigue, Context Fragility Issue</h3>
-          <div class="tool-tags">
-            <span class="tag tag-low">Low Decision Fatigue</span>
-            <span class="tag tag-medium">Medium Skill Erosion</span>
-            <span class="tag tag-medium">Medium Context Loss</span>
-          </div>
-
-          <p><strong>The experience:</strong> ChatGPT's Code Interpreter (now called Canvas or similar depending on when you're reading this) is conversational rather than inline — similar to Claude Code in the separation-of-context model. Decision fatigue is low because you initiate each interaction. Flow interruption is low for the same reason.</p>
-
-          <p>The context fragility issue is significant for sustained engineering work. ChatGPT doesn't maintain persistent awareness of your codebase across sessions without explicit re-contextualization. Engineers report spending meaningful time re-explaining their project state in each new session — a "warm-up tax" that reduces the tool's utility for deep, ongoing work.</p>
-
-          <p>Skill erosion risk is medium — the retrieval process is engaged when you formulate the query, but the disconnect between the AI's explanation and your actual codebase can create a peculiar hybrid understanding: you understand the AI's generalized version but not how it applies to your specific context.</p>
-
-          <p><strong>Who benefits most:</strong> Engineers exploring new concepts, reviewing code they didn't write, writing tests, doing one-off scripts, or working on projects where context continuity is less critical. Engineers who use it occasionally rather than daily.</p>
-        </div>
-      </section>
-
-
-      <!-- Decision Tree: Choose Your Tool -->
-      <section class="content-section">
-        <h2>Choose Your Tool Based on Your Current State</h2>
-        <p>The "best" tool depends entirely on where you are right now. Using the wrong tool for your current state is a major fatigue amplifier.</p>
-
-        <div class="decision-tree">
-          <div class="dt-node">
-            <h3>If you're already fatigued or burned out:</h3>
-            <p class="dt-answer">→ Use Claude Code or ChatGPT only. Avoid inline completions entirely for 2-4 weeks. Use AI only for review, exploration, and explanation — never for generating code you'll ship without fully understanding. Give your retrieval pathways time to recalibrate.</p>
-          </div>
-          <div class="dt-node">
-            <h3>If you're healthy but want to stay that way:</h3>
-            <p class="dt-answer">→ Copilot or JetBrains AI for boilerplate only (imports, syntax, repetitive patterns). Claude Code for complex problems, debugging, and learning. Never use AI for core algorithm logic, architectural decisions, or anything where you need to maintain deep understanding.</p>
-          </div>
-          <div class="dt-node">
-            <h3>If you're learning a new language or framework:</h3>
-            <p class="dt-answer">→ Minimal AI assistance — tools will bypass the productive struggle that forms the foundational mental models. Use ChatGPT or Claude Code for explanation only, after you've attempted the problem yourself. Accept that this will be slower. The slowness is the point.</p>
-          </div>
-          <div class="dt-node">
-            <h3>If you're a senior engineer protecting hard-won expertise:</h3>
-            <p class="dt-answer">→ Cursor or Copilot for repetitive tasks with strong boundaries. Claude Code for exploration. Explicit no-AI days (at minimum, Friday afternoons). The risk isn't losing skills — it's gradually not noticing they're eroding until it's too late.</p>
-          </div>
-          <div class="dt-node">
-            <h3>If you're doing novel or systems-level work:</h3>
-            <p class="dt-answer">→ Minimize all inline suggestion tools. The interruption cost is highest when you're working at the edge of your ability. Claude Code's separate context is the least disruptive option. Schedule AI-assisted sessions separately from deep work sessions.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- How to Use High-Fatigue Tools Safely -->
-      <section class="content-section">
-        <h2>How to Use High-Fatigue Tools Without Destroying Your Skills</h2>
-
-        <p>If you're using Copilot, Cursor, or JetBrains AI daily and you're not deliberately building in no-AI periods, the skill-erosion mechanisms described above will eventually affect you. That's not pessimism — it's the documented pattern. The good news: it's preventable with specific, bounded practices.</p>
-
-        <h3>1. The Boilerplate Boundary</h3>
-        <p>Use inline completion tools <em>only</em> for boilerplate: imports, straightforward syntax, repetitive patterns you already know cold. When the suggestion is doing something you couldn't have written yourself in that moment, that's a signal to stop and retrieve it manually before accepting. The rule: if you couldn't have produced this output from memory, you haven't earned it in your fingers yet.</p>
-
-        <h3>2. The Explanation Requirement</h3>
-        <p>Before accepting any AI-generated solution, answer this question aloud or in writing: <em>"Can I explain why this approach is better than the alternatives?"</em> If you can't articulate the reasoning — not just "it works" but "it works because X and Y and the tradeoff vs Z is worth it" — then you don't own the code. The clearing-ai.com research page has a full explanation of why this simple rule rebuilds the authorship and learning loops simultaneously.</p>
-
-        <h3>3. Protected No-AI Blocks</h3>
-        <p>Schedule at least one problem per week where you solve it from scratch before looking at any AI suggestions. Not "never use AI" — just one deliberate cold-start problem where the struggle is the point. The resistance you feel is the productive-struggle reward pathway engaging. Engineers who maintain this practice report higher baseline confidence, faster debugging without AI, and a more sustainable relationship with their craft over multi-year horizons.</p>
-
-        <h3>4. The Monthly Audit</h3>
-        <p>Once a month, spend 2-3 hours solving problems without AI for an entire session. Track what you notice: Did retrieval feel slower than it used to? Are there syntax patterns you used to know cold that required searching? Are there classes of problems where you now genuinely need the AI to get started? This isn't a test — it's a calibration. The goal is early detection, not shame. Most engineers who do this monthly audit find 2-3 skill gaps they didn't notice forming until they looked.</p>
-
-        <h3>5. Context Maintenance Practice</h3>
-        <p>When you do use AI-generated code, maintain a brief written record: why this approach was chosen, what alternatives were considered, what assumptions the code makes about the system. This sounds like documentation overhead but it rebuilds the cognitive process that AI bypasses. After 3 months of this practice, engineers typically find they can explain and debug their own code significantly better — and they notice the difference shows up in code reviews, architecture discussions, and on-call situations.</p>
-
-        <div class="callout callout-warning">
-          <strong>The trap to avoid:</strong> Using these tactics "sometimes" doesn't work. Skill maintenance is like physical fitness — it requires consistent practice, not occasional effort. If you're doing these practices once a month or less, the erosion will outpace the recovery. The goal is small, deliberate, consistent investment in your retrieval pathways, not heroic quarterly intervention.
-        </div>
-      </section>
-
-      <!-- The Compounding Problem -->
-      <section class="content-section">
-        <h2>The Compounding Fatigue Nobody Talks About</h2>
-
-        <p>Individual tool sessions aren't the real problem. The compounding is. Here's the pattern we see repeatedly in engineer reports:</p>
-
-        <p><strong>Month 1:</strong> AI tools feel like a superpower. You ship faster. You're excited. You tell colleagues about it.</p>
-
-        <p><strong>Month 3:</strong> You notice you're a little slower when AI isn't available. Meetings where colleagues discuss architecture feel slightly harder to follow. You attribute it to context-switching.</p>
-
-        <p><strong>Month 6:</strong> You realize you haven't solved a hard debugging problem yourself in months. Your first instinct when encountering an unfamiliar error is to paste it into ChatGPT rather than read the stack trace. You feel vaguely guilty about this but productivity metrics look fine so you keep going.</p>
-
-        <p><strong>Month 9-12:</strong> A layoff happens. Your company mandates AI tool use. Or a new project requires skills you used to have. You sit down to solve something you could have done easily two years ago and find you can't. Not because you're not capable — but because the retrieval pathways degraded without the regular exercise that maintained them.</p>
-
-        <p>This is the compounding cost. It doesn't show up in daily productivity metrics. It shows up at the worst possible moments — when the external environment changes and you need your full range of skills to adapt.</p>
-
-        <p>The tools aren't the enemy. But using them without boundaries is like spending from a skills savings account without ever depositing. Eventually the account empties.</p>
-
-        <div class="callout callout-info">
-          <strong>The 2026 data:</strong> Of 2,000+ engineers who took The Clearing's AI Fatigue Quiz, 58% reported measurable skill decline in at least one core area (debugging, algorithmic thinking, or code reading), and 71% said they first noticed the decline after increasing their AI tool usage. Most didn't name it as a problem until asked directly.
-        </div>
-      </section>
-
-      <!-- Comparison by Engineer Type -->
-      <section class="content-section">
-        <h2>Which Tool for Which Engineer Type?</h2>
-
-        <div class="table-wrapper">
-          <table class="comparison-table">
-            <thead>
-              <tr>
-                <th>Engineer Profile</th>
-                <th>Recommended Tool</th>
-                <th>Avoid</th>
-                <th>Key Boundary</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Bootcamp grad / &lt;2 years</td>
-                <td>ChatGPT (explanation only)</td>
-                <td>All inline completion tools</td>
-                <td>No AI-generated code you haven't rebuilt</td>
-              </tr>
-              <tr>
-                <td>Mid-level, stable stack</td>
-                <td>Copilot or JetBrains AI</td>
-                <td>Cursor (too interrupting)</td>
-                <td>No-AI blocks for core logic</td>
-              </tr>
-              <tr>
-                <td>Senior / Staff IC</td>
-                <td>Claude Code + Copilot selectively</td>
-                <td>Heavy daily Cursor Agent mode</td>
-                <td>Quarterly skill audit without AI</td>
-              </tr>
-              <tr>
-                <td>Learning new domain</td>
-                <td>Claude Code (exploration + review)</td>
-                <td>All inline tools for that domain</td>
-                <td>Struggle first, then check AI</td>
-              </tr>
-              <tr>
-                <td>Already fatigued</td>
-                <td>Claude Code only, limited use</td>
-                <td>Everything else</td>
-                <td>2-week AI reduction minimum</td>
-              </tr>
-              <tr>
-                <td>Freelancer / consultant</td>
-                <td>ChatGPT or Claude Code</td>
-                <td>Inline tools you can't explain</td>
-                <td>Never ship code you can't defend</td>
-              </tr>
-              <tr>
-                <td>EM / tech lead</td>
-                <td>Claude Code for code review</td>
-                <td>Agent mode (supervision fatigue)</td>
-                <td>Model the boundaries you want</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- FAQ -->
-      <section class="content-section">
-        <h2>Frequently Asked Questions</h2>
-
-        <div class="faq" id="faq">
-          <details class="faq-item">
-            <summary>Which AI coding tool causes the least fatigue?</summary>
-            <div class="faq-answer">
-              <p>Based on fatigue-profile analysis, Claude Code tends to produce the lowest decision fatigue for most engineers because it operates in a separate conversational context rather than inline, giving you full control over when to engage. The trade-off is slightly more friction in quick tasks. ChatGPT (Code Interpreter/Canvas) is similarly low in decision fatigue but carries higher context-fragility issues for sustained engineering work.</p>
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary>Does GitHub Copilot erode coding skills more than ChatGPT?</summary>
-            <div class="faq-answer">
-              <p>Yes, and the mechanism is different. Copilot's inline suggestions bypass the retrieval process — you see the answer and accept it before your brain finishes searching for it. ChatGPT requires you to initiate the query, which engages more of the deliberate problem-solving loop. Both carry skill-erosion risk with heavy use, but Copilot's passive suggestion model is higher risk for junior engineers whose skills are still forming.</p>
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary>Is Cursor better or worse than Copilot for experienced engineers?</summary>
-            <div class="faq-answer">
-              <p>For experienced engineers, Cursor offers more control (Tab to accept, separate agent mode) but its aggressive completions can interrupt deep work flow more frequently. Many senior engineers report higher fatigue with Cursor due to constant completion offers, but also higher productivity on defined tasks. The net effect depends heavily on your work context and whether you can reliably ignore suggestions when you're in flow.</p>
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary>What is the safest AI coding workflow for long-term skill health?</summary>
-            <div class="faq-answer">
-              <p>The lowest-fatigue long-term workflow: use AI in a separate context (Claude Code, ChatGPT) rather than inline suggestions. Treat AI as a teacher and reviewer, not an autocomplete engine. Practice deliberate retrieval — solving problems without AI at least 2-3 days per week. Rebuild the skill before it's gone.</p>
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary>Do JetBrains AI tools cause less fatigue than VS Code extensions?</summary>
-            <div class="faq-answer">
-              <p>JetBrains AI Assistant operates inline like Copilot, but its integration with the IDE's existing context (IDE-aware suggestions based on your actual project structure) can reduce some of the cognitive overhead. However, the skill-erosion and decision-fatigue mechanisms are the same. The IDE integration slightly reduces context-switching cost but doesn't eliminate fatigue risk. The fatigue profile is comparable to Copilot for most users.</p>
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary>How do I choose an AI coding tool based on my fatigue level?</summary>
-            <div class="faq-answer">
-              <p>If you're already fatigued: avoid inline suggestions (Copilot, Cursor) entirely for 2 weeks. Use a separate-context tool (Claude Code, ChatGPT) for exploration and review only. If you're healthy but want to stay that way: use inline tools for boilerplate only, never for core logic. If you're learning: prefer tools that explain rather than complete. See the decision tree above for more specific guidance.</p>
-            </div>
-          </details>
-        </div>
-      </section>
-
-      <!-- Internal Links -->
-      <section class="content-section">
-        <h2>What to Read Next</h2>
-
-        <p>Tool choice and fatigue patterns are connected to deeper dynamics worth understanding. These related guides address the mechanisms behind the matrix scores above.</p>
-
-        <div class="table-wrapper">
-          <table class="comparison-table">
-            <thead>
-              <tr>
-                <th>If you want to understand...</th>
-                <th>Read this</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Why inline suggestions bypass skill formation</td>
-                <td><a href="skill-atrophy.html">Skill Atrophy</a> — the neuroscience of retrieval and why struggle is the point</td>
-              </tr>
-              <tr>
-                <td>How cognitive load accumulates from tool decisions</td>
-                <td><a href="cognitive-load.html">Cognitive Load Theory</a> — Sweller's model applied to AI workflows</td>
-              </tr>
-              <tr>
-                <td>Why it's hard to focus after AI tool sessions</td>
-                <td><a href="attention-residue.html">Attention Residue</a> — Gloria Mark's 23-minute recovery finding</td>
-              </tr>
-              <tr>
-                <td>How to recover if you're already fatigued</td>
-                <td><a href="recovery.html">AI Fatigue Recovery Guide</a> — structured recovery for engineers at any stage</td>
-              </tr>
-              <tr>
-                <td>The productivity paradox (more code, less value)</td>
-                <td><a href="ai-productivity-paradox.html">The Productivity Paradox</a> — why velocity metrics mislead</td>
-              </tr>
-              <tr>
-                <td>Whether you have AF vs imposter syndrome</td>
-                <td><a href="imposter-syndrome-vs-ai-fatigue.html">Imposter Syndrome vs AI Fatigue</a> — the critical distinction</td>
-              </tr>
-              <tr>
-                <td>How to set practical AI boundaries</td>
-                <td><a href="daily-ai-boundaries.html">Daily AI Boundaries</a> — 12 sustainable daily habits</td>
-              </tr>
-              <tr>
-                <td>What a 30-day structured recovery looks like</td>
-                <td><a href="ai-detox-plan.html">30-Day AI Detox Plan</a> — week-by-week protocol</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- Continue Exploring -->
-      <section class="content-section continue-exploring">
-        <h2>Continue Exploring</h2>
-        <div class="explore-grid">
-          <a href="compare.html" class="explore-card">
-            <span class="explore-icon">⚖️</span>
-            <h3>Compare AI Tools</h3>
-            <p>Broader comparison of AI tool fatigue patterns across the industry</p>
-          </a>
-          <a href="ai-tool-overload.html" class="explore-card">
-            <span class="explore-icon">📚</span>
-            <h3>AI Tool Overload</h3>
-            <p>Why new tools paralyze engineers and how to build a sustainable stack</p>
-          </a>
-          <a href="skill-atrophy.html" class="explore-card">
-            <span class="explore-icon">🧠</span>
-            <h3>Skill Atrophy</h3>
-            <p>The research on how automation erodes coding ability over time</p>
-          </a>
-          <a href="recovery.html" class="explore-card">
-            <span class="explore-icon">🌿</span>
-            <h3>Recovery Guide</h3>
-            <p>How to recover from AI fatigue and rebuild what tools have eroded</p>
-          </a>
-          <a href="ai-detox-plan.html" class="explore-card">
-            <span class="explore-icon">📅</span>
-            <h3>30-Day AI Detox</h3>
-            <p>A structured protocol for reducing AI tool dependency</p>
-          </a>
-          <a href="ai-fatigue-severity-index.html">Severity Index</a>
-          <a href="ai-fatigue-type-calculator.html" class="explore-card">
-            <span class="explore-icon">🎯</span>
-            <h3>Fatigue Type Calculator</h3>
-            <p>Discover your specific AI fatigue profile</p>
-          </a>
-        </div>
-      </section>
-    </article>
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <a href="index.html" class="footer-logo">The Clearing</a>
-        <p>A resource for engineers experiencing AI fatigue. Free, no account required, no tracking.</p>
-        <p class="footer-crisis">In crisis? <a href="mental-health.html">Resources →</a></p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Recover</h4>
-          <a href="recovery.html">Recovery Guide</a>
-          <a href="the-explanation-requirement.html">Explanation Requirement</a>
-          <a href="ai-detox-plan.html">30-Day Detox</a>
-          <a href="daily-practice.html">Daily Practice</a>
-          <a href="mental-health.html">Mental Health</a>
-          <a href="corporate-ai-wellness.html">Corporate Wellness</a>
-            <a href="return-to-office-ai-fatigue.html">Return to Office</a>
-          <a href="team-manager-guide.html">Manager Guide</a>
-          <a href="daily-ai-boundaries.html">Daily Boundaries</a>
-          <a href="no-ai-block.html">No-AI Blocks</a>
-          <a href="ai-free-fridays.html">AI-Free Fridays</a>
-          <a href="sleep-and-ai-fatigue.html">Sleep & AI</a>
-          <a href="ai-fatigue-emergency-kit.html">Emergency Kit</a>
-        </div>
-        <div class="footer-col">
-          <h4>Understand</h4>
-          <a href="why.html">Why This Happens</a>
-          <a href="research.html">The Science</a>
-          <a href="skill-atrophy.html">Skill Atrophy</a>
-          <a href="cognitive-load.html">Cognitive Load</a>
-            <a href="remote-team-ai-collaboration.html">Remote Work & AI</a>
-          <a href="attention-residue.html">Attention Residue</a>
-          <a href="flow-state.html">Flow State</a>
-          <a href="developer-identity.html">Identity Crisis</a>
-          <a href="automation-anxiety.html">Automation Anxiety</a>
-              <a href="ai-anxiety.html" class="dropdown-item">AI Anxiety</a>
-          <a href="productivity-theater.html">Productivity Theater</a>
-          <a href="coding-ai-tools-comparison.html">Coding Tools Fatigue</a>
-          <a href="ai-tool-overload.html">AI Tool Overload</a>
-          <a href="ai-learning-burnout.html">AI Learning Burnout</a>
-        </div>
-        <div class="footer-col">
-          <h4>Tools</h4>
-          <a href="index.html#quiz">AI Fatigue Quiz</a>
-          <a href="signs-ai-fatigue.html">10 Signs Check</a>
-          <a href="ai-fatigue-severity-index.html">Severity Index</a>
-          <a href="ai-fatigue-type-calculator.html">Type Calculator</a>
-          <a href="checkin.html">Daily Check-In</a>
-          <a href="decompress.html">Pomodoro Timer</a>
-          <a href="badge.html">Get Your Badge</a>
-        </div>
-        <div class="footer-col">
-          <h4>Community</h4>
-          <a href="stories.html">Stories</a>
-          <a href="senior-identity.html">Senior Identity</a>
-<a href="senior-engineer-ai-fatigue.html">Senior Engineer</a>
-          <a href="junior-engineers.html">Junior Engineers</a>
-          <a href="engineer-case-studies.html">Case Studies</a>
-          <a href="share-your-story.html">Share Your Story</a>
-          <a href="testimonials.html">Testimonials</a>
-          <a href="community.html">Community</a>
-          <a href="newsletter.html">Newsletter</a>
-      <a href="email-course.html">Email Course</a>
-        <a href="newsletter-outreach-dashboard.html" class="nav-link">Outreach</a>
-            <a href="newsletter-archive.html">Archive</a>
-        </div>
-        <div class="footer-col">
-          <h4>More</h4>
-          <a href="faq.html">FAQ</a>
-          <a href="resources.html">Reading List</a>
-          <a href="glossary.html">Glossary</a>
-            <li><a href="code-review-culture.html">Code Review Culture</a></li>
-            <li><a href="ai-weekly-audit.html">Weekly AI Audit</a></li>
-            <li><a href="ai-middleman-problem.html">The Middleman Problem</a></li>
-
-          <a href="compare.html">Tool Compare</a>
-          <a href="press-kit.html">Press Kit</a> &middot; <a href="media-kit.html">Media Kit</a>
-      <a href="press-mentions.html">Press Mentions</a>
-          <a href="about.html">About</a>
-          <a href="changelog.html">Changelog</a>
-        </div>
-      </div>
-    </div>
-          <a href="hn-launch.html" style="font-size:13px;color:var(--text2);">HN Launch</a>
-      </footer>
-
-  <script src="js/main.min.js" defer></script>
-  <script>
-    // Reading progress bar
-    const progress = document.getElementById('reading-progress');
-    const article = document.querySelector('article');
-    if (progress && article) {
-      window.addEventListener('scroll', () => {
-        const rect = article.getBoundingClientRect();
-        const total = rect.height - window.innerHeight;
-        const scrolled = Math.max(0, -rect.top);
-        progress.style.width = (scrolled / total * 100) + '%';
-      }, { passive: true });
-    }
-
-    // Copy link
-    function copyLink() {
-      navigator.clipboard.writeText(window.location.href).then(() => {
-        const btn = event.target;
-        const original = btn.textContent;
-        btn.textContent = 'Copied!';
-        setTimeout(() => { btn.textContent = original; }, 2000);
-      });
-    }
-
-    // FAQ accordion
-    document.querySelectorAll('.faq-item summary').forEach(summary => {
-      summary.addEventListener('click', (e) => {
-        // Let the default toggle work, just ensure ARIA is correct
-        const details = summary.parentElement;
-        details.addEventListener('toggle', () => {
-          summary.setAttribute('aria-expanded', details.open);
-        }, { once: true });
-      });
-    });
-
-    // Reading time
-    const rt = document.querySelector('.reading-time');
-    if (rt && rt.dataset.wordCount) {
-      const words = parseInt(rt.dataset.wordCount);
-      const mins = Math.ceil(words / 220);
-      rt.textContent = mins + ' min read';
-    }
-  </script>
 </body>
 </html>

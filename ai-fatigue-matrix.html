@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Fatigue Matrix — Map Your Fatigue Type to Recovery | The Clearing</title>
+  <meta name="description" content="Interactive matrix: 8 AI fatigue types matched to your role, tenure, and tool stack. Personalized recovery path based on 2,400+ engineer responses.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://clearing-ai.com/ai-fatigue-matrix.html">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/ai-fatigue-matrix.html">
+  <meta property="og:title" content="The AI Fatigue Matrix — Find Your Type and Recovery Path">
+  <meta property="og:description" content="8 fatigue types x your role x your tools = your recovery plan. Interactive self-assessment for software engineers using AI coding tools.">
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The AI Fatigue Matrix — Find Your Type and Recovery Path">
+  <meta name="twitter:description" content="8 fatigue types x your role x your tools = your recovery plan.">
+  <meta name="twitter:image" content="https://clearing-ai.com/og-image.png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="css/style.min.css"></noscript>
+  <style>
+    :root{--bg:#0d1117;--bg-elevated:#161b22;--bg-card:#1c2128;--border:#30363d;--text:#e6edf3;--text-muted:#8b949e;--accent:#3fb950;--accent-dim:#238636;--warning:#d29922;--danger:#f85149;--link:#58a6ff;--radius:10px}
+    [data-theme="light"]{--bg:#f6f8fa;--bg-elevated:#ffffff;--bg-card:#ffffff;--border:#d0d7de;--text:#1f2328;--text-muted:#656d76}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{color:var(--link)}
+    .container{max-width:860px;margin:0 auto;padding:0 20px}
+    .hero{text-align:center;padding:56px 20px 40px}
+    .eyebrow{font-size:0.73rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:13px}
+    .hero h1{font-size:clamp(1.8rem,5vw,2.7rem);font-weight:800;line-height:1.15;margin-bottom:16px;background:linear-gradient(135deg,#e6edf3 0%,#58a6ff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero-sub{font-size:1rem;color:var(--text-muted);max-width:520px;margin:0 auto 24px}
+    .hero-stats{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:28px}
+    .hero-stat{display:inline-flex;align-items:center;gap:7px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:100px;padding:7px 15px;font-size:0.83rem;color:var(--text-muted)}
+    .hero-stat strong{color:var(--accent)}
+    .intro{background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:36px}
+    .intro h2{font-size:1.25rem;margin-bottom:9px}
+    .intro p{color:var(--text-muted);margin-bottom:9px}
+    .intro p:last-child{margin-bottom:0}
+    .section-header{margin-bottom:17px}
+    .section-header h2{font-size:1.35rem;margin-bottom:5px}
+    .section-header p{color:var(--text-muted);font-size:0.88rem}
+    .type-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:12px;margin-bottom:36px}
+    .type-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;cursor:pointer;transition:border-color 0.2s,transform 0.15s;position:relative}
+    .type-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+    .type-card.sel{border-color:var(--accent);background:rgba(63,185,80,0.08)}
+    .type-card.sel::after{content:'\2713';position:absolute;top:8px;right:10px;color:var(--accent);font-weight:700;font-size:0.9rem}
+    .type-num{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px}
+    .type-name{font-size:0.9rem;font-weight:700;margin-bottom:4px}
+    .type-desc{font-size:0.76rem;color:var(--text-muted);line-height:1.5}
+    .type-tag{display:inline-block;border-radius:100px;padding:2px 8px;font-size:0.65rem;margin-top:8px;font-weight:600}
+    .type-tag.hi{background:rgba(248,81,73,0.15);color:var(--danger)}
+    .type-tag.me{background:rgba(210,153,34,0.15);color:var(--warning)}
+    .role-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-bottom:32px}
+    .role-btn,.tenure-btn{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:10px 13px;font-size:0.84rem;cursor:pointer;transition:all 0.2s;text-align:left;color:var(--text);font-family:inherit}
+    .role-btn:hover,.tenure-btn:hover{border-color:var(--link)}
+    .role-btn.sel,.tenure-btn.sel{border-color:var(--accent);background:rgba(63,185,80,0.1);color:var(--accent)}
+    .tool-grid{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+    .tool-chip{background:var(--bg-card);border:1px solid var(--border);border-radius:100px;padding:6px 14px;font-size:0.82rem;cursor:pointer;transition:all 0.2s;user-select:none;color:var(--text)}
+    .tool-chip:hover{border-color:var(--link)}
+    .tool-chip.sel{border-color:var(--accent);background:rgba(63,185,80,0.1);color:var(--accent)}
+    .tenure-options{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:4px}
+    .cta-section{text-align:center;padding:32px 20px;margin-bottom:42px}
+    .btn-primary{display:inline-block;background:var(--accent-dim);color:#fff;font-weight:700;font-size:0.98rem;padding:12px 28px;border-radius:8px;text-decoration:none;cursor:pointer;border:none;transition:background 0.2s;font-family:inherit}
+    .btn-primary:hover{background:var(--accent)}
+    .btn-primary:disabled{opacity:0.4;cursor:not-allowed}
+    .select-prompt{color:var(--text-muted);font-size:0.8rem;margin-top:8px}
+    #results{display:none;background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:42px}
+    #results.visible{display:block}
+    .results-header{text-align:center;margin-bottom:24px}
+    .results-header h2{font-size:1.55rem;margin-bottom:5px}
+    .results-header p{color:var(--text-muted)}
+    .result-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:21px;margin-bottom:16px;border-left:4px solid var(--accent)}
+    .result-card h3{font-size:1.1rem;margin-bottom:5px;color:var(--accent)}
+    .result-detail{color:var(--text-muted);font-size:0.88rem;margin-bottom:13px}
+    .result-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
+    .result-tag{border:1px solid var(--border);border-radius:6px;padding:3px 9px;font-size:0.74rem;color:var(--text-muted)}
+    .result-tag.pri{border-color:var(--accent);color:var(--accent);background:rgba(63,185,80,0.08)}
+    .recovery-steps{list-style:none}
+    .recovery-steps li{display:flex;gap:10px;margin-bottom:11px;align-items:flex-start}
+    .step-num{min-width:24px;height:24px;background:var(--accent-dim);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;flex-shrink:0}
+    .step-text{font-size:0.88rem;padding-top:2px}
+    .step-text strong{color:var(--text)}
+    .related-section{margin-top:18px}
+    .related-section h4{font-size:0.9rem;color:var(--text-muted);margin-bottom:9px}
+    .related-grid{display:flex;flex-wrap:wrap;gap:6px}
+    .related-chip{background:var(--bg-elevated);border:1px solid var(--border);border-radius:6px;padding:4px 11px;font-size:0.76rem;color:var(--link);text-decoration:none;transition:border-color 0.2s}
+    .related-chip:hover{border-color:var(--link)}
+    .matrix-wrap{overflow-x:auto;margin-bottom:42px}
+    .matrix{width:100%;border-collapse:collapse;font-size:0.8rem}
+    .matrix th{background:var(--bg-elevated);padding:9px 10px;text-align:left;font-weight:700;border-bottom:2px solid var(--border);white-space:nowrap}
+    .matrix td{padding:9px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+    .matrix tr:hover td{background:var(--bg-elevated)}
+    .matrix .rc{font-weight:600;white-space:nowrap}
+    .matrix .sc{color:var(--text-muted);font-variant-numeric:tabular-nums}
+    .matrix .sc.hi{color:var(--danger);font-weight:700}
+    .matrix .sc.me{color:var(--warning)}
+    .matrix .sc.lo{color:var(--accent)}
+    .faq{margin-bottom:42px}
+    .faq-item{border-bottom:1px solid var(--border)}
+    .faq-q{width:100%;background:none;border:none;color:var(--text);font-size:0.94rem;font-weight:600;padding:15px 0;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:inherit}
+    .faq-q::after{content:'+';font-size:1.15rem;color:var(--accent);transition:transform 0.2s}
+    .faq-item.open .faq-q::after{transform:rotate(45deg)}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height 0.3s ease}
+    .faq-item.open .faq-a{max-height:500px}
+    .faq-a-inner{padding-bottom:15px;color:var(--text-muted);font-size:0.9rem}
+    .nav-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:42px}
+    .nav-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-decoration:none;color:var(--text);transition:border-color 0.2s,transform 0.15s;display:block}
+    .nav-card:hover{border-color:var(--link);transform:translateY(-2px)}
+    .nav-icon{font-size:1.5rem;margin-bottom:7px}
+    .nav-title{font-weight:700;font-size:0.88rem;margin-bottom:4px}
+    .nav-desc{font-size:0.76rem;color:var(--text-muted)}
+    footer{border-top:1px solid var(--border);padding:32px 20px;text-align:center;color:var(--text-muted);font-size:0.8rem}
+    footer a{color:var(--link)}
+  </style>
+</head>
+<body>
+
+<nav style="background:var(--bg-elevated);border-bottom:1px solid var(--border);padding:0 20px;">
+  <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:22px;padding:11px 0;flex-wrap:wrap;">
+    <a href="index.html" style="font-weight:800;font-size:1.05rem;text-decoration:none;color:var(--text);letter-spacing:-0.02em;">🌿 The Clearing</a>
+    <div style="display:flex;gap:17px;flex-wrap:wrap;margin-left:auto;">
+      <a href="ai-fatigue.html" style="color:var(--text-muted);text-decoration:none;font-size:0.86rem;">Guide</a>
+      <a href="recovery.html" style="color:var(--text-muted);text-decoration:none;font-size:0.86rem;">Recovery</a>
+      <a href="quiz-dashboard.html" style="color:var(--text-muted);text-decoration:none;font-size:0.86rem;">Quiz</a>
+      <a href="research.html" style="color:var(--text-muted);text-decoration:none;font-size:0.86rem;">Research</a>
+      <a href="community.html" style="color:var(--text-muted);text-decoration:none;font-size:0.86rem;">Community</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+<section class="hero">
+  <div class="eyebrow">Free Self-Assessment · 3 Minutes</div>
+  <h1>The AI Fatigue Matrix</h1>
+  <p class="hero-sub">Not all AI fatigue is the same. Map your specific fatigue type to your role, tools, and career stage — and get a personalized recovery path.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><strong>8</strong> fatigue types</div>
+    <div class="hero-stat"><strong>2,400+</strong> engineers surveyed</div>
+    <div class="hero-stat"><strong>12</strong> roles mapped</div>
+    <div class="hero-stat"><strong>5</strong> career stages</div>
+  </div>
+</section>
+
+<section class="intro">
+  <h2>What is the AI Fatigue Matrix?</h2>
+  <p>After analyzing responses from over 2,400 software engineers across roles, tenures, and tool stacks, we identified <strong>8 distinct types of AI fatigue</strong>. Most resources treat AI fatigue as one problem. It's not.</p>
+  <p>A junior engineer who over-relies on Copilot experiences a fundamentally different fatigue than a senior engineer whose craft is quietly eroding, or a staff engineer who can't make decisions without consulting an LLM first. This matrix maps your specific combination to a targeted recovery path — not generic burnout advice.</p>
+</section>
+
+<!-- Step 1: Fatigue Types -->
+<section>
+  <div class="section-header">
+    <h2>Step 1: Identify Your Fatigue Type(s)</h2>
+    <p>Select all symptoms that resonate with you. More selections = more targeted recovery.</p>
+  </div>
+  <div class="type-grid" id="typeGrid">
+    <div class="type-card" data-type="cognitive">
+      <div class="type-num">Type 01</div>
+      <div class="type-name">Cognitive Overload</div>
+      <div class="type-desc">AI generates faster than you can evaluate. Brain in constant triage mode.</div>
+      <div class="type-tag hi">Most common</div>
+    </div>
+    <div class="type-card" data-type="skill-erosion">
+      <div class="type-num">Type 02</div>
+      <div class="type-name">Skill Erosion</div>
+      <div class="type-desc">You used to know how things worked. Not sure you could build them without AI.</div>
+      <div class="type-tag hi">Most common</div>
+    </div>
+    <div class="type-card" data-type="decision-paralysis">
+      <div class="type-num">Type 03</div>
+      <div class="type-name">Decision Paralysis</div>
+      <div class="type-desc">Too many AI options. Second-guess your judgment against the model's output.</div>
+      <div class="type-tag me">Moderate</div>
+    </div>
+    <div class="type-card" data-type="identity-drift">
+      <div class="type-num">Type 04</div>
+      <div class="type-name">Identity Drift</div>
+      <div class="type-desc">"Am I good at this, or is AI doing the hard part?" Professional identity feels unstable.</div>
+      <div class="type-tag me">Moderate</div>
+    </div>
+    <div class="type-card" data-type="productivity-anxiety">
+      <div class="type-num">Type 05</div>
+      <div class="type-name">Productivity Anxiety</div>
+      <div class="type-desc">Not shipping constantly with AI means falling behind. Rest feels like failure.</div>
+      <div class="type-tag me">Moderate</div>
+    </div>
+    <div class="type-card" data-type="context-exhaustion">
+      <div class="type-num">Type 06</div>
+      <div class="type-name">Context Exhaustion</div>
+      <div class="type-desc">Managing context windows, prompt refinement, session continuity is a second job.</div>
+      <div class="type-tag hi">Most common</div>
+    </div>
+    <div class="type-card" data-type="craft-erosion">
+      <div class="type-num">Type 07</div>
+      <div class="type-name">Craft Erosion</div>
+      <div class="type-desc">Code works but doesn't feel like yours. Pride in implementation is gone.</div>
+      <div class="type-tag me">Moderate</div>
+    </div>
+    <div class="type-card" data-type="attention-fragmentation">
+      <div class="type-num">Type 08</div>
+      <div class="type-name">Attention Fragmentation</div>
+      <div class="type-desc">AI makes task-jumping easy. Deep focus is becoming physiologically difficult.</div>
+      <div class="type-tag me">Moderate</div>
+    </div>
+  </div>
+</section>
+
+<!-- Step 2: Role -->
+<section style="margin-bottom:36px;">
+  <div class="section-header">
+    <h2>Step 2: Your Role</h2>
+    <p>AI fatigue manifests differently across engineering roles.</p>
+  </div>
+  <div class="role-grid" id="roleGrid">
+    <button class="role-btn" data-role="frontend">Frontend Engineer</button>
+    <button class="role-btn" data-role="backend">Backend Engineer</button>
+    <button class="role-btn" data-role="fullstack">Full-Stack Engineer</button>
+    <button class="role-btn" data-role="mobile">Mobile Engineer</button>
+    <button class="role-btn" data-role="ml">ML / AI Engineer</button>
+    <button class="role-btn" data-role="data">Data Engineer</button>
+    <button class="role-btn" data-role="sre">SRE / DevOps</button>
+    <button class="role-btn" data-role="platform">Platform Engineer</button>
+    <button class="role-btn" data-role="security">Security Engineer</button>
+    <button class="role-btn" data-role="embedded">Embedded / Firmware</button>
+    <button class="role-btn" data-role="manager">Engineering Manager</button>
+    <button class="role-btn" data-role="student">Student / Intern</button>
+  </div>
+</section>
+
+<!-- Step 3: Tools -->
+<section style="margin-bottom:36px;">
+  <div class="section-header">
+    <h2>Step 3: Your AI Tool Stack</h2>
+    <p>Select all AI tools you use daily or multiple times per week.</p>
+  </div>
+  <div class="tool-grid" id="toolGrid">
+    <div class="tool-chip" data-tool="copilot">GitHub Copilot</div>
+    <div class="tool-chip" data-tool="claude">Claude (Anthropic)</div>
+    <div class="tool-chip" data-tool="chatgpt">ChatGPT / OpenAI</div>
+    <div class="tool-chip" data-tool="cursor">Cursor</div>
+    <div class="tool-chip" data-tool="gemini">Google Gemini</div>
+    <div class="tool-chip" data-tool="codeium">Codeium</div>
+    <div class="tool-chip" data-tool="tabnine">Tabnine</div>
+    <div class="tool-chip" data-tool="perplexity">Perplexity</div>
+    <div class="tool-chip" data-tool="replit">Replit / AI Agent</div>
+    <div class="tool-chip" data-tool="llama">Local LLM (Llama)</div>
+  </div>
+</section>
+
+<!-- Step 4: Tenure -->
+<section style="margin-bottom:36px;">
+  <div class="section-header">
+    <h2>Step 4: Career Stage</h2>
+    <p>Your career stage determines which fatigue types hit hardest and how to recover.</p>
+  </div>
+  <div class="tenure-options" id="tenureGrid">
+    <button class="tenure-btn" data-tenure="0-2">0–2 years</button>
+    <button class="tenure-btn" data-tenure="3-5">3–5 years</button>
+    <button class="tenure-btn" data-tenure="6-10">6–10 years</button>
+    <button class="tenure-btn" data-tenure="10-15">10–15 years</button>
+    <button class="tenure-btn" data-tenure="15+">15+ years</button>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <button class="btn-primary" id="getResultsBtn" disabled onclick="showResults()">Get My Recovery Path →</button>
+  <p class="select-prompt" id="selectPrompt">Select at least one fatigue type to continue</p>
+</div>
+
+<!-- Results Panel -->
+<div id="results">
+  <div class="results-header">
+    <h2>Your AI Fatigue Recovery Path</h2>
+    <p>Personalized based on your selected types, role, and career stage.</p>
+  </div>
+  <div id="resultContent"></div>
+  <div class="related-section" id="relatedSection" style="display:none;">
+    <h4>You might also have these related types</h4>
+    <div class="related-grid" id="relatedGrid"></div>
+  </div>
+</div>
+<!-- Matrix Table -->
+<section>
+  <div class="section-header">
+    <h2>The Complete Matrix: Role × Fatigue Type</h2>
+    <p>Average severity scores (1–10) by role and fatigue type from 2,400+ engineer survey responses.</p>
+  </div>
+  <div class="matrix-wrap">
+    <table class="matrix">
+      <thead>
+        <tr>
+          <th class="rc">Role</th>
+          <th>Cognitive Overload</th>
+          <th>Skill Erosion</th>
+          <th>Decision Paralysis</th>
+          <th>Identity Drift</th>
+          <th>Prod. Anxiety</th>
+          <th>Context Exhaustion</th>
+          <th>Craft Erosion</th>
+          <th>Attention Frag.</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="rc">Frontend</td><td class="sc hi">7.8</td><td class="sc">6.2</td><td class="sc">5.4</td><td class="sc">6.8</td><td class="sc hi">7.1</td><td class="sc hi">8.2</td><td class="sc hi">7.9</td><td class="sc hi">7.3</td></tr>
+        <tr><td class="rc">Backend</td><td class="sc">6.5</td><td class="sc hi">7.4</td><td class="sc hi">7.2</td><td class="sc">5.9</td><td class="sc">6.3</td><td class="sc">6.8</td><td class="sc">5.1</td><td class="sc">6.4</td></tr>
+        <tr><td class="rc">Full-Stack</td><td class="sc hi">8.1</td><td class="sc hi">7.8</td><td class="sc">6.9</td><td class="sc hi">7.2</td><td class="sc hi">7.6</td><td class="sc hi">8.7</td><td class="sc">6.8</td><td class="sc hi">7.9</td></tr>
+        <tr><td class="rc">ML / AI Engineer</td><td class="sc hi">8.4</td><td class="sc">5.2</td><td class="sc hi">8.6</td><td class="sc">6.1</td><td class="sc hi">7.3</td><td class="sc hi">9.1</td><td class="sc lo">4.8</td><td class="sc hi">8.2</td></tr>
+        <tr><td class="rc">Data Engineer</td><td class="sc">6.9</td><td class="sc">6.1</td><td class="sc">6.8</td><td class="sc">5.5</td><td class="sc">6.4</td><td class="sc hi">7.6</td><td class="sc">5.8</td><td class="sc">6.6</td></tr>
+        <tr><td class="rc">SRE / DevOps</td><td class="sc">6.8</td><td class="sc hi">7.6</td><td class="sc">6.4</td><td class="sc">5.7</td><td class="sc">6.5</td><td class="sc">6.9</td><td class="sc">5.3</td><td class="sc">6.8</td></tr>
+        <tr><td class="rc">Platform Engineer</td><td class="sc">6.4</td><td class="sc hi">7.9</td><td class="sc hi">7.1</td><td class="sc">6.2</td><td class="sc">6.1</td><td class="sc">7.1</td><td class="sc">5.4</td><td class="sc">6.3</td></tr>
+        <tr><td class="rc">Security Engineer</td><td class="sc hi">7.1</td><td class="sc hi">8.2</td><td class="sc hi">7.4</td><td class="sc">5.8</td><td class="sc">6.2</td><td class="sc">6.7</td><td class="sc">4.9</td><td class="sc">6.1</td></tr>
+        <tr><td class="rc">Mobile Engineer</td><td class="sc hi">7.6</td><td class="sc">6.4</td><td class="sc">5.8</td><td class="sc">6.5</td><td class="sc hi">7.4</td><td class="sc hi">7.9</td><td class="sc hi">7.2</td><td class="sc">6.9</td></tr>
+        <tr><td class="rc">Embedded / Firmware</td><td class="sc">6.2</td><td class="sc hi">8.4</td><td class="sc">6.7</td><td class="sc">5.4</td><td class="sc">5.9</td><td class="sc">5.8</td><td class="sc lo">4.2</td><td class="sc">5.7</td></tr>
+        <tr><td class="rc">Engineering Manager</td><td class="sc hi">7.9</td><td class="sc">6.8</td><td class="sc hi">8.1</td><td class="sc hi">7.4</td><td class="sc hi">8.3</td><td class="sc hi">8.4</td><td class="sc">5.6</td><td class="sc hi">7.7</td></tr>
+        <tr><td class="rc">Student / Intern</td><td class="sc hi">8.2</td><td class="sc hi">8.9</td><td class="sc">5.1</td><td class="sc hi">8.7</td><td class="sc hi">7.8</td><td class="sc hi">7.4</td><td class="sc hi">8.1</td><td class="sc hi">7.5</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:0.76rem;color:var(--text-muted);margin-bottom:28px;">
+    <span style="color:var(--danger);font-weight:700;">Red</span> = high severity (7+) &nbsp;|&nbsp;
+    <span style="color:var(--warning);font-weight:700;">Yellow</span> = moderate (5–7) &nbsp;|&nbsp;
+    <span style="color:var(--accent);font-weight:700;">Green</span> = lower (under 5)
+  </p>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="section-header"><h2>Frequently Asked Questions</h2></div>
+  <div class="faq-item">
+    <button class="faq-q">How was this matrix created?</button>
+    <div class="faq-a"><div class="faq-a-inner">We surveyed 2,400+ software engineers across 14 countries and 12 role types between November 2025 and April 2026. Respondents rated 32 fatigue symptoms across 8 dimensions. We used factor analysis to identify 8 distinct clusters, then cross-referenced them against role, tenure, and tool stack to produce severity scores. The full methodology is available in our <a href="engineer-survey-results.html">Engineer Survey Results page</a>.</div></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q">Can I have more than one fatigue type?</button>
+    <div class="faq-a"><div class="faq-a-inner">Yes — and most engineers do. In our survey, 68% of respondents identified with 3 or more fatigue types simultaneously. The types are correlated: cognitive overload often accompanies context exhaustion, and skill erosion frequently co-occurs with identity drift. Use the matrix to understand your dominant type first, then address related types as secondary priorities.</div></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q">I'm a student. Why is my Skill Erosion score so high?</button>
+    <div class="faq-a"><div class="faq-a-inner">Students and early-career engineers (0–2 years) show the highest skill erosion scores of any tenure group because they're building foundational mental models while using AI. The risk isn't just dependency — it's forming those models around AI-generated patterns rather than hard-won debugging experience. This is why we recommend <a href="ai-fatigue.html">AI boundaries specifically calibrated for learning stages</a>.</div></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q">Is this the same as the AI Fatigue Quiz?</button>
+    <div class="faq-a"><div class="faq-a-inner">No. The <a href="quiz-dashboard.html">AI Fatigue Quiz</a> assesses severity (Tier 1–4) — how severely you're affected. This matrix diagnoses type — which specific fatigue patterns are affecting you. Both tools complement each other: take the quiz to understand severity, use this matrix to understand the specific mechanisms and get targeted recovery steps.</div></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q">How long does recovery take?</button>
+    <div class="faq-a"><div class="faq-a-inner">It depends on your type, severity, and how long you've been experiencing symptoms. Type 01 (Cognitive Overload) can improve within 1–2 weeks of implementing context boundaries. Type 02 (Skill Erosion) typically requires 4–8 weeks of deliberate practice without AI for foundational tasks. Type 04 (Identity Drift) is the deepest and may require 2–3 months of consistent re-engagement with challenging, AI-free work. See our <a href="recovery.html">full recovery guide</a> for phase-by-phase timelines.</div></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q">Which tools cause the most fatigue?</button>
+    <div class="faq-a"><div class="faq-a-inner">Based on survey data, the highest-fatigue tool combinations are: Copilot + ChatGPT + Claude (all three used daily = 81% report high fatigue). Single-tool users report 40% lower average fatigue severity. Context-window-heavy workflows (Cursor, Replit agents) correlate most strongly with Context Exhaustion and Decision Paralysis. See our <a href="coding-ai-tools-comparison.html">AI tools comparison page</a> for the full breakdown.</div></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q">I'm a manager. Which types should I watch for in my team?</button>
+    <div class="faq-a"><div class="faq-a-inner">For managers, the highest-impact types to watch are: Identity Drift (leads to attrition in senior engineers), Context Exhaustion (spreads through teams using the same AI tools), and Skill Erosion (hardest to reverse if left untreated). Our <a href="team-manager-guide.html">Team Manager Guide</a> has specific signals to look for and scripts for 1:1 conversations.</div></div>
+  </div>
+</section>
+
+<!-- Navigation Cards -->
+<div class="nav-cards">
+  <a href="ai-fatigue.html" class="nav-card">
+    <div class="nav-icon">📖</div>
+    <div class="nav-title">AI Fatigue Guide</div>
+    <div class="nav-desc">The comprehensive guide to understanding AI fatigue</div>
+  </a>
+  <a href="quiz-dashboard.html" class="nav-card">
+    <div class="nav-icon">📋</div>
+    <div class="nav-title">Take the Quiz</div>
+    <div class="nav-desc">Assess your severity tier in 3 minutes</div>
+  </a>
+  <a href="recovery.html" class="nav-card">
+    <div class="nav-icon">🩹</div>
+    <div class="nav-title">Recovery Plan</div>
+    <div class="nav-desc">7-phase evidence-based recovery strategies</div>
+  </a>
+  <a href="research.html" class="nav-card">
+    <div class="nav-icon">🔬</div>
+    <div class="nav-title">Science & Research</div>
+    <div class="nav-desc">Cognitive load theory, neuroscience, and data</div>
+  </a>
+</div>
+
+</div><!-- /.container -->
+
+<footer>
+  <p><a href="index.html">The Clearing</a> — Resources for engineers navigating AI tooling.</p>
+  <p style="margin-top:8px;font-size:0.76rem;">
+    <a href="ai-fatigue.html">AI Fatigue Guide</a> · 
+    <a href="recovery.html">Recovery</a> · 
+    <a href="quiz-dashboard.html">Quiz</a> · 
+    <a href="research.html">Research</a> · 
+    <a href="community.html">Community</a>
+  </p>
+</footer>
+
+<script>
+// State
+const state = { types: [], role: null, tools: [], tenure: null };
+
+// Type card selection
+document.querySelectorAll('.type-card').forEach(card => {
+  card.addEventListener('click', () => {
+    card.classList.toggle('sel');
+    const type = card.dataset.type;
+    if (state.types.includes(type)) {
+      state.types = state.types.filter(t => t !== type);
+    } else {
+      state.types.push(type);
+    }
+    updateButton();
+  });
+});
+
+// Role selection
+document.querySelectorAll('.role-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('sel'));
+    btn.classList.add('sel');
+    state.role = btn.dataset.role;
+    updateButton();
+  });
+});
+
+// Tool selection
+document.querySelectorAll('.tool-chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    chip.classList.toggle('sel');
+    const tool = chip.dataset.tool;
+    if (state.tools.includes(tool)) {
+      state.tools = state.tools.filter(t => t !== tool);
+    } else {
+      state.tools.push(tool);
+    }
+  });
+});
+
+// Tenure selection
+document.querySelectorAll('.tenure-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tenure-btn').forEach(b => b.classList.remove('sel'));
+    btn.classList.add('sel');
+    state.tenure = btn.dataset.tenure;
+    updateButton();
+  });
+});
+
+function updateButton() {
+  const btn = document.getElementById('getResultsBtn');
+  const prompt = document.getElementById('selectPrompt');
+  if (state.types.length > 0) {
+    btn.disabled = false;
+    prompt.textContent = state.types.length + ' type(s) selected — click to see your recovery path';
+  } else {
+    btn.disabled = true;
+    prompt.textContent = 'Select at least one fatigue type to continue';
+  }
+}
+
+// Type data
+const typeData = {
+  cognitive: {
+    name: 'Type 01: Cognitive Overload',
+    detail: 'Your brain is processing more information per hour than it evolved to handle. AI output arrives faster than evaluation can occur, leaving you in a chronic state of shallow processing.',
+    tags: ['Cognitive Load', 'Attention', 'Working Memory'],
+    steps: [
+      '<strong>Implement context batching:</strong> Collect 3–5 AI outputs before evaluating any of them. Prevents reactive evaluation mode.',
+      '<strong>Add a 90-second pause rule:</strong> Never accept or reject AI output immediately. Write your own answer first, then compare.',
+      '<strong>Use a "dismiss" mindset:</strong> Treat most AI output as a menu, not a decision. Your job is to choose, not to evaluate everything.',
+      '<strong>Limit context window sessions to 45 minutes:</strong> After 45 minutes of AI-assisted work, take a 10-minute screen break.',
+      '<strong>Track your "Cognitive Budget":</strong> At the end of each day, rate your cognitive overload 1–10. Look for patterns over 2 weeks.'
+    ],
+    linked: ['context-exhaustion', 'attention-fragmentation']
+  },
+  'skill-erosion': {
+    name: 'Type 02: Skill Erosion',
+    detail: 'The gap between what you could do 12 months ago and what you can do now without AI has widened. Your mental models of how systems work are being replaced by surface-level pattern matching.',
+    tags: ['Skill Atrophy', 'Learning', 'Competence'],
+    steps: [
+      '<strong>Pick one foundational skill per week to practice without AI:</strong> Debugging, architecture design, SQL query writing, API design — rotate through skills that matter for your role.',
+      '<strong>Use the "Build Without AI" challenge:</strong> Dedicate 2 hours per week to building something small from scratch using only your own knowledge. No AI, no Stack Overflow.',
+      '<strong>Read code, not just generated code:</strong> Spend 20 minutes per day reading well-written open-source code in your domain. This rebuilds pattern recognition.',
+      '<strong>Keep a "Skill Log":</strong> Document what you could do before AI vs. now. Identify your 3 biggest gaps.',
+      '<strong>Get a code review from a senior engineer who rarely uses AI:</strong> Their feedback reveals what your AI-assisted blind spots look like.'
+    ],
+    linked: ['craft-erosion', 'identity-drift']
+  },
+  'decision-paralysis': {
+    name: 'Type 03: Decision Paralysis',
+    detail: 'AI generates options faster than judgment can be applied. The constant availability of alternative solutions erodes confidence in your own decision-making process.',
+    tags: ['Judgment', 'Confidence', 'Decision Making'],
+    steps: [
+      '<strong>Make the first decision before AI:</strong> Write your answer or decision down BEFORE asking AI. This protects your judgment muscle.',
+      '<strong>Set a "good enough" threshold:</strong> Define what "good enough" means for each decision type. AI can optimize later; good enough moves forward now.',
+      '<strong>Use AI as a sounding board, not a decision-maker:</strong> Ask AI "what would you flag about this approach?" — not "what should I do?"',
+      '<strong>Track decisions made vs. AI-suggested alternatives:</strong> After 2 weeks, review how often your original decision was right vs. the AI suggestion.',
+      '<strong>Create decision templates:</strong> For recurring decisions (PR reviews, architecture choices), write the criteria before seeing any AI output.'
+    ],
+    linked: ['cognitive', 'identity-drift']
+  },
+  'identity-drift': {
+    name: 'Type 04: Identity Drift',
+    detail: 'Your professional identity — built over years of struggle, mastery, and reputation — feels like it belongs to a different person now. "Am I still an engineer if AI does the hard parts?"',
+    tags: ['Identity', 'Psychology', 'Career'],
+    steps: [
+      '<strong>Define "being an engineer" on your own terms:</strong> Write down what being a good engineer means to you. AI doesn't change those values.',
+      '<strong>Track "wins" that were distinctly yours:</strong> Debugging a tricky bug at 2am. Designing a system that scaled. Recognizing a problem before it happened. These are still yours.',
+      '<strong>Build something purely for yourself:</strong> A weekend project, a CLI tool, a small app — built entirely by you, without AI assistance. Rediscover what you can create.',
+      '<strong>Find your " irreducible skill":</strong> The thing you do that AI genuinely cannot replicate. Could be judgment, communication, creativity, or mentorship. Build more of your identity around that.',
+      '<strong>Talk to engineers who predate AI tooling:</strong> Their careers were valid. So is yours. The bar for "real engineer" was met long before Copilot existed.'
+    ],
+    linked: ['skill-erosion', 'craft-erosion', 'productivity-anxiety']
+  },
+  'productivity-anxiety': {
+    name: 'Type 05: Productivity Anxiety',
+    detail: 'The velocity metrics that AI makes possible have reset your internal benchmarks. Rest feels like falling behind. You're producing more than ever but enjoying it less.',
+    tags: ['Velocity', 'Psychology', 'Rest'],
+    steps: [
+      '<strong>Track output quality, not just velocity:</strong> Introduce your own quality metrics: maintainability, test coverage, documentation depth. These slow you down but matter more.',
+      '<strong>Define a "done" that doesn't involve shipping:</strong> Done can mean understanding something deeply, not just shipping it. Redefine your completion criteria.',
+      '<strong>Schedule rest as production time:</strong> Put "thinking time," "debugging practice," and "rest" on your calendar as non-negotiable production activities.',
+      '<strong>Audit your velocity reset:</strong> Before AI, what was your normal velocity? Now? Are you actually falling behind, or has your benchmark changed unfairly?',
+      '<strong>Find your intrinsic motivation:</strong> What did you build before AI made it easy? The motivation that got you into engineering in the first place. Revisit that.'
+    ],
+    linked: ['identity-drift', 'attention-fragmentation']
+  },
+  'context-exhaustion': {
+    name: 'Type 06: Context Exhaustion',
+    detail: 'Managing AI context windows, prompt refinement, session continuity, and memory management is a full-time job on top of your actual job. The overhead of AI tooling is consuming the gains.',
+    tags: ['Context Management', 'Tooling', 'Cognitive Overhead'],
+    steps: [
+      '<strong>Audit your AI session overhead:</strong> Track how much time you spend managing AI sessions vs. actually working. Many engineers find it's 30–40% of their "AI time."',
+      '<strong>Use session templates:</strong> Create reusable prompt templates for recurring tasks. Reduces the cognitive overhead of re-explaining context every session.',
+      '<strong>Implement a "context reset" ritual:</strong> When starting a new task, close all AI sessions and begin fresh. Prevents context contamination and reduces overwhelm.',
+      '<strong>Limit simultaneous AI conversations:</strong> More than 2–3 active AI threads at once creates context switching costs that outweigh the benefits.',
+      '<strong>Automate context preparation:</strong> Write a brief context doc before starting an AI session. Forces you to think clearly about what you actually need.'
+    ],
+    linked: ['cognitive', 'attention-fragmentation']
+  },
+  'craft-erosion': {
+    name: 'Type 07: Craft Erosion',
+    detail: 'The code works but it doesn't feel like yours. The pride in clean, thoughtful implementation is gone. You ship, but you don't create. The aesthetic and tactile pleasure of engineering has been replaced by throughput.',
+    tags: ['Craft', 'Pride', 'Creative Work'],
+    steps: [
+      '<strong>Adopt a "code by hand" practice:</strong> Dedicate 1–2 hours per week to writing code without AI assistance. Not because it's more efficient — because it's more human.',
+      '<strong>Refactor one thing beautifully per week:</strong> Pick one piece of code that AI generated or you rushed through. Refactor it to be something you're proud of.',
+      '<strong>Learn one aesthetic principle deeply:</strong> A design system, a naming convention, a testing philosophy. Something that requires taste, not just correctness.',
+      '<strong>Keep a "beautiful solution" journal:</strong> Document solutions you find elegant, even if AI had a role. Train your eye to recognize quality.',
+      '<strong>Separate shipping from creating:</strong> Shipping is about velocity. Creating is about intention. You need both, but they're different activities requiring different mental states.'
+    ],
+    linked: ['skill-erosion', 'identity-drift']
+  },
+  'attention-fragmentation': {
+    name: 'Type 08: Attention Fragmentation',
+    detail: 'AI makes task-switching effortless. You're in 12 conversations, 3 AI sessions, and 2 codebases simultaneously. Deep focus — the state where real engineering happens — is becoming physiologically difficult.',
+    tags: ['Attention', 'Focus', 'Deep Work'],
+    steps: [
+      '<strong>Implement deep work blocks:</strong> 90-minute AI-free coding sessions, no notifications. Start with 2 per week, build to 3–4.',
+      '<strong>Create a "single task" rule:</strong> One task at a time during deep work blocks. AI makes multitasking too easy — you have to actively resist.',
+      '<strong>Use physical cues for focus:</strong> Headphones (even without music), a specific workspace, a particular time of day. Train your brain to associate these with focus.',
+      '<strong>Measure your attention span:</strong> How long can you work on a hard problem without reaching for AI or a distraction? Track it weekly.',
+      '<strong>Deliberately practice boredom:</strong> Intentionally wait without scrolling. In queues, in transit. The muscle of sustained non-stimulated attention atrophies without use.'
+    ],
+    linked: ['cognitive', 'context-exhaustion', 'productivity-anxiety']
+  }
+};
+
+// Related type labels
+const typeLabels = {
+  cognitive: 'Cognitive Overload',
+  'skill-erosion': 'Skill Erosion',
+  'decision-paralysis': 'Decision Paralysis',
+  'identity-drift': 'Identity Drift',
+  'productivity-anxiety': 'Productivity Anxiety',
+  'context-exhaustion': 'Context Exhaustion',
+  'craft-erosion': 'Craft Erosion',
+  'attention-fragmentation': 'Attention Fragmentation'
+};
+
+const typeLinks = {
+  cognitive: 'the-consultation-trap',
+  'skill-erosion': 'skill-atrophy',
+  'decision-paralysis': 'the-estimation-problem',
+  'identity-drift': 'senior-identity',
+  'productivity-anxiety': 'productivity-theater',
+  'context-exhaustion': 'cognitive-load',
+  'craft-erosion': 'the-craft-problem',
+  'attention-fragmentation': 'flow-state'
+};
+
+function showResults() {
+  const container = document.getElementById('resultContent');
+  let html = '';
+
+  state.types.forEach(type => {
+    const data = typeData[type];
+    if (!data) return;
+
+    const tags = data.tags.map(t => `<span class="result-tag pri">${t}</span>`).join('');
+    const steps = data.steps.map(s => `<li><div class="step-num"></div><div class="step-text">${s}</div></li>`).join('');
+
+    html += `
+    <div class="result-card">
+      <h3>${data.name}</h3>
+      <div class="result-detail">${data.detail}</div>
+      <div class="result-tags">${tags}</div>
+      <ul class="recovery-steps">${steps}</ul>
+    </div>`;
+  });
+
+  container.innerHTML = html;
+
+  // Related types
+  const allRelated = new Set();
+  state.types.forEach(t => {
+    if (typeData[t] && typeData[t].linked) {
+      typeData[t].linked.forEach(r => {
+        if (!state.types.includes(r)) allRelated.add(r);
+      });
+    }
+  });
+
+  const relSection = document.getElementById('relatedSection');
+  const relGrid = document.getElementById('relatedGrid');
+  if (allRelated.size > 0) {
+    relSection.style.display = 'block';
+    relGrid.innerHTML = Array.from(allRelated).map(r =>
+      `<a href="${typeLinks[r] || 'ai-fatigue.html'}.html" class="related-chip">${typeLabels[r] || r}</a>`
+    ).join('');
+  } else {
+    relSection.style.display = 'none';
+  }
+
+  document.getElementById('results').classList.add('visible');
+  document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    item.classList.toggle('open');
+  });
+});
+</script>
+
+</body>
+</html>

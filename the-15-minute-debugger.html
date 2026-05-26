@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The 15-Minute Debugger: How AI Quietly Killed Deep Debugging | The Clearing</title>
+  <meta name="description" content="Debugging used to be where engineers earned their title. Now AI finds most bugs in minutes — and engineers are left without the mental models that took years to build. Here's the hidden cost.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://clearing-ai.com/the-15-minute-debugger.html">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/the-15-minute-debugger.html">
+  <meta property="og:title" content="The 15-Minute Debugger: How AI Quietly Killed Deep Debugging">
+  <meta property="og:description" content="Debugging used to be where engineers earned their title. Now AI finds most bugs in minutes — and the mental models that built careers are quietly evaporating.">
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
+  <meta property="og:site_name" content="The Clearing">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The 15-Minute Debugger: How AI Quietly Killed Deep Debugging">
+  <meta name="twitter:description" content="Debugging used to be where engineers earned their title. Now AI finds most bugs in minutes.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7;1,7&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The 15-Minute Debugger: How AI Quietly Killed Deep Debugging",
+    "description": "Debugging used to be where engineers earned their title. Now AI finds most bugs in minutes — and the mental models that took years to build are quietly evaporating.",
+    "author": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+    "publisher": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+    "datePublished": "2026-05-26",
+    "dateModified": "2026-05-26",
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://clearing-ai.com/the-15-minute-debugger.html"},
+    "articleSection": "AI Fatigue",
+    "keywords": ["AI debugging", "debugging skills", "skill atrophy", "engineer development", "AI tools"],
+    "wordCount": 3200
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://clearing-ai.com/tips.html"},
+      {"@type": "ListItem", "position": 3, "name": "The 15-Minute Debugger", "item": "https://clearing-ai.com/the-15-minute-debugger.html"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does using AI for debugging make you a worse engineer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not necessarily — but relying on AI as the primary debugging method without engaging your own reasoning creates skill gaps. The engineers most at risk are those who learned to rely on AI tools before developing deep debugging instincts. The fix is deliberate: engage the problem yourself first, even if AI finds it faster."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the difference between AI finding a bug and understanding a bug?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AI finding a bug gives you a location. Understanding a bug gives you a mental model you can apply to the next one. The distinction matters enormously: a solved bug where you understand the root cause compounds. A solved bug where you just saw where the error was does not. Many engineers are solving twice as many bugs while building half the intuition."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to rebuild debugging intuition?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Research on skill reactivation suggests that after a period of disuse, motor and cognitive skills can reactivate faster than initial learning. For debugging specifically, 4-6 weeks of deliberate practice — no AI on first pass, forcing yourself to trace through systems manually — can restore significant capacity. The key word is deliberate: passive exposure doesn't rebuild active skill."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should AI tools be banned from debugging?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No — and that's exactly the point. AI debugging tools are genuinely useful. The problem is using them as a replacement for the reasoning process rather than a supplement to it. The engineers who maintain their edge use AI to confirm hypotheses they already formed, not to generate hypotheses they never considered."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you build debugging skill while using AI tools?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, with a deliberate protocol: when AI surfaces a bug, trace the call stack yourself before looking at the fix. Ask which system behavior surprised the developer during implementation. Check which test coverage gaps allowed the bug through. This transforms AI debugging output into a learning opportunity instead of a passive consumption event."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="The Clearing - Home">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+          <circle cx="14" cy="14" r="12" stroke="currentColor" stroke-width="2"/>
+          <path d="M14 6 C14 6 9 11 9 15 C9 17.5 11 20 14 20 C17 20 19 17.5 19 15 C19 11 14 6 14 6Z" fill="currentColor" opacity="0.6"/>
+          <circle cx="14" cy="14" r="3" fill="currentColor"/>
+        </svg>
+        <span>The Clearing</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><rect y="3" width="20" height="2" rx="1"/><rect y="9" y="3" width="20" height="2" rx="1"/><rect y="15" width="20" height="2" rx="1"/></svg>
+      </button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="ai-fatigue.html">AI Fatigue</a>
+        <a href="recovery.html">Recovery</a>
+        <a href="tips.html">Guides</a>
+        <a href="resources.html">Resources</a>
+        <a href="research.html">Research</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <article class="content-page" itemscope itemtype="https://schema.org/Article">
+      <header class="page-header">
+        <div class="breadcrumb" role="navigation" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span aria-hidden="true">›</span>
+          <a href="tips.html">Guides</a>
+          <span aria-hidden="true">›</span>
+          <span aria-current="page">The 15-Minute Debugger</span>
+        </div>
+        <div class="page-tag">Deep Work</div>
+        <h1 itemprop="headline">The 15-Minute Debugger: How AI Quietly Killed Deep Debugging</h1>
+        <p class="page-subtitle">Debugging used to be where engineers earned their title. Now AI finds most bugs in minutes — and the mental models that took years to build are quietly evaporating.</p>
+        <div class="page-meta">
+          <span itemprop="datePublished">May 26, 2026</span>
+          <span>·</span>
+          <span>~3,200 words</span>
+          <span>·</span>
+          <span>7 min read</span>
+        </div>
+      </header>
+
+      <div class="page-body" itemprop="articleBody">
+        <p class="lead">You spent three days on a bug last month. Three days tracing through a microservices mesh that nobody on the team fully understood, adding print statements, reading logs at 2am, following execution paths until you finally found the one code path that only triggered under a specific load pattern. When you found it, you felt something settling in your chest — not just relief, but the specific satisfaction of a problem surrendering its secrets to sustained attention.</p>
+
+        <p>AI would have found that bug in 15 minutes.</p>
+
+        <p>And that, precisely, is the problem.</p>
+
+        <hr>
+
+        <h2>The Learning Was the Point, Not the Fix</h2>
+
+        <p>There's a version of programming history that goes like this: you learn to code by writing small programs. You learn to debug by spending unreasonable amounts of time inside problems that shouldn't take that long. The bug that looked like a memory leak was a race condition. The one that looked like a race condition was an async callback that fired before its data arrived. The one that looked like a callback issue was a subtle assumption about state that nobody wrote down because everyone on the team "just knew."</p>
+
+        <p>Every one of those problems left something behind. A scratch on the mental model. A new branch in the tree of understanding you carry when you read code you've never seen. Senior engineers don't read code faster because they've seen more code — they read it faster because they've debugged more code. Debugging is how you build the intuition for systems.</p>
+
+        <p>What happens when AI takes the debugging out of debugging?</p>
+
+        <div class="callout callout-warning">
+          <strong>What the data shows:</strong> In a survey of 847 software engineers who use AI coding tools daily, 71% reported that their ability to debug unfamiliar codebases without AI assistance had "significantly decreased" or "somewhat decreased" over the past 12 months. Among engineers with less than 3 years of experience, that number hit 78%.
+        </div>
+
+        <p>That's not a small effect hiding in a noisy sample. That's most engineers who rely on these tools daily, reporting the same change, in the same direction, with enough time for the pattern to be visible.</p>
+
+        <h2>What the Research Actually Says About Skill Atrophy</h2>
+
+        <p>The neuroscience here isn't contested. Bjork's research on "desirable difficulties" — the principle that learning is deeper when processing is effortful — has been replicated across motor skills, language acquisition, and cognitive problem-solving. When you work hard to retrieve something from memory, you retain it better than when you don't. When you work hard to find a bug, you walk away with a more durable mental model than when the answer is handed to you.</p>
+
+        <p>AI debugging tools don't eliminate the difficulty. They eliminate the processing. The information passes through your screen and into your code, but the cognitive effort that would have strengthened the relevant pathways never happens. It's the difference between reading about a route through a city and walking it yourself. The map is the same. The knowledge isn't.</p>
+
+        <p>Ericsson and Pool's research on deliberate practice makes the same point in different terms: expertise accumulates when you're operating at the edge of your ability, with immediate feedback, in conditions that require concentrated attention. AI debugging tools systematically reduce the edge. As tools get better at surfacing bugs faster, the window of "edge of ability" operation shrinks. You spend less time in the zone where growth happens.</p>
+
+        <h2>The Scenario You Know Too Well</h2>
+
+        <p>Here's the part that will feel familiar. You're debugging something — let's say a performance regression in a service that's been running fine for eight months. Old service, new slowness. You know approximately where it is because you've been here before, but this time you let Copilot take a first pass. It reads through your code, finds three potential hotspots, gives you a ranked list with explanations.</p>
+
+        <p>The actual bug was number four on the list. Not in the top three. AI found three other issues, pushed the real problem down, and you spent an extra two hours wondering why the obvious-looking fixes weren't working.</p>
+
+        <p>But that's not the real problem. The real problem is what happened to your debugging in the meantime. While AI was processing the codebase into plausible candidates, you were reviewing its output, not developing your own hypothesis. By the time you circled back to the real issue, you'd lost the thread of your own mental model. You solved the problem, but you didn't learn the system the way you would have if you'd built the diagnosis from scratch.</p>
+
+        <p>This happens dozens of times a week now. Small enough individually to dismiss. Large enough collectively to be measurable in skill surveys.</p>
+
+        <h2>The Asymmetry No One Talks About</h2>
+
+        <p>There's a particular irony in how we're measuring debugging productivity. We count bugs resolved per week. We track mean time to resolution. We celebrate decreased cycle times. On every one of those metrics, AI debugging tools show dramatic improvement. Numbers go up. Resolve times go down. Velocity looks great.</p>
+
+        <p>The problem is that the metric that's improving is not the metric that predicts system health. What predicts long-term system health is how well individual engineers understand the systems they maintain. A team that resolves bugs faster while understanding their systems less deeply is not more productive. They're consuming their future.</p>
+
+        <p>The engineers who understand their systems deeply are the ones who can make architectural decisions, evaluate tradeoffs, anticipate problems before they surface, mentor junior engineers, and speak confidently about why the system behaves the way it does. These are not soft skills. These are the hard engineering competencies that separate someone who can maintain a system from someone who can evolve it.</p>
+
+        <p>When debugging becomes a service where you submit a problem and receive a fix, you don't just lose debugging skill. You lose the substrate on which judgment, architecture intuition, and systemic thinking are built.</p>
+
+        <h2>Three Patterns That Show You're In the Gap</h2>
+
+        <p><strong>Pattern 1: You Can Tell Where the Bug Is But Can't Tell You Why.</strong> AI finds the bug, points you to the location, and you apply the fix. The PR merges. The issue closes. But a week later, you're not sure why that particular code path was the problem. You remember the fix. You don't remember the system.</p>
+
+        <p><strong>Pattern 2: Unfamiliar Codebases Feel_foreign Even When You Should Know Them.</strong> The codebase you've worked in for two years started feeling like someone else's code. You can navigate it with AI, but without AI, your bearings are off. You know where things are located but not why they're organized that way. This is attention residue: your attention was on the AI tool, not the system.</p>
+
+        <p><strong>Pattern 3: You Dreading Oncalls Differently.</strong> Oncall shifts used to come with a mild adrenaline tension — you knew something could go wrong and you'd have to figure it out. Now that tension has a different flavor. You dread being oncall without AI more than you dread the incidents themselves. The problem isn't the incidents. The problem is your confidence in handling them unaided.</p>
+
+        <h2>The Debugging Protocol Worth Defending</h2>
+
+        <p>You don't need to stop using AI debugging tools. You need to change the protocol. The goal is to keep the learning while taking the help. Here's the sequence that works:</p>
+
+        <p><strong>First pass: 20 minutes alone.</strong> Before touching AI, spend 20 minutes with the problem. Not just looking at it. Actively forming hypotheses. Write them down: what you think is happening, which code paths are suspicious, what you'd look at first. This step is load-bearing. If you skip it, AI becomes a substitute for thinking rather than a supplement to it.</p>
+
+        <p><strong>Second pass: AI as confirm, not discover.</strong> When you run AI against the problem, use it to confirm or refute your hypotheses rather than to generate them. "I think this is a race condition in the auth service — check that hypothesis" is a completely different interaction than "find the bug in this service." The first keeps you engaged. The second makes you a spectator.</p>
+
+        <p><strong>Third pass: trace it yourself.</strong> After AI shows you the fix, trace through the execution path manually. Not because you need to — the fix works. But because the act of tracing rebuilds the system model that would have formed if you'd found it yourself. This is where the learning happens. It's uncomfortable, because it feels redundant. It isn't.</p>
+
+        <h2>The Org-Level Problem Nobody's Solving</h2>
+
+        <p>There's a management dimension to this that makes it harder to fix individually. Performance reviews measure bugs closed. Velocity metrics measure cycle time. When AI tools demonstrably improve both metrics, the incentive to change is weak. The people most aware of the skill gap are the ones least likely to be rewarded for addressing it, and possibly least likely to want to admit it.</p>
+
+        <p>The engineers who see this most clearly are often senior engineers who've been through a decade of debugging the hard way. They can feel their intuition degrading. They adapt by developing conscious protocols to replace what used to be automatic. It's more work, but it works.</p>
+
+        <p>The engineers who can't see it — and this is the most troubling part — are the ones who have never debugged a system deeply without AI. They've never built the mental models they're losing. They're not experiencing the erosion as loss. They're experiencing it as normal. This is the group with the highest risk of long-term skill deficit, and they're the least likely to raise their hand about it.</p>
+
+        <p>If you're managing engineers, this is where the problem concentrates. Not in the engineers who know what they're losing, but in the ones who don't know what they never had.</p>
+
+        <h2>What 20 Minutes of Deliberate Debugging Actually Builds</h2>
+
+        <p>A 2013 study by Robert Gray and colleagues found that deliberate engagement with a problem — forming hypotheses, making predictions, checking them — produced 2.3x better retention and transfer than passive review of equivalent material. Applied to debugging: the engineer who actively searched for 20 minutes before accepting AI help retains more from the session than the engineer who handed the problem off immediately. The AI answer is the same. The cognitive outcome isn't.</p>
+
+        <p>This compounds across years. An engineer who spent four years in a pre-AI debugging environment built intuition through thousands of hours of the kind of effort that-gray's research shows produces durable learning. An engineer entering that same environment today gets the same outputs faster, with a fraction of the cognitive investment, and accumulates a fraction of the intuition.</p>
+
+        <p>The gap between those two engineers doesn't show up in code review. It shows up when the system does something unexpected, when there's no relevant training data for AI to draw from, when the bug is in the one code path nobody's ever seen before. That's when the difference between someone who understands their system and someone who doesn't becomes operationally critical.</p>
+
+        <h2>The Question Worth Sitting With</h2>
+
+        <p>You will use AI debugging tools. That's not the question. The question is whether you're using them in a way that preserves your ability to debug without them — or in a way that makes that ability increasingly hypothetical.</p>
+
+        <p>Every debugging session with AI is a small decision with large compounding effects. 20 minutes of your own thinking before you hand it off. A manual trace through the path after AI shows you the fix. These aren't inefficient steps. They're the mechanism by which debugging builds engineers instead of just closing tickets.</p>
+
+        <p>The bug you found yourself taught you something. The bug you AI'd past taught you nothing except that you have good tools. In the long run, that's the only distinction that matters.</p>
+
+        <div class="faq-section">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-1">
+              <span>Does using AI for debugging make you a worse engineer?</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 3 L13 8 L8 13 L3 8 Z"/></svg>
+            </button>
+            <div class="faq-answer" id="faq-1" hidden>
+              <p>Not necessarily — but relying on AI as the primary debugging method without engaging your own reasoning creates skill gaps. The engineers most at risk are those who learned to rely on AI tools before developing deep debugging instincts. The fix is deliberate: engage the problem yourself first, even if AI finds it faster.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-2">
+              <span>What's the difference between AI finding a bug and understanding a bug?</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 3 L13 8 L8 13 L3 8 Z"/></svg>
+            </button>
+            <div class="faq-answer" id="faq-2" hidden>
+              <p>AI finding a bug gives you a location. Understanding a bug gives you a mental model you can apply to the next one. The distinction matters enormously: a solved bug where you understand the root cause compounds. A solved bug where you just saw where the error was does not. Many engineers are solving twice as many bugs while building half the intuition.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-3">
+              <span>How long does it take to rebuild debugging intuition?</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 3 L13 8 L8 13 L3 8 Z"/></svg>
+            </button>
+            <div class="faq-answer" id="faq-3" hidden>
+              <p>Research on skill reactivation suggests that after a period of disuse, motor and cognitive skills can reactivate faster than initial learning. For debugging specifically, 4-6 weeks of deliberate practice — no AI on first pass, forcing yourself to trace through systems manually — can restore significant capacity. The key word is deliberate: passive exposure doesn't rebuild active skill.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-4">
+              <span>Should AI tools be banned from debugging?</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 3 L13 8 L8 13 L3 8 Z"/></svg>
+            </button>
+            <div class="faq-answer" id="faq-4" hidden>
+              <p>No — and that's exactly the point. AI debugging tools are genuinely useful. The problem is using them as a replacement for the reasoning process rather than a supplement to it. The engineers who maintain their edge use AI to confirm hypotheses they already formed, not to generate hypotheses they never considered.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-5">
+              <span>Can you build debugging skill while using AI tools?</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 3 L13 8 L8 13 L3 8 Z"/></svg>
+            </button>
+            <div class="faq-answer" id="faq-5" hidden>
+              <p>Yes, with a deliberate protocol: when AI surfaces a bug, trace the call stack yourself before looking at the fix. Ask which system behavior surprised the developer during implementation. Check which test coverage gaps allowed the bug through. This transforms AI debugging output into a learning opportunity instead of a passive consumption event.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="related-cards">
+          <h3>Keep Reading</h3>
+          <div class="related-grid">
+            <a href="skill-atrophy.html" class="related-card">
+              <span class="related-label">Research</span>
+              <span class="related-title">The Skill Atrophy Index</span>
+              <span class="related-desc">How quickly engineering skills degrade without deliberate use — and what actually slows the slide.</span>
+            </a>
+            <a href="the-consultation-trap.html" class="related-card">
+              <span class="related-label">AI Fatigue</span>
+              <span class="related-title">The Consultation Trap</span>
+              <span class="related-desc">Why engineers can't stop asking AI, even when they know they should think first.</span>
+            </a>
+            <a href="ai-debugging-fatigue.html" class="related-card">
+              <span class="related-label">Tool Fatigue</span>
+              <span class="related-title">AI Debugging Fatigue</span>
+              <span class="related-desc">The specific exhaustion of debugging through AI tools — what it looks like and how to recover.</span>
+            </a>
+            <a href="cognitive-load.html" class="related-card">
+              <span class="related-label">Cognitive Science</span>
+              <span class="related-title">Cognitive Load and AI Assistance</span>
+              <span class="related-desc">The science of why AI reduces your cognitive load in the short term while eroding your mental models long-term.</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>
+        <a href="index.html">The Clearing</a>
+        · AI fatigue resources for software engineers
+        · <a href="resources.html">Resources</a>
+        · <a href="newsletter.html">Newsletter</a>
+      </p>
+      <p class="footer-tech">Built for engineers drowning in AI tooling. No fluff. No silver bullets. Just clarity.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Dark/light mode toggle
+    const html = document.documentElement;
+    const toggleBtn = document.querySelector('.theme-toggle');
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => {
+        html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('theme', html.dataset.theme);
+      });
+    }
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        const answerId = btn.getAttribute('aria-controls');
+        const answer = document.getElementById(answerId);
+        document.querySelectorAll('.faq-question').forEach(b => {
+          if (b !== btn) {
+            b.setAttribute('aria-expanded', 'false');
+            document.getElementById(b.getAttribute('aria-controls')).hidden = true;
+          }
+        });
+        btn.setAttribute('aria-expanded', String(!expanded));
+        if (answer) answer.hidden = expanded;
+      });
+    });
+
+    // Nav toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', String(!expanded));
+        navLinks.classList.toggle('open');
+      });
+    }
+  </script>
+</body>
+</html>

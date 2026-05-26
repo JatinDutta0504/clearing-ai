@@ -72,3 +72,12 @@
 **Phase windows:** P1=216 | P2=279 | P3=198 | P4=194
 **Site stats:** 221 pages | ~1,041k words | Lighthouse 100 | Technical SEO 99/100 | Day 20
 **Next:** LinkedIn Post #4 "The Velocity Trap" (post Tue May 26 7-9 AM PDT) | Reddit r/programming Fri May 29 1PM PDT | EM2 follow-ups ~May 29 | Reddit Fresh Pack Jun 1-7 (ALREADY PREPPED)
+
+---
+# Hour f4509cba-2026-05-26-0847-utc-phase1-scientist-in-residence
+**Phase:** Phase 1 — Content Pillar (Pillar 1: AI Fatigue Authority, new sub-pillar)
+**Built:** `scientist-in-residence.html` (~3,100 words) — "The Scientist in Residence: Rescuing Engineering Judgment in the Age of AI." Core thesis: AI handles execution, scientists handle judgment. Diagnostic ladder, hypothesis formation, 4 FAQ entries. Schema: Article + BreadcrumbList + FAQPage. Mobile responsive, dark mode. Added to sitemap.xml.
+**Git:** 462af0dc | Push: success
+**Phase:** P1=217 | P2=279 | P3=199 | P4=194
+**Site stats:** 222 pages | ~1,044k words | Lighthouse 100 | Technical SEO 99/100 | Day 22
+**Next:** Reddit r/programming Fri May 29 1PM PDT | Reddit Fresh Pack Jun 1-7 | EM2 Day-7 follow-ups May 29 | LinkedIn Post #4 "The Velocity Trap"

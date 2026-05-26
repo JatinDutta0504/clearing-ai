@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Fatigue Journey — Quiz Dashboard | The Clearing</title>
+  <meta name="description" content="Track your AI fatigue over time. See your quiz history, score trends, and personalised recovery insights. For software engineers committed to sustainable AI use.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://clearing-ai.com/quiz-dashboard.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clearing-ai.com/quiz-dashboard.html">
+  <meta property="og:title" content="My Fatigue Journey — Quiz Dashboard">
+  <meta property="og:description" content="Track your AI fatigue score over time. See your trend, get personalised insights, and understand your recovery trajectory.">
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="My Fatigue Journey — Quiz Dashboard">
+  <meta name="twitter:description" content="Track your AI fatigue score over time.">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "My Fatigue Journey — Quiz Dashboard",
+    "description": "Personal tracking dashboard for the AI Fatigue Quiz. View your score history, trends, and recovery trajectory over time.",
+    "url": "https://clearing-ai.com/quiz-dashboard.html",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "The Clearing",
+      "url": "https://clearing-ai.com"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com"},
+        {"@type": "ListItem", "position": 2, "name": "Quiz", "item": "https://clearing-ai.com/#quiz"},
+        {"@type": "ListItem", "position": 3, "name": "My Dashboard", "item": "https://clearing-ai.com/quiz-dashboard.html"}
+      ]
+    }
+  }
+  </script>
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.min.css">
+  <style>
+    /* ── Layout ── */
+    .page-wrap { max-width: 860px; margin: 0 auto; padding: 0 1.5rem; }
+    .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted, #8b949e); margin-bottom: 0.75rem; }
+
+    /* ── Hero ── */
+    .dash-hero { text-align: center; padding: 4rem 0 2.5rem; }
+    .dash-hero-icon { font-size: 3rem; margin-bottom: 1rem; display: block; }
+    .dash-hero h1 { font-family: var(--font-serif, Georgia, serif); font-size: clamp(1.8rem, 4vw, 2.6rem); color: var(--text, #e6edf3); line-height: 1.2; margin-bottom: 0.75rem; }
+    .dash-hero p { color: var(--text-muted, #8b949e); font-size: 1.05rem; max-width: 520px; margin: 0 auto 1.5rem; line-height: 1.6; }
+
+    /* ── Stat Cards Row ── */
+    .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin-bottom: 2.5rem; }
+    .stat-card { background: var(--surface, #161b22); border: 1px solid var(--border, #30363d); border-radius: 12px; padding: 1.25rem; text-align: center; }
+    .stat-card .stat-num { font-size: 2rem; font-weight: 700; font-family: var(--font-serif, Georgia, serif); color: var(--text, #e6edf3); line-height: 1; }
+    .stat-card .stat-num.forest { color: var(--forest-light, #2d5a3a); }
+    .stat-card .stat-num.earth { color: var(--earth-light, #b8956a); }
+    .stat-card .stat-num.bark { color: var(--bark, #5c4033); }
+    .stat-card .stat-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted, #8b949e); margin-top: 0.5rem; }
+
+    /* ── Tier Summary ── */
+    .tier-summary { display: flex; gap: 0.5rem; margin-bottom: 2.5rem; border-radius: 12px; overflow: hidden; height: 12px; }
+    .tier-bar-seg { height: 100%; transition: width 0.4s ease; }
+    .tier-bar-seg.tier-0 { background: var(--forest-light, #2d5a3a); }
+    .tier-bar-seg.tier-1 { background: var(--earth-light, #b8956a); }
+    .tier-bar-seg.tier-2 { background: var(--earth, #8b6f4e); }
+    .tier-bar-seg.tier-3 { background: var(--bark, #5c4033); }
+    .tier-legend { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; font-size: 0.8rem; color: var(--text-muted, #8b949e); }
+    .tier-legend-item { display: flex; align-items: center; gap: 0.35rem; }
+
+    /* ── Chart ── */
+    .chart-section { background: var(--surface, #161b22); border: 1px solid var(--border, #30363d); border-radius: 16px; padding: 1.75rem; margin-bottom: 2rem; }
+    .chart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.5rem; }
+    .chart-title { font-family: var(--font-serif, Georgia, serif); font-size: 1.2rem; color: var(--text, #e6edf3); }
+    .chart-meta { font-size: 0.8rem; color: var(--text-muted, #8b949e); }
+    .chart-wrap { position: relative; }
+    #trend-chart { width: 100%; height: 180px; display: block; }
+    .chart-empty { text-align: center; padding: 3rem 1rem; color: var(--text-muted, #8b949e); }
+    .chart-empty-icon { font-size: 2.5rem; display: block; margin-bottom: 0.75rem; }
+    .chart-insight { margin-top: 1rem; padding: 0.875rem 1rem; background: var(--bg-elevated, #1c2128); border-radius: 8px; border-left: 3px solid var(--forest-light, #2d5a3a); font-size: 0.9rem; color: var(--text-muted, #8b949e); line-height: 1.5; }
+    .chart-insight.improving { border-left-color: var(--forest-light, #2d5a3a); }
+    .chart-insight.stable { border-left-color: var(--earth-light, #b8956a); }
+    .chart-insight.worsening { border-left-color: var(--bark, #5c4033); }
+
+    /* ── History List ── */
+    .history-section { margin-bottom: 2rem; }
+    .history-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+    .history-title { font-family: var(--font-serif, Georgia, serif); font-size: 1.2rem; color: var(--text, #e6edf3); }
+    .attempt-card { background: var(--surface, #161b22); border: 1px solid var(--border, #30363d); border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 0.75rem; display: grid; grid-template-columns: auto 1fr auto; gap: 1rem; align-items: center; }
+    .attempt-date { font-size: 0.75rem; color: var(--text-dim, #484f58); min-width: 80px; }
+    .attempt-tier { display: flex; align-items: center; gap: 0.5rem; }
+    .attempt-emoji { font-size: 1.4rem; }
+    .attempt-label { font-size: 0.85rem; font-weight: 600; color: var(--text, #e6edf3); }
+    .attempt-score { font-size: 0.75rem; color: var(--text-muted, #8b949e); }
+    .attempt-score strong { color: var(--text, #e6edf3); }
+    .attempt-note { font-size: 0.82rem; color: var(--text-muted, #8b949e); grid-column: 2; margin-top: 0.25rem; }
+    .attempt-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .attempt-actions button { background: none; border: 1px solid var(--border, #30363d); color: var(--text-muted, #8b949e); border-radius: 6px; padding: 0.25rem 0.6rem; font-size: 0.75rem; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+    .attempt-actions button:hover { border-color: var(--forest-light, #2d5a3a); color: var(--forest-light, #2d5a3a); }
+    .attempt-actions .delete-btn:hover { border-color: #e5534b; color: #e5534b; }
+
+    /* ── Note Modal ── */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 1000; align-items: center; justify-content: center; padding: 1rem; }
+    .modal-overlay.open { display: flex; }
+    .modal-box { background: var(--surface, #161b22); border: 1px solid var(--border, #30363d); border-radius: 16px; padding: 2rem; max-width: 480px; width: 100%; }
+    .modal-box h3 { font-family: var(--font-serif, Georgia, serif); color: var(--text, #e6edf3); margin-bottom: 1rem; }
+    .modal-box textarea { width: 100%; background: var(--bg-elevated, #1c2128); border: 1px solid var(--border, #30363d); border-radius: 8px; color: var(--text, #e6edf3); padding: 0.75rem; font-family: inherit; font-size: 0.9rem; resize: vertical; min-height: 100px; box-sizing: border-box; }
+    .modal-box textarea:focus { outline: none; border-color: var(--forest-light, #2d5a3a); }
+    .modal-actions { display: flex; gap: 0.75rem; justify-content: flex-end; margin-top: 1rem; }
+    .btn-modal-cancel { background: none; border: 1px solid var(--border, #30363d); color: var(--text-muted, #8b949e); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.875rem; cursor: pointer; font-family: inherit; transition: all 0.2s; }
+    .btn-modal-cancel:hover { border-color: var(--text-muted, #8b949e); color: var(--text, #e6edf3); }
+    .btn-modal-save { background: var(--forest-mid, #2d4a2d); border: none; color: var(--forest-pale, #7aab8a); border-radius: 8px; padding: 0.5rem 1.25rem; font-size: 0.875rem; cursor: pointer; font-family: inherit; font-weight: 600; transition: background 0.2s; }
+    .btn-modal-save:hover { background: var(--forest-light, #2d5a3a); }
+
+    /* ── CTAs ── */
+    .cta-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--forest-mid, #2d4a2d); color: var(--forest-pale, #7aab8a); border: none; border-radius: 8px; padding: 0.75rem 1.5rem; font-size: 0.9rem; font-weight: 600; text-decoration: none; cursor: pointer; font-family: inherit; transition: background 0.2s, transform 0.15s; }
+    .btn-primary:hover { background: var(--forest-light, #2d5a3a); transform: translateY(-1px); text-decoration: none; color: var(--forest-pale, #7aab8a); }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; color: var(--text, #e6edf3); border: 1px solid var(--border, #30363d); border-radius: 8px; padding: 0.75rem 1.25rem; font-size: 0.875rem; text-decoration: none; cursor: pointer; font-family: inherit; transition: all 0.2s; }
+    .btn-secondary:hover { border-color: var(--forest-light, #2d5a3a); color: var(--forest-light, #2d5a3a); text-decoration: none; }
+
+    /* ── Save Current Result Banner ── */
+    .save-banner { background: linear-gradient(135deg, var(--forest-deep, #1a2e1a), var(--forest-mid, #2d4a2d)); border: 1px solid var(--forest-light, #2d5a3a); border-radius: 16px; padding: 1.5rem; margin-bottom: 2rem; display: none; }
+    .save-banner.visible { display: block; }
+    .save-banner-text { color: var(--forest-pale, #7aab8a); font-size: 0.95rem; margin-bottom: 0.75rem; }
+    .save-banner-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .btn-save { background: var(--forest-light, #2d5a3a); border: none; color: #fff; border-radius: 8px; padding: 0.6rem 1.25rem; font-size: 0.875rem; cursor: pointer; font-family: inherit; font-weight: 600; transition: background 0.2s; }
+    .btn-save:hover { background: var(--forest, #2d5a3a); }
+    .btn-dismiss { background: none; border: 1px solid rgba(122,171,138,0.4); color: var(--forest-pale, #7aab8a); border-radius: 8px; padding: 0.6rem 1rem; font-size: 0.875rem; cursor: pointer; font-family: inherit; transition: all 0.2s; }
+    .btn-dismiss:hover { background: rgba(63,185,80,0.1); }
+
+    /* ── Empty State ── */
+    .empty-state { text-align: center; padding: 4rem 1.5rem; }
+    .empty-icon { font-size: 3.5rem; display: block; margin-bottom: 1rem; }
+    .empty-state h2 { font-family: var(--font-serif, Georgia, serif); font-size: 1.5rem; color: var(--text, #e6edf3); margin-bottom: 0.75rem; }
+    .empty-state p { color: var(--text-muted, #8b949e); font-size: 0.95rem; line-height: 1.6; max-width: 400px; margin: 0 auto 1.5rem; }
+
+    /* ── Footer ── */
+    footer { border-top: 1px solid var(--border, #30363d); padding: 2rem 0; margin-top: 3rem; text-align: center; color: var(--text-dim, #484f58); font-size: 0.8rem; }
+    footer a { color: var(--text-muted, #8b949e); text-decoration: none; }
+    footer a:hover { color: var(--forest-light, #2d5a3a); }
+
+    /* ── Light mode overrides ── */
+    [data-theme="light"] { --bg: #f5f0e8; --surface: #eae5da; --surface-2: #ddd8cf; --border: #c4bdb3; --text: #1a1612; --text-muted: #6b6560; --text-dim: #9c9590; --accent: #2d5a3a; --accent-dim: #3d7a4a; --accent-soft: rgba(45, 90, 58, 0.08); --accent-glow: rgba(45, 90, 58, 0.12); --forest-deep: #1a2e1a; --forest-mid: #2d4a2d; --forest-light: #2d5a3a; --forest-pale: #5a9a6a; --earth: #8b6f4e; --earth-light: #b8956a; --bark: #5c4033; --bg-elevated: #ede8df; }
+    [data-theme="dark"] { --bg: #0d1117; --surface: #161b22; --surface-2: #1c2128; --border: #30363d; --text: #e6edf3; --text-muted: #8b949e; --text-dim: #484f58; --accent: #3fb950; --accent-dim: #238636; --accent-soft: rgba(63, 185, 80, 0.08); --accent-glow: rgba(63, 185, 80, 0.12); --forest-deep: #1a2e1a; --forest-mid: #2d4a2d; --forest-light: #2d5a3a; --forest-pale: #7aab8a; --earth: #8b6f4e; --earth-light: #b8956a; --bark: #5c4033; --bg-elevated: #1c2128; }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+
+    <!-- Save Banner (shown if returning from quiz) -->
+    <div class="save-banner" id="save-banner" role="alert">
+      <p class="save-banner-text" id="save-banner-text">Save your result to track it over time →</p>
+      <div class="save-banner-actions">
+        <button class="btn-save" id="save-attempt-btn">Save to Dashboard</button>
+        <button class="btn-dismiss" id="dismiss-banner-btn">Not now</button>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <header class="dash-hero">
+      <span class="dash-hero-icon" aria-hidden="true">📊</span>
+      <h1>My Fatigue Journey</h1>
+      <p id="hero-subtitle">Track your AI fatigue score over time. Understand your patterns. Recover deliberately.</p>
+    </header>
+
+    <!-- Stats Row (populated by JS) -->
+    <div class="stats-row" id="stats-row" aria-live="polite">
+      <div class="stat-card">
+        <div class="stat-num" id="stat-attempts">—</div>
+        <div class="stat-label">Total Quizzes</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="stat-avg">—</div>
+        <div class="stat-label">Avg Score</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="stat-best">—</div>
+        <div class="stat-label">Best Score</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="stat-latest">—</div>
+        <div class="stat-label">Latest /15</div>
+      </div>
+    </div>
+
+    <!-- Tier Distribution Bar -->
+    <div class="section-label">Tier distribution</div>
+    <div class="tier-summary" id="tier-summary" aria-label="Tier distribution bar"></div>
+    <div class="tier-legend" id="tier-legend"></div>
+
+    <!-- SVG Trend Chart -->
+    <div class="chart-section">
+      <div class="chart-header">
+        <h2 class="chart-title">Your Score Trend</h2>
+        <span class="chart-meta" id="chart-meta"></span>
+      </div>
+      <div class="chart-wrap" id="chart-wrap">
+        <div class="chart-empty" id="chart-empty">
+          <span class="chart-empty-icon">📈</span>
+          <p>Take the quiz twice to see your trend here.</p>
+        </div>
+        <svg id="trend-chart" viewBox="0 0 700 180" preserveAspectRatio="none" style="display:none" aria-label="Score trend chart"></svg>
+      </div>
+      <div class="chart-insight" id="chart-insight"></div>
+    </div>
+
+    <!-- History -->
+    <section class="history-section" aria-labelledby="history-heading">
+      <div class="history-header">
+        <h2 class="history-title" id="history-heading">Quiz History</h2>
+        <button class="btn-secondary" id="clear-history-btn" style="font-size:0.75rem; padding:0.4rem 0.75rem;">Clear all</button>
+      </div>
+      <div id="history-list" aria-live="polite"></div>
+    </section>
+
+    <!-- CTAs -->
+    <div class="cta-row">
+      <a href="index.html#quiz" class="btn-primary">Retake the Quiz →</a>
+      <a href="quiz-results-tier-1.html" class="btn-secondary">Tier 1 Guide →</a>
+      <a href="recovery.html" class="btn-secondary">Recovery Guide →</a>
+      <a href="ai-fatigue-stories.html" class="btn-secondary">Engineer Stories →</a>
+    </div>
+
+  </div>
+
+  <!-- Note Modal -->
+  <div class="modal-overlay" id="note-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-box">
+      <h3 id="modal-title">Add a note</h3>
+      <textarea id="note-textarea" placeholder="What's happening in your work life right now? How are you feeling about AI at work?" aria-label="Personal note"></textarea>
+      <div class="modal-actions">
+        <button class="btn-modal-cancel" id="modal-cancel-btn">Cancel</button>
+        <button class="btn-modal-save" id="modal-save-btn">Save note</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p><a href="index.html">The Clearing</a> — A sanctuary for engineers experiencing AI fatigue.</p>
+    <p style="margin-top:0.5rem;"><a href="privacy.html">Privacy</a> · Your data stays in your browser — we don't store it.</p>
+  </footer>
+
+  <script>
+  (function() {
+    'use strict';
+
+    // ── Constants ──────────────────────────────────────────────
+    var STORAGE_KEY = 'clearing_quiz_history';
+    var BANNER_KEY = 'clearing_pending_result';
+    var TIERS = [
+      { min: 0, max: 3,  label: 'Holding up well',        emoji: '🌿', color: 'forest' },
+      { min: 4, max: 7,  label: 'Some fatigue showing',    emoji: '🌤', color: 'earth' },
+      { min: 8, max: 11, label: 'Real fatigue present',     emoji: '🌧', color: 'earth' },
+      { min: 12, max: 15,label: 'Need a real break',        emoji: '🌑', color: 'bark'  }
+    ];
+    var TIER_COLORS = { forest: '#2d5a3a', earth: '#b8956a', bark: '#5c4033' };
+
+    // ── State ──────────────────────────────────────────────────
+    var history = [];
+    var editingId = null;
+
+    // ── Bootstrap ──────────────────────────────────────────────
+    function init() {
+      loadHistory();
+      checkPendingResult();
+      render();
+      bindEvents();
+    }
+
+    function loadHistory() {
+      try { history = JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+      catch(e) { history = []; }
+      // Normalize old entries
+      history = history.map(function(h) {
+        if (!h.id) h.id = h.timestamp;
+        return h;
+      });
+    }
+
+    function saveHistory() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
+    }
+
+    function checkPendingResult() {
+      try {
+        var pending = JSON.parse(localStorage.getItem(BANNER_KEY));
+        if (pending && typeof pending.score === 'number') {
+          var banner = document.getElementById('save-banner');
+          var text = document.getElementById('save-banner-text');
+          var tier = getTier(pending.score);
+          text.textContent = 'You just scored ' + pending.score + '/15 (' + tier.emoji + ' ' + tier.label + '). Save it to track your journey?';
+          banner.classList.add('visible');
+          document.getElementById('save-attempt-btn').onclick = function() {
+            saveAttempt(pending);
+            banner.classList.remove('visible');
+            localStorage.removeItem(BANNER_KEY);
+            loadHistory();
+            render();
+          };
+          document.getElementById('dismiss-banner-btn').onclick = function() {
+            banner.classList.remove('visible');
+            localStorage.removeItem(BANNER_KEY);
+          };
+        }
+      } catch(e) {}
+    }
+
+    function saveAttempt(data) {
+      var tier = getTier(data.score);
+      var entry = {
+        id: Date.now(),
+        timestamp: data.timestamp || Date.now(),
+        score: data.score,
+        tierIndex: TIERS.indexOf(tier),
+        answers: data.answers || [],
+        note: data.note || ''
+      };
+      history.unshift(entry);
+      saveHistory();
+    }
+
+    function getTier(score) {
+      for (var i = TIERS.length - 1; i >= 0; i--) {
+        if (score >= TIERS[i].min) return TIERS[i];
+      }
+      return TIERS[0];
+    }
+
+    function getTierByIndex(i) { return TIERS[i] || TIERS[0]; }
+
+    function formatDate(ts) {
+      var d = new Date(ts);
+      var now = new Date();
+      var diffDays = Math.floor((now - d) / 86400000);
+      if (diffDays === 0) return 'Today';
+      if (diffDays === 1) return 'Yesterday';
+      if (diffDays < 7)  return diffDays + ' days ago';
+      return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: d.getFullYear() !== now.getFullYear() ? 'numeric' : undefined });
+    }
+
+    // ── Render ─────────────────────────────────────────────────
+    function render() {
+      renderStats();
+      renderTierBar();
+      renderChart();
+      renderHistory();
+      updateHeroSubtitle();
+    }
+
+    function renderStats() {
+      var n = history.length;
+      document.getElementById('stat-attempts').textContent = n || '—';
+      if (n === 0) {
+        document.getElementById('stat-avg').textContent = '—';
+        document.getElementById('stat-best').textContent = '—';
+        document.getElementById('stat-latest').textContent = '—';
+        return;
+      }
+      var scores = history.map(function(h) { return h.score; });
+      var avg = Math.round(scores.reduce(function(a,b){return a+b;},0) / scores.length * 10) / 10;
+      var best = Math.min.apply(null, scores);
+      var latest = history[0].score;
+      document.getElementById('stat-avg').textContent = avg;
+      document.getElementById('stat-best').textContent = best;
+      document.getElementById('stat-latest').textContent = latest;
+    }
+
+    function renderTierBar() {
+      var el = document.getElementById('tier-summary');
+      var legend = document.getElementById('tier-legend');
+      if (history.length === 0) { el.innerHTML = ''; legend.innerHTML = ''; return; }
+      var counts = [0,0,0,0];
+      history.forEach(function(h) { if (h.tierIndex >= 0 && h.tierIndex <= 3) counts[h.tierIndex]++; });
+      var total = history.length;
+      var segs = counts.map(function(c, i) {
+        var pct = total > 0 ? (c / total * 100).toFixed(1) : 0;
+        return '<div class="tier-bar-seg tier-' + i + '" style="width:' + pct + '%" title="' + TIERS[i].emoji + ' ' + TIERS[i].label + ': ' + c + '/' + total + '" role="img" aria-label="' + TIERS[i].emoji + ' ' + TIERS[i].label + '"></div>';
+      }).join('');
+      el.innerHTML = segs;
+      legend.innerHTML = TIERS.map(function(t, i) {
+        return '<span class="tier-legend-item"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--' + t.color + (t.color==='forest'?'-light':t.color==='earth'?'-light':'') + ',' + (t.color==='forest'?'#2d5a3a':t.color==='earth'?'#b8956a':'#5c4033') + ')"></span> ' + t.emoji + ' ' + t.label + ' (' + counts[i] + ')</span>';
+      }).join('');
+    }
+
+    function renderChart() {
+      var svg = document.getElementById('trend-chart');
+      var empty = document.getElementById('chart-empty');
+      var insight = document.getElementById('chart-insight');
+      var meta = document.getElementById('chart-meta');
+      insight.className = 'chart-insight';
+
+      if (history.length < 2) {
+        svg.style.display = 'none';
+        empty.style.display = 'block';
+        meta.textContent = '';
+        insight.textContent = '';
+        return;
+      }
+      empty.style.display = 'none';
+      svg.style.display = 'block';
+
+      // Chronological order (oldest first for chart)
+      var sorted = history.slice().sort(function(a,b){return a.timestamp - b.timestamp;});
+      var scores = sorted.map(function(h){return h.score;});
+      var n = scores.length;
+
+      // Compute insight
+      var first = scores[0], last = scores[n-1], diff = last - first;
+      var improving = diff < -1, worsening = diff > 1;
+      if (improving) {
+        insight.className = 'chart-insight improving';
+        insight.textContent = '📉 Your score has improved by ' + Math.abs(diff) + ' point' + (Math.abs(diff)>1?'s':'') + ' since you started tracking. ' + (n>=3 ? 'Keep going — consistency is the work.' : 'A few more data points will tell a clearer story.');
+      } else if (worsening) {
+        insight.className = 'chart-insight worsening';
+        insight.textContent = '📈 Your score has increased by ' + diff + ' point' + (diff>1?'s':'') + ' since you started tracking. This is a signal worth paying attention to. Consider revisiting your AI boundaries.';
+      } else {
+        insight.className = 'chart-insight stable';
+        insight.textContent = '➡️ Your score has held relatively steady at ' + last + '/15. ' + (last <= 3 ? 'That\'s a good baseline — keep monitoring.' : 'If you\'re above 7, small changes can still shift the trajectory.');
+      }
+
+      // Chart dimensions
+      var W = 700, H = 180, PAD = 20;
+      var maxS = 15, minS = 0;
+      var chartW = W - 2*PAD, chartH = H - 2*PAD;
+
+      function toX(i) { return PAD + (n > 1 ? i/(n-1) * chartW : chartW/2); }
+      function toY(s) { return PAD + chartH - ((s - minS)/(maxS-minS) * chartH); }
+
+      // Build SVG
+      var d = scores.map(function(s,i){ return (i===0?'M':'L') + toX(i).toFixed(1) + ',' + toY(s).toFixed(1); }).join(' ');
+
+      // Area fill path
+      var area = d + ' L' + toX(n-1).toFixed(1) + ',' + (PAD+chartH) + ' L' + toX(0).toFixed(1) + ',' + (PAD+chartH) + ' Z';
+
+      // Tier threshold lines
+      var lines = TIERS.slice(1,3).map(function(t) {
+        var y = toY(t.min).toFixed(1);
+        return '<line x1="'+PAD+'" y1="'+y+'" x2="'+(W-PAD)+'" y2="'+y+'" stroke="#30363d" stroke-width="1" stroke-dasharray="4,4"/>';
+      }).join('');
+
+      // Data points
+      var dots = scores.map(function(s,i){
+        var t = getTier(s);
+        var cx = toX(i).toFixed(1), cy = toY(s).toFixed(1);
+        return '<circle cx="'+cx+'" cy="'+cy+'" r="5" fill="var(--'+(t.color==='forest'?'forest-light':t.color==='earth'?'earth-light':'bark')+',#2d5a3a)" stroke="var(--bg,#0d1117)" stroke-width="2"/>';
+      }).join('');
+
+      svg.innerHTML = '<defs><linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--forest-light,#2d5a3a)" stop-opacity="0.25"/><stop offset="100%" stop-color="var(--forest-light,#2d5a3a)" stop-opacity="0"/></linearGradient></defs>' +
+        '<rect x="'+PAD+'" y="'+PAD+'" width="'+chartW+'" height="'+chartH+'" fill="var(--surface-2,#1c2128)" rx="6"/>' +
+        '<path d="'+area+'" fill="url(#areaGrad)"/>' +
+        '<path d="'+d+'" fill="none" stroke="var(--forest-light,#2d5a3a)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>' +
+        lines + dots;
+
+      // X-axis labels
+      var labels = sorted.map(function(h,i){
+        if (n <= 8 || i % Math.ceil(n/6) === 0 || i === n-1) {
+          var x = toX(i).toFixed(1);
+          return '<text x="'+x+'" y="'+(H-4)+'" text-anchor="middle" font-size="11" fill="var(--text-dim,#484f58)" font-family="system-ui,sans-serif">' + (new Date(h.timestamp).toLocaleDateString('en-US',{month:'short',day:'numeric'})).replace(' ', '&nbsp;') + '</text>';
+        }
+        return '';
+      }).join('');
+      svg.innerHTML += labels;
+
+      meta.textContent = n + ' attempts · ' + (first <= 3 ? '🌿 improving' : first >= 12 ? '🌑 needs attention' : '➡️ stable');
+    }
+
+    function renderHistory() {
+      var list = document.getElementById('history-list');
+      var clearBtn = document.getElementById('clear-history-btn');
+      clearBtn.style.display = history.length > 0 ? '' : 'none';
+
+      if (history.length === 0) {
+        list.innerHTML = '<div class="empty-state"><span class="empty-icon">📋</span><h2>No quiz history yet</h2><p>Take the AI Fatigue Quiz and save your result here to start tracking your journey over time.</p><a href="index.html#quiz" class="btn-primary">Take the Quiz →</a></div>';
+        return;
+      }
+
+      list.innerHTML = history.map(function(h){
+        var t = getTierByIndex(h.tierIndex);
+        return '<div class="attempt-card" data-id="'+h.id+'" role="article" aria-label="Quiz attempt: '+t.emoji+' '+t.label+'">' +
+          '<div class="attempt-tier"><span class="attempt-emoji" aria-hidden="true">'+t.emoji+'</span></div>' +
+          '<div>' +
+            '<div class="attempt-label">'+t.label+'</div>' +
+            '<div class="attempt-score">Score: <strong>'+h.score+'</strong>/15 · '+formatDate(h.timestamp)+'</div>' +
+            (h.note ? '<div class="attempt-note">"'+h.note+'"</div>' : '') +
+          '</div>' +
+          '<div class="attempt-actions">' +
+            '<button class="note-btn" data-id="'+h.id+'" title="Add or edit note" aria-label="Add note">✏️</button>' +
+            '<button class="delete-btn" data-id="'+h.id+'" title="Delete this entry" aria-label="Delete entry">✕</button>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+
+      // Bind note buttons
+      list.querySelectorAll('.note-btn').forEach(function(btn){
+        btn.onclick = function(){
+          editingId = parseInt(btn.dataset.id);
+          var entry = history.find(function(h){return h.id === editingId;});
+          document.getElementById('note-textarea').value = entry ? (entry.note || '') : '';
+          document.getElementById('note-modal').classList.add('open');
+          document.getElementById('note-textarea').focus();
+        };
+      });
+
+      // Bind delete buttons
+      list.querySelectorAll('.delete-btn').forEach(function(btn){
+        btn.onclick = function(){
+          var id = parseInt(btn.dataset.id);
+          history = history.filter(function(h){return h.id !== id;});
+          saveHistory();
+          render();
+        };
+      });
+    }
+
+    function updateHeroSubtitle() {
+      var el = document.getElementById('hero-subtitle');
+      if (history.length === 0) {
+        el.textContent = 'Track your AI fatigue score over time. Understand your patterns. Recover deliberately.';
+      } else if (history.length === 1) {
+        var t = getTier(history[0].score);
+        el.textContent = 'You took the quiz once. Come back after another attempt to see your trend.';
+      } else {
+        var sorted = history.slice().sort(function(a,b){return a.timestamp - b.timestamp;});
+        var diff = sorted[sorted.length-1].score - sorted[0].score;
+        if (diff < -1) el.textContent = 'Your fatigue is trending down. ' + Math.abs(diff) + ' points better since you started tracking. Keep going.';
+        else if (diff > 1) el.textContent = 'Your fatigue score has increased by ' + diff + ' point(s). Worth paying attention to.';
+        else el.textContent = 'Your score is holding steady. Consistency is the foundation of recovery.';
+      }
+    }
+
+    // ── Event Bindings ──────────────────────────────────────────
+    function bindEvents() {
+      document.getElementById('clear-history-btn').onclick = function() {
+        if (confirm('Clear all quiz history? This cannot be undone.')) {
+          history = [];
+          saveHistory();
+          render();
+        }
+      };
+
+      document.getElementById('modal-cancel-btn').onclick = closeModal;
+      document.getElementById('note-modal').onclick = function(e) {
+        if (e.target === this) closeModal();
+      };
+
+      document.getElementById('modal-save-btn').onclick = function() {
+        var note = document.getElementById('note-textarea').value.trim();
+        if (editingId !== null) {
+          history = history.map(function(h){
+            if (h.id === editingId) h.note = note;
+            return h;
+          });
+          saveHistory();
+          render();
+        }
+        closeModal();
+      };
+
+      document.addEventListener('keydown', function(e){
+        if (e.key === 'Escape') closeModal();
+      });
+    }
+
+    function closeModal() {
+      document.getElementById('note-modal').classList.remove('open');
+      editingId = null;
+    }
+
+    // ── Wire quiz-results pages to save to dashboard ─────────────
+    // Expose a global function so quiz-results.html can call it
+    window.__clearingSaveResult = function(score, answers) {
+      var entry = {
+        id: Date.now(),
+        timestamp: Date.now(),
+        score: score,
+        tierIndex: TIERS.findIndex(function(t){return score >= t.min && score <= t.max;}),
+        answers: answers || [],
+        note: ''
+      };
+      history.unshift(entry);
+      saveHistory();
+      render();
+    };
+
+    // If URL has ?score=N, auto-save
+    (function(){
+      var params = new URLSearchParams(window.location.search);
+      if (params.has('score')) {
+        var score = parseInt(params.get('score'));
+        if (!isNaN(score) && score >= 0 && score <= 15) {
+          // Check if we already saved this exact timestamp (prevent dupes on refresh)
+          var already = history.some(function(h){ return h.timestamp && Math.abs(h.timestamp - Date.now()) < 5000; });
+          if (!already) {
+            var entry = {
+              id: Date.now(),
+              timestamp: Date.now(),
+              score: score,
+              tierIndex: TIERS.findIndex(function(t){return score >= t.min && score <= t.max;}),
+              answers: [],
+              note: ''
+            };
+            history.unshift(entry);
+            saveHistory();
+            render();
+          }
+        }
+      }
+    })();
+
+    // ── Init ────────────────────────────────────────────────────
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+  </script>
+</body>
+</html>

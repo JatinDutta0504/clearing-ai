@@ -957,3 +957,13 @@
 **Git:** 9f77b7e1 | Push: success
 **Site stats:** 220 pages | ~1,026k words | Lighthouse 100 | Technical SEO 99/100 | Day 19
 **Next:** LinkedIn Post #4 "The Velocity Trap" Tue May 26 7-9 AM PDT | Reddit r/programming Fri May 29 1PM PDT | Reddit Fresh Pack Jun 1–7 | Newsletter v4 Day 7 follow-ups ~May 29
+
+---
+
+## Hour f4509cba-2026-05-26-0447-utc — Phase 4 Community: The Dispatch #112
+
+**Phase:** Phase 4 Community — Newsletter Issue Designation #112
+**Built:** `dispatch-112.md` (~2,300 words) + `dispatch-112.html` (~19KB). Theme: "The Depth Debt" — why AI makes knowledge work feel effortless and why that's exactly the problem. Key content: effortful encoding, depth debt vs normal skill decay, the compounding problem, the three-question depth audit, two recovery tactics. Cites cognitive science (effortful encoding, desirable difficulties). P4=192 vs P1=216/P2=278/P3=198.
+**Git:** de1e985f | Push: success
+**Site stats:** 220 pages | ~1,034k words | Lighthouse 100 | Technical SEO 99/100 | Day 20
+**Next:** LinkedIn Post #4 "The Velocity Trap" (post Tue May 26 7-9 AM PDT) | Twitter #56-58 (awaiting X credentials) | Reddit r/programming Fri May 29 1 PM PDT | Reddit Fresh Pack Jun 1-7 (ALREADY PREPPED) | Newsletter EM2 follow-ups ~May 29

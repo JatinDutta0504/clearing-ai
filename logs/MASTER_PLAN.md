@@ -142,3 +142,10 @@
 **Git:** 7e55f23b | Push: success
 **Site stats:** 229 pages | ~1,058k words | Lighthouse 100 | Technical SEO 99/100 | Day 23
 **Next:** LinkedIn Post #4 "The Velocity Trap" (READY — send Tue May 26 7-9 AM PDT) | Reddit r/programming Fri May 29 1PM PDT | EM2 Day-7 follow-ups May 29 | Reddit Fresh Pack Jun 1-7 (PREPPED)
+
+## Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-26 12:47 PDT / 19:47 UTC (Phase 1)
+**Phase:** Phase 1 — Content Pillar (Oncall/Reliability new sub-pillar)
+**Built:** `the-oncall-paradox.html` (~4,100 words, 570 lines) — "The Oncall Paradox: When AI Writes the Code but You're Still On the Hook." Core thesis: AI generates code; engineers still own oncall. 3 diagnostic signals (DREAD score, surface-level debugging, escalation hesitation), 5-step ownership gap framework, traditional vs AI-era oncall comparison, SRE/platform team angle, senior vs junior asymmetry, organizational fixes. FAQPage (5 Qs) + Article + BreadcrumbList schema. sitemap.xml updated (2 entries), index.html feature card added. P1=220 | P2=279 | P3=199 | P4=200.
+**Git:** 5cb0ee35 | Push: success
+**Site stats:** 230 pages | ~1,062k words | Lighthouse 100 | Technical SEO 99/100 | Day 23
+**Next:** Reddit r/programming Fri May 29 1PM PDT | EM2 Day-7 follow-ups May 29 | LinkedIn Post #4 "The Velocity Trap" | Reddit Fresh Pack Jun 1-7 (PREPPED)

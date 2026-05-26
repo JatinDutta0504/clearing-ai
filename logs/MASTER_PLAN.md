@@ -81,3 +81,19 @@
 **Phase:** P1=217 | P2=279 | P3=199 | P4=194
 **Site stats:** 222 pages | ~1,044k words | Lighthouse 100 | Technical SEO 99/100 | Day 22
 **Next:** Reddit r/programming Fri May 29 1PM PDT | Reddit Fresh Pack Jun 1-7 | EM2 Day-7 follow-ups May 29 | LinkedIn Post #4 "The Velocity Trap"
+
+---
+## Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-26 10:47 UTC (Phase 4 Community)
+**Phase:** Phase 4 — Community (Recovery Milestones)
+**Built:** `recovery-milestones.html` (~3,200 words) — 4-phase interactive recovery timeline: Days 1-7 Recognition, Days 8-14 Recalibration, Days 15-21 Rebuilding, Days 22-30 Sustaining. 10 milestone cards with engineer stories, science sections, FAQPage schema. P4=196 | P1=217 | P2=279 | P3=198.
+**Git:** 2e750100 | Push: success
+**Site stats:** 223 pages | ~1,047k words | Lighthouse 100 | Technical SEO 99/100 | Day 22
+**Next:** LinkedIn Post #4 "The Velocity Trap" (post Tue May 26 7-9 AM PDT) | Reddit r/programming Fri May 29 1PM PDT | EM2 follow-ups May 29 | Reddit Fresh Pack Jun 1-7 (ALREADY PREPPED)
+
+---
+## Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-26 11:47 UTC (Phase 4 Community)
+**Phase:** Phase 4 — Community (Newsletter #113)
+**Built:** `dispatch-113.md` + `dispatch-113.html` (~1,700 words, 25KB). Theme: "The Input-to-Output Ratio" — the ratio of effort to skill growth has inverted with AI tooling. Content: What the ratio used to mean, what AI changed, the compounding problem (intuition not building), why metrics don't catch it, the metric worth tracking (weekly self-audit), the ratio table (4 states), practice recommendation by tier. Schema: Article + BreadcrumbList. newsletter-issues.json updated. sitemap.xml updated. Phase 4=197 (catching up vs P1=217, P2=279, P3=199).
+**Git:** b89e88cc | Push: success
+**Site stats:** 224 pages | ~1,049k words | Lighthouse 100 | Technical SEO 99/100 | Day 23
+**Next:** LinkedIn Post #4 "The Velocity Trap" — post Tue May 26 7-9 AM PDT | Reddit r/programming Fri May 29 1PM PDT | EM2 Day-7 follow-ups May 29 | Reddit Fresh Pack Jun 1-7 (ALREADY PREPPED)

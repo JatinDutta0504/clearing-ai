@@ -31,3 +31,44 @@
 **Site stats:** 219 pages | ~1,021k words | Lighthouse 100 | Technical SEO 99/100 | Day 19
 **Next:** Reddit r/programming Fri May 29 1PM PDT | Reddit fresh pack Jun 1–7 | EM2 follow-ups ~May 29 | LinkedIn Post #4 "The Velocity Trap" Tue May 26 7-9 AM PDT
 
+
+---
+## Hour f4509cba-2026-05-26-0347-utc — Phase 4 Community: EM Hub
+- Built: em-hub.html (802 lines) — Engineering Manager's AI Fatigue Hub
+- Git: c5a14a0e | Push: success
+- Phase: P4=191 (vs P1=216, P2=278, P3=198)
+- Site: 220 pages, ~1,034k words
+
+---
+## Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-26 05:47 UTC (Phase 2)
+**Phase:** Phase 2 — Newsletter EM2 Follow-ups (v4) + Phase 3 SEO Bridge
+**Built:** newsletter-outreach/EM2-follow-ups-v4.md — 5 personalized Day-7 follow-ups for all v4 newsletter targets (ByteByteGo, SDW, Increment, EM, DevOps Weekly). Ready to send May 29. Phase 2=279 | P3=199 | P4=193 | P1=216
+**Git:** pending push
+**Site stats:** 217 pages | ~1,034k words | Day 20
+**Next:** LinkedIn Post #4 send | Reddit r/programming Fri May 29 | Reddit Fresh Pack Jun 1-7 | EM2 Day-14 send Jun 5
+
+---
+## Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-26 06:47 UTC (Phase 4 Community)
+**Phase:** Phase 4 — Community (Newsletter #112)
+**Built:** `dispatch-112.md` (~1,800 words) + `dispatch-112.html` (~24KB). Theme: "The Competence Gap" — the three registers (familiarity, comprehension, fluency), the compression problem (AI skips the difficulty that builds models), the senior engineer's blind spot (confidence anchored to past fluency while capability degrades). Monthly self-experiment included. newsletter-issues.json updated.
+**Git:** a7884431 | Push: success
+**Phase windows:** P1=216 | P2=279 | P3=198 | P4=193
+**Site stats:** 220 pages | ~1,036k words | Lighthouse 100 | Technical SEO 99/100 | Day 20
+**Next:** LinkedIn Post #4 "The Velocity Trap" (post Tue May 26 7-9 AM PDT) | Reddit r/programming Fri May 29 1PM PDT | EM2 follow-ups ~May 29 | Reddit Fresh Pack Jun 1-7 (ALREADY PREPPED)
+---
+## Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-26 07:47 UTC (Phase 4 Community)
+**Phase:** Phase 4 — Community (AI Fatigue Stories Hub)
+**Built:**
+- `ai-fatigue-stories.html` (677 lines): Community stories archive + submission hub
+  - 11 engineer stories across 4 severity tiers (Tier 1-4 + recovery story)
+  - JS filter bar by tier, Formspree submission form (anonymous/firstname/handle)
+  - Share buttons, dark/light mode, Schema: CollectionPage + BreadcrumbList
+- `ai-fatigue-recovery-checklist-pdf.html` (enhanced): Direct PDF download added + meta/FAQ updates
+- `assets/ai-fatigue-recovery-checklist.pdf` (4 pages, 6.3KB): 30-day printable checklist
+  - Phase 1: Awareness (5), Phase 2: Light Recovery (5), Phase 3: Boundaries (5), Phase 4: Sustained (5)
+  - Quick Reset Protocol (5) + resources
+- `sitemap.xml`: added ai-fatigue-stories.html
+**Git:** 99a4cf11 | Push: success
+**Phase windows:** P1=216 | P2=279 | P3=198 | P4=194
+**Site stats:** 221 pages | ~1,041k words | Lighthouse 100 | Technical SEO 99/100 | Day 20
+**Next:** LinkedIn Post #4 "The Velocity Trap" (post Tue May 26 7-9 AM PDT) | Reddit r/programming Fri May 29 1PM PDT | EM2 follow-ups ~May 29 | Reddit Fresh Pack Jun 1-7 (ALREADY PREPPED)

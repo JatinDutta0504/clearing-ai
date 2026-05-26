@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Dispatch #113 — The Input-to-Output Ratio</title>
+  <meta name="description" content="Your effort used to make you better. Now it just makes more output. Here's the ratio worth tracking.">
+  <meta property="og:title" content="The Dispatch #113 — The Input-to-Output Ratio">
+  <meta property="og:description" content="Your effort used to make you better. Now it just makes more output. Here's the ratio worth tracking.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/newsletter-issues/dispatch-113.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-issues/dispatch-113.html">
+  <link rel="stylesheet" href="../css/style.min.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>🌿</text></svg>">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Dispatch #113 — The Input-to-Output Ratio",
+    "description": "Your effort used to make you better. Now it just makes more output. Here's the ratio worth tracking.",
+    "datePublished": "2026-06-28",
+    "dateModified": "2026-06-28",
+    "author": { "@type": "Organization", "name": "The Clearing" },
+    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "isPartOf": { "@type": "Periodical", "name": "The Dispatch" }
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0d1117; --surface: #161b22; --surface-2: #1c2128;
+      --border: #21262d; --text: #e6edf3; --muted: #8b949e;
+      --accent: #3fb950; --accent-dim: #238636;
+      --forest-soft: rgba(46,160,67,0.15);
+      --warning: #d29922; --danger: #f85149;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --surface-2: #f0f3f6;
+      --border: #d0d7de; --text: #1f2328; --muted: #656d76;
+      --accent: #1a7f37; --accent-dim: #2da44e;
+      --forest-soft: rgba(26,127,55,0.1);
+      --warning: #9a6700; --danger: #cf222e;
+    }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.75; font-size: 17px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .skip-link { position: absolute; top: -40px; left: 0; background: var(--accent); color: #0d1117; padding: 8px 16px; z-index: 200; font-weight: 600; border-radius: 0 0 8px 0; }
+    .skip-link:focus { top: 0; }
+    .container { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+    nav { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 20px; position: sticky; top: 0; z-index: 100; }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; height: 56px; }
+    .nav-logo { font-weight: 700; font-size: 18px; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+    .nav-logo:hover { text-decoration: none; }
+    .nav-links { display: flex; margin-left: 32px; gap: 0; }
+    .nav-links a { color: var(--muted); padding: 0 14px; height: 56px; display: flex; align-items: center; font-size: 14px; font-weight: 500; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .nav-right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+    .theme-toggle { background: none; border: 1px solid var(--border); color: var(--muted); width: 34px; height: 34px; border-radius: 6px; cursor: pointer; font-size: 16px; transition: border-color 0.15s, color 0.15s; }
+    .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+    .nav-cta { background: var(--accent); color: #0d1117; font-weight: 600; font-size: 14px; padding: 8px 16px; border-radius: 8px; transition: opacity 0.15s; }
+    .nav-cta:hover { opacity: 0.85; text-decoration: none; }
+    .issue-header { padding: 60px 0 40px; text-align: center; }
+    .issue-number { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .issue-title { font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 20px; color: var(--text); }
+    .issue-date { font-size: 0.9rem; color: var(--muted); }
+    .issue-meta { display: flex; justify-content: center; gap: 24px; margin-top: 12px; flex-wrap: wrap; }
+    .issue-meta span { font-size: 0.85rem; color: var(--muted); }
+    .dispatch-hero { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 36px 40px; margin-bottom: 40px; }
+    .dispatch-hero p { font-size: 1.05rem; color: var(--text); line-height: 1.85; margin-bottom: 16px; }
+    .dispatch-hero p:last-child { margin-bottom: 0; }
+    .dispatch-section { margin-bottom: 36px; }
+    .dispatch-section h2 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; color: var(--text); border-bottom: 2px solid var(--accent-dim); padding-bottom: 8px; }
+    .dispatch-section p { color: var(--text); margin-bottom: 16px; font-size: 1rem; line-height: 1.8; }
+    .insight-block { background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; padding: 24px 28px; margin: 24px 0; }
+    .insight-block p { font-size: 1.05rem; color: var(--text); line-height: 1.8; margin-bottom: 0; }
+    .rule { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+    .experiment { background: linear-gradient(135deg, rgba(46,160,67,0.08) 0%, rgba(46,160,67,0.03) 100%); border: 1px solid rgba(46,160,67,0.25); border-radius: 12px; padding: 28px 32px; margin: 32px 0; }
+    .experiment h3 { font-size: 1.05rem; font-weight: 700; color: var(--accent); margin-bottom: 14px; }
+    .experiment p { font-size: 0.98rem; color: var(--text); margin-bottom: 12px; }
+    .experiment ul { margin: 12px 0 16px 20px; }
+    .experiment li { font-size: 0.95rem; color: var(--text); margin-bottom: 8px; line-height: 1.7; }
+    .experiment li strong { color: var(--accent); }
+    .ratio-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.92rem; }
+    .ratio-table th { background: var(--surface-2); border: 1px solid var(--border); padding: 10px 14px; text-align: left; font-weight: 700; color: var(--text); }
+    .ratio-table td { background: var(--surface); border: 1px solid var(--border); padding: 10px 14px; color: var(--muted); }
+    .ratio-table td.good { color: var(--accent); font-weight: 600; }
+    .ratio-table td.bad { color: var(--danger); font-weight: 600; }
+    .ratio-table td.warning { color: var(--warning); font-weight: 600; }
+    .quote-block { border-left: 4px solid var(--accent); padding: 20px 24px; margin: 24px 0; background: var(--surface-2); border-radius: 0 8px 8px 0; }
+    .quote-block p { font-size: 1.05rem; color: var(--text); font-style: italic; margin-bottom: 8px; }
+    .quote-block p:last-child { margin-bottom: 0; }
+    .cta-section { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 36px 40px; margin: 40px 0 48px; text-align: center; }
+    .cta-section h2 { font-size: 1.35rem; font-weight: 700; color: var(--text); margin-bottom: 12px; }
+    .cta-section p { font-size: 0.95rem; color: var(--muted); margin-bottom: 24px; line-height: 1.65; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: var(--accent); color: #0d1117; font-weight: 700; font-size: 0.95rem; padding: 12px 24px; border-radius: 8px; transition: opacity 0.15s; display: inline-block; }
+    .btn-primary:hover { opacity: 0.85; text-decoration: none; }
+    .btn-secondary { background: transparent; color: var(--muted); font-weight: 600; font-size: 0.9rem; padding: 12px 20px; border-radius: 8px; border: 1px solid var(--border); transition: all 0.15s; display: inline-block; }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+    .resource-links { display: flex; flex-direction: column; gap: 8px; margin-top: 20px; }
+    .resource-link { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--muted); text-decoration: none; padding: 10px 14px; border-radius: 8px; background: var(--surface-2); border: 1px solid var(--border); transition: all 0.15s; }
+    .resource-link:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+    .resource-link .arrow { color: var(--accent); font-weight: 700; }
+    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 40px 0; margin-top: 60px; }
+    .footer-inner { max-width: 680px; margin: 0 auto; padding: 0 24px; text-align: center; }
+    .footer-logo { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-top: 16px; }
+    .footer-links a { font-size: 0.85rem; color: var(--muted); transition: color 0.15s; }
+    .footer-links a:hover { color: var(--accent); text-decoration: none; }
+    .footer-copy { font-size: 0.8rem; color: var(--muted); margin-top: 20px; opacity: 0.6; }
+    .dispatch-cta { background: var(--forest-soft); border: 1px solid rgba(46,160,67,0.3); border-radius: 12px; padding: 20px 24px; margin: 28px 0; text-align: center; }
+    .dispatch-cta p { font-size: 0.92rem; color: var(--muted); margin-bottom: 14px; }
+    .dispatch-cta .cta-btn { display: inline-block; background: var(--accent); color: #0d1117; font-weight: 700; font-size: 0.9rem; padding: 10px 20px; border-radius: 8px; transition: opacity 0.15s; }
+    .dispatch-cta .cta-btn:hover { opacity: 0.85; text-decoration: none; }
+    .dispatch-cta .cta-btn-outline { display: inline-block; background: transparent; color: var(--accent); font-weight: 600; font-size: 0.88rem; padding: 10px 18px; border-radius: 8px; border: 1px solid var(--accent); margin-left: 8px; transition: all 0.15s; }
+    .dispatch-cta .cta-btn-outline:hover { background: var(--forest-soft); text-decoration: none; }
+    @media (max-width: 600px) {
+      .dispatch-hero { padding: 24px 20px; }
+      .cta-section { padding: 28px 20px; }
+      .nav-links { display: none; }
+      .issue-header { padding: 40px 0 30px; }
+      .experiment { padding: 20px; }
+      .ratio-table { font-size: 0.82rem; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <nav aria-label="Site navigation">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo"><span>🌿</span> The Clearing</a>
+      <div class="nav-links">
+        <a href="../ai-fatigue.html">Understand</a>
+        <a href="../recovery.html">Recover</a>
+        <a href="../research.html">Research</a>
+        <a href="../stories.html">Stories</a>
+        <a href="../newsletter.html">Newsletter</a>
+      </div>
+      <div class="nav-right">
+        <button type="button" class="theme-toggle" onclick="document.documentElement.setAttribute('data-theme', document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark')" aria-label="Toggle theme">☀️</button>
+        <a href="../#quiz" class="nav-cta">Take the Quiz →</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <div class="container">
+      <header class="issue-header">
+        <div class="issue-number">Issue #113</div>
+        <h1 class="issue-title">The Input-to-Output Ratio</h1>
+        <p class="issue-date">June 28, 2026</p>
+        <div class="issue-meta">
+          <span>📖 6 min read</span>
+          <span>🌿 The Clearing</span>
+          <span>For AI-Fatigued Engineers</span>
+        </div>
+      </header>
+
+      <div class="dispatch-hero">
+        <p>There's a number that should terrify you.</p>
+        <p>It isn't tracked anywhere. No dashboard shows it. No one has ever put it in a quarterly review. But it tells you something true about what's happening to your skills every time you open a coding session.</p>
+        <p>Here's the question: <strong>for every unit of effort you put in, how much skill do you get out?</strong></p>
+        <p>Not how much code. Not how many features. How much skill — the kind that stays with you, that compounds, that makes the next problem easier because this one was hard.</p>
+        <p>The traditional ratio was roughly 1:1. You struggled with something. You worked through it. The struggle left something behind — a model, a pattern, a felt sense of the problem space. Effort and learning moved together.</p>
+        <p>AI tooling has collapsed that ratio. Effort and output have decoupled. You can put in one unit of effort and produce ten units of code. But the learning — the skill — is not in the code. It was in the struggling.</p>
+        <p><strong>The output went up. The input stayed flat. And the ratio that used to say something about your growth now says nothing at all.</strong></p>
+      </div>
+
+      <section class="dispatch-section">
+        <h2>What the Ratio Used to Mean</h2>
+        <p>There was a time when working harder genuinely made you better.</p>
+        <p>This isn't nostalgia. It's arithmetic. Engineering skills are built through repeated cycles of: encounter a problem you can't immediately solve → apply effort → fail in instructive ways → adjust → succeed → build an internal model of why it worked. The struggle was not a bug. It was the delivery mechanism for the learning.</p>
+        <p>The feedback was baked into the work. You knew you'd learned something because it was suddenly easier to do the thing that had been hard. The next similar problem felt more tractable. You could hold more of the system in your head. You could make predictions. You had a model.</p>
+        <p>This is what the input-to-output ratio used to measure, even if no one called it that. Your effort was a reasonably reliable proxy for your growth.</p>
+      </section>
+
+      <section class="dispatch-section">
+        <h2>What AI Changed</h2>
+        <p>AI didn't just make work faster. It changed the relationship between work and learning.</p>
+        <p>When AI handles the hard part — the debugging, the architecture, the unfamiliar pattern — it doesn't just solve the immediate problem. It removes the struggle that would have built the model for the next one.</p>
+        <p>This is the hidden cost that productivity metrics don't see. Your velocity went up. Your skill growth did not.</p>
+        <p>The ratio inverted: output per unit of effort increased dramatically. The ratio of effort to <em>learning</em> collapsed toward zero. You're producing more than ever. You're learning less than ever. And the gap between those two facts is not a personal failure. It's a structural feature of AI-assisted work.</p>
+      </section>
+
+      <div class="insight-block">
+        <p><strong>Output per unit of effort increased dramatically. The ratio of effort to learning collapsed toward zero.</strong> You're producing more than ever. You're learning less than ever. And the gap between those two facts is not a personal failure. It's a structural feature.</p>
+      </div>
+
+      <section class="dispatch-section">
+        <h2>The Compounding Problem</h2>
+        <p>The input-to-output ratio for skill growth compounds — and not in your favor.</p>
+        <p>When you struggle with a problem and learn from it, you don't just gain the skill for that specific task. You gain a more general pattern recognition ability. You learn what the problem space feels like. You develop intuition — the thing that lets a senior engineer look at a system and immediately know something is wrong without being able to articulate why.</p>
+        <p>That intuition is built in the struggling. Not in the solution.</p>
+        <p>AI removes the struggling. So the intuition doesn't build. And because intuition is the thing that makes the next problem easier, every AI-solved problem makes the following problem marginally harder to approach without AI. Not because you got dumber. Because the scaffolding for judgment wasn't built.</p>
+        <p>This compounds across months. The engineers who notice this most acutely are the ones who have been working this way for a year or more. The gap between what they can do with AI and what they can do without it has grown wide enough to see. And what they see worries them more than they'd admit in a sprint retrospective.</p>
+      </section>
+
+      <div class="quote-block">
+        <p>"I can build anything now. I ship more code than I ever have. But when something breaks at 2am — really breaks — I have no idea what is happening. I just prompt-storm until something sticks."</p>
+        <p>— A senior engineer, 12 years experience, speaking honestly in a 1-on-1</p>
+      </div>
+
+      <section class="dispatch-section">
+        <h2>Why the Metrics Don't Catch It</h2>
+        <p>Your velocity metrics look great. Your cycle times are down. Your PRs are closing faster. Your review throughput is up. Every dashboard green.</p>
+        <p>The metrics measure output. They don't measure input — not the real input, not the cognitive effort, not the skill-building struggle. They measure work product. And the work product is genuinely higher with AI.</p>
+        <p>This is why the problem is so hard to address from inside a team. The metrics say everything is fine. The engineers who are paying close attention say something is wrong. And without a shared vocabulary for the difference between shipping and growing, the engineers who notice the problem sound like they're complaining about free productivity.</p>
+        <p>The input-to-output ratio is personal. You know whether the work you're doing is teaching you anything. You know whether you're finishing a week and feeling like the next week will be easier because of what you learned, or whether you're finishing a week and knowing that you'll need AI just as much on Monday because nothing stuck.</p>
+        <p><strong>That's the ratio that matters. And it's not on any dashboard.</strong></p>
+      </section>
+
+      <section class="dispatch-section">
+        <h2>The Metric Worth Tracking</h2>
+        <p>Here's the thing worth paying attention to:</p>
+        <p>Every week, ask yourself one question:</p>
+        <p><strong>What did I learn this week that I didn't know last week?</strong></p>
+        <p>Not what did I ship. What did I learn.</p>
+        <p>If the answer is unclear — if you're not sure what you've gained from the week's work — that's data. It means the input-to-output ratio for that week was low. Not zero. Low. The work happened. The code shipped. But the learning that should have accompanied it didn't accumulate.</p>
+        <p>This isn't about being harder on yourself. It's about noticing what's actually happening. Because if you can't see the ratio, you can't manage it. And if you can't manage it, the default direction is toward more output and less growth — forever, not just until you notice.</p>
+      </section>
+
+      <table class="ratio-table">
+        <thead>
+          <tr>
+            <th>State</th>
+            <th>What It Looks Like</th>
+            <th>The Ratio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="good">Healthy</td>
+            <td>Struggled, learned, can do it faster next time</td>
+            <td class="good">~1:1 — effort → skill</td>
+          </tr>
+          <tr>
+            <td class="warning">Mild Erosion</td>
+            <td>Shipped more, not sure what you learned</td>
+            <td class="warning">10:1 — effort → output, near 0 → skill</td>
+          </tr>
+          <tr>
+            <td class="bad">Significant Gap</td>
+            <td>Can't remember the last time something was hard</td>
+            <td class="bad">Output up 3x, skill flat or declining</td>
+          </tr>
+          <tr>
+            <td class="bad">Critical</td>
+            <td>Considered leaving tech; feels hollow</td>
+            <td class="bad">Maximum output, minimum growth</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr class="rule">
+
+      <div class="experiment">
+        <h3>🔬 The Practice That Changes the Ratio</h3>
+        <p>You don't have to stop using AI. That's not the point.</p>
+        <p>The point is: <strong>some fraction of your work needs to be yours.</strong></p>
+        <ul>
+          <li><strong>Tier 4</strong> (considering leaving the industry): Multiple hours per week of unaided practice. Real problems. The discomfort of not knowing immediately.</li>
+          <li><strong>Tiers 2–3</strong> (aware something shifted): One intentional non-AI session per week. Not to prove anything. To keep the thread alive.</li>
+          <li><strong>Tier 1</strong> (mindful use): Audit your ratio monthly. Protect the fraction that stays yours.</li>
+        </ul>
+        <p>The input-to-output ratio isn't permanently broken. It's just defaulting in the wrong direction. The direction is a choice, not an accident — not anymore.</p>
+      </div>
+
+      <section class="dispatch-section">
+        <h2>What 113 Issues Teaches</h2>
+        <p>This is our 113th issue. We've been writing about AI fatigue every week since March of this year.</p>
+        <p>What we've learned from the engineers who write to us, take the quiz, share their stories, and send us the unfiltered account of what's happening in their teams is this: <strong>the engineers who are doing fine are the ones who are paying attention to the ratio.</strong></p>
+        <p>They're not the ones using AI the least. They're not the most talented or the most disciplined. They're the ones who have noticed that effort and learning used to move together, and they're actively protecting that relationship now.</p>
+        <p>The engineers who are struggling are almost always the ones who noticed the ratio had shifted but didn't know what to do about it — and so they just kept working and hoping the feeling would pass.</p>
+        <p>It doesn't pass. But it can be addressed. The ratio is rebuildable.</p>
+        <p>The question each week is simply: what did you put in, and what did you get out?</p>
+        <p>That's worth tracking. Not for a retro. For yourself.</p>
+      </section>
+
+      <div class="dispatch-cta">
+        <p><strong>Next week:</strong> What happens when this ratio shifts across an entire engineering team — and why the managers who are paying attention are quietly making changes that won't show up in any sprint velocity chart for another six months.</p>
+        <p>Until then.</p>
+        <p><em>— Sunny + The Clearing team</em></p>
+        <p style="font-size:0.82rem; color: var(--muted); margin-top: 10px; margin-bottom: 0;">If you know an engineer who has been quieter than usual in code review, forward this to them. They probably already know something is shifting.</p>
+      </div>
+
+      <div class="cta-section">
+        <h2>Where Does Your Ratio Stand?</h2>
+        <p>The quiz identifies your AI fatigue tier and gives you a specific, actionable recovery path. Takes 90 seconds.</p>
+        <div class="cta-buttons">
+          <a href="../#quiz" class="btn-primary">🌿 Take the AI Fatigue Quiz →</a>
+          <a href="../the-testing-paradox.html" class="btn-secondary">Read: Retrieval Practice</a>
+        </div>
+        <div class="resource-links">
+          <a href="../ai-detox-plan.html" class="resource-link"><span class="arrow">→</span> The 30-Day Recovery Plan</a>
+          <a href="../ai-fatigue.html" class="resource-link"><span class="arrow">→</span> What Is AI Fatigue? (full explainer)</a>
+          <a href="../recovery.html" class="resource-link"><span class="arrow">→</span> The Recovery Guide</a>
+          <a href="../stories.html" class="resource-link"><span class="arrow">→</span> Engineer Stories — you are not alone</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo"><span>🌿</span> The Clearing</div>
+      <p style="font-size:0.9rem; color: var(--muted); max-width: 440px; margin: 0 auto;">Weekly letters on what AI is quietly doing to how you think, work, and understand yourself as an engineer. Free. No tracking. No sequences.</p>
+      <div class="footer-links">
+        <a href="../ai-fatigue.html">Understand AI Fatigue</a>
+        <a href="../recovery.html">Recovery Guide</a>
+        <a href="../research.html">Research</a>
+        <a href="../newsletter.html">Subscribe</a>
+        <a href="../archive.html">Archive</a>
+      </div>
+      <p class="footer-copy">© 2026 The Clearing — clearing-ai.com</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var themeBtn = document.querySelector('.theme-toggle');
+      if (themeBtn) {
+        var saved = localStorage.getItem('theme');
+        var current = document.documentElement.getAttribute('data-theme');
+        themeBtn.textContent = current === 'dark' ? '☀️' : '🌙';
+        themeBtn.addEventListener('click', function() {
+          var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('theme', next);
+          themeBtn.textContent = next === 'dark' ? '☀️' : '🌙';
+        });
+      }
+    });
+  </script>
+</body>
+</html>

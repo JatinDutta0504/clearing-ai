@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Explanation Gap: Why Engineers Can't Explain Their Own Code Anymore</title>
+  <meta name="description" content="You wrote it with AI. You shipped it. But ask yourself to explain it and—nothing. Here's why AI is creating a generation of engineers who can't articulate their own decisions.">
+  <meta property="og:title" content="The Explanation Gap: Why Engineers Can't Explain Their Own Code">
+  <meta property="og:description" content="You wrote it with AI. You shipped it. But ask yourself to explain it and—nothing. Here's why AI is creating engineers who can't articulate their own decisions.">
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Explanation Gap: Why Engineers Can't Explain Their Own Code Anymore">
+  <meta name="twitter:description" content="AI writes it. Engineers ship it. But can they explain it? The explanation gap is real — and it's affecting code quality, team dynamics, and career trajectories.">
+  <link rel="canonical" href="https://clearing-ai.com/the-explanation-gap.html">
+  <link rel="alternate" type="application/rss+xml" title="The Clearing RSS Feed" href="https://clearing-ai.com/feed.xml">
+  <link rel="stylesheet" href="css/style.min.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The Explanation Gap: Why Engineers Can't Explain Their Own Code Anymore",
+        "description": "You wrote it with AI. You shipped it. But ask yourself to explain it and—nothing. Here's why AI is creating a generation of engineers who can't articulate their own decisions.",
+        "author": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+        "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+        "datePublished": "2026-05-27",
+        "dateModified": "2026-05-27",
+        "wordCount": 4100,
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://clearing-ai.com/the-explanation-gap.html" }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Why It Happens", "item": "https://clearing-ai.com/why.html" },
+          { "@type": "ListItem", "position": 3, "name": "The Explanation Gap", "item": "https://clearing-ai.com/the-explanation-gap.html" }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Why can't I explain code I wrote with AI?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The explanation gap forms because AI removed the cognitive work that would have created the mental model. You didn't decompose the problem, choose the approach, or work through the trade-offs — AI did. The resulting code exists in your repository but not in your head. Without the process, there's no story to tell."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this the same as imposter syndrome?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Imposter syndrome is feeling like a fraud despite competence. The explanation gap is something different: you genuinely cannot reconstruct the reasoning behind your own code because you didn't do the reasoning. The code is foreign to you even though you're the one who 'wrote' it. It's not a confidence problem — it's a knowledge gap."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the explanation gap affect code review quality?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, profoundly. Code review depends on the author being able to explain trade-offs, justify choices, and respond to questions. When an author can't explain their own code, review becomes superficial — reviewers can't probe effectively, architecture decisions go unexamined, and bugs that would have been caught in conversation slip through. The explanation gap is a code quality risk."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I know if I have the explanation gap?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A simple test: take any feature you shipped in the last 30 days. Can you explain why it was designed that way? Can you name the alternatives you considered and why you rejected them? Can you describe the edge cases your implementation handles and why you chose that approach? If you can't do this without looking at the code, you have the explanation gap."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can the explanation gap be reversed?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes — but it requires deliberate practice. The reversal protocol: after every AI-assisted session, before committing, write a one-paragraph explanation of what you built and why. Not the code — the reasoning. The act of articulating it rebuilds the mental model. Over time, this bridges the gap between code and comprehension. It's slower than just committing, but it restores something AI assistance is quietly removing."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    .eg-hero{background:linear-gradient(135deg,#0d1520 0%,#0a1a0a 100%);border-bottom:1px solid #1f3040;padding:4.5rem 2rem 3.5rem;text-align:center}
+    .eg-hero .tag{display:inline-block;background:rgba(96,165,250,0.1);border:1px solid rgba(96,165,250,0.3);color:#93c5fd;padding:0.3rem 1rem;border-radius:2rem;font-size:0.8rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:1.5rem}
+    .eg-hero h1{font-size:clamp(1.8rem,5vw,3rem);font-weight:800;color:#f0f9ff;margin:0 auto 1.2rem;max-width:820px;line-height:1.15}
+    .eg-hero .subtitle{font-size:1.1rem;color:#bfdbfe;max-width:620px;margin:0 auto 2rem;line-height:1.65}
+    .article-body{max-width:780px;margin:0 auto;padding:0 1.5rem}
+    .intro-hook{font-size:1.15rem;color:#dbeafe;line-height:1.8;margin:2.5rem 0 2rem;padding:1.5rem;background:rgba(96,165,250,0.06);border-left:3px solid #60a5fa;border-radius:0 0.5rem 0.5rem 0}
+    .intro-hook strong{color:#93c5fd}
+    h2.section-title{font-size:1.65rem;font-weight:700;color:#f0f9ff;margin:3rem 0 1rem;padding-top:1rem;border-top:1px solid #1f3040}
+    h3{font-size:1.15rem;font-weight:700;color:#bfdbfe;margin:2rem 0 0.75rem}
+    p{font-size:1.05rem;color:#cbd5e1;line-height:1.8;margin:1rem 0}
+    .signal-card{background:var(--bg-alt);border:1px solid #1f3040;border-radius:0.75rem;padding:1.5rem;margin:1.5rem 0}
+    .signal-card h4{color:#93c5fd;font-size:1rem;margin-bottom:0.75rem;font-weight:700}
+    .signal-card p{color:#94a3b8;margin:0;font-size:0.95rem}
+    .comparison-table{width:100%;border-collapse:collapse;margin:2rem 0;font-size:0.95rem}
+    .comparison-table th{background:rgba(96,165,250,0.1);color:#93c5fd;padding:0.75rem 1rem;text-align:left;font-weight:600;border-bottom:1px solid #1f3040}
+    .comparison-table td{padding:0.75rem 1rem;border-bottom:1px solid #1f3040;color:#cbd5e1;vertical-align:top}
+    .comparison-table tr:nth-child(even) td{background:rgba(96,165,250,0.03)}
+    .protocol-box{background:rgba(74,222,128,0.06);border:1px solid rgba(74,222,128,0.25);border-radius:0.75rem;padding:1.5rem;margin:2rem 0}
+    .protocol-box h4{color:#86efac;font-size:1rem;margin-bottom:1rem;font-weight:700}
+    .protocol-steps{counter-reset:protocol-step;list-style:none;padding:0;margin:0}
+    .protocol-steps li{counter-increment:protocol-step;padding:0.75rem 0 0.75rem 2.5rem;position:relative;color:#cbd5e1;font-size:0.95rem;line-height:1.6;border-bottom:1px solid rgba(74,222,128,0.1)}
+    .protocol-steps li:last-child{border-bottom:none}
+    .protocol-steps li::before{content:counter(protocol-step);position:absolute;left:0;top:0.75rem;width:1.75rem;height:1.75rem;background:rgba(74,222,128,0.15);color:#86efac;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.8rem}
+    .pitfall-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0}
+    .pitfall-card{background:var(--bg-alt);border:1px solid #1f3040;border-radius:0.75rem;padding:1.25rem}
+    .pitfall-card .icon{font-size:1.5rem;margin-bottom:0.5rem}
+    .pitfall-card h4{color:#f87171;font-size:0.95rem;margin-bottom:0.5rem;font-weight:600}
+    .pitfall-card p{color:#94a3b8;font-size:0.9rem;margin:0;line-height:1.5}
+    .faq-item{margin:1rem 0;border:1px solid #1f3040;border-radius:0.5rem;overflow:hidden}
+    .faq-item summary{padding:1rem 1.25rem;background:var(--bg-alt);color:#93c5fd;font-weight:600;cursor:pointer;font-size:0.95rem;list-style:none}
+    .faq-item summary::-webkit-details-marker{display:none}
+    .faq-item summary::before{content:"▸ ";color:#60a5fa}
+    .faq-item[open] summary::before{content:"▾ "}
+    .faq-item .faq-body{padding:1rem 1.25rem;background:var(--bg);color:#94a3b8;font-size:0.9rem;line-height:1.7}
+    .faq-item .faq-body p{margin:0.5rem 0;color:#94a3b8;font-size:0.9rem}
+    .related-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:2rem 0}
+    .related-card{background:var(--bg-alt);border:1px solid #1f3040;border-radius:0.75rem;padding:1.25rem;text-decoration:none;transition:transform 0.2s,border-color 0.2s;display:block}
+    .related-card:hover{transform:translateY(-2px);border-color:#60a5fa}
+    .related-card h4{color:#93c5fd;font-size:0.95rem;margin-bottom:0.4rem;font-weight:600}
+    .related-card p{color:#64748b;font-size:0.85rem;margin:0;line-height:1.5}
+    .retake-cta{background:linear-gradient(135deg,#0a1a0a 0%,#0d1520 100%);border-top:1px solid #1f3040;padding:3rem 2rem;text-align:center;margin-top:3rem}
+    .btn-group{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem}
+    .btn{padding:0.75rem 1.5rem;border-radius:0.5rem;font-weight:600;font-size:0.95rem;text-decoration:none;transition:all 0.2s;display:inline-block}
+    .btn-primary{background:#60a5fa;color:#0a1929}
+    .btn-primary:hover{background:#3b82f6}
+    .btn-secondary{background:transparent;color:#93c5fd;border:1px solid #60a5fa}
+    .btn-secondary:hover{background:rgba(96,165,250,0.1)}
+  </style>
+</head>
+<body>
+  <header class="nav-header" id="nav-header"></header>
+
+  <main>
+    <section class="eg-hero">
+      <span class="tag">Why It Happens</span>
+      <h1>The Explanation Gap</h1>
+      <p class="subtitle">Why Engineers Can't Explain Their Own Code Anymore</p>
+      <div style="display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;font-size:0.85rem;color:#64748b;margin-top:1rem">
+        <span>📅 May 27, 2026</span>
+        <span>📖 4,100 words</span>
+        <span>🧠 Pattern: Explanation Fatigue</span>
+      </div>
+    </section>
+
+    <article class="article-body">
+      <div class="intro-hook">
+        You shipped it. It works. Someone asks you why the API accepts that parameter, or why you chose that data structure, or what happens when the input is negative — and you realize you can't answer. Not because you're new. Not because you don't care. Because you didn't make that decision. AI did. And now the code you've 'written' has become opaque to its own author.
+      </div>
+
+      <p>The explanation gap is not about being bad at your job. It's about a structural feature of AI-assisted development: when the cognitive work of constructing a solution is removed from the author, the resulting code becomes unexplainable. Not to the team. To yourself.</p>
+
+      <p>This is different from the consultation trap — where you can't stop asking AI. This is its quieter cousin: after the code exists, you can't reconstruct why it does what it does. You can read it. You can maintain it. But you can't tell its story.</p>
+
+      <h2 class="section-title">What the explanation gap actually is</h2>
+
+      <p>When a developer writes a function from scratch — even a simple one — they go through a process: they think about what the input should look like, what output is needed, what edge cases exist, what the trade-offs of different approaches are. They make dozens of micro-decisions, each one a small cognitive investment. Those investments collectively build a mental model of the code.</p>
+
+      <p>That mental model is what lets an engineer explain their own work. Not the code — the reasoning. The 'why' behind the 'what.'</p>
+
+      <p>When AI writes the function, it does this process for you. The result is syntactically correct, often elegant, and entirely disconnected from your mental model. You have the code but not the reasoning. You can read what it does but you can't explain why it's designed that way.</p>
+
+      <div class="signal-card">
+        <h4>🔍 The five signals of the explanation gap</h4>
+        <p><strong>The handoff freeze:</strong> You finish an AI-assisted feature and can't describe it to a teammate without reading the code first. Not in overview — in reasoning.</p>
+        <p><strong>The review paralysis:</strong> When asked to explain your own PR, you open the diff and start reading your own code as if it were someone else's. Because it is.</p>
+        <p><strong>The architecture amnesia:</strong> You can't recall choosing the architecture of something you 'built' three months ago. It wasn't a decision — it was an AI output.</p>
+        <p><strong>The alternative blindness:</strong> When someone asks "why didn't you use X instead?", you genuinely don't know. The question has no answer because no one considered alternatives.</p>
+        <p><strong>The junior problem:</strong> A junior asks you why the system works this way and you realize you can only tell them what it does, not why it was designed that way.</p>
+      </div>
+
+      <h2 class="section-title">Why it matters — beyond the awkward feeling</h2>
+
+      <p>The explanation gap isn't just a personal confusion problem. It has cascading professional consequences.</p>
+
+      <p><strong>Code quality degrades silently.</strong> The architecture review is where bugs are caught, where bad assumptions are challenged, where the team catches the edge case no one considered. If the author can't explain the reasoning, they can't defend it — and the review becomes a surface-level check instead of a substantive conversation. Bugs that would have been caught in a real review slip through.</p>
+
+      <p><strong>Knowledge becomes a single point of failure.</strong> When code is unexplainable by its author, knowledge is effectively trapped in the repository. Oncall becomes guessing. Handoffs become painful. Bus factor goes from a team risk to an organizational crisis.</p>
+
+      <p><strong>Junior engineers lose the mentorship loop.</strong> Code review is how junior engineers learn to think like senior engineers — by watching someone articulate and defend choices. When the author can't explain their choices, that learning pathway closes. Juniors review opaque code and learn to produce more opaque code.</p>
+
+      <p><strong>Your career identity erodes from the inside.</strong> Engineers derive professional satisfaction from expertise — from being the person who understands the system deeply. The explanation gap slowly corrodes that identity. You become a coordinator between AI outputs and team questions, not an engineer with genuine understanding. The feeling of being a real engineer — the thing that makes this work satisfying — diminishes quietly.</p>
+
+      <h2 class="section-title">Why explaining code to AI is not the same as explaining it to humans</h2>
+
+      <p>Here's a subtle trap: when AI generates code, you often iterate on it with AI. You ask AI why something doesn't work. You ask AI to explain an error. You ask AI for alternatives. This interaction <em>feels</em> like understanding — but it's an illusion.</p>
+
+      <p>The explanation you build with AI is procedural: it answers "what's wrong with this code" in the moment of debugging. It doesn't build a mental model of the system's overall design. It doesn't connect to the business requirements, the historical decisions, the trade-offs that shaped the architecture.</p>
+
+      <p>When you explain something to a colleague — in a design review, in a pairing session, in a corridor conversation — you're forced to synthesize. You have to take the full picture and produce a coherent narrative that someone else can follow. That process builds understanding. The AI conversation never requires synthesis because AI doesn't need coherence from you — it just needs the next prompt.</p>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Explaining code to AI</th>
+            <th>Explaining code to humans</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Focuses on the immediate problem</td>
+            <td>Requires the full system context</td>
+          </tr>
+          <tr>
+            <td>No synthesis required — just next step</td>
+            <td>Must produce a coherent narrative</td>
+          </tr>
+          <tr>
+            <td>AI adapts to your framing</td>
+            <td>You must adapt to the listener's context</td>
+          </tr>
+          <tr>
+            <td>Creates procedural memory (how to fix)</td>
+            <td>Creates structural understanding (why)</td>
+          </tr>
+          <tr>
+            <td>Can use vague terms — AI infers</td>
+            <td>Must be precise — ambiguity exposed</td>
+          </tr>
+          <tr>
+            <td>No accountability for accuracy</td>
+            <td>Your credibility is on the line</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 class="section-title">The seniority asymmetry</h2>
+
+      <p>Senior engineers are not immune to the explanation gap — they're uniquely vulnerable to a specific variant of it.</p>
+
+      <p>Senior engineers have a deeper existing mental model — built over years of non-AI-assisted work. This model acts as scaffolding: when AI generates something, they can fit it into their existing understanding more easily than a junior can. They ask better questions, catch more obvious errors, and can explain more of what AI produces because they have a reference frame.</p>
+
+      <p>But this also creates a more insidious problem: senior engineers often can't tell when their explanation is post-hoc rationalization versus genuine understanding. They produce smooth, confident explanations of decisions they didn't actually make — because they have enough experience to make it sound plausible. The gap is invisible because the performance of understanding is good.</p>
+
+      <p>Junior engineers face the opposite problem: they know they don't understand, but they don't have the experience to know what questions to ask. The explanation gap manifests as confusion rather than false confidence — which is actually easier to address, even if it feels more dire in the moment.</p>
+
+      <h2 class="section-title">The review bottleneck</h2>
+
+      <p>The explanation gap has a specific and underappreciated consequence for code review: when the author can't explain their own code, review becomes a cargo inspection rather than a conversation.</p>
+
+      <p>Here's what happens in a healthy code review: the author explains the approach, the trade-offs considered, the edge cases handled. Reviewers probe the reasoning. Weaknesses are identified through dialogue. The quality of the review depends on the quality of the explanation.</p>
+
+      <p>When the author has the explanation gap: the PR description says "updated auth flow" with no reasoning. Reviewers can't probe what they don't understand. They check syntax, style, and obvious correctness — but architecture decisions, trade-off choices, and design reasoning go unexamined. The review passes with a ✅ and the gap remains invisible.</p>
+
+      <p>The problem is that architecture decisions made without review are where systems rot. Not because the decisions are necessarily bad — but because no one discussed them, no one challenged them, no one learned from them. The knowledge that would have been transferred in a real review doesn't get transferred.</p>
+
+      <h2 class="section-title">What doesn't fix it</h2>
+
+      <div class="pitfall-grid">
+        <div class="pitfall-card">
+          <div class="icon">📚</div>
+          <h4>Reading more about architecture</h4>
+          <p>Learning about system design in the abstract is not the same as understanding your specific system. You can read every blog post on microservices and still not be able to explain why your service is structured the way it is.</p>
+        </div>
+        <div class="pitfall-card">
+          <div class="icon">🤖</div>
+          <h4>Asking AI to explain your code</h4>
+          <p>AI explaining your code back to you does not create understanding in you. It creates a transcript of the code's behavior, not your reasoning. You learn what the code does — not why you chose to build it that way.</p>
+        </div>
+        <div class="pitfall-card">
+          <div class="icon">⏱️</div>
+          <h4>"I'll understand it when I need it"</h4>
+          <p>Oncall is not the time to discover you don't understand your system. The explanation gap is most dangerous precisely when you can't afford it — during incidents, outages, and critical decisions.</p>
+        </div>
+        <div class="pitfall-card">
+          <div class="icon">🎓</div>
+          <h4>Pair programming more with AI</h4>
+          <p>More AI interaction increases the volume of code you produce without increasing your understanding of it. The gap widens. You become faster and shallower.</p>
+        </div>
+      </div>
+
+      <h2 class="section-title">The Explanation Protocol: how to close the gap</h2>
+
+      <p>The explanation gap is not permanent. It's reversible — but only through deliberate practice, not passive consumption. The mechanism is simple: articulating reasoning forces the reconstruction of the mental model.</p>
+
+      <div class="protocol-box">
+        <h4>The Explanation Protocol: before you commit</h4>
+        <ol class="protocol-steps">
+          <li>Open the diff. Close it again.</li>
+          <li>Before looking at the code, write one paragraph: what does this feature do, why was it needed, and what approach did you take? Don't look at the diff — write from memory. If you can't: that's your gap. Now you know.</li>
+          <li>Open the diff. Compare what you wrote to what actually exists. The discrepancies are where the gap lives.</li>
+          <li>For each discrepancy, ask: did AI make this decision? If yes — this is the explanation gap, not a code quality issue. The code is fine. Your understanding is incomplete.</li>
+          <li>Fix the gap by writing the missing reasoning. Not in comments — in a design doc, a PR description, or a Slack message to a teammate. The act of producing language forces the model reconstruction.</li>
+          <li>If you can't produce the reasoning after 10 minutes of trying — that's a signal. Either dig into the AI's decision and reconstruct it, or flag to your team that the PR needs extra scrutiny because the author can't currently explain the approach.</li>
+        </ol>
+      </div>
+
+      <p>This protocol won't work every time. Some AI-generated code genuinely has no reasoning behind it — because AI doesn't reason, it produces. When you hit that wall, you have a choice: invest the time to understand what was produced well enough to explain it, or go back and build it yourself.</p>
+
+      <p>That second option — building it yourself — feels slow. In the context of a deadline, it is slow. But it produces something the explanation protocol cannot: genuine understanding that compounds over time. The 30 minutes you spend building it manually instead of prompting AI are not lost time — they are the difference between being an engineer who can explain their system and a coordinator who can only read it.</p>
+
+      <h2 class="section-title">The team-level fix</h2>
+
+      <p>Individual practice is necessary but not sufficient. The explanation gap has a team dimension: when code review stops being a knowledge transfer mechanism, the team's collective understanding stops growing.</p>
+
+      <p><strong>The 'explain this to a junior' rule:</strong> Before any PR is merged, the author must be able to explain the key decisions to a hypothetical junior engineer. Not just what the code does — why that approach was chosen. If the author can't do this, the PR doesn't merge until they can — or until they've flagged it as a known gap and documented it.</p>
+
+      <p><strong>Architecture decision records:</strong> For any non-trivial decision, write a short ADR before the code exists. Not after. The ADR is a commitment: this is why we're doing it this way. It forces the decision to be made before the code is written — which means the author actually has to make it. AI can't write an ADR because AI doesn't have business context, team constraints, or historical reasons.</p>
+
+      <p><strong>The weekly explanation exercise:</strong> Once a week, pick something you built with AI in the last week. Write a one-page explanation of why it works the way it does, including alternatives considered and rejected. Share it with one teammate. Their questions will expose the gaps — and the process of answering will close them.</p>
+
+      <h2 class="section-title">The question worth asking</h2>
+
+      <p>Here's the uncomfortable question: if you can't explain the code you wrote — can you claim you wrote it?</p>
+
+      <p>The answer isn't simple. AI-assisted development is a legitimate practice. Using AI to generate boilerplate, to handle routine implementation, to explore alternatives — all of this is part of modern engineering. There's no clean line between "I used AI" and "I still wrote it."</p>
+
+      <p>But the explanation gap is real regardless of the philosophical question. Code you can't explain is code you can't maintain, teach, defend, or trust. It's code that works but doesn't belong to you — in any meaningful sense of the word.</p>
+
+      <p>The engineers who will thrive in an AI-assisted world are not the ones who use AI the most. They're the ones who can maintain the feedback loop between decision and understanding — who ensure that the code they ship is code they can explain, code they can teach, code they can own.</p>
+
+      <p>The explanation gap isn't a reason to use less AI. It's a reason to be more deliberate about which cognitive work you hand off — and which work you keep for yourself.</p>
+
+      <!-- FAQ -->
+      <h2 class="section-title" style="margin-top:3rem">Frequently asked questions</h2>
+
+      <details class="faq-item">
+        <summary>Why can't I explain code I wrote with AI?</summary>
+        <div class="faq-body">
+          <p>The explanation gap forms because AI removed the cognitive work that would have created the mental model. You didn't decompose the problem, choose the approach, or work through the trade-offs — AI did. The resulting code exists in your repository but not in your head. Without the process, there's no story to tell.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is this the same as imposter syndrome?</summary>
+        <div class="faq-body">
+          <p>No. Imposter syndrome is feeling like a fraud despite competence. The explanation gap is something different: you genuinely cannot reconstruct the reasoning behind your own code because you didn't do the reasoning. The code is foreign to you even though you're the one who 'wrote' it. It's not a confidence problem — it's a knowledge gap.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Does the explanation gap affect code review quality?</summary>
+        <div class="faq-body">
+          <p>Yes, profoundly. Code review depends on the author being able to explain trade-offs, justify choices, and respond to questions. When an author can't explain their own code, review becomes superficial — reviewers can't probe effectively, architecture decisions go unexamined, and bugs that would have been caught in conversation slip through. The explanation gap is a code quality risk.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How do I know if I have the explanation gap?</summary>
+        <div class="faq-body">
+          <p>A simple test: take any feature you shipped in the last 30 days. Can you explain why it was designed that way? Can you name the alternatives you considered and why you rejected them? Can you describe the edge cases your implementation handles and why you chose that approach? If you can't do this without looking at the code, you have the explanation gap.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can the explanation gap be reversed?</summary>
+        <div class="faq-body">
+          <p>Yes — but it requires deliberate practice. The reversal protocol: after every AI-assisted session, before committing, write a one-paragraph explanation of what you built and why. Not the code — the reasoning. The act of articulating it rebuilds the mental model. Over time, this bridges the gap between code and comprehension. It's slower than just committing, but it restores something AI assistance is quietly removing.</p>
+        </div>
+      </details>
+
+      <!-- Related -->
+      <h2 class="section-title" style="margin-top:3rem">Continue exploring</h2>
+      <div class="related-cards">
+        <a href="the-consultation-trap.html" class="related-card">
+          <h4>The Consultation Trap</h4>
+          <p>Why engineers can't stop asking AI — even when they know they should.</p>
+        </a>
+        <a href="the-offload-loop.html" class="related-card">
+          <h4>The Offload Loop</h4>
+          <p>The cognitive habit that makes AI dependency feel natural — and how to break it.</p>
+        </a>
+        <a href="the-velocity-trap.html" class="related-card">
+          <h4>The Velocity Trap</h4>
+          <p>Why shipping more code with AI feels like falling behind.</p>
+        </a>
+        <a href="senior-identity.html" class="related-card">
+          <h4>The Senior Identity Problem</h4>
+          <p>Why AI threatens the identity foundations of experienced engineers.</p>
+        </a>
+      </div>
+    </article>
+
+    <section class="retake-cta">
+      <h2>Think you might have the explanation gap?</h2>
+      <p>Take the AI Fatigue Quiz — it checks for cognitive patterns like explanation gaps, consultation traps, and skill erosion.</p>
+      <div class="btn-group">
+        <a href="index.html#quiz" class="btn btn-primary">Take the AI Fatigue Quiz →</a>
+        <a href="why.html" class="btn btn-secondary">Explore Why It Happens →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo"></footer>
+
+  <script src="js/main.min.js" defer></script>
+  <script>
+    if (document.getElementById('nav-header')) {
+      fetch('nav.html')
+        .then(r => r.text())
+        .then(html => { document.getElementById('nav-header').innerHTML = html; })
+        .catch(() => {});
+    }
+  </script>
+</body>
+</html>

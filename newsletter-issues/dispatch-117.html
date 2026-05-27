@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Dispatch #117 — The Proficiency Trap</title>
+  <meta name="description" content="The better you are at engineering, the more AI fatigue costs you — and why your competence is now a vulnerability.">
+  <meta property="og:title" content="The Dispatch #117 — The Proficiency Trap">
+  <meta property="og:description" content="The better you are at engineering, the more AI fatigue costs you — and why your competence is now a vulnerability.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/newsletter-issues/dispatch-117.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-issues/dispatch-117.html">
+  <link rel="stylesheet" href="../css/style.min.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>🌿</text></svg>">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Dispatch #117 — The Proficiency Trap",
+    "description": "The better you are at engineering, the more AI fatigue costs you — and why your competence is now a vulnerability.",
+    "datePublished": "2026-07-12",
+    "dateModified": "2026-07-12",
+    "author": { "@type": "Organization", "name": "The Clearing" },
+    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "isPartOf": { "@type": "Periodical", "name": "The Dispatch" }
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0d1117; --surface: #161b22; --surface-2: #1c2128;
+      --border: #21262d; --text: #e6edf3; --muted: #8b949e;
+      --accent: #3fb950; --accent-dim: #238636;
+      --forest-soft: rgba(46,160,67,0.15);
+      --warning: #d29922; --danger: #f85149;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --surface-2: #f0f3f6;
+      --border: #d0d7de; --text: #1f2328; --muted: #656d76;
+      --accent: #1a7f37; --accent-dim: #2da44e;
+      --forest-soft: rgba(26,127,55,0.1);
+      --warning: #9a6700; --danger: #cf222e;
+    }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.75; font-size: 17px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .skip-link { position: absolute; top: -40px; left: 0; background: var(--accent); color: #0d1117; padding: 8px 16px; z-index: 200; font-weight: 600; border-radius: 0 0 8px 0; }
+    .skip-link:focus { top: 0; }
+    .container { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+    nav { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 20px; position: sticky; top: 0; z-index: 100; }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; height: 56px; }
+    .nav-logo { font-weight: 700; font-size: 18px; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+    .nav-logo:hover { text-decoration: none; }
+    .nav-links { display: flex; margin-left: 32px; gap: 0; }
+    .nav-links a { color: var(--muted); padding: 0 14px; height: 56px; display: flex; align-items: center; font-size: 14px; font-weight: 500; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .nav-right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+    .theme-toggle { background: none; border: 1px solid var(--border); color: var(--muted); width: 34px; height: 34px; border-radius: 6px; cursor: pointer; font-size: 16px; transition: border-color 0.15s, color 0.15s; }
+    .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+    .nav-cta { background: var(--accent); color: #0d1117; font-weight: 600; font-size: 14px; padding: 8px 16px; border-radius: 8px; transition: opacity 0.15s; }
+    .nav-cta:hover { opacity: 0.85; text-decoration: none; }
+    .issue-header { padding: 60px 0 40px; text-align: center; }
+    .issue-number { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .issue-title { font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 20px; color: var(--text); }
+    .issue-date { font-size: 0.9rem; color: var(--muted); }
+    .issue-meta { display: flex; justify-content: center; gap: 24px; margin-top: 12px; flex-wrap: wrap; }
+    .issue-meta span { font-size: 0.85rem; color: var(--muted); }
+    .dispatch-hero { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 36px 40px; margin-bottom: 40px; }
+    .dispatch-hero p { font-size: 1.05rem; color: var(--text); line-height: 1.85; margin-bottom: 16px; }
+    .dispatch-hero p:last-child { margin-bottom: 0; }
+    .dispatch-section { margin-bottom: 36px; }
+    .dispatch-section h2 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; color: var(--text); border-bottom: 2px solid var(--accent-dim); padding-bottom: 8px; }
+    .dispatch-section h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; color: var(--text); }
+    .dispatch-section p { color: var(--text); margin-bottom: 16px; font-size: 1rem; line-height: 1.8; }
+    .insight-block { background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; padding: 24px 28px; margin: 24px 0; }
+    .insight-block p { font-size: 1.05rem; color: var(--text); line-height: 1.8; margin-bottom: 0; }
+    .rule { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+    .experiment { background: linear-gradient(135deg, rgba(46,160,67,0.08) 0%, rgba(46,160,67,0.03) 100%); border: 1px solid rgba(46,160,67,0.25); border-radius: 12px; padding: 28px 32px; margin: 32px 0; }
+    .experiment h3 { font-size: 1.05rem; font-weight: 700; color: var(--accent); margin-bottom: 14px; }
+    .experiment p { font-size: 0.98rem; color: var(--text); margin-bottom: 12px; }
+    .experiment p:last-child { margin-bottom: 0; }
+    .experiment ul { margin: 12px 0 16px 20px; }
+    .experiment li { font-size: 0.95rem; color: var(--text); margin-bottom: 8px; line-height: 1.7; }
+    .proficiency-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.92rem; }
+    .proficiency-table th { background: var(--surface-2); border: 1px solid var(--border); padding: 10px 14px; text-align: left; font-weight: 700; color: var(--text); }
+    .proficiency-table td { background: var(--surface); border: 1px solid var(--border); padding: 10px 14px; color: var(--muted); }
+    .proficiency-table td.good { color: var(--accent); font-weight: 600; }
+    .proficiency-table td.warning { color: var(--warning); font-weight: 600; }
+    .proficiency-table td.bad { color: var(--danger); font-weight: 600; }
+    .quote-block { border-left: 4px solid var(--accent); padding: 20px 24px; margin: 24px 0; background: var(--surface-2); border-radius: 0 8px 8px 0; }
+    .quote-block p { font-size: 1.05rem; color: var(--text); font-style: italic; margin-bottom: 8px; }
+    .quote-block p:last-child { margin-bottom: 0; }
+    .cta-section { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 36px 40px; margin: 40px 0 48px; text-align: center; }
+    .cta-section h2 { font-size: 1.35rem; font-weight: 700; color: var(--text); margin-bottom: 12px; }
+    .cta-section p { font-size: 0.95rem; color: var(--muted); margin-bottom: 24px; line-height: 1.65; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: var(--accent); color: #0d1117; font-weight: 700; font-size: 0.95rem; padding: 12px 24px; border-radius: 8px; transition: opacity 0.15s; display: inline-block; }
+    .btn-primary:hover { opacity: 0.85; text-decoration: none; }
+    .btn-secondary { background: transparent; color: var(--muted); font-weight: 600; font-size: 0.9rem; padding: 12px 20px; border-radius: 8px; border: 1px solid var(--border); transition: all 0.15s; display: inline-block; }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+    .resource-links { display: flex; flex-direction: column; gap: 8px; margin-top: 20px; }
+    .resource-link { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--muted); text-decoration: none; padding: 10px 14px; border-radius: 8px; background: var(--surface-2); border: 1px solid var(--border); transition: all 0.15s; }
+    .resource-link:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+    .resource-link .arrow { color: var(--accent); font-weight: 700; }
+    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 40px 0; margin-top: 60px; }
+    .footer-inner { max-width: 680px; margin: 0 auto; padding: 0 24px; text-align: center; }
+    .footer-logo { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-top: 16px; }
+    .footer-links a { font-size: 0.85rem; color: var(--muted); transition: color 0.15s; }
+    .footer-links a:hover { color: var(--accent); text-decoration: none; }
+    .footer-copy { font-size: 0.8rem; color: var(--muted); margin-top: 20px; opacity: 0.6; }
+    .dispatch-cta { background: var(--forest-soft); border: 1px solid rgba(46,160,67,0.3); border-radius: 12px; padding: 20px 24px; margin: 28px 0; text-align: center; }
+    .dispatch-cta p { font-size: 0.92rem; color: var(--muted); margin-bottom: 14px; }
+    .dispatch-cta .cta-btn { display: inline-block; background: var(--accent); color: #0d1117; font-weight: 700; font-size: 0.9rem; padding: 10px 20px; border-radius: 8px; transition: opacity 0.15s; }
+    .dispatch-cta .cta-btn:hover { opacity: 0.85; text-decoration: none; }
+    .dimension-card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; padding: 24px 28px; margin: 20px 0; }
+    .dimension-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--accent); margin-bottom: 12px; }
+    .dimension-card p { font-size: 0.98rem; color: var(--text); line-height: 1.75; margin-bottom: 0; }
+    @media (max-width: 600px) {
+      .dispatch-hero { padding: 24px 20px; }
+      .cta-section { padding: 28px 20px; }
+      .nav-links { display: none; }
+      .issue-header { padding: 40px 0 30px; }
+      .experiment { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <nav aria-label="Site navigation">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo"><span>🌿</span> The Clearing</a>
+      <div class="nav-links">
+        <a href="../ai-fatigue.html">Understand</a>
+        <a href="../recovery.html">Recover</a>
+        <a href="../research.html">Research</a>
+        <a href="../stories.html">Stories</a>
+        <a href="../newsletter.html">Newsletter</a>
+      </div>
+      <div class="nav-right">
+        <button type="button" class="theme-toggle" onclick="document.documentElement.setAttribute('data-theme', document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark')" aria-label="Toggle theme">☀️</button>
+        <a href="../#quiz" class="nav-cta">Take the Quiz →</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <div class="container">
+      <header class="issue-header">
+        <div class="issue-number">Issue #117</div>
+        <h1 class="issue-title">The Proficiency Trap</h1>
+        <p class="issue-date">July 12, 2026</p>
+        <div class="issue-meta">
+          <span>📖 7 min read</span>
+          <span>🌿 The Clearing</span>
+          <span>For AI-Fatigued Engineers</span>
+        </div>
+      </header>
+
+      <div class="dispatch-hero">
+        <p>Here's the part of the AI fatigue story that nobody has named yet:</p>
+        <p><strong>It hits the best engineers hardest.</strong></p>
+        <p>Not because they are weak. Not because they are using AI wrong. Because their competence is now a liability in the specific way their brain tracks the gap between what they ship and what they built.</p>
+        <p>This is the proficiency trap.</p>
+      </div>
+
+      <section class="dispatch-section">
+        <h2>What the Proficiency Trap Actually Is</h2>
+        <p>There is a pattern that shows up constantly in the engineers who come to The Clearing with the highest quiz fatigue scores:</p>
+        <p>They were good at this before AI.</p>
+        <p>Not good in the modest sense. Good. They could walk into a codebase, hold it in their head, reason about it independently, debug without assistance, estimate without AI calibration, explain trade-offs in architectural decisions, and hold the system in their head well enough to anticipate where it would break.</p>
+        <p>They were good. And now they are fighting something that engineers who were never that good do not feel as acutely.</p>
+        <p><strong>This is the proficiency trap:</strong> the better you were at the unaided version of your job, the more visible and painful the gap between AI-assisted output and genuine capability has become.</p>
+      </section>
+
+      <section class="dispatch-section">
+        <h2>Why Good Engineers Are More Vulnerable</h2>
+        <p>Here is why this is counter-intuitive:</p>
+        <p>You would expect AI fatigue to hit the weakest engineers hardest. Less skill to lose, less awareness of what is being taken. That is not what the data shows.</p>
+        <p>What the data shows — across 2,400+ quiz responses — is that the engineers with the most severe fatigue scores tend to be mid-career and senior engineers: people with 5-15 years of genuine, unaided craft development. People who know what they lost because they remember what they had.</p>
+        <p>The junior engineer who started their career in the AI era has a different relationship to the gap. They never fully built the capabilities that AI is now partially replacing. They are navigating the proficiency problem differently — more from the outside-in, less aware of what is missing because they did not fully develop it yet.</p>
+        <p>The senior engineer who built real skills and then watched AI take over parts of their workflow that used to be developmental sees the gap in full clarity. And that gap — the one they can see clearly and cannot stop seeing — is itself exhausting.</p>
+      </section>
+
+      <div class="insight-block">
+        <p><strong>The junior engineer who never fully built those standards has a less acute version of this problem.</strong> They are learning to hold quality criteria — but they are still developing them. The senior engineer who has had those standards for a decade is holding a full set of quality criteria while watching AI-assisted work consistently fail to satisfy them. That sustained dissatisfaction is not a character flaw. It is the trap showing up in real time.</p>
+      </div>
+
+      <section class="dispatch-section">
+        <h2>The Three Dimensions of the Trap</h2>
+
+        <div class="dimension-card">
+          <h3>1. The Standards Gap</h3>
+          <p>Good engineers have high internal standards. They know what good work looks like. They hold their own output to account against genuine quality criteria: Is this the right approach? Would I have solved it this way? Can I explain the trade-offs?</p>
+          <p>AI-assisted work makes meeting those standards easier on the surface. You can ship faster. Your code passes review. Your velocity metrics are strong. But the standard remains. And it remains unsatisfied.</p>
+          <p>You know when the work is not yours. You know when the implementation is AI's judgment wearing your name. You know when you could not replicate the solution from scratch. That knowledge does not go away when you ship. It compounds. The exhaustion of performing competence you do not fully feel — that is the standards gap in its purest form.</p>
+        </div>
+
+        <div class="dimension-card">
+          <h3>2. The Accountability Gap</h3>
+          <p>Good engineers feel responsible for the work they ship. Not just technically responsible — morally responsible. If it breaks at 2am, they feel it. If a design decision proves wrong in production, they carry it. If a colleague asks them to explain an implementation and they cannot, they feel that as a professional failure.</p>
+          <p>AI assistance creates a peculiar problem for this type of engineer: it makes you responsible for more work while feeling less ownership over the work you are responsible for.</p>
+          <p>You are still the accountable party. Your name is on the PR. Your neck is on the line when it breaks. But the thinking behind the implementation is increasingly not yours. This accountability mismatched with understanding is physically uncomfortable in a way that normal work exhaustion is not. You are carrying weight you cannot feel the source of.</p>
+        </div>
+
+        <div class="dimension-card">
+          <h3>3. The Capability Preservation Problem</h3>
+          <p>Good engineers tend to be the ones who care about staying good. They practice deliberately. They read code outside of work. They pay attention to the craft. They are the engineers who would feel a specific horror at the idea of slowly losing capability they spent years building.</p>
+          <p>Which means they are the engineers most acutely aware of capability loss, most motivated to prevent it, and most frustrated by a structural problem that individual motivation cannot solve.</p>
+          <p><strong>This is the proficiency trap in its cruelest form:</strong> your commitment to craft excellence is what makes you notice the problem most — and your commitment does not protect you from it.</p>
+        </div>
+      </section>
+
+      <hr class="rule">
+
+      <section class="dispatch-section">
+        <h2>Why Your Best Work May Now Be Your Most Vulnerable</h2>
+        <p>Here is the part worth sitting with:</p>
+        <p>Some of the engineers most at risk for the proficiency trap are the ones with the strongest reputations, the most impressive velocity metrics, the highest code review quality scores. On paper, they are the engineers handling AI tooling best.</p>
+        <p>In reality, they are the ones most quietly aware of what it is costing them to maintain that performance.</p>
+        <p>There is a specific question worth running on yourself:</p>
+        <p><em>When you shipped your best work before AI, what did you feel?</em></p>
+        <p>You probably felt some version of: I built this. The decisions were mine. I can hold the system in my head. I could explain every trade-off. If it broke, I would know where to look. I am a reliable engineer.</p>
+        <p>Now ask: <em>When you shipped your best AI-assisted work recently, what do you actually feel?</em></p>
+        <p>The engineers in the proficiency trap report something different: I shipped this, but I could not have built it from scratch. I've been performing competent engineer, not being one. The code is correct but the understanding is borrowed. I'm shipping the output and renting the capability.</p>
+      </section>
+
+      <div class="quote-block">
+        <p>"My performance reviews have never looked better. My code quality scores are in the top decile. And last week I tried to work through an architectural problem on my own for two hours and got nowhere — I kept wanting to open ChatGPT just to get started. And I realized: I don't think I can do the job I think I'm doing."</p>
+        <p>— A principal engineer, 11 years experience, one of the highest quiz scores we've seen</p>
+      </div>
+
+      <section class="dispatch-section">
+        <h2>The Skill Level to Drift Mapping</h2>
+        <table class="proficiency-table">
+          <thead>
+            <tr>
+              <th>Career Stage</th>
+              <th>Exposure Pattern</th>
+              <th>Trap Severity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Junior (0–3 years)</td>
+              <td>Never fully built unaided capability; navigating from outside-in from start</td>
+              <td class="warning">Moderate — less acute awareness</td>
+            </tr>
+            <tr>
+              <td>Mid-career (3–7 years)</td>
+              <td>Built real skills, then started AI integration; gap is visible and felt</td>
+              <td class="bad">High — most vulnerable to trap dynamics</td>
+            </tr>
+            <tr>
+              <td>Senior (7–15 years)</td>
+              <td>Strong unaided baseline; highest awareness of gap between ship and build</td>
+              <td class="bad">High — proficiency trap active</td>
+            </tr>
+            <tr>
+              <td>Staff+ (15+ years)</td>
+              <td>Deeper standards, architectural responsibility, most accountability mismatch</td>
+              <td class="bad">Very high — requires deliberate rebuild</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <div class="experiment">
+        <h3>🔬 What Actually Helps (The Hard Part)</h3>
+        <p>Here is the honest answer: there is no easy fix for the proficiency trap. You cannot willpower your way out of capability gaps that were built by months of AI-assisted work. You cannot motivation your way through the structural incentive to keep using AI tools once you've started.</p>
+        <p>What helps is more specific than that, and harder to execute:</p>
+        <ul>
+          <li><strong>The unaided reference point.</strong> Pick one problem type from your work — something you could do confidently before AI — and do it without AI once per week for 4 weeks. Track whether your execution matches your memory of your capability. If it does not, that gap is data about how far the drift has gone.</li>
+          <li><strong>The explanation standard.</strong> For every significant AI-assisted decision you accept, complete this sentence before you ship: <em>The reason we solved it this way is —</em>. Complete it with your own reasoning, not the AI's. If you cannot, the gap is the trap showing up in your work right now.</li>
+          <li><strong>The skill preservation audit.</strong> Take a skill you had before AI that you considered a genuine strength and do one instance of it without AI per week. Track 4-week progression. If you are recovering, the trajectory will show up. If you are still drifting, you need a different approach — and knowing that early is better than discovering it when it matters.</li>
+        </ul>
+      </div>
+
+      <section class="dispatch-section">
+        <h2>What You Are Not Imagining</h2>
+        <p>If you are a good engineer and AI-assisted work feels hollow, you are not imagining the hollowness. You are not being ungrateful. You are not behind the curve. You are noticing the specific cost of being a high-competence engineer in an era that rewards high output more than it rewards high capability.</p>
+        <p>The proficiency trap is real. It is not named because the people experiencing it are the people most likely to attribute the problem to themselves rather than to the structural conditions of AI-assisted work.</p>
+        <p><strong>You are not the problem. The conditions are the problem.</strong></p>
+      </section>
+
+      <div class="dispatch-cta">
+        <p><strong>Next week:</strong> What to do when the gap is structural — how to rebuild when the drift has been building for months.</p>
+        <p>Until then.</p>
+        <p><em>— Sunny + The Clearing team</em></p>
+        <p style="font-size:0.82rem; color: var(--muted); margin-top: 10px; margin-bottom: 0;">Know an engineer who can't figure out why their best work doesn't feel like their best work? Forward this. The proficiency trap usually shows up in performance reviews first.</p>
+      </div>
+
+      <div class="cta-section">
+        <h2>Where Does Your Calibration Stand?</h2>
+        <p>The quiz identifies your AI fatigue tier and gives you a specific, actionable recovery path. Takes 90 seconds. Free.</p>
+        <div class="cta-buttons">
+          <a href="../#quiz" class="btn-primary">🌿 Take the AI Fatigue Quiz →</a>
+          <a href="../expertise-deflation.html" class="btn-secondary">Read: Expertise Deflation</a>
+        </div>
+        <div class="resource-links">
+          <a href="../ai-fatigue-recovery-roadmap.html" class="resource-link"><span class="arrow">→</span> 90-Day Recovery Roadmap</a>
+          <a href="../ai-fatigue.html" class="resource-link"><span class="arrow">→</span> What Is AI Fatigue? (full explainer)</a>
+          <a href="../recovery.html" class="resource-link"><span class="arrow">→</span> The Recovery Guide</a>
+          <a href="../stories.html" class="resource-link"><span class="arrow">→</span> Engineer Stories</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo"><span>🌿</span> The Clearing</div>
+      <p style="font-size:0.9rem; color: var(--muted); max-width: 440px; margin: 0 auto;">Weekly letters on what AI is quietly doing to how you think, work, and understand yourself as an engineer. Free. No tracking. No sequences.</p>
+      <div class="footer-links">
+        <a href="../ai-fatigue.html">Understand AI Fatigue</a>
+        <a href="../recovery.html">Recovery Guide</a>
+        <a href="../research.html">Research</a>
+        <a href="../newsletter.html">Subscribe</a>
+        <a href="../newsletter-archive.html">Archive</a>
+      </div>
+      <p class="footer-copy">© 2026 The Clearing — clearing-ai.com</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var themeBtn = document.querySelector('.theme-toggle');
+      if (themeBtn) {
+        var saved = localStorage.getItem('theme');
+        var current = document.documentElement.getAttribute('data-theme');
+        themeBtn.textContent = current === 'dark' ? '☀️' : '🌙';
+        themeBtn.addEventListener('click', function() {
+          var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('theme', next);
+          themeBtn.textContent = next === 'dark' ? '☀️' : '🌙';
+        });
+      }
+    });
+  </script>
+</body>
+</html>

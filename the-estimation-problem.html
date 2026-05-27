@@ -1,47 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Estimation Problem: Why You Can't Predict Your Own Work Anymore</title>
-  <meta name="description" content="AI tools have quietly destroyed your internal estimate. Why engineers can't predict their own work anymore, and the protocol to get it back."/>
-  <meta name="keywords" content="engineering estimation, AI estimation problem, sprint planning, story points with AI, estimation skills atrophe, planning fallacy engineers, velocity with AI tools"/>
-  <meta name="robots" content="index, follow"/>
-  <link rel="canonical" href="https://clearing-ai.com/the-estimation-problem.html"/>
-  <link rel="alternate" type="application/rss+xml" title="The Clearing RSS Feed" href="https://clearing-ai.com/feed.xml"/>
-
-  <meta property="og:type" content="article"/>
-  <meta property="og:url" content="https://clearing-ai.com/the-estimation-problem.html"/>
-  <meta property="og:title" content="The Estimation Problem: Why You Can't Predict Your Own Work Anymore"/>
-  <meta property="og:description" content="AI tools have quietly destroyed your internal estimate. Why engineers can't predict their own work anymore, and the protocol to get it back."/>
-  <meta property="og:image" content="https://clearing-ai.com/og-image.png"/>
-  <meta property="og:site_name" content="The Clearing"/>
-  <meta property="article:published_time" content="2026-05-27"/>
-  <meta property="article:section" content="Research"/>
-
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="The Estimation Problem — Why AI Breaks Your Estimates"/>
-  <meta name="twitter:description" content="Why engineers can't predict their own work anymore."/>
-  <meta name="twitter:image" content="https://clearing-ai.com/og-image.png"/>
-
-  <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
-
-  <link rel="stylesheet" href="css/style.min.css"/>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Estimation Problem: When AI Erases Your Ability to Size Work</title>
+  <meta name="description" content="AI makes it easy to get an estimate instantly. But the skill of breaking down complexity and committing to realistic timelines is quietly eroding. Here is what is happening — and how to get it back.">
+  <meta property="og:title" content="The Estimation Problem: When AI Erases Your Ability to Size Work">
+  <meta property="og:description" content="AI makes it easy to get an estimate instantly. But the skill of breaking down complexity is quietly eroding.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/the-estimation-problem.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://clearing-ai.com/the-estimation-problem.html">
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "The Estimation Problem: Why You Can't Predict Your Own Work Anymore",
-    "description": "AI tools have quietly destroyed your internal estimate. Why engineers can't predict their own work anymore, and the protocol to get it back.",
-    "image": "https://clearing-ai.com/og-image.png",
-    "author": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
-    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "headline": "The Estimation Problem: When AI Erases Your Ability to Size Work",
+    "description": "AI makes it easy to get an estimate instantly. But the engineering skill of breaking down complexity is quietly eroding.",
+    "author": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+    "publisher": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
     "datePublished": "2026-05-27",
     "dateModified": "2026-05-27",
-    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://clearing-ai.com/the-estimation-problem.html" },
-    "articleSection": "Research",
-    "keywords": ["engineering estimation", "AI estimation problem", "sprint planning", "estimation skills atrophy", "planning fallacy", "velocity with AI"]
+    "url": "https://clearing-ai.com/the-estimation-problem.html",
+    "keywords": ["software estimation", "AI estimation problem", "breakdown complexity", "sprint planning AI"],
+    "articleSection": "AI Fatigue Patterns",
+    "wordCount": 3800
+  }
   }
   </script>
   <script type="application/ld+json">
@@ -49,9 +35,9 @@
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com" },
-      { "@type": "ListItem", "position": 2, "name": "Research", "item": "https://clearing-ai.com/research.html" },
-      { "@type": "ListItem", "position": 3, "name": "The Estimation Problem", "item": "https://clearing-ai.com/the-estimation-problem.html" }
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com"},
+      {"@type": "ListItem", "position": 2, "name": "Understand", "item": "https://clearing-ai.com/why.html"},
+      {"@type": "ListItem", "position": 3, "name": "The Estimation Problem", "item": "https://clearing-ai.com/the-estimation-problem.html"}
     ]
   }
   </script>
@@ -60,365 +46,246 @@
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Why can't I estimate my own work anymore?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "AI tooling has severed your calibration loop — the feedback mechanism between effort and outcome that lets you predict how long something will take. When AI writes the code, you lose the reference points that made estimation possible. You no longer know how hard the hard parts are because AI handles them before you've built the intuition."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does AI make engineers faster or just look faster?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Both, paradoxically. AI genuinely accelerates execution — you ship more code per day. But it simultaneously destroys your ability to plan, coordinate, and communicate realistic timelines. The velocity you gain at the keyboard costs you the ability to estimate what that velocity means for a sprint. Your manager sees delivery; you know the estimates are fiction."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What's the planning fallacy and how does AI amplify it?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The planning fallacy (Buehler, 1994) is our persistent tendency to underestimate the time and cost of future projects while overestimating our ability to handle them. AI amplifies this by removing the friction signals that normally recalibrate estimates. When a task goes smoothly with AI, you attribute that smoothness to the task being easy — not to AI carrying the difficulty. Future estimates stay optimistic because you have no data showing the real difficulty."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I know if I've lost my estimation calibration?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Three signals: (1) You routinely estimate in days and then deliver in weeks, but you're surprised each time. (2) You can't explain to a PM why a task that \"should take an hour\" actually took three days — because you genuinely don't know what happened in those three days. (3) When you estimate without AI present, you feel anxious and pull numbers from the air, knowing they're wrong but unable to do better."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do you rebuild estimation ability while using AI tools?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The Estimation Calibration Protocol: (1) Track AI-free time — for every task, log what you could have done without AI and how long it would have taken. (2) Log the delta — the difference between your AI-assisted time and your estimated AI-free time. (3) Build a personal reference catalog — the actual hours for tasks of different types, updated quarterly. (4) Practice deliberate deferral — for one task per sprint, build without AI and estimate the time. Compare. (5) Review sprint retrospectives with an estimation lens — what did you think would take X and what actually took Y?"
-        }
-      }
+      {"@type": "Question", "name": "Why does AI make estimation harder instead of easier?", "acceptedAnswer": {"@type": "Answer", "text": "Because estimation is a skill — not just an output. When AI gives you the answer instantly, you skip the breakdown process. Your brain does not practice the skill. Over time, you lose the instinct for what 'hard' actually feels like."}},
+      {"@type": "Question", "name": "What is the 'decomposition reflex'?", "acceptedAnswer": {"@type": "Answer", "text": "The decomposition reflex is the instinctive ability to look at a vague requirement and immediately see its component parts. Senior engineers developed this through years of writing estimates. AI bypasses this reflex by giving you an answer without the breakdown."}},
+      {"@type": "Question", "name": "How does AI affect sprint velocity metrics?", "acceptedAnswer": {"@type": "Answer", "text": "AI inflates reported velocity while masking real problems. AI removes the 'padding instinct' that comes from experience. Velocity goes up, reliability of estimates goes down."}},
+      {"@type": "Question", "name": "How do you know if your estimation skill is atrophying?", "acceptedAnswer": {"@type": "Answer", "text": "Three signals: You cannot explain your estimate anymore, you default to 'let me ask AI' for even small sizing questions, and your estimates started getting less accurate after you started using AI coding tools."}},
+      {"@type": "Question", "name": "What is the 24-hour estimation challenge?", "acceptedAnswer": {"@type": "Answer", "text": "For one full day, before asking AI for any estimate, decompose the problem yourself first. Write down components, size each from intuition, then compare. The goal is to know whether you are exercising the skill or outsourcing it entirely."}}
     ]
   }
   </script>
   <style>
-    /* Font metric-compatible fallbacks — prevents CLS when web fonts load */
-    @font-face {
-      font-family: 'Georgia-Fallback';
-      src: local('Georgia');
-      size-adjust: 95.5%;
-      ascent-override: 95%;
-      descent-override: 25%;
-    }
-    @font-face {
-      font-family: 'System-UI-Fallback';
-      src: local('system-ui');
-      size-adjust: 95%;
-      ascent-override: 95%;
-      descent-override: 25%;
-    }
-    :root {
-      --font-serif: 'Lora', 'Georgia-Fallback', Georgia, serif;
-      --font-sans: 'Inter', 'System-UI-Fallback', system-ui, sans-serif;
-    }
-    body { font-family: var(--font-sans); }
-
-    .content { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
-    .hero { min-height: 260px; text-align: center; padding: 2.5rem 1.5rem 2rem; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-    /* CLS fix: Use system font only in hero — no web font loading, no CLS possible */
-    .hero h1 { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.2; margin-bottom: 1rem; }
-    .hero .subtitle { font-size: 1.05rem; color: var(--text-muted); max-width: 560px; margin: 0 auto 1.5rem; line-height: 1.6; }
-    .byline { font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
-    .byline svg { width: 14px; height: 14px; opacity: 0.6; }
-    .signal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin: 2rem 0; }
-    .signal-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
-    .signal-card h3 { font-size: 1rem; margin-bottom: 0.5rem; color: var(--primary); }
-    .signal-card p { font-size: 0.875rem; color: var(--text-muted); line-height: 1.5; }
-    .science-box { background: var(--card-bg); border: 1px solid var(--border); border-left: 3px solid var(--primary); border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1.75rem 0; }
-    .science-box .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--primary); margin-bottom: 0.4rem; font-weight: 600; }
-    .science-box p { font-size: 0.875rem; color: var(--text-muted); line-height: 1.55; }
-    .tier-table { width: 100%; border-collapse: collapse; margin: 1.75rem 0; font-size: 0.875rem; }
-    .tier-table th { text-align: left; padding: 0.6rem 0.8rem; background: var(--card-bg); border-bottom: 2px solid var(--border); color: var(--text-muted); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
-    .tier-table td { padding: 0.7rem 0.8rem; border-bottom: 1px solid var(--border); vertical-align: top; }
-    .tier-table tr:last-child td { border-bottom: none; }
-    .tier-table .tier-label { font-weight: 600; color: var(--text); white-space: nowrap; }
-    .step-list { list-style: none; padding: 0; margin: 1.5rem 0; counter-reset: steps; }
-    .step-list li { counter-increment: steps; display: flex; gap: 1rem; margin-bottom: 1.25rem; }
-    .step-list li::before { content: counter(steps); min-width: 28px; height: 28px; background: var(--primary); color: var(--bg); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; flex-shrink: 0; margin-top: 0.1rem; }
-    .step-list li .step-content h4 { font-size: 0.95rem; margin-bottom: 0.25rem; }
-    .step-list li .step-content p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
-    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin: 2rem 0; }
-    .related-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.25rem; text-decoration: none; display: block; transition: all 0.2s; min-height: 90px; }
-    .related-card:hover { border-color: var(--primary); transform: translateY(-2px); }
-    /* Reserve space for 4 related cards to prevent CLS from JS injection */
-    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin: 2rem 0; min-height: 220px; }
-    .related-card .tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--primary); margin-bottom: 0.3rem; }
-    .related-card h4 { font-size: 0.9rem; margin-bottom: 0.25rem; color: var(--text); }
-    .related-card p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; }
-    .faq-item { border-bottom: 1px solid var(--border); }
-    .faq-item:last-child { border-bottom: none; }
-    .faq-question { width: 100%; background: none; border: none; padding: 1.1rem 0; text-align: left; font-size: 0.95rem; font-weight: 600; color: var(--text); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-family: inherit; }
-    .faq-question:hover { color: var(--primary); }
-    .faq-question svg { width: 18px; height: 18px; flex-shrink: 0; transition: transform 0.25s; }
-    .faq-item.open .faq-question svg { transform: rotate(180deg); }
-    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
-    .faq-item.open .faq-answer { max-height: 400px; }
-    .faq-answer-inner { padding: 0 0 1.1rem; font-size: 0.875rem; color: var(--text-muted); line-height: 1.65; }
-    @media (max-width: 600px) {
-      .signal-grid { grid-template-columns: 1fr; }
-      .related-grid { grid-template-columns: 1fr; }
-    }
-
-    /* CLS FIX: FAQ accordion using grid-template-rows (no layout reflow) */
-    .faq-answer { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.3s ease; }
-    .faq-item.open .faq-answer { grid-template-rows: 1fr; }
-    .faq-answer-inner { overflow: hidden; }
-    /* CLS FIX: theme toggle inline (not JS-appended) */
-    .theme-toggle-fixed { position: fixed; top: 1rem; right: 1rem; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border); background: var(--card-bg); color: var(--text); cursor: pointer; z-index: 1000; display: flex; align-items: center; justify-content: center; }
-    .theme-toggle-fixed:hover { border-color: var(--primary); }
+    .hero-estimation { background: linear-gradient(135deg, #0f1923 0%, #1a2a3a 50%, #0f1923 100%); border-bottom: 1px solid #1e3a4a; }
+    .estimation-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; background: rgba(74,222,222,0.1); border: 1px solid rgba(74,222,222,0.3); color: #4adeee; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 16px; }
+    .signal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin: 40px 0; }
+    .signal-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 28px; transition: transform 0.2s ease, border-color 0.2s ease; }
+    .signal-card:hover { transform: translateY(-2px); border-color: #4adeee; }
+    .signal-number { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #4adeee, #0e8a8a); color: #0a1929; font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+    .comparison-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 0.9rem; }
+    .comparison-table th { background: #0f1923; color: #4adeee; padding: 14px 18px; text-align: left; font-weight: 600; border-bottom: 2px solid #1e3a4a; }
+    .comparison-table td { padding: 14px 18px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .comparison-table tr:hover td { background: rgba(74,222,222,0.03); }
+    .challenge-box { background: linear-gradient(135deg, #0a1929, #112233); border: 1px solid #4adeee; border-radius: 16px; padding: 36px; margin: 40px 0; text-align: center; }
+    .challenge-box h3 { color: #4adeee; font-size: 1.3rem; margin-bottom: 12px; }
+    .challenge-box p { color: var(--text-muted); margin-bottom: 20px; }
+    .exercise-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; background: linear-gradient(135deg, #4adeee, #0e8a8a); color: #0a1929; border: none; border-radius: 8px; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; }
+    .exercise-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(74,222,222,0.3); }
+    .atrophy-meter { margin: 40px 0; }
+    .meter-bar { height: 12px; border-radius: 6px; background: #1e3a4a; overflow: hidden; margin: 8px 0 24px 0; }
+    .meter-fill { height: 100%; border-radius: 6px; background: linear-gradient(90deg, #4adeee, #ff6b6b); transition: width 0.8s ease; }
+    .meter-labels { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+    .reflection-box { background: var(--card-bg); border: 1px solid var(--border); border-left: 4px solid #4adeee; border-radius: 8px; padding: 24px; margin: 32px 0; }
+    .reflection-box h4 { color: #4adeee; margin-bottom: 12px; }
+    @media (max-width: 768px) { .comparison-table { font-size: 0.8rem; } .comparison-table th, .comparison-table td { padding: 10px 12px; } .challenge-box { padding: 24px 20px; } }
   </style>
 </head>
 <body>
-  <!-- Full nav inline to prevent CLS from fetch -->
-  <nav class="site-nav" id="siteNav" style="height:56px;display:flex;align-items:center;padding:0 1.5rem;gap:1rem;border-bottom:1px solid var(--border, #30363d);background:var(--card-bg, #161b22);">
-    <a href="index.html" style="color:var(--primary, #22c55e);text-decoration:none;font-weight:700;font-size:1.1rem;">🌿 The Clearing</a>
-    <div style="flex:1;"></div>
-    <a href="research.html" style="color:var(--text-muted, #8b949e);text-decoration:none;font-size:0.9rem;">Research</a>
-    <a href="index.html" style="color:var(--text-muted, #8b949e);text-decoration:none;font-size:0.9rem;">← Home</a>
-  </nav>
-
+  <header class="site-header">
+    <a href="/" class="nav-home">🌿 The Clearing</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <ul class="nav-list">
+      <li><a href="/ai-fatigue.html">Understand</a></li>
+      <li><a href="/recovery.html">Recover</a></li>
+      <li><a href="/resources.html">Tools</a></li>
+      <li><a href="/community.html">Community</a></li>
+    </ul>
+  </header>
   <main>
-    <div class="hero">
-      <div class="pillar-nav" style="margin-bottom: 1.5rem;">
-        <a href="research.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>Research</a>
-        <a href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home</a>
+    <article class="hero-estimation">
+      <div class="container">
+        <div class="estimation-badge">Pattern #47</div>
+        <h1 class="headline">The Estimation Problem: When AI Rewrites Your Ability to Size Work</h1>
+        <p class="subheadline">AI makes it easy to get an estimate instantly. So why does planning feel harder than ever? The quiet erosion of a skill every senior engineer spent years building.</p>
+        <div class="article-meta"><span>📅 May 27, 2026</span><span>·</span><span>⏱ 10 min read</span><span>·</span><span>👤 The Clearing</span></div>
       </div>
-      <h1>The Estimation Problem: Why You Can't Predict Your Own Work Anymore</h1>
-      <p class="subtitle">Your sprint planning used to be reliable. Then AI tools started handling the hard parts — and your estimates started lying to everyone, including yourself.</p>
-      <div class="byline">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        8 min read · May 27, 2026
+    </article>
+    <div class="reading-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Reading progress"><div class="reading-progress-bar" style="width: 0%;"></div></div>
+    <div class="container article-layout">
+      <div class="article-content">
+        <section class="article-section">
+          <h2>The Disappearance of a Skill Nobody Talked About</h2>
+          <p>There was a time when estimating a piece of work required something specific: you had to look at a vague requirement and see its parts. You had to feel the weight of complexity — not just sense it, but <em>feel</em> it in your hands the way a craftsman feels the grain of wood. Senior engineers spent years developing this. It was not just a professional skill. It was a source of professional identity. When you could look at a feature and say "that is three weeks" — and be right — it meant something.</p>
+          <p>Now you can ask an AI and get a number in four seconds.</p>
+          <p>The problem is not that the number is wrong. The problem is what you stopped doing to get it.</p>
+        </section>
+        <section class="article-section">
+          <h2>What Estimation Actually Was</h2>
+          <p>When you estimated a piece of work manually, you were doing several things at once. You were decomposing: breaking the vague into the specific, finding the sub-tasks that lived inside the request. You were calibrating: checking the current task against every task you had done before, looking for the resonance of familiarity. You were sizing: giving each component a weight based on your actual experience of how long similar things took. And you were committing: putting your name on a number and accepting that you would be judged by it.</p>
+          <p>This process was uncomfortable. That discomfort was the signal that the skill was being exercised. Every estimate you made — and got wrong, and learned from — was building something in your brain: a reference library of complexity, a calibrated sense of effort, an instinct for where things hide.</p>
+          <p>After five years of doing this, you developed what some engineers call the <strong>decomposition reflex</strong> — that moment when a vague requirement hits your brain and you immediately see its component parts. The data models. The API surfaces. The error states. The testing surface. You did not have to think about it. It just appeared. And that reflex was the engine of your estimation skill.</p>
+          <div class="reflection-box">
+            <h4>The Decomposition Reflex</h4>
+            <p>The instinctive ability to look at a vague requirement and immediately see its component parts. It develops over years of practice. When you stop decomposing manually — when you let AI do it for you — the reflex starts to weaken. Not immediately. Slowly. You might not notice until it is gone.</p>
+          </div>
+        </section>
+        <section class="article-section">
+          <h2>How AI Breaks the Estimation Muscle</h2>
+          <p>AI coding assistants are extraordinarily good at estimation. You describe a feature, and in seconds you get a breakdown: this part takes two hours, that part takes a day, integration testing adds another half day. The output looks professional. The structure mirrors what a senior engineer would produce. And that is exactly the problem.</p>
+          <p>When you get an AI estimate, you receive the output without the process. You see the numbers but you do not see the decomposition. You do not feel the weight of each component against your experience. The AI exercised the skill — and you collected the result.</p>
+          <p>Do this a few times and something subtle begins to happen: you start to lose the felt sense of whether an estimate is right. You can still tell when an estimate is obviously wrong — if someone says a month for something that should take a day, you will catch it. But you lose the fine calibration. The instinct for "this is more like 4 days than 3" becomes harder to access. You have outsourced the muscle memory.</p>
+          <div class="atrophy-meter">
+            <p><strong>Where your estimation calibration sits right now:</strong></p>
+            <div class="meter-bar"><div class="meter-fill" style="width: 72%;"></div></div>
+            <div class="meter-labels"><span>Fully outsourced</span><span>Intact calibration</span></div>
+            <p style="font-size:0.8rem; color: var(--text-muted); margin-top:8px;">Estimated based on: how often you reach for AI before decomposing, ability to explain your estimates.</p>
+          </div>
+        </section>
+        <section class="article-section">
+          <h2>Three Signs Your Estimation Skill Is Deteriorating</h2>
+          <div class="signal-grid">
+            <div class="signal-card">
+              <div class="signal-number">1</div>
+              <h3>The Black Box Effect</h3>
+              <p>You can give an estimate — and have it be roughly right — but you cannot explain how you got there. Not in any detail. When a PM asks you to walk through the breakdown, you realize you received the number from AI but never reconstructed the reasoning. The estimate lives in a black box. You know the output. You do not know the process.</p>
+            </div>
+            <div class="signal-card">
+              <div class="signal-number">2</div>
+              <h3>The Default-to-AI Threshold Dropped</h3>
+              <p>Six months ago, you would only ask AI for estimates on complex features. Now you find yourself reaching for it on tasks you would have sized instinctively six months ago: small refactors, documentation updates, simple bug fixes. The threshold for "I need AI to estimate this" has dropped to near zero. You cannot trust your own gut anymore.</p>
+            </div>
+            <div class="signal-card">
+              <div class="signal-number">3</div>
+              <h3>Estimates Got More Optimistic, Not Less</h3>
+              <p>You would expect AI to make your estimates more accurate. Instead, they have become more optimistic. AI tends to give median-case estimates — it assumes smooth paths, minimal integration complications, no unexpected edge cases. You used to pad for uncertainty based on experience. Now you give AI estimates directly, and the padding has disappeared. Sprints have started consistently overrunning.</p>
+            </div>
+          </div>
+        </section>
+        <section class="article-section">
+          <h2>The Jira Velocity Inflation Problem</h2>
+          <p>This shows up most clearly in sprint velocity metrics. When teams adopt AI coding tools, reported velocity typically increases. Stories that used to take 5 points now take 3. Velocity charts trend upward. Managers see this and draw reasonable conclusions: the tools are working, the team is more productive.</p>
+          <p>But the actual work has not changed. A feature that involves a new API integration, three dependent services, and a testing surface does not become 40% faster because you are using AI. It might become faster at generating the <em>code</em>. But the discovery, the error handling, the integration debugging — those still take the same time.</p>
+          <table class="comparison-table">
+            <thead><tr><th>Before AI Estimation Tools</th><th>After AI Estimation Tools</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Process:</strong> Engineer decomposes, sizes from experience, applies uncertainty buffer</td><td><strong>Process:</strong> Engineer describes to AI, receives breakdown, applies AI number directly</td></tr>
+              <tr><td><strong>Uncertainty buffer:</strong> Yes — engineers sized uncertainty based on history of being wrong</td><td><strong>Uncertainty buffer:</strong> Minimal — AI gives median-case estimates, buffer applied by fewer engineers</td></tr>
+              <tr><td><strong>Velocity trend:</strong> Stable — reflects actual capacity with realistic overage</td><td><strong>Velocity trend:</strong> Artificially inflated — numbers look better, reliability of commitment drops</td></tr>
+              <tr><td><strong>Planning accuracy:</strong> High — estimates calibrated against actual delivery history</td><td><strong>Planning accuracy:</strong> Declining — overrunning sprints despite higher reported velocity</td></tr>
+              <tr><td><strong>Skill state:</strong> Decomposition reflex strengthening with each estimate</td><td><strong>Skill state:</strong> Decomposition reflex weakening with each AI estimate accepted without practice</td></tr>
+            </tbody>
+          </table>
+          <p>The paradox is that the teams with the highest reported velocity may be experiencing the greatest estimation skill loss — and the most invisible planning degradation. The metrics look healthy. The planning conversations get harder. The sprint reviews reveal the gap.</p>
+        </section>
+        <section class="article-section">
+          <h2>The Senior Engineer Blindspot</h2>
+          <p>This problem hits senior engineers harder than juniors. Here is why: juniors never had a fully developed decomposition reflex to begin with. They use AI to get estimates and they have always used some form of external guidance for sizing. Their skill development path might be different, but they are not experiencing a loss of something they had.</p>
+          <p>Senior engineers are different. You spent a decade building an instinct for complexity. You could look at a system and feel where it would fight back. You knew — without being able to fully explain why — that certain features would hide complexity that would not show up until you were deep in it. This was not just experience. It was a trained perceptual skill, like a doctor learning to read an X-ray.</p>
+          <p>Now that skill is quietly eroding every time you accept an AI estimate without going through the decomposition process yourself. You are not just getting a number. You are losing the reflex. And unlike junior engineers who might not notice, you are acutely aware when you cannot explain your own estimate anymore.</p>
+          <p>The danger is that senior engineers often cannot tell when they are estimating poorly, because the decomposition reflex they relied on for calibration is exactly what is being weakened. You think you are doing fine. The numbers look reasonable. But the fine-grained accuracy — the "this is 3 days, not 2.5" calibration — is disappearing.</p>
+        </section>
+        <section class="article-section">
+          <h2>The Organizational Cost Nobody Measures</h2>
+          <p>Estimates are commitments. And commitments are the backbone of organizational trust. When a team commits to a delivery date and consistently misses it, the cost is not just in morale — it is in strategic trust. Product managers stop believing planning data. Executives start making decisions based on gut feel rather than forecast. The planning function of the organization degrades.</p>
+          <p>What makes this especially dangerous is that the cause is nearly invisible. The velocity metrics look healthy. The team is shipping more code. The AI tools are working. Nobody runs a diagnostic check on the decomposition reflex. The skill loss is invisible until it manifests as a pattern of overcommitted sprints, missed deadlines, and PMs who have stopped trusting estimates — and do not quite know why.</p>
+          <p>In organizations where estimation drives resource allocation — headcount planning, roadmap commitments, capacity modeling — the downstream effects can be significant. A team that is consistently over-optimistic in estimates will appear to have more capacity than it does, leading to under-hiring.</p>
+        </section>
+        <section class="article-section">
+          <h2>How to Recover Your Estimation Instincts</h2>
+          <p>The recovery is not about rejecting AI. It is about maintaining the practice. The decomposition reflex, like any skill, needs to be exercised to be maintained. You can use AI and still develop the skill — but it requires intention.</p>
+          <div class="reflection-box">
+            <h4>The Two-Estimate Protocol</h4>
+            <p>Before asking AI for an estimate on any non-trivial piece of work, do this: First, decompose the problem yourself. Write down the components. Size each one from your own intuition. Write your estimate down. Then ask AI. Compare. You do not have to trust your gut over AI — just check whether your gut still works.</p>
+          </div>
+          <p><strong>The Calibration Check.</strong> Once a week, look back at estimates you made — with or without AI — and compare them to actual delivery. Not for blame. For calibration. Did the work take as long as estimated? Was the AI estimate closer than your gut? This feedback loop is how estimation skill rebuilds itself.</p>
+          <p><strong>The Decomposition Practice.</strong> Every time you encounter a vague requirement, decompose it manually before you do anything else. Do not look at the existing codebase. Do not ask AI. Just try to see the parts. Write them down. Size them. This is the core skill. If you can still do it confidently, your decomposition reflex is intact. If you find yourself stuck, unable to see the components without looking something up, that is data.</p>
+        </section>
+        <section class="article-section">
+          <h2>The 24-Hour Estimation Challenge</h2>
+          <div class="challenge-box">
+            <h3>Try This: One Day of Manual Estimation</h3>
+            <p>For one full day, before you ask AI for any estimate, decompose the problem manually first. Write down your components. Size each one from your own intuition. Commit to a number. Then compare it to what AI would have given you. You do not have to follow your gut over AI. Just check whether your gut still works.</p>
+            <button class="exercise-btn" onclick="this.textContent='Day 1 Complete ✓'; this.style.background='linear-gradient(135deg, #22c55e, #15803d)';">Start the 24-Hour Challenge →</button>
+          </div>
+          <p>The point is not to prove you do not need AI. The point is to know whether you are exercising the skill or outsourcing it entirely. After a week of this practice, you will have clear data: either your decomposition reflex is still working and just needs exercise, or it is deteriorated enough that you need a more deliberate rebuilding process.</p>
+          <p>Either answer is useful. The worst outcome is the invisible one — not knowing that the skill is eroding until you find yourself unable to produce a reliable estimate at all.</p>
+        </section>
+        <div class="faq-accordion">
+          <h2>Frequently Asked Questions</h2>
+          <details><summary>Why does AI make estimation harder instead of easier?</summary><p>Because estimation is a skill — not just an output. Breaking down a complex feature into sub-tasks exercises the same cognitive muscles that make you a good engineer. When AI gives you the answer instantly, you skip the breakdown process. Your brain does not practice the skill. Over time, you lose the instinct for what "hard" actually feels like at the task level.</p></details>
+          <details><summary>What is the 'decomposition reflex'?</summary><p>The decomposition reflex is the instinctive ability to look at a vague requirement and immediately see its component parts — the data models, the API surfaces, the error states, the testing surface. Senior engineers developed this reflex through years of writing estimates. It is the reason senior devs can look at a ticket and know it is 3 days, not 1, without being able to fully explain why. AI bypasses this reflex by giving you an answer without the breakdown.</p></details>
+          <details><summary>How does AI affect sprint velocity metrics?</summary><p>AI inflates reported velocity in ways that mask real problems. When engineers use AI to generate estimates, they tend to give optimistic numbers because AI removes the "padding instinct" that comes from experience. Team velocity charts look healthy. But the actual work required has not changed. The result: velocity goes up, reliability of estimates goes down.</p></details>
+          <details><summary>How do you know if your estimation skill is atrophying?</summary><p>Three signals: First, you cannot explain your estimate anymore — you know it is roughly right but you cannot decompose why. Second, you default to "let me ask AI" for any sizing question, even small ones you used to answer instinctively. Third, your estimates started getting less accurate after you started using AI coding tools — not more accurate.</p></details>
+          <details><summary>What is the 24-hour estimation challenge?</summary><p>For one full day, before you ask AI for any estimate, try to decompose the problem yourself first. Write down the components. Size each one from your own intuition. Then compare. You do not have to trust your gut over AI — just check whether your gut still works. If you cannot decompose a problem without AI after a week of this practice, that is data. The goal is not to reject AI. It is to know whether you are exercising the skill or outsourcing it.</p></details>
+        </div>
+        <section class="article-section related-links">
+          <h2>Continue Reading</h2>
+          <div class="related-grid">
+            <a href="/the-consultation-trap.html" class="related-card"><span class="related-tag">Related</span><h3>The Consultation Trap</h3><p>How AI dependency grows in invisible increments — and why asking more questions makes you understand less.</p></a>
+            <a href="/the-velocity-trap.html" class="related-card"><span class="related-tag">Related</span><h3>The Velocity Trap</h3><p>AI-accelerated shipping is masking a quiet collapse in actual engineering capability.</p></a>
+            <a href="/the-15-minute-debugger.html" class="related-card"><span class="related-tag">Related</span><h3>The 15-Minute Debugger</h3><p>Why AI makes debugging faster but slowly erodes the diagnostic instincts that make engineers effective.</p></a>
+            <a href="/expertise-deflation.html" class="related-card"><span class="related-tag">Related</span><h3>Expertise Deflation</h3><p>The economic and psychological erosion of senior engineering expertise in the AI era.</p></a>
+          </div>
+        </section>
       </div>
+      <aside class="article-sidebar">
+        <div class="sidebar-card">
+          <h4>Understanding AI Fatigue</h4>
+          <ul class="sidebar-links">
+            <li><a href="/ai-fatigue.html">What Is AI Fatigue?</a></li>
+            <li><a href="/why.html">Why It Happens</a></li>
+            <li><a href="/signs-ai-fatigue.html">Warning Signs</a></li>
+            <li><a href="/research.html">Research & Data</a></li>
+          </ul>
+        </div>
+        <div class="sidebar-card">
+          <h4>Recovery Tools</h4>
+          <ul class="sidebar-links">
+            <li><a href="/quiz.html">AI Fatigue Quiz</a></li>
+            <li><a href="/ai-fatigue-recovery-roadmap.html">90-Day Recovery Roadmap</a></li>
+            <li><a href="/daily-ai-boundaries.html">Daily Boundaries Guide</a></li>
+            <li><a href="/recovery.html">Full Recovery Guide</a></li>
+          </ul>
+        </div>
+        <div class="sidebar-card">
+          <h4>More Patterns</h4>
+          <ul class="sidebar-links">
+            <li><a href="/the-consultation-trap.html">Consultation Trap</a></li>
+            <li><a href="/the-velocity-trap.html">Velocity Trap</a></li>
+            <li><a href="/the-priority-paradox.html">Priority Paradox</a></li>
+            <li><a href="/expertise-deflation.html">Expertise Deflation</a></li>
+          </ul>
+        </div>
+      </aside>
     </div>
-
-    <div class="content">
-
-      <p>You used to know how long things took.</p>
-
-      <p>Not perfectly — estimation was always an approximation — but you had a gut feel. You could look at a feature request and say, "three days, maybe four." And you were usually right, within a factor of two. Your PM trusted your estimates. Your sprint retrospectives weren't full of surprised explanations about why things took twice as long as predicted.</p>
-
-      <p>Now you look at the same feature requests and your brain goes blank. You throw out a number — three days — and inside you're thinking, <em>I have no idea if that's right.</em> The AI will write the code. It will look fast. You'll ship something that seems done. And then the edge cases will arrive, the integration will break, the QA will find things, and you'll be three weeks in, saying "almost there" for the fifth standup in a row.</p>
-
-      <p>Something has gone wrong with your ability to estimate your own work. It's not just you. It's structural. And it's getting worse.</p>
-
-      <!-- Section 1 -->
-      <h2 style="margin-top: 2.5rem; font-size: 1.3rem; margin-bottom: 1rem;">What Estimation Used to Feel Like</h2>
-
-      <p>Before AI tools became ubiquitous, estimation worked because you had a calibration loop — a feedback mechanism between effort and outcome that refined your predictions over time.</p>
-
-      <p>Here's how it worked: You wrote a feature. It took you three full days. You learned something from writing it — specifically, you learned how long it actually takes to write features like that. Next sprint, a similar feature came in. You said "three days" and you were right, because you had real data.</p>
-
-      <p>This is the core of expert intuition in software development (Klein, 1998). It's not magic. It's pattern recognition built from accumulated experience. You build the pattern by doing the work, getting the result, and updating your mental model.</p>
-
-      <p>AI tools break this loop at the most fundamental level. When you use AI to write the code, you don't experience the work. You experience the output — fast, polished, apparently correct. But you don't learn anything about the actual difficulty of the underlying problem. You've received the answer without going through the process that would calibrate your future predictions.</p>
-
-      <p>The result: you keep estimating based on a self-model that no longer reflects reality.</p>
-
-      <!-- Section 2 -->
-      <h2 style="margin-top: 2.5rem; font-size: 1.3rem; margin-bottom: 1rem;">Three Symptoms You're In the Estimation Problem</h2>
-
-      <div class="signal-grid">
-        <div class="signal-card">
-          <h3>Symptom 1: The AI Speed Disconnect</h3>
-          <p>You estimate tasks in "AI time" — how fast the prototype looks when AI generates it. Then reality sets in: integration, edge cases, code review, deployment. These don't get AI speed bumps. They get your full human attention. You arrive at standup surprised that something you thought was "basically done" still has two weeks of work visible only to you.</p>
-        </div>
-        <div class="signal-card">
-          <h3>Symptom 2: The Reference Point Void</h3>
-          <p>You can't remember the last time you built something without AI. This makes estimation feel like looking at a map with no landmarks — you know you're somewhere on the road, but you can't triangulate your position. Junior engineers ask you "how hard is this?" and you genuinely can't answer, because you haven't built the reference data to know.</p>
-        </div>
-        <div class="signal-card">
-          <h3>Symptom 3: Sprint Surprises</h3>
-          <p>Your sprint planning looks reasonable in the planning meeting and chaotic three weeks later. You committed to five tickets and shipped two. Everyone is surprised. You're also surprised, but less so — you knew the estimates were pulled from the air. You've lost the confidence that comes from having a track record of accurate self-assessment.</p>
-        </div>
-      </div>
-
-      <div class="science-box">
-        <div class="label">Research Note</div>
-        <p>The planning fallacy (Buehler, 1994, 1999) describes our tendency to estimate based on an "inside view" — optimistic projections from the current moment — rather than an "outside view" — data from similar past projects. AI tools amplify the inside view by making the present moment feel smooth and fast. When the code appears to write itself, we systematically underestimate remaining difficulty because the visible part looks easy.</p>
-      </div>
-
-      <!-- Section 3 -->
-      <h2 style="margin-top: 2.5rem; font-size: 1.3rem; margin-bottom: 1rem;">Why It's Getting Worse, Not Better</h2>
-
-      <p>The estimation problem compounds over time. Here's why it doesn't self-correct:</p>
-
-      <p><strong>You don't see your misses.</strong> When you deliver late, you blame scope creep, unexpected complexity, or stakeholder changes. You almost never blame your estimation model. Because the AI is always in the room, providing a plausible reason for every delay. "The AI helped me write it fast, but then we found issues" sounds reasonable. It also sounds like the AI made things faster overall, which justifies more AI use, which destroys more estimation calibration, which leads to more misses. The cycle reinforces itself.</p>
-
-      <p><strong>The feedback loops are broken.</strong> Traditional estimation calibrated because you felt the weight of hard problems — the three hours you spent debugging a race condition, the day you lost to an API subtlety. Those felt bad. You remembered them. They adjusted your estimates. With AI, those hard problems either get solved before you feel them, or they surface as "AI gave me wrong code" and you fix it without registering how long it took. The emotional signal that normally recalibrates your model is suppressed.</p>
-
-      <p><strong>Velocity looks like skill.</strong> The AI delivers more story points per sprint. You look more productive. Your estimates — which were already inflated by AI optimism — are now even less trustworthy, because the correlation between your estimates and actual delivery has been severed by the AI's contribution to the output without corresponding contribution to your input.</p>
-
-      <!-- Section 4 -->
-      <h2 style="margin-top: 2.5rem; font-size: 1.3rem; margin-bottom: 1rem;">Who Gets Hit Hardest</h2>
-
-      <table class="tier-table">
-        <thead>
-          <tr>
-            <th>Engineer Type</th>
-            <th>Why They're Vulnerable</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="tier-label">Mid-career (4-8 years)</td>
-            <td>They have enough experience to own complex projects, but have been using AI long enough that their pre-AI calibration has eroded. They estimate based on a model built before AI existed, but their actual work is post-AI.</td>
-          </tr>
-          <tr>
-            <td class="tier-label">Staff / Principal</td>
-            <td>They lead estimation across teams. When their individual estimates are wrong, the downstream impact is multiplied across multiple sprints and multiple engineers.</td>
-          </tr>
-          <tr>
-            <td class="tier-label">AI-native juniors</td>
-            <td>They never built the calibration loop in the first place. They came in after AI tools were standard and have no reference model for "this is how long this type of task takes without AI." They're flying blind on estimation, with no idea they're flying blind.</td>
-          </tr>
-          <tr>
-            <td class="tier-label">Freelancers / consultants</td>
-            <td>Wrong estimates cost them money directly. Many have noticed that AI makes them faster but less predictable — their clients are paying for outcomes, not story points, and they're losing money on fixed-price contracts.</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <!-- Section 5 -->
-      <h2 style="margin-top: 2.5rem; font-size: 1.3rem; margin-bottom: 1rem;">The Estimation Calibration Protocol</h2>
-
-      <p>You can rebuild your estimation ability. It requires deliberate practice and a tracking system. The goal isn't to eliminate AI — it's to preserve your calibration while benefiting from AI acceleration.</p>
-
-      <ol class="step-list">
-        <li>
-          <div class="step-content">
-            <h4>Track AI-Free Time Per Task</h4>
-            <p>For every task you complete, log two numbers: how long it actually took, and what you could have done in that time without AI. This sounds uncomfortable. That's the point. The discomfort is the data. After two weeks, you'll start seeing patterns in what AI actually saves you time on versus what it just makes look faster.</p>
-          </div>
-        </li>
-        <li>
-          <div class="step-content">
-            <h4>Log the Delta</h4>
-            <p>Record the difference between your estimated time and your actual time, broken down by what AI handled vs. what required human attention. Over time, this builds a personal reference catalog: "Tasks where AI does 70% of the work still take X hours of human time. Tasks where AI does 30% take Y." This becomes the basis for future estimates.</p>
-          </div>
-        </li>
-        <li>
-          <div class="step-content">
-            <h4>Deliberate Deferral Practice</h4>
-            <p>Once per sprint, pick one task and build it without AI — even if it takes longer. Estimate how long it will take before you start. Compare. The gap between your estimate and reality, for tasks without AI, is your true calibration. Rebuild this first, then layer AI back in and adjust for it.</p>
-          </div>
-        </li>
-        <li>
-          <div class="step-content">
-            <h4>Build Your Reference Catalog</h4>
-            <p>Create a simple document: task types, your AI-free estimate, actual time, AI-assisted time. Update it quarterly. After six months, you'll have enough data to estimate with genuine confidence again. You'll know which task types AI accelerates and which ones it just makes look faster while consuming your full attention anyway.</p>
-          </div>
-        </li>
-        <li>
-          <div class="step-content">
-            <h4>Retro with an Estimation Lens</h4>
-            <p>In your next retrospective, don't just ask "what went wrong?" Ask "what did we think would take X and what actually took Y, and where in the flow did AI contribute to that gap?" This surfaces the estimation problem without blaming individuals. Make it a team practice to track estimation accuracy as a metric, separate from velocity.</p>
-          </div>
-        </li>
-      </ol>
-
-      <div class="science-box">
-        <div class="label">The Paradox</div>
-        <p>Using AI makes you look more productive. It also makes your estimates less accurate. The engineers who appear fastest in sprint metrics are often the ones whose estimates are most fiction. Rebuilding estimation accuracy requires accepting short-term slower-looking output to regain long-term planning capability. Your PM will thank you. Your career will thank you. The engineers who inherit your codebase will definitely thank you.</p>
-      </div>
-
-      <!-- Section 6: FAQ -->
-      <h2 style="margin-top: 2.5rem; font-size: 1.3rem; margin-bottom: 1rem;">Frequently Asked Questions</h2>
-
-      <div id="faq" style="min-height: 600px;"></div>
-
-    </div>
-
-    <div style="margin-top: 3rem; padding: 0 1.5rem;">
-      <div class="content">
-        <h2 style="font-size: 1.2rem; margin-bottom: 1rem;">Related Pages</h2>
-        <div class="related-grid">
-          <a href="the-consultation-trap.html" class="related-card">
-            <div class="tag">Research</div>
-            <h4>The Consultation Trap</h4>
-            <p>The pattern of reflexively reaching for AI before attempting problems yourself.</p>
-          </a>
-          <a href="skill-atrophy.html" class="related-card">
-            <div class="tag">Research</div>
-            <h4>Skill Atrophy and AI</h4>
-            <p>How AI tooling quietly erodes the abilities it appears to augment.</p>
-          </a>
-          <a href="productivity-theater.html" class="related-card">
-            <div class="tag">Research</div>
-            <h4>Productivity Theater</h4>
-            <p>Why shipping more code isn't the same as doing better work.</p>
-          </a>
-          <a href="the-velocity-trap.html" class="related-card">
-            <div class="tag">Research</div>
-            <h4>The Velocity Trap</h4>
-            <p>Why AI-accelerated velocity masks quiet capability collapse.</p>
-          </a>
-        </div>
-      </div>
-    </div>
-
   </main>
-
-  <footer id="siteFooter"></footer>
-
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><a href="/" class="footer-logo">🌿 The Clearing</a><p>A free resource for engineers experiencing AI fatigue. No tracking. No ads. Just help.</p></div>
+        <div class="footer-links"><h4>Understand</h4><ul><li><a href="/ai-fatigue.html">What Is AI Fatigue?</a></li><li><a href="/why.html">Why It Happens</a></li><li><a href="/signs-ai-fatigue.html">Warning Signs</a></li><li><a href="/research.html">Research</a></li></ul></div>
+        <div class="footer-links"><h4>Recover</h4><ul><li><a href="/recovery.html">Recovery Guide</a></li><li><a href="/daily-ai-boundaries.html">Daily Boundaries</a></li><li><a href="/ai-detox-plan.html">30-Day Plan</a></li><li><a href="/decompress.html">Decompress</a></li></ul></div>
+        <div class="footer-links"><h4>Tools</h4><ul><li><a href="/quiz.html">AI Fatigue Quiz</a></li><li><a href="/resources.html">All Resources</a></li><li><a href="/newsletter.html">Newsletter</a></li><li><a href="/community.html">Community</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>© 2026 The Clearing · <a href="/privacy.html">Privacy</a> · <a href="/sitemap.html">Sitemap</a></p><p class="footer-tagline">Built by engineers, for engineers.</p></div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
   <script>
-    // Footer only (nav is fully inline)
-    fetch('footer.html').then(r => r.text()).then(html => { document.getElementById('siteFooter').innerHTML = html; }).catch(() => {});
-
-    // FAQ accordion
-    const faqData = [
-      {
-        q: "Why can't I estimate my own work anymore?",
-        a: "AI tooling has severed your calibration loop — the feedback mechanism between effort and outcome that lets you predict how long something will take. When AI writes the code, you lose the reference points that made estimation possible. You no longer know how hard the hard parts are because AI handles them before you've built the intuition."
-      },
-      {
-        q: "Does AI make engineers faster or just look faster?",
-        a: "Both, paradoxically. AI genuinely accelerates execution — you ship more code per day. But it simultaneously destroys your ability to plan, coordinate, and communicate realistic timelines. The velocity you gain at the keyboard costs you the ability to estimate what that velocity means for a sprint. Your manager sees delivery; you know the estimates are fiction."
-      },
-      {
-        q: "What's the planning fallacy and how does AI amplify it?",
-        a: "The planning fallacy (Buehler, 1994) is our persistent tendency to underestimate the time and cost of future projects while overestimating our ability to handle them. AI amplifies this by removing the friction signals that normally recalibrate estimates. When a task goes smoothly with AI, you attribute that smoothness to the task being easy — not to AI carrying the difficulty. Future estimates stay optimistic because you have no data showing the real difficulty."
-      },
-      {
-        q: "How do I know if I've lost my estimation calibration?",
-        a: "Three signals: (1) You routinely estimate in days and then deliver in weeks, but you're surprised each time. (2) You can't explain to a PM why a task that \"should take an hour\" actually took three days — because you genuinely don't know what happened in those three days. (3) When you estimate without AI present, you feel anxious and pull numbers from the air, knowing they're wrong but unable to do better."
-      },
-      {
-        q: "How do you rebuild estimation ability while using AI tools?",
-        a: "The Estimation Calibration Protocol: (1) Track AI-free time — for every task, log what you could have done without AI and how long it would have taken. (2) Log the delta — the difference between your AI-assisted time and your estimated AI-free time. (3) Build a personal reference catalog — the actual hours for tasks of different types, updated quarterly. (4) Practice deliberate deferral — for one task per sprint, build without AI and estimate the time. Compare. (5) Review sprint retrospectives with an estimation lens — what did you think would take X and what actually took Y?"
-      }
-    ];
-
-    const faqContainer = document.getElementById('faq');
-    faqData.forEach((item, i) => {
-      const div = document.createElement('div');
-      div.className = 'faq-item';
-      div.innerHTML = `
-        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-          ${item.q}
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="faq-answer"><div class="faq-answer-inner">${item.a}</div></div>
-      `;
-      faqContainer.appendChild(div);
+    const progressBar = document.querySelector('.reading-progress-bar');
+    const progressContainer = document.querySelector('.reading-progress');
+    if (progressBar && progressContainer) {
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = Math.min((scrollTop / docHeight) * 100, 100);
+        progressBar.style.width = progress + '%';
+        progressContainer.setAttribute('aria-valuenow', Math.round(progress));
+      }, { passive: true });
+    }
+    document.querySelectorAll('.faq-accordion details').forEach(details => {
+      details.addEventListener('toggle', () => {
+        if (details.open) document.querySelectorAll('.faq-accordion details[open]').forEach(d => { if (d !== details) d.removeAttribute('open'); });
+      });
     });
-
-    // Theme toggle — existing fixed button
-    document.getElementById('themeBtn').onclick = () => {
-      const html = document.documentElement;
-      html.setAttribute('data-theme', html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
-    };
+    const themeBtn = document.getElementById('theme-toggle');
+    if (themeBtn) {
+      themeBtn.addEventListener('click', () => {
+        const html = document.documentElement;
+        const current = html.getAttribute('data-theme');
+        html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+        themeBtn.textContent = current === 'dark' ? '☀️' : '🌙';
+      });
+    }
   </script>
 </body>
 </html>

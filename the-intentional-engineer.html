@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Intentional Engineer: Reclaiming Agency in the Age of AI</title>
+  <meta name="description" content="AI tools set the default for how you work. The Intentional Engineer notices when their tooling is making decisions for them — and actively reclaims those choices. Here's how.">
+  <meta name="keywords" content="intentional engineer, AI agency, engineering intentionality, deliberate AI use, cognitive autonomy engineers, prompt engineering decisions, tool choice agency, AI decision making, engineering autonomy, conscious tooling">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://clearing-ai.com/the-intentional-engineer.html">
+  <link rel="alternate" type="application/rss+xml" title="The Clearing RSS Feed" href="https://clearing-ai.com/feed.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/the-intentional-engineer.html">
+  <meta property="og:title" content="The Intentional Engineer: Reclaiming Agency in the Age of AI">
+  <meta property="og:description" content="AI tools set the default for how you work. The Intentional Engineer notices when their tooling is making decisions for them — and actively reclaims those choices.">
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
+  <meta property="og:site_name" content="The Clearing">
+  <meta property="article:published_time" content="2026-05-27">
+  <meta property="article:section" content="AI Fatigue Patterns">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Intentional Engineer: Reclaiming Agency in the Age of AI">
+  <meta name="twitter:description" content="AI tools set the default. Most engineers never change it. Here's how intentional re-claiming works.">
+  <meta name="twitter:image" content="https://clearing-ai.com/og-image.png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.min.css">
+  <style>
+    .hero-topic-tag {
+      display: inline-block;
+      background: var(--tag-bg, rgba(74, 222, 128, 0.12));
+      color: var(--tag-text, #4ade80);
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .hero-topic-tag.purple { --tag-bg: rgba(192, 132, 252, 0.12); --tag-text: #c084fc; }
+    .hero-topic-tag.teal { --tag-bg: rgba(45, 212, 191, 0.12); --tag-text: #2dd4bf; }
+    .pillar-nav {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0;
+    }
+    .pillar-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.4rem 0.85rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .pillar-nav a:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--card-hover);
+    }
+    .pillar-nav a svg { width: 14px; height: 14px; flex-shrink: 0; }
+    .passive-intentional-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 1rem;
+      align-items: center;
+      margin: 2rem 0;
+    }
+    @media (max-width: 700px) {
+      .passive-intentional-grid { grid-template-columns: 1fr; }
+      .grid-arrow { display: none; }
+    }
+    .pattern-col {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+    .pattern-col.passive { border-left: 3px solid #f87171; }
+    .pattern-col.intentional { border-left: 3px solid #4ade80; }
+    .pattern-col h4 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .pattern-col.passive h4 { color: #f87171; }
+    .pattern-col.intentional h4 { color: #4ade80; }
+    .pattern-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .pattern-col ul li {
+      font-size: 0.875rem;
+      display: flex;
+      gap: 0.5rem;
+    }
+    .pattern-col.passive ul li::before { content: '✗'; color: #f87171; flex-shrink: 0; }
+    .pattern-col.intentional ul li::before { content: '✓'; color: #4ade80; flex-shrink: 0; }
+    .grid-arrow {
+      font-size: 1.5rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+    .audit-box {
+      background: linear-gradient(135deg, rgba(45, 212, 191, 0.08), rgba(74, 222, 128, 0.08));
+      border: 1px solid rgba(45, 212, 191, 0.25);
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2.5rem 0;
+    }
+    .audit-box h3 { color: #2dd4bf; margin-bottom: 1rem; }
+    .audit-questions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .audit-questions li {
+      background: rgba(0,0,0,0.2);
+      border-radius: 8px;
+      padding: 1rem;
+      font-size: 0.875rem;
+      position: relative;
+      padding-left: 2rem;
+    }
+    .audit-questions li::before {
+      content: '?';
+      position: absolute;
+      left: 0.75rem;
+      top: 1rem;
+      color: #2dd4bf;
+      font-weight: 700;
+    }
+    .quote-box {
+      border-left: 3px solid var(--primary);
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+      background: var(--card-bg);
+    }
+    .quote-box blockquote {
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--text);
+      margin: 0 0 0.5rem 0;
+    }
+    .quote-box cite {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-style: normal;
+    }
+    @media (max-width: 600px) {
+      .audit-questions { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div id="nav"></div>
+<main class="container" style="max-width: 770px; margin: 0 auto; padding: 2rem 1rem;">
+  <article>
+    <header style="margin-bottom: 2.5rem;">
+      <span class="hero-topic-tag teal">AI Fatigue Patterns</span>
+      <h1 style="font-size: clamp(1.75rem, 5vw, 2.5rem); line-height: 1.15; margin-bottom: 1rem;">The Intentional Engineer: Reclaiming Agency in the Age of AI</h1>
+      <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">AI tools set the default for how you work. Most engineers never change it. The Intentional Engineer is someone who notices when their tooling has quietly taken over their decision-making — and decides to do something about it.</p>
+      <div class="pillar-nav">
+        <a href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>Home</a>
+        <a href="tips.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Tips</a>
+        <a href="why.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>Why</a>
+        <a href="recovery.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Recovery</a>
+      </div>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.8rem; color: var(--text-muted);">
+        <span>📅 May 27, 2026</span>
+        <span>⏱️ 12 min read</span>
+        <span>👤 The Clearing</span>
+      </div>
+    </header>
+
+    <nav class="breadcrumb" style="--breadcrumbs: 'Home,index.html' 'Tips,tips.html' 'The Intentional Engineer';" aria-label="Breadcrumb"></nav>
+
+    <div class="content">
+      <h2>THE DEFAULT PROBLEM</h2>
+      <p>There's a setting you never changed.</p>
+      <p>Not in VS Code. Not in your AI assistant. Not in the Copilot extension that auto-completed its way into your browser last quarter. Your tooling today reflects hundreds of decisions you never made — defaults chosen by product teams, assumptions baked in by engineers you'll never meet, guardrails placed where someone else decided risk lived.</p>
+      <p>Most of the time, this is fine. Defaults are efficient. Standard tooling reduces cognitive overhead. The reason we have conventions is so we don't have to negotiate every single choice from scratch.</p>
+      <p>But somewhere between "reasonable defaults" and "quiet surrender of agency," there's a line. And for a growing number of engineers, AI tooling crossed it without them noticing.</p>
+
+      <div class="quote-box">
+        <blockquote>"I realized I hadn't made a meaningful architectural decision in three months. Not because the architecture was done — because Copilot was always there first."</blockquote>
+        <cite>— Senior backend engineer, 8 years experience, fintech</cite>
+      </div>
+
+      <h2>WHEN YOUR TOOL MAKES DECISIONS FOR YOU</h2>
+      <p>AI don't just respond to your prompts. They shape your prompts. After months of working with a completion-assistant, engineers report a measurable shift in how they think about problems:</p>
+      <ul>
+        <li>They reach for AI before they reach for their own analysis</li>
+        <li>They frame problems in the language the tool handles best (syntactic, easily-tokenized queries)</li>
+        <li>They stop ideating in the shower because ideas feel "better" once AI has refined them</li>
+        <li>They trust the tool's stylistic choices over their own aesthetic judgment</li>
+        <li>They difficulty separating "I thought this was a good idea" from "the AI made this look like a good idea"</li>
+      </ul>
+      <p>This isn't laziness. It's cognitive channeling — a gradual rewiring of your problem-solving instincts around what AI can do efficiently. And because it happens gradually, most engineers don't notice until the atrophy is substantial.</p>
+
+      <h2>THE THREE AREAS WHERE AGENCY ERODES QUIETEST</h2>
+
+      <h3>1. Tool Choice</h3>
+      <p>You use what your team uses. You install what the tutorial recommends. You adopt what gets upvoted on Hacker News. The choice of tooling is made once — at onboarding — and then reinforced every time a new engineer asks "what tool should I use for X?"</p>
+      <p>The problem: every tool has a philosophy baked into it. A tool optimized for吞吐速度 rewards a certain kind of code style. A tool optimized for context-window utilization shapes how you structure problems. A tool that auto-refactors your legacy code quietly teaches you what "good" looks like.</p>
+      <p>Most engineers chose their core AI tools based on a single chat demo. They never ran a structured evaluation across their actual workflow.</p>
+
+      <h3>2. Problem Framing</h3>
+      <p>There's a way to phrase a problem that an AI assistant handles really well. It turns out that way is also a really good way to phrase problems in general — legible, token-efficient, low ambiguity. So you start phrasing things that way even when you're not using the AI. Your mental models get formatted in JSON. Your debug notes read like prompts. Your design docs start looking like API specifications.</p>
+      <p>The tool didn't make you change. You changed because the tool was there, and changing back felt like swimming upstream.</p>
+
+      <h3>3. Response Evaluation</h3>
+      <p>When an AI gives you a response, how do you evaluate it? Usually: "does this look right?" If it mostly does, you adopt it. If it has obvious problems, you iterate.</p>
+      <p>But "looking right" is shaped by what the tool produces most often. After months with the same AI model, your calibration shifts — not toward accuracy, but toward the tool's distribution of outputs. You start approving responses you'd have rejected if they'd come from a junior engineer. Not because the responses are better, but because you're tired, and the AI response is polished, and there's no one else in the room.</p>
+
+      <div class="audit-box" style="background: linear-gradient(135deg, rgba(45, 212, 191, 0.08), rgba(74, 222, 128, 0.08)); border-color: rgba(45, 212, 191, 0.25);">
+        <h3>THE INTENTIONAL ENGINEER AUDIT</h3>
+        <p style="font-size: 0.9rem; margin-bottom: 1rem; color: var(--text-muted);">Take two minutes. Answer honestly. No one's watching.</p>
+        <ol class="audit-questions">
+          <li>When was the last time you made a significant design choice before reaching for AI, rather than after?</li>
+          <li>Could you replicate your current project architecture without consulting any AI tool?</li>
+          <li>In the last sprint, how many decisions were reversed or modified because of an AI suggestion you initially accepted without strong pushback?</li>
+          <li>Do your personal coding preferences (formatting, naming, structure) still show through in your commits?</li>
+          <li>When you hit a hard problem, does your first instinct feel like yours, or does it feel like "what would I ask AI about this?"</li>
+          <li>Have you evaluated two different AI tools against each other for your specific workflow, not just followed what colleagues use?</li>
+        </ol>
+      </div>
+
+      <h2>WHAT "INTENTIONAL" ACTUALLY LOOKS LIKE</h2>
+
+      <div class="passive-intentional-grid">
+        <div class="pattern-col passive">
+          <h4>Passive Pattern</h4>
+          <ul>
+            <li>Uses whatever AI tool came preinstalled or was easier to adopt</li>
+            <li>Frames problems in whatever way gets the fastest AI response</li>
+            <li>Accepts or rejects AI output based on surface polish</li>
+            <li>Feels vaguely off but can't articulate why</li>
+            <li>Asks AI and then validates rather than validating and then asking</li>
+          </ul>
+        </div>
+        <div class="grid-arrow">→</div>
+        <div class="pattern-col intentional">
+          <h4>Intentional Pattern</h4>
+          <ul>
+            <li>Periodically audits which tools serve their specific goals best</li>
+            <li>Frames problems in a way that preserves their own thinking, not just efficient tokens</li>
+            <li>Evaluates AI output against an internal standard they can articulate</li>
+            <li>Knows exactly which skills AI has strengthened vs. weakened in their practice</li>
+            <li>Validates first, then uses AI as a multiplier, not a validator</li>
+          </ul>
+        </div>
+      </div>
+
+      <p>The intentional engineer isn't anti-AI. They're not manually implementingeverything from scratch to prove a point. They're not Luddites who write code in a cave. They're engineers who have a deliberate relationship with their tools — one where the choice to use AI is conscious, not default.</p>
+      <p>Big difference.</p>
+
+      <h2>THE FOUR PRACTICES OF INTENTIONAL ENGINEERS</h2>
+
+      <h3>Practice 1: The Skill Ownership Protocol</h3>
+      <p>Before delegating any task to AI, ask one question: "Do I still want to know how to do this myself?"</p>
+      <p>Not "should I" — "do I want to." These are different things. There are legitimate reasons to outsource a skill permanently. But deciding you don't want to know how to do something is different from deciding it isn't worth your time right now.</p>
+      <p>For skills you want to retain, build deliberate retrieval practice:<span style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 0.1rem 0.4rem; font-size: 0.8rem;">Morning Attempt Protocol</span> — when you encounter a problem in your domain, attempt it without AI first, even if for just 10 minutes. Write your initial solution or hypothesis. <em>Then</em> ask AI. Compare. Note the delta.</p>
+
+      <h3>Practice 2: The Tool Evaluation Quarter</h3>
+      <p>Once every three months, run a structured eval. Not "is this tool still fine" — but "is this still the right tool for where I'm going."</p>
+      <p>In a single session, try the same three tasks in two different AI tools and compare outputs against your internal standard. Force yourself to articulate what "good" means before you do it. The exercise alone is diagnostic — if you can't articulate what good looks like, that's data.</p>
+
+      <h3>Practice 3: The Decision Journal</h3>
+      <p>Keep a 5-minute log — not of what AI told you, but of choices you made that AI influenced. Every time you deferred to AI's judgment, write down: what was the decision, why did you defer, what would you have done otherwise?</p>
+      <p>Monthly review. After three months, patterns emerge. You'll see which categories of decisions you've quietly outsourced. You'll notice if certain domains have atrophied enough that you now consult AI by reflex. This is more useful than a wellness check-in because it's specific.</p>
+
+      <h3>Practice 4: The No-AI Sprint</h3>
+      <p>Once a month, do one meaningful chunk of work — design, code, debugging, whatever — with no AI assistance. Not as an ordeal or a detox cleanse. As calibration.</p>
+      <p>Observe what you reach for first. Note where you feel uncertain vs. genuinely stuck. Notice which problems seem to require AI to be "solvable" in your head. Track what you learn about your own baseline competence.</p>
+      <p>The goal isn't to prove you can do it without AI. The goal is to update your self-model. You might be surprised what you find.</p>
+
+      <div class="quote-box">
+        <blockquote>"After my first no-AI sprint, I had a 45-minute debugging session that used to take me 5 minutes. Not because I'm getting worse — because I'd stopped building the skill that session was exercising. The reset was worth it."</blockquote>
+        <cite>— Staff engineer, infrastructure team, California</cite>
+      </div>
+
+      <h2>THE AUTONOMY PARADOX</h2>
+      <p>Here's the uncomfortable truth: the more powerful your AI tooling becomes, the more you need deliberate practice around when and how to use it.</p>
+      <p>In the early days, AI was weak enough that you had to maintain strong skills to use it effectively. If you didn't understand a problem deeply, you couldn't prompt your way to a useful answer. The tool rewarded expertise.</p>
+      <p>Now the tool is powerful enough topaper over gaps. To generate plausible-sounding output for problems you don't fully understand. To make it feel like you're still practicing when you're actually being carried. The better the tool, the less obvious it is when you're along for the ride.</p>
+      <p>Intentionality requires the opposite instinct from what most tooling is designed for. Tools are supposed to reduce friction. Intentional practice sometimes requires reintroducing it — by choice, not by limitation.</p>
+
+      <h2>WHAT YOU'RE ACTUALLY DEFENDING</h2>
+      <p>When engineers talk about "maintaining agency," a lot of them are really talking about something more specific. They want to be the person who makes the calls — not the person who rubber-stamps them.</p>
+      <p>Not because they don't like AI. Because they like being good at their job. Because they want their judgment to matter. Because they remember what it felt like when they could walk into a room and operate independently, and they want to preserve the option to do that again if they need to.</p>
+      <p>That's not nostalgia. That's professional prudence. You're not anti-AI when you insist on maintaining your own calibration. You're just being honest about the difference between outputs you're responsible for and outputs you're accountable for.</p>
+      <p>The engineers who will do well in the next phase of AI tooling aren't the ones who use it most aggressively. They're the ones who use it most deliberately — with clear boundaries, explicit choices, and a steady sense of what still belongs to them.</p>
+
+      <div class="quote-box">
+        <blockquote>"Being intentional isn't about how much AI you use. It's about how conscious the choices are. That's it. That's the whole thing."</blockquote>
+        <cite>— The Clearing Editorial</cite>
+      </div>
+
+      <h2>THE PREMISE IN SUMMARY</h2>
+      <ul>
+        <li>AI tooling sets defaults. Most engineers adopt defaults permanently.</li>
+        <li>Defaults shape habits. Habits shape judgment. Judgment shapes career trajectory.</li>
+        <li>Intentionality is the ongoing practice of knowing what you still want to own — and acting accordingly.</li>
+        <li>It's not about using less AI. It's about being a more conscious participant in the relationship.</li>
+        <li>The engineers who thrive won't be the ones who automated everything. They'll be the ones who chose deliberately.</li>
+      </ul>
+
+      <hr style="border: none; border-top: 1px solid var(--border); margin: 3rem 0 2rem;">
+
+      <section class="article-footer">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+          <div>
+            <h4 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.75rem;">Continue Reading</h4>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+              <a href="the-consultation-trap.html" style="color: var(--primary); text-decoration: none; font-size: 0.9rem;">The Consultation Trap →</a>
+              <a href="the-velocity-trap.html" style="color: var(--primary); text-decoration: none; font-size: 0.9rem;">The Velocity Trap →</a>
+              <a href="scientist-in-residence.html" style="color: var(--primary); text-decoration: none; font-size: 0.9rem;">The Scientist in Residence →</a>
+            </div>
+          </div>
+          <div>
+            <h4 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.75rem;">Tools & Recovery</h4>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+              <a href="ai-boundary-builder.html" style="color: var(--primary); text-decoration: none; font-size: 0.9rem;">AI Boundary Builder →</a>
+              <a href="recovery.html" style="color: var(--primary); text-decoration: none; font-size: 0.9rem;">Recovery Hub →</a>
+              <a href="daily-ai-boundaries.html" style="color: var(--primary); text-decoration: none; font-size: 0.9rem;">Daily AI Boundaries →</a>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top: 2rem; padding: 1.5rem; background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px;">
+          <p style="font-size: 0.875rem; margin: 0 0 1rem 0;">Track where you are with AI tooling. <a href="quiz-results.html" style="color: var(--primary);">Take the AI Fatigue Quiz</a> — get a personalized resilience score and recommended recovery path.</p>
+          <a href="quiz-results.html" class="btn btn-primary" style="display: inline-block; padding: 0.6rem 1.5rem; background: var(--primary); color: #000; border-radius: 8px; font-weight: 700; font-size: 0.875rem; text-decoration: none; transition: all 0.2s;">Take the Quiz →</a>
+        </div>
+      </section>
+    </div>
+  </article>
+</main>
+<div id="footer"></div>
+<script src="js/nav.min.js"></script>
+<script src="js/footer.min.js"></script>
+<script>
+  // Breadcrumb injection
+  document.addEventListener('DOMContentLoaded', function() {
+    var b = document.querySelector('.breadcrumb');
+    if (!b) return;
+    var vars = b.getAttribute('style') || '';
+    var match = vars.match(/--breadcrumbs:\s*([^;]+)/);
+    if (!match) return;
+    var crumbs = match[1].split(',').map(function(c) { return c.trim().split(','); });
+    var ol = document.createElement('ol');
+    ol.setAttribute('class', 'breadcrumb-list');
+    ol.setAttribute('itemscope', '');
+    ol.setAttribute('itemtype', 'https://schema.org/BreadcrumbList');
+    crumbs.forEach(function(c, i) {
+      var li = document.createElement('li');
+      li.setAttribute('itemprop', 'itemListElement');
+      li.setAttribute('itemscope', '');
+      li.setAttribute('itemtype', 'https://schema.org/ListItem');
+      var a = document.createElement('a');
+      a.setAttribute('itemprop', 'item');
+      if (i < crumbs.length - 1) {
+        a.href = c[1];
+        a.textContent = c[0];
+      } else {
+        a.setAttribute('aria-current', 'page');
+        a.textContent = c[0];
+      }
+      var meta = document.createElement('meta');
+      meta.setAttribute('itemprop', 'position');
+      meta.setAttribute('content', String(i + 1));
+      li.appendChild(a);
+      li.appendChild(meta);
+      ol.appendChild(li);
+    });
+    b.appendChild(ol);
+  });
+
+  // FAQ accordion
+  document.addEventListener('DOMContentLoaded', function() {
+    var faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(function(item) {
+      var trigger = item.querySelector('.faq-question');
+      var answer = item.querySelector('.faq-answer');
+      var icon = item.querySelector('.faq-icon');
+      if (!trigger || !answer) return;
+      trigger.addEventListener('click', function() {
+        var expanded = trigger.getAttribute('aria-expanded') === 'true';
+        trigger.setAttribute('aria-expanded', String(!expanded));
+        answer.style.display = expanded ? 'none' : 'block';
+        if (icon) icon.textContent = expanded ? '+' : '−';
+      });
+    });
+  });
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Intentional Engineer: Reclaiming Agency in the Age of AI",
+  "description": "AI tools set the default for how you work. The Intentional Engineer notices when their tooling is making decisions for them — and actively reclaims those choices.",
+  "image": "https://clearing-ai.com/og-image.png",
+  "author": { "@type": "Organization", "name": "The Clearing" },
+  "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+  "datePublished": "2026-05-27",
+  "dateModified": "2026-05-27",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://clearing-ai.com/the-intentional-engineer.html" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/index.html" },
+    { "@type": "ListItem", "position": 2, "name": "Tips", "item": "https://clearing-ai.com/tips.html" },
+    { "@type": "ListItem", "position": 3, "name": "The Intentional Engineer", "item": "https://clearing-ai.com/the-intentional-engineer.html" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an Intentional Engineer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An Intentional Engineer is someone who maintains a deliberate, conscious relationship with their AI tools — not just using whatever defaults are in place, but actively choosing when and how to use AI based on what skills they want to retain and what decisions they want to own."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is intentional AI use different from just using AI tools?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Conscious AI use means you're making deliberate choices about which tasks to delegate versus retain. Intentional engineers periodically audit their tool usage, maintain their own internal standards for quality, and deliberate practice around the skills they want to keep sharp — not just defaulting to AI for everything because it's easier."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Skill Ownership Protocol?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Before delegating any task to AI, the Skill Ownership Protocol asks one question: 'Do I still want to know how to do this myself?' For skills you want to retain, it includes a Morning Attempt Protocol — attempting problems without AI first, even if just for 10 minutes, then comparing notes after."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are passive versus intentional engineering patterns?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Passive patterns include using whatever AI tool came preinstalled, framing problems to get fast AI responses, and accepting output based on surface polish. Intentional patterns include periodically evaluating tools against your specific goals, maintaining independent judgment before consulting AI, and keeping a decision journal tracking where AI influenced your choices."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a No-AI Sprint and why would an engineer do one?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A No-AI Sprint is doing one meaningful chunk of work without AI assistance once a month — not as a detox, but as calibration. The goal is to observe where you feel uncertain versus genuinely stuck, notice which problems now seem to require AI to feel solvable, and update your mental model of your own baseline competence."
+      }
+    }
+  ]
+}
+</script>
+</body>
+</html>

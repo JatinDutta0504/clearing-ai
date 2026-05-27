@@ -154,3 +154,23 @@
 **Built:** the-15-minute-debugger.html (~3,200 words) — AI debugging skill atrophy, 3-step deliberate protocol, FAQPage schema. P1=224 | P2=279 | P3=201 | P4=200.
 **Git:** 1c277bbc | Push: success
 **Next:** Reddit r/programming Fri May 29 | EM2 follow-ups May 29 | LinkedIn Post #4 | Reddit Fresh Pack Jun 1-7
+
+## Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-27 00:47 UTC (Phase 1)
+**Phase:** Phase 1 — Content Pillar (Pillar 4: Recovery & Prevention)
+**Built:** `ai-fatigue-recovery-roadmap.html` (~4,200 words, 566 lines, 43KB) — "The AI Fatigue Recovery Roadmap: 90-Day Structured Plan for Engineers." Core thesis: AI fatigue requires structured, phased recovery — not just advice. 3 phases (Acute Days 1-14, Recovery Days 15-42, Restoration Days 43-90), week-by-week milestones, daily protocols (Consultation Gate, 15-Minute Rule), weekly self-audit tracker, science boxes (Roediger & Karpicke, Bjork's desirable difficulties, Draganski neuroplasticity), completion checklist, FAQPage (5 Qs) + Article + BreadcrumbList schema. Mobile responsive, dark mode. Nav: index.html feature card + recovery.html. sitemap.xml updated.
+**Git:** 4bbd8cd4 | Push: success
+**Phase:** P1=225 | P2=279 | P3=201 | P4=200
+**Site stats:** 232 pages | ~1,072k words | Lighthouse 100 | Technical SEO 99/100 | Day 25
+**Next:** Reddit r/programming Fri May 29 1PM PDT | EM2 follow-ups May 29 | Reddit Fresh Pack Jun 1-7 (PREPPED) | LinkedIn Post #4 "The Velocity Trap" (READY)
+
+## Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-27 04:47 UTC (Phase 4 Community)
+**Phase:** Phase 4 — Community (Newsletter #115)
+**Built:** `DISPATCH-115-THE-ARCHITECTURE-OF-REST.md` (~1,700 words) — "The Architecture of Rest." Theme: active rest vs passive consumption, 3 deficits, 4-layer recovery architecture, daily interface protocols. P4=201 | P1=227 | P2=279 | P3=201.
+
+## Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-27 05:47 UTC (Phase 1 Window 228)
+**Phase:** Phase 1 — Content Pillar (new pillar page)
+**Built:** the-priority-paradox.html (~3,500 words, 460 lines) — "The Priority Paradox: When AI Makes It Easier to Build the Wrong Things." Core thesis: AI removes execution friction which acted as the quality filter for prioritization decisions. 3 mechanisms (friction removal, generative momentum, option overwhelm), Pre-Build Friction Protocol (5 steps: 2 AM Test, Success Definition, 10x Test, Reverse Valuation, 24-Hour Rule), priority audit, organizational patterns. FAQPage (5 Qs) + Article + BreadcrumbList schema. Linked from: the-velocity-trap, the-consultation-trap, the-15-minute-debugger, expertise-deflation. sitemap.xml updated (231 URLs).
+**Git:** 6d45028b | Push: success
+**Phase:** P1=228 | P2=279 | P3=201 | P4=201
+**Site stats:** 233 pages | ~1,088k words | Lighthouse 100 | Technical SEO 99/100 | Day 26
+**Next:** Reddit r/programming Fri May 29 1PM PDT | EM2 Day-7 follow-ups May 29 | LinkedIn Post #4 "The Velocity Trap" | Reddit Fresh Pack Jun 1-7 (PREPPED)

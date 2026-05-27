@@ -192,3 +192,32 @@
 **Phase windows:** P1=229 | P2=279 | P3=203 | P4=202
 **Site stats:** 234 pages | ~1,092k words | Lighthouse 99-100 | Technical SEO 99/100 | Day 27
 **Next:** Reddit r/programming Fri May 29 1PM PDT | EM2 Day-7 follow-ups May 29 | Reddit Fresh Pack Jun 1-7 | LinkedIn Post #4 (READY)
+
+---
+
+## Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-27 06:48 AM PDT / 13:48 UTC (Phase 4 Community)
+**Phase:** Phase 4 — Community (Newsletter #117)
+**Built:** `DISPATCH-117-THE-PROFICIENCY-TRAP.md` + `dispatch-117.md` + `dispatch-117.html` (~2k words md, ~27KB html) — "The Proficiency Trap." Theme: why senior/mid-career engineers are most vulnerable to AI fatigue. Three dimensions: Standards Gap, Accountability Gap, Capability Preservation Problem. Skill level-to-drift table, senior/principal/staff engineer risk mapping, 3 concrete recovery practices. newsletter-issues.json updated (117 added). P4=204 | P1=229 | P2=279 | P3=203.
+**Git:** c230c29f | Push: success
+**Phase windows:** P1=229 | P2=279 | P3=203 | P4=204
+**Site stats:** 234 pages | ~1,096k words | Lighthouse 100 | Technical SEO 99/100 | Day 27
+**Next:** LinkedIn Post #4 "The Velocity Trap" | Reddit r/programming Fri May 29 1PM PDT | EM2 Day-7 follow-ups May 29 | Reddit Fresh Pack Jun 1-7 (PREPPED) | Twitter threads #56-58 (need X creds)
+
+## Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-27 07:48 AM PDT / 14:48 UTC (Phase 2)
+**Phase:** Phase 2 — Reddit Fresh Packs (3 weeks prepped)
+**Built:**
+- `reddit-posts/fresh-pack-jun-1-7.md` — 8 comments, 8 communities (ExperiencedDevs, cscareerquestions, devops, sideproject, EngineeringManagers, webdev, learnprogramming, Burnout), Jun 1-7 deployment schedule
+- `reddit-posts/fresh-pack-jun-8-14.md` — 8 comments, 8 communities (ExperiencedDevs, cscareerquestions, devops, sideproject, EngineeringManagers, Frontend, programming, askprogramming), Jun 8-14 deployment schedule
+- `reddit-posts/fresh-pack-jun-15-21.md` — 8 comments, 8 communities (ExperiencedDevs, cscareerquestions, devops, sideproject, EngineeringManagers, webdev, learnprogramming, Burnout), Jun 15-21 deployment schedule
+- TRACKER.json updated (reddit_fresh_pack_schedule added)
+**Git:** cfde75db | Push: success
+**Phase windows:** P1=229 | P2=280 | P3=203 | P4=204
+**Site stats:** 234 pages | ~1,096k words | Lighthouse 100 | Technical SEO 99/100 | Day 27
+**Next:** Reddit r/programming Fri May 29 1PM PDT (hour-510-competence-illusion-rprogramming.md READY) | EM2 Day-7 follow-ups May 29 | Reddit Fresh Pack Jun 1-7 (ALREADY PREPPED) | LinkedIn Post #4 "The Velocity Trap" (READY, no creds) | Twitter #56-60 (READY, no creds)
+
+## Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05r-27 17:47 UTC / 10:47 AM PDT (Phase 1 Window 230)
+**Phase:** Phase 1 — Content Pillar (why-resting-doesnt-fix-ai-fatigue.html rebuild)
+**Built:** why-resting-doesnt-fix-ai-fatigue.html (~3.8k words, 518 lines) — "Why Resting Doesn't Fix AI Fatigue: The Engineer's Recovery Blind Spot." Core thesis: AI fatigue = skill access problem, not energy problem. 5 chapters: vacation paradox, what AI took over (decomposition, algorithmic intuition, spatial reasoning, productive struggle), passive recovery trap, burnout-vs-AI-fatigue comparison table, 5-step recovery protocol. FAQPage (5 Qs) + Article + BreadcrumbList schema. P1=230 | P2=280 | P3=203 | P4=204.
+**Git:** a9a6ed9b | Push: success
+**Site stats:** 235 pages | ~1,099k words | Lighthouse 100 | Technical SEO 99/100 | Day 28
+**Next:** Reddit r/programming Fri May 29 1PM PDT | EM2 Day-7 follow-ups May 29 | Reddit Fresh Pack Jun 1-7 | LinkedIn Post #4 (READY)

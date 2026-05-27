@@ -174,3 +174,10 @@
 **Phase:** P1=228 | P2=279 | P3=201 | P4=201
 **Site stats:** 233 pages | ~1,088k words | Lighthouse 100 | Technical SEO 99/100 | Day 26
 **Next:** Reddit r/programming Fri May 29 1PM PDT | EM2 Day-7 follow-ups May 29 | LinkedIn Post #4 "The Velocity Trap" | Reddit Fresh Pack Jun 1-7 (PREPPED)
+
+## Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-27 08:47 UTC (Phase 4 Community)
+**Phase:** Phase 4 — Community (Newsletter #116)
+**Built:** `DISPATCH-116-THE-INVISIBLE-CARRIES.md` (~1,700 words) + `newsletter-outreach/dispatch-116.html`. Theme: invisible cognitive loads from AI-assisted decisions — responsibility gap, context debt, justification load. 4 practical protocols. newsletter-issues.json updated. P4=202 | P1=229 | P2=279 | P3=202.
+**Git:** 8a81a905 | Push: success
+**Site stats:** 233 pages | ~1,089k words | Lighthouse 100 | Day 27
+**Next:** EM2 Day-7 follow-ups May 29 | Reddit r/programming Fri May 29 | Reddit Fresh Pack Jun 1-7

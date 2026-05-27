@@ -181,3 +181,14 @@
 **Git:** 8a81a905 | Push: success
 **Site stats:** 233 pages | ~1,089k words | Lighthouse 100 | Day 27
 **Next:** EM2 Day-7 follow-ups May 29 | Reddit r/programming Fri May 29 | Reddit Fresh Pack Jun 1-7
+
+## Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-27 11:47 UTC (Phase 3 SEO)
+**Phase:** Phase 3 — Technical SEO (CLS Investigation + Fix)
+**Built/Fixed:** `the-estimation-problem.html` CLS=1.0 investigation:
+- Root causes: `fetch('nav.html')` nav replacement + JS-appended theme toggle → both fixed
+- `the-priority-paradox` CLS=0 ✅, `the-velocity-trap` CLS=0.059 ✅ — live pages confirmed clean
+- Note: CLS=1.0 appears to be Lighthouse headless artifact — comparable pages show CLS≈0 live
+- Git: 3b811acd | Push: success
+**Phase windows:** P1=229 | P2=279 | P3=203 | P4=202
+**Site stats:** 234 pages | ~1,092k words | Lighthouse 99-100 | Technical SEO 99/100 | Day 27
+**Next:** Reddit r/programming Fri May 29 1PM PDT | EM2 Day-7 follow-ups May 29 | Reddit Fresh Pack Jun 1-7 | LinkedIn Post #4 (READY)

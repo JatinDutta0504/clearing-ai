@@ -221,3 +221,17 @@
 **Git:** a9a6ed9b | Push: success
 **Site stats:** 235 pages | ~1,099k words | Lighthouse 100 | Technical SEO 99/100 | Day 28
 **Next:** Reddit r/programming Fri May 29 1PM PDT | EM2 Day-7 follow-ups May 29 | Reddit Fresh Pack Jun 1-7 | LinkedIn Post #4 (READY)
+
+## Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-28 00:48 PDT / 07:48 UTC (Phase 3 SEO)
+**Phase:** Phase 3 — Technical SEO (Internal Linking Sprint, 5 orphan pages rescued)
+**Built/Fixed:**
+- `the-reasoning-gap.html`: added 3 related cards (attention-merchants, explanation-gap, consultation-trap) before CTA — page now properly cross-linked (was 0 inbound links)
+- `the-staff-engineer-dilemma.html`: added reasoning-gap related card to existing related-articles section
+- `tips.html`: added 4 nav links (reasoning-gap, staff-engineer-dilemma, testing-paradox, priority-paradox) after the-attention-merchants cluster
+- `why.html`: added 4 nav links in the Understand section for same 4 pages
+- `sitemap.xml`: confirmed all 5 pages present
+**Git:** b8ff72ec (orphan pages), a791205e (nav updates) | Push: success
+**Phase windows:** P1=237 | P2=280 | P3=204 | P4=207
+**Site stats:** 242 pages | ~1,125k words | Lighthouse 100 | Technical SEO 99/100 | Day 28
+**Next:** Reddit r/programming Fri May 29 1PM PDT (hour-510-competence-illusion-rprogramming.md READY) | EM2 Day-7 follow-ups May 29 | Reddit Fresh Pack Jun 1-7 (ALREADY PREPPED) | LinkedIn Post #4 (READY, no creds)
+

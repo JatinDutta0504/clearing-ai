@@ -997,3 +997,10 @@
 **Git:** 1b1c5f44 | Push: success
 **Phase windows:** P1=231 | P2=280 | P3=203 | P4=205
 **Site stats:** 236 pages | ~1,102k words | Lighthouse 100 | Technical SEO 99/100 | Day 28
+
+## Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-28 06:48 UTC (Phase 1 Window 237)
+**Phase:** Phase 1 — Content Pillar (Pillar 1: AI Fatigue Authority)
+**Built:** the-attention-merchants.html (~3,500 words) — Attention economy + AI tool capture mechanics, FAQPage schema. P1=237 | P2=280 | P3=203 | P4=207.
+**Git:** 4eb82798 | Push: success
+**Site stats:** 242 pages | ~1,125k words | Lighthouse 100 | Technical SEO 99/100 | Day 28
+**Next:** Reddit r/programming Fri May 29 | EM2 follow-ups May 29 | Reddit Fresh Pack Jun 1-7

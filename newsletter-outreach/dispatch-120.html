@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Dispatch #120 — The Sunday Night Audit</title>
+  <meta name="description" content="Issue #120 of The Dispatch — the quiet ritual more engineers are performing every Sunday night."/>
+  <meta name="robots" content="noindex, follow"/>
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-archive/dispatch-120.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="The Dispatch #120 — The Sunday Night Audit"/>
+  <meta property="og:description" content="The quiet ritual more engineers are performing every Sunday night."/>
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png"/>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--forest-deep:#1a2e1a;--forest-mid:#2d5016;--forest-light:#4a7c59;--muted:#a0b8a8;--text:#e8f0e8;--text-secondary:#a0b8a8;--accent:#7aab8a;--surface-2:#1a2e1a;--border:rgba(90,140,90,.22);--bg:#111411;--card-bg:#1a1e1a}
+    [data-theme="light"]{--bg:#f5f2ed;--text:#1a2e1a;--text-secondary:#3d5a3d;--surface-2:#edeae3;--border:#c8c4bb;--accent:#2d5016}
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;max-width:680px;margin:0 auto;padding:0 24px}
+    .skip-link{position:absolute;top:-9999px;left:0;background:var(--accent);color:#0a0a0a;padding:8px 16px;z-index:100;border-radius:0 0 4px 4px;text-decoration:none;font-size:.85rem}
+    .skip-link:focus{top:0}
+    .header{padding:48px 0 32px;border-bottom:1px solid var(--border);margin-bottom:40px}
+    .header .label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:block}
+    .header h1{font-size:clamp(1.6rem,5vw,2.2rem);font-weight:700;color:var(--text);line-height:1.2;margin-bottom:12px}
+    .header .meta{font-size:13px;color:var(--text-secondary)}
+    h2{font-size:1.2rem;font-weight:700;color:var(--text);margin:36px 0 16px;border-left:3px solid var(--accent);padding-left:14px}
+    h3{font-size:1.05rem;font-weight:700;color:var(--text);margin:28px 0 12px}
+    p{margin:0 0 18px;color:var(--text);font-size:1.05rem;line-height:1.75}
+    p:last-child{margin-bottom:0}
+    ul,ol{margin:16px 0 20px 24px}
+    li{margin-bottom:10px;color:var(--text);font-size:1.05rem}
+    strong{color:var(--accent)}
+    .callout{background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:20px 24px;margin:28px 0}
+    .callout p{font-style:italic;color:var(--text-secondary);margin:0;font-size:1rem}
+    .audit-box{background:var(--forest-deep);border-left:3px solid var(--accent);padding:20px 24px;margin:28px 0}
+    .audit-box p{margin:0 0 10px;font-size:1.05rem}
+    .audit-box p:last-child{margin-bottom:0}
+    .audit-box strong{color:var(--accent)}
+    .three-qs{display:grid;gap:16px;margin:28px 0}
+    .q-card{background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:20px 24px}
+    .q-card h3{color:var(--accent);margin:0 0 8px;font-size:1rem;border:none;padding:0}
+    .q-card p{color:var(--text-secondary);margin:0;font-size:.95rem}
+    .phase-box{background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:24px;margin:28px 0}
+    .phase-box h3{color:var(--accent);margin:0 0 12px;font-size:1rem;border:none;padding:0}
+    .phase-box p{margin-bottom:10px}
+    .phase-box p:last-child{margin-bottom:0}
+    .protocol-box{background:var(--forest-deep);border:1px solid var(--accent);border-radius:8px;padding:24px;margin:36px 0}
+    .protocol-box h3{color:var(--accent);margin:0 0 12px;font-size:.95rem;text-transform:uppercase;letter-spacing:1px;border:none;padding:0}
+    .protocol-box p{color:var(--muted);font-size:1rem;margin:0 0 10px}
+    .protocol-box p:last-child{margin-bottom:0}
+    .divider{border:none;border-top:1px solid var(--border);margin:36px 0}
+    .reflection-box{background:var(--forest-deep);border:1px solid var(--accent);border-radius:8px;padding:24px;margin:36px 0}
+    .reflection-box h3{color:var(--accent);margin:0 0 12px;font-size:.95rem;text-transform:uppercase;letter-spacing:1px;border:none;padding:0}
+    .reflection-box p{color:var(--muted);font-size:1rem;margin:0}
+    .cta-block{background:var(--surface-2);border:1px solid var(--accent);border-radius:8px;padding:28px;text-align:center;margin:40px 0 0}
+    .cta-block a{display:inline-block;background:var(--accent);color:#0a0a0a;text-decoration:none;padding:12px 28px;border-radius:6px;font-weight:600;font-size:1rem;margin-bottom:8px}
+    .cta-block a:hover{opacity:.85}
+    .footer{margin-top:48px;padding-top:24px;border-top:1px solid var(--border);font-size:12px;color:var(--text-secondary);line-height:1.7}
+    .footer a{color:var(--accent)}
+    @media(prefers-color-scheme:light){body{background:#f5f2ed;color:#1a2e1a}h2,[data-theme="light"] .header h1,strong{color:#1a3a2a}.callout,.q-card,.phase-box,.reflection-box,.protocol-box{background:#edeae3;border-color:#c8c4bb}.footer{border-color:#c8c4bb}}
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div id="main">
+    <header class="header">
+      <span class="label">The Dispatch · Issue #120</span>
+      <h1>The Sunday Night Audit</h1>
+      <p class="meta">May 28, 2026 · 8 min read · For software engineers navigating AI fatigue</p>
+    </header>
+
+    <h2>Tonight's Thought</h2>
+
+    <p>You've done it. Sunday night, laptop open, not because you have to — because something is gnawing at you.</p>
+
+    <div class="audit-box">
+      <p><em>Did I actually build anything this week?</em></p>
+      <p><em>Would I know how to start this project from scratch?</em></p>
+      <p><em>Am I still an engineer, or just someone who knows how to ask AI questions?</em></p>
+      <p>If you've felt this, you're not alone. Welcome to the <strong>Sunday Night Audit</strong> — the quiet ritual more engineers are performing every week, usually alone, usually after everyone else has gone to sleep.</p>
+    </div>
+
+    <hr class="divider"/>
+
+    <h2>The New Sunday Ritual</h2>
+
+    <p>Some time in the last two years, a new recurring anxiety entered the engineer psyche. It usually surfaces Sunday evening, roughly 9 PM.</p>
+
+    <p>It isn't classic job burnout. You took your PTO. You slept enough. The project shipped.</p>
+
+    <p>But something is off. Something is… missing.</p>
+
+    <p>You can describe it as impostor syndrome, but that word has lost its teeth — you know you're competent at <em>something</em>, you're just not sure the something maps to "software engineer" anymore.</p>
+
+    <p>The Sunday Night Audit has replaced the old Sunday Dread. The old anxiety used to be about work volume — <em>I have 47 unread messages, how will I ever catch up.</em> The new anxiety is epistemic — <em>I don't actually know what I know anymore.</em></p>
+
+    <hr class="divider"/>
+
+    <h2>The Three Questions</h2>
+
+    <p>The Sunday Night Audit typically surfaces at least one of three questions. You might not formulate them consciously. But they're there, hovering.</p>
+
+    <div class="three-qs">
+      <div class="q-card">
+        <h3>1. "Could I reproduce it without AI?"</h3>
+        <p>You shipped a feature. It works. The tests pass. But you can't sit down and write the implementation from memory. When you try to reconstruct the logic, your mind catches — the edge cases you didn't handle, the pattern AI suggested, the dependency AI said was fine.</p>
+        <p>This is not about memorization. This is about whether your mental model of the system still matches the system itself.</p>
+      </div>
+      <div class="q-card">
+        <h3>2. "What am I actually good at now?"</h3>
+        <p>You used to know your craft identity. Frontend. Distributed systems. Performance optimization. Compiler design.</p>
+        <p>Then AI started doing all of it passably. The uncomfortable version: <em>Am I still an engineer, or am I an operator?</em></p>
+      </div>
+      <div class="q-card">
+        <h3>3. "If this all disappeared, where would I start?"</h3>
+        <p>Your entire workflow depends on AI. Debugging, architecture, testing, documentation. If the tool vanished tomorrow, could you ship a mid-sized feature in a week?</p>
+        <p>Not <em>would you</em> — <em>could you</em>.</p>
+      </div>
+    </div>
+
+    <hr class="divider"/>
+
+    <h2>Why Sunday Night?</h2>
+
+    <p>You might wonder why this surfaces on Sunday specifically, not Wednesday or any other day.</p>
+
+    <ul>
+      <li><strong>Distance from the work.</strong> During the week, you're in motion. Shipping, reviewing, deploying — there's momentum that masks the epistemic fog. Sunday night is the first time in the cycle when the work is far enough behind you to see it clearly.</li>
+      <li><strong>Anticipation of the next cycle.</strong> Sunday night activates future-thinking. Your brain asks: <em>what's coming, and am I ready for it?</em> With AI-as-middleman, the answer gets complicated.</li>
+      <li><strong>Social comparison vacuum.</strong> Monday through Friday, you mostly see people at work, where everyone performs capability. Sunday night you're alone with your own internal metrics.</li>
+      <li><strong>Sleep pressure.</strong> Cognitive defenses are lower at night. The anxiety that gets suppressed during work hours gets a window.</li>
+    </ul>
+
+    <div class="callout">
+      <p>The Sunday Night Audit is partly a function of timing and psychology — but it's also a <em>real signal</em>. It tends to arrive when you've been delegating too much reasoning to AI for too long without noticing.</p>
+    </div>
+
+    <hr class="divider"/>
+
+    <h2>The Audit Has a Structure</h2>
+
+    <p>Engineers who experience this describe a roughly predictable pattern:</p>
+
+    <div class="phase-box">
+      <h3>Phase 1: Surface Anxiety</h3>
+      <p>The vague sense that something is off. Hard to articulate. You might attribute it to stress or weekend boredom.</p>
+    </div>
+    <div class="phase-box">
+      <h3>Phase 2: The Comparison</h3>
+      <p>You think about a skill you used to have — writing a recursive algorithm from memory, designing a schema on paper, debugging without search — and notice it's blurrier now.</p>
+    </div>
+    <div class="phase-box">
+      <h3>Phase 3: The Quantification Attempt</h3>
+      <p>You try to figure out exactly how much AI you use. But it's hard to measure because it's so embedded. Every code review uses it. Every documentation pass. Every debugging session.</p>
+    </div>
+    <div class="phase-box">
+      <h3>Phase 4: The Decision Point</h3>
+      <p>Some people decide to cut back. Some decide it's fine. Some dismiss the audit entirely and go watch something. But the question, once asked, tends to return the following Sunday.</p>
+    </div>
+
+    <hr class="divider"/>
+
+    <h2>What It's Actually Signaling</h2>
+
+    <p>The Sunday Night Audit isn't a mental health crisis. It's not even necessarily burnout — though it can be adjacent to it.</p>
+
+    <p><strong>A gap between capability performance and capability understanding.</strong> AI lets you perform at a level above your current understanding. This is useful. It helps you ship. But if you don't build the understanding back up, the gap accumulates over time.</p>
+
+    <p><strong>A craft identity that's being renegotiated.</strong> You used to be a "React developer" as a stable identity. That identity was anchored to specific skills. AI is dissolving the boundaries between those skills. The Sunday Night Audit is your psyche navigating that re-anchoring.</p>
+
+    <p><strong>A legitimate fear about dependency.</strong> Not anxiety about whether AI is good — anxiety about whether <em>you</em> are still capable without it. This is a reasonable preservation question.</p>
+
+    <p><strong>Compressed feedback loops.</strong> Traditional learning: try, fail, understand why, improve. AI learning: ask, get answer, ship it. The feedback that drives long-term skill retention gets compressed out of the loop.</p>
+
+    <hr class="divider"/>
+
+    <h2>The Retrieval Practice for Engineers</h2>
+
+    <p>The Sunday Night Audit isn't a disease. It's a symptom, and a useful one — it means you're paying attention to something most people are ignoring.</p>
+
+    <div class="protocol-box">
+      <h3>Friday Closing Protocol</h3>
+      <p>Before you close the laptop Friday, take 20 minutes to write in plain English what you built this week and how it works. Not code — your words. Your synthesis.</p>
+      <p><em>What does this system actually do? Why did I make the decisions I made? What am I most uncertain about?</em></p>
+      <p>This takes 20 minutes. It creates a record that survives the weekend fog.</p>
+    </div>
+
+    <div class="protocol-box">
+      <h3>The Sunday Audit, Official Version</h3>
+      <p>Instead of letting the anxiety do its Sunday ambush, schedule it deliberately. Sunday afternoon, 30 minutes, in a notebook. Write your answers to the three questions above — briefly, honestly, without judgment.</p>
+      <p>Don't fix anything. Just map the territory.</p>
+      <p>If the gaps are in specific areas, you know where to focus the following week. If they're everywhere, that's a signal about dependency level. If they're nowhere — you're solid.</p>
+    </div>
+
+    <div class="protocol-box">
+      <h3>The Weekly Deliberate Difficulty</h3>
+      <p>Bjork's research is clear on this: the struggle IS the learning. If you're using AI to avoid every struggle, you're extracting the output while collapsing the practice.</p>
+      <p>Pick one thing per week where you sit with the difficulty before asking. Not everything — just one. A debugging problem, a design decision, a piece of documentation. Sit with it for 25 minutes before AI enters the picture.</p>
+      <p>The point is not to suffer. The point is to keep the retrieval paths alive.</p>
+    </div>
+
+    <div class="reflection-box">
+      <h3>The Sunday Audit Question</h3>
+      <p>Can you describe how your three most critical systems work — without looking anything up, without AI, without searching? Not the API surface. How they actually work.</p>
+      <p>If yes — you're solid. Keep doing what you're doing. If no — there's your map. That's where the work is.</p>
+    </div>
+
+    <div class="cta-block">
+      <p>New on The Clearing: The Explanation Gap — when AI makes it look easy.</p>
+      <a href="https://clearing-ai.com/the-explanation-gap.html">Read It Now · Free</a>
+    </div>
+
+    <footer class="footer">
+      <p>The Dispatch · Issue #120 · May 28, 2026</p>
+      <p>You are receiving this because you signed up at <a href="https://clearing-ai.com">clearing-ai.com</a></p>
+      <p><a href="https://clearing-ai.com/newsletter-archive.html">See all issues</a> · <a href="https://clearing-ai.com/ai-fatigue-recovery-checklist-pdf.html">Download the recovery checklist PDF</a></p>
+    </footer>
+  </div>
+</body>
+</html>

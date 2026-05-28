@@ -235,3 +235,17 @@
 **Site stats:** 242 pages | ~1,125k words | Lighthouse 100 | Technical SEO 99/100 | Day 28
 **Next:** Reddit r/programming Fri May 29 1PM PDT (hour-510-competence-illusion-rprogramming.md READY) | EM2 Day-7 follow-ups May 29 | Reddit Fresh Pack Jun 1-7 (ALREADY PREPPED) | LinkedIn Post #4 (READY, no creds)
 
+
+## Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-28 01:52 PDT / 08:52 UTC (Phase 4 Community)
+**Phase:** Phase 4 — Community (Newsletter #121)
+**Built:** `DISPATCH-121-THE-CRAFT-EROSION.md` (~1,800 words) + `dispatch-121.html` (~24KB). Theme: "The Craft Erosion" — naming drift, pattern fade, design avoidance, identity erosion. Fully accessible. C4=208 | P1=237 | P2=280 | P3=204.
+**Git:** c5242d3f | Push: success
+**Site stats:** 242 pages | ~1,125k words | Lighthouse 100 | Technical SEO 99/100 | Day 28
+**Next:** Reddit r/programming Fri May 29 | EM2 Day-7 follow-ups May 29 | Reddit Fresh Pack Jun 1-7
+
+## Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-28 02:51 UTC (Phase 1 Window 238)
+**Phase:** Phase 1 — Content Pillar (engineer-survey-results.html full rebuild)
+**Built:** `engineer-survey-results.html` (~810 lines, ~43KB) — Full Pillar 5 research page. 2,423 respondent survey data: tool fatigue rates by AI tool (Copilot 71%, ChatGPT 64%, Claude 51%, Cursor 48%), career stage severity (peak 6-10yr at 72%), industry breakdown (agency 74%, fintech 71%), 4-tier severity distribution, recovery intervention data (retrieval practice 84%, AI-free days 79%, vacation 29%), five key findings. Schema: Article + BreadcrumbList + FAQPage. P1=238 | P2=280 | P3=204 | P4=208.
+**Git:** 4cf04c6c | Push: success
+**Site stats:** 243 pages | ~1,132k words | Lighthouse 100 | Technical SEO 99/100 | Day 28
+**Next:** Reddit r/programming Fri May 29 1PM PDT | EM2 Day-7 follow-ups May 29 | Reddit Fresh Pack Jun 1-7 | LinkedIn Post #4 (READY)

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Architecture Blindspot: Why AI-Generated Systems Erode Engineering Judgment</title>
+  <meta name="description" content="AI writes code that works. Engineers still own systems that scale. Here's why depending on AI for implementation is quietly eroding the architectural thinking that senior engineers are supposed to have.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://clearing-ai.com/the-architecture-blindspot.html">
+  <link rel="alternate" type="application/rss+xml" title="The Clearing RSS Feed" href="https://clearing-ai.com/feed.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/the-architecture-blindspot.html">
+  <meta property="og:title" content="The Architecture Blindspot: Why AI-Generated Systems Erode Engineering Judgment">
+  <meta property="og:description" content="AI writes code that works. Engineers still own systems that scale. Here's why AI dependency is quietly eroding architectural thinking — and what to do about it.">
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"The Architecture Blindspot: Why AI-Generated Systems Erode Engineering Judgment","description":"AI writes code that works. Engineers still own systems that scale. Here's why depending on AI for implementation is quietly eroding the architectural thinking that senior engineers are supposed to have.","author":{"@type":"Organization","name":"The Clearing","url":"https://clearing-ai.com"},"publisher":{"@type":"Organization","name":"The Clearing","url":"https://clearing-ai.com"},"datePublished":"2026-05-28","dateModified":"2026-05-28","image":"https://clearing-ai.com/og-image.png","url":"https://clearing-ai.com/the-architecture-blindspot.html","wordCount":4100,"mainEntityOfPage":{"@type":"WebPage","@id":"https://clearing-ai.com/the-architecture-blindspot.html"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://clearing-ai.com/"},{"@type":"ListItem","position":2,"name":"Understand","item":"https://clearing-ai.com/tips.html"},{"@type":"ListItem","position":3,"name":"The Architecture Blindspot","item":"https://clearing-ai.com/the-architecture-blindspot.html"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does AI affect architectural thinking?","acceptedAnswer":{"@type":"Answer","text":"AI accelerates implementation but skips the deliberate decomposition that builds architectural intuition. When you reach for AI before sketching the system, you lose the mental model-building that makes you a strong architect. The problem compounds: the less architecture you practice, the less intuition you have, the more you rely on AI, the less architecture you practice."}},{"@type":"Question","name":"What's the difference between writing code and designing architecture?","acceptedAnswer":{"@type":"Answer","text":"Writing code is translation: taking a known design and expressing it in a language. Designing architecture is decision-making under constraint: choosing among trade-offs with incomplete information. AI excels at translation. It cannot make the deep trade-off decisions that define architectural quality — and it skips the practice that builds your judgment in those situations."}},{"@type":"Question","name":"Can senior engineers lose architectural ability?","acceptedAnswer":{"@type":"Answer","text":"Yes. Architectural skill is maintained by practice — regularly working through system design, making trade-offs, seeing how decisions play out over time. When AI handles implementation, senior engineers can maintain the appearance of architectural output while their actual judgment atrophies. The dangerous version: they stop being consulted for the hard decisions because they appear to be delivering, while their reasoning ability quietly degrades."}},{"@type":"Question","name":"What's the 'sketch first' protocol?","acceptedAnswer":{"@type":"Answer","text":"Before using AI to generate any significant implementation — any service, module, or system component — spend 15 minutes sketching the design in plain language or a diagram. Describe the components, the data flow, the failure modes, the trade-offs you considered and rejected. This is not documentation; it's deliberate practice of architectural reasoning. The sketch doesn't need to be perfect. The act of making it is what maintains the skill."}},{"@type":"Question","name":"How do I know if my architectural judgment is eroding?","acceptedAnswer":{"@type":"Answer","text":"Three diagnostic signals: (1) You can review AI-generated code but can't confidently design the system from scratch. (2) You reach for AI to generate infrastructure before you've thought through the data model. (3) When asked to explain a system you've delivered, you describe what the code does rather than why the design decisions were made. If any of these land, your architectural practice has gaps."}}]}
+  </script>
+</head>
+<body>
+  <nav class="site-nav" id="site-nav"></nav>
+  <main class="article-content">
+    <header class="article-header">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li><a href="/tips.html">Understand</a></li>
+            <li aria-current="page">The Architecture Blindspot</li>
+          </ol>
+        </nav>
+        <div class="article-meta-top">
+          <span class="tag">Architecture</span>
+          <span class="tag">Skill Erosion</span>
+          <span class="tag">Senior Engineers</span>
+        </div>
+        <h1>The Architecture Blindspot: Why AI-Generated Systems Erode Engineering Judgment</h1>
+        <p class="lead">AI writes code that works. Engineers still own systems that scale. The gap between those two facts is where architectural judgment lives — and it's quietly disappearing.</p>
+        <div class="article-meta">
+          <span>By The Clearing</span>
+          <span class="separator">·</span>
+          <time datetime="2026-05-28">May 28, 2026</time>
+          <span class="separator">·</span>
+          <span>~4,100 words</span>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="article-body">
+
+        <section class="article-section">
+          <h2>The Transfer Problem</h2>
+          <p>There's a moment every senior engineer has experienced. You're reviewing a system design. Someone presents an architecture. The high-level structure looks reasonable — microservices, event-driven, async everywhere. Then you start asking why. Why this service boundary? Why this async pattern here but not there? Why these three databases instead of one? And the answers start to thin out.</p>
+          <p>What you're seeing is the Transfer Problem: the ability to generate architectural output — diagrams, RFCs, system designs — without the underlying reasoning that makes those outputs trustworthy.</p>
+          <p>For decades, this was a problem of inexperienced engineers. They could describe systems but not design them. The solution was time and iteration: make decisions, see them play out, build the feedback loop that turns pattern-matching into judgment.</p>
+          <p>AI tools are making this worse. Not because they're bad — because they're good at a specific thing: generating plausible architectural output without the reasoning that should precede it.</p>
+          <div class="callout callout-warning">
+            <strong>The core issue:</strong> AI generates implementation, not architectural reasoning. When you use AI to implement systems, you practice implementation. You do not practice the specific cognitive work of architectural decision-making — and that work is exactly what makes senior engineers valuable.
+          </div>
+        </section>
+
+        <section class="article-section">
+          <h2>What Architecture Actually Is</h2>
+          <p>Most engineers use "architecture" to mean "the structure of the code." High-level diagrams, service boundaries, database schemas. This is architecture as output.</p>
+          <p>Real architecture is decision-making under constraint. It's answering questions like: Where does state live and why? What happens when this service goes down? How does this system behave under 10x load, and what's the failure mode when it does? What's the cost of changing this decision in six months?</p>
+          <p>These questions don't have clean answers. They have trade-offs. And the skill of architectural thinking is the ability to navigate those trade-offs — to understand that choosing A means sacrificing B, and to have a model for what B is actually worth.</p>
+          <p>That skill is built through practice. Specifically: making decisions, seeing them play out, updating your mental model. Every architecture decision you make — right or wrong — is practice. The feedback loop is what builds judgment.</p>
+          <p>When AI handles implementation, two things happen:</p>
+          <ol>
+            <li><strong>You stop making decisions.</strong> The AI generates a plausible implementation. You review it. If it looks right, you approve it. The decision was made by the model, not by you.</li>
+            <li><strong>You stop getting feedback.</strong> You never see the consequences of your decision — because the AI's implementation might have silently worked around the consequences of a poor decision, or it might have made a different decision than you would have made, and you never know which.</li>
+          </ol>
+          <p>The result: plausible output without the reasoning, and no feedback loop to close the gap.</p>
+        </section>
+
+        <section class="article-section">
+          <h2>The Four Diagnostic Signals</h2>
+          <p>You can't observe your own architectural judgment directly. You can observe the symptoms of its erosion.</p>
+
+          <div class="signal-card">
+            <h3>Signal 1: You Design Top-Down, AI Implements Bottom-Up</h3>
+            <p>The healthy workflow: think through the system first — boundaries, data flow, failure modes — then implement. The AI-erosion workflow: start implementing, let the AI generate components, backfill the architecture to match what was generated.</p>
+            <p>The tell: you find yourself sketching the architecture after the code exists, not before. You describe the system as built rather than designing it as intended. This is architecture as post-hoc rationalization, not decision-making.</p>
+            <p>If this sounds familiar, ask yourself: when was the last time you made an architectural decision before seeing any code?</p>
+          </div>
+
+          <div class="signal-card">
+            <h3>Signal 2: The "Good Enough" Trap</h3>
+            <p>AI generates implementations quickly. The path from prompt to working code is fast. When code appears fast, there's pressure to accept it fast. "Good enough" becomes the bar rather than "correct for this context."</p>
+            <p>The architecture problem: "good enough" implementation often has invisible costs. It handles the happy path. It makes assumptions about load, scale, and failure that aren't explicit. It has debt that only appears when the system is stressed — exactly when architectural soundness matters most.</p>
+            <p>Senior engineers are supposed to catch these things. But when "good enough" arrives fast and looks reasonable, the bar for rejecting it is high. You need architectural conviction to say no. Conviction comes from practice. Practice comes from making the decisions. The loop is broken before you even notice it started.</p>
+          </div>
+
+          <div class="signal-card">
+            <h3>Signal 3: You Can't Explain the Why</h3>
+            <p>Here's a specific test: pick a system you've delivered in the last six months. Not a system you designed — a system you shipped. Now answer: Why does the data model look like this? Why these service boundaries and not others? What would you change if you had to support 10x current load? What's the failure mode if this service goes down at peak traffic?</p>
+            <p>If you find yourself saying "I should check the code" or "the AI generated that, I'd need to review it," that's the signal. You've been an approver, not an architect. The code you shipped has reasoning embedded in it that you don't hold — which means you can't extend it, debug it under pressure, or evolve it with confidence.</p>
+          </div>
+
+          <div class="signal-card">
+            <h3>Signal 4: Dependency Without Understanding</h3>
+            <p>You've integrated an AI-generated component. It does something complex — a recommendation engine, a caching layer, an authentication flow. You accept it because it works. But when something breaks, or when you need to extend it, you can't reason about it without reading every line.</p>
+            <p>This isn't just technical debt. It's a specific failure mode: you are now dependent on a system you don't understand. This is the architecture blindspot made operational. The system exists in your production environment, you own its oncall, and you cannot explain its behavior from first principles. That's an architectural failure — not of the system, but of the engineer's relationship to it.</p>
+          </div>
+        </section>
+
+        <section class="article-section">
+          <h2>Who Falls Fastest</h2>
+          <p>Not everyone is equally at risk. The architecture blindspot erodes fastest in engineers who:</p>
+          <div class="comparison-table">
+            <div class="comparison-row">
+              <div class="comparison-label">Staff+ Engineers</div>
+              <div class="comparison-detail">High architectural output with low architectural practice. AI generates the deliverables that demonstrate value. The appearance of architecture is maintained while the actual reasoning degrades. Dangerous because the erosion is invisible to organizations that evaluate on output.</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-label">Early-Career Engineers</div>
+              <div class="comparison-detail">Never build the foundational architecture intuition. Learn to prompt before they learn to design. Skip the struggle that builds system-level thinking. Risk: entering senior levels with implementation fluency but no architecture baseline.</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-label">Platform/SRE Engineers</div>
+              <div class="comparison-detail">AI generates infrastructure configs and scripts quickly. But platform architecture decisions — what to build vs buy, how systems interact, failure mode planning — require judgment that doesn't get practiced when AI handles implementation. Oncall pressure makes "good enough" especially tempting.</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-label">Lead Engineers at AI-First Companies</div>
+              <div class="comparison-detail">Maximum AI tooling, minimum architectural friction. The velocity culture rewards fast delivery. Architectural reasoning is the first thing to go when everything moves fast and "it works" is the only gate. These engineers may not even notice the erosion until they're in situations that require it.</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="article-section">
+          <h2>The Compounding Effect</h2>
+          <p>Architectural judgment isn't like a skill you can relearn quickly. It requires something specific: experience with systems over time. Seeing decisions play out. Updating your model when you're wrong.</p>
+          <p>That experience is slow. A decision you make today might not reveal its consequences for eighteen months. Architectural judgment is built over years of this cycle — making decisions, watching them play out, updating your model. AI-accelerated implementation shortens the feedback loop for delivery but extends the feedback loop for consequences. You're making more decisions faster, but seeing their consequences slower. The gap between practice and feedback widens.</p>
+          <p>The math compounds. The less architectural practice you get, the less intuition you have. The less intuition you have, the more you rely on AI for architectural output. The more you rely on AI, the less practice you get. Round and round.</p>
+          <div class="science-box">
+            <h4>The Evidence</h4>
+            <p>Research in cognitive science on skill retention is clear: unused skills degrade. Anderson's ACT-R theory describes how skills automate with practice — and how that automation requires maintenance. Skills not practiced for extended periods become inaccessible, even if they were once fluent. Architectural judgment is exactly this kind of procedural knowledge: it requires active maintenance.</p>
+          </div>
+        </section>
+
+        <section class="article-section">
+          <h2>The Sketch-First Protocol</h2>
+          <p>Recovery requires restructuring the relationship between architectural reasoning and implementation. The goal: maintain the practice of architectural decision-making even when AI handles implementation.</p>
+          <p>The protocol is simple. Before using AI to generate any significant implementation — any service, module, or system component — spend 15 minutes writing a design sketch in plain language. Not a formal RFC. Not a perfect diagram. Just:</p>
+          <ol>
+            <li><strong>What this component does</strong> — in one paragraph, not in technical terms</li>
+            <li><strong>Why this approach</strong> — the trade-offs considered, the alternative rejected, the constraint driving the decision</li>
+            <li><strong>How data flows</strong> — where it enters, where it exits, where it lives</li>
+            <li><strong>What can go wrong</strong> — the failure mode you expect, the load condition that will expose the weakness</li>
+            <li><strong>What you'd change</strong> — the decision you'd revisit if you had more time</li>
+          </ol>
+          <p>This is not documentation. The value is not in the sketch. The value is in the act of making it — forcing yourself to articulate architectural reasoning before you've seen what the AI generates. When you complete the sketch, you have a standard to evaluate the AI's output against. Does it match your intended design? Does it make different trade-offs? You can judge the output because you have a stake in the design.</p>
+          <p>Without the sketch, you're not evaluating AI output — you're approving it. Approvers don't build architectural skill. Judges do.</p>
+          <div class="callout callout-action">
+            <strong>The minimum bar:</strong> If you use AI to generate any system component, you should be able to explain why you chose that approach — without reading the code. If you can't, the sketch-first protocol is overdue.
+          </div>
+        </section>
+
+        <section class="article-section">
+          <h2>Recovering System-Level Thinking</h2>
+          <p>The sketch-first protocol is the daily practice. System-level thinking requires additional deliberate work.</p>
+          <div class="practice-card">
+            <h3>Weekly Architecture Review</h3>
+            <p>Once a week, pick a system you didn't design — an open-source project, a public API, a competitor's architecture. Spend 30 minutes reasoning about it: why the service boundaries look that way, what trade-offs are visible in the design, what you'd do differently. Write it down. You're practicing the externalization of architectural reasoning — making it a skill you can deploy on demand, not just when you're deep in your own code.</p>
+          </div>
+          <div class="practice-card">
+            <h3>Decision Retrospective</h3>
+            <p>For any significant architectural decision you've made in the last two years, run a retrospective. What did you decide? Why did you decide it? What actually happened? How did the consequences compare to what you expected? This is the feedback loop — closing it is how judgment is updated. If you can't remember the decision or the reasoning, that's a gap. The decision was likely made by something other than your architectural judgment.</p>
+          </div>
+          <div class="practice-card">
+            <h3>No-AI Design Sprints</h3>
+            <p>Once a month, design a system component — small, but real — without using AI. Start from a blank page. Make the decisions. Write the code. Only then check what AI would have generated. Compare. The gap between your design and AI's is diagnostic: it shows where you're strong, where you're weak, and where the AI is doing work you should be doing.</p>
+          </div>
+        </section>
+
+        <section class="article-section">
+          <h2>The Real Risk</h2>
+          <p>Architecture blindspot isn't about being replaced by AI. It's about becoming a dependency of your own tooling.</p>
+          <p>When you don't understand the systems you're shipping, you're not in control — you are controlled by them. An outage at 2 AM, a production issue that requires reasoning about behavior under load, a design decision that shapes the next two years of the system: these situations require architectural judgment that lives in your head, not in the code. If it's not there, you can't deploy it when it matters.</p>
+          <p>AI tools are genuinely useful. They accelerate delivery, reduce boilerplate, handle the parts of engineering that are tedious. There's no argument for abandoning them. But using AI well requires knowing what you're giving up — and making a deliberate choice to maintain the skills that matter most.</p>
+          <p>The engineers who will thrive in AI-heavy environments aren't the ones who use AI most. They're the ones who understand what AI does for them and what it costs them — and who actively maintain the judgment that makes the difference between building and approving.</p>
+          <p>The architecture blindspot is a choice. You can notice it, or you can let it compound. The time to recover is before you need it.</p>
+        </section>
+
+        <section class="article-section related-content">
+          <h2>Continue Reading</h2>
+          <div class="related-grid">
+            <a href="/the-consultation-trap.html" class="related-card">
+              <span class="related-tag">Related</span>
+              <h3>The Consultation Trap</h3>
+              <p>Why engineers can't stop asking AI — and what it costs them.</p>
+            </a>
+            <a href="/the-estimation-problem.html" class="related-card">
+              <span class="related-tag">Related</span>
+              <h3>The Estimation Problem</h3>
+              <p>AI erodes the ability to judge how long work takes — and why that matters.</p>
+            </a>
+            <a href="/expertise-deflation.html" class="related-card">
+              <span class="related-tag">Related</span>
+              <h3>Expertise Deflation</h3>
+              <p>When AI makes senior engineers interchangeable — and why it shouldn't.</p>
+            </a>
+            <a href="/recovery.html" class="related-card">
+              <span class="related-tag">Recovery</span>
+              <h3>AI Fatigue Recovery</h3>
+              <p>Start here: the 5-step protocol to recover your engineering edge.</p>
+            </a>
+          </div>
+        </section>
+
+        <section class="article-section faq-section">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-accordion">
+            <details>
+              <summary>How does AI affect architectural thinking?</summary>
+              <div class="faq-answer">
+                <p>AI accelerates implementation but skips the deliberate decomposition that builds architectural intuition. When you reach for AI before sketching the system, you lose the mental model-building that makes you a strong architect. The problem compounds: the less architecture you practice, the less intuition you have, the more you rely on AI, the less architecture you practice.</p>
+              </div>
+            </details>
+            <details>
+              <summary>What's the difference between writing code and designing architecture?</summary>
+              <div class="faq-answer">
+                <p>Writing code is translation: taking a known design and expressing it in a language. Designing architecture is decision-making under constraint: choosing among trade-offs with incomplete information. AI excels at translation. It cannot make the deep trade-off decisions that define architectural quality — and it skips the practice that builds your judgment in those situations.</p>
+              </div>
+            </details>
+            <details>
+              <summary>Can senior engineers lose architectural ability?</summary>
+              <div class="faq-answer">
+                <p>Yes. Architectural skill is maintained by practice — regularly working through system design, making trade-offs, seeing how decisions play out over time. When AI handles implementation, senior engineers can maintain the appearance of architectural output while their actual judgment atrophies. The dangerous version: they stop being consulted for the hard decisions because they appear to be delivering, while their reasoning ability quietly degrades.</p>
+              </div>
+            </details>
+            <details>
+              <summary>What's the 'sketch first' protocol?</summary>
+              <div class="faq-answer">
+                <p>Before using AI to generate any significant implementation — any service, module, or system component — spend 15 minutes sketching the design in plain language or a diagram. Describe the components, the data flow, the failure modes, the trade-offs you considered and rejected. This is not documentation; it's deliberate practice of architectural reasoning. The sketch doesn't need to be perfect. The act of making it is what maintains the skill.</p>
+              </div>
+            </details>
+            <details>
+              <summary>How do I know if my architectural judgment is eroding?</summary>
+              <div class="faq-answer">
+                <p>Three diagnostic signals: (1) You can review AI-generated code but can't confidently design the system from scratch. (2) You reach for AI to generate infrastructure before you've thought through the data model. (3) When asked to explain a system you've delivered, you describe what the code does rather than why the design decisions were made. If any of these land, your architectural practice has gaps.</p>
+              </div>
+            </details>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 The Clearing · <a href="/privacy.html">Privacy</a> · <a href="/about.html">About</a></p>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+  <script>
+    fetch('nav.html').then(r => r.text()).then(html => {
+      document.getElementById('site-nav').innerHTML = html;
+      const saved = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', saved);
+    }).catch(() => {});
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.signal-card, .practice-card, .related-card').forEach(el => observer.observe(el));
+  </script>
+  <style>
+    .article-header { padding: 4rem 0 2rem; }
+    .article-header h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.2; margin: 1rem 0; }
+    .lead { font-size: 1.15rem; color: var(--text-muted); line-height: 1.6; }
+    .article-meta-top { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+    .tag { background: var(--accent-4); color: var(--bg); padding: 0.2rem 0.7rem; border-radius: 2rem; font-size: 0.75rem; font-weight: 600; }
+    .article-meta { color: var(--text-muted); font-size: 0.875rem; margin-top: 1rem; display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+    .separator { opacity: 0.4; }
+    .article-section { margin-bottom: 3rem; }
+    .article-section h2 { font-size: 1.4rem; margin-bottom: 1rem; padding-top: 0.5rem; }
+    .article-section p { line-height: 1.75; margin-bottom: 1rem; }
+    .article-section ol, .article-section ul { margin: 1rem 0 1rem 1.5rem; line-height: 1.75; }
+    .article-section li { margin-bottom: 0.5rem; }
+    .callout { padding: 1.25rem; border-radius: 8px; margin: 1.5rem 0; font-size: 0.95rem; }
+    .callout strong { font-weight: 600; }
+    .callout-warning { background: rgba(251, 146, 60, 0.1); border-left: 3px solid #fb923c; }
+    .callout-action { background: rgba(52, 211, 153, 0.1); border-left: 3px solid #34d399; }
+    .signal-card, .practice-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; transition: transform 0.2s, box-shadow 0.2s; }
+    .signal-card:hover, .practice-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+    .signal-card h3, .practice-card h3 { font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--accent); }
+    .comparison-table { display: flex; flex-direction: column; gap: 1rem; margin: 1.5rem 0; }
+    .comparison-row { display: grid; grid-template-columns: 160px 1fr; gap: 1rem; background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; }
+    .comparison-label { font-weight: 600; font-size: 0.875rem; color: var(--accent); padding-top: 0.2rem; }
+    .comparison-detail { font-size: 0.9rem; line-height: 1.6; color: var(--text-muted); }
+    @media (max-width: 600px) { .comparison-row { grid-template-columns: 1fr; } .comparison-label { margin-bottom: 0.5rem; } }
+    .science-box { background: rgba(96, 165, 250, 0.08); border: 1px solid rgba(96, 165, 250, 0.2); border-radius: 8px; padding: 1.25rem; margin: 1.5rem 0; }
+    .science-box h4 { font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: #60a5fa; margin-bottom: 0.75rem; }
+    .science-box p { margin: 0; font-size: 0.9rem; line-height: 1.65; }
+    .related-content { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+    .related-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; text-decoration: none; color: var(--text); transition: transform 0.2s, border-color 0.2s; display: flex; flex-direction: column; }
+    .related-card:hover { transform: translateY(-2px); border-color: var(--accent); }
+    .related-tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 0.5rem; font-weight: 600; }
+    .related-card h3 { font-size: 1rem; margin: 0 0 0.5rem; }
+    .related-card p { font-size: 0.85rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
+    .faq-section { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .faq-accordion details { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 0.75rem; overflow: hidden; }
+    .faq-accordion summary { padding: 1rem 1.25rem; cursor: pointer; font-weight: 600; font-size: 0.95rem; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+    .faq-accordion summary::-webkit-details-marker { display: none; }
+    .faq-accordion summary::after { content: '+'; font-size: 1.25rem; color: var(--accent); transition: transform 0.2s; }
+    .faq-accordion details[open] summary::after { transform: rotate(45deg); }
+    .faq-accordion .faq-answer { padding: 0 1.25rem 1.25rem; font-size: 0.9rem; line-height: 1.7; color: var(--text-muted); }
+    .faq-accordion .faq-answer p { margin: 0; }
+  </style>
+</body>
+</html>

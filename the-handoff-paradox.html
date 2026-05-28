@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Handoff Paradox: When AI Becomes Your Workflow Partner</title>
+  <meta name="description" content="AI tools make it effortless to hand off cognition — and that is exactly the problem. Here is why engineers who delegate to AI end up owning less, understanding less, and burning out faster.">
+  <meta property="og:title" content="The Handoff Paradox: When AI Becomes Your Workflow Partner">
+  <meta property="og:description" content="AI tools make it effortless to hand off cognition. Here is why engineers who delegate to AI end up owning less, understanding less, and burning out faster.">
+  <meta property="og:type" content="article">
+  <link rel="canonical" href="https://clearing-ai.com/the-handoff-paradox.html">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="nav.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Handoff Paradox: When AI Becomes Your Workflow Partner",
+    "description": "AI tools make it effortless to hand off cognition — and that is exactly the problem.",
+    "author": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+    "publisher": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+    "datePublished": "2026-05-28",
+    "url": "https://clearing-ai.com/the-handoff-paradox.html",
+    "keywords": ["AI workflow", "engineering handoff", "cognitive offloading", "AI delegation", "software engineer burnout"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com"},
+      {"@type": "ListItem", "position": 2, "name": "Understand", "item": "https://clearing-ai.com/why.html"},
+      {"@type": "ListItem", "position": 3, "name": "The Handoff Paradox", "item": "https://clearing-ai.com/the-handoff-paradox.html"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Why does delegating to AI feel productive but cause burnout?", "acceptedAnswer": {"@type": "Answer", "text": "Delegation to AI offloads execution but keeps you responsible for outcomes. You own the problem but have given away the process that builds understanding, agency, and competence."}},
+      {"@type": "Question", "name": "What is the difference between healthy delegation and AI dependency?", "acceptedAnswer": {"@type": "Answer", "text": "Healthy delegation builds leverage. AI dependency erodes it. The test: can you solve the problem without AI? If not, it is dependency."}},
+      {"@type": "Question", "name": "How does the handoff paradox affect senior engineers differently?", "acceptedAnswer": {"@type": "Answer", "text": "Senior engineers face the steepest skill erosion because they have the most to lose. Delegating architecture decisions means outsourcing the judgment that makes them senior."}},
+      {"@type": "Question", "name": "What is the First-Principles Test for AI-assisted decisions?", "acceptedAnswer": {"@type": "Answer", "text": "Before accepting AI output: (1) Can you articulate why the AI chose this path? (2) Can you name two alternatives? (3) Could you explain this to a junior without referencing AI? If not, you deferred, not understood."}},
+      {"@type": "Question", "name": "How do you recover from deep AI dependency?", "acceptedAnswer": {"@type": "Answer", "text": "Start with problems you have already solved and work without AI deliberately. The 48-Hour Rule, Architecture Journal, and Solo Spike are the three most effective practices."}}
+    ]
+  }
+  </script>
+  <style>
+    :root { --bg: #0d1117; --bg-secondary: #161b22; --bg-tertiary: #21262d; --border: #30363d; --text-primary: #e6edf3; --text-secondary: #8b949e; --text-muted: #6e7681; --accent: #58a6ff; --accent-hover: #79b8ff; --accent-warm: #d29922; --accent-green: #3fb950; --card-bg: #161b22; --callout-bg: #21282d; --link: #58a6ff; --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; --font-mono: 'SF Mono', ui-monospace, 'Cascadia Code', 'Fira Code', monospace; --radius: 8px; }
+    [data-theme="light"] { --bg: #ffffff; --bg-secondary: #f6f8fa; --bg-tertiary: #eaeef2; --border: #d0d7de; --text-primary: #1f2328; --text-secondary: #656d76; --text-muted: #8c959f; --accent: #0969da; --accent-hover: #0550ae; --card-bg: #f6f8fa; --callout-bg: #ddf4ff; --link: #0969da; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-body); background: var(--bg); color: var(--text-primary); line-height: 1.7; font-size: 17px; }
+    .skip-link { position: absolute; left: -999px; } .skip-link:focus { position: static; padding: 8px 16px; background: var(--accent); color: #fff; border-radius: 4px; text-decoration: none; }
+    a { color: var(--link); text-decoration: none; } a:hover { text-decoration: underline; }
+    .container { max-width: 780px; margin: 0 auto; padding: 0 20px; }
+    header { border-bottom: 1px solid var(--border); background: var(--bg); position: sticky; top: 0; z-index: 100; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; max-width: 1100px; margin: 0 auto; }
+    .nav-logo { font-weight: 700; font-size: 17px; color: var(--text-primary&display: flex; align-items: center; gap: 8px; }
+    .nav-links { display: flex; gap: 6px; }
+    .nav-links a { color: var(--text-secondary); padding: 5px 10px; border-radius: 6px; font-size: 14px; transition: all 0.15s; }
+    .nav-links a:hover { color: var(--text-primary); background: var(--bg-tertiary); text-decoration: none; }
+    .theme-toggle { background: none; border: 1px solid var(--border); color: var(--text-secondary); padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 13px; }
+    .theme-toggle:hover { color: var(--text-primary); border-color: var(--text-secondary); }
+    @media(max-width: 700px) { .nav-links { display: none; } }
+    article { padding: 48px 0 80px; }
+    .article-header { margin-bottom: 40px; }
+    .article-header h1 { font-size: clamp(26px, 5vw, 38px); font-weight: 800; line-height: 1.2; margin-bottom: 16px; letter-spacing: -0.5px; }
+    .article-meta { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--text-muted); flex-wrap: wrap; }
+    .article-meta .tag { background: var(--accent); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+    .article-meta .date::before { content: "7"; margin-right: 12px; }
+    .featured-image { width: 100%; aspect-ratio: 16/9; background: var(--bg-tertiary); border-radius: var(--radius); margin-bottom: 40px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); overflow: hidden; }
+    .featured-image .pattern { width: 100%; height: 100%; background: repeating-linear-gradient(45deg, var(--bg-tertiary) 0, var(--bg-tertiary) 1px, transparent 0, transparent 50%), repeating-linear-gradient(-45deg, var(--bg-tertiary) 0, var(--bg-tertiary) 1px, transparent 0, transparent 50%); background-size: 20px 20px; opacity: 0.5; }
+    .article-body { font-size: 17px; }
+    .article-body h2 { font-size: 22px; font-weight: 700; margin: 40px 0 16px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+    .article-body h3 { font-size: 18px; font-weight: 600; margin: 28px 0 12px; }
+    .article-body p { margin-bottom: 20px; }
+    .article-body strong { font-weight: 600; }
+    .article-body em { font-style: italic; color: var(--text-secondary); }
+    .article-body ul, .article-body ol { margin: 0 0 20px 24px; }
+    .article-body li { margin-bottom: 8px; }
+    .article-body blockquote { border-left: 3px solid var(--accent-warm); padding: 12px 20px; margin: 24px 0; background: var(--callout-bg); border-radius: 0 var(--radius) var(--radius) 0; font-style: italic; color: var(--text-secondary); }
+    .intro-hook { font-size: 20px; color: var(--text-secondary); margin-bottom: 32px; line-height: 1.6; }
+    .callout { background: var(--callout-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin: 24px 0; }
+    .callout.warning { border-left: 3px solid var(--accent-warm); }
+    .callout.info { border-left: 3px solid var(--accent); }
+    .callout-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted); margin-bottom: 8px; }
+    .callout p:last-child { margin-bottom: 0; }
+    .tier-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 15px; }
+    .tier-table th { background: var(--bg-tertiary); padding: 10px 14px; text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); border-bottom: 2px solid var(--border); }
+    .tier-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .tier-table tr:hover td { background: var(--bg-secondary); }
+    .protocol { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin: 28px 0; }
+    .protocol-title { font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent); margin-bottom: 12px; }
+    .protocol ol { margin-left: 20px; }
+    .protocol li { margin-bottom: 10px; }
+    .related-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin: 40px 0; }
+    .related-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; transition: border-color 0.2s; }
+    .related-card:hover { border-color: var(--accent); text-decoration: none; }
+    .related-card h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+    .related-card p { font-size: 13px; color: var(--text-secondary); margin-bottom: 0; }
+    .faq-section { margin-top: 48px; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-question { width: 100%; background: none; border: none; padding: 18px 0; text-align: left; font-size: 16px; font-weight: 600; color: var(--text-primary); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: var(--font-body); }
+    .faq-question:hover { color: var(--accent); }
+    .faq-question::after { content: "+"; font-size: 20px; color: var(--text-muted); transition: transform 0.2s; }
+    .faq-item.open .faq-question::after { transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+    .faq-item.open .faq-answer { max-height: 400px; }
+    .faq-answer-inner { padding: 0 0 18px 0; color: var(--text-secondary); font-size: 15px; line-height: 1.7; }
+    .cta-section { background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin-top: 48px; text-align: center; }
+    .cta-section h3 { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+    .cta-section p { color: var(--text-secondary); margin: 0 auto 20px; max-width: 500px; }
+    .btn { display: inline-block; background: var(--accent); color: #fff; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 14px; transition: background 0.2s; }
+    .btn:hover { background: var(--accent-hover); text-decoration: none; color: #fff; }
+    .btn-secondary { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); }
+    .btn-secondary:hover { border-color: var(--text-secondary); background: var(--bg-secondary); }
+    footer { border-top: 1px solid var(--border); padding: 32px 0; text-align: center; color: var(--text-muted); font-size: 13px; margin-top: 60px; }
+    @media(max-width: 600px) { h1 { font-size: 26px; } .article-body { font-size: 16px; } .related-cards { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header>
+    <nav role="navigation" aria-label="Main navigation">
+      <a href="index.html" class="nav-logo">The Clearing</a>
+      <div class="nav-links">
+        <a href="why.html">Understand</a>
+        <a href="tips.html">Act</a>
+        <a href="recovery.html">Recover</a>
+        <a href="research.html">Research</a>
+        <a href="resources.html">Resources</a>
+        <a href="stories.html">Stories</a>
+        <button class="theme-toggle" onclick="document.documentElement.dataset.theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'" aria-label="Toggle theme">Theme</button>
+      </div>
+    </nav>
+  </header>
+  <main id="main-content">
+    <article itemscope itemtype="https://schema.org/Article">
+      <div class="container">
+        <header class="article-header">
+          <h1 itemprop="headline">The Handoff Paradox: When AI Becomes Your Workflow Partner</h1>
+          <div class="article-meta">
+            <span class="tag">Concept</span>
+            <span class="read-time">9 min read</span>
+            <span class="date">May 28, 2026</span>
+          </div>
+        </header>
+        <div class="featured-image" aria-hidden="true"><div class="pattern"></div></div>
+        <div class="article-body" itemprop="articleBody">
+          <p class="intro-hook">There is a specific kind of exhaustion that comes from shipping code you did not write — not because AI wrote it, but because you asked it to. The handoff feels productive. The output looks right. You are still tired.</p>
+
+          <p>Engineering has always been about ownership. You pick a problem apart, translate requirements into structure, and carry the solution in your head from design to deployment. That cognitive ownership — the feeling that <em>you built this</em> — is part of what makes the job satisfying.</p>
+
+          <p>AI tools have introduced a new kind of handoff: you describe the problem in natural language, AI generates the implementation, you review and ship it. Execution happens elsewhere. You review the output. But something subtle happens in that exchange — something engineers rarely talk about but almost everyone feels.</p>
+
+          <p><strong>The handoff paradox:</strong> Delegating to AI makes you faster and makes you own less. And owning less — not working more — is what quietly burns engineers out.</p>
+
+          <h2>What the Handoff Actually Steals</h2>
+
+          <p>When you hand a task to a junior engineer, you spend time explaining context, reviewing their work, and gradually building their judgment. The process is slow, but it transfers understanding. Over time, they need less guidance. Each successful delegation makes the next one easier because capability is actually being transferred.</p>
+
+          <p>Delegating to AI is different. The output arrives instantly. The review is fast — does it look right? Does it test? Does the linter complain? The cognitive friction that made human delegation slow also made it enriching. AI eliminates the friction, and with it, the transfer mechanism that is supposed to make the next one easier.</p>
+
+          <div class="callout warning">
+            <div class="callout-title">What You Are Actually Losing</div>
+            <p>Every time you hand a problem to AI without first solving it yourself, you are not just outsourcing code. You are outsourcing the mental model that would have formed while solving it. That model is your professional judgment. It depreciates every time you skip the work.</p>
+          </div>
+
+          <p>Consider what happens during a complex implementation. An engineer who works through it manually builds a multi-layered mental model: the data structures, the edge cases, the reason this approach was chosen over alternatives. That model lives in long-term memory, richly encoded with context. The result is genuine expertise.</p>
+
+          <p>When the same engineer prompts an AI, the output arrives and the model never forms. There is a thin layer of recognition — you recognize the solution when you see it — but recognition is not understanding. You can verify a solution without being able to generate it yourself. That gap — between recognizing good work and being able to produce it — is the hidden tax on AI-assisted engineering.</p>
+
+          <h2>Three Stages of Handoff Dependency</h2>
+
+          <p>The relationship between an engineer and AI tools typically progresses through distinct stages. Most engineers now operating with AI are somewhere in stage two or three.</p>
+
+          <h3>Stage 1: Augmentation (Healthy)</h3>
+          <p>The engineer solves the problem first, then uses AI to scaffold, verify, or refactor. AI accelerates execution — not judgment. The engineer's mental model forms through independent work. AI is a force multiplier, not a crutch.</p>
+          <p><strong>Signal:</strong> You can explain why the code works in your own words. You could trace a bug without AI. You feel competent and in control.</p>
+
+          <h3>Stage 2: Collaboration (Transitional)</h3>
+          <p>The engineer prompts first, then reviews. The mental model forms partially — enough to validate the output, not enough to generate it independently. Work gets done faster, but the engineer increasingly relies on AI to initiate rather than complete. Confidence starts to decouple from competence.</p>
+          <p><strong>Signal:</strong> You occasionally cannot answer questions about your own code without looking at it. Junior engineers ask you to explain architecture decisions and you reference AI output rather than your own reasoning.</p>
+
+          <h3>Stage 3: Delegation (Eroding)</h3>
+          <p>The problem goes to AI without substantial prior thought. The engineer's role becomes prompter and reviewer. They can evaluate outputs but increasingly cannot produce comparable work independently. Professional judgment atrophies from disuse.</p>
+          <p><strong>Signal:</strong> You cannot confidently estimate how long something will take because you do not know how you would build it. Architecture discussions feel abstract rather than concrete. When AI is unavailable, you feel stuck — not just slower, but genuinely unable to initiate.</p>
+
+          <h2>The Transfer That Never Happens</h2>
+
+          <p>Human-to-human handoffs work because they involve friction. The explainer has to translate tacit knowledge into explicit instructions. That translation process forces clarity. The receiver asks questions, makes mistakes, gets corrected, and gradually builds their own version of the knowledge.</p>
+
+          <p>AI handles the translation instantly. It takes vague natural language and produces precise code. That is the feature. But the precision hides the messiness that would have produced learning. Struggling with a problem is not an inefficiency — it is the mechanism by which competence forms.</p>
+
+          <blockquote>"The difference between a senior engineer's judgment and a junior engineer's recognition is the three hundred problems they have worked through themselves. AI does not give you those problems. It gives you the solutions."</blockquote>
+
+          <p>What is stolen in the handoff is not the code. It is the struggle that encoded the pattern. The engineer who uses AI to solve 300 problems this year has produced 300 solutions and developed 0 new patterns. The engineer who solved 150 problems manually has 150 problems worth of pattern encoded. The second engineer's judgment compounds year over year. The first engineer's compounds only if they deliberately practice original problem-solving.</p>
+
+          <h2>Why This Hits Senior Engineers Hardest</h2>
+
+          <p>There is a widespread assumption that AI tools are most helpful for junior engineers who need more scaffolding. The data suggests the opposite is true. Senior engineers have more to lose from dependency because they have deeper, richer mental models. The cost of letting those models atrophy is proportionally larger.</p>
+
+          <p>A senior engineer's expertise is not one big thing — it is thousands of micro-patterns. When they walk into a codebase they have never seen, their eyes do not scan randomly. They are guided by thousands of previous encounters with similar systems. That pattern recognition took years to develop.</p>
+
+          <p>Delegating architecture decisions to AI does not just skip the implementation work. It skips the pattern-formation that happens during implementation. The senior who asks AI to design their system three times has had three design experiences — or has they? Recognising a good design is not the same as generating one.</p>
+
+          <table class="tier-table" aria-label="Senior versus junior AI handoff impact comparison">
+            <thead>
+              <tr><th>What Atrophies</th><th>For Junior Engineers</th><th>For Senior Engineers</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Core skills</td><td>Fundamentals never fully form (debugging, profiling, reading code)</td><td>Architecture, system design, performance intuition</td></tr>
+              <tr><td>Professional identity</td><td>Never forms around independent capability — identity anchored to AI</td><td>Shifts from "I solve hard problems" to "I coordinate AI solutions"</td></tr>
+              <tr><td>Earning trajectory</td><td>Stunted early; low ceiling because foundations never formed</td><td>Presents as competence gap — visible only when AI is unavailable</td></tr>
+              <tr><td>Recovery speed</td><td>Long — must rebuild foundations before advancing</td><td>Moderate — patterns still exist but need reactivation</td></tr>
+            </tbody>
+          </table>
+
+          <h2>The Organisational Pressure That Accelerates This</h2>
+
+          <p>Engineers do not choose AI dependency in a vacuum. The organisations that employ them create the conditions. When velocity is the primary metric — when shipping is what gets rewarded and understanding is invisible — rational engineers optimise for velocity.</p>
+
+          <p>The problem is that velocity without understanding creates two separate classes of engineer: those whose capability is real and durable, and those whose capability is performative and contingent on AI availability. Organisations often cannot tell the difference until something breaks — a critical incident at 2 AM, an AI service outage, a security review.</p>
+
+          <div class="callout info">
+            <div class="callout-title">The Hidden Technical Debt</div>
+            <p>Codebases built with heavy AI delegation carry a hidden debt: the engineers reviewing the code do not fully understand it. When bugs surface in production, resolution time is longer because the mental model of the system is distributed and partial.</p>
+          </div>
+
+          <h2>The First-Principles Test</h2>
+
+          <p>Not every use of AI constitutes handoff dependency. The differentiating factor is not whether you use AI — it is whether the use follows or precedes your own cognition.</p>
+
+          <div class="protocol">
+            <div class="protocol-title">The First-Principles Test</div>
+            <p>Before accepting any AI output as a final decision, apply these three questions:</p>
+            <ol>
+              <li><strong>Can you articulate why the AI chose this approach in your own words?</strong><br><em>Not "the AI suggested X" — but "I chose X because of Y, and the AI agreed."</em></li>
+              <li><strong>Can you name two alternative approaches and explain why they would be worse?</strong><br><em>Having alternatives means you explored the solution space. If no alternatives come to mind, the AI narrowed your thinking.</em></li>
+              <li><strong>Could you explain this decision to a junior engineer without referencing AI?</strong><br><em>If your explanation starts "Well, the AI suggested..." — you have not transferred understanding. You have transferred authority.</em></li>
+            </ol>
+          </div>
+
+          <p>If you cannot answer all three confidently, the problem has not been solved — it has been deferred. That deferral costs something small each time, and compounds into a significant competence gap over months.</p>
+
+          <h2>Recovering the Ownership Mentality</h2>
+
+          <p>Recovery from deep handoff dependency is not about eliminating AI from your workflow. It is about restoring the sequence: think first, then delegate. The goal is to remain the author of your mental models while using AI as an execution accelerator.</p>
+
+          <h3>The 48-Hour Rule</h3>
+          <p>For any non-trivial problem, impose a 48-hour waiting period between formulation and AI delegation. Sleep on the problem first. Let the mental model form. Attempt a partial solution — even a rough one — before handing the rest to AI.</p>
+
+          <h3>The Architecture Journal</h3>
+          <p>Maintain a short written record of architecture or design decisions — not documentation of what was built, but explanation of why these choices were made. Review it monthly. When the reasoning becomes fuzzy or generic, that is a sign you have drifted into delegation mode without anchored understanding.</p>
+
+          <h3>The Solo Spike</h3>
+          <p>Before any significant feature, spend 20 minutes attempting a spike solution without AI. Not to produce production code — to develop the mental model. Write ugly, incomplete code that gets thrown away. The act of attempting, even failing, encodes far more than reviewing a clean AI output ever will.</p>
+
+          <blockquote>"The engineer who solves the problem once with genuine struggle owns that problem forever. The engineer who sees it solved 50 times by AI owns none of them."</blockquote>
+
+          <h2>The Path Back to Ownership</h2>
+
+          <p>The handoff paradox does not mean AI is bad. It means the relationship between an engineer and their AI tools has to be intentional. Used correctly, AI amplifies what you can do. Used carelessly, it replaces what you can do — and by the time you notice, the capability has not just diminished. It is gone.</p>
+
+          <p>The engineers who will thrive in the age of AI are not the ones who use it most. They are the ones who use it last — after they have done the hard work of building the judgment that makes AI output useful rather than just present.</p>
+
+          <div class="related-cards">
+            <a href="the-consultation-trap.html" class="related-card">
+              <h4>The Consultation Trap</h4>
+              <p>Why engineers cannot stop asking AI — even when they know they should.</p>
+            </a>
+            <a href="the-delegation-trap.html" class="related-card">
+              <h4>The Delegation Trap</h4>
+              <p>When AI handles the hard parts and you lose the ability to solve them.</p>
+            </a>
+            <a href="the-velocity-trap.html" class="related-card">
+              <h4>The Velocity Trap</h4>
+              <p>Why shipping more code with AI feels like falling behind.</p>
+            </a>
+            <a href="expertise-deflation.html" class="related-card">
+              <h4>Expertise Deflation</h4>
+              <p>AI eroding the economic and psychological value of senior engineering expertise.</p>
+            </a>
+          </div>
+
+          <div class="cta-section">
+            <h3>Take the AI Fatigue Quiz</h3>
+            <p>Find out where you stand. 2,400+ engineers have taken it — and most discover they are in stage 2 without realising it.</p>
+            <a href="quiz.html" class="btn">Start the Quiz</a>
+            <a href="recovery.html" class="btn btn-secondary" style="margin-left:8px">Recovery Guide</a>
+          </div>
+
+          <section class="faq-section" aria-label="Frequently asked questions">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">Why does delegating to AI feel productive but cause burnout?</button>
+              <div class="faq-answer" aria-hidden="true"><div class="faq-answer-inner">Delegation to AI offloads execution but keeps you responsible for outcomes. You own the problem but have given away the process that builds understanding, agency, and competence.</div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">What is the difference between healthy delegation and AI dependency?</button>
+              <div class="faq-answer" aria-hidden="true"><div class="faq-answer-inner">Healthy delegation builds leverage. AI dependency erodes it. The test: can you solve the problem without AI? If not, it is dependency.</div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">How does the handoff paradox affect senior engineers differently?</button>
+              <div class="faq-answer" aria-hidden="true"><div class="faq-answer-inner">Senior engineers face the steepest skill erosion because they have the most to lose. Delegating architecture decisions means outsourcing the judgment that makes them senior.</div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">What is the First-Principles Test for AI-assisted decisions?</button>
+              <div class="faq-answer" aria-hidden="true"><div class="faq-answer-inner">Before accepting AI output: (1) Can you articulate why the AI chose this path? (2) Can you name two alternatives? (3) Could you explain this to a junior without referencing AI? If not, you deferred, not understood.</div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">How do you recover from deep AI dependency?</button>
+              <div class="faq-answer" aria-hidden="true"><div class="faq-answer-inner">Start with problems you have already solved and work without AI deliberately. The 48-Hour Rule, Architecture Journal, and Solo Spike are the three most effective practices.</div></div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <div class="container">
+      <p>The Clearing — Helping engineers recover from AI fatigue. <a href="index.html">Home</a> · <a href="newsletter.html">Newsletter</a> · <a href="about.html">About</a></p>
+    </div>
+  </footer>
+  <script>
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = btn.parentElement;
+        document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); i.querySelector('.faq-question').setAttribute('aria-expanded', 'false'); });
+        if (!item.classList.contains('open')) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

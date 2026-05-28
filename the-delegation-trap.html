@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Delegation Trap: When AI Handles the Hard Parts - The Clearing</title>
+  <meta name="description" content="AI makes delegation effortless — and that's exactly the problem. Why engineers who delegate everything to AI slowly lose the ability to solve hard problems themselves, and a practical framework for staying in the loop."/>
+  <meta name="keywords" content="AI delegation trap, developer skill erosion, delegating to AI, cognitive offloading, hard problem solving AI, engineer capability loss, AI dependency, skill atrophy delegation"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://clearing-ai.com/the-delegation-trap.html"/>
+  <link rel="alternate" type="application/rss+xml" title="The Clearing RSS Feed" href="https://clearing-ai.com/feed.xml"/>
+
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://clearing-ai.com/the-delegation-trap.html"/>
+  <meta property="og:title" content="The Delegation Trap: When AI Handles the Hard Parts"/>
+  <meta property="og:description" content="AI makes delegation effortless — and that's exactly the problem. Why engineers who delegate everything to AI slowly lose the ability to solve hard problems themselves."/>
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png"/>
+  <meta property="og:site_name" content="The Clearing"/>
+  <meta property="article:published_time" content="2026-05-28"/>
+  <meta property="article:modified_time" content="2026-05-28"/>
+  <meta property="article:section" content="Understand"/>
+  <meta property="article:tag" content="AI fatigue"/>
+  <meta property="article:tag" content="skill erosion"/>
+  <meta property="article:tag" content="delegation"/>
+
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="The Delegation Trap: When AI Handles the Hard Parts"/>
+  <meta name="twitter:description" content="Delegating everything to AI feels efficient — until you realize you can no longer do the hard things yourself."/>
+  <meta name="twitter:image" content="https://clearing-ai.com/og-image.png"/>
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="css/style.min.css"/>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The Delegation Trap: When AI Handles the Hard Parts",
+        "description": "AI makes delegation effortless — and that's exactly the problem. Why engineers who delegate everything to AI slowly lose the ability to solve hard problems themselves, and a practical framework for staying in the loop.",
+        "url": "https://clearing-ai.com/the-delegation-trap.html",
+        "datePublished": "2026-05-28",
+        "dateModified": "2026-05-28",
+        "author": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+        "publisher": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://clearing-ai.com/the-delegation-trap.html"},
+        "wordCount": 3700,
+        "articleSection": "Understand",
+        "keywords": ["AI delegation trap", "skill erosion AI", "cognitive offloading", "hard problem solving AI", "delegating to AI", "engineer capability loss"]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com"},
+          {"@type": "ListItem", "position": 2, "name": "Understand", "item": "https://clearing-ai.com/why.html"},
+          {"@type": "ListItem", "position": 3, "name": "The Delegation Trap", "item": "https://clearing-ai.com/the-delegation-trap.html"}
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the delegation trap in AI-assisted engineering?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The delegation trap is the pattern where AI makes it so frictionless to delegate hard problems that engineers stop solving them themselves — even when they could. Over time, the muscle for hard problem-solving atrophies because it's never exercised. The trap isn't that AI helps; it's that AI helps so easily that the intermediate struggle — which is where learning and skill-building happens — gets skipped entirely."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's the difference between healthy delegation and the delegation trap?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Healthy delegation is strategic: you decide what to offload based on what you need to preserve or develop. The delegation trap is passive: you delegate by default because it's faster and easier, and over time you can no longer do the delegated tasks without AI help. The difference lives in intention — healthy delegation is a deliberate skill-management strategy; the trap is gradual capability loss disguised as productivity."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the delegation trap affect senior engineers specifically?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Senior engineers are especially vulnerable because they've already developed strong delegation instincts — they delegate to humans routinely as a skill-management strategy. AI makes delegation so effortless that the brake on delegating (the time cost of explaining context) disappears. They delegate more, faster, to an entity that needs no explanation. The seniority milestone that used to mean 'knowing what to delegate and when' becomes 'knowing how to prompt.' The capability that justified senior compensation erodes quietly."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does the delegation trap look like in daily engineering work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Common signals: reaching for AI before attempting a problem you could solve, reading AI-generated code without fully understanding it and accepting it anyway, feeling unable to start a task without AI assistance, struggling to debug without AI even in familiar codebase areas, losing the urge to figure something out manually and instead immediately prompting. The work gets done. The skill doesn't build."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do you escape the delegation trap without giving up AI entirely?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The framework: Try First, Delegate Second. Before reaching for AI on any problem, attempt it for a defined minimum time — even 15 minutes of genuine struggle before delegating. Review what AI produced at the code-walkthrough level: explain it line by line to yourself or a colleague. Track a Deliberate Difficulty metric: one hard problem per week where you commit to solving without AI, just to keep the muscle alive. The goal isn't AI abstinence — it's ensuring the parts that build skill still get exercised."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <main class="content reader-mode" id="main-content">
+    <article class="prose" itemscope itemtype="https://schema.org/Article">
+
+      <header class="article-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li><a href="/why.html">Understand</a></li>
+            <li aria-current="page">The Delegation Trap</li>
+          </ol>
+        </nav>
+
+        <div class="tag-row">
+          <span class="tag">AI fatigue</span>
+          <span class="tag">Skill erosion</span>
+          <span class="tag">Delegation</span>
+        </div>
+
+        <h1 itemprop="headline">The Delegation Trap: When AI Handles the Hard Parts</h1>
+
+        <p class="deck" itemprop="description">AI makes delegation effortless — and that's exactly the problem. The engineers who delegate everything slowly lose the ability to solve hard problems themselves. Here's what that looks like, why it happens, and how to stay in the loop.</p>
+
+        <div class="byline">
+          <span itemprop="author">The Clearing</span>
+          <span class="separator">·</span>
+          <time datetime="2026-05-28" itemprop="datePublished">May 28, 2026</time>
+          <span class="separator">·</span>
+          <span>9 min read</span>
+        </div>
+      </header>
+
+      <div class="ad-wrapper">
+        <aside class="ad-unit" aria-label="Sponsor">
+          <span class="ad-label">Today's sponsor</span>
+          <div class="ad-content">
+            <strong>Stop losing Fridays to AI-assisted debugging.</strong> The 15-Minute Debugger Protocol — the deliberate practice system that rebuilds debugging confidence after months of AI-dependency. <a href="/the-15-minute-debugger.html">Try it free →</a>
+          </div>
+        </aside>
+      </div>
+
+      <!-- SECTION 1: THE PARADOX -->
+      <section class="chapter" id="paradox">
+        <h2>The paradox you've already accepted</h2>
+
+        <p>There's a moment every senior engineer knows. You're in a code base you've owned for three years. A bug lands in your queue. Your first instinct — before you've even consciously thought about it — is to paste it into a chat window.</p>
+
+        <p>You didn't do this five years ago. You'd have settled in. Opened the debugger. Traced the stack. Maybe spent twenty minutes being confused before you figured it out. That twenty minutes was the point.</p>
+
+        <p>Now AI handles it. Faster, corrected, documented. You move on.</p>
+
+        <p>And the strange thing is that move-on feels correct. Efficient. Like the professional choice. And maybe it is — for today. For this ticket. For this week's velocity metric.</p>
+
+        <p>But six months of that, and you've outsourced something you can't easily name back. The problem isn't that AI helps. The problem is that AI helps so easily that the intermediate struggle — which is precisely where skill lives — gets skipped entirely.</p>
+
+        <p>That's the delegation trap.</p>
+
+        <div class="callout callout-insight">
+          <div class="callout-label">The core mechanism</div>
+          <p>The delegation trap operates through cognitive offloading. Your brain offloads the unpleasant friction of hard problem-solving to AI tools because they消除了 that friction. The problem: that friction was doing cognitive work. It was building something. Remove it, and the building stops.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 2: WHAT AI DELEGATION CHANGED -->
+      <section class="chapter" id="what-ai-changed">
+        <h2>What AI changed about delegation</h2>
+
+        <p>Humans have always delegated. Senior engineers do it constantly — to colleagues, to contractors, to offshore teams. They develop sophisticated instincts for what to hand off and what to keep.</p>
+
+        <p>The friction in human delegation is what makes it a skill: explaining context takes time, following up takes energy, trusting someone else's work requires judgment. That friction is a cost, and experienced engineers use it as a signal. If delegating something costs more than doing it, they keep it.</p>
+
+        <p>AI removes the friction almost entirely. No context to explain. No follow-up. No trust judgment required — AI doesn't have off-days or hidden agendas. It just generates.</p>
+
+        <p>This changes the delegation calculus fundamentally. Before: "Should I delegate this, given the overhead?" After: "Why wouldn't I?" The cost signal disappears. Delegation becomes the path of least resistance for every problem, hard and easy alike.</p>
+
+        <p>And here's where it compounds: the problems most worth delegating to AI are also the problems most worth keeping for yourself. The genuinely hard ones — the architectural decisions, the gnarly debugging sessions, the novel edge cases — those are the problems that build the deepest expertise. AI takes those off your plate just as easily as it takes the routine ones.</p>
+
+        <div class="callout callout-data">
+          <div class="callout-label">Research signal</div>
+          <p>Kahneman's research on cognitive offloading (2011) established that offloading effortful tasks to external aids reduces internal cognitive processing — which sounds efficient but also reduces the skill-building effect of that processing. The offloaded task gets done; the cognitive exercise that would have strengthened the relevant mental model doesn't happen.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 3: THREE STAGES -->
+      <section class="chapter" id="three-stages">
+        <h2>Three stages of delegation trap</h2>
+
+        <div class="stage-row">
+          <div class="stage-card stage-1">
+            <div class="stage-num">1</div>
+            <h3>Strategic delegation</h3>
+            <p>You decide what AI handles. You solve the hard problems yourself because you care about preserving the skill. AI is a tool; you're still the architect. This is where most engineers start. This stage can last a long time if you actively protect it.</p>
+            <ul class="stage-signs">
+              <li>You try a problem before AI help</li>
+              <li>You read and understand AI output before accepting it</li>
+              <li>You occasionally refuse AI help on principle</li>
+              <li>You can explain how solutions work without reference</li>
+            </ul>
+          </div>
+
+          <div class="stage-card stage-2">
+            <div class="stage-num">2</div>
+            <h3>Default delegation</h3>
+            <p>AI has become the first move, not the last resort. You still review output, but you've stopped trying first. The skills that required struggle are still technically there, but they're harder to access. When AI output fails, you struggle longer than you used to.</p>
+            <ul class="stage-signs">
+              <li>You reach for AI before attempting</li>
+              <li>You accept AI code without fully tracing it</li>
+              <li>Problems that should be familiar feel harder than they did</li>
+              <li>Your go-to first move is a prompt, not an instinct</li>
+            </ul>
+          </div>
+
+          <div class="stage-card stage-3">
+            <div class="stage-num">3</div>
+            <h3>Structural skill loss</h3>
+            <p>The skill is hard to access deliberately, and harder still under pressure. AI is now required for work that feels beyond you without it. Senior engineers at this stage often report imposter syndrome — they're unsure if they could do the job without AI tools, and they're right to be unsure.</p>
+            <ul class="stage-signs">
+              <li>You feel panicky without AI when starting a hard problem</li>
+              <li>You've stopped attempting the hard parts of tickets</li>
+              <li>You couldn't complete a technical interview without AI</li>
+              <li>Your confidence is calibrated to AI output quality, not your own</li>
+            </ul>
+          </div>
+        </div>
+
+        <p>The stages aren't always linear, and the timing varies by how much hard problem-solving your role requires versus how much you've offloaded. But the direction is consistent: without deliberate intervention, the trajectory is toward more delegation, less capability.</p>
+      </section>
+
+      <!-- SECTION 4: THE SENIOR ENGINEER PROBLEM -->
+      <section class="chapter" id="senior-vulnerability">
+        <h2>Why senior engineers are most vulnerable</h2>
+
+        <p>Counterintuitively, the delegation trap hits senior engineers hardest — and fastest.</p>
+
+        <p>Senior engineers have the strongest delegation instincts. After years of managing their own workload, they've internalized strategic delegation as a core professional skill. They know what to hand off, when, and to whom. They've built careers on that judgment.</p>
+
+        <p>AI breaks that calibration in a specific way: it makes delegation costless. The brake on their delegation instinct — the overhead of human delegation — vanishes. Senior engineers who would never delegate an architectural problem to a junior developer because "it costs more than it's worth" will delegate that same problem to AI without hesitation, because the cost is zero.</p>
+
+        <p>They've been optimizing for delegation their whole career. AI represents the ultimate delegation optimization. And so their delegation instincts, honed over a decade, actively work against them in the AI era.</p>
+
+        <p>The seniority milestone that used to mean "knowing what to delegate and when" now gets hollowed out. You can tell an AI to architect a system. You cannot tell a junior developer to do it the same way, and that friction was actually doing something. It was forcing you to remain the architect. To think through tradeoffs. To hold the full picture in your head.</p>
+
+        <p>AI doesn't need you to hold the picture. That should be a warning sign, not a selling point.</p>
+
+        <div class="callout callout-warning">
+          <div class="callout-label">The compensation problem</div>
+          <p>Senior engineer compensation is partly justified by judgment — the ability to navigate hard problems that junior engineers can't. If that judgment atrophies through chronic delegation, the compensation justification erodes. Not fast enough to be visible in a performance review. Fast enough to be real.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 5: THE 15-MINUTE RULE -->
+      <section class="chapter" id="stay-in-the-loop">
+        <h2>The Try-First Protocol: staying in the loop without stopping</h2>
+
+        <p>The goal is not to use less AI. The goal is to ensure the parts of work that build skill still get exercised. Here's a specific, implementable protocol, adapted from the 15-Minute Debugger framework (see <a href="/the-15-minute-debugger.html">the full guide</a>):</p>
+
+        <div class="protocol-block">
+          <h3>The Try-First Protocol</h3>
+
+          <p>Before reaching for AI on any non-routine problem, attempt it for a minimum time first. The time is not a hurdle — it's the exercise.</p>
+
+          <div class="protocol-step">
+            <div class="protocol-step-num">1</div>
+            <div class="protocol-step-content">
+              <strong>Set a 15-minute floor, not a ceiling.</strong> Resolve to spend at least 15 minutes genuinely attempting the problem before AI assistance. Use a timer if helpful. This isn't about solving it — it's about warming up the problem-solving muscle before delegating its exercise.
+            </div>
+          </div>
+
+          <div class="protocol-step">
+            <div class="protocol-step-num">2</div>
+            <div class="protocol-step-content">
+              <strong>Start with the part you could solve.</strong> Begin with confidence-despite-struggle: identify the part of the problem you could solve with thought, even if slowly. Start there. Let the rest follow.
+            </div>
+          </div>
+
+          <div class="protocol-step">
+            <div class="protocol-step-num">3</div>
+            <div class="protocol-step-content">
+              <strong>When you do delegate, trace every line of AI output.</strong> This is non-negotiable. Read it as if you're reviewing a pull request from someone whose work you are responsible for. If you can't explain a section, treat that gap as a learning signal, not an acceptable failure mode.
+            </div>
+          </div>
+
+          <div class="protocol-step">
+            <div class="protocol-step-num">4</div>
+            <div class="protocol-step-content">
+              <strong>Track what you learned from the struggle.</strong> Keep a simple log: not what AI told you, but what you figured out before delegating, and what the AI approach revealed that you missed. This builds the metacognitive awareness that makes future attempts more generative.
+            </div>
+          </div>
+        </div>
+
+        <p>The protocol sounds small. Fifteen minutes before AI. Try-first, not AI-first. But fifteen minutes of genuine struggle before delegation is the difference between a skill that's exercised and a skill that's gradually surrendered.</p>
+
+        <p>One deliberate difficulty per week — one problem you commit to solving without AI — keeps the muscle from atrophying entirely. It doesn't have to be a big problem. It has to be hard enough that you're not sure you can solve it.</p>
+      </section>
+
+      <!-- SECTION 6: DELEGATION AUDIT -->
+      <section class="chapter" id="delegation-audit">
+        <h2>The Delegation Audit: finding where you lost the loop</h2>
+
+        <p>Run this audit weekly. It takes ten minutes. The goal is to find the gap between what you're capable of delegating and what you're capable of doing yourself — and to notice if that gap is growing.</p>
+
+        <div class="audit-list">
+          <div class="audit-item">
+            <div class="audit-q">What was the hardest problem you solved this week without AI?</div>
+            <div class="audit-meta">If the answer is "I can't remember," the delegation protocol may have taken over entirely. That's a signal, not a failure.</div>
+          </div>
+
+          <div class="audit-item">
+            <div class="audit-q">What did AI handle this week that you could have solved?</div>
+            <div class="audit-meta">This isn't a guilt question. It's an inventory. The goal is to track the ratio over time.</div>
+          </div>
+
+          <div class="audit-item">
+            <div class="audit-q">When AI output was wrong or incomplete, could you have found it yourself?</div>
+            <div class="audit-meta">Confidence in AI output should be calibrated to your ability to catch AI failures. If you'd trust AI output in a domain where you're not sure you could independently verify it — that calibration gap is worth knowing about.</div>
+          </div>
+
+          <div class="audit-item">
+            <div class="audit-q">Have you lost interest in problems before you see how they end?</div>
+            <div class="audit-meta">Real engagement requires curiosity about outcome. If you now hand problems to AI before you're curious about them, the curiosity itself may be atrophying.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ SECTION -->
+      <section class="chapter" id="faq">
+        <h2>Frequently asked questions</h2>
+
+        <div class="faq-block" itemscope itemprop="mainEntity" itemtype="https://schema.org/FAQPage">
+          <details class="faq-item">
+            <summary itemprop="name">What is the delegation trap in AI-assisted engineering?</summary>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">The delegation trap is the pattern where AI makes it so frictionless to delegate hard problems that engineers stop solving them themselves — even when they could. Over time, the muscle for hard problem-solving atrophies because it's never exercised. The trap isn't that AI helps; it's that AI helps so easily that the intermediate struggle — which is where learning and skill-building happens — gets skipped entirely.</div>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary itemprop="name">What's the difference between healthy delegation and the delegation trap?</summary>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">Healthy delegation is strategic: you decide what to offload based on what you need to preserve or develop. The delegation trap is passive: you delegate by default because it's faster and easier, and over time you can no longer do the delegated tasks without AI help. The difference lives in intention — healthy delegation is a deliberate skill(ed) skill-management strategy; the trap is gradual capability loss disguised as productivity.</div>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary itemprop="name">How does the delegation trap affect senior engineers specifically?</summary>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">Senior engineers are especially vulnerable because they've already developed strong delegation instincts — they delegate to humans routinely as a skill-management strategy. AI makes delegation so effortless that the brake on delegating (the time cost of explaining context) disappears. They delegate more, faster, to an entity that needs no explanation. The seniority milestone that used to mean 'knowing what to delegate and when' becomes 'knowing how to prompt.' The capability that justified senior compensation erodes quietly.</div>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary itemprop="name">What does the delegation trap look like in daily engineering work?</summary>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">Common signals: reaching for AI before attempting a problem you could solve, reading AI-generated code without fully understanding it and accepting it anyway, feeling unable to start a task without AI assistance, struggling to debug without AI even in familiar codebase areas, stopped needing to remember how to solve something because AI handles it. The work gets done. The skill doesn't build.</div>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary itemprop="name">How do you escape the delegation trap without giving up AI entirely?</summary>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">The Try-First Protocol: before reaching for AI on any non-routine problem, attempt it for a defined minimum time (aim 15 minutes). Review AI output at the code-walkthrough level — explain every section line by line. Track one Deliberate Difficulty per week: one hard problem solved without AI, just to keep the muscle alive. The goal isn't AI abstinence — it's ensuring the parts that build skill still get exercised.</div>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- RELATED -->
+      <section class="chapter related-chapter">
+        <h2>Keep reading</h2>
+
+        <div class="related-grid">
+          <a href="/the-consultation-trap.html" class="related-card">
+            <span class="related-label">Understand</span>
+            <span class="related-title">The Consultation Trap</span>
+            <span class="related-desc">Why you can't stop asking AI for help — and why knowing that matters for your skill.</span>
+          </a>
+
+          <a href="/the-15-minute-debugger.html" class="related-card">
+            <span class="related-label">Recover</span>
+            <span class="related-title">The 15-Minute Debugger</span>
+            <span class="related-desc">The protocol for rebuilding debugging skill through deliberate practice before AI help.</span>
+          </a>
+
+          <a href="/skill-atrophy.html" class="related-card">
+            <span class="related-label">Understand</span>
+            <span class="related-title">Skill Atrophy and AI</span>
+            <span class="related-desc">When and how engineering skills degrade under AI-accelerated workflows.</span>
+          </a>
+
+          <a href="/expertise-deflation.html" class="related-card">
+            <span class="related-label">Understand</span>
+            <span class="related-title">Expertise Deflation</span>
+            <span class="related-desc">How AI erodes the economic and psychological value of senior engineering expertise.</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="chapter cta-chapter">
+        <div class="cta-box">
+          <h2>Know where you stand</h2>
+          <p>The AI Fatigue Quiz takes 3 minutes. Get your severity tier and a personalized recovery recommendation — built from real survey data.</p>
+          <a href="/quiz.html" class="btn-primary">Take the AI Fatigue Quiz →</a>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="brand-mark">The Clearing</a>
+        <p class="brand-tagline">Recovery resources for engineers in the AI era.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <div class="footer-col">
+          <h3>Understand</h3>
+          <ul>
+            <li><a href="/why.html">Why AI fatigue happens</a></li>
+            <li><a href="/ai-fatigue.html">What AI fatigue is</a></li>
+            <li><a href="/signs-ai-fatigue.html">Signs you have it</a></li>
+            <li><a href="/research.html">Research we've built on</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Recover</h3>
+          <ul>
+            <li><a href="/recovery.html">Recovery basics</a></li>
+            <li><a href="/daily-practice.html">Daily practice</a></li>
+            <li><a href="/ai-detox-plan.html">30-day AI detox plan</a></li>
+            <li><a href="/team-manager-guide.html">For managers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Tools</h3>
+          <ul>
+            <li><a href="/quiz.html">AI Fatigue Quiz</a></li>
+            <li><a href="/resources.html">Recovery toolkit</a></li>
+            <li><a href="/newsletter.html">The Dispatch (newsletter)</a></li>
+            <li><a href="/stories.html">Engineer stories</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 The Clearing · <a href="/privacy.html">Privacy</a> · <a href="/about.html">About</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Dark/light mode toggle
+    function setTheme(t) { document.documentElement.setAttribute('data-theme', t); localStorage.setItem('theme', t); }
+    var saved = localStorage.getItem('theme') || 'dark';
+    setTheme(saved);
+    document.write('<script src="js/theme.js?<!---" + Date.now() + "-->\"><\/script>');
+  </script>
+</body>
+</html>

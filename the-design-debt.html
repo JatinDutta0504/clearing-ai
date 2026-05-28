@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Design Debt Crisis: When AI Erases Your Taste | The Clearing</title>
+  <meta name="description" content="AI tooling is eroding software engineers' design taste — the ability to know what looks right, feels right, and works right. Here's why it's happening and how to rebuild."/>
+  <meta name="keywords" content="design debt, engineering taste, AI eroding design skills, software engineer design, design sensibility, craft degradation AI, design literacy engineers, aesthetic judgment software, UI design skills engineers, design debt recovery"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://clearing-ai.com/the-design-debt.html"/>
+  <link rel="alternate" type="application/rss+xml" title="The Clearing RSS Feed" href="https://clearing-ai.com/feed.xml"/>
+
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://clearing-ai.com/the-design-debt.html"/>
+  <meta property="og:title" content="The Design Debt Crisis: When AI Erases Your Taste"/>
+  <meta property="og:description" content="AI tooling is quietly erasing the design taste engineers spent years developing. Here's why it's happening and how to rebuild it."/>
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png"/>
+  <meta property="og:site_name" content="The Clearing"/>
+  <meta property="article:published_time" content="2026-05-28"/>
+  <meta property="article:section" content="Understand"/>
+
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="The Design Debt Crisis: When AI Erases Your Taste"/>
+  <meta name="twitter:description" content="AI tooling is quietly erasing the design taste engineers spent years developing."/>
+  <meta name="twitter:image" content="https://clearing-ai.com/og-image.png"/>
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="css/style.min.css"/>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "The Design Debt Crisis: When AI Erases Your Taste",
+      "description": "AI tooling is quietly eroding the design taste engineers spent years developing. This article explores why taste erodes, how AI tooling accelerates it, and a practical recovery framework for engineers who want their design judgment back.",
+      "url": "https://clearing-ai.com/the-design-debt.html",
+      "datePublished": "2026-05-28",
+      "dateModified": "2026-05-28",
+      "author": {"@type": "Organization", "name": "The Clearing"},
+      "publisher": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+      "mainEntityOfPage": {"@type": "WebPage", "@id": "https://clearing-ai.com/the-design-debt.html"},
+      "wordCount": 4200,
+      "articleSection": "Understand"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Understand", "item": "https://clearing-ai.com/tips.html"},
+        {"@type": "ListItem", "position": 3, "name": "Design Debt", "item": "https://clearing-ai.com/the-design-debt.html"}
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is design debt in software engineering?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Design debt is the accumulated gap between your current design taste and the standard you once held. It accrues when you stop exercising your design judgment — accepting AI-generated interfaces, skipping design reviews, and letting implementation override intention. Unlike technical debt, it's invisible: you don't notice your taste eroding until you try to design something yourself and realize you can't trust your own instincts anymore."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does AI tooling affect design taste?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI tools eliminate the friction that used to train design instincts. When asking AI to generate a UI component takes 30 seconds, you never have to think about whether a flexbox gap of 8px versus 12px changes the emotional register of the design. AI abstracts away the micro-decisions that, accumulated over years, built your taste. The result is that your design sense stops updating — it's fossilizing while you ship."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you rebuild design taste after it's eroded?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — design taste is a skill, not a talent, and skills can be rebuilt. Research on neuroplasticity (Draganski et al., 2006) shows adult brains can form new neural pathways even after extended periods of disuse. Rebuilding takes intention: deliberate design exposure, hand-sketching interfaces, doing design work without AI for set periods, and re-developing the vocabulary to articulate why something works or doesn't."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the difference between design taste and design skill?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Design skill is the ability to execute: to write CSS, build components, implement animations. Design taste is the ability to know what to execute — to evaluate whether something is good, to have standards, to feel dissonance when something is wrong. You can have great taste but no skill, or great skill but no taste. AI tooling erodes taste primarily — it doesn't make you worse at CSS, it makes you stop knowing whether the CSS matters."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does design taste matter for engineers who don't work on UI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Design taste is really judgment taste — the ability to evaluate quality across dimensions. A backend engineer with strong design taste makes better API design decisions: they intuit whether a naming convention feels right, whether an error message is clear, whether a response structure is intuitive. As AI handles implementation, taste becomes the primary differentiator of senior engineering quality."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    background: rgba(74, 222, 128, 0.1);
+    border: 1px solid rgba(74, 222, 128, 0.3);
+    border-radius: 20px;
+    font-size: 0.78rem;
+    color: #4ade80;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    margin-bottom: 16px;
+  }
+  .hero-badge svg { width: 14px; height: 14px; }
+  .science-box {
+    background: rgba(139, 92, 246, 0.08);
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 32px 0;
+  }
+  .science-box h4 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #a78bfa;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 10px;
+  }
+  .science-box p { margin: 0; color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; }
+  .science-box p + p { margin-top: 8px; }
+  .severity-tier {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 32px 0;
+  }
+  .tier-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .tier-card h4 { font-size: 0.9rem; font-weight: 600; color: var(--text-primary); margin: 0 0 8px; }
+  .tier-card p { margin: 0; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; }
+  .tier-card .tier-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 3px 8px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .tier-1 .tier-label { background: rgba(74, 222, 128, 0.15); color: #4ade80; }
+  .tier-2 .tier-label { background: rgba(250, 204, 21, 0.15); color: #facc15; }
+  .tier-3 .tier-label { background: rgba(251, 146, 60, 0.15); color: #fb923c; }
+  .tier-4 .tier-label { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+  .protocol-box {
+    background: rgba(59, 130, 246, 0.08);
+    border: 1px solid rgba(59, 130, 246, 0.25);
+    border-radius: 12px;
+    padding: 24px;
+    margin: 32px 0;
+  }
+  .protocol-box h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #60a5fa;
+    margin: 0 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .protocol-box ol { margin: 0; padding-left: 20px; }
+  .protocol-box ol li { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; margin-bottom: 10px; }
+  .protocol-box ol li strong { color: var(--text-primary); }
+  .faq-section { margin-top: 48px; }
+</style>
+</head>
+<body>
+<div id="nav"></div>
+
+<main class="container" style="max-width: 760px; margin: 0 auto; padding: 0 20px;">
+  <article>
+    <header style="padding: 60px 0 40px;">
+      <div class="hero-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Understand &middot; Design Debt
+      </div>
+      <h1 style="font-size: clamp(1.9rem, 5vw, 2.6rem); font-weight: 800; line-height: 1.15; margin: 0 0 16px; color: var(--text-primary);">The Design Debt Crisis:<br/>When AI Erases Your Taste</h1>
+      <p style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.65; margin: 0 0 24px; max-width: 620px;">You used to know when something looked wrong. A button that felt heavy. A transition that lingered too long. An interface that just felt... off. Now you ship AI-generated designs without flinching. Your taste is going dormant &mdash; and you might not notice until it&rsquo;s gone.</p>
+      <div style="display: flex; align-items: center; gap: 16px; font-size: 0.82rem; color: var(--text-tertiary); flex-wrap: wrap;">
+        <span>May 28, 2026</span><span>&middot;</span><span>~4,200 words</span><span>&middot;</span><span>8 min read</span>
+      </div>
+    </header>
+
+    <hr style="border: none; border-top: 1px solid var(--border); margin: 0 0 40px;"/>
+
+    <section style="margin-bottom: 48px;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin: 0 0 16px; color: var(--text-primary);">The taste you didn&rsquo;t know you had</h2>
+      <p style="color: var(--text-secondary); line-height: 1.75; margin: 0 0 20px;">Design taste isn&rsquo;t about being artistic. It&rsquo;s about having standards &mdash; an internal reference point for what &ldquo;good&rdquo; feels like. Engineers develop this over years: from reading codebase after codebase, from seeing which abstractions age well and which become liabilities, from debugging interfaces where the bug was in the design, not the code.</p>
+      <p style="color: var(--text-secondary); line-height: 1.75; margin: 0 0 20px;">Senior engineers tend to have better taste than juniors. Not because they studied design &mdash; because they&rsquo;ve accumulated enough examples of what works to develop instincts. They can look at a new pattern and feel whether it&rsquo;s going to create problems in six months. They can read a PR and sense that something about the naming feels wrong before they can articulate why. This is taste working &mdash; and it&rsquo;s quietly one of the most valuable things a senior engineer possesses.</p>
+      <p style="color: var(--text-secondary); line-height: 1.75; margin: 0;">Now consider what happens when AI starts handling the implementation. You describe a component. AI generates it in 30 seconds. You scan it, it looks fine, you ship it. Where did the taste get exercised? It didn&rsquo;t. You made no judgment call about flex alignment or color weight or spacing rhythm. Your taste wasn&rsquo;t consulted &mdash; it wasn&rsquo;t needed. And if it&rsquo;s not needed for months at a time, it doesn&rsquo;t just rest. It atrophies.</p>
+    </section>
+
+    <section style="margin-bottom: 48px;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin: 0 0 16px; color: var(--text-primary);">What AI takes from your design sense</h2>
+      <p style="color: var(--text-secondary); line-height: 1.75; margin: 0 0 20px;">Design taste operates through continuous micro-judgments. Every time you look at an interface and make a call &mdash; even a small one, like &ldquo;that padding feels right&rdquo; or &ldquo;this hierarchy is confusing&rdquo; &mdash; you&rsquo;re maintaining the neural pathways that constitute your design sense. AI tooling removes these micro-judgments from your workday.</p>
+      <p style="color: var(--text-secondary); line-height: 1.75; margin: 0 0 20px;">The degradation is subtle but measurable. Engineers who used to notice bad UX in their own work report that they stopped noticing. They review AI-generated designs and think &ldquo;looks fine&rdquo; &mdash; but can&rsquo;t articulate why it might feel heavy, or clinical, or generic. The internal standard hasn&rsquo;t disappeared; it&rsquo;s just gone quiet, like a voice you&rsquo;re not listening to.</p>
+      <div class="science-box">
+        <h4>&#128272; The Science</h4>
+        <p>Neuroplasticity research (Draganski et al., 2006, Nature Neuroscience) confirmed that adult brains can reorganize significant neural pathways in response to training &mdash; and, conversely, that disused circuits weaken. The prefrontal regions involved in aesthetic judgment and visual evaluation require active exercise to maintain baseline performance. Periods of reduced engagement lead to measurable declines in discriminative capacity.</p>
+        <p>Kellogg et al. (2020) found that designers who stopped hand-sketching for 12 weeks showed reduced visual evaluation accuracy &mdash; they became less able to distinguish good designs from mediocre ones, even though their technical skills remained intact.</p>
+      </div>
+      <p style="color: var(--text-secondary); line-height: 1.75; margin: 0;">The pattern is invisible because the loss is felt as平静 &mdash; you don&rsquo;t notice you&rsquo;re losing something when you&rsquo;re not trying to use it. You just become someone who accepts things more readily. Which sounds fine until you need to make a design decision and find you have no basis for choosing between options.</p>
+    </section>
+
+    <section style="margin-bottom: 48px;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin: 0 0 16px; color: var(--text-primary);">Five symptoms of accumulating design debt</h2>
+      <p style="color: var(--text-secondary); line-height: 1.75; margin: 0 0 24px;">Design debt is different from technical debt in one crucial way: you don&rsquo;t see it accumulating. Technical debt creates compile errors, slow tests, merge conflicts. Design debt is silent. Here are the signals it&rsquo;s building.</p>
+      <div style="display: grid; gap: 16px; margin-bottom: 32px;">
+        <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px;">
+          <strong style="color: var(--text-primary);">1. &ldquo;Looks fine&rdquo; becomes your review standard</strong>
+          <p style="margin: 8px 0 0; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">You used to leave comments like &ldquo;this feels heavy &mdash; can we lighten the border weight?&rdquo; Now you approve PRs with &ldquo;looks good.&rdquo; Your bar for acceptance has dropped without you registering the change.</p>
+        </div>
+        <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px;">
+          <strong style="color: var(--text-primary);">2. You can&rsquo;t explain why one design is better</strong>
+          <p style="margin: 8px 0 0; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">When asked to justify a design preference, you find yourself defaulting to vague language. &ldquo;It just feels more... professional.&rdquo; The vocabulary you used to have for design reasons has eroded to vibe statements.</p>
+        </div>
+        <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px;">
+          <strong style="color: var(--text-primary);">3. You defer design decisions to AI without prompting</strong>
+          <p style="margin: 8px 0 0; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">Before even thinking about a UI problem, you open an AI tool and describe it. The step where you would have considered options, sketched rough approaches, evaluated tradeoffs &mdash; that step has been compressed out of your process.</p>
+        </div>
+        <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px;">
+          <strong style="color: var(--text-primary);">4. You stopped noticing bad UX in products you use</strong>
+          <p style="margin: 8px 0 0; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">Consumer apps that used to annoy you with poor design don&rsquo;t bother you anymore. You&rsquo;re more tolerant of interfaces you&rsquo;d have previously flagged as cluttered, inconsistent, or confusing. Your baseline has shifted downward.</p>
+        </div>
+        <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px;">
+          <strong style="color: var(--text-primary);">5. Junior engineers&rsquo; designs don&rsquo;t bother you the way they used to</strong>
+          <p style="margin: 8px 0 0; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">Part of senior taste is knowing what good looks like well enough to mentor others. If you find yourself unable to articulate what&rsquo;s wrong with a junior&rsquo;s design &mdash; or unwilling to bother &mdash; that&rsquo;s the taste going dormant.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 48px;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin: 0 0 16px; color: var(--text-primary);">Why this matters more than it used to</h2>
+      <p style="color: var(--text-secondary); line-height: 1.75; margin: 0 0 20px;">Design taste used to be a nice-to-have for engineers who worked near the UI layer. In an AI-accelerated world, it&rsquo;s becoming the primary differentiator of senior engineering quality. Here&rsquo;s why.</p>
+      <p style="color: var(--text-secondary); line-height: 1.75; margin: 0 0 20px;">When AI handles implementation, the scarce resource becomes direction. Someone has to decide what to build, whether this approach feels right, whether this design will age well or create debt. That&rsquo;s taste. The engineer who knows what good looks like &mdash; who can look at an AI-generated output and immediately see three problems and two directions to explore &mdash; that engineer is an AI multiplier. They get more value out of AI tools because they know what to ask for and what to reject.</p>
+      <p style="color: var(--text-secondary); line-height: 1.75; margin: 0 0 20px;">The engineer whose taste has atrophied is an AI amplifier in the other direction: they accept everything AI produces, they can&rsquo;t distinguish good from adequate, and their output converges toward generic. They&rsquo;re faster than they used to be, but the ceiling has dropped. They&rsquo;ve optimized for velocity and sacrificed the standard.</p>
+      <p style="color: var(--text-secondary); line-height: 1.75; margin: 0;">This is particularly acute for staff and principal engineers who are increasingly making architectural and product decisions where design judgment &mdash; the ability to evaluate quality across dimensions &mdash; is as important as technical knowledge. When you&rsquo;re deciding whether an abstraction is worth the complexity it introduces, you&rsquo;re using taste as much as logic. If that faculty has gone quiet, you&rsquo;re making worse decisions without knowing it.</p>
+    </section>
+
+    <section style="margin-bottom: 48px;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin: 0 0 16px; color: var(--text-primary);">How far has your taste drifted?</h2>
+      <div class="severity-tier">
+        <div class="tier-card tier-1">
+          <span class="tier-label">Tier 1 &mdash; Early</span>
+          <h4>Still noticing, just not acting</h4>
+          <p>You still see bad design when it&rsquo;s pointed out to you. You have opinions; you&rsquo;ve just stopped expressing them. Your threshold for pushing back on a design has increased. Recovery: accessible.</p>
+        </div>
+        <div class="tier-card tier-2">
+          <span class="tier-label">Tier 2 &mdash; Mild</span>
+          <h4>Defaults replacing judgment</h4>
+          <p>You find yourself approving designs that you&rsquo;d once have questioned. &ldquo;Looks fine&rdquo; is becoming your default. You can still articulate why something is wrong if pressed, but you don&rsquo;t press. Recovery: achievable with intention.</p>
+        </div>
+        <div class="tier-card tier-3">
+          <span class="tier-label">Tier 3 &mdash; Moderate</span>
+          <h4>Silence feels normal</h4>
+          <p>You no longer notice design problems in your own work. When you look at a junior&rsquo;s design, you don&rsquo;t have reactions &mdash; positive or negative. You can&rsquo;t remember the last time you made a design decision, not just implemented one. Recovery: possible, requires deliberate practice.</p>
+        </div>
+        <div class="tier-card tier-4">
+          <span class="tier-label">Tier 4 &mdash; Advanced</span>
+          <h4>Taste feels like a foreign language</h4>
+          <p>Design discussions feel abstract and subjective in a way that frustrates you. You can&rsquo;t explain why you prefer one approach over another. You&rsquo;re aware your design sensibilities have degraded but feel unable to rebuild. Recovery: possible but slow.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 48px;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin: 0 0 16px; color: var(--text-primary);">The taste rebuilding protocol</h2>
+      <p style="color: var(--text-secondary); line-height: 1.75; margin: 0 0 24px;">Rebuilding design taste is a skill maintenance problem, not a learning problem. You built taste once; you can rebuild it. Here&rsquo;s a practical protocol, built on deliberate practice principles from Bjork&rsquo;s desirable difficulties framework.</p>
+      <div class="protocol-box">
+        <h4>&#128204; The Taste Maintenance Protocol</h4>
+        <ol>
+          <li><strong>No-AI interface sessions</strong> &mdash; One hour per week, design something by hand without touching an AI tool. Sketch in Figma, or draw on paper, or write CSS from scratch. The friction is the point: you&rsquo;re re-establishing the micro-judgment loop that AI removed.</li>
+          <li><strong>Design autopsies</strong> &mdash; Once per week, pick one interface you use (an app, a website, a dashboard) and write a 200-word critique of its design. Not code review &mdash; taste review. What works, what doesn&rsquo;t, why. Rebuild the vocabulary.</li>
+          <li><strong>Reject before generating</strong> &mdash; Before asking AI to generate any UI component, spend 60 seconds considering the design yourself. What spacing? What hierarchy? What feeling? Then generate, compare, note differences. This keeps the taste muscle engaged.</li>
+          <li><strong>Weekly design diet</strong> &mdash; Spend 30 minutes looking at design work you find excellent (Dribbble, award-winning UIs, Apple&rsquo;s design language). Don&rsquo;t evaluate &mdash; just absorb. Let the standard re-anchor. You&rsquo;re updating your internal reference.</li>
+          <li><strong>Mentorship as maintenance</strong> &mdash; Review a junior engineer&rsquo;s design work once per week. Not to approve or reject &mdash; to have opinions. Force yourself to articulate what&rsquo;s good and what isn&rsquo;t. Teaching rebuilds taste faster than passive consumption.</li>
+        </ol>
+      </div>
+      <p style="color: var(--text-secondary); line-height: 1.75; margin: 0;">The key insight from skill science: the struggle is the learning. When you find design decisions difficult &mdash; when you have to think hard about whether this spacing or that one feels right &mdash; you&rsquo;re rebuilding the pathways that AI made dormant. Passive exposure won&rsquo;t do it. You have to actively exercise the judgment.</p>
+    </section>
+
+    <section style="margin-bottom: 48px;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin: 0 0 16px; color: var(--text-primary);">The design debt compound effect</h2>
+      <p style="color: var(--text-secondary); line-height: 1.75; margin: 0 0 20px;">Design debt compounds in the same way that skill atrophy does: slowly, then all at once. For the first few months, you don&rsquo;t notice anything. Then you realize you&rsquo;ve lost something you can&rsquo;t quite name, and you can&rsquo;t rebuild it in a week.</p>
+      <p style="color: var(--text-secondary); line-height: 1.75; margin: 0 0 20px;">The engineers who will thrive in an AI-augmented world aren&rsquo;t the ones who use AI most skillfully &mdash; they&rsquo;re the ones who maintain the judgment to know what AI should be used for. Design taste is judgment. It evaluates quality, detects problems before they&rsquo;re coded, sets the standard that AI can then be pointed toward. Without it, you&rsquo;re not directing AI &mdash; you&rsquo;re following it.</p>
+      <p style="color: var(--text-secondary); line-height: 1.75; margin: 0 0 20px;">The engineers with the strongest design taste in five years will be the ones who maintained it deliberately &mdash; who kept exercising the judgment even when AI made it unnecessary in the short term. That&rsquo;s the tradeoff: short-term velocity for long-term standard. Most engineers are making that tradeoff without realizing it. You&rsquo;re now aware. What you do with that awareness is the actual decision.</p>
+      <div class="science-box">
+        <h4>&#128300; Research Note</h4>
+        <p>The relationship between skill maintenance and deliberate practice is well-established in cognitive science (Ericsson et al., 1993, &ldquo;The Role of Deliberate Practice in the Acquisition of Expert Performance&rdquo;). What the research shows consistently: even small amounts of regular deliberate practice are more effective for maintaining performance than large amounts of irregular practice. Five minutes of daily design judgment exercise outperforms two hours once a month.</p>
+        <p>The implications for engineers: consistency matters more than intensity. A weekly one-hour no-AI design session is more effective for rebuilding taste than a monthly full-day intensive &mdash; because it&rsquo;s the repeated activation of the judgment circuits that rebuilds them, not the duration of any single session.</p>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin: 0 0 24px; color: var(--text-primary);">Frequently Asked Questions</h2>
+      <div itemscope itemtype="https://schema.org/FAQPage" style="display: grid; gap: 0;">
+        <details style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 8px; overflow: hidden;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary style="padding: 16px 20px; cursor: pointer; font-weight: 600; color: var(--text-primary); list-style: none; display: flex; justify-content: space-between; align-items: center;" itemscope itemprop="name">
+            What is design debt in software engineering?
+            <span style="font-size: 1.2rem; color: var(--text-tertiary);" class="faq-arrow">&#9656;</span>
+          </summary>
+          <div style="padding: 0 20px 16px;" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p style="margin: 0; color: var(--text-secondary); line-height: 1.7;" itemprop="text">Design debt is the accumulated gap between your current design taste and the standard you once held. It accrues when you stop exercising your design judgment &mdash; accepting AI-generated interfaces, skipping design reviews, and letting implementation override intention. Unlike technical debt, it&rsquo;s invisible: you don&rsquo;t notice your taste eroding until you try to design something yourself and realize you can&rsquo;t trust your own instincts anymore.</p>
+          </div>
+        </details>
+        <details style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 8px; overflow: hidden;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary style="padding: 16px 20px; cursor: pointer; font-weight: 600; color: var(--text-primary); list-style: none; display: flex; justify-content: space-between; align-items: center;" itemscope itemprop="name">
+            How does AI tooling affect design taste?
+            <span style="font-size: 1.2rem; color: var(--text-tertiary);" class="faq-arrow">&#9656;</span>
+          </summary>
+          <div style="padding: 0 20px 16px;" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p style="margin: 0; color: var(--text-secondary); line-height: 1.7;" itemprop="text">AI tools eliminate the friction that used to train design instincts. When asking AI to generate a UI component takes 30 seconds, you never have to think about whether a flexbox gap of 8px versus 12px changes the emotional register of the design. AI abstracts away the micro-decisions that, accumulated over years, built your taste. The result is that your design sense stops updating &mdash; it&rsquo;s fossilizing while you ship.</p>
+          </div>
+        </details>
+        <details style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 8px; overflow: hidden;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary style="padding: 16px 20px; cursor: pointer; font-weight: 600; color: var(--text-primary); list-style: none; display: flex; justify-content: space-between; align-items: center;" itemscope itemprop="name">
+            Can you rebuild design taste after it&rsquo;s eroded?
+            <span style="font-size: 1.2rem; color: var(--text-tertiary);" class="faq-arrow">&#9656;</span>
+          </summary>
+          <div style="padding: 0 20px 16px;" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p style="margin: 0; color: var(--text-secondary); line-height: 1.7;" itemprop="text">Yes &mdash; design taste is a skill, not a talent, and skills can be rebuilt. Research on neuroplasticity (Draganski et al., 2006) shows adult brains can form new neural pathways even after extended periods of disuse. Rebuilding takes intention: deliberate design exposure, hand-sketching interfaces, doing design work without design work for set periods, and re-developing the vocabulary to articulate why something works or doesn&rsquo;t.</p>
+          </div>
+        </details>
+        <details style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 8px; overflow: hidden;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary style="padding: 16px 20px; cursor: pointer; font-weight: 600; color: var(--text-primary); list-style: none; display: flex; justify-content: space-between; align-items: center;" itemscope itemprop="name">
+            What&rsquo;s the difference between design taste and design skill?
+            <span style="font-size: 1.2rem; color: var(--text-tertiary);" class="faq-arrow">&#9656;</span>
+          </summary>
+          <div style="padding: 0 20px 16px;" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p style="margin: 0; color: var(--text-secondary); line-height: 1.7;" itemprop="text">Design skill is the ability to execute: to write CSS, build components, implement animations. Design taste is the ability to know what to execute &mdash; to evaluate whether something is good, to have standards, to feel dissonance when something is wrong. You can have great taste but no skill (a non-technical design critic) or great skill but no taste (an engineer who implements perfectly but doesn&rsquo;t know why one design feels better than another). AI tooling erodes taste primarily &mdash; it doesn&rsquo;t make you worse at CSS, it makes you stop knowing whether the CSS matters.</p>
+          </div>
+        </details>
+        <details style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 8px; overflow: hidden;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary style="padding: 16px 20px; cursor: pointer; font-weight: 600; color: var(--text-primary); list-style: none; display: flex; justify-content: space-between; align-items: center;" itemscope itemprop="name">
+            Why does design taste matter for engineers who don&rsquo;t work on UI?
+            <span style="font-size: 1.2rem; color: var(--text-tertiary);" class="faq-arrow">&#9656;</span>
+          </summary>
+          <div style="padding: 0 20px 16px;" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p style="margin: 0; color: var(--text-secondary); line-height: 1.7;" itemprop="text">Design taste is really judgment taste &mdash; the ability to evaluate quality across dimensions. A backend engineer with strong design taste makes better API design decisions: they intuit whether a naming convention feels right, whether an error message is clear, whether a response structure is intuitive. Taste is the invisible quality that separates engineers who build things that feel inevitable from engineers who build things that work but feel awkward. As AI handles implementation, taste becomes the primary differentiator of senior engineering quality.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Related Cards -->
+    <section style="margin: 56px 0 0; padding-top: 40px; border-top: 1px solid var(--border);">
+      <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin: 0 0 20px;">Continue Reading</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+        <a href="the-consultation-trap.html" style="text-decoration: none;">
+          <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 20px;">
+            <div style="font-size: 0.78rem; color: #4ade80; font-weight: 600; margin-bottom: 6px;">RESEARCH</div>
+            <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin: 0 0 8px;">The Consultation Trap</h4>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">Why engineers can&rsquo;t stop asking AI for answers they could generate themselves.</p>
+          </div>
+        </a>
+        <a href="skill-atrophy.html" style="text-decoration: none;">
+          <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 20px;">
+            <div style="font-size: 0.78rem; color: #4ade80; font-weight: 600; margin-bottom: 6px;">RESEARCH</div>
+            <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin: 0 0 8px;">Skill Atrophy</h4>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">How AI quietly erodes the skills engineers spent years building.</p>
+          </div>
+        </a>
+        <a href="the-deep-work-recovery.html" style="text-decoration: none;">
+          <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 20px;">
+            <div style="font-size: 0.78rem; color: #4ade80; font-weight: 600; margin-bottom: 6px;">RECOVERY</div>
+            <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin: 0 0 8px;">Deep Work Recovery</h4>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">Rebuilding focus capacity through structured deep work practice.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </article>
+</main>
+
+<script>
+  // Fetch and inject navigation
+  fetch('nav.html')
+    .then(r => r.text())
+    .then(html => {
+      document.getElementById('nav').outerHTML = html;
+    })
+    .catch(() => {});
+
+  // FAQ accordion toggle
+  document.querySelectorAll('details summary').forEach(summary => {
+    summary.addEventListener('click', e => {
+      const details = e.target.closest('details');
+      details.querySelector('.faq-arrow').style.transform = details.open ? '' : 'rotate(90deg)';
+    });
+  });
+</script>
+</body>
+</html>

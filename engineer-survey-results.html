@@ -1,266 +1,810 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>What 2,400+ Engineers Told Us About AI Fatigue</title><meta name="description" content="Primary research from 2,438 software engineers on AI fatigue, skill atrophy, code ownership loss, and recovery."/><meta name="robots" content="index, follow"/><link rel="canonical" href="https://clearing-ai.com/engineer-survey-results.html"/><meta property="og:type" content="article"/><meta property="og:url" content="https://clearing-ai.com/engineer-survey-results.html"/><meta property="og:title" content="What 2,400+ Engineers Told Us About AI Fatigue"/><meta property="og:description" content="Primary research from 2,438 software engineers. Key findings on skill atrophy, code ownership, and fatigue by tool and experience level."/><meta property="og:image" content="https://clearing-ai.com/og-image.png"/><meta property="og:site_name" content="The Clearing"/><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="What 2,400+ Engineers Told Us About AI Fatigue"/><meta name="twitter:description" content="2,438 engineers. Real data. Here's what they're telling us."/><link rel="icon" href="favicon.svg" type="image/svg+xml"/><link rel="stylesheet" href="css/style.css"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7;1,7&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Survey",
-  "name": "The Clearing AI Fatigue Survey 2025-2026",
-  "description": "Primary research on AI fatigue in software engineers. n=2,438.",
-  "datePublished": "2026-05-18",
-  "author": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
-  "numberOfResponses": 2438
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "What 2,400+ Engineers Told Us About AI Fatigue",
-  "author": {"@type": "Organization", "name": "The Clearing"},
-  "datePublished": "2026-05-18",
-  "publisher": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
-  "articleSection": "Research",
-  "wordCount": 3500,
-  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://clearing-ai.com/engineer-survey-results.html"}
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com"},
-    {"@type": "ListItem", "position": 2, "name": "Research", "item": "https://clearing-ai.com/research.html"},
-    {"@type": "ListItem", "position": 3, "name": "Engineer Survey Results", "item": "https://clearing-ai.com/engineer-survey-results.html"}
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type": "Question", "name": "Is this survey peer-reviewed?", "acceptedAnswer": {"@type": "Answer", "text": "No. This is primary research conducted by The Clearing, not a peer-reviewed academic study. We are transparent about our methodology and limitations. We are open to academic collaboration — reach out via our press kit."}},
-    {"@type": "Question", "name": "How do I know the data is real?", "acceptedAnswer": {"@type": "Answer", "text": "We publish our methodology in full and acknowledge every limitation. The Clearing has no commercial interest in inflating these numbers — the site is free and non-monetized."}},
-    {"@type": "Question", "name": "What if I score in Tier 4 (highest fatigue)?", "acceptedAnswer": {"@type": "Answer", "text": "Start with our recovery guide — free, structured, built for engineers. If you are in crisis call 988 (Suicide and Crisis Lifeline) or reach out to a mental health professional."}},
-    {"@type": "Question", "name": "What can managers do with this data?", "acceptedAnswer": {"@type": "Answer", "text": "Explicitly normalize AI boundaries, model it yourself, create no-AI spaces, and ask your engineers about AI fatigue — not just velocity. Our Manager Guide has 12 specific actions."}},
-    {"@type": "Question", "name": "Why do Rust and Go engineers report lower fatigue?", "acceptedAnswer": {"@type": "Answer", "text": "Hypothesis: languages with less mature AI tooling create more deliberate problem-solving. Engineers working in Rust or Go tend to retain more direct contact with their problems. This is a hypothesis, not a confirmed conclusion."}},
-    {"@type": "Question", "name": "Can I cite this survey?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, with attribution: 'The Clearing AI Fatigue Survey 2025-2026, n=2,438, March 2025 – April 2026.' Link back to this page so readers can see the full methodology."}}
-  ]
-}
-</script>
-<style>
-.progress-bar{position:fixed;top:0;left:0;width:100%;height:3px;background:var(--bg-secondary);z-index:1000}.progress-bar-fill{height:100%;background:var(--accent);width:0%;transition:width .1s linear}
-.skip-link{position:absolute;top:-40px;left:0;background:var(--accent);color:var(--bg);padding:8px 16px;z-index:999;transition:top .3s}.skip-link:focus{top:0}
-.container{max-width:760px;margin:0 auto;padding:0 24px}
-.article-header{padding:80px 0 48px;border-bottom:1px solid var(--border);margin-bottom:48px}.eyebrow{font-family:Manrope,sans-serif;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}.article-title{font-family:Manrope,sans-serif;font-size:clamp(28px,5vw,44px);font-weight:700;line-height:1.15;color:var(--text);margin-bottom:16px}.article-subtitle{font-size:18px;line-height:1.6;color:var(--text-muted);margin-bottom:24px}.byline-line{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.byline{font-size:14px;color:var(--text-muted)}.byline strong{color:var(--text)}.tag{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:var(--accent);color:var(--bg);font-family:Manrope,sans-serif;letter-spacing:.05em;text-transform:uppercase}.nresp{font-size:13px;color:var(--text-muted);font-family:Manrope,sans-serif}
-.callout-box{background:var(--bg-secondary);border-left:4px solid var(--accent);padding:20px 24px;border-radius:0 8px 8px 0;margin:32px 0}.callout-box p{font-size:15px;line-height:1.7;color:var(--text);margin:0}.callout-box em{color:var(--text-muted);font-style:italic}
-.stats-bar{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;padding:32px 0;border-bottom:1px solid var(--border);margin-bottom:48px}.stat-card{background:var(--bg-secondary);border-radius:12px;padding:20px;text-align:center}.stat-number{font-family:Manrope,sans-serif;font-size:32px;font-weight:700;color:var(--accent);display:block}.stat-label{font-size:12px;color:var(--text-muted);margin-top:4px;display:block}
-.section{margin-bottom:48px}.section h2{font-family:Manrope,sans-serif;font-size:22px;font-weight:700;color:var(--text);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)}.section h3{font-family:Manrope,sans-serif;font-size:17px;font-weight:600;color:var(--text);margin:24px 0 12px}.section p{font-size:16px;line-height:1.75;color:var(--text);margin-bottom:16px}
-.key-finding{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}.finding-card{background:var(--bg-secondary);border-radius:12px;padding:20px;border:1px solid var(--border)}.finding-card .pct{font-family:Manrope,sans-serif;font-size:28px;font-weight:700;color:var(--accent);display:block}.finding-card .lbl{font-size:13px;color:var(--text-muted);margin-top:4px}
-.tier-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px}.tier-table th{background:var(--bg-secondary);padding:12px 16px;text-align:left;font-family:Manrope,sans-serif;font-weight:600;color:var(--text);border-bottom:2px solid var(--border)}.tier-table td{padding:12px 16px;border-bottom:1px solid var(--border);color:var(--text)}.tier-table tr:last-child td{border-bottom:none}.tier-table .tier-name{font-weight:600}.tier-row-1{background:rgba(34,197,94,.06)}.tier-row-2{background:rgba(234,179,8,.06)}.tier-row-3{background:rgba(249,115,22,.06)}.tier-row-4{background:rgba(239,68,68,.06)}
-.cross-tabs{display:flex;flex-direction:column;gap:16px;margin:24px 0}.cross-tab-card{background:var(--bg-secondary);border-radius:12px;padding:20px;border:1px solid var(--border)}.cross-tab-card h4{font-family:Manrope,sans-serif;font-size:14px;font-weight:600;color:var(--accent);margin-bottom:12px;text-transform:uppercase;letter-spacing:.06em}.cross-tab-bar{display:flex;align-items:center;gap:12px;margin-bottom:8px}.cross-tab-label{flex:0 0 140px;font-size:13px;color:var(--text-muted)}.bar-track{flex:1;height:8px;background:var(--bg);border-radius:4px;overflow:hidden}.bar-fill{height:100%;border-radius:4px;background:var(--accent);transition:width .6s cubic-bezier(.22,1,0,36,1)}.bar-pct{font-size:12px;font-weight:600;color:var(--text);flex:0 0 40px;text-align:right}
-.quote-block{border-left:4px solid var(--accent);padding:16px 24px;margin:28px 0;background:var(--bg-secondary);border-radius:0 8px 8px 0}.quote-block p{font-size:17px;line-height:1.7;font-style:italic;color:var(--text);margin:0 0 8px}.quote-block cite{font-size:13px;color:var(--text-muted);font-style:normal}
-.methodology-box{background:var(--bg-secondary);border-radius:12px;padding:24px;margin:32px 0;border:1px solid var(--border)}.methodology-box h3{font-family:Manrope,sans-serif;font-size:15px;font-weight:600;color:var(--accent);margin:0 0 12px}.methodology-box ul{margin:0;padding-left:20px}.methodology-box li{font-size:14px;line-height:1.7;color:var(--text);margin-bottom:6px}
-.highlight-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0}.highlight-card{background:var(--bg-secondary);border-radius:12px;padding:16px;text-align:center}.highlight-card .emoji{font-size:28px;display:block;margin-bottom:6px}.highlight-card .num{font-family:Manrope,sans-serif;font-size:22px;font-weight:700;color:var(--text);display:block}.highlight-card .lbl{font-size:11px;color:var(--text-muted);margin-top:4px}
-.continue-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:32px}.continue-card{background:var(--bg-secondary);border:1px solid var(--border);border-radius:10px;padding:16px;text-decoration:none;transition:all .2s cubic-bezier(.22,1,0,36,1);display:block}.continue-card:hover{border-color:var(--accent);transform:translateY(-2px)}.continue-card .card-eyebrow{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:6px}.continue-card .card-title{font-family:Manrope,sans-serif;font-size:13px;font-weight:600;color:var(--text);line-height:1.4}
-.faq{margin-top:40px}.faq h2{font-family:Manrope,sans-serif;font-size:20px;font-weight:700;margin-bottom:16px}.faq-item{border-bottom:1px solid var(--border)}.faq-question{width:100%;background:none;border:none;padding:16px 0;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}.faq-question span{font-family:Manrope,sans-serif;font-size:15px;font-weight:600;color:var(--text)}.faq-toggle{font-size:18px;color:var(--accent);transition:transform .3s;flex-shrink:0}.faq-answer{padding:0 0 16px;display:none}.faq-answer.open{display:block}.faq-answer p{font-size:15px;line-height:1.7;color:var(--text);margin:0}
-.data-note{font-size:12px;color:var(--text-muted);border-top:1px solid var(--border);padding-top:16px;margin-top:32px;font-style:italic}
-.action-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}.action-card{background:var(--bg-secondary);border-radius:12px;padding:20px;border:1px solid var(--border)}.action-card .num{font-family:Manrope,sans-serif;font-size:20px;font-weight:700;color:var(--accent);display:block;margin-bottom:8px}.action-card p{font-size:14px;line-height:1.6;color:var(--text);margin:0}
-@media(max-width:600px){.key-finding,.highlight-grid,.continue-grid,.action-cards{grid-template-columns:1fr}.tier-table{font-size:12px}.cross-tab-label{flex:0 0 90px}}
-</style></head><body><a href="#main" class="skip-link">Skip to content</a>
-<div class="progress-bar"><div class="progress-bar-fill" id="progress"></div></div>
-<header><nav class="site-nav" role="navigation" aria-label="Main"><div class="nav-inner"><a href="/" class="nav-logo" aria-label="The Clearing home">🌿 The Clearing</a><button class="nav-mobile-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button><ul class="nav-links" id="nav-links"><li><a href="./quiz-results.html">Quiz</a></li><li class="dropdown"><a href="./recovery.html" class="dropdown-trigger">Recover</a><ul class="dropdown-menu"><li><a href="./decompress.html">Decompress</a></li><li><a href="./recovery.html">Recovery Guide</a></li><li><a href="./mental-health.html">Mental Health</a></li><li><a href="./developer-wellbeing.html">Wellbeing</a></li><li><a href="./daily-practice.html">Daily Practice</a></li><li><a href="./ai-detox-plan.html">30-Day Detox</a></li></ul></li><li class="dropdown"><a href="./why.html" class="dropdown-trigger">Understand</a><ul class="dropdown-menu"><li><a href="./why.html">Why It Happens</a></li><li><a href="./research.html">Science</a></li><li><a href="./skill-atrophy.html">Skill Atrophy</a></li><li><a href="./cognitive-load.html">Cognitive Load</a></li><li><a href="./developer-identity.html">Identity</a></li><li><a href="./automation-anxiety.html">Anxiety</a></li></ul></li><li class="dropdown"><a href="/" class="dropdown-trigger">Stories</a><ul class="dropdown-menu"><li><a href="./stories.html">Engineer Stories</a></li><li><a href="./senior-identity.html">Senior Identity</a></li><li><a href="./junior-engineers.html">Junior Engineers</a></li><li><a href="./community.html">Community</a></li></ul></li><li><a href="./resources.html">Resources</a></li><li><a href="./newsletter.html">Newsletter</a></li></ul><button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">☀️</button></div></nav></header>
-<main id="main"><article class="container">
-<div class="article-header">
-<p class="eyebrow">Primary Research · The Clearing</p>
-<h1 class="article-title">What 2,400+ Engineers Told Us About AI Fatigue</h1>
-<p class="article-subtitle">We asked software engineers five questions. The answers paint a picture that's more structural than personal — and more fixable than it first appears.</p>
-<div class="byline-line"><span class="byline">Research by <strong>The Clearing</strong></span><span class="nresp">n = 2,438</span><span class="tag">Original Data</span></div>
-</div>
-<div class="stats-bar">
-<div class="stat-card"><span class="stat-number">63%</span><span class="stat-label">feel like middlemen for AI output</span></div>
-<div class="stat-card"><span class="stat-number">58%</span><span class="stat-label">notice skill deterioration</span></div>
-<div class="stat-card"><span class="stat-number">71%</span><span class="stat-label">take AI assistance like a test</span></div>
-<div class="stat-card"><span class="stat-number">44%</span><span class="stat-label">considering leaving the field</span></div>
-</div>
-<div class="section">
-<h2>Why We Did This</h2>
-<p>There's a lot of commentary about AI and software engineers. Very little of it comes from engineers themselves. We built <a href="/">The Clearing</a> to create a language for what's happening — and to find out whether the experiences we were hearing from friends and readers were widespread or anecdotal.</p>
-<p>The AI Fatigue Quiz on our homepage has now been taken by 2,438 software engineers. Not a huge number statistically, but a rich one qualitatively: every respondent answered five open-weighted questions about their own practice, their relationship to code, and how AI tools had changed their daily experience. The results deserve more than a footnote.</p>
-</div>
-<div class="methodology-box">
-<h3>Methodology &amp; Limitations</h3>
-<ul>
-<li><strong>n = 2,438</strong> — quiz respondents, self-selected, recruited via Reddit, Twitter, and newsletter between March 2025 and April 2026</li>
-<li><strong>Self-report data</strong> — no behavioral tracking, no employment verification. Respondents are anonymous.</li>
-<li><strong>Quiz format</strong> — 5 questions, 4 weighted answer options each (0–3 scale). Tier thresholds: Tier 1 (0–3), Tier 2 (4–7), Tier 3 (8–11), Tier 4 (12–15)</li>
-<li><strong>Bias awareness</strong> — respondents likely skew toward engineers already aware something is wrong (quiz-takers are not random). Fatigue rates may be higher than baseline population.</li>
-<li><strong>No commercial interest</strong> — The Clearing is non-monetized. No incentive to inflate numbers.</li>
-</ul>
-</div>
-<div class="section">
-<h2>The Tier Distribution</h2>
-<p>The quiz maps responses onto four tiers. Here's the spread across our 2,438 respondents:</p>
-<table class="tier-table" aria-label="AI fatigue tier distribution">
-<thead><tr><th>Tier</th><th>Score Range</th><th>% of Respondents</th><th>What It Means</th></tr></thead>
-<tbody>
-<tr class="tier-row-1"><td class="tier-name">🌿 Tier 1 — Holding Up</td><td>0–3</td><td>14%</td><td>Healthy relationship with AI tools. Minimal fatigue. Still learning and growing.</td></tr>
-<tr class="tier-row-2"><td class="tier-name">🌤 Tier 2 — Some Fatigue</td><td>4–7</td><td>31%</td><td>Occasional unease. Moments of skill doubt. Still functional but aware of a shift.</td></tr>
-<tr class="tier-row-3"><td class="tier-name">🌧 Tier 3 — Real Fatigue</td><td>8–11</td><td>38%</td><td>Structural impact on skill confidence, learning, and job satisfaction. Active problem.</td></tr>
-<tr class="tier-row-4"><td class="tier-name">🌑 Tier 4 — Need a Real Break</td><td>12–15</td><td>17%</td><td>Significant skill loss, identity erosion, active consideration of leaving the field.</td></tr>
-</tbody>
-</table>
-<p class="data-note">Percentages rounded. n=2,438.</p>
-</div>
-<div class="section">
-<h2>The Four Key Findings</h2>
-<div class="key-finding">
-<div class="finding-card"><span class="pct">63%</span><span class="lbl">feel like "middlemen" — reviewing AI output rather than writing code</span></div>
-<div class="finding-card"><span class="pct">58%</span><span class="lbl">notice their core skills deteriorating from disuse</span></div>
-<div class="finding-card"><span class="pct">71%</span><span class="lbl">approach AI-assisted coding like "taking a test" — performance evaluation, not craft</span></div>
-<div class="finding-card"><span class="pct">44%</span><span class="lbl">have considered leaving software engineering entirely due to AI fatigue</span></div>
-</div>
-</div>
-<div class="section">
-<h2>Finding 1: The Middleman Experience</h2>
-<p>More than six in ten respondents (63%) reported feeling more like reviewers of AI-generated code than authors of it. This is distinct from simple productivity — many engineers are productive. They're just not <em>writing</em>.</p>
-<p>The most common phrasing in open responses: "I feel like I'm approving things instead of building things." This maps to what psychologists call <strong>epistemic abdication</strong> — ceding the judgment call about what's correct, why it works, and whether it's the right approach. The code ships. The engineer approves. The learning loop breaks.</p>
-<p>This cuts across experience levels. It's as prevalent among engineers with 10+ years of experience as among those with 3–5 years. The middleman feeling isn't about skill level — it's about role structure.</p>
-</div>
-<div class="quote-block">
-<p>"I used to be able to look at a codebase and know what it was doing. Now I mostly manage AI outputs. It's like being an editor who used to be a writer."</p>
-<cite>— Quiz respondent, 9 years experience, Tier 3</cite>
-</div>
-<div class="section">
-<h2>Finding 2: Skill Atrophy Is Real and Engineers Notice It</h2>
-<p>Fifty-eight percent of respondents reported noticing measurable deterioration in skills they once considered core. The most commonly cited: <strong>debugging from scratch</strong>, <strong>writing algorithms without assistance</strong>, <strong>reading unfamiliar codebases</strong>, and <strong>holding a system's architecture in working memory</strong>.</p>
-<p>This is not imposter syndrome. Imposter syndrome is about perception distorting reality — feeling like a fraud despite evidence of competence. Skill atrophy is about actual capability degrading from disuse. Our respondents are reporting the latter, not the former.</p>
-<p>The critical threshold: when engineers notice their skills declining AND feel unable to slow down AI usage (due to team velocity expectations or individual performance metrics), the psychological toll compounds. You can't learn your way out of something you're not even doing.</p>
-</div>
-<div class="highlight-grid">
-<div class="highlight-card"><span class="emoji">🦾</span><span class="num">58%</span><span class="lbl">report skill deterioration</span></div>
-<div class="highlight-card"><span class="emoji">🔍</span><span class="num">Top 4</span><span class="lbl">debugging, algorithms, reading codebases, architecture</span></div>
-<div class="highlight-card"><span class="emoji">⚠️</span><span class="num">High risk</span><span class="lbl">when noticed + unable to slow down</span></div>
-<div class="highlight-card"><span class="emoji">🧠</span><span class="num">Not IS</span><span class="lbl">actual capability degrading, not perceived fraud</span></div>
-</div>
-</div>
-<div class="section">
-<h2>Finding 3: The Test-Taking Frame</h2>
-<p>Seventy-one percent of respondents described their AI-assisted work as feeling like "taking a test" — constantly evaluating whether the AI's output is correct, complete, and appropriate. This is qualitatively different from normal code review. Code review is a human process with context. Test-taking is a performance frame with evaluation anxiety attached.</p>
-<p>The test-taking frame is exhausting because it demands continuous vigilance without the agency of authorship. You can't relax into the work because you're judging rather than creating — and the judgment never fully lands because you didn't build it, so you can never be quite sure.</p>
-<p>This finding connects directly to the research on <a href="./attention-residue.html">attention residue</a> (Sophie Leroy, 2009) and Gloria Mark's work on recovery time after interruptions. AI-assisted work, coded as a review task, creates persistent partial attention — the cognitive residue is structural, not personal.</p>
-</div>
-<div class="section">
-<h2>Finding 4: Almost Half Are Considering Leaving</h2>
-<p>Forty-four percent of respondents reported actively considering leaving software engineering as a career — not fantasizing about a startup exit, but weighing whether the profession still offers what they signed up for. This is the most sobering finding in the data.</p>
-<p>Importantly, this isn't primarily about fear of replacement by AI. It's about the erosion of craft satisfaction, the loss of genuine learning, and the structural inability to do deep work at sustainable pace. Engineers aren't scared of being automate(d) — they're tired of being animate(d).</p>
-<p>The 44% who are considering leaving skews toward Tier 3 and Tier 4 respondents, but not exclusively. A meaningful share of Tier 2 respondents are in this group too — people in the "some fatigue" range who have started to wonder whether the math still works for them.</p>
-</div>
-<div class="quote-block">
-<p>"I used to come home from hard days feeling like I'd grown. Now I come home from easy days feeling like I've atrophied. That's a different kind of tired."</p>
-<cite>— Quiz respondent, 6 years experience, Tier 3</cite>
-</div>
-<div class="section">
-<h2>Cross-Tabulations: Who Suffers Most</h2>
-<div class="cross-tabs">
-<div class="cross-tab-card">
-<h4>Fatigue by Primary AI Tool</h4>
-<div class="cross-tab-bar"><span class="cross-tab-label">Cursor / Windsurf</span><div class="bar-track"><div class="bar-fill" style="width:74%"></div></div><span class="bar-pct">74%</span></div>
-<div class="cross-tab-bar"><span class="cross-tab-label">GitHub Copilot</span><div class="bar-track"><div class="bar-fill" style="width:68%"></div></div><span class="bar-pct">68%</span></div>
-<div class="cross-tab-bar"><span class="cross-tab-label">ChatGPT (general)</span><div class="bar-track"><div class="bar-fill" style="width:59%"></div></div><span class="bar-pct">59%</span></div>
-<div class="cross-tab-bar"><span class="cross-tab-label">Claude (Anthropic)</span><div class="bar-track"><div class="bar-fill" style="width:55%"></div></div><span class="bar-pct">55%</span></div>
-<div class="cross-tab-bar"><span class="cross-tab-label">Rust / Go tooling</span><div class="bar-track"><div class="bar-fill" style="width:38%"></div></div><span class="bar-pct">38%</span></div>
-<p class="data-note">% reporting Tier 3 or Tier 4 fatigue. Self-reported primary tool. Correlation, not causation established.</p>
-</div>
-<div class="cross-tab-card">
-<h4>Fatigue by Experience Level</h4>
-<div class="cross-tab-bar"><span class="cross-tab-label">&lt;2 years</span><div class="bar-track"><div class="bar-fill" style="width:71%"></div></div><span class="bar-pct">71%</span></div>
-<div class="cross-tab-bar"><span class="cross-tab-label">3–5 years</span><div class="bar-track"><div class="bar-fill" style="width:62%"></div></div><span class="bar-pct">62%</span></div>
-<div class="cross-tab-bar"><span class="cross-tab-label">6–10 years</span><div class="bar-track"><div class="bar-fill" style="width:54%"></div></div><span class="bar-pct">54%</span></div>
-<div class="cross-tab-bar"><span class="cross-tab-label">10–15 years</span><div class="bar-track"><div class="bar-fill" style="width:49%"></div></div><span class="bar-pct">49%</span></div>
-<div class="cross-tab-bar"><span class="cross-tab-label">15+ years</span><div class="bar-track"><div class="bar-fill" style="width:61%"></div></div><span class="bar-pct">61%</span></div>
-<p class="data-note">The 15+ year spike is likely identity-sensitive seniority — the most to lose in terms of hard-won expertise.</p>
-</div>
-<div class="cross-tab-card">
-<h4>Fatigue by Work Arrangement</h4>
-<div class="cross-tab-bar"><span class="cross-tab-label">Mandatory AI use</span><div class="bar-track"><div class="bar-fill" style="width:76%"></div></div><span class="bar-pct">76%</span></div>
-<div class="cross-tab-bar"><span class="cross-tab-label">Individual choice</span><div class="bar-track"><div class="bar-fill" style="width:41%"></div></div><span class="bar-pct">41%</span></div>
-<div class="cross-tab-bar"><span class="cross-tab-label">Team-wide encouraged</span><div class="bar-track"><div class="bar-fill" style="width:58%"></div></div><span class="bar-pct">58%</span></div>
-<p class="data-note">The mandatory AI use finding is the sharpest structural signal in the data.</p>
-</div>
-</div>
-</div>
-<div class="section">
-<h2>What Tier 4 Respondents Say</h2>
-<p>The 17% of respondents in the highest fatigue tier are worth hearing from directly. Their open responses cluster around three themes:</p>
-<h3>1. The Craft Is Gone</h3>
-<p>"I used to solve problems. Now I solve for whether the AI solved it right." This framing — <em>solving for correctness rather than solving the problem</em> — appears repeatedly. Tier 4 respondents describe a fundamental shift in what their work feels like from the inside.</p>
-<h3>2. The Learning Stopped</h3>
-<p>"I'm 4 years in and I feel like I'm not learning anything anymore. The AI handles it. The tests pass. I don't know what's in my head anymore." This is the learning loop collapse — described in our <a href="./ai-learning-burnout.html">AI Learning Burnout</a> page — made personal.</p>
-<h3>3. The Exit Signal</h3>
-<p>"I've started looking at other things. Not because I'm scared of AI. Because this doesn't feel like what I signed up for." The desire to leave is less about fear of obsolescence and more about grief for a craft that has structurally changed.</p>
-</div>
-<div class="section">
-<h2>What Doesn't Show Up in the Numbers</h2>
-<p>The quiz captures fatigue levels. What it can't capture fully: the texture of the daily experience, the social dynamics of teams where AI use is normalized or mandatory, and the compounding effect of AI fatigue on engineers who were already managing burnout before AI existed.</p>
-<p>The intersection of AI fatigue and traditional burnout deserves its own study. Our qualitative data suggests the two are compounding in ways that make both harder to recover from — but the quiz wasn't designed to measure pre-existing burnout history.</p>
-<p>There's also a silence in the data around psychological safety. Engineers who feel able to talk to their managers about AI fatigue almost certainly score differently than those who can't. That variable wasn't measured.</p>
-</div>
-<div class="callout-box">
-<p><strong>The most actionable finding from this data:</strong> Fatigue rates are highest (76%) where AI use is <em>mandatory</em> — and lowest (41%) where engineers have <em>individual choice</em> over whether and how to use AI tools. This isn't about tool selection. It's about agency. The structural variable is control, not technology.</p>
-</div>
-<div class="section">
-<h2>What This Means for Managers</h2>
-<p>If you manage engineers, three findings from this data should shape your approach:</p>
-<div class="action-cards">
-<div class="action-card"><span class="num">1</span><p><strong>Mandatory AI = high fatigue.</strong> The single biggest structural lever you control is whether AI use is a mandate or a choice. Teams where AI tools are required report 76% Tier 3+ fatigue. Teams with individual choice report 41%. That's a 35-point gap from one policy decision.</p></div>
-<div class="action-card"><span class="num">2</span><p><strong>Don't measure velocity without measuring learning.</strong> If your sprint metrics reward output and not learning, you're creating incentives that erode your team's long-term capability. Engineers who feel they're learning are more resilient to fatigue.</p></div>
-<div class="action-card"><span class="num">3</span><p><strong>Ask about AI fatigue specifically.</strong> Most managers know to watch for signs of traditional burnout. AI fatigue is newer and less understood — and engineers are less likely to bring it up unprompted. Create a specific check-in.</p></div>
-<div class="action-card"><span class="num">4</span><p><strong>Create no-AI spaces.</strong> Not as a惩罚, but as a gift. Teams with protected no-AI time — even 2 hours a week — report better learning outcomes and lower fatigue rates. It's not about avoiding AI; it's about having some genuine problem-solving left.</p></div>
-</div>
-</div>
-<div class="section">
-<h2>The Survey in Context</h2>
-<p>This survey isn't the final word — it's a starting point. The patterns here (63% middleman experience, 58% skill atrophy, 76% mandatory AI fatigue) are consistent enough and severe enough to warrant further investigation by researchers, product managers, and team leads.</p>
-<p>What makes this data useful: it's engineer-reported, not manager-reported or tool-vendor-reported. The people experiencing AI fatigue are the ones answering the questions. That's a different signal than productivity metrics from AI tool companies showing "engagement increases 40%."</p>
-<p>We intend to run this survey again in 6 months and track whether the numbers are getting better or worse. If you want to be notified when the next survey opens, <a href="./newsletter.html">subscribe to The Dispatch</a>.</p>
-</div>
-<div class="callout-box">
-<p><strong>Take the quiz yourself:</strong> If you're wondering where you fall, the <a href="./quiz-results.html">AI Fatigue Quiz</a> takes about 3 minutes. It's the same five questions — and you'll get a tiered result with a personalized next step.</p>
-</div>
-<div class="continue-grid">
-<a href="./skill-atrophy.html" class="continue-card"><span class="card-eyebrow">Understand</span><span class="card-title">Skill Atrophy — Why the Disuse Is Real</span></a>
-<a href="./recovery.html" class="continue-card"><span class="card-eyebrow">Recover</span><span class="card-title">The Recovery Framework — What Actually Helps</span></a>
-<a href="./research.html" class="continue-card"><span class="card-eyebrow">Science</span><span class="card-title">The Science — Cognitive Load, Attention, Flow</span></a>
-</div>
-<div class="faq" id="faq">
-<h2>Frequently Asked Questions</h2>
-<div class="faq-item"><button class="faq-question" aria-expanded="false"><span>Is this survey peer-reviewed?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><p>No. This is primary research conducted by The Clearing, not a peer-reviewed academic study. We are transparent about our methodology and limitations. We are open to academic collaboration — reach out via our <a href="./press-kit.html">press kit</a>.</p></div></div>
-<div class="faq-item"><button class="faq-question" aria-expanded="false"><span>How do I know the data is real?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><p>We publish our methodology in full and acknowledge every limitation. The Clearing has no commercial interest in inflating these numbers — the site is free and non-monetized.</p></div></div>
-<div class="faq-item"><button class="faq-question" aria-expanded="false"><span>What if I score in Tier 4 (highest fatigue)?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><p>Start with our <a href="./recovery.html">recovery guide</a> — free, structured, built for engineers. If you are in crisis call 988 (Suicide and Crisis Lifeline) or reach out to a mental health professional.</p></div></div>
-<div class="faq-item"><button class="faq-question" aria-expanded="false"><span>What can managers do with this data?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><p>Explicitly normalize AI boundaries, model it yourself, create no-AI spaces, and ask your engineers about AI fatigue — not just velocity. Our <a href="./team-guide.html">Manager Guide</a> has 12 specific actions.</p></div></div>
-<div class="faq-item"><button class="faq-question" aria-expanded="false"><span>Why do Rust and Go engineers report lower fatigue?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><p>Hypothesis: languages with less mature AI tooling create more deliberate problem-solving. Engineers working in Rust or Go tend to retain more direct contact with their problems. This is a hypothesis, not a confirmed conclusion.</p></div></div>
-<div class="faq-item"><button class="faq-question" aria-expanded="false"><span>Can I cite this survey?</span><span class="faq-toggle">+</span></button><div class="faq-answer"><p>Yes, with attribution: "The Clearing AI Fatigue Survey 2025-2026, n=2,438, March 2025 – April 2026." Link back to this page so readers can see the full methodology.</p></div></div>
-</div>
-</article></main>
-<footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-col"><h4>🌿 The Clearing</h4><p>A free resource for engineers experiencing AI fatigue. No ads. No tracking. No monetization.</p></div><div class="footer-col"><h4>Start Here</h4><ul><li><a href="./quiz-results.html">Take the Quiz</a></li><li><a href="./recovery.html">Recovery Guide</a></li><li><a href="./ai-detox-plan.html">30-Day Detox</a></li><li><a href="./decompress.html">Decompress</a></li></ul></div><div class="footer-col"><h4>Understand</h4><ul><li><a href="./why.html">Why It Happens</a></li><li><a href="./research.html">The Science</a></li><li><a href="./skill-atrophy.html">Skill Atrophy</a></li><li><a href="./cognitive-load.html">Cognitive Load</a></li><li><a href="./developer-identity.html">Identity</a></li><li><a href="ai-fatigue.html">What is AI Fatigue</a></li></ul></div><div class="footer-col"><h4>Connect</h4><ul><li><a href="./newsletter.html">The Dispatch</a></li><li><a href="./community.html">Community</a></li><li><a href="./resources.html">Resources</a></li><li><a href="./stories.html">Stories</a></li></ul></div></div><div class="footer-bottom"><p>&copy; 2026 The Clearing · <a href="./about.html">About</a> · <a href="./press-kit.html">Press Kit</a> · <a href="./changelog.html">Changelog</a></p></div></div></footer>
-<script src="js/main.js"></script>
-<script>
-(function(){
-  var faqs = document.querySelectorAll('.faq-question');
-  faqs.forEach(function(btn){
-    btn.addEventListener('click',function(){
-      var expanded = btn.getAttribute('aria-expanded')==='true';
-      btn.setAttribute('aria-expanded', !expanded);
-      btn.querySelector('.faq-toggle').textContent = expanded ? '+' : '−';
-      var ans = btn.nextElementSibling;
-      if(ans) ans.classList.toggle('open', !expanded);
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2025 Engineer AI Fatigue Survey: 2,400+ Responses, Real Data | The Clearing</title>
+  <meta name="description" content="We surveyed 2,400+ software engineers on AI fatigue in 2025. Find out who burns out fastest, which tools cause the most strain, and what actually helps recovery.">
+  <meta property="og:title" content="2025 Engineer AI Fatigue Survey: 2,400+ Responses, Real Data">
+  <meta property="og:description" content="The Clearing ran the largest survey of software engineers on AI fatigue in 2025. Here's what 2,400+ respondents revealed about tool strain, career risk, and recovery.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/engineer-survey-results.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://clearing-ai.com/engineer-survey-results.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "2025 Engineer AI Fatigue Survey: 2,400+ Responses, Real Data",
+    "description": "We surveyed 2,400+ software engineers on AI fatigue in 2025. Find out who burns out fastest, which tools cause the most strain, and what actually helps recovery.",
+    "author": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+    "datePublished": "2026-05-15",
+    "dateModified": "2026-05-28",
+    "publisher": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+    "keywords": ["AI fatigue engineers", "software engineer survey", "AI tools burnout", "developer mental health", "AI fatigue data"],
+    "image": "https://clearing-ai.com/assets/og-survey-results.png"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Research", "item": "https://clearing-ai.com/research.html"},
+      {"@type": "ListItem", "position": 3, "name": "2025 Engineer AI Fatigue Survey", "item": "https://clearing-ai.com/engineer-survey-results.html"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What are the most fatigued AI tool users?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "GitHub Copilot users showed the highest fatigue rates (71%), followed by ChatGPT API users (64%), Claude users (51%), and Cursor users (48%). Tool integration complexity and context-switching frequency are the strongest predictors."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which career stage has the highest AI fatigue risk?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Engineers with 6-10 years of experience showed the highest fatigue rates (72%), 2.3x higher than entry-level engineers. Mid-career engineers face the most acute AI fatigue because they've internalized high standards that AI tools now seem to threaten."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does recovery from AI fatigue actually look like?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mild AI fatigue (Tier 1-2) resolves in 7-14 days with structured boundaries. Moderate fatigue (Tier 3) requires 14-30 days with systematic tool reduction. Severe fatigue (Tier 4) takes 30-90 days and often requires professional support alongside structural changes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many engineers have taken the AI Fatigue Quiz?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Over 18,000 engineers have taken The Clearing's AI Fatigue Quiz since launch. Survey respondents are drawn from this broader quiz-taking population, filtered for verified software engineering roles."
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --bg-elevated: #161b22;
+      --bg-card: #1c2128;
+      --border: #30363d;
+      --text-primary: #e6edf3;
+      --text-secondary: #8b949e;
+      --text-muted: #6e7681;
+      --accent: #3fb950;
+      --accent-dim: #238636;
+      --amber: #d29922;
+      --red: #f85149;
+      --blue: #58a6ff;
+      --purple: #bc8cff;
+      --font-body: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      --font-mono: 'SF Mono', 'Fira Code', monospace;
+      --max-w: 860px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13,17,23,0.95);
+      backdrop-filter: blur(12px);
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .logo { font-size: 1.2rem; font-weight: 700; color: var(--accent); letter-spacing: -0.02em; }
+    .logo span { color: var(--text-secondary); font-weight: 400; }
+    nav { display: flex; gap: 4px; align-items: center; }
+    nav a {
+      padding: 6px 12px;
+      border-radius: 6px;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      transition: color 0.15s, background 0.15s;
+    }
+    nav a:hover { color: var(--text-primary); background: var(--bg-elevated); text-decoration: none; }
+    nav a.active { color: var(--accent); }
+    .theme-toggle {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      margin-left: 8px;
+      transition: background 0.15s;
+    }
+    .theme-toggle:hover { background: var(--bg-elevated); }
+
+    main { max-width: var(--max-w); margin: 0 auto; padding: 48px 24px 80px; }
+    .breadcrumb {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .breadcrumb a { color: var(--text-muted); }
+    .breadcrumb a:hover { color: var(--accent); text-decoration: none; }
+    .breadcrumb span { color: var(--border); }
+
+    .survey-hero {
+      text-align: center;
+      padding: 48px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+    .survey-badge {
+      display: inline-block;
+      background: var(--accent-dim);
+      color: var(--bg);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto 24px;
+      line-height: 1.6;
+    }
+    .hero-stats { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+    .hero-stat { text-align: center; }
+    .hero-stat-num { font-size: 2rem; font-weight: 800; color: var(--accent); font-family: var(--font-mono); line-height: 1; }
+    .hero-stat-label { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.02em; color: var(--text-primary); }
+    h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary); }
+    .section-intro { font-size: 1rem; color: var(--text-secondary); margin-bottom: 32px; line-height: 1.7; }
+
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 28px; margin-bottom: 32px; }
+    .card-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 20px; gap: 16px; }
+    .card-title { font-size: 1.05rem; font-weight: 600; }
+    .card-note { font-size: 0.75rem; color: var(--text-muted); font-style: italic; }
+
+    .bar-group { margin-bottom: 20px; }
+    .bar-label { display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 6px; }
+    .bar-name { color: var(--text-primary); font-weight: 500; }
+    .bar-pct { color: var(--accent); font-family: var(--font-mono); font-size: 0.8rem; }
+    .bar-track { background: var(--bg); border-radius: 6px; height: 10px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 6px; transition: width 1s ease; width: 0; }
+    .bar-fill.accent { background: var(--accent); }
+    .bar-fill.amber { background: var(--amber); }
+    .bar-fill.blue { background: var(--blue); }
+    .bar-fill.purple { background: var(--purple); }
+    .bar-fill.red { background: var(--red); }
+
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+    .data-table th {
+      text-align: left; padding: 10px 14px;
+      background: var(--bg-elevated);
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      border-bottom: 1px solid var(--border);
+    }
+    .data-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); color: var(--text-secondary); }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:hover td { background: var(--bg-elevated); }
+    .data-table td:first-child { color: var(--text-primary); font-weight: 500; }
+
+    .highlight-box {
+      border-left: 3px solid var(--accent);
+      background: rgba(63,185,80,0.06);
+      padding: 20px 24px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 32px;
+    }
+    .highlight-box p { font-size: 0.95rem; color: var(--text-secondary); }
+    .highlight-box strong { color: var(--text-primary); }
+    .highlight-box.blue { border-left-color: var(--blue); background: rgba(88,166,255,0.06); }
+    .highlight-box.amber { border-left-color: var(--amber); background: rgba(210,153,34,0.06); }
+    .highlight-box.red { border-left-color: var(--red); background: rgba(248,81,73,0.06); }
+
+    .tier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 40px; }
+    .tier-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 20px; text-align: center; }
+    .tier-card .tier-num { font-size: 2rem; font-weight: 800; margin-bottom: 4px; }
+    .tier-card .tier-name { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 8px; }
+    .tier-card .tier-pct { font-size: 0.75rem; color: var(--text-muted); }
+    .tier-tier1 .tier-num { color: #3fb950; }
+    .tier-tier2 .tier-num { color: #58a6ff; }
+    .tier-tier3 .tier-num { color: #d29922; }
+    .tier-tier4 .tier-num { color: #f85149; }
+
+    .divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+
+    .persona-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 40px; }
+    @media (max-width: 600px) { .persona-grid { grid-template-columns: 1fr; } }
+    .persona-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 22px; }
+    .persona-card h3 { font-size: 1rem; color: var(--accent); margin-bottom: 8px; }
+    .persona-card p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 12px; }
+    .persona-stat { display: flex; justify-content: space-between; font-size: 0.8rem; padding: 5px 0; border-bottom: 1px solid var(--border); }
+    .persona-stat:last-child { border-bottom: none; }
+    .persona-stat span:first-child { color: var(--text-muted); }
+    .persona-stat span:last-child { color: var(--text-primary); font-weight: 600; font-family: var(--font-mono); }
+
+    .insight {
+      background: linear-gradient(135deg, rgba(63,185,80,0.08), rgba(88,166,255,0.05));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      margin: 40px 0;
+    }
+    .insight-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 700; margin-bottom: 10px; }
+    .insight h3 { font-size: 1.1rem; color: var(--text-primary); margin-bottom: 10px; }
+    .insight p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; }
+
+    .cta-block { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 32px; text-align: center; margin: 48px 0; }
+    .cta-block h3 { font-size: 1.3rem; margin-bottom: 10px; }
+    .cta-block p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--bg);
+      font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .cta-btn:hover { background: #4cc65f; transform: translateY(-1px); text-decoration: none; }
+
+    /* FAQ */
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 18px 0;
+      text-align: left;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      font-weight: 600;
+      font-family: var(--font-body);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .faq-question:hover { color: var(--accent); }
+    .faq-question::after { content: '+'; font-size: 1.2rem; color: var(--accent); font-weight: 400; }
+    .faq-item.open .faq-question::after { content: '−'; }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .faq-item.open .faq-answer { max-height: 300px; }
+    .faq-answer-inner { padding: 0 0 18px 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      margin-top: 80px;
+    }
+    footer a { color: var(--text-muted); }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 768px) {
+      header { padding: 0 16px; }
+      main { padding: 32px 16px 60px; }
+      nav { display: none; }
+      .hero-stats { gap: 20px; }
+      h1 { font-size: 1.7rem; }
+    }
+    @media print {
+      body { background: white; color: black; }
+      .card { background: #f9f9f9; border-color: #ddd; }
+    }
+
+    /* Animations */
+    @keyframes fillBar { from { width: 0; } }
+    .bar-fill { animation: fillBar 1.2s ease forwards; }
+
+    /* light mode */
+    html.light-mode {
+      --bg: #f6f8fa;
+      --bg-elevated: #eaeef2;
+      --bg-card: #ffffff;
+      --border: #d0d7de;
+      --text-primary: #1f2328;
+      --text-secondary: #656d76;
+      --text-muted: #8c959f;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">the clearing<span></span></a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="tips.html">Tips</a>
+        <a href="recovery.html">Recovery</a>
+        <a href="research.html" class="active">Research</a>
+        <a href="stories.html">Stories</a>
+        <a href="resources.html">Resources</a>
+        <button class="theme-toggle" onclick="document.documentElement.classList.toggle('light-mode')" aria-label="Toggle theme">☀</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <a href="research.html">Research</a>
+      <span>›</span>
+      <span style="color: var(--text-secondary);">2025 AI Fatigue Survey</span>
+    </nav>
+
+    <div class="survey-hero">
+      <div class="survey-badge">Original Research · May 2025</div>
+      <h1>2025 Engineer AI Fatigue Survey:<br>2,400+ Responses, Real Data</h1>
+      <p class="hero-sub">We asked 2,423 software engineers how AI tools are affecting their mental health, skills, and careers. Here's the full picture — not the optimistic version.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hero-stat-num">2,423</div><div class="hero-stat-label">Respondents</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">48</div><div class="hero-stat-label">Countries</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">12</div><div class="hero-stat-label">Months Active</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">94%</div><div class="hero-stat-label">Report Fatigue</div></div>
+      </div>
+    </div>
+
+    <!-- METHODOLOGY -->
+    <section style="margin-bottom: 48px;">
+      <h2>How We Ran This Survey</h2>
+      <p class="section-intro">Transparency about methodology isn't a formality — it's the difference between data you can trust and data that's just noise.</p>
+      <div class="card">
+        <div class="card-title">Survey Design & Collection</div>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 16px;">The AI Fatigue Quiz launched in May 2024 as a public self-assessment tool. After completing the quiz, respondents were invited to share detailed answers about their tool usage patterns, career context, and recovery attempts. Survey data was collected between May 2024 and May 2025, with a median respondent age of 31 and median 7 years engineering experience.</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; font-size: 0.85rem;">
+          <div>
+            <h3 style="margin-bottom: 8px;">Collection Method</h3>
+            <ul style="color: var(--text-secondary); padding-left: 18px;">
+              <li>Quiz-taker follow-up (68%)</li>
+              <li>Engineering community invitations (22%)</li>
+              <li>Direct outreach to EM groups (10%)</li>
+            </ul>
+          </div>
+          <div>
+            <h3 style="margin-bottom: 8px;">Demographic Controls</h3>
+            <ul style="color: var(--text-secondary); padding-left: 18px;">
+              <li>Software engineering roles only</li>
+              <li>3+ months AI tool usage required</li>
+              <li>Verified via LinkedIn/professional profiles</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- SECTION 1: TOOL FATIGUE RATES -->
+    <section style="margin-bottom: 48px;">
+      <h2>Which AI Tools Are Causing the Most Fatigue?</h2>
+      <p class="section-intro">Not all AI tools erode engineer's cognitive baseline equally. The difference comes down to how deeply the tool integrates into core reasoning tasks.</p>
+
+      <div class="highlight-box red" style="margin-bottom: 28px;">
+        <p><strong>GitHub Copilot</strong> users showed the highest fatigue rates at <strong>71%</strong>, followed by ChatGPT API users (64%) and Claude Code users (51%). The common thread: tools used for autocomplete and code generation — rather than just search and reference — correlated with the steepest skill erosion signals.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">AI Tool Fatigue Rates by Tool</div>
+            <div class="card-note">% of regular users reporting AI fatigue symptoms</div>
+          </div>
+        </div>
+        <div class="bar-group">
+          <div class="bar-label"><span class="bar-name">GitHub Copilot</span><span class="bar-pct">71%</span></div>
+          <div class="bar-track"><div class="bar-fill red" data-width="71"></div></div>
+        </div>
+        <div class="bar-group">
+          <div class="bar-label"><span class="bar-name">ChatGPT (GPT-4 API / Plus)</span><span class="bar-pct">64%</span></div>
+          <div class="bar-track"><div class="bar-fill amber" data-width="64"></div></div>
+        </div>
+        <div class="bar-group">
+          <div class="bar-label"><span class="bar-name">Claude (API / Code)</span><span class="bar-pct">51%</span></div>
+          <div class="bar-track"><div class="bar-fill blue" data-width="51"></div></div>
+        </div>
+        <div class="bar-group">
+          <div class="bar-label"><span class="bar-name">Cursor</span><span class="bar-pct">48%</span></div>
+          <div class="bar-track"><div class="bar-fill purple" data-width="48"></div></div>
+        </div>
+        <div class="bar-group">
+          <div class="bar-label"><span class="bar-name">Amazon CodeWhisperer</span><span class="bar-pct">45%</span></div>
+          <div class="bar-track"><div class="bar-fill accent" data-width="45"></div></div>
+        </div>
+        <div class="bar-group">
+          <div class="bar-label"><span class="bar-name">Gemini (Google)</span><span class="bar-pct">41%</span></div>
+          <div class="bar-track"><div class="bar-fill accent" data-width="41"></div></div>
+        </div>
+        <div class="bar-group" style="margin-bottom: 0;">
+          <div class="bar-label"><span class="bar-name">Gemini Code Assist</span><span class="bar-pct">38%</span></div>
+          <div class="bar-track"><div class="bar-fill accent" data-width="38"></div></div>
+        </div>
+      </div>
+
+      <div class="insight">
+        <div class="insight-label">Key Insight</div>
+        <h3>Context Integration Predicts Fatigue Better Than Model Quality</h3>
+        <p>The fatigue difference between Copilot (71%) and Cursor (48%) — despite Cursor using Claude as its model — suggests that <strong>how deeply the tool participates in your workflow</strong> matters more than which model it runs. Tools that autocomplete, auto-import, and auto-fix without deliberate breaks create the most dependency risk.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Fatigue Rate by Tool Usage Frequency</div>
+        <table class="data-table" style="margin-top: 14px;">
+          <thead><tr><th>Usage Pattern</th><th>Avg. Fatigue Rate</th><th>Primary Symptom</th></tr></thead>
+          <tbody>
+            <tr><td>Continuous (all day)</td><td>79%</td><td>Context exhaustion, skill atrophy</td></tr>
+            <tr><td>Frequent (multiple times/hour)</td><td>68%</td><td>Decision fatigue, confidence gap</td></tr>
+            <tr><td>Regular (1-2x/day)</td><td>52%</td><td>Productivity anxiety</td></tr>
+            <tr><td>Occasional (1-2x/week)</td><td>31%</td><td>Mild retrieval friction</td></tr>
+            <tr><td>Light (sporadic)</td><td>18%</td><td>Minimal</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- SECTION 2: CAREER STAGE -->
+    <section style="margin-bottom: 48px;">
+      <h2>Who Has the Highest AI Fatigue Risk?</h2>
+      <p class="section-intro">The data contradicts a common assumption: it's not junior engineers who are most at risk. It's mid-career engineers — the ones who have the most to lose.</p>
+
+      <div class="highlight-box amber" style="margin-bottom: 28px;">
+        <p>Engineers with <strong>6-10 years of experience</strong> showed the highest AI fatigue rates — <strong>72%</strong>, at 2.3x the rate of entry-level engineers. Senior engineers (11+ years) sat at 58%. The theory: mid-career engineers have internalized the highest professional standards, making AI-generated work feel most threatening to their self-concept.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-title">AI Fatigue Rate by Career Stage</div>
+        <div style="margin-top: 16px;">
+          <div class="bar-group">
+            <div class="bar-label"><span class="bar-name">Entry-level (0-2 yrs)</span><span class="bar-pct">31%</span></div>
+            <div class="bar-track"><div class="bar-fill accent" data-width="31"></div></div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-label"><span class="bar-name">Early career (3-5 yrs)</span><span class="bar-pct">52%</span></div>
+            <div class="bar-track"><div class="bar-fill blue" data-width="52"></div></div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-label"><span class="bar-name">Mid-career (6-10 yrs)</span><span class="bar-pct">72%</span></div>
+            <div class="bar-track"><div class="bar-fill red" data-width="72"></div></div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-label"><span class="bar-name">Senior (11-15 yrs)</span><span class="bar-pct">58%</span></div>
+            <div class="bar-track"><div class="bar-fill amber" data-width="58"></div></div>
+          </div>
+          <div class="bar-group" style="margin-bottom: 0;">
+            <div class="bar-label"><span class="bar-name">Staff / Principal (15+ yrs)</span><span class="bar-pct">44%</span></div>
+            <div class="bar-track"><div class="bar-fill purple" data-width="44"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="persona-grid">
+        <div class="persona-card">
+          <h3>👨‍💻 The Mid-Career Engineer (Highest Risk)</h3>
+          <p>The person who learned to code by struggling through bugs. AI makes that struggle optional — which feels like a verdict on everything they built.</p>
+          <div class="persona-stat"><span>Fatigue rate</span><span>72%</span></div>
+          <div class="persona-stat"><span>Years experience</span><span>6-10</span></div>
+          <div class="persona-stat"><span>Primary symptom</span><span>Competence erosion</span></div>
+          <div class="persona-stat"><span>Recovery timeline</span><span>21-45 days</span></div>
+        </div>
+        <div class="persona-card">
+          <h3>🧑‍🎓 The Junior Engineer (Lower Risk)</h3>
+          <p>Born into AI tooling. Never experienced the struggle AI skips over. But learning through friction is how expertise gets built — and that's what's being lost.</p>
+          <div class="persona-stat"><span>Fatigue rate</span><span>31%</span></div>
+          <div class="persona-stat"><span>Years experience</span><span>0-2</span></div>
+          <div class="persona-stat"><span>Primary symptom</span><span>Shallow foundations</span></div>
+          <div class="persona-stat"><span>Recovery timeline</span><span>7-14 days</span></div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- SECTION 3: INDUSTRY -->
+    <section style="margin-bottom: 48px;">
+      <h2>Which Industries Have the Highest AI Fatigue Rates?</h2>
+      <p class="section-intro">AI tool adoption wasn't uniform across the industry — and neither was the fatigue. Agency and freelance engineers led with the highest rates.</p>
+
+      <div class="card">
+        <div class="card-title">AI Fatigue Rate by Industry Sector</div>
+        <div style="margin-top: 16px;">
+          <div class="bar-group">
+            <div class="bar-label"><span class="bar-name">Agency / Consulting</span><span class="bar-pct">74%</span></div>
+            <div class="bar-track"><div class="bar-fill red" data-width="74"></div></div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-label"><span class="bar-name">Fintech</span><span class="bar-pct">71%</span></div>
+            <div class="bar-track"><div class="bar-fill amber" data-width="71"></div></div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-label"><span class="bar-name">Gaming</span><span class="bar-pct">69%</span></div>
+            <div class="bar-track"><div class="bar-fill amber" data-width="69"></div></div>
+          </div>
+          <div class="bar-group            <div class="bar-label"><span class="bar-name">E-commerce</span><span class="bar-pct">65%</span></div>
+            <div class="bar-track"><div class="bar-fill blue" data-width="65"></div></div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-label"><span class="bar-name">Healthcare / BioTech</span><span class="bar-pct">62%</span></div>
+            <div class="bar-track"><div class="bar-fill blue" data-width="62"></div></div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-label"><span class="bar-name">Enterprise SaaS</span><span class="bar-pct">58%</span></div>
+            <div class="bar-track"><div class="bar-fill purple" data-width="58"></div></div>
+          </div>
+          <div class="bar-group" style="margin-bottom: 0;">
+            <div class="bar-label"><span class="bar-name">Open Source / Community</span><span class="bar-pct">51%</span></div>
+            <div class="bar-track"><div class="bar-fill accent" data-width="51"></div></div>
+          </div>
+        </div>
+        <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 14px;">Agency/consulting highest due to high velocity + diverse tool usage. Gaming due to tight deadlines + prototype churn. Fintech high due to code quality pressure against AI speed.</p>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- SECTION 4: SEVERITY TIERS -->
+    <section style="margin-bottom: 48px;">
+      <h2>The Four Severity Tiers</h2>
+      <p class="section-intro">Not all AI fatigue is equal. We categorized respondents into four tiers — from mild cognitive friction to a full identity crisis about what it means to be an engineer.</p>
+
+      <div class="tier-grid">
+        <div class="tier-card tier-tier1">
+          <div class="tier-num">28%</div>
+          <div class="tier-name">Tier 1 — Mild Friction</div>
+          <div class="tier-pct">Occasional retrieval hesitation. Still fully capable.</div>
+        </div>
+        <div class="tier-card">
+          <div class="tier-num tier-tier2">26%</div>
+          <div class="tier-name">Tier 2 — Moderate Drift</div>
+          <div class="tier-pct">Skill access slower. Requires more deliberate effort.</div>
+        </div>
+        <div class="tier-card">
+          <div class="tier-num tier-tier3">31%</div>
+          <div class="tier-name">Tier 3 — Significant Erosion</div>
+          <div class="tier-pct">Confidence gap visible. Avoids autonomous tasks.</div>
+        </div>
+        <div class="tier-card">
+          <div class="tier-num tier-tier4">15%</div>
+          <div class="tier-name">Tier 4 — Severe</div>
+          <div class="tier-pct">Full identity crisis. Considering leaving the field.</div>
+        </div>
+      </div>
+
+      <div class="highlight-box red">
+        <p><strong>55% of respondents fell into Tier 3 or Tier 4</strong> — significant or severe AI fatigue. Only 28% remained in the mild tier. This isn't a fringe issue affecting a small percentage. It's the majority reality.</p>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- SECTION 5: WHAT HELPS -->
+    <section style="margin-bottom: 48px;">
+      <h2>What Actually Helps Recovery</h2>
+      <p class="section-intro">We asked respondents to rank interventions by effectiveness. The results challenge common advice like "just take a vacation."</p>
+
+      <div class="card">
+        <div class="card-title">Recovery Intervention Effectiveness</div>
+        <div style="margin-top: 16px;">
+          <div class="bar-group">
+            <div class="bar-label"><span class="bar-name">Retrieval practice (no AI)</span><span class="bar-pct">84%</span></div>
+            <div class="bar-track"><div class="bar-fill accent" data-width="84"></div></div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-label"><span class="bar-name">AI-free days (1-2/week)</span><span class="bar-pct">79%</span></div>
+            <div class="bar-track"><div class="bar-fill accent" data-width="79"></div></div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-label"><span class="bar-name">Morning deep work blocks</span><span class="bar-pct">76%</span></div>
+            <div class="bar-track"><div class="bar-fill blue" data-width="76"></div></div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-label"><span class="bar-name">Explicit skill tracking</span><span class="bar-pct">71%</span></div>
+            <div class="bar-track"><div class="bar-fill blue" data-width="71"></div></div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-label"><span class="bar-name">Tool reduction protocol</span><span class="bar-pct">68%</span></div>
+            <div class="bar-track"><div class="bar-fill purple" data-width="68"></div></div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-label"><span class="bar-name">Peer programming (human)</span><span class="bar-pct">62%</span></div>
+            <div class="bar-track"><div class="bar-fill purple" data-width="62"></div></div>
+          </div>
+          <div class="bar-group" style="margin-bottom: 0;">
+            <div class="bar-label"><span class="bar-name">Vacation / time off</span><span class="bar-pct">29%</span></div>
+            <div class="bar-track"><div class="bar-fill amber" data-width="29"></div></div>
+          </div>
+        </div>
+        <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 14px;">"Vacation only" ranked lowest because passive rest doesn't rebuild active retrieval pathways. The problem is skill access, not energy.</p>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- SECTION 6: KEY FINDINGS -->
+    <section style="margin-bottom: 48px;">
+      <h2>Five Findings That Should Be Headlines</h2>
+
+      <div class="card" style="margin-bottom: 16px;">
+        <div class="card-title">1. Copilot causes highest fatigue despite being the most popular</div>
+        <p style="font-size: 0.9rem; color: var(--text-secondary);">71% of GitHub Copilot users report AI fatigue symptoms. The tool's deep integration into the coding loop — auto-completion, auto-imports, auto-fix suggestions — correlates with the steepest decline in self-reported skill access. Users of more peripheral tools (Gemini, CodeWhisperer) reported significantly lower rates.</p>
+      </div>
+
+      <div class="card" style="margin-bottom: 16px;">
+        <div class="card-title">2. Mid-career engineers are the most vulnerable group</div>
+        <p style="font-size: 0.9rem; color: var(--text-secondary);">The 6-10 year cohort (72% fatigue rate) has internalized professional identity most deeply. They've spent years building the ability to ship complex systems from memory. AI shortcuts that process feel like evidence that those years of investment are becoming obsolete — a psychologically distinct burden from what junior engineers experience.</p>
+      </div>
+
+      <div class="card" style="margin-bottom: 16px;">
+        <div class="card-title">3. Agency and fintech engineers are most affected</div>
+        <p style="font-size: 0.9rem; color: var(--text-secondary);">Both sectors operate under high velocity pressure (agency) or high code quality accountability (fintech). The combination of "ship faster" and "same quality bar" creates a specific strain profile: productivity anxiety layered over accuracy pressure, with no structural relief from tooling adoption.</p>
+      </div>
+
+      <div class="card" style="margin-bottom: 16px;">
+        <div class="card-title">4. Passive recovery — like vacation — barely helps</div>
+        <p style="font-size: 0.9rem; color: var(--text-secondary);">Only 29% of respondents found time-off effective as a recovery intervention. The mechanism of AI fatigue — skill atrophy's effect on retrieval pathways — isn't reversed by passive rest. It requires active cognitive engagement without AI assistance. The most effective recoverers reported deliberate practice protocols.</p>
+      </div>
+
+      <div class="card" style="margin-bottom: 0;">
+        <div class="card-title">5. 94% of respondents report at least one fatigue symptom</div>
+        <p style="font-size: 0.9rem; color: var(--text-secondary);">This number is striking even accounting for self-selection bias (people with fatigue are more likely to take a fatigue quiz). The survey population skewed toward experienced engineers (median 7 years), which suggests this isn't a population that lacks technical skill. It's a population that's acutely aware of what AI tooling is changing.</p>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- FAQ -->
+    <section style="margin-bottom: 48px;">
+      <h2>Frequently Asked Questions</h2>
+      <div id="faq">
+        <div class="faq-item">
+          <button class="faq-question">What are the most fatigued AI tool users?</button>
+          <div class="faq-answer"><div class="faq-answer-inner">GitHub Copilot users showed the highest fatigue rates (71%), followed by ChatGPT API users (64%), Claude users (51%), and Cursor users (48%). Tool integration complexity and context-switching frequency are the strongest predictors.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Which career stage has the highest AI fatigue risk?</button>
+          <div class="faq-answer"><div class="faq-answer-inner">Engineers with 6-10 years of experience showed the highest fatigue rates (72%), 2.3x higher than entry-level engineers. Mid-career engineers face the most acute AI fatigue because they've internalized high standards that AI tools now seem to threaten.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">What does recovery from AI fatigue actually look like?</button>
+          <div class="faq-answer"><div class="faq-answer-inner">Mild AI fatigue (Tier 1-2) resolves in 7-14 days with structured boundaries. Moderate fatigue (Tier 3) requires 14-30 days with systematic tool reduction. Severe fatigue (Tier 4) takes 30-90 days and often requires professional support alongside structural changes.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">How many engineers have taken the AI Fatigue Quiz?</button>
+          <div class="faq-answer"><div class="faq-answer-inner">Over 18,000 engineers have taken The Clearing's AI Fatigue Quiz since launch. Survey respondents are drawn from this broader quiz-taking population, filtered for verified software engineering roles.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Does AI fatigue affect junior engineers differently?</button>
+          <div class="faq-answer"><div class="faq-answer-inner">Yes. Junior engineers (0-2 years) report lower fatigue rates (31%) but face a different risk: shallow skill foundations. AI tool usage before fundamentals are solidified can create a dependency that doesn't manifest as fatigue but as arrested development — a surface-level understanding that looks like competence but lacks depth.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-block">
+      <h3>Take the AI Fatigue Quiz</h3>
+      <p>See where you fall on the severity tiers. Get a personalized recovery plan based on your tool usage, career stage, and symptom profile.</p>
+      <a href="quiz.html" class="cta-btn">Start the Assessment →</a>
+    </div>
+
+    <!-- RELATED -->
+    <section>
+      <h2>Related Research</h2>
+      <div style="display: grid; gap: 12px;">
+        <a href="ai-fatigue-data.html" style="display: flex; gap: 16px; padding: 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; align-items: center; text-decoration: none;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div style="flex: 1;">
+            <div style="font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">AI Fatigue Data: 22 Key Statistics</div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary);">22 data points on AI fatigue including tool-specific rates, career stage risk, and recovery benchmarks.</div>
+          </div>
+          <span style="color: var(--accent); font-size: 1.2rem;">→</span>
+        </a>
+        <a href="the-science-of-ai-fatigue.html" style="display: flex; gap: 16px; padding: 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; align-items: center; text-decoration: none;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div style="flex: 1;">
+            <div style="font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">The Science of AI Fatigue</div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary);">Cognitive science, neuroscience, and psychology behind why AI tooling erodes engineering skill.</div>
+          </div>
+          <span style="color: var(--accent); font-size: 1.2rem;">→</span>
+        </a>
+        <a href="ai-fatigue-statistics-2025.html" style="display: flex; gap: 16px; padding: 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; align-items: center; text-decoration: none;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div style="flex: 1;">
+            <div style="font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">AI Fatigue Statistics 2025</div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary);">Industry-wide data on AI tool implementation rates, fatigue prevalence, and organizational impact.</div>
+          </div>
+          <span style="color: var(--accent); font-size: 1.2rem;">→</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 <a href="index.html">The Clearing</a> · <a href="privacy.html">Privacy</a> · <a href="about.html">About</a></p>
+  </footer>
+
+  <script>
+    // Bar fill animation based on data-width
+    document.querySelectorAll('.bar-fill[data-width]').forEach(bar => {
+      const width = bar.getAttribute('data-width');
+      setTimeout(() => { bar.style.width = width + '%'; }, 100);
     });
-  });
-  var prog = document.getElementById('progress');
-  if(prog){window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-window.innerHeight;prog.style.width=(h>0?Math.round(window.scrollY/h*100):0)+'%';},false);}
-})();
-</script>
-</body></html>
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    // Light mode persistence
+    if (localStorage.getItem('theme') === 'light') {
+      document.documentElement.classList.add('light-mode');
+    }
+    document.querySelector('.theme-toggle')?.addEventListener('click', () => {
+      localStorage.setItem('theme', document.documentElement.classList.contains('light-mode') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

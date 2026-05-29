@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Fatigue 101: What It Is, How It Starts, and What to Do | The Clearing</title>
+  <meta name="description" content="First signs of AI fatigue, why it feels different from burnout, and the practical steps that actually help. A clear-eyed guide for engineers who are starting to notice something is off.">
+  <meta property="og:title" content="AI Fatigue 101: What It Is and What to Do About It">
+  <meta property="og:description" content="First signs of AI fatigue, why it feels different from burnout, and the practical steps that actually help.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/ai-fatigue-101.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://clearing-ai.com/ai-fatigue-101.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <link rel="stylesheet" href="css/style.min.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI Fatigue 101: What It Is, How It Starts, and What to Do",
+    "description": "First signs of AI fatigue, why it feels different from burnout, and the practical steps that actually help. A clear-eyed guide for engineers who are starting to notice something is off.",
+    "datePublished": "2026-05-29",
+    "dateModified": "2026-05-29",
+    "author": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+    "publisher": {"@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com"},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://clearing-ai.com/ai-fatigue-101.html"},
+    "wordCount": 3200,
+    "articleSection": "Guides"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com"},
+      {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://clearing-ai.com/recovery.html"},
+      {"@type": "ListItem", "position": 3, "name": "AI Fatigue 101", "item": "https://clearing-ai.com/ai-fatigue-101.html"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is AI fatigue the same as burnout?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Burnout is exhaustion from work volume — too many hours, too much demand, not enough recovery. AI fatigue is different: it's the specific feeling that your skills are quietly eroding while your output stays high. You can be productive and fatigued at the same time. The key difference: burnout responds to rest. AI fatigue is not fixed by vacation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I know if I have AI fatigue and not just normal stress?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Three signals are specific to AI fatigue: (1) You reach for AI before you've finished reading the problem — automatically, without trying first. (2) When AI explains code, you nod along but couldn't generate that explanation yourself without AI. (3) You can't remember how the code you shipped actually works. If these sound familiar, it's AI fatigue — not just stress."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "I just started using AI tools. Can I prevent fatigue before it starts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — and the habits that prevent it are simple but require intention: write the first draft of any function without AI; review AI output line by line rather than accepting it wholesale; take one small task per week completely offline. These are not restrictions — they're the practice that keeps your skills alive while AI handles the heavy lifting."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will just using AI less fix the problem?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Using AI less alone is not enough. The issue is not the volume of AI use — it's that AI use bypasses the cognitive effort that builds and maintains skills. The fix is intentional interleaving: regular periods where you work without AI on the thinking that matters. One or two hours a week of AI-free coding does more than cutting back."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "My team requires AI tools. Can I still prevent fatigue?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — the solution is not refusing AI, it's protecting the cognitive parts. Use AI for execution and speed, not for thinking. When you get AI's output, add a step: understand it, explain it to yourself, then decide if it's right — don't just accept it. Protect one non-AI project or task per week where you do the full cognitive work. Team mandates don't prevent individual practice."
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    .hero-box { background: var(--forest-deep); border-radius: 12px; padding: 2rem 2.5rem; margin: 2rem 0; }
+    .hero-box h2 { color: var(--cream); border-bottom-color: var(--forest-pale); margin-bottom: 1rem; }
+    .hero-box p { color: var(--mist); font-size: 1.05rem; line-height: 1.7; margin-bottom: 0.75rem; }
+    .signs-list { list-style: none; padding: 0; margin: 1.5rem 0; }
+    .signs-list li { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.85rem; font-size: 1rem; }
+    .sign-marker { background: var(--forest-mid); color: var(--cream); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+    .comparison-table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 0.95rem; }
+    .comparison-table th { background: var(--forest-deep); color: var(--cream); padding: 0.75rem 1rem; text-align: left; font-weight: 600; }
+    .comparison-table td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--cream-dark); vertical-align: top; }
+    .comparison-table tr:nth-child(even) td { background: rgba(122,171,138,.05); }
+    .comparison-table tr:last-child td { border-bottom: none; }
+    .callout-box { background: var(--cream-warm); border-left: 4px solid var(--forest-mid); padding: 1.25rem 1.5rem; margin: 1.5rem 0; border-radius: 0 8px 8px 0; }
+    .callout-box p { margin: 0; color: var(--text-primary); }
+    .step-card { background: white; border-radius: 10px; padding: 1.5rem; border: 1px solid var(--cream-dark); margin-bottom: 1rem; }
+    .step-card h4 { color: var(--forest-mid); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+    .step-card p { color: var(--text-secondary); font-size: 0.95rem; margin: 0; }
+    .quiz-cta { background: linear-gradient(135deg, var(--forest-deep), var(--forest-mid)); border-radius: 12px; padding: 2rem 2.5rem; text-align: center; margin: 2.5rem 0; }
+    .quiz-cta h2 { color: var(--cream); border: none; display: block; margin-bottom: 0.75rem; }
+    .quiz-cta p { color: var(--mist); max-width: 480px; margin: 0 auto 1.5rem; font-size: 1rem; }
+    .quiz-btn { display: inline-block; background: var(--cream); color: var(--forest-deep); padding: 0.85rem 2rem; border-radius: 8px; font-weight: 700; font-size: 1rem; transition: opacity 0.2s; }
+    .quiz-btn:hover { opacity: 0.9; text-decoration: none; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0; }
+    .related-card { background: white; border-radius: 8px; padding: 1rem; border: 1px solid var(--cream-dark); }
+    .related-card h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem; color: var(--forest-deep); }
+    .related-card p { font-size: 0.8rem; color: var(--text-muted); margin: 0; }
+    .related-card a { color: var(--forest-mid); text-decoration: none; font-weight: 500; }
+    .related-card a:hover { text-decoration: underline; }
+    .explore-section { background: var(--surface); border-top: 1px solid var(--border); padding: 48px 0; margin-top: 64px; }
+    .explore-inner { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    .explore-section h2 { font-size: 0.85rem; font-weight: 600; color: var(--muted); margin-bottom: 20px; letter-spacing: 0.5px; text-transform: uppercase; }
+    .explore-links { list-style: none; display: flex; flex-wrap: wrap; gap: 12px; }
+    .explore-links li { flex: 0 1 auto; }
+    .explore-links a { display: inline-block; background: var(--surface-2); border: 1px solid var(--border); color: var(--text); padding: 8px 16px; border-radius: 6px; font-size: 0.9rem; text-decoration: none; transition: all 0.2s ease; }
+    .explore-links a:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+    .faq-item summary { padding: 1rem 1.25rem; font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; background: var(--surface); transition: background 0.2s; }
+    .faq-item summary:hover { background: var(--surface-2); }
+    .faq-item summary::after { content: "+"; font-size: 1.25rem; color: var(--forest-mid); }
+    .faq-item[open] summary::after { content: "−"; }
+    details p { padding: 0 1.25rem 1rem; color: var(--text-secondary); margin: 0; font-size: 0.95rem; }
+    @media (max-width: 600px) { .hero-box { padding: 1.5rem; } .comparison-table { font-size: 0.85rem; } }
+  </style>
+</head>
+<body>
+  <nav class="main-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">The Clearing</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="nav-dropdown">
+          <button class="nav-link" aria-haspopup="true" aria-expanded="false">Guides <span class="dropdown-arrow">▾</span></button>
+          <ul class="dropdown-menu">
+            <li><a href="recovery.html">Recovery Guide</a></li>
+            <li><a href="signs-ai-fatigue.html">10 Signs</a></li>
+            <li><a href="quiz-results.html">AI Fatigue Quiz</a></li>
+            <li><a href="team-manager-guide.html">Manager Guide</a></li>
+          </ul>
+        </li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="stories.html">Stories</a></li>
+        <li><a href="newsletter.html">Newsletter</a></li>
+        <li><a href="subscribe.html">Subscribe</a></li>
+        <li><a href="email-course.html">Email Course</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="section" style="padding-top: 4rem; padding-bottom: 2rem">
+      <div class="container">
+        <p style="font-size: 0.8rem; color: var(--forest-mid); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem">Guide · Updated May 2026</p>
+        <h1 style="margin-bottom: 1rem">AI Fatigue 101</h1>
+        <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 640px; line-height: 1.65">You started using AI tools to be more productive. Somewhere along the way, something shifted. Here's what's actually happening — and what to do about it.</p>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.75rem">By The Clearing · 15 min read</p>
+      </div>
+    </section>
+
+    <section style="padding: 2rem var(--spacing-md)">
+      <div class="container" style="max-width: 800px">
+        <div class="hero-box">
+          <h2>The Short Version</h2>
+          <p><strong>AI fatigue is not burnout.</strong> Burnout is exhaustion from too much work. AI fatigue is the quiet erosion of skills you thought you still had — while your output stays high and your confidence quietly drops.</p>
+          <p>You can ship more code than ever and simultaneously feel like you're losing the ability to write it. That's the paradox at the center of AI fatigue. And it's why it doesn't show up in your performance metrics until it's already significant.</p>
+        </div>
+
+        <h2 style="margin: 2.5rem 0 1rem">What AI Fatigue Feels Like (The First Signs)</h2>
+        <p>Most engineers don't recognize AI fatigue in its early stages. It shows up gradually, then suddenly. Here are the signals that usually appear first:</p>
+        <ul class="signs-list">
+          <li>
+            <span class="sign-marker">1</span>
+            <span><strong>You reach for AI before you've finished reading the problem.</strong> Not because you tried and failed — because trying doesn't occur to you anymore. The reflex to open ChatGPT comes before the reflex to think.</span>
+          </li>
+          <li>
+            <span class="sign-marker">2</span>
+            <span><strong>You understand AI's code but couldn't have written it.</strong> When AI explains something, you follow along fine. You nod. The explanation makes sense. But when you try to generate the explanation yourself — without AI — it's gone.</span>
+          </li>
+          <li>
+            <span class="sign-marker">3</span>
+            <span><strong>Your projects work but you can't explain them.</strong> The feature you shipped three months ago is running fine. Someone asks you to walk through how it works and you realize: you'd need to re-read the code. You don't have the mental model anymore.</span>
+          </li>
+          <li>
+            <span class="sign-marker">4</span>
+            <span><strong>Debugging feels different.</strong> Used to be, you'd trace through an issue, build a mental picture, find the bug. Now you describe the error to AI and follow where it points. The trace doesn't happen inside you anymore.</span>
+          </li>
+          <li>
+            <span class="sign-marker">5</span>
+            <span><strong>Your confidence and your capability feel like they're diverging.</strong> The code looks like yours. The outputs are yours. But when you look honestly at whether you could reproduce it — something doesn't line up.</span>
+          </li>
+        </ul>
+        <p>If two or three of these ring true, you're probably in the early stages of AI fatigue. The good news: this is fixable, and it's much easier to address early than late.</p>
+
+        <h2 style="margin: 2.5rem 0 1rem">Why This Isn't Just Normal Rustiness</h2>
+        <p>Technical skills fade when you don't practice them. That's normal. You don't use a language for a year, you get rusty. That's expected, and it comes back with practice.</p>
+        <p>AI fatigue is different in two specific ways that matter:</p>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Normal Skill Decay</th>
+              <th>AI Fatigue</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>What triggers it</strong></td>
+              <td>Not practicing a skill</td>
+              <td>AI practicing the skill for you — bypassing the cognitive effort that builds the skill</td>
+            </tr>
+            <tr>
+              <td><strong>Output during decay</strong></td>
+              <td>Declining — you can see the gap</td>
+              <td>High or increasing — the work still happens, just not by you</td>
+            </tr>
+            <tr>
+              <td><strong>What makes it visible</strong></td>
+              <td>Your code stops working</td>
+              <td>Something forces you to work without AI — then you can't</td>
+            </tr>
+            <tr>
+              <td><strong>How it responds to rest</strong></td>
+              <td>Vacation helps</td>
+              <td>Vacation doesn't fix it — the problem is not energy, it's skill access</td>
+            </tr>
+            <tr>
+              <td><strong>The trap</strong></td>
+              <td>Hard to miss — declining performance is obvious</td>
+              <td>Easy to miss — high output masks the erosion until it's significant</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 style="margin: 2.5rem 0 1rem">The Mechanism: Why AI Use Erodes Skills</h2>
+        <p>There's a specific cognitive reason this happens. Skills are built through struggle — the effort of solving a problem, the moments of genuine confusion followed by genuine understanding, the debugging that takes longer than it should. That friction is not incidental to learning. <em>It is</em> the learning.</p>
+        <p>When AI handles the hard part, it also handles the part that would have built the skill. You get the answer. You skip the struggle. The struggle was the point.</p>
+        <div class="callout-box">
+          <p>The technical term for this is "desirable difficulties" — a concept from cognitive science. The conditions that make learning feel hard (retrieval practice, spacing, interleaving) are the same conditions that make learning stick. AI tools systematically remove those difficulties. The learning feels easier. The retention is worse.</p>
+        </div>
+        <p>This happens gradually and then all at once. At first, you're still building skills alongside AI use — you're learning, just more slowly. But if AI handles enough of the cognitive work, the balance tips. You're consuming outputs without building anything. The skills quiet down. And you don't notice because the outputs still look good.</p>
+
+        <h2 style="margin: 2.5rem 0 1rem">Who Gets Hit First</h2>
+        <p>AI fatigue doesn't affect everyone equally. The engineers who tend to feel it earliest and most acutely:</p>
+        <ul style="margin: 1rem 0 1.5rem 1.5rem">
+          <li style="margin-bottom: 0.5rem"><strong>Mid-career engineers (4-8 years).</strong> They built skills in a pre-AI world and now have mandatory AI tool adoption on top of established competencies. They remember what it felt like to own code — which makes the shift more visible.</li>
+          <li style="margin-bottom: 0.5rem"><strong>Engineers at companies that require AI tools.</strong> Choice matters. Voluntary AI users can moderate their usage. Engineers told "use Copilot for everything" lose the ability to set boundaries.</li>
+          <li style="margin-bottom: 0.5rem"><strong>Senior engineers in fast-moving orgs.</strong> Speed expectations are high. AI enables velocity. The pressure to ship fast makes it hard to slow down and notice what's happening underneath.</li>
+          <li><strong>Engineers who care deeply about craft.</strong> The ones who take pride in understanding systems, who want to know how things work, who feel a professional identity tied to technical depth — they're more likely to notice the erosion first, which makes it more painful.</li>
+        </ul>
+        <p>Junior engineers get hit differently — they never build the deep baseline in the first place, so they may not recognize what's missing until it's a structural gap rather than an erosion.</p>
+
+        <h2 style="margin: 2.5rem 0 1rem">What Doesn't Work (And Why)</h2>
+        <div class="step-card">
+          <h4>More willpower</h4>
+          <p>AI fatigue is not a discipline problem. You can't fix a structural tool behavior with personal resolve. "Just try harder to not rely on AI" doesn't work when the workflow is designed to make AI the default.</p>
+        </div>
+        <div class="step-card">
+          <h4>More vacation</h4>
+          <p>Rest fixes burnout. It doesn't fix AI fatigue. The problem is skill access, not energy. You come back from a week off rested but still unable to generate code from scratch without AI. The gap is cognitive, not physical.</p>
+        </div>
+        <div class="step-card">
+          <h4>More tutorials</h4>
+          <p>Learning more AI tools doesn't address the problem. It often makes it worse — more tools means more AI-assisted output means less skill-building. More learning is not the cure for learning-for-free erosion.</p>
+        </div>
+        <div class="step-card">
+          <h4>Doing the same thing but hoping for different results</h4>
+          <p>If you keep using AI the same way and only add "try to use less AI," the habit will win. The fix requires structural changes to your workflow, not just intentions.</p>
+        </div>
+
+        <h2 style="margin: 2.5rem 0 1rem">What Actually Helps</h2>
+        <p>These are not opinions — they're patterns from engineers who have recovered. The common thread: they added deliberate cognitive effort back into their workflow, not just "used AI less."</p>
+        <ul style="margin: 1.5rem 0 1.5rem 1.5rem">
+          <li style="margin-bottom: 1rem"><strong>The First Draft Rule:</strong> Write the first version of any function, module, or design without AI. Just the skeleton, the rough logic — no elegance required. AI can review and improve it. But the act of generating the first draft is the practice that keeps the skill alive. Even five minutes of independent thinking before AI counts.</li>
+          <li style="margin-bottom: 1rem"><strong>The Explanation Gap Check:</strong> When AI explains something to you, write down what you understood before AI gave you the answer. Then compare. The gap between what you expected and what AI said is a map of what you actually knew — and what you just accepted.</li>
+          <li style="margin-bottom: 1rem"><strong>One Task Per Week, Completely Offline:</strong> Pick one small thing — a utility function, a configuration, a bug fix — and do it without AI. Not as a test, not to prove something. As practice. The goal is to prove to yourself you still can, and to keep the path from your head to the code warm.</li>
+          <li style="margin-bottom: 1rem"><strong>The Night Before Audit:</strong> Once a week, before you close your laptop, write two sentences: what did you learn today that you'd still know how to do if AI were gone? If the answer is "nothing specific," that week was consumption, not learning. Adjust.</li>
+          <li><strong>The Pairing Swap:</strong> When pair programming, trade who holds the AI. Instead of one person driving while AI executes, alternate: one person thinks and explains, AI generates. The cognitive load stays with the person. AI becomes the hands, not the brain.</li>
+        </ul>
+
+        <h2 style="margin: 2.5rem 0 1rem">FAQ</h2>
+        <details class="faq-item" style="border: 1px solid var(--cream-dark); border-radius: 8px; margin: 0.75rem 0; overflow: hidden;">
+          <summary>Is AI fatigue the same as burnout?</summary>
+          <p>No. Burnout is exhaustion from work volume — too many hours, too much demand, not enough recovery. AI fatigue is different: it's the specific feeling that your skills are quietly eroding while your output stays high. You can be productive and fatigued at the same time. The key difference: burnout responds to rest. AI fatigue is not fixed by vacation.</p>
+        </details>
+        <details class="faq-item" style="border: 1px solid var(--cream-dark); border-radius: 8px; margin: 0.75rem 0; overflow: hidden;">
+          <summary>How do I know if I have AI fatigue and not just normal stress?</summary>
+          <p>Three signals are specific to AI fatigue: (1) You reach for AI before you've finished reading the problem — automatically, without trying first. (2) When AI explains code, you nod along but couldn't generate that explanation yourself without AI. (3) You can't remember how the code you shipped actually works. If these sound familiar, it's AI fatigue — not just stress.</p>
+        </details>
+        <details class="faq-item" style="border: 1px solid var(--cream-dark); border-radius: 8px; margin: 0.75rem 0; overflow: hidden;">
+          <summary>I just started using AI tools. Can I prevent fatigue before it starts?</summary>
+          <p>Yes — and the habits that prevent it are simple but require intention: write the first draft of any function without AI; review AI output line by line rather than accepting it wholesale; take one small task per week completely offline. These are not restrictions — they're the practice that keeps your skills alive while AI handles the heavy lifting.</p>
+        </details>
+        <details class="faq-item" style="border: 1px solid var(--cream-dark); border-radius: 8px; margin: 0.75rem 0; overflow: hidden;">
+          <summary>Will just using AI less fix the problem?</summary>
+          <p>Using AI less alone is not enough. The issue is not the volume of AI use — it's that AI use bypasses the cognitive effort that builds and maintains skills. The fix is intentional interleaving: regular periods where you work without AI on the thinking that matters. One or two hours a week of AI-free coding does more than cutting back.</p>
+        </details>
+        <details class="faq-item" style="border: 1px solid var(--cream-dark); border-radius: 8px; margin: 0.75rem 0; overflow: hidden;">
+          <summary>My team requires AI tools. Can I still prevent fatigue?</summary>
+          <p>Yes — the solution is not refusing AI, it's protecting the cognitive parts. Use AI for execution and speed, not for thinking. When you get AI's output, add a step: understand it, explain it to yourself, then decide if it's right — don't just accept it. Protect one non-AI project or task per week where you do the full cognitive work. Team mandates don't prevent individual practice.</p>
+        </details>
+
+        <div class="quiz-cta">
+          <h2>Not sure where you stand?</h2>
+          <p>The AI Fatigue Quiz takes 3 minutes and gives you a personalized profile with specific recovery steps for your situation.</p>
+          <a href="quiz-results.html" class="quiz-btn">Take the Quiz →</a>
+        </div>
+
+        <h2 style="margin: 2rem 0 1rem">Continue Learning</h2>
+        <div class="related-grid">
+          <div class="related-card">
+            <h4><a href="signs-ai-fatigue.html">10 Signs of AI Fatigue</a></h4>
+            <p>The complete diagnostic checklist for engineers.</p>
+          </div>
+          <div class="related-card">
+            <h4><a href="recovery.html">AI Fatigue Recovery Guide</a></h4>
+            <p>Structured steps for recovering from AI fatigue.</p>
+          </div>
+          <div class="related-card">
+            <h4><a href="the-consultation-trap.html">The Consultation Trap</a></h4>
+            <p>Why you can't stop asking AI — and how to break the cycle.</p>
+          </div>
+          <div class="related-card">
+            <h4><a href="ai-fatigue.html">What AI Fatigue Actually Is</a></h4>
+            <p>The complete picture of how AI fatigue works.</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--cream-dark)">
+          <p style="font-size: 0.85rem; color: var(--text-muted)">The Clearing is a free resource built from survey data and engineer stories. <a href="newsletter.html">Subscribe to The Dispatch</a> for new research as it comes out.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="background: var(--forest-deep); color: var(--mist); padding: 3rem var(--spacing-md); margin-top: 4rem">
+    <div class="container" style="max-width: 900px">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem">
+        <div>
+          <h4 style="color: var(--cream); margin-bottom: 0.75rem; font-size: 0.95rem">The Clearing</h4>
+          <p style="font-size: 0.85rem; margin: 0; line-height: 1.6">Free resource for engineers experiencing AI fatigue. Built from data, not assumptions.</p>
+        </div>
+        <div>
+          <h4 style="color: var(--cream); margin-bottom: 0.75rem; font-size: 0.95rem">Start Here</h4>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem">
+            <li style="margin-bottom: 0.35rem"><a href="quiz-results.html" style="color: var(--mist)">AI Fatigue Quiz</a></li>
+            <li style="margin-bottom: 0.35rem"><a href="recovery.html" style="color: var(--mist)">Recovery Guide</a></li>
+            <li style="margin-bottom: 0.35rem"><a href="signs-ai-fatigue.html" style="color: var(--mist)">10 Signs</a></li>
+            <li><a href="ai-fatigue-101.html" style="color: var(--mist)">AI Fatigue 101</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color: var(--cream); margin-bottom: 0.75rem; font-size: 0.95rem">Research</h4>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem">
+            <li style="margin-bottom: 0.35rem"><a href="engineer-survey-results.html" style="color: var(--mist)">Survey Results</a></li>
+            <li style="margin-bottom: 0.35rem"><a href="ai-fatigue-statistics-2025.html" style="color: var(--mist)">Statistics 2025</a></li>
+            <li style="margin-bottom: 0.35rem"><a href="the-science-of-ai-fatigue.html" style="color: var(--mist)">The Science</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color: var(--cream); margin-bottom: 0.75rem; font-size: 0.95rem">Connect</h4>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem">
+            <li style="margin-bottom: 0.35rem"><a href="newsletter.html" style="color: var(--mist)">The Dispatch</a></li>
+            <li style="margin-bottom: 0.35rem"><a href="about.html" style="color: var(--mist)">About</a></li>
+            <li><a href="stories.html" style="color: var(--mist)">Community</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.min.js"></script>
+
+  <section class="explore-section" aria-label="Continue exploring">
+    <div class="explore-inner">
+      <h2>Continue Exploring</h2>
+      <ul class="explore-links">
+        <li><a href="recovery.html">Recovery</a></li>
+        <li><a href="engineering-managers-ai-fatigue.html">Engineering Managers</a></li>
+        <li><a href="ai-detox-plan.html">AI Detox Plan</a></li>
+        <li><a href="daily-practice.html">Daily Practice</a></li>
+        <li><a href="daily-ai-boundaries.html">Daily AI Boundaries</a></li>
+        <li><a href="checkin.html">Check-in</a></li>
+        <li><a href="mental-health.html">Mental Health</a></li>
+      </ul>
+    </div>
+  </section>
+
+</body>
+</html>

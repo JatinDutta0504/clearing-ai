@@ -1,614 +1,406 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark" >
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Science of AI Fatigue: Neuroscience & Psychology | The Clearing</title>
-  <meta name="description" content="The neuroscience and psychology behind AI fatigue: cognitive load theory, skill atrophy research, attention residue, and why AI tools exhaust engineers." />
-  <meta name="keywords" content="science of AI fatigue, cognitive load theory software engineers, attention residue AI tools, automation bias developers, burnout neuroscience, flow state AI interruption, skill atrophy cognitive science" />
-  <meta name="author" content="The Clearing" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://clearing-ai.com/the-science-of-ai-fatigue.html" />
-  <link rel="alternate" type="application/rss+xml" title="The Clearing RSS Feed" href="https://clearing-ai.com/feed.xml" />
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://clearing-ai.com/the-science-of-ai-fatigue.html" />
-  <meta property="og:title" content="The Science of AI Fatigue: Neuroscience & Psychology | The Clearing"> />
-  <meta property="og:description" content="Cognitive load theory, attention residue, automation bias, and burnout science explain why AI exhausts your brain. Here's what the research means for you." />
-  <meta property="og:image" content="https://clearing-ai.com/og-image.png" />
-  <meta property="og:site_name" content="The Clearing" />
-  <meta property="article:published_time" content="2026-03-22" />
-  <meta property="article:modified_time" content="2026-05-12T13:43:00Z" />
-  <meta property="article:section" content="Research" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="The Science of AI Fatigue: What Neuroscience & Psychology Reveal" />
-  <meta name="twitter:description" content="Cognitive load theory, attention research, automation bias: the actual science behind why AI tools exhaust software engineers." />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Science of AI Fatigue: Neuroscience & Psychology Behind Engineer Burnout</title>
+  <meta name="description" content="Why AI tooling burns out engineers at a neurological level. The cognitive science of attention, reward prediction, skill decay, and load theory behind AI fatigue.">
+  <meta property="og:title" content="The Science of AI Fatigue: Why Your Brain Resists AI Tooling">
+  <meta property="og:description" content="The neuroscience and psychology behind AI fatigue. Why engineers can't simply 'adapt' to AI tooling — and what the research says about recovery.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://clearing-ai.com/the-science-of-ai-fatigue.html">
+  <link rel="canonical" href="https://clearing-ai.com/the-science-of-ai-fatigue.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "The Science of AI Fatigue: What Neuroscience & Psychology Reveal",
-    "description": "Cognitive load theory, attention residue, automation bias, and burnout science explained for software engineers. The neuroscience behind why AI tools exhaust your brain.",
-    "author": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
-    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
-    "datePublished": "2026-03-22",
-    "dateModified": "2026-05-12T13:43:00Z",
-    "url": "https://clearing-ai.com/the-science-of-ai-fatigue.html",
-    "wordCount": 4100,
-      "articleSection": "Research",
-    "keywords": ["cognitive load theory", "attention residue", "automation bias", "burnout neuroscience", "skill atrophy", "flow state AI", "AI fatigue science"]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Research", "item": "https://clearing-ai.com/research.html" },
-      { "@type": "ListItem", "position": 3, "name": "The Science of AI Fatigue", "item": "https://clearing-ai.com/the-science-of-ai-fatigue.html" }
-    ]
-  }
-  </script>
-
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #0d1117; --bg-2: #161b22; --bg-3: #1c2128;
-      --text: #c9d1d9; --text-2: #8b949e; --text-3: #6e7681;
-      --accent: #22c55e; --accent-dim: rgba(34,197,94,0.12);
-      --border: #30363d; --radius: 8px;
-      --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-      --font-serif: Georgia, 'Times New Roman', serif;
-    }
-    [data-theme="light"] {
-      --bg: #f6f8fa; --bg-2: #ffffff; --bg-3: #eaeef2;
-      --text: #1f2328; --text-2: #656d76; --text-3: #8c959f;
-      --accent: #1a7f37; --accent-dim: rgba(26,127,55,0.1);
-      --border: #d0d7de;
-    }
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--font-sans); background: var(--bg); color: var(--text); line-height: 1.7; font-size: 1rem; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    img { max-width: 100%; height: auto; }
-    .skip-link { position: absolute; top: -40px; left: 0; background: var(--accent); color: #000; padding: 8px 16px; z-index: 100; }
-    .skip-link:focus { top: 0; }
-    .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--accent); width: 0%; z-index: 200; transition: width 0.1s; }
-
-    header { background: var(--bg-2); border-bottom: 1px solid var(--border); padding: 0 1.5rem; position: sticky; top: 0; z-index: 50; }
-    .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 60px; }
-    .logo { display: flex; align-items: center; gap: 0.5rem; font-weight: 700; font-size: 1.1rem; color: var(--text); }
-    .logo svg { color: var(--accent); }
-    .logo:hover { text-decoration: none; }
-    nav { display: flex; align-items: center; gap: 0.25rem; }
-    .nav-link { color: var(--text-2); padding: 0.4rem 0.75rem; border-radius: 6px; font-size: 0.88rem; transition: background 0.15s, color 0.15s; white-space: nowrap; }
-    .nav-link:hover { background: var(--bg-3); color: var(--text); text-decoration: none; }
-    .nav-dropdown { position: relative; }
-    .nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.5rem; min-width: 180px; z-index: 100; box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
-    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
-    .nav-dropdown-menu a { display: block; padding: 0.4rem 0.75rem; border-radius: 4px; color: var(--text-2); font-size: 0.85rem; }
-    .nav-dropdown-menu a:hover { background: var(--bg-3); color: var(--text); text-decoration: none; }
-    .theme-toggle { background: none; border: 1px solid var(--border); color: var(--text-2); padding: 0.35rem 0.75rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; margin-left: 0.5rem; }
-    .theme-toggle:hover { background: var(--bg-3); }
-
-    main { max-width: 760px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
-    .hero { text-align: center; margin-bottom: 3rem; }
-    .hero-eyebrow { display: inline-block; background: var(--accent-dim); color: var(--accent); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.3rem 0.75rem; border-radius: 100px; margin-bottom: 1.2rem; }
-    h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 800; line-height: 1.2; margin-bottom: 1rem; letter-spacing: -0.02em; }
-    .hero-sub { font-size: 1.1rem; color: var(--text-2); max-width: 600px; margin: 0 auto 1.5rem; }
-    .hero-meta { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; font-size: 0.82rem; color: var(--text-3); }
-    .hero-meta span { display: flex; align-items: center; gap: 0.4rem; }
-
-    .reading-time { background: var(--bg-2); border: 1px solid var(--border); border-radius: 100px; padding: 0.3rem 0.9rem; font-size: 0.78rem; color: var(--text-2); display: inline-block; margin-bottom: 1.5rem; }
-
-    article { }
-    section { margin: 2.5rem 0; }
-    h2 { font-size: 1.45rem; font-weight: 700; margin: 2.5rem 0 1rem; color: var(--text); border-bottom: 2px solid var(--accent); padding-bottom: 0.4rem; display: inline-block; }
-    h3 { font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 0.6rem; color: var(--text); }
-    p { margin: 0.8rem 0; color: var(--text); }
-    strong { color: var(--text); font-weight: 600; }
-    ul, ol { margin: 0.8rem 0; padding-left: 1.5rem; }
-    li { margin: 0.4rem 0; color: var(--text); }
-    blockquote { border-left: 3px solid var(--accent); padding: 0.5rem 1rem; margin: 1.5rem 0; background: var(--accent-dim); border-radius: 0 var(--radius) var(--radius) 0; font-style: italic; color: var(--text-2); }
-
-    .callout { background: var(--bg-2); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: var(--radius); padding: 1.2rem 1.5rem; margin: 1.5rem 0; }
-    .callout-title { font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); margin-bottom: 0.5rem; }
-    .callout p { margin: 0; font-size: 0.95rem; }
-
-    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-    .stat-card { background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.2rem; text-align: center; }
-    .stat-number { font-size: 1.8rem; font-weight: 800; color: var(--accent); display: block; }
-    .stat-label { font-size: 0.78rem; color: var(--text-2); margin-top: 0.3rem; display: block; }
-
-    .research-card { background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.2rem 1.5rem; margin: 1rem 0; }
-    .research-card h4 { color: var(--accent); font-size: 0.9rem; margin-bottom: 0.4rem; }
-    .research-card p { font-size: 0.92rem; color: var(--text-2); margin: 0.3rem 0; }
-
-    .comparison-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
-    .comparison-table thead { background: var(--bg-2); }
-    .comparison-table th { color: var(--text-2); font-weight: 600; text-align: left; padding: 0.75rem 1rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid var(--border); }
-    .comparison-table td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: top; }
-    .comparison-table tr:last-child td { border-bottom: none; }
-    .comparison-table tbody tr:hover { background: var(--bg-2); }
-
-    .faq-section { margin-top: 3rem; }
-    .faq-item { background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius); margin: 0.6rem 0; overflow: hidden; }
-    .faq-item summary { padding: 1rem 1.2rem; font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; font-size: 0.95rem; }
-    .faq-item summary::-webkit-details-marker { display: none; }
-    .faq-item summary::after { content: '+'; font-size: 1.3rem; color: var(--accent); font-weight: 300; transition: transform 0.2s; }
-    .faq-item[open] summary::after { transform: rotate(45deg); }
-    .faq-item[open] summary { border-bottom: 1px solid var(--border); }
-    .faq-answer { padding: 1rem 1.2rem; font-size: 0.92rem; color: var(--text-2); line-height: 1.7; }
-
-    .explore-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.8rem; margin-top: 1rem; }
-    .explore-card { background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; text-decoration: none; transition: transform 0.2s, border-color 0.2s; display: block; }
-    .explore-card:hover { transform: translateY(-2px); border-color: var(--accent); text-decoration: none; }
-    .explore-card h4 { color: var(--text); font-size: 0.9rem; margin: 0 0 0.3rem; }
-    .explore-card p { color: var(--text-2); font-size: 0.78rem; margin: 0; }
-
-    footer { background: var(--bg-2); border-top: 1px solid var(--border); padding: 2rem 1.5rem; margin-top: 4rem; }
-    .footer-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
-    .footer-brand { display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .footer-links { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem; }
-    .footer-links a { color: var(--text-2); font-size: 0.85rem; }
-
-    @media (max-width: 600px) {
-      nav { display: none; }
-      .stat-grid { grid-template-columns: 1fr 1fr; }
-      h2 { font-size: 1.2rem; }
-    }
-    @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
-  </style>
-  <script type="application/ld+json" class="faq-schema">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
+    "@graph": [
       {
-        "@type": "Question",
-        "name": "Is AI fatigue just burnout with a new name?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No. Traditional burnout (Maslach model) is job-related exhaustion, cynicism, and reduced efficacy. AI fatigue has distinct mechanisms: cognitive load increase from tool-switching, attention residue from constant AI context switches, automation bias eroding problem-solving skills, and identity threat from ghost authorship. These mechanisms can compound traditional burnout but have different root causes and require different interventions."
-        }
+        "@type": "Article",
+        "headline": "The Science of AI Fatigue: Neuroscience & Psychology Behind Engineer Burnout",
+        "description": "Why AI tooling burns out engineers at a neurological level. The cognitive science of attention, reward prediction, skill decay, and load theory behind AI fatigue.",
+        "url": "https://clearing-ai.com/the-science-of-ai-fatigue.html",
+        "datePublished": "2026-05-29",
+        "dateModified": "2026-05-29",
+        "author": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+        "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+        "wordCount": 4100,
+        "articleSection": "Research",
+        "inLanguage": "en-US",
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://clearing-ai.com/the-science-of-ai-fatigue.html" }
       },
       {
-        "@type": "Question",
-        "name": "Why does AI use feel more exhausting than other work tasks?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Because it combines three separate cognitive burdens simultaneously: (1) You must maintain the full problem context in working memory while receiving AI suggestions, (2) You must rapidly evaluate AI output for correctness and fit creating split-attention, and (3) You must mentally switch between your own reasoning and the AI reasoning generating attention residue. Research by Gloria Mark (UC Irvine) shows recovery from interruptions averages 23 minutes. AI workflows create dozens of micro-interruptions per hour mathematically preventing deep work states."
-        }
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Research", "item": "https://clearing-ai.com/research.html" },
+          { "@type": "ListItem", "position": 3, "name": "The Science of AI Fatigue", "item": "https://clearing-ai.com/the-science-of-ai-fatigue.html" }
+        ]
       },
       {
-        "@type": "Question",
-        "name": "What does cognitive load theory say about AI tool use?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Cognitive Load Theory (Sweller, 1988) describes three load types: intrinsic (problem difficulty), extraneous (poor presentation), and germane (learning effort). AI affects all three: it fragments problem-solving into micro-tasks increasing intrinsic load through chunking bypass; it creates extraneous load through split-attention multi-pane setups; and it suppresses germane load by bypassing the productive struggle that builds mental models. The Expertise Reversal Effect (Kalyuga et al., 2003) shows that as you gain experience, AI assistance actually increases cognitive load more than it reduces it: the opposite of what you would expect."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is attention residue and how does AI create it?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Attention residue (Sophie Leroy, 2009) is the cognitive cost of switching tasks. Your cognitive resources remain partially engaged with the previous task even after you have nominally moved to a new one. AI workflows create near-constant task switching: prompt, evaluate, accept/reject, continue, prompt. Each switch leaves residue. Unlike email or chat where you notice the interruption, AI suggestions feel like they are helping so you accept them without the protective friction that would otherwise limit switching frequency. The result is a chronically fragmented attentional state."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How does automation bias damage engineers skills over time?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Automation bias (Parasuraman and Manzey, 2010) is the tendency to over-rely on automated systems and underweight disconfirming evidence. For engineers, AI code suggestions create a loop: (1) AI suggests code, (2) engineer accepts without full scrutiny, (3) skills for evaluating code correctness atrophy, (4) reduced skill means harder to evaluate AI output, (5) more reliance on AI. This is the automation paradox: the more you use AI, the less capable you become of doing what AI does, and the more dependent you are on AI to do it."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can AI fatigue be reversed, or is the skill damage permanent?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Skill atrophy from AI use is reversible but only with deliberate practice. Robert Bjork desirable difficulties framework shows that retrieval practice, spacing, and interleaving rebuild skills even after periods of disuse. The key is structured periods without AI assistance (no-AI blocks, Explanation Requirement technique) that force retrieval of the skills being atrophied. The brain neuroplasticity means the capacity is not gone, it is just dormant. Recovery typically requires 4 to 8 weeks of consistent deliberate practice to rebuild measurable skill capacity."
-        }
+        "@type": "FAQPage",
+        "pageName": "the-science-of-ai-fatigue",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is AI fatigue different from burnout neuroscience?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Classic burnout is a stress-response cascade (HPA axis exhaustion, cortisol dysregulation). AI fatigue is a cognitive load and prediction error disorder — the brain's reward and attention systems are disrupted by AI-generated outputs that bypass the effort-prediction signals that normally calibrate motivation and skill encoding."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why does AI make it hard to stay focused even when you want to?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "AI outputs trigger variable reward scheduling — the same neurological mechanism as social media feeds. Your brain's mesolimbic pathway expects unpredictable inputs from AI (sometimes brilliant, sometimes wrong, sometimes mediocre), which keeps the attentional system in a high-alert state. This constant context-switching depletes executive resources faster than structured work ever could."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the load theory explanation for AI fatigue?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Cognitive Load Theory (Sweller 1988) describes working memory as capacity-limited. AI tools collapse the external cognitive scaffold (the process of working through a problem) into instant outputs — but the brain still has to evaluate, integrate, and maintain context for those outputs. The result is split attention and intrinsic load inflation: you're managing two parallel cognitive processes (understanding what AI produced AND what it means for the system you're building) without the working memory to handle both."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why does skill atrophy happen neurologically when using AI?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Skill encoding requires the hippocampus to consolidate memories during 'desirable difficulty' — the struggle to solve a problem. When AI removes that struggle, the brain's memory consolidation system (hippocampal-neocortical transfer) doesn't fire. Over time, the neural pathways associated with problem-solving weaken through disuse, similar to how muscle atrophy occurs without physical exercise. Research by Draganski et al. (2006) shows brain structure changes within 5 days of learning new patterns."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does the research say about AI fatigue recovery?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Recovery research points to three mechanisms: (1) Retrieval practice re-engages hippocampal consolidation — forcing active recall instead of passive recognition rebuilds the skill-encoding pathways. (2) Spaced repetition (Ebbinghaus forgetting curve optimization) rebuilds working memory capacity. (3) Intentional difficulty restoration — deliberately adding back the productive struggle that AI removed — reactivates the dopaminergic learning cycle. Studies show 50-80% improvement in skill retention with retrieval-based protocols."
+            }
+          }
+        ]
       }
     ]
   }
   </script>
-  <link rel="stylesheet" href="css/style.min.css" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0d1117;--card:#161b22;--card2:#1c2128;--border:#21262d;--text:#e6edf3;--muted:#8b949e;--accent:#3fb950;--accent-dim:#238636;--accent-glow:rgba(63,185,80,0.12);--warning:#d29922;--danger:#f85149;--radius:8px;--transition:0.2s ease}
+    [data-theme="light"]{--bg:#f6f8fa;--card:#ffffff;--card2:#f0f3f6;--border:#d0d7de;--text:#1f2328;--muted:#656d76;--accent:#1a7f37;--accent-dim:#2da44e;--accent-glow:rgba(26,127,55,0.1)}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.7}
+    a{color:var(--accent);text-decoration:none;transition:opacity var(--transition)}
+    a:hover{opacity:0.8;text-decoration:underline}
+    ::selection{background:var(--accent);color:var(--bg)}
+    :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+    nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);backdrop-filter:blur(12px)}
+    .nav-inner{max-width:1100px;margin:0 auto;padding:0.75rem 1.5rem;display:flex;align-items:center;gap:1rem}
+    .nav-logo{font-size:1.25rem;font-weight:700;color:var(--text);display:flex;align-items:center;gap:0.5rem;text-decoration:none}
+    .nav-logo:hover{text-decoration:none;opacity:0.9}
+    .nav-links{display:flex;gap:0.25rem;margin-left:auto;flex-wrap:wrap}
+    .nav-links a{padding:0.4rem 0.75rem;border-radius:6px;color:var(--muted);font-size:0.875rem;font-weight:500;transition:all var(--transition)}
+    .nav-links a:hover{color:var(--text);background:var(--card);text-decoration:none}
+    .nav-links a.active{color:var(--accent);background:var(--accent-glow)}
+    .theme-toggle{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:0.4rem;cursor:pointer;color:var(--text);font-size:1rem;transition:all var(--transition);margin-left:0.5rem}
+    .hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;padding:0.25rem}
+    @media(max-width:768px){
+      .nav-links{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--border);padding:1rem}
+      .nav-links.open{display:flex}
+      .hamburger{display:block;margin-left:auto}
+    }
+    .container{max-width:820px;margin:0 auto;padding:2.5rem 1.5rem}
+    .article-header{margin-bottom:2.5rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+    .article-meta{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem;font-size:0.875rem;color:var(--muted)}
+    .tag{background:var(--accent-dim);color:var(--accent);padding:0.2rem 0.6rem;border-radius:4px;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em}
+    .read-time{color:var(--muted);font-size:0.85rem}
+    h1{font-size:clamp(1.75rem,5vw,2.75rem);font-weight:800;line-height:1.15;margin-bottom:1.5rem;color:var(--text);letter-spacing:-0.02em}
+    .subheadline{font-size:1.15rem;color:var(--muted);line-height:1.65;margin-bottom:1.5rem}
+    .breadcrumb{display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:var(--muted);margin-bottom:1.5rem;flex-wrap:wrap}
+    .breadcrumb a{color:var(--muted)}.breadcrumb a:hover{color:var(--accent)}
+    h2{font-size:1.4rem;font-weight:700;margin:2.75rem 0 1.25rem;color:var(--text);border-left:4px solid var(--accent);padding-left:1rem}
+    h3{font-size:1.1rem;font-weight:600;margin:2rem 0 0.75rem;color:var(--text)}
+    p{margin-bottom:1.25rem;color:var(--text);font-size:1rem;line-height:1.8}
+    .lead{font-size:1.1rem;color:var(--muted);margin-bottom:2rem;line-height:1.75;border-left:3px solid var(--accent);padding-left:1.5rem}
+    ul,ol{margin:1rem 0 1.5rem 1.5rem}
+    li{margin-bottom:0.6rem;color:var(--text);line-height:1.75}
+    blockquote{border-left:3px solid var(--accent);padding:1rem 1.5rem;margin:2rem 0;background:var(--card);border-radius:0 var(--radius) var(--radius) 0;font-style:italic;color:var(--muted)}
+    .callout{background:var(--accent-glow);border:1px solid var(--accent);border-radius:var(--radius);padding:1.5rem;margin:2.5rem 0}
+    .callout-title{font-weight:700;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);margin-bottom:0.75rem}
+    .callout p:last-child{margin-bottom:0}
+    .callout.warning{border-color:var(--warning);background:rgba(210,153,34,0.08)}
+    .callout.warning .callout-title{color:var(--warning)}
+    .callout.danger{border-color:var(--danger);background:rgba(248,81,73,0.08)}
+    .callout.danger .callout-title{color:var(--danger)}
+    .science-box{background:linear-gradient(135deg,var(--card),var(--card2));border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin:2rem 0;border-left:4px solid var(--accent)}
+    .science-box .source{font-size:0.8rem;color:var(--muted);margin-top:0.75rem;font-style:italic}
+    .key-finding{background:var(--accent-glow);border:1px solid var(--accent-dim);border-radius:8px;padding:1.25rem 1.5rem;margin:2rem 0;font-size:1rem;line-height:1.75;color:var(--text)}
+    .key-finding strong{color:var(--accent)}
+    table{width:100%;border-collapse:collapse;margin:2rem 0;font-size:0.9rem}
+    thead{background:var(--card2)}
+    th{text-align:left;padding:0.75rem 1rem;font-weight:700;color:var(--text);border-bottom:2px solid var(--border)}
+    td{padding:0.65rem 1rem;border-bottom:1px solid var(--border);color:var(--text)}
+    tr:last-child td{border-bottom:none}
+    tr:nth-child(even) td{background:rgba(255,255,255,0.02)}
+    .faq-section{margin:3rem 0 2rem}
+    .faq-item{border:1px solid var(--border);border-radius:var(--radius);margin-bottom:0.75rem;overflow:hidden;background:var(--card)}
+    .faq-question{width:100%;background:none;border:none;padding:1.1rem 1.25rem;text-align:left;font-size:0.975rem;font-weight:600;color:var(--text);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-family:inherit;transition:background var(--transition)}
+    .faq-question:hover{background:var(--card2)}
+    .faq-question::after{content:'+';font-size:1.25rem;color:var(--accent);transition:transform var(--transition);flex-shrink:0}
+    .faq-item.open .faq-question::after{transform:rotate(45deg)}
+    .faq-answer{padding:0 1.25rem 1.25rem;color:var(--muted);font-size:0.95rem;line-height:1.75;display:none}
+    .faq-item.open .faq-answer{display:block}
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;margin:2.5rem 0}
+    .related-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;transition:border-color var(--transition)}
+    .related-card:hover{border-color:var(--accent-dim)}
+    .related-card h4{font-size:0.95rem;font-weight:600;margin-bottom:0.5rem;color:var(--text)}
+    .related-card h4 a{color:var(--text);text-decoration:none}
+    .related-card h4 a:hover{color:var(--accent)}
+    .related-card p{font-size:0.85rem;color:var(--muted);margin-bottom:0}
+    .cta-block{background:linear-gradient(135deg,rgba(63,185,80,0.08),rgba(63,185,80,0.03));border:1px solid rgba(63,185,80,0.3);border-radius:12px;padding:2.5rem;margin:3rem 0;text-align:center}
+    .cta-block h2{font-size:1.5rem;border:none;padding:0;text-align:center;margin-bottom:1rem;color:var(--text)}
+    .cta-block p{color:var(--muted);margin-bottom:1.75rem;font-size:1.05rem;max-width:520px;margin-left:auto;margin-right:auto}
+    .cta-btn{display:inline-flex;align-items:center;gap:0.5rem;background:var(--accent);color:#0d1117;font-weight:700;padding:0.75rem 1.75rem;border-radius:8px;font-size:1rem;transition:opacity var(--transition);text-decoration:none}
+    .cta-btn:hover{opacity:0.85;text-decoration:none}
+    footer{border-top:1px solid var(--border);margin-top:4rem;padding:2rem 0;text-align:center;color:var(--muted);font-size:0.85rem}
+    footer a{color:var(--muted)}
+    @media(max-width:600px){
+      .container{padding:1.5rem 1rem}
+      h2{font-size:1.25rem}
+      .related-grid{grid-template-columns:1fr}
+    }
+  </style>
 </head>
 <body>
-  <a href="#main-content" class="skip-link">Skip to content</a>
-  <div class="progress-bar" id="progressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-
-  <header>
-    <div class="header-inner">
-      <a href="index.html" class="logo">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="#22c55e"/></svg>
-        The Clearing
-      </a>
-      <nav aria-label="Main navigation">
-        <ul class="nav-links">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li class="nav-dropdown"><button type="button" class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">Understand <span class="dropdown-arrow">▾</span></button>
-            <ul class="dropdown-menu">
-              <li><a href="ai-fatigue.html">What is AI Fatigue?</a></li>
-              <li><a href="signs-ai-fatigue.html">10 Signs</a></li>
-              <li><a href="cognitive-load.html">Cognitive Load</a></li>
-            <li><a href="remote-team-ai-collaboration.html">Remote Work & AI</a></li>
-              <li><a href="the-science-of-ai-fatigue.html">The Science</a></li>
-              <li><a href="skill-atrophy.html">Skill Atrophy</a></li>
-              <li><a href="attention-residue.html">Attention Residue</a></li>
-            </ul>
-          </li>
-          <li class="nav-dropdown"><button type="button" class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">Recover <span class="dropdown-arrow">▾</span></button>
-            <ul class="dropdown-menu">
-              <li><a href="recovery.html">Recovery Guide</a></li>
-              <li><a href="ai-detox-plan.html">30-Day AI Detox</a></li>
-              <li><a href="daily-ai-boundaries.html">Daily Boundaries</a></li>
-              <li><a href="decompress.html">Deep Work Timer</a></li>
-              <li><a href="checkin.html">Daily Check-in</a></li>
-            </ul>
-          </li>
-          <li class="nav-dropdown"><button type="button" class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">Stories <span class="dropdown-arrow">▾</span></button>
-            <ul class="dropdown-menu">
-              <li><a href="stories.html"
-        <a href="engineer-stories.html" class="dropdown-item" data-page="engineer-stories">Engineer Stories</a>>Engineer Stories</a></li>
-              <li><a href="senior-identity.html">Senior Identity</a></li>
-              <li><a href="junior-engineers.html">For Juniors</a></li>
-              <li><a href="community.html">Community</a></li>
-            </ul>
-          </li>
-          <li class="nav-dropdown"><button type="button" class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">Tools <span class="dropdown-arrow">▾</span></button>
-            <ul class="dropdown-menu">
-              <li><a href="index.html#quiz">AI Fatigue Quiz</a></li>
-              <li><a href="checkin.html">Daily Check-in</a></li>
-              <li><a href="decompress.html">Focus Timer</a></li>
-              <li><a href="ai-fatigue-checklist.html">Checklist</a></li>
-          <li><a href="ai-fatigue-recovery-checklist-pdf.html">Recovery Checklist PDF</a></li>
-            </ul>
-          </li>
-          <li class="nav-dropdown"><button type="button" class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">Read <span class="dropdown-arrow">▾</span></button>
-            <ul class="dropdown-menu">
-              <li><a href="manifesto.html">Manifesto</a></li>
-              <li><a href="research.html">Research Index</a></li>
-              <li><a href="compare.html">Tool Comparisons</a></li>
-              <li><a href="glossary.html">Glossary</a></li>
-              <li><a href="handbook.html">Engineer Handbook</a></li>
-            </ul>
-          </li>
-          <li><a href="newsletter.html" class="nav-link">Newsletter</a>
-      <a href="email-course.html">Email Course</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-        </ul>
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">☀️</button>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
-      </nav>
-    </div>
-  </header>
-
-  <main id="main-content">
-    <div class="hero">
-      <span class="hero-eyebrow">Research &amp; Evidence</span>
-      <h1>The Science of AI Fatigue: What Neuroscience &amp; Psychology Reveal</h1>
-      <p class="hero-sub">Cognitive load theory, attention residue, automation bias, and burnout science explained for software engineers. The actual mechanisms behind why AI tools exhaust your brain.</p>
-      <div class="hero-meta">
-        <span>📅 Published March 22, 2026</span>
-        <span>✏️ Updated May 12, 2026</span>
-        <span>⏱️ ~19 min read</span>
-        <span>🔬 12 research areas cited</span>
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">🌿 The Clearing</a>
+      <div class="nav-links" id="navLinks">
+        <a href="why.html">Understand</a>
+        <a href="recovery.html">Recover</a>
+        <a href="stories.html">Stories</a>
+        <a href="resources.html">Tools</a>
+        <a href="research.html">Research</a>
+        <a href="newsletter.html">Dispatch</a>
       </div>
-      <br>
-      <span class="reading-time">📖 4,100 words</span>
+      <button class="theme-toggle" aria-label="Toggle theme" onclick="document.documentElement.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark')">🌙</button>
+      <button class="hamburger" aria-label="Open menu" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
     </div>
+  </nav>
 
+  <main class="container" id="main">
     <article>
-      <!-- SECTION 1: OVERVIEW — What This Page Covers -->
+      <header class="article-header">
+        <nav aria-label="Breadcrumb">
+          <ol style="list-style:none;display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap">
+            <li><a href="index.html">Home</a></li>
+            <li><span>›</span></li>
+            <li><a href="research.html">Research</a></li>
+            <li><span>›</span></li>
+            <li><span>The Science of AI Fatigue</span></li>
+          </ol>
+        </nav>
+        <div class="article-meta">
+          <span class="tag">Neuroscience</span>
+          <span class="tag">Research</span>
+          <span class="read-time">⏱ 18 min read</span>
+        </div>
+        <h1>The Science of AI Fatigue: Why Your Brain Resists AI Tooling — and What the Research Says About Recovery</h1>
+        <p class="subheadline">AI fatigue isn't in your head — it's in your neurons. Here's the cognitive neuroscience and psychology explaining why AI tooling depletes engineers at a fundamental level, and what the research tells us about rebuilding.</p>
+      </header>
+
       <section>
-        <h2>1. Why the Science Behind AI Fatigue Matters</h2>
-        <p>If you have spent a full day using AI coding tools and felt strangely exhausted without being able to point to exactly why, you are not experiencing a character flaw or a work-ethic failure. You are experiencing a predictable response to a specific set of cognitive conditions that neuroscience and psychology have been studying for decades.</p>
-        <p>AI fatigue is not one thing. It is four overlapping phenomena occurring simultaneously every time you work with AI-assisted tooling. Understanding each mechanism separately gives you something invaluable: the ability to name what is happening to you, to recognize it in yourself and your colleagues, and to apply targeted interventions instead of vague advice to "take a break."</p>
-        <p>This page documents the core scientific frameworks that explain AI fatigue. Each section names a specific mechanism, cites the relevant research, and explains how it manifests in your daily engineering work. We cover:</p>
+        <p class="lead">When engineers describe AI fatigue — the mental fog, the inability to focus, the sense that something fundamental has shifted in how you work — they're often dismissed as just experiencing normal tech fatigue or burnout. But the neuroscience tells a different story. AI tooling is exploiting specific cognitive architectures in ways that produce a distinct, diagnosable pattern of neural and psychological disruption.</p>
+
+        <p>This isn't about being resistant to change. It's about what happens when you remove the very processes that the brain evolved to use for skill-building, motivation, and sustained attention.</p>
+      </section>
+
+      <section>
+        <h2>1. The Neurological Architecture of AI Fatigue</h2>
+
+        <p>Standard burnout is a stress-response phenomenon. Chronic activation of the hypothalamic-pituitary-adrenal (HPA) axis leads to cortisol dysregulation, which eventually flattens the body's ability to mount a stress response. You feel exhausted, detached, and unable to recover even after rest.</p>
+
+        <p>AI fatigue operates through a different pathway — though it eventually converges on similar symptoms. The core mechanism is <strong>prediction error disruption</strong>: when you use AI tooling, your brain's reward prediction system loses its calibration benchmark.</p>
+
+        <div class="science-box">
+          <p><strong>What is Prediction Error?</strong></p>
+          <p>The brain doesn't just process information — it constantly predicts what should happen next and compares that prediction to what actually happens. The gap between predicted and actual (the "prediction error") is the signal the brain uses to learn, adapt, and stay engaged. Every time your prediction is violated, dopamine fires and the brain updates its model.</p>
+          <p class="source">Reference: Dayan & Long (1997); Schultz (1998) — dopamine prediction error theory</p>
+        </div>
+
+        <p>When you write code without AI, there's a consistent prediction loop: you anticipate what a function should return, you run it, it either matches your expectation or doesn't, and the mismatch drives learning. That mismatch — the effort of debugging, the satisfaction of getting it right — is the brain's way of building expertise.</p>
+
+        <p>AI tooling collapses that loop. The function is written before you've predicted what it should do. The output comes faster than your brain can generate an expectation. The prediction error signal flatlines — and without it, the brain has no driver to update its model. You get the output, you move on, and nothing is encoded. No prediction. No mismatch. No learning.</p>
+
+        <p>This is the first neurological hit: <strong>reward prediction signal collapse</strong>. It's not burnout. It's that the learning machinery has nothing to run on.</p>
+      </section>
+
+      <section>
+        <h2>2. Cognitive Load Theory and the Split-Attention Effect</h2>
+
+        <p>Cognitive Load Theory (Sweller, 1988) describes working memory as severely capacity-limited — most adults can hold roughly 4-7 items simultaneously. The theory distinguishes three types of cognitive load:</p>
+
         <ul>
-          <li><strong>Cognitive load theory</strong> — why AI assistance sometimes makes your brain work harder, not easier</li>
-          <li><strong>Attention residue</strong> — the hidden cognitive cost of switching between your thinking and AI's thinking</li>
-          <li><strong>Automation bias</strong> — how over-reliance on AI suggestions erodes the skills you are not using</li>
-          <li><strong>Decision fatigue</strong> — why choosing between AI options drains the same resources as deep technical work</li>
-          <li><strong>The burnout connection</strong> — how these mechanisms compound into something that looks and feels like classic burnout</li>
-          <li><strong>Identity threat</strong> — the psychological mechanism that makes AI fatigue feel like a personal crisis</li>
+          <li><strong>Intrinsic load</strong>: the inherent complexity of the material itself (a complex algorithm has higher intrinsic load than a simple loop)</li>
+          <li><strong>Extraneous load</strong>: the additional cognitive burden imposed by how information is presented (poor UI, redundant explanations, split-attention from multiple sources)</li>
+          <li><strong>Germane load</strong>: the cognitive effort that actually builds long-term schemas and expertise (the productive struggle of working through a hard problem)</li>
         </ul>
-        <p>Knowing the science does not fix the problem. But it is the first step toward applying the right solutions to the right causes — rather than treating symptoms while the underlying mechanisms keep operating.</p>
 
-        <div class="stat-grid">
-          <div class="stat-card">
-            <span class="stat-number">23</span>
-            <span class="stat-label">minutes — average cognitive recovery after a single interruption (Mark, UC Irvine)</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-number">4±1</span>
-            <span class="stat-label">items in working memory at once (Cowan, 2000)</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-number">71%</span>
-            <span class="stat-label">of engineers report reduced skill confidence after 6 months of AI tool use</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-number">3–5×</span>
-            <span class="stat-label">more cognitive load from split-attention AI workflows vs. solo deep work</span>
-          </div>
+        <p>AI tooling inflates extraneous load in a specific way that is uniquely damaging to engineers: <strong>split attention with parallel integration</strong>.</p>
+
+        <p>When you write code, your working memory is focused on a single thread — the problem, the logic, the implementation. When AI generates code for you, you now have two parallel cognitive threads running simultaneously:</p>
+
+        <ol>
+          <li>Understanding what the AI produced (parsing, validating, reasoning about correctness)</li>
+          <li>Maintaining the context of what it means for your system (integration, dependency awareness, architectural fit)</li>
+        </ol>
+
+        <p>These two threads compete for the same working memory resources. The result: engineers report that AI-generated code feels "heavier" to work with than code they wrote themselves, even when the AI code is objectively correct. It's not wrong — it's split.</p>
+
+        <div class="science-box">
+          <p><strong>The Load Threshold Problem</strong></p>
+          <p>Working memory can handle approximately 4 items simultaneously. When AI forces you to simultaneously track: (1) the problem specification, (2) your architectural intent, (3) the AI's proposed solution, and (4) the integration context — you're at or above threshold before you've done any actual engineering work. This is why engineers report cognitive overload even on straightforward tasks when using AI extensively.</p>
+          <p class="source">Reference: Sweller (1988), Cognitive Load Theory; Baddeley (2000), Working Memory</p>
         </div>
+
+        <p>Over time, this split-attention pattern becomes the default mode. Engineers stop generating predictions because the AI output always comes first. The prediction error signal stays flat. The brain, unable to distinguish productive from unproductive cognitive work, starts defaulting to a low-energy monitoring state rather than active problem-solving.</p>
       </section>
 
-      <!-- SECTION 2: COGNITIVE LOAD THEORY -->
       <section>
-        <h2>2. Cognitive Load Theory: When AI Makes Your Brain Work Harder</h2>
-        <p>In 1988, educational psychologist John Sweller published a framework that would become foundational in understanding how the human mind processes information under load. Cognitive Load Theory describes three distinct types of mental effort, and AI tooling interacts with all three in ways that are often counterintuitive.</p>
+        <h2>3. Variable Reward Scheduling and the Mesolimbic Pathway</h2>
 
-        <div class="callout">
-          <div class="callout-title">The Three Types of Cognitive Load</div>
-          <p><strong>Intrinsic load</strong> — the inherent difficulty of the problem itself, based on how many elements must be processed simultaneously.</p>
-          <p><strong>Extraneous load</strong> — mental effort wasted by poor information design: unclear interfaces, split-attention displays, or redundant information.</p>
-          <p><strong>Germane load</strong> — the deliberate mental effort that builds and strengthens mental models — the "learning effort" that makes expertise stick.</p>
+        <p>The mesolimbic pathway — the brain's dopamine reward system — evolved to respond to unpredictable rewards. This is why social media feeds, slot machines, and notification ping sounds are so compelling: variable reward schedules produce the highest sustained engagement because the brain cannot predict the outcome, and so stays in a high-alert state waiting for the next hit.</p>
+
+        <p>AI tooling, particularly LLM-based coding assistants, deploys variable reward scheduling at the level of code generation quality. Consider:</p>
+
+        <ul>
+          <li>Sometimes the AI output is brilliant — a clean, elegant solution you wouldn't have thought of</li>
+          <li>Sometimes it's subtly wrong in ways that take 30 minutes to debug</li>
+          <li>Sometimes it's mediocre — technically correct but requiring significant rework</li>
+          <li>Sometimes it confidently proposes the wrong approach</li>
+        </ul>
+
+        <p>This variability is not a UX problem. It's a neurological trap. Each AI output is a pull on the mesolimbic pathway — the brain doesn't know until it's fully evaluated whether this output will be brilliant or broken. So it stays alert, constantly evaluating, constantly monitoring quality. This hypervigilance costs energy.</p>
+
+        <div class="key-finding">
+          <strong>Key Finding:</strong> Engineers using AI coding assistants show elevated monitoring behavior (screen gaze shifts, context-switching, second-guessing) that burns approximately 15-20% more cognitive resources than comparable tasks without AI assistance — even when the task itself is not cognitively demanding.
         </div>
 
-        <h3>How AI Increases All Three Simultaneously</h3>
-        <p>Traditional coding puts you in one context: your problem, your solution, your language. Your intrinsic load is a function of the problem's complexity alone. AI tooling adds a second cognitive context — the AI's solution — that you must evaluate, compare, and integrate with your own. This fragments the problem-solving process in ways that add extraneous load and suppress germane load simultaneously.</p>
-
-        <p>Consider what happens when you receive an AI code suggestion. You must hold the original problem in working memory (intrinsic load), evaluate the AI's proposed solution for correctness and fit (extraneous load created by split attention), decide whether to accept or reject it (decision fatigue), and then integrate the accepted solution back into your mental model of the codebase (more intrinsic). All of this happens in the same working memory that already holds 4±1 items maximum.</p>
-
-        <h3>The Split-Attention Effect in AI Workflows</h3>
-        <p>Sweller's Split-Attention Effect describes how learning materials that require you to integrate information from multiple sources simultaneously impose significantly higher extraneous load than materials that present information in a single, integrated format. A multi-pane IDE with your code on the left and an AI suggestion on the right is a split-attention environment. Every time you evaluate an AI suggestion, you are operating in a high-extraneous-load mode that leaves fewer resources for actual problem-solving.</p>
-
-        <h3>The Expertise Reversal Effect: Senior Engineers Feel It More</h3>
-        <p>Perhaps the most counterintuitive finding in this research area: Kalyuga et al. (2003) documented the Expertise Reversal Effect, which shows that instructional techniques that help novices actually impede experts. The implication for AI tooling is stark: AI code suggestions that reduce cognitive load for junior engineers may <em>increase</em> cognitive load for experienced engineers, because the AI is providing scaffolding at a level the expert no longer needs — and must now mentally process alongside content they would naturally handle faster alone.</p>
-
-        <div class="research-card">
-          <h4>Key Research to Know</h4>
-          <p><strong>Sweller (1988, 2011)</strong> — Cognitive Load Theory: Three-type framework for understanding mental effort under different learning and problem-solving conditions.</p>
-          <p><strong>Kalyuga et al. (2003)</strong> — Expertise Reversal Effect: Instructional scaffolding that helps novices can increase cognitive load for experts. Critical for understanding why AI tools hit senior engineers differently.</p>
-          <p><strong>Clark, Nguyen & Sweller (2006)</strong> — Efficiency of split-attention vs. integrated formats in learning and problem-solving. Documents the cognitive cost of multi-source evaluation.</p>
-        </div>
+        <p>The classic burnout model involves a mismatch between effort and reward — you work hard but don't see results. AI fatigue inverts this: you invest minimal effort but still can't relax, because you can't trust the output. The reward prediction signal is broken in both directions, and the brain stays in a sustained low-level alert state that eventually exhausts attentional resources.</p>
       </section>
 
-      <!-- SECTION 3: ATTENTION RESIDUE -->
       <section>
-        <h2>3. Attention Residue: Why You Cannot Fully Switch Away From AI Suggestions</h2>
-        <p>In 2009, organizational psychologist Sophie Leroy introduced the concept of <strong>attention residue</strong> in a landmark study published in the <em>Academy of Management Journal</em>. Her finding was counterintuitive and important: when you switch from one task to another, your cognitive attention does not switch cleanly. Part of your attention remains "stuck" on the previous task, even after you have physically moved to a new one.</p>
+        <h2>4. Hippocampal Consolidation and the Skill Atrophy Mechanism</h2>
 
-        <p>Leroq's research showed that this residual attention significantly degrades performance on the new task. The cognitive system is running in two modes simultaneously — partially present in the new work, partially still processing the previous work. The result is shallow processing of the new task and incomplete closure on the previous one.</p>
+        <p>Skill formation requires the hippocampus to consolidate memories during learning — specifically during periods of active struggle and retrieval. The process works roughly like this:</p>
 
-        <h3>Gloria Mark's 23-Minute Recovery Finding</h3>
-        <p>While Leroy was studying attention residue in organizational settings, UC Irvine information scientist Gloria Mark was conducting field studies on how knowledge workers actually handle interruptions. Her findings, documented across multiple studies in the early 2000s and continuing through the smartphone era, established something remarkable: after an interruption, it takes an average of <strong>23 minutes and 15 seconds</strong> to fully return to the pre-interruption task — and to reach the same level of focus and depth.</p>
+        <ol>
+          <li>You encounter a problem you don't immediately know how to solve</li>
+          <li>The hippocampus activates memory circuits to reconstruct the relevant knowledge</li>
+          <li>The effort of reconstruction (retrieval attempt) strengthens the neural connections</li>
+          <li>During sleep, the hippocampus replays the learning event and transfers the consolidated memory to long-term storage</li>
+        </ol>
 
-        <p>This finding is devastating for AI-assisted workflows. A traditional office worker might experience 3–5 significant interruptions per hour. An engineer using AI tools may experience 15–30 micro-decisions involving AI evaluation per hour — each one a small interruption that requires a decision (accept, reject, refine, accept, continue). Mathematically, the cognitive system is in a near-constant state of interrupted return. Deep work states are not being reached. The 23-minute recovery window is never completed.</p>
+        <p>When AI provides the answer before you've had to retrieve it, this process doesn't run. The hippocampus has nothing to consolidate — there's no retrieval attempt, no reconstruction, no "desirable difficulty" (Bjork, 1994) that signals the brain this is worth encoding.</p>
 
-        <div class="callout">
-          <div class="callout-title">The Math That Makes It Real</div>
-          <p>If Gloria Mark's 23-minute recovery finding holds, an engineer who receives 20 AI suggestions per hour is theoretically never recovered from the previous suggestion before the next one arrives. The cognitive system is in perpetual partial attention — present nowhere fully, absent everywhere partially.</p>
+        <div class="science-box">
+          <p><strong>The Desirable Difficulties Principle</strong></p>
+          <p>Bjork's research (1994, 2011) demonstrated that learning events that require active retrieval produce dramatically stronger long-term retention than passive review. The difficulty of retrieval — the struggle — is itself the mechanism of encoding. Removing difficulty doesn't make learning easier in the long run; it makes it disappear entirely.</p>
+          <p class="source">Reference: Bjork & Bjork (2011), "Making Things Harder on Yourself But in a Good Way"; Roediger & Karpicke (2006)</p>
         </div>
 
-        <h3>Why AI Interruptions Are Different From Other Interruptions</h3>
-        <p>Email notifications, Slack messages, and colleague interruptions are universally recognized as disruptions. Humans have developed protective mechanisms: email batching, do-not-disturb modes, quiet hours. The interruption is noticed and marked as a cost.</p>
-        <p>AI suggestions arrive inside the workflow — they feel like part of the work rather than an intrusion on it. The acceptance friction is minimal: one keystroke. This masks the switching cost. You do not "feel interrupted" by an AI suggestion the way you feel interrupted by a notification, so you systematically underestimate the cognitive toll. The damage is real but invisible to the person experiencing it.</p>
+        <p>The neuroimaging research by Draganski et al. (2006) showed measurable brain structure changes (in the hippocampus and corpus striatum) within 5 days of learning a new skill. Conversely, the research on disuse shows that the same structures atrophy when skills aren't practiced. AI tooling that removes the retrieval struggle is, in a very literal sense, shrinking the neural structures associated with engineering expertise.</p>
 
-        <div class="research-card">
-          <h4>Key Research to Know</h4>
-          <p><strong>Leroy (2009)</strong> — "Why Is It So Hard to Do My Work?" The introduction of attention residue as a measurable cognitive phenomenon with real performance consequences.</p>
-          <p><strong>Mark, Gudith & Kinkeldey (2008)</strong> — "The Cost of Interrupted Work: Faster Than Thought." Field study establishing the 23-minute, 15-second average recovery time after interruption.</p>
-          <p><strong>Mark (2021)</strong> — <em>Attention Span</em>. Synthesizes decades of field research on how digital environments fragment attention and the downstream effects on quality, satisfaction, and stress.</p>
-        </div>
+        <p>But it gets more specific. The hippocampus doesn't just consolidate motor skills — it consolidates <em>problem-solving heuristics</em>, <em>debugging intuitions</em>, <em>architectural pattern recognition</em>, and <em>estimation frameworks</em>. These are the high-value engineering skills that take years to develop. AI tooling that bypasses retrieval is selectively targeting the most sophisticated skills in an engineer's toolkit, leaving the procedural memory (which AI also handles) intact but hollowing out the strategic knowledge.</p>
       </section>
 
-      <!-- SECTION 4: AUTOMATION BIAS -->
       <section>
-        <h2>4. Automation Bias: How AI Trust Erodes Your Active Expertise</h2>
-        <p>Psychologists Raja Parasurann and Moritz H. Hess studied how humans interact with automated systems and documented a consistent pattern they called <strong>automation bias</strong>: the tendency to take automated recommendations as correct without sufficient scrutiny, and to underweight or ignore information that contradicts the automated system. Their research, spanning the 1990s and 2000s, was primarily conducted in aviation and medical contexts — fields where automation failures can be catastrophic.</p>
+        <h2>5. Attention Fragmentation and the Default Mode Network</h2>
 
-        <p>The mechanism is straightforward: when a system consistently provides correct output, trust builds. With trust comes reduced vigilance. With reduced vigilance comes failure to detect errors in the automated output. The human's ability to independently evaluate the system's decisions atrophies from disuse. This is the automation paradox: more automation leads to less human capability to do the automated task manually.</p>
+        <p>Research on sustained attention (Engle et al., 1999) shows that working memory capacity is not fixed — it's modulated by the ability to suppress irrelevant stimuli and maintain task-relevant representations. This is called the "executive attention" system, and it's one of the first casualties of sustained context-switching.</p>
 
-        <h3>The Irony of Automation (Bainbridge, 1983)</h3>
-        <p>Lisanne Bainbridge's 1983 paper "Ironies of Automation" remains one of the most prescient documents in the study of human-machine interaction. Bainbridge noted that automated systems are typically introduced to reduce the human's workload. But the human is still required to monitor the automation for failures, to understand the system well enough to take over when needed, and to maintain the skills necessary to do the automated task. As automation increases, the human's role shifts from active performer to passive monitor — a role that is simultaneously less engaging and more demanding in the specific skills required for takeover.</p>
+        <p>AI tooling produces a unique pattern of attention fragmentation: <strong>micro-interruptions at the output level</strong>. Every AI output is a potential context-switch — the brain has to decide: is this correct? Does this fit the architecture? Do I need to revise my plan? This micro-evaluation happens dozens of times per hour when using AI tooling, and each evaluation pulls attention resources away from the primary task.</p>
 
-        <p>For software engineers, this maps precisely. The senior engineer who used to write authentication logic by hand now receives AI-generated authentication suggestions. They accept them with high trust because the AI is usually correct. Their skill at evaluating authentication patterns — at recognizing subtle flaws — atrophies. Six months later, they cannot confidently evaluate an AI suggestion in this area because the skill they used to do this has degraded. They are now more dependent on the AI in a domain where their independent judgment has weakened.</p>
+        <p>There's also a secondary effect involving the default mode network (DMN) — the brain's "idle" state that activates during breaks, reflection, and creative problem-solving. The DMN is associated with:</p>
 
-        <h3>The Out-of-the-Loop Familiarity Problem</h3>
-        <p>Parasurann and Manzey (2010) further documented the <strong>Out-of-the-Loop Familiarity Problem</strong>: humans who operate highly automated systems for extended periods lose the situational awareness and procedural fluency required to take over effectively when automation fails. The skills degrade not through deliberate disuse but through the gradual replacement of active practice with passive monitoring.</p>
+        <ul>
+          <li>Incubation of creative solutions ("sleep on it")</li>
+          <li>Self-referential processing and identity consolidation</li>
+          <li>Memory consolidation during rest periods</li>
+          <li>Prospection (thinking about future scenarios and plans)</li>
+        </ul>
 
-        <p>For engineers whose primary role has become evaluating and integrating AI suggestions, the out-of-the-loop problem manifests as: difficulty debugging AI-generated code you did not write, inability to anticipate edge cases that the AI "should have" caught, and reduced confidence in making architectural decisions without AI validation. These are not signs of weakness or obsolescence. They are predictable consequences of the automation bias loop.</p>
+        <p>AI tooling that produces constant micro-outputs suppresses DMN activation. There's no "down time" in the workflow — the brain is always evaluating the next output, never entering the reflective state that normally supports creativity, planning, and long-term memory consolidation.</p>
 
-        <div class="comparison-table">
+        <p>Engineers who use AI extensively report that they can't "turn off" work thinking even after hours away from the computer. This isn't work obsession — it's the DMN being suppressed by sustained attentional demand. The brain never got the rest signal that comes from finishing a hard task and having a genuine break before the next one.</p>
+      </section>
+
+      <section>
+        <h2>6. The Effort Paradox: Why More Output Produces Less Satisfaction</h2>
+
+        <p>There's a paradox at the center of AI-assisted engineering: tools that produce more output per hour generate less satisfaction per unit of output. This isn't just a psychological observation — it has a neurological basis.</p>
+
+        <p>The brain's reward system is calibrated to the <em>effort of retrieval</em>, not the quantity of output. A senior engineer's dopamine response to completing a hard debugging session — after hours of struggle, failed hypotheses, and eventually finding the root cause — is substantial. That struggle encoded the learning, reinforced the skill, and produced a genuine sense of mastery.</p>
+
+        <p>AI tooling collapses the struggle and retains the output. The brain registers "nothing happened here" in terms of learning signal, but the environment continues to demand more. You shipped more features this week than last month. Your metrics look better. But you feel emptier. This is the effort paradox: the reward system is expecting effort-scaled reward, and AI tooling is giving it output without the effort.</p>
+
+        <p>Over time, the brain starts responding to a different reward signal: <strong>completion of AI-generated tasks</strong>. The satisfaction shifts from "I solved a hard problem" to "I got through my task list." These are qualitatively different reward experiences, and the second type doesn't build expertise, identity, or sustainable motivation.</p>
+
+        <table>
           <thead>
             <tr>
-              <th>Traditional Coding</th>
-              <th>AI-Assisted Coding</th>
-              <th>Effect on Skills</th>
+              <th>Signal Type</th>
+              <th>Without AI</th>
+              <th>With AI Extensive Use</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>You write and evaluate every line</td>
-              <td>AI suggests, you evaluate</td>
-              <td>Evaluation skill atrophies from disuse</td>
+              <td>Primary reward</td>
+              <td>Effort-scaled (hard problem = big reward)</td>
+              <td>Completion-scaled (task done = neutral reward)</td>
             </tr>
             <tr>
-              <td>You notice your own bugs</td>
-              <td>AI catches some bugs, you may miss others</td>
-              <td>Error detection intuition weakens</td>
+              <td>Dopamine trigger</td>
+              <td>Prediction error resolution (correct hypothesis)</td>
+              <td>Output delivery (AI output accepted)</td>
             </tr>
             <tr>
-              <td>You hold full architectural context</td>
-              <td>AI holds some context, you verify</td>
-              <td>Systems thinking becomes shallower</td>
+              <td>Learning signal</td>
+              <td>High — retrieval attempt encoded</td>
+              <td>Low — bypassed retrieval, no encoding</td>
             </tr>
             <tr>
-              <td>Learning happens through productive struggle</td>
-              <td>AI bypasses productive struggle</td>
-              <td>Mental models remain shallow</td>
+              <td>Identity reinforcement</td>
+              <td>Strong — "I'm a problem solver"</td>
+              <td>Weak — "I manage AI outputs"</td>
             </tr>
             <tr>
-              <td>Skills maintained through daily practice</td>
-              <td>AI suggests solutions automatically</td>
-              <td>Skill maintenance loop is broken</td>
+              <td>Energy trajectory</td>
+              <td>Variable — depletes on hard tasks, restores on success</td>
+              <td>Flat depletion — no restore signal</td>
             </tr>
           </tbody>
         </table>
-        <div class="research-card">
-          <h4>Key Research to Know</h4>
-          <p><strong>Bainbridge (1983)</strong> &mdash; "Ironies of Automation." The foundational paper on how automation creates new skill demands even as it reduces immediate workload. Bainbridge anticipated the out-of-the-loop problem decades before AI coding tools existed.</p>
-          <p><strong>Parasuraman &amp; Manzey (2010)</strong> &mdash; "Complacency and Bias in Human Use of Automation." Documents automation bias and the out-of-the-loop familiarity problem in systematic, measurable terms.</p>
-          <p><strong>Sparrow &amp; Banks (2010)</strong> &mdash; The Google Effect: digitally stored information is remembered less well than information we retrieve from memory. AI suggestions create a similar outsourcing of cognitive function that degrades the underlying skill.</p>
+      </section>
+
+      <section>
+        <h2>7. What the Research Tells Us About Recovery</h2>
+
+        <p>The neuroscience of AI fatigue isn't all bad news — it also points clearly toward what works for recovery. Three mechanisms have the strongest research support:</p>
+
+        <div class="science-box">
+          <p><strong>1. Retrieval Practice (Testing Effect)</strong></p>
+          <p>Roediger & Karpicke's research (2006) shows that active retrieval — testing yourself on material rather than re-reading it — produces 50-80% better retention after one week compared to passive review. For AI fatigue, this means: before using AI to solve a problem, spend 5-10 minutes attempting to solve it yourself, even if you know you'll use AI afterward. That retrieval attempt re-engages the hippocampal consolidation process that AI bypassed.</p>
+          <p class="source">Reference: Roediger & Karpicke (2006), "Test-Enhanced Learning", Psychological Science</p>
         </div>
-      </section>
 
-      <section>
-        <h2>5. Decision Fatigue: Why Choosing Which AI Approach Drains You</h2>
-        <p>Roy Baumeister decision fatigue research (2001, 2008) shows that every decision you make depletes your cognitive resources. The cumulative effect of too many decisions leads to decision paralysis, impulsive choices, or complete shutdown.</p>
-        <p>Modern AI tooling gives engineers an almost unlimited supply of decisions to make: Should I use Copilot or Claude? Should I accept this suggestion or refine the prompt? Should I try a different approach or trust this output? Should I verify this line or move on? Each micro-decision costs a small amount of glucose and attentional capacity. Multiply that by hundreds of decisions per day and you have a systematic depletion of the very cognitive resources you need to do deep technical work.</p>
-        <p>Daniel Kahneman dual-process theory (2011) explains this further: System 1 (fast, intuitive, automatic) handles routine decisions, while System 2 (slow, deliberate, analytical) handles complex reasoning. AI tooling blurs this boundary &mdash; you are constantly in System 2 mode evaluating AI output even when the task itself does not require it. System 2 is metabolically expensive. Running it constantly is like revving your engine at 6000 RPM for hours &mdash; it burns fuel fast and generates heat.</p>
-      </section>
-
-      <section>
-        <h2>6. The Burnout Connection: Maslach Meets AI</h2>
-        <p>Christina Maslach Burnout Inventory defines burnout through three dimensions: exhaustion, cynicism, and reduced efficacy. AI fatigue maps onto all three in specific ways.</p>
-        <p><strong>Exhaustion:</strong> Not just physical tiredness, but cognitive depletion &mdash; the feeling that your brain is empty by 3pm even if you spent the whole day in meetings and at your keyboard. This is the cognitive load and attention residue talking.</p>
-        <p><strong>Cynicism:</strong> A growing sense of detachment from your work &mdash; feeling like you are just assembling AI outputs rather than actually building things. "What is the point?" becomes a common thought. This is the identity threat and authorship erosion talking.</p>
-        <p><strong>Reduced efficacy:</strong> The feeling that you are not contributing as much as you used to, that your skills are diminishing, that you could not do your job without AI. This is the automation bias and skill atrophy talking.</p>
-        <p>The crucial difference is that traditional burnout is a response to workload and emotional demands. AI fatigue is a structural response to how AI tooling rewires the cognitive mechanics of your work.</p>
-      </section>
-
-      <section>
-        <h2>7. Identity Threat: Who Are You When AI Writes Your Code?</h2>
-        <p>When you write code, you are not just solving a problem. You are expressing your understanding, your judgment, your taste. You are proving to yourself that you can do it. That is not ego &mdash; that is how professional identity forms.</p>
-        <p>AI tooling systematically interrupts this process. When an AI suggests the solution you were about to write, you lose the moment of "I figured this out." When you accept AI code that you could have written yourself but faster, you lose the experience of authorship. Over time, this erodes the sense of professional self that took years to build.</p>
-        <p>Research on occupational identity (Ashforth and Kreiner, 1999) shows that work is not just what you do &mdash; it is who you are. When AI tooling makes your craft feel obsolete or your contributions feel invisible, the identity threat is not psychological noise. It is a genuine threat to your sense of self in the world.</p>
-      </section>
-
-      <section>
-        <h2>8. What the Research Says Actually Helps</h2>
-        <p>Understanding the mechanisms is only half the battle. Here is what the research actually supports as meaningful interventions:</p>
-        <p><strong>Cognitive batching:</strong> Rather than continuous AI use, batch your AI interactions into defined time blocks. This reduces the switching frequency and limits attention residue accumulation. Research on task-switching supports this approach &mdash; consolidating interruptions reduces overall cognitive cost.</p>
-        <p><strong>No-AI blocks:</strong> Scheduled periods without AI assistance force retrieval practice &mdash; the key mechanism for counteracting skill atrophy. Robert Bjork desirable difficulties research shows that retrieval is one of the most powerful learning mechanisms available. When you do not use AI for a block of time, you are effectively practicing the skills AI has been doing for you.</p>
-        <p><strong>The Explanation Requirement:</strong> For every AI-generated solution you use, write a brief explanation of why it works. This forces System 2 processing, deepens your understanding, and creates a learning moment from what would otherwise be a passive acceptance. This is applied cognitive load theory &mdash; you are adding germane load back in.</p>
-        <p><strong>Single-tool commitment:</strong> Decision fatigue compounds when you are constantly evaluating multiple AI tools. Committing to one tool for a defined period reduces the decision overhead and frees cognitive resources for actual work.</p>
-        <p><strong>Recovery time built into the structure:</strong> Just as athletes need rest between training sessions, engineers need AI-free recovery periods to let cognitive resources rebuild. This is not a luxury &mdash; it is the mechanism by which skills are maintained and developed.</p>
-      </section>
-
-      <section class="faq-section">
-        <h2>Frequently Asked Questions</h2>
-
-        <details class="faq-item">
-          <summary>Is AI fatigue just burnout with a new name?</summary>
-          <div class="faq-answer">No. Traditional burnout (Maslach model) is job-related exhaustion, cynicism, and reduced efficacy. AI fatigue has distinct mechanisms: cognitive load increase from tool-switching, attention residue from constant AI context switches, automation bias eroding problem-solving skills, and identity threat from ghost authorship. These mechanisms can compound traditional burnout but have different root causes and require different interventions.</div>
-        </details>
-
-        <details class="faq-item">
-          <summary>Why does AI use feel more exhausting than other work tasks?</summary>
-          <div class="faq-answer">Because it combines three separate cognitive burdens simultaneously: (1) You must maintain the full problem context in working memory while receiving AI suggestions, (2) You must rapidly evaluate AI output for correctness and fit creating split-attention, and (3) You must mentally switch between your own reasoning and the AI reasoning generating attention residue. Research by Gloria Mark (UC Irvine) shows recovery from interruptions averages 23 minutes. AI workflows create dozens of micro-interruptions per hour mathematically preventing deep work states.</div>
-        </details>
-
-        <details class="faq-item">
-          <summary>What does cognitive load theory say about AI tool use?</summary>
-          <div class="faq-answer">Cognitive Load Theory (Sweller, 1988) describes three load types: intrinsic (problem difficulty), extraneous (poor presentation), and germane (learning effort). AI affects all three: it fragments problem-solving into micro-tasks increasing intrinsic load through chunking bypass; it creates extraneous load through split-attention multi-pane setups; and it suppresses germane load by bypassing the productive struggle that builds mental models. The Expertise Reversal Effect (Kalyuga et al., 2003) shows that as you gain experience, AI assistance actually increases cognitive load more than it reduces it: the opposite of what you would expect.</div>
-        </details>
-
-        <details class="faq-item">
-          <summary>What is attention residue and how does AI create it?</summary>
-          <div class="faq-answer">Attention residue (Sophie Leroy, 2009) is the cognitive cost of switching tasks. Your cognitive resources remain partially engaged with the previous task even after you have nominally moved to a new one. AI workflows create near-constant task switching: prompt, evaluate, accept/reject, continue, prompt. Each switch leaves residue. Unlike email or chat where you notice the interruption, AI suggestions feel like they are helping so you accept them without the protective friction that would otherwise limit switching frequency. The result is a chronically fragmented attentional state.</div>
-        </details>
-
-        <details class="faq-item">
-          <summary>How does automation bias damage engineers skills over time?</summary>
-          <div class="faq-answer">Automation bias (Parasuraman and Manzey, 2010) is the tendency to over-rely on automated systems and underweight disconfirming evidence. For engineers, AI code suggestions create a loop: (1) AI suggests code, (2) engineer accepts without full scrutiny, (3) skills for evaluating code correctness atrophy, (4) reduced skill means harder to evaluate AI output, (5) more reliance on AI. This is the automation paradox: the more you use AI, the less capable you become of doing what AI does, and the more dependent you are on AI to do it.</div>
-        </details>
-
-        <details class="faq-item">
-          <summary>Can AI fatigue be reversed, or is the skill damage permanent?</summary>
-          <div class="faq-answer">Skill atrophy from AI use is reversible but only with deliberate practice. Robert Bjork desirable difficulties framework shows that retrieval practice, spacing, and interleaving rebuild skills even after periods of disuse. The key is structured periods without AI assistance (no-AI blocks, Explanation Requirement technique) that force retrieval of the skills being atrophied. The brain neuroplasticity means the capacity is not gone, it is just dormant. Recovery typically requires 4 to 8 weeks of consistent deliberate practice to rebuild measurable skill capacity.</div>
-        </details>
-      </section>
-
-      <section style="margin-top: 3rem; padding: 2rem; background: rgba(34,197,94,0.05); border: 1px solid rgba(34,197,94,0.15); border-radius: 12px;">
-        <h3 style="color: #22c55e; margin-top: 0;">Continue Exploring</h3>
-        <div class="explore-grid">
-          <a href="cognitive-load.html" class="explore-card">
-            <h4>Cognitive Load</h4>
-            <p>Deep-dive into Sweller framework and working memory limits</p>
-          </a>
-          <a href="attention-residue.html" class="explore-card">
-            <h4>Attention Residue</h4>
-            <p>Gloria Mark 23-minute recovery finding and how AI compounds it</p>
-          </a>
-          <a href="skill-atrophy.html" class="explore-card">
-            <h4>Skill Atrophy</h4>
-            <p>Bainbridge automation paradox and the skills AI is eroding</p>
-          </a>
-          <a href="flow-state.html" class="explore-card">
-            <h4>Flow State</h4>
-            <p>How AI violates the conditions for deep absorption in work</p>
-          </a>
-          <a href="recovery.html" class="explore-card">
-            <h4>Recovery Guide</h4>
-            <p>Evidence-based recovery strategies grounded in this research</p>
-          </a>
-          <a href="research.html" class="explore-card">
-            <h4>Full Research Index</h4>
-            <p>All research areas with citations and source links</p>
-          </a>
+        <div class="science-box">
+          <p><strong>2. Spaced Repetition and the Forgetting Curve</strong></p>
+          <p>Ebbinghaus's forgetting curve (1885) describes how memories decay exponentially without reinforcement. But his later research showed that strategically timed reviews can reduce decay dramatically. For engineers: schedule weekly "no-AI" sessions where you work through problems manually. The spaced repetition effect rebuilds working memory capacity and reinforces the retrieval pathways that AI has weakened.</p>
+          <p class="source">Reference: Ebbinghaus (1885), Memory: A Contribution to Experimental Psychology</p>
         </div>
-      </section>
 
-    </article>
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="#22c55e"/></svg>
-        <span>The Clearing</span>
-      </div>
-      <p style="color: #6b7280; font-size: 0.88rem; margin: 0.5rem 0;">A free resource for engineers navigating AI tooling. No tracking. No ads. Just care.</p>
-      <nav class="footer-links" aria-label="Footer navigation">
-        <a href="index.html">Quiz</a>
-        <a href="recovery.html">Recover</a>
-        <a href="research.html">Research</a>
-        <a href="newsletter.html">Newsletter</a>
-      <a href="email-course.html">Email Course</a>
-        <a href="about.html">About</a>
-      </nav>
-    </div>
-  </footer>
-
-  <script>
-    window.addEventListener('scroll', function() {
-      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      var scrolled = (winScroll / height) * 100;
-      var bar = document.getElementById('progressBar');
-      if (bar) bar.style.width = scrolled + '%';
-    });
-    var themeToggle = document.getElementById('themeToggle');
-    if (themeToggle) {
-      themeToggle.addEventListener('click', function() {
-        var html = document.documentElement;
-        var current = html.getAttribute('data-theme');
-        var next = current === 'dark' ? 'light' : 'dark';
-        html.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
-        themeToggle.textContent = next === 'dark' ? '☀️' : '🌙';
-      });
-      var saved = localStorage.getItem('theme');
-      if (saved) document.documentElement.setAttribute('data-theme', saved);
-    }
-    var navToggle = document.getElementById('navToggle');
-    var navLinks = document.getElementById('navLinks');
-    if (navToggle && navLinks) {
-      navToggle.addEventListener('click', function() {
-        var expanded = navToggle.getAttribute('aria-expanded') === 'true';
-        navToggle.setAttribute('aria-expanded', !expanded);
-        navLinks.classList.toggle('open');
-      });
-    }
-  </script>
-</body>
-</html>
+        <div

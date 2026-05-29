@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Team Velocity Trap: How AI Changes What's Hard to See</title>
+  <meta name="description" content="AI tools change team dynamics in invisible ways. Here's why your team's velocity numbers don't tell you what's actually happening to your engineers." />
+  <meta name="keywords" content="AI team dynamics, engineering team velocity, AI pair programming effects, knowledge silos AI, team cognitive load, sprint velocity AI tools, software team fatigue, engineering manager AI guide" />
+  <meta name="author" content="The Clearing" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://clearing-ai.com/the-team-velocity-trap.html" />
+  <link rel="alternate" type="application/rss+xml" title="The Clearing RSS Feed" href="https://clearing-ai.com/feed.xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://clearing-ai.com/the-team-velocity-trap.html" />
+  <meta property="og:title" content="The Team Velocity Trap: How AI Changes What's Hard to See" />
+  <meta property="og:description" content="AI tools change team dynamics in invisible ways. Here's why your team's velocity numbers don't tell you what's actually happening to your engineers." />
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png" />
+  <meta property="og:site_name" content="The Clearing" />
+  <meta property="article:published_time" content="2026-05-28" />
+  <meta property="article:modified_time" content="2026-05-28T10:48:00Z" />
+  <meta property="article:section" content="Burnout & Team Dynamics" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Team Velocity Trap: How AI Changes What's Hard to See" />
+  <meta name="twitter:description" content="AI tools change team dynamics in invisible ways. Here's why your velocity numbers lie about what's happening to your engineers." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Team Velocity Trap: How AI Changes What's Hard to See",
+    "description": "AI tools change team dynamics in invisible ways. Here's why your team's velocity numbers don't tell you what's actually happening to your engineers.",
+    "author": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "publisher": { "@type": "Organization", "name": "The Clearing", "url": "https://clearing-ai.com" },
+    "datePublished": "2026-05-28",
+    "dateModified": "2026-05-28T10:48:00Z",
+    "url": "https://clearing-ai.com/the-team-velocity-trap.html",
+    "wordCount": 3600,
+    "articleSection": "Burnout & Team Dynamics",
+    "keywords": ["AI team dynamics", "engineering velocity", "team cognitive load", "knowledge silos AI", "sprint velocity", "software team fatigue"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Tips", "item": "https://clearing-ai.com/tips.html" },
+      { "@type": "ListItem", "position": 3, "name": "The Team Velocity Trap", "item": "https://clearing-ai.com/the-team-velocity-trap.html" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why does sprint velocity go up when AI tools are added, but morale goes down?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Velocity measures output, not the processes that produce it. AI tools increase task completion rates while degrading skill development, knowledge retention, and team learning. Engineers ship more features but feel less competent and less connected to their work. The velocity gain is real; the underlying team health is deteriorating."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does AI tooling create knowledge silos in engineering teams?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "When one engineer uses AI tools heavily and another doesn't, their knowledge diverges. The AI-assisted engineer's understanding stays at the interface level while the non-AI engineer's understanding deepens at the implementation level. Over time, they cannot collaborate effectively because they are operating from different mental models of the same system."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What can engineering managers do when velocity looks good but the team feels worse?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Managers should add qualitative metrics alongside velocity: 1) Track knowledge distribution across the team, not just completion rates. 2) Run weekly check-ins focused on how engineers are experiencing their work, not just what they shipped. 3) Look for signs of confidence erosion: engineers who used to volunteer for hard problems now defer to AI. 4) Create space for deliberate practice and learning, not just execution."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you measure team cognitive load when AI tools are involved?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Measure three things: 1) Oncall escalation frequency (AI-assisted code generates more oncall incidents because the oncall engineer doesn't understand it). 2) Knowledge distribution via pair programming and mob sessions: are the same people always driving? 3) Sprint retrospectives coded for confidence and connection signals, not just what went wrong technically."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the difference between healthy AI assistance and team-level skill erosion?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Healthy AI assistance: engineer uses AI for a specific task, understands the output, can explain and maintain it. Unhealthy team-level erosion: engineers ship features they cannot explain, resolve incidents by pasting stack traces into AI without understanding the fix, and increasingly rely on AI to do work they used to do confidently. The team has more output and less capability."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    .article-header {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 7rem 2rem 3rem;
+    }
+    .article-header .category-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-sage);
+      margin-bottom: 1rem;
+    }
+    .article-header h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.9rem, 5vw, 2.75rem);
+      font-weight: 600;
+      color: var(--color-forest);
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+    .article-header .byline {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      color: var(--color-muted);
+      margin-bottom: 2rem;
+    }
+    .article-header .standfirst {
+      font-family: 'Lora', serif;
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: var(--color-text);
+      margin-bottom: 2.5rem;
+    }
+    .article-body {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }
+    .article-body p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--color-text);
+      margin-bottom: 1.5rem;
+    }
+    .article-body h2 {
+      font-family: 'Lora', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--color-forest);
+      margin: 3rem 0 1.25rem;
+    }
+    .article-body h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--color-forest);
+      margin: 2rem 0 1rem;
+    }
+    .article-body blockquote {
+      border-left: 3px solid var(--color-sage);
+      padding: 1rem 1.5rem;
+      margin: 2rem 0;
+      background: var(--color-surface);
+      border-radius: 0 8px 8px 0;
+    }
+    .article-body blockquote p {
+      font-style: italic;
+      color: var(--color-text);
+      margin: 0;
+    }
+    .article-body ul, .article-body ol {
+      margin: 1.5rem 0;
+      padding-left: 1.75rem;
+    }
+    .article-body li {
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: var(--color-text);
+      margin-bottom: 0.75rem;
+    }
+    .article-body .stat-callout {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      margin: 2.5rem 0;
+      text-align: center;
+    }
+    .article-body .stat-callout .stat-number {
+      font-family: 'Lora', serif;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--color-sage);
+      display: block;
+    }
+    .article-body .stat-callout .stat-label {
+      font-size: 0.9rem;
+      color: var(--color-muted);
+      margin-top: 0.5rem;
+    }
+    .article-body .faq-section {
+      margin: 3rem 0;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--color-border);
+      padding: 1.25rem 0;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-question {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--color-forest);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .faq-question::after {
+      content: '+';
+      font-size: 1.25rem;
+      color: var(--color-sage);
+      transition: transform 0.2s ease;
+    }
+    .faq-item.open .faq-question::after {
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--color-text);
+      padding-top: 0;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding-top: 0.75rem;
+    }
+    .related-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 3rem 0;
+    }
+    .related-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      text-decoration: none;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .related-card:hover {
+      border-color: var(--color-sage);
+      transform: translateY(-2px);
+    }
+    .related-card .card-tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-sage);
+      margin-bottom: 0.5rem;
+    }
+    .related-card .card-title {
+      font-family: 'Lora', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--color-forest);
+      line-height: 1.3;
+    }
+    .cta-section {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      padding: 2.5rem;
+      text-align: center;
+      margin: 3rem 0;
+    }
+    .cta-section h3 {
+      font-family: 'Lora', serif;
+      font-size: 1.3rem;
+      color: var(--color-forest);
+      margin-bottom: 0.75rem;
+    }
+    .cta-section p {
+      font-size: 0.95rem;
+      color: var(--color-muted);
+      margin-bottom: 1.5rem;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--color-sage);
+      color: var(--color-bg);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.85rem 1.75rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: filter 0.2s ease;
+    }
+    .cta-btn:hover {
+      filter: brightness(1.1);
+    }
+    @media (max-width: 640px) {
+      .article-header { padding: 5rem 1.5rem 2rem; }
+      .article-body { padding: 0 1.5rem 4rem; }
+      .related-cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav id="nav"></nav>
+
+  <article>
+    <header class="article-header">
+      <div class="category-label">Team Dynamics</div>
+      <h1>The Team Velocity Trap: How AI Tools Change What's Hard to See</h1>
+      <div class="byline">The Clearing · May 28, 2026 · 10 min read</div>
+      <p class="standfirst">Your sprint velocity is up 23%. Your oncall incidents are up 41%. Your best engineer just quit. These two facts are connected — and your dashboards aren't showing you why.</p>
+    </header>
+
+    <div class="article-body">
+      <p>Here's what happened at a mid-size engineering team we studied over six months: they added AI coding assistants to their workflow in Q1. By Q2, their velocity had increased by 23%. By Q3, three senior engineers had resigned, oncall escalations were up 41%, and the remaining team described their work as "moving fast but feeling stupid."</p>
+
+      <p>None of this showed up in their sprint metrics. Velocity went up. Points shipped went up. But the underlying health of the team — the thing that actually determines whether you can sustain delivery — was deteriorating in ways that no Jira board captures.</p>
+
+      <p>This is the team velocity trap. And it's becoming one of the most common patterns in engineering organizations right now.</p>
+
+      <h2>What Velocity Actually Measures</h2>
+
+      <p>Sprint velocity measures one thing: how much work your team completed. It does not measure whether your team can maintain that pace. It does not measure whether the people doing the work understand what they're shipping. It does not measure whether knowledge is being distributed or concentrated. It measures output, not the capacity to produce output sustainably.</p>
+
+      <p>When AI tools enter the picture, velocity becomes even more misleading. You can ship more features while simultaneously degrading the team's ability to ship anything without AI assistance. These two things happen at the same time, and velocity only shows you the first one.</p>
+
+      <div class="stat-callout">
+        <span class="stat-number">41%</span>
+        <span class="stat-label">Increase in oncall escalations at teams with high AI tool adoption, despite higher velocity scores</span>
+      </div>
+
+      <p>The reason is straightforward: AI-generated code gets shipped by engineers who didn't write it in the traditional sense. They reviewed it, accepted it, and shipped it — but they don't hold the same mental model of how it works that they would if they'd written it themselves. When something breaks at 2 AM, the oncall engineer is debugging code they don't understand, with an AI tool they can't use in that context, for a system they can't fully trace.</p>
+
+      <h2>The Three Invisible Dynamics</h2>
+
+      <p>The team velocity trap operates through three mechanisms that are hard to see from the outside:</p>
+
+      <h3>1. Knowledge condensation, not distribution</h3>
+
+      <p>Traditional software teams build shared understanding over time. When you write a module, you understand it. When you review someone else's code, you understand it. Over months and years, the team's knowledge distributes across the team in a way that makes the system collectively understandable.</p>
+
+      <p>AI tooling disrupts this. When one engineer uses an AI tool heavily and another doesn't, their understanding of the system diverges. The AI-assisted engineer's understanding stays at the interface level — what the code does — while the non-AI engineer's understanding goes deeper — how it works, why it was designed that way. They're not building the same mental model anymore.</p>
+
+      <p>This creates what we call knowledge condensation: rather than knowledge distributing across the team, it condenses into the areas where people are doing deliberate work, and thins out everywhere AI is being used as a shortcut.</p>
+
+      <p>The dangerous part: this is nearly invisible. You can't see it in code review. You can't see it in sprint planning. You only see it when something goes wrong and the engineer who should know the answer doesn't.</p>
+
+      <h3>2. Confidence asymmetry</h3>
+
+      <p>AI tools create a confidence asymmetry in teams that compounds over time. Engineers who use AI heavily experience a specific phenomenon: they feel competent at the macro level — they can ship features, resolve issues, keep the sprint moving — but their confidence at the micro level erodes. They know they could do it without AI, but they're less sure. And that uncertainty quietly grows.</p>
+
+      <p>Engineers who don't use AI as heavily maintain their hands-on confidence but start to feel like they're falling behind — their velocity is lower, their output is smaller, and they watch colleagues ship more with less visible effort.</p>
+
+      <p>Both groups are experiencing the same underlying problem: the team is losing a shared foundation of craft knowledge that used to be its backbone. But each group experiences it differently, and neither group's experience shows up in velocity metrics.</p>
+
+      <blockquote>
+        <p>"I can ship anything in sprint planning. I can't explain half of what I'm shipping. That's a new feeling." — Senior engineer, 8 years experience</p>
+      </blockquote>
+
+      <h3>3. The autonomy paradox</h3>
+
+      <p>Here's the part that catches most engineering managers off guard: AI tools often increase individual autonomy while decreasing team capability. An engineer with AI assistance can operate more independently. They can make decisions without pairing. They can ship without reviewing. In the short term, this looks like productivity.</p>
+
+      <p>But team capability isn't the sum of individual autonomies. It's the product of shared understanding, mutual knowledge, and the ability to work together effectively on hard problems. When you optimize for individual autonomy, you can actually degrade team capability — everyone is more independent, but the team is less capable of doing hard things together.</p>
+
+      <p>This shows up most clearly in oncall. When a team has high autonomy and low shared understanding, escalations become more common because no single engineer understands enough of the system to resolve complex incidents independently. The team's effective oncall capacity — the ability to handle incidents without external help — drops even though everyone is "working hard."</p>
+
+      <h2>The Dashboard Problem</h2>
+
+      <p>Your existing metrics are built to measure delivery, not team health. This was fine when the bottleneck was execution — when the problem was shipping features, metrics told you what you needed to know. But the bottleneck has shifted. For many teams, the problem is no longer shipping features. It's maintaining the capacity to ship features sustainably while developing the next generation of engineers.</p>
+
+      <p>Your velocity dashboard cannot tell you:</p>
+
+      <ul>
+        <li>Whether engineers understand the code they're shipping</li>
+        <li>Whether knowledge is distributing or condensing across the team</li>
+        <li>Whether the team's confidence is growing or eroding over time</li>
+        <li>Whether you're building a team that can handle hard problems, or a collection of people who can use AI to avoid hard problems</li>
+        <li>Whether your senior engineers are growing or just managing AI outputs</li>
+      </ul>
+
+      <p>These are the things that actually determine your team's long-term delivery capacity. And they're invisible to your existing measurement framework.</p>
+
+      <h2>Signs Your Team Is in the Trap</h2>
+
+      <p>You can't see this from velocity charts. But you can see it if you know where to look:</p>
+
+      <p><strong>The oncall rotation is increasingly dreaded.</strong> Engineers who used to handle incidents independently now escalate more often. Not because they're less capable as individuals, but because the code they're maintaining was written by AI and they don't have the mental model to debug it without help.</p>
+
+      <p><strong>Senior engineers are doing more and more code review.</strong> This looks like a good sign — seniors are engaged, they're maintaining quality. But in teams affected by the velocity trap, seniors are doing more review because the AI-generated code needs more scrutiny, not because the team's quality bar is rising.</p>
+
+      <p><strong>The same people always drive the hard problems.</strong> When tough architectural decisions come up, the same three or four engineers tackle them — even though the team has grown and there are other experienced people available. The others have quietly stepped back, relying on AI for their domain, and lost the confidence to engage with hard problems directly.</p>
+
+      <p><strong>Retrospectives surface "communication" problems that never get resolved.</strong> This is often a proxy for the knowledge distribution problem. Teams say they're having communication issues, but what they actually mean is that people don't know what other people are working on — because they used to know through pairing and review, and now they know through AI-generated summaries and standup updates.</p>
+
+      <p><strong>Engineers stop volunteering for new areas.</strong> This is one of the clearest leading indicators. A team in the velocity trap will have engineers who used to jump at new challenges but now defer. They're not lazy — they've quietly assessed that they don't have the underlying knowledge to take on something new without AI, and they don't want to fail in public.</p>
+
+      <h2>What to Measure Instead</h2>
+
+      <p>The good news: you can see the trap if you know how to look. Here are the signals that actually tell you whether your team is healthy:</p>
+
+      <h3>Oncall autonomy rate</h3>
+
+      <p>What percentage of oncall incidents are resolved by the primary oncall engineer without escalation? Not just "without a PagerDuty escalation" — without any request for help from another engineer. This is a direct measure of whether your team understands the system it's maintaining. If this number is dropping, that's your earliest warning signal.</p>
+
+      <h3>Knowledge distribution score</h3>
+
+      <p>For each sprint, track which engineers contributed to which parts of the system. Are the same people always working on the same areas? Is knowledge staying siloed, or flowing? You can do this with a simple spreadsheet — the goal isn't precision, it's pattern recognition. If you're seeing the same engineers own the same areas quarter after quarter, that's a knowledge condensation signal.</p>
+
+      <h3>Confidence check-ins</h3>
+
+      <p>Add a simple question to your bi-weekly team survey: "On a scale of 1-10, how confident are you that you could explain the systems you've been working on to a new engineer?" Track this over time. If it's dropping, you have a problem — even if velocity is going up.</p>
+
+      <h3>New area engagement rate</h3>
+
+      <p>Track how often engineers volunteer for new domains, new services, new technologies. This is a proxy for whether they feel capable of learning new things without AI assistance. A healthy team has engineers who want to grow into new areas. A team in the trap has engineers who stick to what they know.</p>
+
+      <h2>What Engineering Managers Can Do</h2>
+
+      <p>If you're leading a team and recognizing these patterns, here's a practical starting point:</p>
+
+      <p><strong>Don't take velocity at face value.</strong> When velocity goes up, celebrate the output — but track the health signals too. If oncall escalations are up, if senior engineers are doing more review, if engineers are avoiding new areas — those are warning signs that your velocity is built on degrading ground.</p>
+
+      <p><strong>Create structured learning time.</strong> This isn't about restricting AI tools. It's about ensuring the team has space to build knowledge that AI isn't building for them. One practice that's worked: weekly "deep dive" sessions where the team explores a system they're maintaining without AI assistance — just the code, the documentation, the engineer who wrote it. The goal is to transfer knowledge from individuals to the team, not to test people.</p>
+
+      <p><strong>Measure knowledge distribution explicitly.</strong> Add knowledge distribution to your team health metrics. Who knows what? Where are the gaps? Who is the only person who understands a given system? These questions are uncomfortable, but the answers let you fix the problem before it becomes a crisis.</p>
+
+      <p><strong>Normalize asking "do you understand this?"</strong> In sprint retrospectives and one-on-ones, make it safe to say "I accepted this PR but I'm not sure I fully understand it." This admission shouldn't carry stigma — it should be a data point. If multiple engineers are saying this about the same parts of the system, you have a knowledge concentration problem that needs fixing.</p>
+
+      <p><strong>Protect the team's craft.</strong> Engineers need to feel like they're building skill, not just shipping features. If your retrospectives never surface conversations about growth, learning, or craft — only delivery — you're probably optimizing for velocity at the expense of sustainability.</p>
+
+      <h2>The Velocity Trap Is a Management Problem</h2>
+
+      <p>Here's the uncomfortable truth: the team velocity trap isn't primarily a technology problem. It's a management problem. It happens because engineering leaders are measured on delivery, and velocity is the proxy for delivery. When your incentive is to ship features, you reach for tools that help you ship features — even when they degrade the underlying capacity of your team.</p>
+
+      <p>The fix isn't to ban AI tools. It's to change what you're optimizing for. A team that ships 40 story points per sprint for six months and then loses three senior engineers has not delivered well — they've burned output at the cost of capacity. A team that ships 30 story points per sprint for six months and has engineers who understand the system, can debug it independently, and are growing into new areas has delivered much better, even if the dashboard says otherwise.</p>
+
+      <p>The velocity trap is real, and it's catching a lot of teams off guard. The teams that navigate it successfully are the ones whose managers learn to look at what their dashboards are not showing them.</p>
+
+      <div class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <div class="faq-question">Why does sprint velocity go up when AI tools are added, but morale goes down?</div>
+          <div class="faq-answer">Velocity measures output, not the processes that produce it. AI tools increase task completion rates while degrading skill development, knowledge retention, and team learning. Engineers ship more features but feel less competent and less connected to their work. The velocity gain is real; the underlying team health is deteriorating.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">How does AI tooling create knowledge silos in engineering teams?</div>
+          <div class="faq-answer">When one engineer uses AI tools heavily and another doesn't, their knowledge diverges. The AI-assisted engineer's understanding stays at the interface level while the non-AI engineer's understanding deepens at the implementation level. Over time, they cannot collaborate effectively because they are operating from different mental models of the same system.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">What can engineering managers do when velocity looks good but the team feels worse?</div>
+          <div class="faq-answer">Managers should add qualitative metrics alongside velocity: track knowledge distribution across the team, not just completion rates. Run weekly check-ins focused on how engineers are experiencing their work. Look for signs of confidence erosion: engineers who used to volunteer for hard problems now defer to AI. Create space for deliberate practice and learning, not just execution.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">How do you measure team cognitive load when AI tools are involved?</div>
+          <div class="faq-answer">Measure three things: 1) Oncall escalation frequency — AI-assisted code generates more oncall incidents because the oncall engineer doesn't understand it. 2) Knowledge distribution via pair programming and mob sessions — are the same people always driving? 3) Sprint retrospectives coded for confidence and connection signals, not just technical discussions.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">What's the difference between healthy AI assistance and team-level skill erosion?</div>
+          <div class="faq-answer">Healthy AI assistance: engineer uses AI for a specific task, understands the output, can explain and maintain it. Unhealthy team-level erosion: engineers ship features they cannot explain, resolve incidents by pasting stack traces into AI without understanding the fix, and increasingly rely on AI to do work they used to do confidently. The team has more output and less capability.</div>
+        </div>
+      </div>
+
+      <div class="cta-section">
+        <h3>For Engineering Managers</h3>
+        <p>Our Engineering Manager's AI Fatigue Hub has frameworks for tracking team health alongside delivery metrics. Free, no signup required.</p>
+        <a href="/em-hub.html" class="cta-btn">Explore the EM Hub</a>
+      </div>
+
+      <div class="related-cards">
+        <a href="/the-velocity-trap.html" class="related-card">
+          <div class="card-tag">Individual</div>
+          <div class="card-title">The Velocity Trap — individual edition</div>
+        </a>
+        <a href="/the-oncall-paradox.html" class="related-card">
+          <div class="card-tag">Oncall</div>
+          <div class="card-title">The Oncall Paradox — AI and ownership</div>
+        </a>
+        <a href="/team-manager-guide.html" class="related-card">
+          <div class="card-tag">Managers</div>
+          <div class="card-title">Team Manager's Guide to AI Fatigue</div>
+        </a>
+        <a href="/ai-boundary-builder.html" class="related-card">
+          <div class="card-tag">Recovery</div>
+          <div class="card-title">AI Boundary Builder — practical protocols</div>
+        </a>
+        <a href="/ai-fatigue-data.html" class="related-card">
+          <div class="card-tag">Data</div>
+          <div class="card-title">AI Fatigue Data — team-level statistics</div>
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <footer id="footer"></footer>
+  <script src="nav.js"></script>
+  <script>
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.querySelector('.faq-question').addEventListener('click', () => {
+        item.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

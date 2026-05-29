@@ -277,3 +277,10 @@
 **Git:** dbefbe1f | Push: success
 **Site stats:** 250 pages | ~1,170k words | Lighthouse 100 | Technical SEO 99/100 | Day 30
 **Next:** Reddit r/programming Fri May 29 1PM PDT | EM2 Day-7 follow-ups May 29 | Reddit Fresh Pack Jun 1-7
+
+## Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-29 02:48 UTC (Phase 1 Window 248)
+**Phase:** Phase 1 — Content Pillar (Research sub-pillar, new page)
+**Built:** `the-continuity-gap.html` (~3,100 words) — "Why Engineers Lose the Thread of Their Own Systems." Core thesis: AI-assisted development creates a specific knowledge gap where engineers can no longer trace their own decisions. 3 mechanisms: decomposition without articulation, interface-level engagement everywhere, soft inheritance problem.
+**Git:** 258ca39e + b1450aa3 | Push: success
+**Phase:** P1=248 | P2=280 | P3=204 | P4=211
+**Site stats:** 251 pages | ~1,173k words | Day 30

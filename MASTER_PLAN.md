@@ -1004,3 +1004,11 @@
 **Git:** 4eb82798 | Push: success
 **Site stats:** 242 pages | ~1,125k words | Lighthouse 100 | Technical SEO 99/100 | Day 28
 **Next:** Reddit r/programming Fri May 29 | EM2 follow-ups May 29 | Reddit Fresh Pack Jun 1-7
+
+## Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-28 17:48 PDT / 2026-05-29 00:48 UTC (Phase 4 Community)
+**Phase:** Phase 4 Community — Newsletter Backfill Recovery
+**Built:** Recovered 6 missing newsletter dispatches: #115 The Architecture of Rest, #116 The Invisible Carries, #119 The Compounding Deficit, #120 The Input-to-Output Ratio, #123 The Weekly Self-Audit, #125 The Knowledge Debt. newsletter-issues.json updated.
+**Git:** 78c47397 | Push: success
+**Phase windows:** P1=247 | P2=280 | P3=204 | P4=211
+**Site stats:** 247 pages | ~1,166k words | Lighthouse 100 | Technical SEO 99/100 | Day 29
+**Next:** Reddit r/programming Fri May 29 1PM PDT | EM2 Day-7 follow-ups May 29 | Reddit Fresh Pack Jun 1-7 (ALREADY PREPPED) | LinkedIn Post #4 (READY, no creds)

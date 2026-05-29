@@ -1,0 +1,8 @@
+# Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-28 14:48 PDT / 21:48 UTC (Phase 1 Window 244)
+
+**Phase:** Phase 1 — Content Pillar (new "the-*" pattern page)
+**Built:** `the-standup-paradox.html` (~3,700 words, 317 lines) — "The Standup Paradox: Why Daily Meetings Drain Engineers Who Sit All Day." Core thesis: daily standups cost 15 minutes + 23-minute context-switch recovery + status theater anxiety. Three costs: pre-meeting preparation tax, context-switch recovery, social performance anxiety. AI amplifies all three (can't honestly report AI-generated work). Who it hits hardest: AI-native juniors, senior engineers maintaining AI legacy code, mid-career engineers performing continuity. Evidence-based solutions: restructure standup for coordination vs reporting, move to end of day, shift to weekly + daily blocker-only. FAQPage (5 Qs) + Article + BreadcrumbList schema. Linked from index.html, tips.html, related articles (the-consultation-trap, the-velocity-trap, the-explanation-gap, cognitive-load).
+**Git:** ac99b3c8 | Push: success
+**Phase:** P1=244 | P2=280 | P3=204 | P4=210
+**Site stats:** 246 pages | ~1,162k words | Lighthouse 100 | Technical SEO 99/100 | Day 28
+**Next:** Reddit r/programming Fri May 29 1PM PDT | EM2 Day-7 follow-ups May 29 | Reddit Fresh Pack Jun 1-7 | LinkedIn Post #4 "The Velocity Trap" (READY, no creds) | Twitter #56-58 (READY, no creds) | Newsletter #125 (next P4 window)

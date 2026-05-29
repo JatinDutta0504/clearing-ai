@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Dispatch #120 — The Input-to-Output Ratio</title>
+  <meta name="description" content="The ratio of effort to skill growth has inverted with AI tooling. Here's what that means for your career."/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://clearing-ai.com/newsletter-issues/dispatch-120.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="The Dispatch #120 — The Input-to-Output Ratio"/>
+  <meta property="og:description" content="The ratio of effort to skill growth has inverted with AI tooling."/>
+  <meta property="og:image" content="https://clearing-ai.com/og-image.png"/>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="../css/style.min.css"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--forest-deep:#1a2e1a;--forest-mid:#2d5016;--forest-light:#4a7c59;--muted:#a0b8a8;--text:#e8f0e8;--text-secondary:#a0b8a8;--accent:#7aab8a;--surface-2:#1a2e1a;--border:rgba(90,140,90,.22);--bg:#111411;--card-bg:#1a1e1a}
+    [data-theme="light"]{--bg:#f5f2ed;--text:#1a2e1a;--text-secondary:#3d5a3d;--surface-2:#edeae3;--border:#c8c4bb;--accent:#2d5016}
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;max-width:680px;margin:0 auto;padding:0 24px}
+    .skip-link{position:absolute;top:-9999px;left:0;background:var(--accent);color:#0a0a0a;padding:8px 16px;z-index:100;border-radius:0 0 4px 4px;text-decoration:none;font-size:.85rem}
+    .skip-link:focus{top:0}
+    .header{padding:48px 0 32px;border-bottom:1px solid var(--border);margin-bottom:40px}
+    .header .label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:block}
+    .header h1{font-size:clamp(1.6rem,5vw,2.2rem);font-weight:700;color:var(--text);line-height:1.2;margin-bottom:12px}
+    .header .meta{font-size:13px;color:var(--text-secondary)}
+    h2{font-size:1.2rem;font-weight:700;color:var(--text);margin:36px 0 16px;border-left:3px solid var(--accent);padding-left:14px}
+    h3{font-size:1.05rem;font-weight:700;color:var(--text);margin:28px 0 12px}
+    p{margin:0 0 18px;color:var(--text);font-size:1.05rem;line-height:1.75}
+    p:last-child{margin-bottom:0}
+    ul,ol{margin:16px 0 20px 24px}
+    li{margin-bottom:10px;color:var(--text);font-size:1.05rem}
+    strong{color:var(--accent)}
+    em{font-style:italic;color:var(--text-secondary)}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .callout{background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:20px 24px;margin:28px 0}
+    .callout p{font-style:italic;color:var(--text-secondary);margin:0;font-size:1rem}
+    .ratio-card{background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:20px 24px;margin:20px 0}
+    .ratio-card h3{margin:0 0 10px;font-size:1rem;font-weight:700;color:var(--accent);border:none;padding:0}
+    .ratio-card p{margin-bottom:10px;font-size:.97rem}
+    .ratio-card p:last-child{margin-bottom:0}
+    .practice-box{background:var(--forest-deep);border:1px solid var(--accent);border-radius:8px;padding:20px 24px;margin:28px 0}
+    .practice-box h3{color:var(--accent);margin:0 0 12px;font-size:.95rem;text-transform:uppercase;letter-spacing:1px;border:none;padding:0}
+    .practice-box p{margin-bottom:10px;font-size:.97rem}
+    .practice-box p:last-child{margin-bottom:0}
+    .divider{border:none;border-top:1px solid var(--border);margin:36px 0}
+    .cta-block{background:var(--surface-2);border:1px solid var(--accent);border-radius:8px;padding:28px;text-align:center;margin:40px 0 0}
+    .cta-block p{font-size:.95rem;color:var(--text-secondary);margin-bottom:16px}
+    .cta-block a{display:inline-block;background:var(--accent);color:#0a0a0a;text-decoration:none;padding:12px 28px;border-radius:6px;font-weight:600;font-size:1rem;margin-bottom:8px}
+    .cta-block a:hover{opacity:.85;text-decoration:none}
+    .footer{margin-top:48px;padding-top:24px;border-top:1px solid var(--border);font-size:12px;color:var(--text-secondary);line-height:1.7}
+    .footer a{color:var(--accent)}
+    @media(max-width:600px){body{padding:0 16px}.header{padding:32px 0 24px}}
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="header">
+    <span class="label">The Dispatch #120</span>
+    <h1>The Input-to-Output Ratio</h1>
+    <p class="meta">July 22, 2026 · 7 min read · For engineers navigating AI fatigue</p>
+  </header>
+
+  <main id="main">
+    <h2>Think About the Last Month</h2>
+
+    <p>Count the number of commits you shipped. Now count the number of those commits where you genuinely struggled with the problem &mdash; 15+ minutes where you weren&rsquo;t on the verge of reaching for an AI tool, where you sat with not-knowing and pushed through yourself.</p>
+
+    <p>If you&rsquo;re like most AI-assisted engineers, the second number is dramatically smaller than the first.</p>
+
+    <p>This is the input-to-output ratio problem &mdash; and it&rsquo;s quietly rewriting what your engineering career looks like from the inside.</p>
+
+    <hr class="divider"/>
+
+    <h2>What the Ratio Used to Mean</h2>
+
+    <p>In pre-AI engineering, input and output were tightly coupled. The time you spent wrestling with something was the input. The code you shipped was the output. The ratio was roughly 1:1 &mdash; or more accurately, 2:1 or 3:1 if you count the debugging and the failures along with the struggling.</p>
+
+    <p>The struggling was the input. It wasn&rsquo;t a tax on your productivity. It was the work itself.</p>
+
+    <p>This produced an engineer who came out of an intensive period with something to show for it and something learned from it. The output was visible. The input survived as skill.</p>
+
+    <hr class="divider"/>
+
+    <h2>What AI Changed</h2>
+
+    <p>AI decoupled input from output.</p>
+
+    <p>You can now produce significant engineering output with minimal input of your own cognitive effort. The ratio goes from something like 2:1 to something like 0.2:1 &mdash; you&rsquo;re putting in less genuine struggle per unit of production than you used to.</p>
+
+    <div class="callout">
+      <p>Your brain doesn&rsquo;t update your internal bookkeeping correctly. It sees high output and assumes the input somehow happened anyway, even when it didn&rsquo;t. You shipped a complex feature &mdash; the struggle must have been there somewhere.</p>
+    </div>
+
+    <p>You didn&rsquo;t. You earned the velocity. The struggle was outsourced to AI, and the skill formation went with it.</p>
+
+    <hr class="divider"/>
+
+    <h2>The Compounding Problem</h2>
+
+    <p>The ratio problem compounds in two ways:</p>
+
+    <p><strong>On the negative side</strong>: When you produce output without genuine input, you&rsquo;re actively un-building capability. The circuits that handle reasoning, debugging, and independent problem-solving are idle. And like muscles, they don&rsquo;t maintain themselves. They erode.</p>
+
+    <p><strong>On the metric side</strong>: As you erode, your output quality increasingly depends on AI correctness. Your ability to catch AI errors degrades. Your reference points for &ldquo;this code is right&rdquo; shift toward AI output as your baseline. The ratio keeps inverting until you can&rsquo;t produce without AI and can barely evaluate what AI produces.</p>
+
+    <hr class="divider"/>
+
+    <h2>The Ratio Table</h2>
+
+    <div class="ratio-card">
+      <h3>Healthy Ratio</h3>
+      <p>2-3 hours of genuine struggle per day in peak engineering work. Output reflects the struggling. Confidence in code matched by genuine understanding. Input and output stay coupled.</p>
+    </div>
+
+    <div class="ratio-card">
+      <h3>Warning Ratio</h3>
+      <p>1-2 hours of genuine struggle per day, with AI handling the rest. Output quality is fine; personal capability is slightly eroding. The gap between what you ship and what you understand is widening.</p>
+    </div>
+
+    <div class="ratio-card">
+      <h3>Compromised Ratio</h3>
+      <p>30-60 minutes per day of genuine struggle, AI handling the rest. Output looks healthy; internal experience is vague dissatisfaction you can&rsquo;t quite name. The engineer you were is eroding faster than you notice.</p>
+    </div>
+
+    <div class="ratio-card">
+      <h3>Atrophied Ratio</h3>
+      <p>Almost no genuine struggle per day. You&rsquo;re essentially supervising AI output. You can approve what AI generates but your ability to independently produce or evaluate it is significantly degraded. The original engineer is largely gone.</p>
+    </div>
+
+    <hr class="divider"/>
+
+    <h2>How to Restore the Ratio</h2>
+
+    <p>The goal isn&rsquo;t to use less AI. The goal is to maintain the input side of the ratio.</p>
+
+    <div class="practice-box">
+      <h3>The Weekly Practice Protocol</h3>
+      <p>Once per week, identify one meaningful technical problem and solve it with zero AI assistance for 30-45 minutes. Not for production. Not for speed. Deliberate practice. The struggling is the point, and it has to be genuine.</p>
+    </div>
+
+    <div class="practice-box">
+      <h3>The Explanation Audit</h3>
+      <p>Before you approve AI-generated code, write three sentences about why this approach was chosen, without consulting code or AI. If you can&rsquo;t, the ratio has inverted on this specific decision.</p>
+    </div>
+
+    <div class="practice-box">
+      <h3>The Metric Worth Tracking</h3>
+      <p>Add a personal metric: the number of decisions you made this week that required genuine judgment, not just AI approval. If that number is trending down, the ratio is working against you.</p>
+    </div>
+
+    <hr class="divider"/>
+
+    <h2>The Internal Experience of a Working Engineer</h2>
+
+    <p>Before AI tooling, you probably had a specific internal experience of doing engineering work: the feeling of sitting with a hard problem, not knowing, pushing through, and coming out the other side with something you built and understood.</p>
+
+    <p>This experience is getting harder to have. Not because the work is getting harder &mdash; because the work is getting easier and the satisfaction of genuine completion is consequently harder to find.</p>
+
+    <p>If you&rsquo;re months into intensive AI-assisted work and you can&rsquo;t quite remember the last time you finished something that felt like you really finished it, the ratio has inverted. Your output metric looks great. Your development metric is running negative.</p>
+
+    <p><em>This week: audit your ratio. How many genuine struggling hours did you put in this week? How many would you estimate you used to put in? The gap is the problem.</em></p>
+
+    <div class="cta-block">
+      <p>The AI Fatigue Quiz measures your severity across all known AI fatigue dimensions. Takes 90 seconds. Free.</p>
+      <a href="https://clearing-ai.com/quiz.html">Take the Quiz →</a>
+    </div>
+
+    <footer class="footer">
+      <p>The Dispatch is a free weekly newsletter from <a href="https://clearing-ai.com">The Clearing</a> — a resource for engineers navigating AI fatigue.</p>
+      <p>No ads. No tracking. Just help.<br/>You are receiving this because you signed up at clearing-ai.com.</p>
+      <p style="margin-top:12px"><a href="https://clearing-ai.com/unsubscribe">Unsubscribe</a> · <a href="https://clearing-ai.com/newsletter-archive">Archive</a> · <a href="https://clearing-ai.com">clearing-ai.com</a></p>
+    </footer>
+  </main>
+</body>
+</html>

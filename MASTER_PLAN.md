@@ -1012,3 +1012,14 @@
 **Phase windows:** P1=247 | P2=280 | P3=204 | P4=211
 **Site stats:** 247 pages | ~1,166k words | Lighthouse 100 | Technical SEO 99/100 | Day 29
 **Next:** Reddit r/programming Fri May 29 1PM PDT | EM2 Day-7 follow-ups May 29 | Reddit Fresh Pack Jun 1-7 (ALREADY PREPPED) | LinkedIn Post #4 (READY, no creds)
+
+## Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-29 04:48 PDT / 11:48 UTC (Phase 3 SEO)
+**Phase:** Phase 3 — Technical SEO (Schema Audit + Fix)
+**Built/Fixed:**
+- **`the-oncall-paradox.html`** (648 lines, ~4,470 words): Added JSON-LD (Article + BreadcrumbList + FAQPage, 5 FAQs); fixed 2 corrupted meta description lines; OG tags complete
+- **`ai-fatigue-matrix.html`** (650 lines, ~3,591 words): Added JSON-LD (Article + BreadcrumbList + FAQPage, 7 FAQs); 7 FAQs extracted + coded
+**SEO:** FAQPage schema → Google FAQ rich results potential; comprehensive @graph schemas on both interactive tools
+**Git:** 7293cf18 | Push: success
+**Phase windows:** P1=249 | P2=280 | P3=207 | P4=212
+**Site stats:** 254 pages | ~1,181k words | Lighthouse 100 | Technical SEO 99/100 | Day 30
+**Next:** Reddit r/programming Fri May 29 1PM PDT | EM2 Day-7 follow-ups May 29 | Reddit Fresh Pack Jun 1-7 | phase rotation

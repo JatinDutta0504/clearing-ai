@@ -284,3 +284,9 @@
 **Git:** 258ca39e + b1450aa3 | Push: success
 **Phase:** P1=248 | P2=280 | P3=204 | P4=211
 **Site stats:** 251 pages | ~1,173k words | Day 30
+## Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-29 06:48 UTC (Phase 4 Community)
+**Phase:** Phase 4 — Community (Newsletter #125)
+**Built:** `DISPATCH-125-THE-IMPOSTER-IN-THE-MACHINE.md` (~1,800 words) + `newsletter-issues/dispatch-125.html` (~30KB). Theme: "The Imposter in the Machine" — AI tooling's new species of imposter syndrome. newsletter-issues.json updated (125 entries). Git: b772173f | Push: success
+**Phase windows:** P1=248 | P2=280 | P3=204 | P4=212
+**Site stats:** 252 pages | ~1,178k words | Lighthouse 100 | Technical SEO 99/100 | Day 30
+**Next:** Reddit r/programming Fri May 29 1PM PDT | EM2 Day-7 follow-ups May 29 | Reddit Fresh Pack Jun 1-7 (ALREADY PREPPED)

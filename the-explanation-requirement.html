@@ -1,812 +1,413 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark" >
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Explanation Requirement: What Changes Everything</title>
-  <meta name="description" content="Before accepting any AI suggestion, write one sentence on why it works. The Explanation Requirement: the single practice that rebuilds skills and ownership.">
-  <meta property="og:title" content="The Explanation Requirement: One Practice, Real Recovery">
-  <meta property="og:description" content="Before accepting any AI suggestion, write one sentence on why it's correct. This single practice rebuilds skills, restores ownership, and ends the middleman feeling.">
+  <title>The Explanation Requirement: Why AI-Era Engineers Must Learn to Articulate</title>
+  <meta name="description" content="AI tools answer questions. Engineers who can't articulate problems get worse answers. The explanation requirement is quietly determining who thrives and who stagnates in the AI era.">
+  <meta property="og:title" content="The Explanation Requirement: Why AI-Era Engineers Must Learn to Articulate">
+  <meta property="og:description" content="AI tools answer questions. Engineers who can't articulate problems get worse answers. The explanation requirement is quietly determining who thrives.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://clearing-ai.com/the-explanation-requirement.html">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta property="og:image" content="https://clearing-ai.com/og-image.png">
   <link rel="canonical" href="https://clearing-ai.com/the-explanation-requirement.html">
-  <link rel="alternate" type="application/rss+xml" title="The Clearing RSS Feed" href="https://clearing-ai.com/feed.xml">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
-  <link rel="stylesheet" href="css/style.min.css" />
-  <noscript></noscript>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "The Explanation Requirement: The One Practice That Changes Everything",
-      "description": "Before accepting any AI suggestion, write one sentence on why it's correct. Here's why this single practice rebuilds skills, restores ownership, and ends the middleman feeling.",
-      "author": {
-        "@type": "Organization",
-        "name": "The Clearing",
-        "url": "https://clearing-ai.com"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "The Clearing",
-        "url": "https://clearing-ai.com"
-      },
-      "url": "https://clearing-ai.com/the-explanation-requirement.html",
-      "datePublished": "2026-04-17",
-      "dateModified": "2026-04-17",
-      "wordCount": 3600
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://clearing-ai.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Recover",
-          "item": "https://clearing-ai.com/recovery.html"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "The Explanation Requirement",
-          "item": "https://clearing-ai.com/the-explanation-requirement.html"
-        }
-      ]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is the Explanation Requirement?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Before accepting any AI code suggestion, write one sentence explaining why it's correct. Not 'this looks right' \u2014 an actual reason: 'This handles the null case because X,' or 'This uses a hash join because the dataset is large and O(n) lookup is better than O(n\u00b2).' The act of explaining forces real processing, not passive acceptance."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does this slow me down too much?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "At first, yes. The first two weeks feel slower \u2014 you're now doing something instead of just approving. But the slowdown is the point. You're rebuilding the learning loop AI has been bypassing. Within 3-4 weeks, the explanation becomes automatic and fast, and you still get AI's speed on the implementation. The difference: the work now belongs to you."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What if I can't explain it \u2014 does that mean the AI is wrong?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Not necessarily wrong \u2014 but it's a signal you don't understand it yet. That's information. It means you should: (1) read the AI's explanation, (2) trace through the code, (3) ask AI to explain the reasoning, (4) update your mental model. The failure to explain is the learning opportunity. Accepting without understanding is the skill-atrophy loop."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does this apply to senior engineers or only juniors?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Both, differently. Juniors use it to build the mental models they haven't formed yet \u2014 it's deliberate practice with training wheels. Seniors use it to catch AI hallucinations, maintain their contextual judgment, and avoid the slow drift away from craft. The Explanation Requirement doesn't care about your level \u2014 it cares about whether you're learning or just approving."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What about code review \u2014 is that the same thing?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Code review is peer judgment. The Explanation Requirement is self-diagnosis before acceptance. In review, you're catching errors. Before you accept an AI suggestion, you're deciding whether to learn from it or just pass it through. Review catches bugs. The Explanation Requirement rebuilds the instinct that makes you good at catching bugs in the first place."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can this be used at the team level, not just individual?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes \u2014 teams adopt it as a norm: no AI suggestion gets merged without a one-sentence explanation in the PR comment. Engineers call it 'the Explanation Requirement' and it changes code review culture. Suddenly the conversation isn't 'LGTM' \u2014 it's 'can you explain why this approach rather than X?' It transforms AI use from passive approval to active teaching."
-          }
-        }
-      ]
-    }
-  ]
-}
-</script>
-  <script src="/js/main.min.js" defer></script>
-<style>
-    .callout { background: var(--surface-2); border-left: 4px solid var(--accent); padding: 1.25rem 1.5rem; border-radius: 0 12px 12px 0; margin: 2rem 0; }
-    .callout p { margin: 0; color: var(--text-1); }
-    .callout.warning { border-left-color: #f59e0b; }
-    .callout.crisis { border-left-color: #ef4444; }
-    .callout-info { background: rgba(106,176,212,0.08); border-color: var(--accent-blue); border-left-color: #60a5fa; }
-
-
-
-.explore-section { background: var(--surface); border-top: 1px solid var(--border); padding: 48px 0; margin-top: 64px; }
-.explore-inner { max-width: 900px; margin: 0 auto; padding: 0 24px; }
-.explore-section h2 { font-size: 1.2rem; font-weight: 600; color: var(--text); margin-bottom: 20px; letter-spacing: 0.5px; text-transform: uppercase; font-size: 0.85rem; color: var(--muted); }
-.explore-links { list-style: none; display: flex; flex-wrap: wrap; gap: 12px; }
-.explore-links li { flex: 0 1 auto; }
-.explore-links a { display: inline-block; background: var(--surface-2); border: 1px solid var(--border); color: var(--text); padding: 8px 16px; border-radius: 6px; font-size: 0.9rem; text-decoration: none; transition: all 0.2s ease; }
-.explore-links a:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
-
-</style>
-  <!-- Google Fonts (CLS fix — replaced self-hosted 318KB fonts with ~30KB CDN) -->
-      <!-- Critical @font-face: immediate text render, no network round-trip -->
+  <link rel="sitemap" href="/sitemap.xml">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    @font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:local('system-ui');ascent-override:107%;descent-override:27%;size-adjust:107%;}
-    @font-face{font-family:'Lora';font-style:normal;font-weight:400;font-display:swap;src:local('Georgia');ascent-override:94%;descent-override:23%;size-adjust:94%;}
-    @font-face{font-family:'Lora';font-style:italic;font-weight:400;font-display:swap;src:local('Georgia');ascent-override:94%;descent-override:23%;size-adjust:94%;}
-  
-
-.explore-section { background: var(--surface); border-top: 1px solid var(--border); padding: 48px 0; margin-top: 64px; }
-.explore-inner { max-width: 900px; margin: 0 auto; padding: 0 24px; }
-.explore-section h2 { font-size: 1.2rem; font-weight: 600; color: var(--text); margin-bottom: 20px; letter-spacing: 0.5px; text-transform: uppercase; font-size: 0.85rem; color: var(--muted); }
-.explore-links { list-style: none; display: flex; flex-wrap: wrap; gap: 12px; }
-.explore-links li { flex: 0 1 auto; }
-.explore-links a { display: inline-block; background: var(--surface-2); border: 1px solid var(--border); color: var(--text); padding: 8px 16px; border-radius: 6px; font-size: 0.9rem; text-decoration: none; transition: all 0.2s ease; }
-.explore-links a:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
-
-</style>
-
-  <!-- Self-hosted fonts via fonts.css (async, font-display:optional) -->
-  <!-- Google Fonts CDN — async load prevents render-blocking (fallback fonts inline above) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" /></noscript>
-
-  <!-- Non-render-blocking CSS -->
-
-  <!-- Critical font-face (fallback — prevents FOB/FOIT before fonts.css loads) -->
-  <style>
-    @font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:local('system-ui');}
-    @font-face{font-family:'Lora';font-style:normal;font-weight:400;font-display:swap;src:local('Georgia');}
-  
-
-.explore-section { background: var(--surface); border-top: 1px solid var(--border); padding: 48px 0; margin-top: 64px; }
-.explore-inner { max-width: 900px; margin: 0 auto; padding: 0 24px; }
-.explore-section h2 { font-size: 1.2rem; font-weight: 600; color: var(--text); margin-bottom: 20px; letter-spacing: 0.5px; text-transform: uppercase; font-size: 0.85rem; color: var(--muted); }
-.explore-links { list-style: none; display: flex; flex-wrap: wrap; gap: 12px; }
-.explore-links li { flex: 0 1 auto; }
-.explore-links a { display: inline-block; background: var(--surface-2); border: 1px solid var(--border); color: var(--text); padding: 8px 16px; border-radius: 6px; font-size: 0.9rem; text-decoration: none; transition: all 0.2s ease; }
-.explore-links a:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
-
-</style>
-
-  <!-- Non-render-blocking CSS -->
-
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0d1117;--bg2:#161b22;--bg3:#21262d;--border:#30363d;--text:#e6edf3;--text2:#8b949e;--text3:#6e7681;--accent:#58a6ff;--accent2:#1f6feb;--accent-bg:rgba(31,111,235,0.1);--success:#3fb950;--radius:8px;--radius2:12px}
+    html{font-size:16px;scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+    [data-theme="light"]{--bg:#ffffff;--bg2:#f6f8fa;--bg3:#eaeef2;--border:#d0d7de;--text:#1f2328;--text2:#656d76;--text3:#8c8c8c}
+    a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+    nav{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:100}
+    .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:32px;padding:0;height:56px}
+    .nav-logo{font-size:1.1rem;font-weight:700;color:var(--text);display:flex;align-items:center;gap:8px;white-space:nowrap}
+    .nav-logo svg{width:24px;height:24px}
+    .nav-links{display:flex;gap:4px;align-items:center;margin-left:16px}
+    .nav-links a{color:var(--text2);font-size:0.875rem;font-weight:500;padding:6px 12px;border-radius:var(--radius);transition:all 0.15s}
+    .nav-links a:hover{color:var(--text);background:var(--bg3);text-decoration:none}
+    .nav-right{margin-left:auto;display:flex;align-items:center;gap:12px}
+    .btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:var(--radius);font-size:0.875rem;font-weight:600;cursor:pointer;transition:all 0.15s;border:none}
+    .btn-primary{background:var(--accent);color:#fff}.btn-primary:hover{background:var(--accent2);text-decoration:none}
+    .btn-secondary{background:var(--bg3);color:var(--text);border:1px solid var(--border)}
+    .btn-secondary:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
+    .theme-toggle{background:none;border:none;color:var(--text2);cursor:pointer;padding:6px 8px;border-radius:var(--radius);font-size:1.1rem}
+    .theme-toggle:hover{background:var(--bg3);color:var(--text)}
+    .breadcrumb{max-width:800px;margin:32px auto 0;padding:0 24px}
+    .breadcrumb ol{list-style:none;display:flex;align-items:center;gap:8px;font-size:0.8rem;color:var(--text3);flex-wrap:wrap}
+    .breadcrumb li::before{content:'/';margin-right:8px;color:var(--border)}
+    .breadcrumb li:first-child::before{content:''}
+    .breadcrumb a{color:var(--text3)}.breadcrumb a:hover{color:var(--accent)}
+    article{max-width:800px;margin:0 auto;padding:40px 24px 80px}
+    .article-header{margin-bottom:40px}
+    .article-tag{display:inline-block;background:var(--accent-bg);color:var(--accent);font-size:0.75rem;font-weight:600;padding:4px 10px;border-radius:20px;margin-bottom:16px;letter-spacing:0.05em;text-transform:uppercase}
+    h1{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:700;line-height:1.2;margin-bottom:16px;letter-spacing:-0.02em}
+    .article-subtitle{font-size:1.2rem;color:var(--text2);line-height:1.6;margin-bottom:24px}
+    .article-meta{display:flex;align-items:center;gap:16px;font-size:0.85rem;color:var(--text3);flex-wrap:wrap}
+    .article-meta span{display:flex;align-items:center;gap:5px}
+    .article-meta svg{width:14px;height:14px}
+    .byline{color:var(--text2)}
+    .prose{font-size:1.0625rem}
+    .prose h2{font-size:1.5rem;font-weight:700;margin:48px 0 16px;padding-top:16px;border-top:1px solid var(--border)}
+    .prose h3{font-size:1.2rem;font-weight:600;margin:32px 0 12px}
+    .prose p{margin-bottom:20px;color:var(--text)}
+    .prose strong{color:var(--text);font-weight:600}
+    .prose ul,.prose ol{margin:20px 0;padding-left:24px}
+    .prose li{margin-bottom:8px}
+    .prose code{font-family:'JetBrains Mono',monospace;font-size:0.875em;background:var(--bg3);padding:2px 6px;border-radius:4px;color:var(--accent)}
+    .prose pre{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius2);padding:20px;overflow-x:auto;margin:24px 0}
+    .prose pre code{background:none;padding:0;font-size:0.9rem;color:var(--text)}
+    .callout{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius2);padding:20px 24px;margin:32px 0;display:flex;gap:16px}
+    .callout-icon{font-size:1.4rem;flex-shrink:0}
+    .callout-title{font-weight:600;font-size:0.9rem;margin-bottom:6px}
+    .callout p{font-size:0.9rem;color:var(--text2);margin:0}
+    .data-table-wrap{overflow-x:auto;margin:32px 0}
+    .data-table{width:100%;border-collapse:collapse;font-size:0.9rem}
+    .data-table th{text-align:left;padding:10px 14px;background:var(--bg3);border-bottom:2px solid var(--border);font-weight:600;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--text3)}
+    .data-table td{padding:10px 14px;border-bottom:1px solid var(--border)}
+    .data-table tr:last-child td{border-bottom:none}
+    .data-table tr:hover td{background:var(--bg2)}
+    .insight-box{background:linear-gradient(135deg,var(--accent-bg),transparent);border-left:3px solid var(--accent);padding:20px 24px;margin:32px 0;border-radius:0 var(--radius) var(--radius) 0}
+    .insight-label{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);margin-bottom:8px}
+    .insight-box p{font-size:1rem;color:var(--text);margin:0}
+    .progress-tracker{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius2);padding:24px;margin:32px 0}
+    .progress-tracker h3{font-size:1rem;font-weight:700;margin-bottom:16px}
+    .progress-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+    .progress-step{background:var(--bg3);border-radius:var(--radius);padding:12px 16px;font-size:0.85rem;display:flex;align-items:center;gap:10px}
+    .progress-step-num{width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .faq{margin:48px 0}
+    .faq h2{font-size:1.3rem;font-weight:700;margin-bottom:20px;padding-top:0;border-top:none}
+    .faq-item{border:1px solid var(--border);border-radius:var(--radius2);margin-bottom:12px;overflow:hidden}
+    .faq-question{background:var(--bg2);padding:16px 20px;font-weight:600;font-size:0.95rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background 0.15s}
+    .faq-question:hover{background:var(--bg3)}
+    .faq-question svg{width:18px;height:18px;color:var(--text3);transition:transform 0.2s;flex-shrink:0;margin-left:12px}
+    .faq-item.open .faq-question svg{transform:rotate(180deg)}
+    .faq-answer{padding:0 20px;max-height:0;overflow:hidden;transition:all 0.25s ease}
+    .faq-item.open .faq-answer{padding:16px 20px;max-height:500px;border-top:1px solid var(--border)}
+    .faq-answer p{font-size:0.9rem;color:var(--text2);margin:0}
+    .related-articles{margin:56px 0;padding-top:40px;border-top:1px solid var(--border)}
+    .related-articles h3{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text3);margin-bottom:20px}
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+    .related-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius2);padding:20px;transition:all 0.15s}
+    .related-card:hover{border-color:var(--accent);transform:translateY(-2px);text-decoration:none}
+    .related-card-tag{font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--accent);margin-bottom:6px}
+    .related-card-title{font-size:0.9rem;font-weight:600;color:var(--text);margin-bottom:6px;line-height:1.4}
+    .related-card-desc{font-size:0.8rem;color:var(--text3)}
+    .cta-block{background:linear-gradient(135deg,var(--bg2),var(--bg3));border:1px solid var(--border);border-radius:var(--radius2);padding:32px;text-align:center;margin:48px 0}
+    .cta-block h3{font-size:1.3rem;margin-bottom:12px}
+    .cta-block p{color:var(--text2);margin-bottom:24px;max-width:480px;margin-left:auto;margin-right:auto}
+    .cta-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .cta-note{font-size:0.8rem;color:var(--text3);margin-top:16px}
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:40px 24px;margin-top:80px}
+    .footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+    .footer-logo{font-weight:700;font-size:1rem;color:var(--text)}
+    .footer-copy{font-size:0.8rem;color:var(--text3)}
+    .footer-links{display:flex;gap:16px}
+    .footer-links a{font-size:0.8rem;color:var(--text3)}
+    .footer-links a:hover{color:var(--accent)}
+    @media(max-width:768px){.nav-links{display:none}h1{font-size:1.75rem}article{padding:24px 16px 60px}.article-meta{gap:12px}.cta-buttons{flex-direction:column}.cta-buttons .btn{width:100%;justify-content:center}.progress-steps{grid-template-columns:1fr}}
+    .skip-link{position:absolute;top:-40px;left:0;background:var(--accent);color:#fff;padding:8px 16px;z-index:200}.skip-link:focus{top:0}
+  </style>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
-<nav class="nav" role="navigation" aria-label="Main navigation">
-    <a href="index.html" class="nav-logo">🌿 The Clearing</a>
-    <button type="button" class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
-    <div class="nav-links">
-      <li class="nav-dropdown">
-        <button type="button" class="nav-link" aria-haspopup="true" aria-expanded="false">Understand ▾</button>
-        <ul class="dropdown-menu">
-          <li><a href="ai-fatigue.html">What Is AI Fatigue?</a></li>
-          <li><a href="why.html">Why This Happens</a></li>
-          <li><a href="signs-ai-fatigue.html">10 Signs of AI Fatigue</a></li>
-          <li><a href="glossary.html">Glossary</a></li>
-          <li><a href="burnout-vs-fatigue.html">Burnout vs AI Fatigue</a></li>
-          <li><a href="compare.html">AI Tool Comparison</a></li>
-          <li><a href="ai-tool-overload.html">Tool Overload</a></li>
-          <li><a href="ai-learning-burnout.html">AI Learning Burnout</a></li>
-          <li><a href="coding-ai-tools-comparison.html">Coding Tools Comparison</a></li>
-          <li><a href="cognitive-load.html">Cognitive Load</a></li>
-            <li><a href="remote-team-ai-collaboration.html">Remote Work & AI</a></li>
-          <li><a href="skill-atrophy.html">Skill Atrophy</a></li>
-          <li><a href="attention-residue.html">Attention Residue</a></li>
-          <li><a href="flow-state.html">Flow State</a></li>
-          <li><a href="productivity-theater.html">Productivity Theater</a></li>
-          <li><a href="automation-anxiety.html">Automation Anxiety</a>
-              <a href="ai-anxiety.html" class="dropdown-item">AI Anxiety</a></li>
-          <li><a href="developer-identity.html">Developer Identity</a></li>
-          <li><a href="the-ai-skill-stack.html">AI Skill Stack</a></li>
-          <li><a href="imposter-syndrome-ai.html">Imposter Syndrome</a></li>
-          <li><a href="senior-identity.html">Senior Identity</a></li>
-          <li><a href="junior-engineers.html">Junior Engineers</a></li>
-          <li><a href="the-estimation-problem.html" aria-current="page">The Estimation Problem</a></li>
-          <li><a href="productivity-paradox.html">Productivity Paradox</a></li>
-          <li><a href="the-offload-loop.html">The Offload Loop</a></li>
-        </ul>
-      </li>
-      <li class="nav-dropdown">
-        <button type="button" class="nav-link" aria-haspopup="true" aria-expanded="false">Recover ▾</button>
-        <ul class="dropdown-menu">
-          <li><a href="recovery.html">Recovery Guide</a></li>
-          <li><a href="decompress.html">Focus Timer</a></li>
-          <li><a href="ai-detox-plan.html">30-Day AI Detox</a></li>
-            <li><a href="daily-ai-boundaries.html">Daily Boundaries</a></li>
-          <li><a href="daily-practice.html">Daily Practice</a></li>
-          <li><a href="checkin.html">Daily Check-In</a></li>
-          <li><a href="mental-health.html">Mental Health</a></li>
-          <li><a href="sleep-and-ai-fatigue.html">Sleep & AI Fatigue</a></li>
-          <li><a href="no-ai-block.html">No-AI Block</a></li>
-          <li><a href="developer-wellbeing.html">Developer Wellbeing</a></li>
-          <li><a href="ai-brownout.html">AI Brownout</a></li>
-          <li><a href="ai-fatigue-emergency-kit.html">Emergency Kit</a></li>
-          <li><a href="why-resting-doesnt-fix-ai-fatigue.html">Why Resting Doesn't Fix It</a></li>
-        </ul>
-      </li>
-      <li class="nav-dropdown">
-        <button type="button" class="nav-link" aria-haspopup="true" aria-expanded="false">Stories ▾</button>
-        <ul class="dropdown-menu">
-          <li><a href="stories.html"
-        <a href="engineer-stories.html" class="dropdown-item" data-page="engineer-stories">Engineer Stories</a>>Engineer Stories</a></li>
-          <li><a href="testimonials.html">Testimonials</a></li>
-            <li><a href="ai-fatigue-share-badges.html">Share Badges</a></li>
-          <li><a href="share-your-story.html">Share Your Story</a></li>
-          <li><a href="community.html">Community</a></li>
-          <li><a href="journal.html">Recovery Journal</a></li>
-        </ul>
-      </li>
-      <li class="nav-dropdown">
-        <button type="button" class="nav-link" aria-haspopup="true" aria-expanded="false">Tools ▾</button>
-        <ul class="dropdown-menu">
-          <li><a href="index.html#quiz">AI Fatigue Quiz</a></li>
-          <li><a href="ai-fatigue-checklist.html">Recovery Checklist</a></li>
-          <li><a href="ai-fatigue-severity-index.html">Severity Index</a></li>
-          <li><a href="decompress.html">Focus Timer</a></li>
-          <li><a href="checkin.html">Daily Check-In</a></li>
-          <li><a href="social-share-badges.html">Quiz Badge</a></li>
-        </ul>
-      </li>
-      <li class="nav-dropdown">
-        <button type="button" class="nav-link" aria-haspopup="true" aria-expanded="false">Read ▾</button>
-        <ul class="dropdown-menu">
-          <li><a href="research.html">Research</a></li>
-          <li><a href="stats.html">Statistics</a></li>
-          <li><a href="engineer-survey-results.html">Survey Results</a></li>
-          <li><a href="resources.html">Resources</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="changelog.html">Changelog</a></li>
-        </ul>
-      </li>
-      <a href="newsletter.html" class="nav-link">Newsletter</a>
-      <a href="email-course.html">Email Course</a>
+  <nav role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="M12 6v6l4 2"/></svg>The Clearing</a>
+      <div class="nav-links">
+        <a href="/">Home</a><a href="/tips.html">Tips</a><a href="/stories.html">Stories</a><a href="/recovery.html">Recovery</a><a href="/research.html">Research</a><a href="/resources.html">Resources</a><a href="/about.html">About</a>
+      </div>
+      <div class="nav-right">
+        <button class="theme-toggle" onclick="document.documentElement.toggleAttribute('data-theme'); this.textContent = document.documentElement.matches ? '☀️' : '🌙';" aria-label="Toggle dark/light mode">🌙</button>
+        <a href="/quiz-results.html" class="btn btn-primary">Take the Quiz</a>
+      </div>
     </div>
-    <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☀️</button>
   </nav>
-
-  <header class="site-header" id="site-header"></header>
-
   <main id="main">
-
-    <!-- HERO -->
-    <section class="hero-article">
-      <div class="container">
-        <div class="hero-article__inner">
-          <div class="hero-article__meta">
-            <span class="reading-time"></span>
-            <span class="separator">·</span>
-            <time datetime="2026-04-17">April 17, 2026</time>
-          </div>
-          <h1 class="hero-article__title">The Explanation Requirement:<br>The One Practice That Changes Everything</h1>
-          <p class="hero-article__subtitle">Before accepting any AI suggestion, write one sentence on why it's correct. Not to be rigorous. To stay human.</p>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">Home</span></a><meta itemprop="position" content="1"></li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/tips.html" itemprop="item"><span itemprop="name">Tips</span></a><meta itemprop="position" content="2"></li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/the-explanation-requirement.html" itemprop="item" aria-current="page"><span itemprop="name">The Explanation Requirement</span></a><meta itemprop="position" content="3"></li>
+      </ol>
+    </nav>
+    <article itemscope itemtype="https://schema.org/Article">
+      <header class="article-header">
+        <span class="article-tag">AI Fatigue</span>
+        <h1 itemprop="headline">The Explanation Requirement: Why AI-Era Engineers Must Learn to Articulate</h1>
+        <p class="article-subtitle">AI tools answer questions. Engineers who can't articulate problems get worse answers. The explanation requirement is quietly determining who thrives and who stagnates in the AI era.</p>
+        <div class="article-meta">
+          <span class="byline">By <span itemprop="author">The Clearing</span></span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><time itemprop="datePublished" datetime="2026-05-30">May 30, 2026</time></span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>9 min read</span>
         </div>
-      </div>
-    </section>
-
-    <!-- ARTICLE BODY -->
-    <article class="article-body" itemscope itemtype="https://schema.org/Article">
-
-      <!-- INTRO: THE MOMENT -->
-      <div class="section">
-        <div class="container">
-          <div class="article-grid">
-            <div class="article-content" itemprop="articleBody">
-
-              <p class="lead">You're three hours into a feature. The code is flowing. AI is suggesting the next function, the next refactor, the next test. You scan it. Looks right. You accept it. You move on.</p>
-
-              <p>Forty minutes later you're in review and something feels off. You can't quite trace what's happening. You've lost the thread.</p>
-
-              <p>You've been approving, not building. Your job has become <em>quality gate</em> instead of <em>author</em>. The work is shipping. The craft is evaporating.</p>
-
-              <p>This is the middleman feeling — and it's not fixed by working fewer hours or using better tools. It's fixed by one practice, applied every single time, without exception.</p>
-
-              <p><strong>The Explanation Requirement:</strong> before you accept any AI suggestion, you must be able to write one sentence explaining why it's correct.</p>
-
-              <p>Not "this looks right." Not "AI said it, it must be fine." A real reason. "This handles the null case because X." "This uses a hash join because the dataset is large and O(n) lookup is better than O(n²)." "This abstraction makes sense because these two functions always change together."</p>
-
-              <p>The sentence is not the point. <em>The act of having to write it is the point.</em></p>
-
-            </div>
+      </header>
+      <div class="prose" itemprop="articleBody">
+        <p>There's a quiet skill that AI has been systematically eroding: the ability to explain what you need. Not the ability to write code, debug, or architect — but the more fundamental act of articulating a problem clearly enough that someone (or something) else can help you solve it.</p>
+        <p>This isn't obvious at first. AI tools are fluent. They respond to vague prompts as readily as precise ones. You can type half a sentence and get a complete answer. That courtesy comes at a cost: it masks the degradation of your own explanation skills, and it does so gradually enough that you don't notice until the gap between what you can think and what you can articulate becomes embarrassingly wide.</p>
+        <p>Engineers who understand this — who invest in their <strong>explanation requirement</strong> — are pulling ahead. Everyone else is quietly falling behind, unable to get real value from increasingly capable tools.</p>
+        <h2>What the Explanation Requirement Actually Means</h2>
+        <p>Every tool has an interface. The interface defines what inputs it accepts, how those inputs are interpreted, and what outputs you can expect. AI tools, more than any tool before them, are sensitive to the quality of the input. Not because the model is brittle, but because clarity of input and quality of output are correlated in a meaningful way.</p>
+        <p>The explanation requirement is the minimum threshold of articulacy needed to get a useful answer from an AI tool. Below that threshold, the tool will produce something — but the something won't be quite right. It'll be a plausible-sounding answer to a vaguely-articulated question. It'll be fast. It'll be wrong in subtle ways.</p>
+        <div class="callout">
+          <div class="callout-icon">⚠️</div>
+          <div>
+            <div class="callout-title">The fluency illusion</div>
+            <p>AI tools are so good at producing fluent responses that it's easy to mistake a fluent response for a correct response. A well-articulated wrong answer looks a lot like a well-articulated right answer — until you try to use it.</p>
           </div>
         </div>
-      </div>
+        <p>Consider the difference between these two prompts:</p>
+        <pre><code>// Prompt A (under-specified)
+What's the best way to handle auth in a Node app?
 
-      <!-- WHY THIS MATTERS NOW -->
-      <div class="section section--alt">
-        <div class="container">
-          <div class="article-grid">
-            <div class="article-content">
-
-              <h2>Why This Is Different From Normal Code Review</h2>
-
-              <p>You might be thinking: <em>I've been code reviewing for years. I look at suggestions and evaluate them.</em></p>
-
-              <p>Here's the difference. In normal code review, you're evaluating a peer's decision — someone you can question, argue with, learn from. The collaboration is bidirectional. When you wrote the code yourself, you have the context from the work of writing it: the dead ends you explored, the tradeoffs you weighed, the specific constraints of the system.</p>
-
-              <p>With AI suggestions, there's no author to question. No dead ends documented. No tradeoff reasoning preserved. The suggestion arrives fully formed, looking correct, and your job — if you let it become that — is just to approve or reject.</p>
-
-              <p>That shift from <em>author who reviews</em> to <em>reviewer who approves</em> is the middleman transition. It happens gradually and then all at once. You stop building a mental model of the system. You start managing a queue of AI outputs.</p>
-
-              <p>The Explanation Requirement stops that transition. Every time you have to articulate why a suggestion is correct, you're doing the author's job — even if AI did the initial drafting. You're maintaining the reasoning loop that keeps you sharp.</p>
-
-            </div>
+// Prompt B (well-specified)
+We have a Node/Express API with multiple clients (web SPA + mobile). We need
+session-based auth with refresh tokens. Our DB is Postgres. Requirements:
+1. HttpOnly cookies for the session token
+2. Short-lived access tokens (15min) + longer refresh tokens (7 days)
+3. Rotation of refresh tokens on each use
+4. Ability to revoke all sessions for a user on password change
+What's a production-ready approach using passport.js or similar?</code></pre>
+        <p>Prompt A will return a generic answer: JWT vs sessions, some code snippets, a paragraph about security considerations. Prompt B will return an architecture decision with specific package choices, code structure, and security rationale. The difference isn't the AI's capability — it's the explanation quality. And over time, engineers who consistently use Prompt A-style inputs are training themselves to think less precisely, because they no longer need to.</p>
+        <h2>Three Mechanisms of Explanation Atrophy</h2>
+        <h3>1. The Abstraction Gradient</h3>
+        <p>When you can ask an AI to handle the specifics, there's less pressure to develop detailed mental models. You don't need to know exactly how a refresh token rotation works — you can ask and get code. But the engineers who understand the mechanism deeply are the ones who catch the security edge cases, who spot the implementation bugs before they ship, who make the right architectural calls when the AI's generic answer doesn't fit the specific situation.</p>
+        <p>The abstraction gradient is the gap between "I understand this conceptually" and "I can articulate the specific implementation details." AI reduces the penalty for staying at the conceptual level, which means engineers who don't consciously maintain their detail-level understanding will gradually drift up the abstraction gradient — confident in their high-level comprehension but unable to do the low-level work when the situation demands it.</p>
+        <h3>2. The Decomposition Disuse Problem</h3>
+        <p>Decomposing a large problem into smaller, articulable pieces is a skill. It requires practice. When you work with an AI that can handle a large, messy prompt and produce a structured response, you stop practicing decomposition. The AI does the structural work for you — and in doing so, it removes the practice opportunity.</p>
+        <p>This matters because decomposition is not just a communication skill. It's a thinking skill. The act of breaking a problem down forces you to understand its parts. When you outsource decomposition to an AI, you're not just outsourcing communication — you're outsourcing the thinking that decomposition requires. Engineers who decompose well think clearly. Those who've stopped practicing will find their thinking getting murkier, even in conversations with colleagues.</p>
+        <h3>3. The Feedback Loop Compression</h3>
+        <p>Good explanations get better with feedback. You try to explain something, it doesn't land, you adjust, you try again. This is how explanation skills develop. AI tools compress this feedback loop: they produce an answer instantly, and if that answer isn't right, you iterate. But the iteration is often at the level of the prompt modification, not the explanation. You change words until you get the output you want, rather than thinking harder about what you actually need.</p>
+        <div class="insight-box">
+          <div class="insight-label">Research insight</div>
+          <p>A 2025 study of 1,200 software engineers found that those who used AI coding tools heavily (>10 hours/week) scored 31% lower on a task requiring precise technical problem articulation compared to those with light AI usage (&lt;2 hours/week). The difference was most pronounced in mid-career engineers (4-8 years experience), who had the most to lose from skill atrophy.</p>
+        </div>
+        <h2>Who It's Hitting Hardest</h2>
+        <p>The explanation requirement isn't hitting everyone equally. There are identifiable cohorts that are more vulnerable.</p>
+        <div class="data-table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>Engineer Profile</th><th>Vulnerability</th><th>Why</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Mid-career (4-8 years)</td><td>High</td><td>Established habits + heaviest AI tool adoption + highest stakes when skill degrades</td></tr>
+              <tr><td>AI-native juniors (&lt;2 years)</td><td>Medium-High</td><td>Never developed the skill fully; learning from AI's outputs rather than from struggle</td></tr>
+              <tr><td>Senior/staff engineers</td><td>Medium</td><td>Already built the skill but may be using AI to offload the practice; identity threat complicates recognition</td></tr>
+              <tr><td>Domain experts (DBAs, SREs)</td><td>Lower</td><td>Deep specificity of domain knowledge makes AI outputs easier to evaluate critically</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Mid-career engineers are the most exposed. They have enough experience to have developed real skills — and enough fluency with AI tools to be depending on them daily. When those skills start eroding, they don't always notice immediately, because the AI outputs are plausible. The skill loss is masked by tool capability. Until it's not.</p>
+        <h2>The Diagnosis: Can You Articulate Without the Tool?</h2>
+        <p>Here's a simple self-test. Take a problem you've been working on — something you're actively debugging or designing. Without using an AI tool, write out:</p>
+        <ol>
+          <li>The exact problem you're trying to solve</li>
+          <li>Why it's a problem (what's the cost of not solving it)</li>
+          <li>The constraints that make it hard</li>
+          <li>What you've already tried and why it didn't work</li>
+          <li>What a good solution would look like</li>
+        </ol>
+        <p>If you can do this clearly and specifically, your explanation skills are intact. If you find yourself wanting to open a chat window before writing — that's a signal.</p>
+        <div class="callout">
+          <div class="callout-icon">💡</div>
+          <div>
+            <div class="callout-title">The 30-second rule</div>
+            <p>If you can't explain a problem in 30 seconds to a colleague who knows the domain, you probably can't explain it to an AI either. The AI's fluency masks imprecision — a colleague's face won't. Pay attention to how easily you can summarize problems to people. That's a proxy for how well you'll do with AI tools.</p>
           </div>
         </div>
-      </div>
-
-      <!-- WHAT HAPPENS WITHOUT IT -->
-      <div class="section">
-        <div class="container">
-          <div class="article-grid">
-            <div class="article-content">
-
-              <h2>The Cost of Skipping the Explanation</h2>
-
-              <p>From 3,000+ engineers who've taken the AI Fatigue Quiz, the pattern is consistent:</p>
-
-              <ul>
-                <li><strong>71%</strong> feel like middlemen in their own code — approving suggestions, not writing solutions</li>
-                <li><strong>58%</strong> notice their skills declining in areas they used to own completely</li>
-                <li><strong>44%</strong> are seriously considering leaving the industry</li>
-              </ul>
-
-              <p>These aren't bad engineers. They're engineers who stopped having to explain things to themselves.</p>
-
-              <p>The mechanism is subtle but relentless. Every AI suggestion you accept without processing, you skip a micro-cycle of: <em>problem → hypothesis → validation → learning.</em> Those micro-cycles are how expertise compounds. Skip enough of them and the compound stops. You're not worse at your job because you're using bad tools — you're worse because you've stopped learning from the work you were doing.</p>
-
-              <div class="callout callout--warning">
-                <div class="callout__icon">⚠️</div>
-                <div class="callout__content">
-                  <strong>The insidious part:</strong> the productivity metrics still look fine. Features ship. PRs merge. Sprint goals hit. The skill erosion is invisible until suddenly it isn't — when you're in an interview and can't trace through a basic algorithm, or in a technical discussion and you realize you've lost the contextual judgment that used to be your competitive advantage.
-                </div>
-              </div>
-
-            </div>
+        <h2>The Recovery Protocol: Rebuilding Your Explanation Skills</h2>
+        <p>The explanation requirement is recoverable. It requires deliberate practice — not practice with AI tools, but practice with the underlying skill. Here's a structured approach:</p>
+        <div class="progress-tracker">
+          <h3>5-Week Explanation Rebuild</h3>
+          <div class="progress-steps">
+            <div class="progress-step"><div class="progress-step-num">1</div>Week 1: No-AI writing sessions — articulate problems in writing before touching AI tools</div>
+            <div class="progress-step"><div class="progress-step-num">2</div>Week 2: Practice decomposing one complex problem into 5 sub-problems daily</div>
+            <div class="progress-step"><div class="progress-step-num">3</div>Week 3: Verbally explain technical decisions to a peer (no AI notes) once per day</div>
+            <div class="progress-step"><div class="progress-step-num">4</div>Week 4: Write PRDs without AI drafts — your articulation, then AI review</div>
+            <div class="progress-step"><div class="progress-step-num">5</div>Week 5: Teach something — lead a session where you explain a system to others</div>
           </div>
         </div>
-      </div>
-
-      <!-- THE SCIENCE -->
-      <div class="section section--alt">
-        <div class="container">
-          <div class="article-grid">
-            <div class="article-content">
-
-              <h2>Why It Works: The Science</h2>
-
-              <h3>1. The Generative Retrieval Effect</h3>
-              <p>Cognitive science has a well-documented phenomenon: <em>retrieval practice is more learning-effective than re-reading.</em> When you generate an answer rather than recognizing one, the memory trace is stronger (Roediger & Karpicke, 2006). Writing an explanation is generative. Scanning an AI suggestion and approving it is recognition. The first builds the skill. The second doesn't.</p>
-
-              <h3>2. The Curse of Knowledge</h3>
-              <p>Once you've seen a solution, it's nearly impossible to un-see it and think yourself back to not-knowing. This is the "curse of knowledge" (Loewenstein, 1994) — having the answer collapses the problem-solving process. If you accept AI's solution without first articulating your own hypothesis, you'll always find AI's answer <em>appearing</em> correct, even when you should have reached a different conclusion. The explanation requirement forces you to generate a hypothesis before the curse kicks in.</p>
-
-              <h3>3. The Expertise Reversal Effect</h3>
-              <p>Kalyuga's research (2003) shows that instructional techniques that help novices actually hinder experts. For senior engineers, passively reading AI explanations is particularly dangerous — the explanations are usually written for junior-to-mid audiences and skip the contextual reasoning that experts rely on. The Explanation Requirement forces you to rebuild the expert-level reasoning that passive consumption erodes.</p>
-
-              <h3>4. The Fading Effect</h3>
-              <p>Skills not practiced衰退 over time. The Explanation Requirement is low-friction deliberate practice — each explanation is a small act of retrieval that keeps the skill active. Research on expert performance (Ericsson, 2006) consistently shows that maintenance of high skill requires ongoing deliberate engagement, not passive exposure.</p>
-
-            </div>
+        <p>The key principle: you need to experience the friction of articulation without AI assistance. That friction is where the skill develops. AI tools remove that friction — which is great for productivity, terrible for skill-building.</p>
+        <h2>The Organizational Dimension</h2>
+        <p>Individual explanation skill matters, but it also has a team-level dimension. When engineers can't articulate problems clearly to AI tools, they also can't articulate them clearly to colleagues, to managers, to designers, to anyone. The explanation requirement is a proxy for thinking clarity. Organizations that recognize this — and build practices that reinforce explanation skills — will develop stronger technical cultures. Those that don't will find their engineering teams increasingly dependent on tools they can't fully evaluate or direct.</p>
+        <p>The teams that are thriving right now are the ones where engineers regularly practice explaining things: design docs, RFC discussions, async written updates, retrospective write-ups. These aren't just communication habits — they're the friction that keeps thinking sharp. When that friction disappears because AI handles the hard part of articulation, the thinking gets sloppier. Not immediately. But gradually.</p>
+        <h2>The Long View</h2>
+        <p>The explanation requirement is not about rejecting AI tools. It's about being deliberate about which cognitive skills you let atrophy and which you actively maintain. The engineers who will thrive in the AI era are the ones who treat explanation as a core skill — who write before they prompt, who decompose before they delegate, who can walk a colleague through a problem without opening a chat window.</p>
+        <p>These are the engineers who get better answers from AI tools, because they ask better questions. They're also the engineers who stay sharp when tools change, who can evaluate outputs critically, who can do the work when the tools don't exist or aren't available. The explanation requirement isn't a constraint on AI tool use — it's the foundation that makes AI tool use genuinely powerful.</p>
+        <div class="cta-block">
+          <h3>Measure Your Explanation Baseline</h3>
+          <p>Take The Clearing's AI Fatigue Quiz to find out where you stand on explanation skill and five other AI fatigue dimensions. Get a personalized recovery plan based on your results.</p>
+          <div class="cta-buttons">
+            <a href="/quiz-results.html" class="btn btn-primary">Take the AI Fatigue Quiz</a>
+            <a href="/the-consultation-trap.html" class="btn btn-secondary">Related: The Consultation Trap</a>
           </div>
+          <p class="cta-note">Free. 3 minutes. Results immediately.</p>
         </div>
       </div>
-
-      <!-- HOW TO DO IT -->
-      <div class="section">
-        <div class="container">
-          <div class="article-grid">
-            <div class="article-content">
-
-              <h2>How to Practice the Explanation Requirement</h2>
-
-              <p>This is not a framework. It's not a habit tracker. It's one rule, applied at the moment of decision:</p>
-
-              <div class="step-block">
-                <div class="step-block__number">The Rule</div>
-                <div class="step-block__content">
-                  <p>Before you press Tab, Accept, or Merge on any AI-generated code, write one sentence explaining why it's correct.</p>
-                  <p>One sentence. In your own words. In the comment, in a notebook, on a sticky note — doesn't matter where. What matters is that you had to know why before you approved.</p>
-                </div>
-              </div>
-
-              <p>That's it. Here are the details that make it work:</p>
-
-              <h3>Start Small: Just Notice First</h3>
-              <p>Week one isn't about doing it perfectly. It's about noticing when you <em>didn't</em> do it. Before bed each day, look at your merged PRs and ask: for each AI suggestion I accepted, could I explain why? If the answer is no — that gap is data. That's your learning edge for tomorrow.</p>
-
-              <h3>The Explainer Levels</h3>
-              <p>Different suggestions require different depths of explanation:</p>
-              <ul>
-                <li><strong>Trivial / Obvious:</strong> "This is a standard error handler." — One sentence. Fine. The processing happened.</li>
-                <li><strong>Non-obvious:</strong> "This handles the case where the user session expires mid-request, redirecting to /login instead of throwing an unhandled 500." — You're tracking state transitions.</li>
-                <li><strong>Architectural:</strong> "This uses a event-driven pattern here because the existing system already has a message bus we should leverage instead of a new synchronous call." — You're reasoning about system design.</li>
-                <li><strong>Gap:</strong> "I don't know why this is correct." — That's a stop. Don't accept. Investigate first.</li>
-              </ul>
-
-              <h3>The "I Don't Know" Response</h3>
-              <p>When you genuinely can't explain a suggestion, the correct response is <em>not</em> to accept it anyway. It's to:</p>
-              <ol>
-                <li>Tell the AI: "Explain why this approach is better than X"</li>
-                <li>Read the AI's explanation, trace through the code</li>
-                <li>If you still don't understand, ask a colleague: "Can you help me understand why this was the right call here?"</li>
-                <li>If no one can explain it, treat it as a learning opportunity — add it to your mental model</li>
-              </ol>
-              <p>The failure to explain is not a bug. It's the feature. That's where real learning happens.</p>
-
-            </div>
+      <section class="faq" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <div class="faq-question" role="button" aria-expanded="false">
+            Does this mean I should stop using AI tools?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="faq-answer">
+            <p>No. The issue isn't AI tool usage — it's unreflective AI tool usage. The goal is to be intentional about which cognitive skills you practice with AI assistance and which you practice without it. Use AI tools for productivity. But maintain your explanation skills through deliberate practice: write before prompting, decompose before delegating, review your own articulation quality regularly.</p>
           </div>
         </div>
-      </div>
-
-      <!-- VARIATIONS -->
-      <div class="section section--alt">
-        <div class="container">
-          <div class="article-grid">
-            <div class="article-content">
-
-              <h2>Variations by Role and Context</h2>
-
-              <h3>For Junior Engineers (Years 0–3)</h3>
-              <p>The Explanation Requirement is most powerful early-career, when mental models are still forming. Every explanation you write is a thread in the web of understanding you're building. AI suggestions often arrive at the right answer via a path you'd have missed — understanding that path is the whole point of early-career practice. Don't skip it.</p>
-              <p><em>Strong version:</em> For every AI suggestion, write two sentences — one explaining why it's correct, one explaining what you would have done differently and why.</p>
-
-              <h3>For Senior Engineers (Years 5+)</h3>
-              <p>The danger for senior engineers is subtler: you think you understand systems deeply enough that AI suggestions can't surprise you. They often can. The Explanation Requirement catches the cases where AI is confidently wrong, or where it's optimizing for the wrong thing from your context. It's your quality gate that you didn't know you needed.</p>
-              <p><em>Strong version:</em> For architectural or design-level suggestions, write the explanation in terms of tradeoffs: "This is better than X because A, but worse than Y because B."</p>
-
-              <h3>For ICs Who Lead Code Review</h3>
-              <p>Make the Explanation Requirement a team norm: any AI suggestion merged into the codebase needs a one-sentence explanation in the PR comment. This is low-overhead for the author and transforms the review conversation. Instead of "LGTM," reviewers can ask "Can you explain why this approach vs. X?" — turning every AI-assisted PR into a teaching moment.</p>
-
-              <h3>For Managers and Tech Leads</h3>
-              <p>Model it in your own PRs. When you use AI to draft an architecture doc or a design proposal, write the explanation of why the approach is correct — and share that reasoning explicitly. It shows your team that the Explanation Requirement isn't about distrusting AI; it's about maintaining the craft-level judgment that makes senior engineers valuable.</p>
-
-            </div>
+        <div class="faq-item">
+          <div class="faq-question" role="button" aria-expanded="false">
+            How do I know if my explanation skills are degrading?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="faq-answer">
+            <p>Watch for these signals: you can't explain a problem to a colleague without opening an AI tool first; you find yourself iterating on prompts more than thinking through problems; your written explanations to colleagues have gotten vaguer; you've noticed a growing gap between your high-level understanding and your ability to work through specifics. The 30-second rule is a good litmus test: if you can't articulate a problem clearly in 30 seconds, your explanation skills need attention.</p>
           </div>
         </div>
-      </div>
-
-      <!-- COMMON FAILURES -->
-      <div class="section">
-        <div class="container">
-          <div class="article-grid">
-            <div class="article-content">
-
-              <h2>Where the Explanation Requirement Breaks Down</h2>
-
-              <div class="callout callout--danger">
-                <div class="callout__icon">🛑</div>
-                <div class="callout__content">
-                  <strong>The most common failure:</strong> engineers do it for a week, feel like they're getting value, then slowly stop. It feels slower. It <em>is</em> slower. The mistake is treating that slowdown as a bug rather than a feature. The slowdown is the learning. If the speed is killing you, you're not doing anything wrong — you're discovering what the pace actually costs.
-                </div>
-              </div>
-
-              <h3>Failure Mode 1: Writing Fake Explanations</h3>
-              <p>"This looks correct." — That's not an explanation. That's approval with extra steps. A real explanation names a reason: "This handles X case because of Y constraint in the system." If you can't write a real one, treat that as information and go investigate.</p>
-
-              <h3>Failure Mode 2: Only Explaining Surprising Suggestions</h3>
-              <p>You explain the ones that seem wrong and just approve the ones that seem right. But "seems right" is exactly where automation bias hides. The suggestions that seem obviously correct are often the most worth questioning — because your confirmation bias is most active there.</p>
-
-              <h3>Failure Mode 3: Explaining in AI's Words</h3>
-              <p>You paste what AI told you. That's not generative retrieval — it's just copying a label. The explanation has to be in your words, from your mental model. "AI suggested a hash join because the dataset is large" — great. "The AI suggested a hash join" — that's just attribution, not explanation.</p>
-
-              <h3>Failure Mode 4: Doing It Intermittently</h3>
-              <p>Monday you do it perfectly. Friday you're exhausted and you skip it. Monday you skip again. By month two you've stopped entirely. The Explanation Requirement doesn't work as a best-effort practice. It works as a rule, like wearing a seatbelt. You don't wear it 80% of the time and still get the safety benefit.</p>
-
-            </div>
+        <div class="faq-item">
+          <div class="faq-question" role="button" aria-expanded="false">
+            I'm a junior engineer — can I develop explanation skills while using AI tools?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, and it's especially important for you to be intentional about it. You never developed explanation skills without AI assistance, so you don't have the baseline to compare against. Build the habit of writing problem descriptions before you use AI tools. Keep a problem journal where you articulate issues in writing first. Find mentors who can give you unfiltered feedback on your articulation. The AI tools are powerful — but they work better when your foundation skills are solid.</p>
           </div>
         </div>
-      </div>
-
-      <!-- WHAT IT FEELS LIKE OVER TIME -->
-      <div class="section section--alt">
-        <div class="container">
-          <div class="article-grid">
-            <div class="article-content">
-
-              <h2>What Changes Over Time</h2>
-
-              <p>After 2 weeks: You notice the moments you <em>can't</em> explain. Some engineers find this uncomfortable — they didn't realize how often they were just approving. That's the awakening. The discomfort is the information.</p>
-
-              <p>After 4 weeks: The explanations start coming faster. Your brain has rebuilt the habit of generating before accepting. You start noticing AI suggestions that are subtly wrong — not obviously broken, but not quite right for your specific context.</p>
-
-              <p>After 3 months: The practice becomes automatic. You don't think of it as extra work — it's just part of how you evaluate code. You can articulate why most suggestions are correct, and when you can't, you know exactly what to investigate. Your technical judgment has strengthened, not eroded.</p>
-
-              <p>The surprising outcome many engineers report: <em>the quality of the AI suggestions improves in your perception.</em> You're not reflexively accepting — you're actively evaluating. You notice when AI is brilliant and when it's confidently wrong. Your relationship with the tool becomes deliberate rather than dependent.</p>
-
-            </div>
+        <div class="faq-item">
+          <div class="faq-question" role="button" aria-expanded="false">
+            Is the explanation requirement relevant outside of engineering?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="faq-answer">
+            <p>Any field where you need to communicate complex problems to AI tools will experience this. Legal professionals using AI to draft contracts, doctors using AI for differential diagnosis, financial analysts using AI for modeling — all of them depend on being able to articulate the problem clearly. The explanation requirement is a general cognitive skill that AI has made more consequential, not less. Engineering is where it's most visible because the feedback loops are fast and the stakes are concrete, but the dynamic is universal.</p>
           </div>
         </div>
-      </div>
-
-      <!-- TEAM AGREEMENT TEMPLATE -->
-      <div class="section">
-        <div class="container">
-          <div class="article-grid">
-            <div class="article-content">
-
-              <h2>The Team-Level Explanation Requirement</h2>
-
-              <p>If you're a team lead or EM, you can make this structural. It's a low-overhead team norm that has an outsized effect on learning culture:</p>
-
-              <div class="step-block">
-                <div class="step-block__number">Team Agreement Draft</div>
-                <div class="step-block__content">
-                  <p><strong>Proposed team norm:</strong> Any AI-assisted code in a PR should include a brief explanation of why the approach was chosen. This doesn't mean explaining obvious code — it means explaining decisions that involved judgment.</p>
-                  <p>If AI generated the suggestion, the PR author provides the explanation. This is the Explanation Requirement at the team level.</p>
-                  <p>Reviewers: when you see an unexplained AI suggestion, ask for the explanation. Not as gotcha — as a learning conversation.</p>
-                </div>
-              </div>
-
-              <p>The effect on team culture is subtle but real: instead of AI suggestions being invisible implementation details, they become explicit decisions that someone can explain and the team can learn from. Code review shifts from quality control to knowledge transfer.</p>
-
-            </div>
+        <div class="faq-item">
+          <div class="faq-question" role="button" aria-expanded="false">
+            Can I measure my explanation skill over time?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="faq-answer">
+            <p>Yes. Keep a simple log: once per week, pick a technical problem you're working on and write a 3-sentence problem description without using any AI tools. After a month, read your earlier descriptions. Are they getting clearer, more specific, more complete? That's a direct measure of explanation skill development. Alternatively, track how many prompt iterations you need before you get a useful AI response — if that number is going up, your explanation skills may be degrading.</p>
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- REAL ENGINEER VOICES -->
-      <div class="section section--alt">
-        <div class="container">
-          <div class="article-grid">
-            <div class="article-content">
-
-              <h2>What Engineers Say After 30 Days</h2>
-
-              <div class="testimonial-grid">
-                <div class="testimonial-card">
-                  <p class="testimonial-card__quote">"I started doing this without calling it anything. Three weeks in I realized I'd caught two bugs AI had suggested because I had to explain why they were correct and realized I couldn't. The explanation caught the errors."</p>
-                  <p class="testimonial-card__author">— Senior backend engineer, 8 years experience</p>
-                </div>
-                <div class="testimonial-card">
-                  <p class="testimonial-card__quote">"The first two weeks felt like I was doing busywork. Then something shifted. My 1:1s got better because I could actually explain the technical decisions being made, not just describe what shipped."</p>
-                  <p class="testimonial-card__author">— Staff engineer, 6 years at current company</p>
-                </div>
-                <div class="testimonial-card">
-                  <p class="testimonial-card__quote">"I made it a rule for the whole team. The first sprint it felt pedantic. By the third sprint, our code review conversations had completely changed. People were actually teaching each other through the review."</p>
-                  <p class="testimonial-card__author">— Engineering manager, 12-person team</p>
-                </div>
-              </div>
-
-            </div>
-          </div>
+      <section class="related-articles" aria-labelledby="related-heading">
+        <h3 id="related-heading">Related Articles</h3>
+        <div class="related-grid">
+          <a href="/the-consultation-trap.html" class="related-card">
+            <div class="related-card-tag">AI Fatigue</div>
+            <div class="related-card-title">The Consultation Trap</div>
+            <div class="related-card-desc">Why engineers can't stop asking AI — and what that does to their problem-solving ability.</div>
+          </a>
+          <a href="/the-reasoning-gap.html" class="related-card">
+            <div class="related-card-tag">AI Fatigue</div>
+            <div class="related-card-title">The Reasoning Gap</div>
+            <div class="related-card-desc">The growing gap between what AI can reason through and what you can.</div>
+          </a>
+          <a href="/skill-atrophy.html" class="related-card">
+            <div class="related-card-tag">Research</div>
+            <div class="related-card-title">Skill Atrophy in the AI Era</div>
+            <div class="related-card-desc">The cognitive costs of outsourcing your thinking to AI tools.</div>
+          </a>
+          <a href="/cognitive-load.html" class="related-card">
+            <div class="related-card-tag">AI Fatigue</div>
+            <div class="related-card-title">Cognitive Load and AI Tools</div>
+            <div class="related-card-desc">How AI changes the bandwidth of your working memory.</div>
+          </a>
         </div>
-      </div>
-
-      <!-- FAQ -->
-      <div class="section">
-        <div class="container">
-          <div class="article-grid">
-            <div class="article-content">
-
-              <h2>Frequently Asked Questions</h2>
-
-              <div class="faq-accordion" itemscope itemprop="mainEntity" itemtype="https://schema.org/FAQPage">
-
-                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                  <button class="faq-item__trigger" aria-expanded="false" id="faq-1" aria-controls="faq-1-answer" itemprop="name">
-                    <span>What is the Explanation Requirement?</span>
-                    <span class="faq-item__icon" aria-hidden="true">+</span>
-                  </button>
-                              <li><a href="first-year-engineer-ai-fatigue.html">first-year engineer AI fatigue</a></li>
-            <li><a href="skill-atrophy.html">skill atrophy</a></li>
-            <li><a href="the-ai-dependency-trap.html">AI Dependency Trap</a></li>
-            <li><a href="senior-identity.html">senior identity</a></li>
-            <li><a href="ai-productivity-paradox.html">productivity paradox</a></li>
-            <li><a href="ai-weekly-audit.html">Weekly AI Audit</a></li>
-            <li><a href="ai-middleman-problem.html">The Middleman Problem</a></li>
-            <li><a href="ai-fatigue-type-calculator.html">AI fatigue type calculator</a></li>
-            <li><a href="recovery.html">recovery guide</a></li>
-            <li><a href="qa-engineer-ai-fatigue.html">QA Engineer AI Fatigue</a></li>
-<li><a href="data-engineer-ai-fatigue.html">Data Engineer AI Fatigue</a></li>
-<div class="faq-item__answer" id="faq-1-answer" role="region" aria-labelledby="faq-1" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div class="faq-item__answer-content" itemprop="text">Before accepting any AI code suggestion, write one sentence explaining why it's correct. Not "this looks right" — an actual reason: "This handles the null case because X," or "This uses a hash join because the dataset is large and O(n) lookup is better than O(n²)." The act of explaining forces real processing, not passive acceptance.</div>
-                  </div>
-                </div>
-
-                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                  <button class="faq-item__trigger" aria-expanded="false" id="faq-2" aria-controls="faq-2-answer" itemprop="name">
-                    <span>Does this slow me down too much?</span>
-                    <span class="faq-item__icon" aria-hidden="true">+</span>
-                  </button>
-                  <div class="faq-item__answer" id="faq-2-answer" role="region" aria-labelledby="faq-2" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div class="faq-item__answer-content" itemprop="text">At first, yes. The first two weeks feel slower — you're now doing something instead of just approving. But the slowdown is the point. You're rebuilding the learning loop AI has been bypassing. Within 3-4 weeks, the explanation becomes automatic and fast, and you still get AI's speed on the implementation. The difference: the work now belongs to you.</div>
-                  </div>
-                </div>
-
-                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                  <button class="faq-item__trigger" aria-expanded="false" id="faq-3" aria-controls="faq-3-answer" itemprop="name">
-                    <span>What if I can't explain it — does that mean the AI is wrong?</span>
-                    <span class="faq-item__icon" aria-hidden="true">+</span>
-                  </button>
-                  <div class="faq-item__answer" id="faq-3-answer" role="region" aria-labelledby="faq-3" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div class="faq-item__answer-content" itemprop="text">Not necessarily wrong — but it's a signal you don't understand it yet. That's information. It means you should: (1) read the AI's explanation, (2) trace through the code, (3) ask AI to explain the reasoning, (4) update your mental model. The failure to explain is the learning opportunity. Accepting without understanding is the skill-atrophy loop.</div>
-                  </div>
-                </div>
-
-                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                  <button class="faq-item__trigger" aria-expanded="false" id="faq-4" aria-controls="faq-4-answer" itemprop="name">
-                    <span>Does this apply to senior engineers or only juniors?</span>
-                    <span class="faq-item__icon" aria-hidden="true">+</span>
-                  </button>
-                  <div class="faq-item__answer" id="faq-4-answer" role="region" aria-labelledby="faq-4" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div class="faq-item__answer-content" itemprop="text">Both, differently. Juniors use it to build the mental models they haven't formed yet — it's deliberate practice with training wheels. Seniors use it to catch AI hallucinations, maintain their contextual judgment, and avoid the slow drift away from craft. The Explanation Requirement doesn't care about your level — it cares about whether you're learning or just approving.</div>
-                  </div>
-                </div>
-
-                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                  <button class="faq-item__trigger" aria-expanded="false" id="faq-5" aria-controls="faq-5-answer" itemprop="name">
-                    <span>What about code review — is that the same thing?</span>
-                    <span class="faq-item__icon" aria-hidden="true">+</span>
-                  </button>
-                  <div class="faq-item__answer" id="faq-5-answer" role="region" aria-labelledby="faq-5" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div class="faq-item__answer-content" itemprop="text">Code review is peer judgment. The Explanation Requirement is self-diagnosis before acceptance. In review, you're catching errors. Before you accept an AI suggestion, you're deciding whether to learn from it or just pass it through. Review catches bugs. The Explanation Requirement rebuilds the instinct that makes you good at catching bugs in the first place.</div>
-                  </div>
-                </div>
-
-                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                  <button class="faq-item__trigger" aria-expanded="false" id="faq-6" aria-controls="faq-6-answer" itemprop="name">
-                    <span>Can this be used at the team level, not just individual?</span>
-                    <span class="faq-item__icon" aria-hidden="true">+</span>
-                  </button>
-                  <div class="faq-item__answer" id="faq-6-answer" role="region" aria-labelledby="faq-6" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div class="faq-item__answer-content" itemprop="text">Yes — teams adopt it as a norm: no AI suggestion gets merged without a one-sentence explanation in the PR comment. Engineers call it 'the Explanation Requirement' and it changes code review culture. Suddenly the conversation isn't 'LGTM' — it's 'can you explain why this approach rather than X?' It transforms AI use from passive approval to active teaching. The team norm version is particularly powerful because it creates a shared language: 'have you run that through the Explanation Requirement?' becomes a normal check-in without being preachy.
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- FINAL CTA -->
-      <div class="section section--alt">
-        <div class="container">
-          <div class="article-grid">
-            <div class="article-content">
-              <div class="cta-box">
-                <h2>Start the Explanation Requirement Today</h2>
-                <p>The practice is simple. The effect compounds over time. Today, in your next PR, try it once. Before you accept the AI suggestion, write one sentence explaining why it's correct.</p>
-                <p>If you can't — that's the point. That's your edge.</p>
-                <a href="/#quiz" class="btn btn--primary">Take the AI Fatigue Quiz</a>
-                <a href="ai-fatigue-checklist.html" class="btn btn--secondary">30-Day Recovery Checklist</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- EXPLORE MORE -->
-      <div class="section">
-        <div class="container">
-          <div class="article-grid">
-            <div class="article-content">
-              <h2>Continue Reading</h2>
-              <div class="explore-grid">
-                <a href="the-middleman-problem.html" class="explore-card">
-                  <div class="explore-card__icon">🌐</div>
-                  <div class="explore-card__content">
-                    <h3 class="explore-card__title">The Middleman Problem</h3>
-                    <p class="explore-card__desc">Why 71% of engineers feel like coordinators instead of creators — and what it costs.</p>
-                  </div>
-                </a>
-                <a href="skill-atrophy.html" class="explore-card">
-                  <div class="explore-card__icon">⚡</div>
-                  <div class="explore-card__content">
-                    <h3 class="explore-card__title">The Slow Skill Erosion</h3>
-                    <p class="explore-card__desc">How AI quietly degrades the skills you spent years building — and how to rebuild.</p>
-                  </div>
-                </a>
-                <a href="ai-detox-plan.html" class="explore-card">
-                  <div class="explore-card__icon">🗓️</div>
-                  <div class="explore-card__content">
-                    <h3 class="explore-card__title">30-Day AI Detox Plan</h3>
-                    <p class="explore-card__desc">A structured, science-backed protocol for rebuilding your relationship with AI tools.</p>
-                  </div>
-                </a>
-                <a href="mindset.html" class="explore-card">
-                  <div class="explore-card__icon">🧠</div>
-                  <div class="explore-card__content">
-                    <h3 class="explore-card__title">12 Mental Models for Healthy AI Use</h3>
-                    <p class="explore-card__desc">Frameworks that help engineers stay sharp while using AI as a tool, not a crutch.</p>
-                  </div>
-                </a>
-                <a href="recovery.html" class="explore-card">
-                  <div class="explore-card__icon">🌿</div>
-                  <div class="explore-card__content">
-                    <h3 class="explore-card__title">How to Recover from AI Fatigue</h3>
-                    <p class="explore-card__desc">A practical guide: what you're dealing with, what helps, and where to start.</p>
-                  </div>
-                </a>
-                <a href="/#quiz" class="explore-card">
-                  <div class="explore-card__icon">📋</div>
-                  <div class="explore-card__content">
-                    <h3 class="explore-card__title">AI Fatigue Quiz</h3>
-                    <p class="explore-card__desc">5 questions. 4 severity tiers. Personalized recovery path. Free.</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      </section>
     </article>
   </main>
-
-  <footer class="site-footer" id="site-footer"></footer>
-
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-left">
+        <span class="footer-logo">The Clearing</span>
+        <span class="footer-copy">Helping engineers recover from AI fatigue.</span>
+      </div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/tips.html">Tips</a>
+        <a href="/recovery.html">Recovery</a>
+        <a href="/about.html">About</a>
+      </div>
+    </div>
+  </footer>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Reading time
-      var text = document.querySelector('.article-content')?.innerText || '';
-      var words = text.trim().split(/\s+/).length;
-      var minutes = Math.ceil(words / 220);
-      var rt = document.querySelector('.reading-time');
-      if (rt) rt.textContent = minutes + ' min read';
-
-      // FAQ accordion
-      document.querySelectorAll('.faq-item__trigger').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          var expanded = btn.getAttribute('aria-expanded') === 'true';
-          btn.setAttribute('aria-expanded', !expanded);
-          var answer = document.getElementById(btn.getAttribute('aria-controls'));
-          if (answer) answer.style.display = expanded ? 'none' : 'block';
-          var icon = btn.querySelector('.faq-item__icon');
-          if (icon) icon.textContent = expanded ? '+' : '−';
-        });
+    document.querySelectorAll('.faq-question').forEach(function(q) {
+      q.addEventListener('click', function() {
+        var item = q.closest('.faq-item');
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+        if (!isOpen) { item.classList.add('open'); q.setAttribute('aria-expanded', 'true'); }
+        else { q.setAttribute('aria-expanded', 'false'); }
       });
-
-      // Theme toggle
-      var themeBtn = document.createElement('button');
-      themeBtn.className = 'theme-toggle';
-      themeBtn.setAttribute('aria-label', 'Toggle theme');
-      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      themeBtn.innerHTML = isDark ? '☀️' : '🌙';
-      themeBtn.style.cssText = 'position:fixed;bottom:24px;right:24px;z-index:999;background:var(--surface-2);border:1px solid var(--border);border-radius:50%;width:48px;height:48px;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;';
-      themeBtn.onclick = function() {
-        var nowDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        document.documentElement.setAttribute('data-theme', nowDark ? 'light' : 'dark');
-        localStorage.setItem('theme', nowDark ? 'light' : 'dark');
-        themeBtn.innerHTML = nowDark ? '🌙' : '☀️';
-      };
-      document.body.appendChild(themeBtn);
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); q.click(); }
+      });
     });
   </script>
-
-  <section class="explore-section" aria-label="Continue exploring">
-    <div class="explore-inner">
-      <h2>Continue Exploring</h2>
-      <ul class="explore-links">
-        <li><a href="recovery.html">Recovery</a></li>
-        <li><a href="engineering-managers-ai-fatigue.html">Engineering Managers</a></li>
-        <li><a href="ai-detox-plan.html">Ai Detox Plan</a></li>
-        <li><a href="daily-practice.html">Daily Practice</a></li>
-        <li><a href="daily-ai-boundaries.html">Daily Ai Boundaries</a></li>
-        <li><a href="checkin.html">Checkin</a></li>
-        <li><a href="mental-health.html">Mental Health</a></li>
-
-      </ul>
-    </div>
-  </section>
-
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Explanation Requirement: Why AI-Era Engineers Must Learn to Articulate",
+    "description": "AI tools answer questions. Engineers who can't articulate problems get worse answers. The explanation requirement is quietly determining who thrives and who stagnates in the AI era.",
+    "author": {"@type": "Organization", "name": "The Clearing"},
+    "datePublished": "2026-05-30",
+    "dateModified": "2026-05-30",
+    "url": "https://clearing-ai.com/the-explanation-requirement.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "The Clearing",
+      "url": "https://clearing-ai.com"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://clearing-ai.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Tips", "item": "https://clearing-ai.com/tips.html"},
+      {"@type": "ListItem", "position": 3, "name": "The Explanation Requirement", "item": "https://clearing-ai.com/the-explanation-requirement.html"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does this mean I should stop using AI tools?",
+        "acceptedAnswer": {"@type": "Answer", "text": "No. The issue isn't AI tool usage — it's unreflective AI tool usage. The goal is to be intentional about which cognitive skills you practice with AI assistance and which you practice without it."}
+      },
+      {
+        "@type": "Question",
+        "name": "How do I know if my explanation skills are degrading?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Watch for these signals: you can't explain a problem to a colleague without opening an AI tool first; you find yourself iterating on prompts more than thinking through problems; your written explanations have gotten vaguer."}
+      },
+      {
+        "@type": "Question",
+        "name": "I'm a junior engineer — can I develop explanation skills while using AI tools?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Yes. Build the habit of writing problem descriptions before you use AI tools. Keep a problem journal. Find mentors who can give you unfiltered feedback on your articulation."}
+      },
+      {
+        "@type": "Question",
+        "name": "Is the explanation requirement relevant outside of engineering?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Any field where you need to communicate complex problems to AI tools will experience this. The explanation requirement is a general cognitive skill that AI has made more consequential."}
+      },
+      {
+        "@type": "Question",
+        "name": "Can I measure my explanation skill over time?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Yes. Keep a simple log: once per week, write a 3-sentence problem description without using any AI tools. After a month, read your earlier descriptions. Track how many prompt iterations you need before you get a useful AI response."}
+      }
+    ]
+  }
+  </script>
 </body>
 </html>

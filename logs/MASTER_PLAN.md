@@ -344,3 +344,11 @@
 **Phase windows:** P1=253 | P2=281 | P3=208 | P4=213
 **Site stats:** 258 pages | ~1,198k words | Lighthouse 100 | Technical SEO 99/100 | Day 31
 **Next:** Reddit r/programming Fri May 29 1PM PDT (hour-510 READY) | EM2 Day-7 follow-ups | Reddit Fresh Pack Jun 1-7 (ALREADY PREPPED)
+
+## Hour f4509cba-4263-477c-9d5b-26a1cf314919 — 2026-05-29 21:48 UTC / 14:48 PDT (Phase 1 Window 254)
+**Phase:** Phase 1 — Content Pillar (Pillar 5: Research + Authority, new page)
+**Built:** `the-context-debt.html` (~3,400 words, 345 lines) — "Context Debt: The AI Fatigue You Can't Attribution-Manage." Core thesis: AI borrows the working memory context that engineers should build through struggle. 3 mechanisms (context swap, compression trap, retrieval gap), 4 context debt profiles (mid-career, architects, AI-era joins, consultants), 15-Minute No-AI Context Protocol + annotation habit. FAQPage (5 Q&As) + Article + BreadcrumbList schema.
+**Git:** 3c11bda6 | Push: success
+**Phase windows:** P1=254 | P2=281 | P3=208 | P4=213
+**Site stats:** 258 pages | ~1,200k words | Lighthouse 100 | Technical SEO 99/100 | Day 31
+**Next:** Reddit r/programming Fri May 29 | EM2 Day-7 follow-ups sent | Reddit Fresh Pack Jun 1-7 (ALREADY PREPPED) | Newsletter #129 (next P4)
